@@ -1,0 +1,447 @@
+## fire TV 4 Series ###
+
+fire_tv_4_series_power_button:
+  alias: 'Fire TV 4-Series Power Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 4 4 163142 && sendevent /dev/input/event0 1 116 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 116 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_up_button:
+  alias: 'Fire TV 4-Series Up Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 4 4 163144 && sendevent /dev/input/event0 1 103 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 103 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_4_series_left_button:
+  alias: 'Fire TV 4-Series Left Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 4 4 458832 && sendevent /dev/input/event0 1 105 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 4 4 458832 && sendevent /dev/input/event0 1 105 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_4_series_center_button:
+  alias: 'Fire TV 4-Series Center Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 4 4 163146 && sendevent /dev/input/event0 1 28 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 28 0 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event5 20 0 0 && sendevent /dev/input/event5 20 1 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_right_button:
+  alias: 'Fire TV 4-Series Right Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 4 4 458831 && sendevent /dev/input/event0 1 106 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 4 4 458831 && sendevent /dev/input/event0 1 106 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_4_series_down_button:
+  alias: 'Fire TV 4-Series Down Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 4 4 163149 && sendevent /dev/input/event0 1 108 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 108 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_4_series_back_button:
+  alias: 'Fire TV 4-Series Back Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 4 4 163085 && sendevent /dev/input/event0 1 158 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 158 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_home_button:
+  alias: 'Fire TV 4-Series Home Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786979 && sendevent /dev/input/event5 1 172 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786979 && sendevent /dev/input/event5 1 172 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_hamburger_button:
+  alias: 'Fire TV 4-Series Hamburger Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786496 && sendevent /dev/input/event5 1 139 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786496 && sendevent /dev/input/event5 1 139 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_rewind_button:
+  alias: 'Fire TV 4-Series Rewind Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786612 && sendevent /dev/input/event5 1 168 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786612 && sendevent /dev/input/event5 1 168 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_playpause_button:
+  alias: 'Fire TV 4-Series Play/Pause Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786637 && sendevent /dev/input/event5 1 164 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786637 && sendevent /dev/input/event5 1 164 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_fastforward_button:
+  alias: 'Fire TV 4-Series Fast Forward Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786611 && sendevent /dev/input/event5 1 208 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786611 && sendevent /dev/input/event5 1 208 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_volume_up_button:
+  alias: 'Fire TV 4-Series Volume Up Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786665 && sendevent /dev/input/event4 1 115 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786665 && sendevent /dev/input/event4 1 115 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_4_series_volume_down_button:
+  alias: 'Fire TV 4-Series Volume Down Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 20 0 0 && sendevent /dev/input/event0 20 1 0 && sendevent /dev/input/event0 4 4 163097 && sendevent /dev/input/event0 1 114 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 114 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_4_series_tv_button:
+  alias: 'Fire TV 4-Series TV Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786573 && sendevent /dev/input/event5 1 362 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786573 && sendevent /dev/input/event5 1 362 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_channel_up_button:
+  alias: 'Fire TV 4-Series Channel Up Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786588 && sendevent /dev/input/event5 1 402 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786588 && sendevent /dev/input/event5 1 402 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_channel_down_button:
+  alias: 'Fire TV 4-Series Channel Down Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786589 && sendevent /dev/input/event5 1 403 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786589 && sendevent /dev/input/event5 1 403 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_mute_button:
+  alias: 'Fire TV 4-Series Mute Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event0 20 0 0 && sendevent /dev/input/event0 20 1 0 && sendevent /dev/input/event0 4 4 163148 && sendevent /dev/input/event0 1 113 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 113 0 && sendevent /dev/input/event0 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_settings_button:
+  alias: 'Fire TV 4-Series Settings Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786483 && sendevent /dev/input/event5 1 249 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786483 && sendevent /dev/input/event5 1 249 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_app_switch_button:
+  alias: 'Fire TV 4-Series App Switch Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 4 4 786434 && sendevent /dev/input/event5 1 748 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786434 && sendevent /dev/input/event5 1 748 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_prime_video_button:
+  alias: 'Fire TV 4-Series prime video Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 1 745 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 1 745 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_netflix_button:
+  alias: 'Fire TV 4-Series NETFLIX Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 1 744 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 1 744 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_disney_plus_button:
+  alias: 'Fire TV 4-Series Disney+ Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 1 746 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 1 746 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_4_series_hulu_button:
+  alias: 'Fire TV 4-Series hulu Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event5 1 747 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 1 747 0 && sendevent /dev/input/event5 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+
+
+
+## fire tv stick 4K ###
+
+fire_tv_stick_4k_power_button:
+  alias: 'Fire TV Stick 4K Power Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 458854 && sendevent /dev/input/event4 1 116 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 458854 && sendevent /dev/input/event4 1 116 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_up_button:
+  alias: 'Fire TV Stick 4K Up Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 458834 && sendevent /dev/input/event4 1 103 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 458834 && sendevent /dev/input/event4 1 103 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_stick_4k_left_button:
+  alias: 'Fire TV Stick 4K Left Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 458832 && sendevent /dev/input/event4 1 105 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 458832 && sendevent /dev/input/event4 1 105 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_stick_4k_center_button:
+  alias: 'Fire TV Stick 4K Center Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 458840 && sendevent /dev/input/event4 1 96 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 458840 && sendevent /dev/input/event4 1 96 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_right_button:
+  alias: 'Fire TV Stick 4K Right Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 458831 && sendevent /dev/input/event4 1 106 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 458831 && sendevent /dev/input/event4 1 106 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_stick_4k_down_button:
+  alias: 'Fire TV Stick 4K Down Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 458833 && sendevent /dev/input/event4 1 108 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 458833 && sendevent /dev/input/event4 1 108 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_stick_4k_back_button:
+  alias: 'Fire TV Stick 4K Back Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 458993 && sendevent /dev/input/event4 1 158 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 458993 && sendevent /dev/input/event4 1 158 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_home_button:
+  alias: 'Fire TV Stick 4K Home Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_hamburger_button:
+  alias: 'Fire TV Stick 4K Hamburger Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786496 && sendevent /dev/input/event4 1 139 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786496 && sendevent /dev/input/event4 1 139 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_rewind_button:
+  alias: 'Fire TV Stick 4K Rewind Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786612 && sendevent /dev/input/event4 1 168 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786612 && sendevent /dev/input/event4 1 168 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_playpause_button:
+  alias: 'Fire TV Stick 4K Play/Pause Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786637 && sendevent /dev/input/event4 1 164 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786637 && sendevent /dev/input/event4 1 164 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_fastforward_button:
+  alias: 'Fire TV Stick 4K Fast Forward Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786611 && sendevent /dev/input/event4 1 208 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786611 && sendevent /dev/input/event4 1 208 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+
+fire_tv_stick_4k_volume_up_button:
+  alias: 'Fire TV Stick 4K Volume Up Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786665 && sendevent /dev/input/event4 1 115 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786665 && sendevent /dev/input/event4 1 115 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+
+fire_tv_stick_4k_volume_down_button:
+  alias: 'Fire TV Stick 4K Volume Down Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786666 && sendevent /dev/input/event4 1 114 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786666 && sendevent /dev/input/event4 1 114 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: parallel
+  max: 10
+
+fire_tv_stick_4k_mute_button:
+  alias: 'Fire TV Stick 4K Mute Button'
+  sequence:
+  - service: androidtv.adb_command
+    data:
+      command: sendevent /dev/input/event4 4 4 786658 && sendevent /dev/input/event4 1 113 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786658 && sendevent /dev/input/event4 1 113 0 && sendevent /dev/input/event4 0 0 0
+    target:
+      entity_id: "{{ tv_entity_id }}"
+  mode: single
+
+

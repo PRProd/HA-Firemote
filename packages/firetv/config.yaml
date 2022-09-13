@@ -1,0 +1,8 @@
+# Enables the package's image directory for external access
+homeassistant:
+  allowlist_external_dirs:
+    - /config/packages/firetv/www
+
+
+# Scripts to emulate remote control button presses
+script: !include scripts.yaml

@@ -1,0 +1,499 @@
+type: custom:button-card
+variables:
+  tv_entity: ##### ENTER THE ENTITY ID OF YOUR ANDROID TV DEVICE HERE ###
+styles:
+  card:
+    - color: '#ff0000'
+      background: >-
+        linear-gradient(90deg, rgba(27,27,27,1) 0%, rgba(37,37,37,1) 8%,
+        rgba(55,55,55,1) 50%, rgba(37,37,37,1) 92%, rgba(27,27,27,1) 100%)
+      border: 'solid #252525 2px'
+      border-radius: 8em 8em 8em 8em / 2.5em 2.5em 2.5em 2.5em
+      padding: 1.5em .75em 1.5em .75em
+      width: 194px
+custom_fields:
+  - button: null
+    card:
+      type: vertical-stack
+      cards:
+        - square: false
+          columns: 3
+          type: grid
+          cards:
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_power_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:power
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                card:
+                  - border-radius: 100%
+                    border: 'solid #090909 1px'
+                    background: '#212121'
+                    height: 50px
+                    width: 50px
+              name: Power
+              show_state: false
+              hold_action:
+                action: none
+        - square: false
+          columns: 3
+          type: grid
+          cards:
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+            - type: custom:button-card
+              show_name: false
+              show_icon: true
+              styles:
+                card:
+                  - border-radius: 1.5em 1.5em 0 0
+                    border: 'solid #090909 1px'
+                    margin: '-1.25em 0 -.6em -.15em'
+                    padding: 0
+                    background: '#212121'
+                    width: 50px
+                    height: 53px
+                icon:
+                  - height: 40px
+                    color: '#c6c6c6'
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_up_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              show_state: false
+              icon: mdi:arrow-up-bold
+              hold_action:
+                action: none
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              show_name: false
+              show_icon: true
+              styles:
+                card:
+                  - border-radius: 100% 0 0 100%
+                    border: 'solid #090909 1px'
+                    height: 50px
+                    margin-left: 0px
+                    margin-right: '-9px'
+                    background: '#212121'
+                    width: 59px
+                icon:
+                  - height: 40px
+                    color: '#c6c6c6'
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_left_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              show_state: false
+              icon: mdi:arrow-left-bold
+              hold_action:
+                action: none
+            - type: custom:button-card
+              show_name: false
+              show_icon: true
+              styles:
+                card:
+                  - border-radius: 0
+                    height: 50px
+                    width: 48px
+                    z-index: 1
+                    background: '#212121'
+                icon:
+                  - height: 50px
+                    color: '#c6c6c6'
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_center_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              show_state: false
+              icon: mdi:checkbox-blank-circle
+              hold_action:
+                action: none
+            - type: custom:button-card
+              show_name: false
+              show_icon: true
+              styles:
+                card:
+                  - border-radius: 0 100% 100% 0
+                    border: 'solid #090909 1px'
+                    height: 50px
+                    margin-left: '-9px'
+                    margin-right: 8px
+                    background: '#212121'
+                    width: 58px
+                icon:
+                  - height: 40px
+                    color: '#c6c6c6'
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_right_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              show_state: false
+              icon: mdi:arrow-right-bold
+              hold_action:
+                action: none
+        - square: false
+          columns: 3
+          type: grid
+          cards:
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+            - type: custom:button-card
+              show_name: false
+              show_icon: true
+              styles:
+                card:
+                  - border-radius: 0 0 1.5em 1.5em
+                    border-left: 'solid #090909 1px'
+                    border-right: 'solid #090909 1px'
+                    border-bottom: 'solid #090909 1px'
+                    margin: '-.5em 0 .5em -.15em'
+                    padding: .5em 0 .5em 0
+                    z-index: 1
+                    background: '#212121'
+                    width: 50px
+                    height: 53px
+                icon:
+                  - height: 40px
+                    color: '#c6c6c6'
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_down_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              show_state: false
+              icon: mdi:arrow-down-bold
+              hold_action:
+                action: none
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+        - type: horizontal-stack
+          cards:
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_back_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:arrow-u-left-top
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 50px
+                    width: 50px
+                    border-radius: 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+              name: Home
+              show_state: false
+              hold_action:
+                action: none
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_home_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:home-outline
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                  - height: 35px
+                card:
+                  - height: 50px
+                    width: 50px
+                    border-radius: 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+              name: Home
+              show_state: false
+              hold_action:
+                action: none
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_hamburger_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:menu
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 50px
+                    width: 50px
+                    border-radius: 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+              name: Home
+              show_state: false
+              hold_action:
+                action: none
+        - type: horizontal-stack
+          cards:
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_rewind_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:rewind
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 50px
+                    width: 50px
+                    border-radius: 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+              name: Rewind
+              show_state: false
+              hold_action:
+                action: none
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_playpause_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:play-pause
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 50px
+                    width: 50px
+                    border-radius: 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+              name: Play/Pause
+              show_state: false
+              hold_action:
+                action: none
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_fastforward_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:fast-forward
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 50px
+                    width: 50px
+                    border-radius: 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+              name: Fast Forward
+              show_state: false
+              hold_action:
+                action: none
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_volume_up_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:volume-plus
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 55px
+                    width: 50px
+                    border-radius: 100% 100% 0 0
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+                    margin-top: '-5px'
+                    position: relative
+                    bottom: '-5px'
+              name: Volume Up
+              show_state: false
+              hold_action:
+                action: none
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_volume_down_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:volume-minus
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 55px
+                    width: 50px
+                    border-radius: 0 0 100% 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+                    margin-top: '-5px'
+              name: Volume Down
+              show_state: false
+              hold_action:
+                action: none
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              entity: ''
+              styles:
+                card:
+                  - padding: 0
+                    width: 50px
+            - show_name: false
+              show_icon: true
+              type: custom:button-card
+              tap_action:
+                action: call-service
+                service: script.fire_tv_stick_4k_mute_button
+                service_data:
+                  tv_entity_id: '[[[ return variables.tv_entity ]]]'
+              icon: mdi:volume-mute
+              entity: sensor.bedroom_fire_tv_source
+              styles:
+                icon:
+                  - color: '#c6c6c6'
+                    height: 35px
+                card:
+                  - height: 50px
+                    width: 50px
+                    border-radius: 100%
+                    border: 'solid #141414 1px'
+                    background: '#212121'
+              name: Mute
+              show_state: false
+              hold_action:
+                action: none
+        - type: custom:button-card
+          styles:
+            card:
+              - background: rgba(0,0,0,0)
+                background-image: url("https://ha.peacefulrock.com/local/logos/amazonArrow.svg")
+                box-shadow: none
+                background-repeat: no-repeat
+                height: 50px
+                background-size: 122px 33px
+                margin: 30px 21px 0px 21px
+          tap_action:
+            action: none
+          hold_action:
+            action: none
+
