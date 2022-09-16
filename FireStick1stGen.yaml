@@ -1,8 +1,8 @@
 type: custom:button-card
 variables:
-  tv_entity: media_player.fire_tv_192_168_107_8
-  state: '[[[ return states[''media_player.fire_tv_192_168_107_8''].state ]]]'
-  app_id: '[[[ return states[''media_player.fire_tv_192_168_107_8''].attributes.app_id]]]'
+  tv_entity: ##### ENTER THE ENTITY ID OF YOUR ANDROID TV DEVICE HERE ###
+  state: '[[[ return states[''##### ENTER THE ENTITY ID OF YOUR ANDROID TV DEVICE HERE ###''].state ]]]'
+  app_id: '[[[ return states[''##### ENTER THE ENTITY ID OF YOUR ANDROID TV DEVICE HERE ###''].attributes.app_id]]]'
 styles:
   card:
     - color: '#ff0000'
