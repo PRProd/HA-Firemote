@@ -1,6 +1,8 @@
 type: custom:button-card
 variables:
   tv_entity: ##### ENTER THE ENTITY ID OF YOUR ANDROID TV DEVICE HERE ###
+  state:  '[[[ return states[''##### ENTER THE ENTITY ID OF YOUR ANDROID TV DEVICE HERE ###''].state ]]]'
+  app_id: '[[[ return states[''##### ENTER THE ENTITY ID OF YOUR ANDROID TV DEVICE HERE ###''].attributes.app_id]]]'
 styles:
   card:
     - color: '#ff0000'
@@ -33,7 +35,7 @@ custom_fields:
                 icon:
                   - color: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state != "unknown")
+                        if (variables.state != "off")
                           return 'yellow';
                         else
                           return '#c6c6c6';
@@ -42,7 +44,7 @@ custom_fields:
                   - border-radius: 100%
                     border: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state != "unknown")
+                        if (variables.state != "off")
                           return 'solid #4b4c3c 1px';
                         else
                           return 'solid #090909 1px';
@@ -52,7 +54,7 @@ custom_fields:
                     width: 50px
                     box-shadow: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state != "unknown")
+                        if (variables.state != "off")
                           return '0px 0px 12px 1px rgb(255 255 25 / 15%)';
                         else
                           return '';
@@ -243,7 +245,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:arrow-u-left-top
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -271,7 +272,7 @@ custom_fields:
                 icon:
                   - color: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "FireTV")
+                        if (variables.app_id == "com.amazon.tv.launcher")
                           return 'yellow';
                         else
                           return '#c6c6c6';
@@ -285,7 +286,7 @@ custom_fields:
                     background: '#212121'
                     box-shadow: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "FireTV")
+                        if (variables.app_id == "com.amazon.tv.launcher")
                           return '0px 0px 12px 1px rgb(255 255 25 / 15%)';
                       ]]]
               name: Home
@@ -301,7 +302,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:menu
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -327,7 +327,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:rewind
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -351,7 +350,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:play-pause
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -375,7 +373,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:fast-forward
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -401,7 +398,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:volume-plus
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -438,7 +434,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:menu-up
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -467,7 +462,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:volume-minus
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -492,7 +486,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:television-classic
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -516,7 +509,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:menu-down
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -543,7 +535,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:volume-mute
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -567,7 +558,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:cog
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -591,7 +581,6 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:file-multiple-outline
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 icon:
                   - color: '#c6c6c6'
@@ -619,15 +608,14 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:home-outline
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 name:
                   - font-size: .9rem
                     color: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.amazon.firebat")
+                        if (variables.app_id == "com.amazon.firebat")
                           return '#fff';
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.amazon.avod")
+                        if (variables.app_id == "com.amazon.avod")
                           return '#fff';
                         else
                           return '#c6c6c6';
@@ -640,18 +628,18 @@ custom_fields:
                     border-radius: 2em
                     background: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.amazon.firebat")
+                        if (variables.app_id == "com.amazon.firebat")
                           return '#53a3d1';
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.amazon.avod")
+                        if (variables.app_id == "com.amazon.avod")
                           return '#53a3d1';
                         else
                           return '#293942';
                       ]]]
                     box-shadow: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.amazon.firebat")
+                        if (variables.app_id == "com.amazon.firebat")
                           return '0px 0px 12px 2px rgb(255 255 255 / 15%)';
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.amazon.avod")
+                        if (variables.app_id == "com.amazon.avod")
                           return '0px 0px 12px 2px rgb(255 255 255 / 15%)';
                       ]]]
               name: prime video
@@ -671,7 +659,7 @@ custom_fields:
                 name:
                   - color: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.netflix.ninja")
+                        if (variables.app_id == "com.netflix.ninja")
                           return '#d30a14';
                         else
                           return '#6d2427';
@@ -684,14 +672,14 @@ custom_fields:
                     margin: .25em 0 0 0
                     background: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.netflix.ninja")
+                        if (variables.app_id == "com.netflix.ninja")
                           return '#fff';
                         else
                           return '#878787';
                       ]]]
                     box-shadow: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.netflix.ninja")
+                        if (variables.app_id == "com.netflix.ninja")
                           return '0px 0px 12px 2px rgb(255 255 255 / 15%)';
                       ]]]
               name: Netflix
@@ -711,12 +699,11 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:home-outline
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 name:
                   - color: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.disney.disneyplus")
+                        if (variables.app_id == "com.disney.disneyplus")
                           return '#d1f8ff';
                         else
                           return '#c6c6c6';
@@ -729,14 +716,14 @@ custom_fields:
                     height: 28px
                     background: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.disney.disneyplus")
+                        if (variables.app_id == "com.disney.disneyplus")
                           return '#07183f';
                         else
                           return '#1a1f28';
                       ]]]
                     box-shadow: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.disney.disneyplus")
+                        if (variables.app_id == "com.disney.disneyplus")
                           return '0px 0px 12px 2px rgb(255 255 255 / 20%)';
                       ]]]
               name: Disney +
@@ -752,12 +739,11 @@ custom_fields:
                 service_data:
                   tv_entity_id: '[[[ return variables.tv_entity ]]]'
               icon: mdi:home-outline
-              entity: sensor.bedroom_fire_tv_source
               styles:
                 name:
                   - color: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.hulu.plus")
+                        if (variables.app_id == "com.hulu.plus")
                           return '#000';
                         else
                           return '#c6c6c6';
@@ -770,14 +756,14 @@ custom_fields:
                     height: 28px
                     background: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.hulu.plus")
+                        if (variables.app_id == "com.hulu.plus")
                           return '#1ce783';
                         else
                           return '#151e19';
                       ]]]
                     box-shadow: |
                       [[[
-                        if (states['sensor.bedroom_fire_tv_source'].state == "com.hulu.plus")
+                        if (variables.app_id == "com.hulu.plus")
                           return '0px 0px 12px 2px rgb(255 255 255 / 20%)';
                       ]]]
               name: hulu
@@ -797,4 +783,3 @@ custom_fields:
             action: none
           hold_action:
             action: none
-
