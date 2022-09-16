@@ -86,7 +86,7 @@ fire_tv_4_series_home_button:
   sequence:
   - service: androidtv.adb_command
     data:
-      command: sendevent /dev/input/event5 4 4 786979 && sendevent /dev/input/event5 1 172 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 4 4 786979 && sendevent /dev/input/event5 1 172 0 && sendevent /dev/input/event5 0 0 0
+      command: HOME
     target:
       entity_id: "{{ tv_entity_id }}"
   mode: single
@@ -242,7 +242,7 @@ fire_tv_4_series_netflix_button:
   sequence:
   - service: androidtv.adb_command
     data:
-      command: sendevent /dev/input/event5 1 744 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 1 744 0 && sendevent /dev/input/event5 0 0 0
+      command: adb shell am start -n com.netflix.ninja/.MainActivity
     target:
       entity_id: "{{ tv_entity_id }}"
   mode: single
@@ -253,7 +253,7 @@ fire_tv_4_series_disney_plus_button:
   sequence:
   - service: androidtv.adb_command
     data:
-      command: sendevent /dev/input/event5 1 746 1 && sendevent /dev/input/event5 0 0 0 && sendevent /dev/input/event5 1 746 0 && sendevent /dev/input/event5 0 0 0
+      command: adb shell am start -n com.disney.disneyplus/com.bamtechmedia.dominguez.main.MainActivity
     target:
       entity_id: "{{ tv_entity_id }}"
   mode: single
@@ -443,5 +443,4 @@ fire_tv_stick_4k_mute_button:
     target:
       entity_id: "{{ tv_entity_id }}"
   mode: single
-
 
