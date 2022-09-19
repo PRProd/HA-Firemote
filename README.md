@@ -18,3 +18,5 @@
 1. Add a Manual (blank YAML) card to your dashboard, and paste the contents of the appropriate *Remote.yaml file from this repository file onto the new blank card
 1. Change [line 3](https://github.com/PRProd/HA-Firemote/blob/main/FireStick4KRemote.yaml#L3) **tv_entity:** to reflect the name of your Amazon Android TV device that you set up in step 2
 1. A Home Assistant restart, or script reload may be required to make this remote control UI fully functional
+
+![Dashboard](https://github.com/PRProd/HA-Firemote/blob/main/Example%20Images/dashboard.jpg)
