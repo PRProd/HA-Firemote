@@ -17,7 +17,7 @@
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
 1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
 1. Add this repository's [/logos](https://github.com/PRProd/HA-Firemote/tree/main/logos) directory into your Home Assistant /config/www/ directory
-1. Append the contents of this repository's [/scripts.yaml](https://github.com/PRProd/HA-Firemote/blob/main/scripts.yaml) file to your current Home Assistant scripts file
+1. Append the contents of this repository's [/scripts.yaml](https://github.com/PRProd/HA-Firemote/blob/main/scripts.yaml) file to your current Home Assistant scripts file [(how do I do that?)](https://siytek.com/home-assistant-script-tutorial-for-dummies/)
 1. Add a Manual (blank YAML) card to your dashboard:
    * **For FireTV 4 Series**
      1. Copy the contents of [FireTVSeries4Remote.yaml](https://github.com/PRProd/HA-Firemote/blob/main/FireTVSeries4Remote.yaml)
