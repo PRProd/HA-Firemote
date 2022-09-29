@@ -36,3 +36,18 @@
 
 
 ![Dashboard](https://github.com/PRProd/HA-Firemote/blob/main/Example%20Images/dashboard.jpg)
+
+
+## YAML card setup options    
+| Name        | Type   | Required | Options                                                       | Description                            |
+| ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
+| type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
+| entity      | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
+| device_type | string | yes      | fire_tv_4_series <br> fire_stick_4k <br> fire_stick_first_gen | The type of device you are controlling |
+
+Example:
+```
+     type: cusom:firemote-card
+     entity: media_player.fire_tv_192_168_1_30
+     device_type: fire_tv_4_series
+``` 
