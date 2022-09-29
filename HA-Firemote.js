@@ -277,6 +277,7 @@ class FiremoteCard extends LitElement {
             grid-column-start: 1;
             grid-column-end: 4;
             padding: 35px 33px 0px 33px;
+            width: 106px;
           }
 
           .litbutton {
