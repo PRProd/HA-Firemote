@@ -70,6 +70,9 @@ class FiremoteCard extends LitElement {
     if(stateStr != 'off' && stateStr != 'unavailable') {
       powerStatusClass = ' litbutton';
     }
+    if(stateStr == 'standby') {
+      powerStatusClass = ' dimlitbutton';
+    }
 
     // Determine Home Status
     var homeStatusClass = '';
@@ -105,6 +108,14 @@ class FiremoteCard extends LitElement {
     function rendercss() {
       return html`
       <style>
+
+          ha-card {
+            background: rgba(30,30,30,0); 
+            width: max-content; 
+            padding: 0; 
+            margin: auto;
+          }
+
           .remote-body {
             background: linear-gradient(90deg, rgba(27,27,27,1) 0%, rgba(37,37,37,1) 8%, rgba(55,55,55,1) 50%, 
                                                rgba(37,37,37,1) 92%, rgba(27,27,27,1) 100%); 
@@ -276,6 +287,14 @@ class FiremoteCard extends LitElement {
             color: yellow !important;
           }
 
+          .dimlitbutton {
+              border: solid #34342b 1px;
+              box-shadow: 0px 0px 12px 1px rgb(255 255 116 / 15%);
+          }
+          .dimlitbutton > ha-icon {
+            color: #e5e59a !important;
+          }
+
           ha-icon {
             pointer-events: none;
           }
@@ -288,7 +307,7 @@ class FiremoteCard extends LitElement {
     // FireTV 4 Series Control
     if (deviceType == 'fire_tv_4_series') {
     return html`
-      <ha-card style="background: rgba(30,30,30,0); width: 250px; padding: 0; margin: 0;">
+      <ha-card>
       ${rendercss()}
 
       <div class="remote-body">
@@ -499,7 +518,7 @@ class FiremoteCard extends LitElement {
 
     if (deviceType == 'fire_stick_4k') {
     return html`
-      <ha-card style="background: rgba(30,30,30,0); width: 250px; padding: 0; margin: 0;">
+      <ha-card>
       ${rendercss()}
 
       <div class="remote-body">
@@ -587,7 +606,7 @@ class FiremoteCard extends LitElement {
 
     if (deviceType == 'fire_stick_first_gen') {
     return html`
-      <ha-card style="background: rgba(30,30,30,0); width: 250px; padding: 0; margin: 0;">
+      <ha-card>
       ${rendercss()}
 
       <div class="remote-body">
@@ -826,14 +845,6 @@ class FiremoteCard extends LitElement {
   }
 
 
-  // The user supplied configuration. Throw an exception and Home Assistant
-  // will render an error card.
-  //setConfig(config) {
-  //  if (!config.entity) {
-  //    throw new Error('You need to define a Fire TV or Android TV entity');
-  //  }
-  //  this.config = config;
-  //}
 
   // The height of your card. Home Assistant uses this to automatically
   // distribute all cards over the available columns.
@@ -943,3 +954,4 @@ class FiremoteCardEditor extends LitElement {
 }
 
 customElements.define("firemote-card-editor", FiremoteCardEditor);
+
