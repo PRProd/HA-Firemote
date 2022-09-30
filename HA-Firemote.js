@@ -114,6 +114,7 @@ class FiremoteCard extends LitElement {
             width: max-content; 
             padding: 0; 
             margin: auto;
+            box-shadow: none;
           }
 
           .remote-body {
