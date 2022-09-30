@@ -9,7 +9,8 @@
 * A functioning version of [Home Assistant](https://www.home-assistant.io/)
 * [HACS](https://peyanski.com/how-to-install-home-assistant-community-store-hacs/)
 * A supported Amazon Fire Device
-  * [Fire TV 4 Series](https://www.amazon.com/dp/B08SWD2SCK)
+  * [Fire TV (4 Series)](https://www.amazon.com/dp/B08SWD2SCK)
+  * [Fire TV Cube (2nd Gen) - TESTING](https://www.amazon.com/dp/B08XMDNVX6)
   * [Fire Stick 4K](https://www.amazon.com/dp/B09GK44MZJ)
   * [Fire Stick (1st Gen)](https://en.wikipedia.org/wiki/Amazon_Fire_TV#First_generation_3) 
   * others might work as well with limited functionality
@@ -43,7 +44,7 @@
 | ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
 | type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
 | entity      | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
-| device_type | string | yes      | fire_tv_4_series <br> fire_stick_4k <br> fire_stick_first_gen | The type of device you are controlling |
+| device_type | string | yes      | fire_tv_4_series <br> fire_tv_cube_second_gen <br> fire_stick_4k <br> fire_stick_first_gen | The type of device you are controlling |
 
 Example:
 ```
