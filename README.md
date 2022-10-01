@@ -40,7 +40,16 @@
 ![Dashboard](https://github.com/PRProd/HA-Firemote/blob/main/Example%20Images/dashboard.jpg)
 
 
-## YAML card setup options    
+## YAML card setup options
+Example:
+```yaml
+type: cusom:firemote-card
+entity: media_player.fire_tv_192_168_1_30
+device_type: fire_tv_4_series
+compatibility_mode: default
+```
+
+Options:
 | Name        | Type   | Required | Options                                                       | Description                            |
 | ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
 | type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
@@ -48,12 +57,6 @@
 | device_type | string | yes      | fire_tv_4_series <br> fire_tv_cube_second_gen <br> fire_stick_4k <br> fire_tv_stick_lite <br> fire_stick_first_gen | The type of device you are controlling |
 | compatibility_mode | string | yes | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> | Adjust this value only if your buttons are completely unresponsive |
 
-Example:
-```
-     type: cusom:firemote-card
-     entity: media_player.fire_tv_192_168_1_30
-     device_type: fire_tv_4_series
-     compatibility_mode: default
-```
+
 
 
