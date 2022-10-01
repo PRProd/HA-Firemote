@@ -28,8 +28,9 @@ class FiremoteCard extends LitElement {
 
   static getStubConfig() {
     // Return a minimal configuration that will result in a working card configuration
-    return { entity: '',
+    return { 'entity': '',
              'device_type': 'fire_tv_4_series',
+             'compatibility_mode': 'default',
            };
   }
 
@@ -841,23 +842,31 @@ class FiremoteCard extends LitElement {
   // Remote Button Click Handler
   buttonClicked(clicked) {
 
-    //console.log(clicked.target.id);
+    // Inspect user prefs
     const deviceType = this._config.device_type;
+    const compatibility_mode = this._config.compatibility_mode;
+
 
     // Choose event listener path for client android device
     var eventListenerBinPath = '';
-    if(deviceType == 'fire_tv_4_series') {
-        var eventListenerBinPath = '/dev/input/event0';
+    if(compatibility_mode == 'default' || compatibility_mode == 'strong') {
+        if(deviceType == 'fire_tv_4_series') {
+            var eventListenerBinPath = '/dev/input/event0';
+        }
+        if(deviceType == 'fire_tv_cube_second_gen') {
+            var eventListenerBinPath = '/dev/input/event5';
+        }
+        if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite') {
+            var eventListenerBinPath = '/dev/input/event4';
+        }
+        if(deviceType == 'fire_stick_first_gen') {
+            var eventListenerBinPath = '/dev/input/event3';
+        }
     }
-    if(deviceType == 'fire_tv_cube_second_gen') {
-        var eventListenerBinPath = '/dev/input/event5';
+    else {
+        var eventListenerBinPath = '/dev/input/'+compatibility_mode;
     }
-    if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite') {
-        var eventListenerBinPath = '/dev/input/event4';
-    }
-    if(deviceType == 'fire_stick_first_gen') {
-        var eventListenerBinPath = '/dev/input/event3';
-    }
+
 
     // Power Button
     if(clicked.target.id == 'power-button') {
@@ -867,38 +876,63 @@ class FiremoteCard extends LitElement {
 
     // Up Button
     if(clicked.target.id == 'up-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 103 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 103 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'UP' });
+      }
+      else {
+          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 103 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 103 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          return;
+      }
     }
 
     // Left Button
     if(clicked.target.id == 'left-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 105 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 105 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'LEFT' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 105 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 105 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // Center Button
     if(clicked.target.id == 'center-button') {
-      if(deviceType == 'fire_tv_4_series') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 28 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 28 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'CENTER' });
       }
       else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 96 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 96 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        return;
+        if(deviceType == 'fire_tv_4_series') {
+          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 28 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 28 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          return;
+        }
+        else {
+          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 96 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 96 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          return;
+        }
       }
     }
 
     // Right Button
     if(clicked.target.id == 'right-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 106 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 106 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RIGHT' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 106 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 106 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // Down Button
     if(clicked.target.id == 'down-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 108 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 108 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'DOWN' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 108 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 108 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // Back Button
@@ -915,14 +949,24 @@ class FiremoteCard extends LitElement {
 
     // Hamburger Button
     if(clicked.target.id == 'hamburger-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 139 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 139 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'MENU' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 139 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 139 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // Rewind Button
     if(clicked.target.id == 'rewind-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 168 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 168 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'REWIND' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 168 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 168 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // Play/Pause Button
@@ -933,20 +977,30 @@ class FiremoteCard extends LitElement {
 
     // Fast Forward Button
     if(clicked.target.id == 'fastforward-button') {
-      if(deviceType == 'fire_tv_4_series') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 159 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 159 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'FAST_FORWARD' });
       }
       else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 208 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 208 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        return;
+        if(deviceType == 'fire_tv_4_series') {
+          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 159 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 159 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          return;
+        }
+        else {
+          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 208 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 208 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          return;
+        }
       }
     }
 
     // Volume Up Button
     if(clicked.target.id == 'volume-up-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 115 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 115 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_UP' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 115 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 115 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // Channel Up Button
@@ -957,8 +1011,13 @@ class FiremoteCard extends LitElement {
 
     // Volume Down Button
     if(clicked.target.id == 'volume-down-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 114 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 114 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_DOWN' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 114 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 114 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // TV Button
@@ -975,14 +1034,24 @@ class FiremoteCard extends LitElement {
 
     // Mute Button
     if(clicked.target.id == 'mute-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 113 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 113 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'MUTE' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 113 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 113 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // Settings Button
     if(clicked.target.id == 'settings-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 249 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 249 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'SETTINGS' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 249 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 249 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        return;
+      }
     }
 
     // App Switch Button
@@ -1056,11 +1125,11 @@ class FiremoteCardEditor extends LitElement {
     this._config = config;
   }
 
-  // This function is called when the input element of the editor loses focus
-  entityChanged(ev) {
+  // This function is called when the input element of the editor loses focus or is changed
+  configChanged(ev) {
 
     const _config = Object.assign({}, this._config);
-    _config[ev.target.id] = ev.target.value;
+    _config[ev.target.name.toString()] = ev.target.value;
     this._config = _config;
 
     // A config-changed event will tell lovelace we have made changed to the configuration
@@ -1093,18 +1162,17 @@ class FiremoteCardEditor extends LitElement {
 
     const mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
 
-    // @focusout below will call entityChanged when the input field loses focus (e.g. the user tabs away or clicks outside of it)
     // ${ Object.keys(this.hass) }
     return html`
           Entity:<br>
           <select name="entity" id="entity" style="padding: .6em; font-size: 1em;"
             .value=${this._config.entity}
-            @focusout=${this.entityChanged}
-            @change=${this.entityChanged}
+            @focusout=${this.configChanged}
+            @change=${this.configChanged}
           >
             <option value="${this._config.entity}" selected>${this._config.entity}</option>
-            ${mediaPlayerEntities.map((entity) => {
-              return html` <option value="${entity}">${entity}</option> \n`;
+            ${mediaPlayerEntities.map((eid) => {
+              return html` <option value="${eid.toString()}">${eid}</option> `;
             })}
           </select>
           
@@ -1114,8 +1182,8 @@ class FiremoteCardEditor extends LitElement {
         Fire Device Type:<br>
         <select name="device_type" id="device_type" style="padding: .6em; font-size: 1em;"
           .value=${this._config.device_type} 
-          @focusout=${this.entityChanged}
-          @change=${this.entityChanged}
+          @focusout=${this.configChanged}
+          @change=${this.configChanged}
         >
           <option value="fire_tv_4_series">Fire TV (4 Series)</option>
           <option value="fire_tv_cube_second_gen">Fire TV Cube (2nd Gen)</option>
@@ -1124,6 +1192,27 @@ class FiremoteCardEditor extends LitElement {
           <option value="fire_stick_first_gen">Fire Stick (1st gen)</option>
         </select>
 
+        <br>
+        <br>
+        <hr>
+        <br>
+        Compatability Mode:<br>
+        <select name="compatibility_mode" id="compatibility_mode" style="padding: .6em; font-size: 1em;"
+          .value=${this._config.compatibility_mode} 
+          @focusout=${this.configChanged}
+          @change=${this.configChanged}
+        >
+          <option value="default">Default</option>
+          <option value="strong">Strong (Slower)</option>
+          <option value="event0">event0</option>
+          <option value="event1">event1</option>
+          <option value="event2">event2</option>
+          <option value="event3">event3</option>
+          <option value="event4">event4</option>
+          <option value="event5">event5</option>
+          <option value="event6">event6</option>
+          <option value="event7">event7</option>
+        </select>
     `;
   }
 }
