@@ -12,7 +12,7 @@
   * [Fire TV (4 Series)](https://www.amazon.com/dp/B08SWD2SCK)
   * [Fire TV Cube (2nd Gen)](https://www.amazon.com/dp/B08XMDNVX6)
   * [Fire TV Stick 4K Max](https://www.amazon.com/dp/B08MQZXN1X)
-  * [Fire TV Stick 4K](https://www.amazon.com/dp/B09GK44MZJ)
+  * [Fire TV Stick 4K](https://en.wikipedia.org/wiki/Amazon_Fire_TV#Fire_TV_Stick_4K)
   * [Fire TV Stick Lite](https://www.amazon.com/fire-tv-stick-lite/dp/B07YNLBS7R)
   * [Fire Stick (1st Gen)](https://en.wikipedia.org/wiki/Amazon_Fire_TV#First_generation_3) 
   * Others might work as well with limited functionality
