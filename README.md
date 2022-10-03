@@ -1,7 +1,7 @@
 # HA-Firemote
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
-| Fire TV | Fire TV Cube | Fire Stick 4K | Fire TV Stick Lite | Fire Stick (1st Gen) |
+| Fire TV | Fire TV Cube<br>Fire TV Stick 4K Max | Fire TV Stick 4K | Fire TV Stick Lite | Fire Stick (1st Gen) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | ![Fire TV 4 Series Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVRemote.png) | ![Fire TV Cube (Gen 2) Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVCube2ndGen.png) | ![Fire TV Stick 4K](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStick4K.png) | ![Fire TV Stick Lite](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStickLite.png) | ![Fire Stick (1st Gen)](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireStick1stGen.png) |
 
@@ -11,7 +11,8 @@
 * A supported Amazon Fire Device
   * [Fire TV (4 Series)](https://www.amazon.com/dp/B08SWD2SCK)
   * [Fire TV Cube (2nd Gen)](https://www.amazon.com/dp/B08XMDNVX6)
-  * [Fire Stick 4K](https://www.amazon.com/dp/B09GK44MZJ)
+  * [Fire TV Stick 4K Max](https://www.amazon.com/dp/B08MQZXN1X)
+  * [Fire TV Stick 4K](https://www.amazon.com/dp/B09GK44MZJ)
   * [Fire TV Stick Lite](https://www.amazon.com/fire-tv-stick-lite/dp/B07YNLBS7R)
   * [Fire Stick (1st Gen)](https://en.wikipedia.org/wiki/Amazon_Fire_TV#First_generation_3) 
   * Others might work as well with limited functionality
@@ -54,8 +55,8 @@ Options:
 | ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
 | type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
 | entity      | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
-| device_type | string | yes      | fire_tv_4_series <br> fire_tv_cube_second_gen <br> fire_stick_4k <br> fire_tv_stick_lite <br> fire_stick_first_gen | The type of device you are controlling |
-| compatibility_mode | string | yes | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> | Adjust this value only if your buttons are completely unresponsive |
+| device_type | string | yes      | fire_tv_4_series <br> fire_tv_cube_second_gen <br> fire_tv_stick_4k_max <br> fire_stick_4k <br> fire_tv_stick_lite <br> fire_stick_first_gen | The type of device you are controlling |
+| compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> | Adjust this value only if your buttons are completely unresponsive |
 
 
 
