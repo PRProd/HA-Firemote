@@ -1,9 +1,5 @@
-import { html, LitElement } from "https://unpkg.com/lit?module";
+import { LitElement, html, css } from "https://unpkg.com/lit?module";
 
-//if (!customElements.get("paper-input")) {
-//  console.log("imported", "paper-input");
-//  import("https://unpkg.com/@polymer/paper-input/paper-input.js?module");
-//}
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -19,6 +15,100 @@ const fireEvent = (node, type, detail, options) => {
 }
 
 
+const fastappchoices = {
+  "prime-video" : { 
+      "button": "prime-video",
+      "friendlyName": "Prime Video",
+      "appName": "Prime Video \(FireTV\)",
+      "className": "primeButton",
+      "androidName": "com.amazon.avod",
+      "androidName2": "com.amazon.firebat" },
+
+  "netflix": {
+      "button": "netflix",
+      "friendlyName": "Netflix",
+      "appName": "Netflix",
+      "className": "netflixButton",
+      "androidName": "com.netflix.ninja",
+      "adbLaunchCommand": "adb shell am start -n com.netflix.ninja/.MainActivity" },
+
+  "disney-plus": {
+      "button": "disney-plus",
+      "friendlyName": "Disney +",
+      "appName": "Disney+",
+      "className": "disneyPlusButton",
+      "androidName": "com.disney.disneyplus",
+      "adbLaunchCommand": "adb shell am start -n com.disney.disneyplus/com.bamtechmedia.dominguez.main.MainActivity" },
+
+  "hulu": { 
+      "button": "hulu",
+      "friendlyName": "Hulu",
+      "appName": "Hulu",
+      "className": "huluButton",
+      "androidName": "com.hulu.plus"   },
+
+  "jellyfin": {
+      "button": "jellyfin",
+      "friendlyName": "Jellyfin",
+      "appName": "Jellyfin",
+      "className": "jellyfinButton",
+      "androidName": "org.jellyfin.androidtv" },
+
+  "hbo-max": {
+      "button": "hbo-max",
+      "friendlyName": "HBO max",
+      "appName": "com.hbo.hbonow",
+      "className": "hboMaxButton",
+      "androidName": "com.hbo.hbonow",
+      "adbLaunchCommand": "adb shell am start -n com.hbo.hbonow/com.hbo.max.HboMaxActivity" },
+
+  "showtime": {
+      "button": "showtime",
+      "friendlyName": "SHOWTIME",
+      "appName": "com.showtime.standalone",
+      "className": "showtimeButton",
+      "androidName": "com.showtime.standalone",
+      "adbLaunchCommand": "adb shell am start -n com.showtime.standalone/com.showtime.showtimeanytime.activities.IntroActivity" },
+
+  "starz": {
+      "button": "starz",
+      "friendlyName": "STARZ",
+      "appName": "com.starz.starzplay.firetv",
+      "className": "starzButton",
+      "androidName": "com.starz.starzplay.firetv" },
+
+  "youtube": {
+      "button": "youtube",
+      "friendlyName": "YouTube",
+      "appName": "YouTube (FireTV)",
+      "className": "youtubeButton",
+      "androidName": "com.amazon.firetv.youtube",
+      "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube/dev.cobalt.app.MainActivity" },
+
+  "pandora": {
+      "button": "pandora",
+      "friendlyName": "pandora",
+      "appName": "com.pandora.android.gtv",
+      "className": "pandoraButton",
+      "androidName": "com.pandora.android.gtv" },
+
+  "plex": {
+      "button": "plex",
+      "friendlyName": "Plex",
+      "appName": "Plex",
+      "className": "plexButton",
+      "androidName": "com.plexapp.android" },
+
+  "tennis-channel": {
+      "button": "tennis-channel",
+      "friendlyName": "TENNIS CHANNEL",
+      "appName": "com.tennischannel.tceverywhere.amazon",
+      "className": "tennisChannelButton",
+      "androidName": "com.tennischannel.tceverywhere.amazon" },
+};
+const appmap = new Map(Object.entries(fastappchoices));
+
+
 class FiremoteCard extends LitElement {
 
   static getConfigElement() {
@@ -31,6 +121,10 @@ class FiremoteCard extends LitElement {
     return { 'entity': '',
              'device_type': 'fire_tv_4_series',
              'compatibility_mode': 'default',
+             'app_launch_1': 'prime-video',
+             'app_launch_2': 'netflix',
+             'app_launch_3': 'disney-plus',
+             'app_launch_4': 'hulu',
            };
   }
 
@@ -41,75 +135,7 @@ class FiremoteCard extends LitElement {
     };
   }
 
-  setConfig(config) {
-    if (!config.entity) {
-      throw new Error('You need to define a Fire TV or Android TV entity');
-    }
-
-    this._config = config;
-  }
-
-
-   render() {
-    if (!this.hass || !this._config) {
-      return html``;
-    }
-
-    const stateObj = this.hass.states[this._config.entity];
-    if (!stateObj) {
-      return html` <ha-card>Unknown entity: ${this._config.entity}</ha-card> `;
-    }
-
-    const entityId = this._config.entity;
-    const state = this.hass.states[entityId];
-    const stateStr = state ? state.state : 'off';
-    const appId = state.attributes.app_id;
-    const deviceType = this._config.device_type;
-
-    // Determine Power On/Off Status
-    var powerStatusClass = ''
-    if(stateStr != 'off' && stateStr != 'unavailable') {
-      powerStatusClass = ' litbutton';
-    }
-    if(stateStr == 'standby') {
-      powerStatusClass = ' dimlitbutton';
-    }
-
-    // Determine Home Status
-    var homeStatusClass = '';
-    if(appId == 'com.amazon.tv.launcher') {
-      homeStatusClass = ' litbutton';
-    }
-
-    // Determine Play/Pause
-    var playingStatusClass = '';
-    if(stateStr == 'playing' && appId != 'com.amazon.firebat') {
-      playingStatusClass = ' litbutton';
-    }
-
-    // Determine Prime Video Status
-    var primevideoactive = '';
-    var netflixactive = '';
-    var disneyplusactive = '';
-    var huluactive = '';
-    if(appId == 'com.amazon.avod' || appId == 'com.amazon.firebat') {
-      primevideoactive = ' appActive';
-    }
-    if(appId == 'com.netflix.ninja') {
-      netflixactive = ' appActive';
-    }
-    if(appId == 'com.disney.disneyplus') {
-      disneyplusactive = ' appActive';
-    }
-    if(appId == 'com.hulu.plus') {
-      huluactive = ' appActive';
-    }
-
-
-    function rendercss() {
-      return html`
-      <style>
-
+  static styles = css`
           ha-card {
             background: rgba(30,30,30,0); 
             width: max-content; 
@@ -230,6 +256,11 @@ class FiremoteCard extends LitElement {
             padding: 4px;
           }
 
+          .srcButton:active {
+            transform: scale(0.9);
+            box-shadow: none !important;
+          }
+
           .primeButton {
             color: #c6c6c6;
             background: #293942;
@@ -238,6 +269,7 @@ class FiremoteCard extends LitElement {
 
           .primeButton:active, .primeButton.appActive {
             color: #fff;
+            text-shadow: 0 0 3px black;
             background: #53a3d1;
             box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 15%);
           }
@@ -275,6 +307,110 @@ class FiremoteCard extends LitElement {
             box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
           }
 
+          .jellyfinButton {
+            color: #c6c6c6;
+            background: linear-gradient(90deg, rgba(62,34,71,1) 0%, rgba(0,60,80,1) 100%);
+          }
+
+          .jellyfinButton:active, .jellyfinButton.appActive {
+            color: #fff;
+            background: linear-gradient(90deg, rgba(112,62,128,1) 0%, rgba(0,108,144,1) 100%);
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+          }
+
+          .hboMaxButton {
+            color: #c6c6c6;
+            font-size: 13px;
+            background: linear-gradient(90deg, rgba(44,8,60,1) 0%, rgba(23,4,51,1) 100%);
+          }
+
+          .hboMaxButton:active, .hboMaxButton.appActive {
+            color: #fff;
+            background: linear-gradient(80deg, #73109E 0%, #2F0B62 100%);
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+          }
+
+          .showtimeButton {
+            color: #6d0000;
+            font-size: 11px;
+            background: black;
+          }
+
+          .showtimeButton:active, .showtimeButton.appActive {
+            color: #b10000;
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+          }
+
+          .starzButton {
+            font-size: 1rem;
+            color: #9abc00;
+            background: linear-gradient(99deg, rgba(16,65,69,1) 0%, rgba(8,31,33,1) 40%, rgba(13,71,75,1) 80%, rgba(16,60,64,1) 100%);
+          }
+
+          .starzButton:active, .starzButton.appActive {
+            color: #d2ff00;
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            background: linear-gradient(99deg, rgba(26,101,107,1) 0%, rgba(16,62,66,1) 40%, rgba(22,122,130,1) 80%, rgba(26,101,107,1) 100%);
+          }
+
+          .youtubeButton {
+            font-size: 14px;
+            color: #919191;
+            font-weight: bold;
+            background: rgb(74 0 0);
+          }
+
+          .youtubeButton:active, .youtubeButton.appActive {
+            color: #ffffff;
+            background: rgb(199 0 0);
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            text-shadow: 0 0 4px black;
+          }
+
+          .pandoraButton {
+            font-size: 14px;
+            color: #919191;
+            font-weight: bold;
+            background: #304b9b
+          }
+
+          .pandoraButton:active, .pandoraButton.appActive {
+            color: #fff;
+            background: #3668ff;
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+          }
+
+          .plexButton {
+            color: #919191;
+            font-weight: bold;
+            background: #000;
+            display: inline;
+          }
+
+          .plexButton:active, .plexButton.appActive {
+            color: #fff;
+            background: #000;
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+          }
+
+          .plexButton.appActive::after {
+            content: '>';
+            color: yellow;
+          }
+
+          .tennisChannelButton {
+            color: #919191;
+            font-size: 9px;
+            font-weight: bold;
+            background: linear-gradient(180deg, rgba(24,74,49,1) 0%, rgba(8,36,21,1) 100%);
+          }
+
+          .tennisChannelButton:active, .tennisChannelButton.appActive {
+            color: #fff;
+            background: linear-gradient(180deg, rgba(40,131,85,1) 0%, rgba(16,73,43,1) 100%);
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+          }
+
           .remote-logo {
             grid-column-start: 1;
             grid-column-end: 4;
@@ -301,10 +437,103 @@ class FiremoteCard extends LitElement {
           ha-icon {
             pointer-events: none;
           }
+  `;
 
-      </style>
-      `;
+   setConfig(config) {
+     if (!config.entity) {
+       throw new Error('You need to define a Fire TV or Android TV entity');
+     }
+     this._config = config;
+   }
+
+    getOpenAppID() {
+      return this.hass.states[this._config.entity].attributes.app_id;
     }
+
+   render() {
+    if (!this.hass || !this._config) {
+      return html``;
+    }
+
+    const stateObj = this.hass.states[this._config.entity];
+    if (!stateObj) {
+      return html` <ha-card>Unknown entity: ${this._config.entity}</ha-card> `;
+    }
+
+    const entityId = this._config.entity;
+    const state = this.hass.states[entityId];
+    const stateStr = state ? state.state : 'off';
+    const appId = state.attributes.app_id;
+    const deviceType = this._config.device_type;
+
+    // Determine Power On/Off Status
+    var powerStatusClass = ''
+    if(stateStr != 'off' && stateStr != 'unavailable') {
+      powerStatusClass = ' litbutton';
+    }
+    if(stateStr == 'standby') {
+      powerStatusClass = ' dimlitbutton';
+    }
+
+    // Determine Home Status
+    var homeStatusClass = '';
+    if(appId == 'com.amazon.tv.launcher') {
+      homeStatusClass = ' litbutton';
+    }
+
+    // Determine Play/Pause
+    var playingStatusClass = '';
+    if(stateStr == 'playing' && appId != 'com.amazon.firebat') {
+      playingStatusClass = ' litbutton';
+    }
+
+
+    function getAppButtonData(configvalue, want) {
+
+      if(appmap.has(configvalue)) {
+        if(want=="active") {
+          if (typeof appId != 'string') { return };
+          return (appId == appmap.get(configvalue).androidName || appId == appmap.get(configvalue).androidName2) ? "appActive" : "";
+        }
+        else {
+          return appmap.get(configvalue)[want];
+        }
+      }
+      else {
+        return configvalue;
+      }
+    }
+
+    function drawAppLaunchButtons(e, config) {
+        var confBtnOne =   config.app_launch_1 || 'prime-video';
+        var confBtnTwo =   config.app_launch_2 || 'netflix';
+        var confBtnThree = config.app_launch_3 || 'disney-plus';
+        var confBtnFour =  config.app_launch_4 || 'hulu';
+        return html`
+          <div class="three-col-span">
+            <button class="srcButton ${getAppButtonData(confBtnOne, 'className')} ${getAppButtonData(confBtnOne, 'active')}" 
+                    id="${confBtnOne}-button" @click=${e.buttonClicked}>
+              ${getAppButtonData(confBtnOne, 'friendlyName')}
+            </button>
+            <button class="srcButton ${getAppButtonData(confBtnTwo, 'className')} ${getAppButtonData(confBtnTwo, 'active')}" 
+                    id="${confBtnTwo}-button" @click=${e.buttonClicked}>
+              ${getAppButtonData(confBtnTwo, 'friendlyName')}
+            </button>
+          </div>
+
+          <div class="three-col-span">
+            <button class="srcButton ${getAppButtonData(confBtnThree, 'className')} ${getAppButtonData(confBtnThree, 'active')}" 
+                    id="${confBtnThree}-button" @click=${e.buttonClicked}>
+              ${getAppButtonData(confBtnThree, 'friendlyName')}
+            </button>
+            <button class="srcButton ${getAppButtonData(confBtnFour, 'className')} ${getAppButtonData(confBtnFour, 'active')}" 
+                    id="${confBtnFour}-button" @click=${e.buttonClicked}>
+              ${getAppButtonData(confBtnFour, 'friendlyName')}
+            </button>
+          </div>
+        `;
+    }
+
 
     // Reused SVG Logos
     function renderfiretvlogo() {
@@ -416,11 +645,11 @@ class FiremoteCard extends LitElement {
     }
 
 
+
     // FireTV 4 Series Control
     if (deviceType == 'fire_tv_4_series') {
     return html`
       <ha-card>
-      ${rendercss()}
 
       <div class="remote-body">
 
@@ -500,23 +729,7 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:file-multiple-outline"></ha-icon>
           </button>
 
-          <div class="three-col-span">
-            <button class="srcButton primeButton${primevideoactive}" id="prime-video-button" @click=${this.buttonClicked}>
-              prime video
-            </button>
-            <button class="srcButton netflixButton${netflixactive}" id="netflix-button" @click=${this.buttonClicked}>
-              Netflix
-            </button>
-          </div>
-
-          <div class="three-col-span">
-            <button class="srcButton disneyPlusButton${disneyplusactive}" id="disney-plus-button" @click=${this.buttonClicked}>
-              Disney +
-            </button>
-            <button class="srcButton huluButton${huluactive}" id="hulu-button" @click=${this.buttonClicked}>
-              hulu
-            </button>
-          </div>
+          ${drawAppLaunchButtons(this, this._config)}
 
           ${renderfiretvlogo()}
 
@@ -531,7 +744,6 @@ class FiremoteCard extends LitElement {
     if (deviceType == 'fire_tv_cube_second_gen' || deviceType == 'fire_tv_stick_4k_max') {
     return html`
       <ha-card>
-      ${rendercss()}
 
       <div class="remote-body">
 
@@ -600,27 +812,11 @@ class FiremoteCard extends LitElement {
           </button>
           <div></div>
 
-          <div class="three-col-span">
-            <button class="srcButton primeButton${primevideoactive}" id="prime-video-button" @click=${this.buttonClicked}>
-              prime video
-            </button>
-            <button class="srcButton netflixButton${netflixactive}" id="netflix-button" @click=${this.buttonClicked}>
-              Netflix
-            </button>
-          </div>
-
-          <div class="three-col-span">
-            <button class="srcButton disneyPlusButton${disneyplusactive}" id="disney-plus-button" @click=${this.buttonClicked}>
-              Disney +
-            </button>
-            <button class="srcButton huluButton${huluactive}" id="hulu-button" @click=${this.buttonClicked}>
-              hulu
-            </button>
-          </div>
+          ${drawAppLaunchButtons(this, this._config)}
 
           ${renderfiretvlogo()}
 
-      </div>
+        </div>
 
       </ha-card>
     `;
@@ -630,7 +826,6 @@ class FiremoteCard extends LitElement {
     if (deviceType == 'fire_stick_4k') {
     return html`
       <ha-card>
-      ${rendercss()}
 
       <div class="remote-body">
 
@@ -712,7 +907,6 @@ class FiremoteCard extends LitElement {
     if (deviceType == 'fire_tv_stick_lite') {
     return html`
       <ha-card>
-      ${rendercss()}
 
       <div class="remote-body">
 
@@ -782,7 +976,6 @@ class FiremoteCard extends LitElement {
     if (deviceType == 'fire_stick_first_gen') {
     return html`
       <ha-card>
-      ${rendercss()}
 
       <div class="remote-body">
 
@@ -870,6 +1063,8 @@ class FiremoteCard extends LitElement {
         var eventListenerBinPath = '/dev/input/'+compatibility_mode;
     }
 
+    // provide haptic feedback for button press
+    fireEvent(this, 'haptic', 'light')
 
     // Power Button
     if(clicked.target.id == 'power-button') {
@@ -1077,38 +1272,22 @@ class FiremoteCard extends LitElement {
       return;
     }
 
-    // Netflix Button
-    if(clicked.target.id == 'netflix-button') {
-      if(compatibility_mode == 'strong') {
-        this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: "Netflix"});
+
+    // Other App Button (existing in JSON map)
+    const clickedAppButtonID = clicked.target.id;
+    const appkey = clickedAppButtonID.substr(0, clickedAppButtonID.indexOf("-button"));
+    if(appmap.has(appkey)) {
+      var adbcommand = appmap.get(appkey).adbLaunchCommand;
+      var sourceName = appmap.get(appkey).appName;
+      if (typeof adbcommand == 'undefined') {
+        this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: sourceName});
       }
       else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.netflix.ninja/.MainActivity' });  
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: adbcommand });
       }
       return;
     }
 
-    // Disney +  Button
-    if(clicked.target.id == 'disney-plus-button') {
-      if(compatibility_mode == 'strong') {
-        this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: "Disney+"});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.disney.disneyplus/com.bamtechmedia.dominguez.main.MainActivity' });
-      }
-      return;
-    }
-
-    // hulu Button
-    if(clicked.target.id == 'hulu-button') {
-      if(compatibility_mode == 'strong') {
-        this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: "Hulu"});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 747 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 747 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
 
   }
 }
@@ -1123,6 +1302,9 @@ window.customCards.push({
   preview: false, // Optional - defaults to false
   description: "Remote control card for FireTV" // Optional
 });
+
+
+
 
 
 
@@ -1172,12 +1354,61 @@ class FiremoteCardEditor extends LitElement {
     );
   }
 
+
+  //getAppOptionDropdown() {
+
+    //var optiontags = '';
+    //const appmap = new Map(Object.entries(fastappchoices));
+    //appmap.forEach(key => {
+    //  optiontags+= `   <option value="${key}">${key}</option> `;
+    //})
+    //console.log(optiontags);
+    //return html`${optiontags}`;
+
+//    return html`
+//      <option value="prime-video">Prime Video</option>
+//      <option value="netflix">Netflix</option> 
+//      <option value="disney-plus">Disney +</option> 
+//      <option value="hulu">Hulu</option> 
+//    `;
+//
+//  }
+
+
+
+  getAppChoices(buttonIndex, optionvalue) {
+    return html `
+      <select name="app_launch_${buttonIndex}" id="app_launch_${buttonIndex}" style="padding: .6em; font-size: 1em;"
+        .value=${optionvalue}
+        @focusout=${this.configChanged}
+        @change=${this.configChanged}
+      >
+        <option value="prime-video">Prime Video</option>
+        <option value="netflix">Netflix</option> 
+        <option value="disney-plus">Disney +</option> 
+        <option value="hulu">Hulu</option> 
+        <option value="jellyfin">Jellyfin</option>
+        <option value="hbo-max">HBO max</option> 
+        <option value="showtime">SHOWTIME</option>
+        <option value="starz">STARZ</option>
+        <option value="youtube">YouTube</option>
+        <option value="pandora">pandora</option>
+        <option value="plex">plex</option>
+        <option value="tennis-channel">Tennis Channel</option>
+      </select>
+    `;
+  }
+
+
+
   render() {
     if (!this.hass || !this._config) {
       return html``;
     }
 
     const mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
+
+
 
     // ${ Object.keys(this.hass) }
     return html`
@@ -1189,10 +1420,9 @@ class FiremoteCardEditor extends LitElement {
           >
             <option value="${this._config.entity}" selected>${this._config.entity}</option>
             ${mediaPlayerEntities.map((eid) => {
-              return html` <option value="${eid.toString()}">${eid}</option> `;
+              return html`\n          <option value="${eid.toString()}">${eid}</option> `;
             })}
-          </select>
-          
+          </select>     
         <br>
         <br>
 
@@ -1214,7 +1444,7 @@ class FiremoteCardEditor extends LitElement {
         <br>
         <hr>
         <br>
-        Compatability Mode:<br>
+        Compatability Mode:&nbsp;
         <select name="compatibility_mode" id="compatibility_mode" style="padding: .6em; font-size: 1em;"
           .value=${this._config.compatibility_mode} 
           @focusout=${this.configChanged}
@@ -1230,7 +1460,24 @@ class FiremoteCardEditor extends LitElement {
           <option value="event5">event5</option>
           <option value="event6">event6</option>
           <option value="event7">event7</option>
+          <option value="event8">event8</option>
         </select>
+        <br>
+        <br>
+        App Launch Button 1: 
+        ${this.getAppChoices("1", this._config.app_launch_1)}
+        <br>
+        App Launch Button 2: 
+        ${this.getAppChoices("2", this._config.app_launch_2)}
+        <br>
+        App Launch Button 3: 
+        ${this.getAppChoices("3", this._config.app_launch_3)}
+        <br>
+        App Launch Button 4: 
+        ${this.getAppChoices("4", this._config.app_launch_4)}
+        <br>
+
+
     `;
   }
 }
