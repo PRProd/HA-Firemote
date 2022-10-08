@@ -1,5 +1,9 @@
 import { LitElement, html, css } from "https://unpkg.com/lit?module";
 
+// -- Notes for future self -- //
+// adb shell pm dump {APP NAME] | grep -A 1 MAIN
+// adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp|mInputMethodTarget|mSurface'
+
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -19,10 +23,11 @@ const fastappchoices = {
   "prime-video" : { 
       "button": "prime-video",
       "friendlyName": "Prime Video",
-      "appName": "Prime Video \(FireTV\)",
+      "appName": "Prime Video (FireTV)",
       "className": "primeButton",
       "androidName": "com.amazon.avod",
-      "androidName2": "com.amazon.firebat" },
+      "androidName2": "com.amazon.firebat",
+      "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
 
   "netflix": {
       "button": "netflix",
@@ -105,6 +110,30 @@ const fastappchoices = {
       "appName": "com.tennischannel.tceverywhere.amazon",
       "className": "tennisChannelButton",
       "androidName": "com.tennischannel.tceverywhere.amazon" },
+
+  "amc-plus": {
+      "button": "amc-plus",
+      "friendlyName": "amc+",
+      "appName": "com.amcplus.amcfiretv",
+      "className": "amcPlusButton",
+      "androidName": "com.amcplus.amcfiretv",
+      "adbLaunchCommand": "adb shell am start -n com.amcplus.amcfiretv/com.amcplus.tv.MainActivity" },
+
+  "apple-tv": {
+      "button": "apple-tv",
+      "friendlyName": 'Apple TV',
+      "appName": "Apple TV+ (Fire TV)",
+      "className": "appleTvButton",
+      "androidName": "com.apple.atve.amazon.appletv",
+      "adbLaunchCommand": "adb shell am start -n com.apple.atve.amazon.appletv/.MainActivity" },
+
+  "paramount-plus": {
+      "button": "paramount-plus",
+      "friendlyName": 'Paramount+',
+      "appName": "com.cbs.ott",
+      "className": "paramountPlusButton",
+      "androidName": "com.cbs.ott",
+      "adbLaunchCommand": "adb shell am start -n com.cbs.ott/com.cbs.app.tv.ui.activity.DeepLinkActivity" },
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
@@ -116,7 +145,16 @@ class FiremoteCard extends LitElement {
     return document.createElement("firemote-card-editor");
   }
 
+
+  static get properties() {
+    return {
+      hass: {},
+      _config: {},
+    };
+  }
+
   static getStubConfig() {
+    //const stubDefaultEntity = (Object.keys(this.hass.entities).filter((eid) => this.hass.entities[eid].platform === 'androidtv'))[0];
     // Return a minimal configuration that will result in a working card configuration
     return { 'entity': '',
              'device_type': 'fire_tv_4_series',
@@ -126,13 +164,6 @@ class FiremoteCard extends LitElement {
              'app_launch_3': 'disney-plus',
              'app_launch_4': 'hulu',
            };
-  }
-
-  static get properties() {
-    return {
-      hass: {},
-      _config: {},
-    };
   }
 
   static styles = css`
@@ -409,6 +440,44 @@ class FiremoteCard extends LitElement {
             color: #fff;
             background: linear-gradient(180deg, rgba(40,131,85,1) 0%, rgba(16,73,43,1) 100%);
             box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+          }
+
+          .amcPlusButton {
+            color: #51ceff;
+            font-weight: bold;
+            background: #091c3d;
+            filter: grayscale(50%) brightness(80%);
+          }
+
+          .amcPlusButton:active, .amcPlusButton.appActive {
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .appleTvButton {
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            background: #000;
+            filter: brightness(50%);
+          }
+
+          .appleTvButton:active, .appleTvButton.appActive {
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .paramountPlusButton {
+            font-size: 11px;
+            color: #fff;
+            font-weight: bold;
+            background: #0667fc;
+            filter: grayscale(50%) brightness(80%);
+          }
+
+          .paramountPlusButton:active, .paramountPlusButton.appActive {
+            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            filter: none;
           }
 
           .remote-logo {
@@ -1046,10 +1115,7 @@ class FiremoteCard extends LitElement {
         if(deviceType == 'fire_tv_4_series') {
             var eventListenerBinPath = '/dev/input/event0';
         }
-        if(deviceType == 'fire_tv_stick_4k_max') {
-            var eventListenerBinPath = '/dev/input/event1';
-        }
-        if(deviceType == 'fire_tv_cube_second_gen') {
+        if(deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_cube_second_gen') {
             var eventListenerBinPath = '/dev/input/event5';
         }
         if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite') {
@@ -1075,6 +1141,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
       }
       return;
+      // 116 is the power command for the 4k max
     }
 
     // Up Button
@@ -1266,14 +1333,8 @@ class FiremoteCard extends LitElement {
       return;
     }
 
-    // Prime Video Button
-    if(clicked.target.id == 'prime-video-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 745 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 745 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
-    }
 
-
-    // Other App Button (existing in JSON map)
+    // App launch button (existing in JSON map)
     const clickedAppButtonID = clicked.target.id;
     const appkey = clickedAppButtonID.substr(0, clickedAppButtonID.indexOf("-button"));
     if(appmap.has(appkey)) {
@@ -1300,7 +1361,7 @@ window.customCards.push({
   type: "firemote-card",
   name: "Firemote Card",
   preview: false, // Optional - defaults to false
-  description: "Remote control card for FireTV" // Optional
+  description: "Remote control card for Amazon FireTV devices" // Optional
 });
 
 
@@ -1395,6 +1456,9 @@ class FiremoteCardEditor extends LitElement {
         <option value="pandora">pandora</option>
         <option value="plex">plex</option>
         <option value="tennis-channel">Tennis Channel</option>
+        <option value="amc-plus">AMC+</option>
+        <option value="apple-tv">Apple TV</option>
+        <option value="paramount-plus">Paramount+</option>
       </select>
     `;
   }
@@ -1444,7 +1508,7 @@ class FiremoteCardEditor extends LitElement {
         <br>
         <hr>
         <br>
-        Compatability Mode:&nbsp;
+        Compatibility Mode:&nbsp;
         <select name="compatibility_mode" id="compatibility_mode" style="padding: .6em; font-size: 1em;"
           .value=${this._config.compatibility_mode} 
           @focusout=${this.configChanged}
