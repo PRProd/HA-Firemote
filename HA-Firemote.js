@@ -21,7 +21,7 @@ const fireEvent = (node, type, detail, options) => {
 
 const fastappchoices = {
   "prime-video" : { 
-      "button": "prime-video",
+      "button": "prime video",
       "friendlyName": "Prime Video",
       "appName": "Prime Video (FireTV)",
       "className": "primeButton",
@@ -30,7 +30,7 @@ const fastappchoices = {
       "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
 
   "netflix": {
-      "button": "netflix",
+      "button": "NETFLIX",
       "friendlyName": "Netflix",
       "appName": "Netflix",
       "className": "netflixButton",
@@ -38,7 +38,7 @@ const fastappchoices = {
       "adbLaunchCommand": "adb shell am start -n com.netflix.ninja/.MainActivity" },
 
   "disney-plus": {
-      "button": "disney-plus",
+      "button": "Disney+",
       "friendlyName": "Disney +",
       "appName": "Disney+",
       "className": "disneyPlusButton",
@@ -53,37 +53,37 @@ const fastappchoices = {
       "androidName": "com.hulu.plus"   },
 
   "jellyfin": {
-      "button": "jellyfin",
+      "button": "Jellyfin",
       "friendlyName": "Jellyfin",
       "appName": "Jellyfin",
       "className": "jellyfinButton",
       "androidName": "org.jellyfin.androidtv" },
 
   "hbo-max": {
-      "button": "hbo-max",
-      "friendlyName": "HBO max",
+      "button": "HBO max",
+      "friendlyName": "HBO Max",
       "appName": "com.hbo.hbonow",
       "className": "hboMaxButton",
       "androidName": "com.hbo.hbonow",
       "adbLaunchCommand": "adb shell am start -n com.hbo.hbonow/com.hbo.max.HboMaxActivity" },
 
   "showtime": {
-      "button": "showtime",
-      "friendlyName": "SHOWTIME",
+      "button": "SHOWTIME",
+      "friendlyName": "Showtime",
       "appName": "com.showtime.standalone",
       "className": "showtimeButton",
       "androidName": "com.showtime.standalone",
       "adbLaunchCommand": "adb shell am start -n com.showtime.standalone/com.showtime.showtimeanytime.activities.IntroActivity" },
 
   "starz": {
-      "button": "starz",
-      "friendlyName": "STARZ",
+      "button": "STARZ",
+      "friendlyName": "Starz",
       "appName": "com.starz.starzplay.firetv",
       "className": "starzButton",
       "androidName": "com.starz.starzplay.firetv" },
 
   "youtube": {
-      "button": "youtube",
+      "button": "YouTube",
       "friendlyName": "YouTube",
       "appName": "YouTube (FireTV)",
       "className": "youtubeButton",
@@ -92,35 +92,35 @@ const fastappchoices = {
 
   "pandora": {
       "button": "pandora",
-      "friendlyName": "pandora",
+      "friendlyName": "Pandora",
       "appName": "com.pandora.android.gtv",
       "className": "pandoraButton",
       "androidName": "com.pandora.android.gtv" },
 
   "plex": {
-      "button": "plex",
-      "friendlyName": "Plex",
+      "button": "Plex",
+      "friendlyName": "plex",
       "appName": "Plex",
       "className": "plexButton",
       "androidName": "com.plexapp.android" },
 
   "tennis-channel": {
-      "button": "tennis-channel",
-      "friendlyName": "TENNIS CHANNEL",
+      "button": "TENNIS CHANNEL",
+      "friendlyName": "Tennis Channel",
       "appName": "com.tennischannel.tceverywhere.amazon",
       "className": "tennisChannelButton",
       "androidName": "com.tennischannel.tceverywhere.amazon" },
 
   "amc-plus": {
-      "button": "amc-plus",
-      "friendlyName": "amc+",
+      "button": "amc+",
+      "friendlyName": "AMC+",
       "appName": "com.amcplus.amcfiretv",
       "className": "amcPlusButton",
       "androidName": "com.amcplus.amcfiretv",
       "adbLaunchCommand": "adb shell am start -n com.amcplus.amcfiretv/com.amcplus.tv.MainActivity" },
 
   "apple-tv": {
-      "button": "apple-tv",
+      "button": "Apple TV",
       "friendlyName": 'Apple TV',
       "appName": "Apple TV+ (Fire TV)",
       "className": "appleTvButton",
@@ -128,7 +128,7 @@ const fastappchoices = {
       "adbLaunchCommand": "adb shell am start -n com.apple.atve.amazon.appletv/.MainActivity" },
 
   "paramount-plus": {
-      "button": "paramount-plus",
+      "button": "Paramount+",
       "friendlyName": 'Paramount+',
       "appName": "com.cbs.ott",
       "className": "paramountPlusButton",
@@ -306,6 +306,8 @@ class FiremoteCard extends LitElement {
           }
 
           .netflixButton {
+            font-weight: bold;
+            font-size: 14px;
             color: #6d2427;
             background: #878787;
           }
@@ -582,22 +584,22 @@ class FiremoteCard extends LitElement {
           <div class="three-col-span">
             <button class="srcButton ${getAppButtonData(confBtnOne, 'className')} ${getAppButtonData(confBtnOne, 'active')}" 
                     id="${confBtnOne}-button" @click=${e.buttonClicked}>
-              ${getAppButtonData(confBtnOne, 'friendlyName')}
+              ${getAppButtonData(confBtnOne, 'button')}
             </button>
             <button class="srcButton ${getAppButtonData(confBtnTwo, 'className')} ${getAppButtonData(confBtnTwo, 'active')}" 
                     id="${confBtnTwo}-button" @click=${e.buttonClicked}>
-              ${getAppButtonData(confBtnTwo, 'friendlyName')}
+              ${getAppButtonData(confBtnTwo, 'button')}
             </button>
           </div>
 
           <div class="three-col-span">
             <button class="srcButton ${getAppButtonData(confBtnThree, 'className')} ${getAppButtonData(confBtnThree, 'active')}" 
                     id="${confBtnThree}-button" @click=${e.buttonClicked}>
-              ${getAppButtonData(confBtnThree, 'friendlyName')}
+              ${getAppButtonData(confBtnThree, 'button')}
             </button>
             <button class="srcButton ${getAppButtonData(confBtnFour, 'className')} ${getAppButtonData(confBtnFour, 'active')}" 
                     id="${confBtnFour}-button" @click=${e.buttonClicked}>
-              ${getAppButtonData(confBtnFour, 'friendlyName')}
+              ${getAppButtonData(confBtnFour, 'button')}
             </button>
           </div>
         `;
@@ -1115,14 +1117,14 @@ class FiremoteCard extends LitElement {
         if(deviceType == 'fire_tv_4_series') {
             var eventListenerBinPath = '/dev/input/event0';
         }
-        if(deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_cube_second_gen') {
-            var eventListenerBinPath = '/dev/input/event5';
+        if(deviceType == 'fire_stick_first_gen') {
+            var eventListenerBinPath = '/dev/input/event3';
         }
         if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite') {
             var eventListenerBinPath = '/dev/input/event4';
         }
-        if(deviceType == 'fire_stick_first_gen') {
-            var eventListenerBinPath = '/dev/input/event3';
+        if(deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_cube_second_gen') {
+            var eventListenerBinPath = '/dev/input/event5';
         }
     }
     else {
@@ -1416,49 +1418,26 @@ class FiremoteCardEditor extends LitElement {
   }
 
 
-  //getAppOptionDropdown() {
-
-    //var optiontags = '';
-    //const appmap = new Map(Object.entries(fastappchoices));
-    //appmap.forEach(key => {
-    //  optiontags+= `   <option value="${key}">${key}</option> `;
-    //})
-    //console.log(optiontags);
-    //return html`${optiontags}`;
-
-//    return html`
-//      <option value="prime-video">Prime Video</option>
-//      <option value="netflix">Netflix</option> 
-//      <option value="disney-plus">Disney +</option> 
-//      <option value="hulu">Hulu</option> 
-//    `;
-//
-//  }
-
-
-
   getAppChoices(buttonIndex, optionvalue) {
+    var appkeys = [];
+    for (var [key, value] of appmap.entries()) {
+      appkeys.push(key)
+    }
+
     return html `
       <select name="app_launch_${buttonIndex}" id="app_launch_${buttonIndex}" style="padding: .6em; font-size: 1em;"
         .value=${optionvalue}
         @focusout=${this.configChanged}
         @change=${this.configChanged}
       >
-        <option value="prime-video">Prime Video</option>
-        <option value="netflix">Netflix</option> 
-        <option value="disney-plus">Disney +</option> 
-        <option value="hulu">Hulu</option> 
-        <option value="jellyfin">Jellyfin</option>
-        <option value="hbo-max">HBO max</option> 
-        <option value="showtime">SHOWTIME</option>
-        <option value="starz">STARZ</option>
-        <option value="youtube">YouTube</option>
-        <option value="pandora">pandora</option>
-        <option value="plex">plex</option>
-        <option value="tennis-channel">Tennis Channel</option>
-        <option value="amc-plus">AMC+</option>
-        <option value="apple-tv">Apple TV</option>
-        <option value="paramount-plus">Paramount+</option>
+        ${appkeys.map((app) => {
+          if (app != optionvalue) {
+            return html`<option value="${app}">${appmap.get(app).friendlyName}</option> `;
+          }
+          else {
+            return html`<option value="${app}" selected>${appmap.get(app).friendlyName}</option> `;
+          }
+        })}
       </select>
     `;
   }
@@ -1472,19 +1451,18 @@ class FiremoteCardEditor extends LitElement {
 
     const mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
 
-
-
-    // ${ Object.keys(this.hass) }
     return html`
           Entity:<br>
-          <select name="entity" id="entity" style="padding: .6em; font-size: 1em;"
-            .value=${this._config.entity}
+          <select name="entity" id="entity" style="padding: .6em; font-size: 1em;" .value="${this._config.entity}"
             @focusout=${this.configChanged}
-            @change=${this.configChanged}
-          >
-            <option value="${this._config.entity}" selected>${this._config.entity}</option>
+            @change=${this.configChanged} >
             ${mediaPlayerEntities.map((eid) => {
-              return html`\n          <option value="${eid.toString()}">${eid}</option> `;
+              if (eid != this._config.entity) {
+                return html`<option value="${eid}">${this.hass.entities[eid].name || eid}</option> `;
+              }
+              else {
+                return html`<option value="${eid}" selected>${this.hass.entities[eid].name || eid}</option> `;
+              }
             })}
           </select>     
         <br>
