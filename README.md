@@ -9,12 +9,12 @@
 * A functioning version of [Home Assistant](https://www.home-assistant.io/)
 * [HACS](https://peyanski.com/how-to-install-home-assistant-community-store-hacs/)
 * A supported Amazon Fire Device
-  * [Fire TV (4 Series)](https://www.amazon.com/dp/B08SWD2SCK)
+  * [Fire TV (4 Series)](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-edition-smart-tv.html?v=4-series)
   * [Fire TV Cube (2nd Gen)](https://www.amazon.com/dp/B08XMDNVX6)
   * [Fire TV Stick 4K Max](https://www.amazon.com/dp/B08MQZXN1X)
-  * [Fire TV Stick 4K](https://en.wikipedia.org/wiki/Amazon_Fire_TV#Fire_TV_Stick_4K)
-  * [Fire TV Stick Lite](https://www.amazon.com/fire-tv-stick-lite/dp/B07YNLBS7R)
-  * [Fire Stick (1st Gen)](https://en.wikipedia.org/wiki/Amazon_Fire_TV#First_generation_3) 
+  * [Fire TV Stick 4K](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvstick4k)
+  * [Fire TV Stick Lite](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvsticklite)
+  * [Fire Stick (1st Gen)](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvstickgen1) 
   * Others might work as well with limited functionality
 
 ## Download and Setup
