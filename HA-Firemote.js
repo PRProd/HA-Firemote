@@ -3,6 +3,10 @@ import { LitElement, html, css } from "https://unpkg.com/lit?module";
 // -- Notes for future self -- //
 // adb shell pm dump {APP NAME] | grep -A 1 MAIN
 // adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp|mInputMethodTarget|mSurface'
+// https://developer.amazon.com/docs/fire-tv/identify-amazon-fire-tv-devices.html
+// [ro.build.characteristics]: [tv]
+// [ro.build.configuration]: [tv]
+// [ro.com.google.clientidbase]: [android-m7632-tv]
 
 
 const fireEvent = (node, type, detail, options) => {
@@ -138,6 +142,37 @@ const fastappchoices = {
 const appmap = new Map(Object.entries(fastappchoices));
 
 
+function truncate(str, length) {
+  return str.length > length ? str.substr(0, length) : str;
+}
+
+function handlehdmi(config) {
+  appmap.delete('hdmi_1');
+  appmap.delete('hdmi_2');
+  appmap.delete('hdmi_3');
+  appmap.delete('hdmi_4');
+  if( config.device_type == 'fire_tv_4_series') {
+    if( config.hdmi_1 ) {
+      const inputname = truncate(config.hdmi_1, 8);
+      appmap.set("hdmi_1", {"button": truncate(inputname, 8), "friendlyName": "HDMI 1 - "+inputname, "androidName": "", "adbLaunchCommand": "HDMI1"});
+    }
+    if( config.hdmi_2 ) {
+      const inputname = config.hdmi_2;
+      appmap.set("hdmi_2", {"button": truncate(inputname, 8), "friendlyName": "HDMI 2 - "+inputname, "androidName": "", "adbLaunchCommand": "HDMI2"});
+    }
+    if( config.hdmi_3 ) {
+      const inputname = config.hdmi_3;
+      appmap.set("hdmi_3", {"button": truncate(inputname, 8), "friendlyName": "HDMI 3 - "+inputname, "androidName": "", "adbLaunchCommand": "HDMI3"});
+    }
+    if( config.hdmi_4 ) {
+      const inputname = config.hdmi_4;
+      appmap.set("hdmi_4", {"button": truncate(inputname, 8), "friendlyName": "HDMI 4 - "+inputname, "androidName": "", "adbLaunchCommand": "HDMI4"});
+    }
+  }
+}
+
+
+
 class FiremoteCard extends LitElement {
 
   static getConfigElement() {
@@ -167,6 +202,7 @@ class FiremoteCard extends LitElement {
   }
 
   static styles = css`
+
           ha-card {
             background: rgba(30,30,30,0); 
             width: max-content; 
@@ -178,15 +214,15 @@ class FiremoteCard extends LitElement {
           .remote-body {
             background: linear-gradient(90deg, rgba(27,27,27,1) 0%, rgba(37,37,37,1) 8%, rgba(55,55,55,1) 50%, 
                                                rgba(37,37,37,1) 92%, rgba(27,27,27,1) 100%); 
-            border: solid #252525 2px;
-            border-radius: 8em 8em 8em 8em / 2.5em 2.5em 2.5em 2.5em;
-            padding: 20px 10px 30px 10px;
-            width: 170px;
+            border: solid #252525 0.14rem;
+            border-radius: 8rem 8rem 8rem 8rem / 2.5rem 2.5rem 2.5rem 2.5rem;
+            padding: 1.428rem 0.714rem 2.143rem 0.714rem;
             display: grid;
             justify-items: center;
-            grid-column-gap: 2px;
-            grid-row-gap: 7px;
-            grid-template-columns: 33% 33% 33%;
+            grid-column-gap: 0.14rem;
+            grid-row-gap: 0.5rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 12.286rem;
           }
 
           .three-col-span {
@@ -194,30 +230,84 @@ class FiremoteCard extends LitElement {
             grid-column-end: 4;
             width: 100%;
             display: grid;
-            grid-column-gap: 2px;
+            grid-column-gap: 0.143rem;
             grid-template-columns: 50% 50%;
             align-content: center;
           }
 
           .remote-button {
-            height: 50px; 
-            width: 50px;
-            border: solid black 1px;
+            height: 3.572rem;
+            width: 3.572rem;
+            border: solid black 0.0714rem;
             border-radius: 100%;
             display: grid;
             justify-content: center;
             align-content: center;
             color: rgb(198 198 198);
             background: rgb(33 33 33);
-            box-shadow: rgb(0 0 0 / 13%) 0 3px 2px 0px;
+            box-shadow: rgb(0 0 0 / 13%) 0 0.214rem 0.143rem 0;
             cursor: pointer;
             line-height: normal;
             user-select: none;
-            padding: 4px;
+            padding: 0.2857rem;
+          }
+
+          #power-button {
+            margin-bottom: -0.643rem;
+          }
+
+          .dpadContainer{
+            grid-column: 1 / 4;
+            display: grid;
+            margin-bottom: 0.65rem;
+            width: 11.286rem;
+            height: 11.286rem;
+          }
+
+          .centerbutton{
+            all: unset;
+            border: solid black 0.0714rem;
+            margin-left: 2.357rem;
+            margin-top: 2.357rem;
+            width: 6.428rem;
+            height: 6.428rem;
+            border-radius: 100%;
+            position: absolute;
+            background: rgba(55,55,55,1);
+            box-shadow: inset 0 0.2857rem 0.1428rem -0.1428rem #000000d9;
+            z-index: 2;
+          }
+
+          .directionButtonContainer{
+            transform: rotate(45deg);
+            border: 0.0714rem solid black;
+            display: grid;
+            grid-template-columns: auto auto;
+            border-radius: 100%;
+            overflow: hidden;
+            box-shadow: rgb(20 20 20) 0.1428rem 0.1428rem 0.4285rem;
+            position: relative;
+          }
+
+          .dpadbutton{
+            all: unset;
+            width: 5.5714rem;
+            height: 5.5714rem;
+            background: #141414;
+            color: white;
+            outline: solid #2e2e2e 0.0714rem;
+          }
+
+          .dpadbutton:active {
+            background: #282828;
+          }
+
+          .centerbutton:active {
+            transform: scale(95%);
           }
 
           .remote-button:active {
-            box-shadow: inset rgb(0 0 0 / 13%) 0 4px 2px 0px;
+            box-shadow: inset rgb(0 0 0 / 13%) 0 0.2857rem 0.1428rem 0;
           }
 
           .remote-button > ha-icon {
@@ -231,37 +321,23 @@ class FiremoteCard extends LitElement {
 
           .square {
             border-radius: 0;
-            border: 0px;
-            padding: 0px;
+            border: 0;
+            padding: 0;
           }
 
           .round-top {
             border-radius: 100% 100% 0 0;
-            border-bottom: 0px;
+            border-bottom: 0;
             box-shadow: none;
-            height: 55px;
-            margin-bottom: -7px;
-          }
-
-          .round-right {
-            border-radius: 0 100% 100% 0;
-            border-left: 0px;
-            width: 55px;
-            margin-left: -11px;
+            height: 3.92857rem;
+            margin-bottom: -0.5rem;
           }
 
           .round-bottom {
             border-radius: 0 0 100% 100%;
-            border-top: 0px;
-            height: 55px;
-            margin-top: -7px;
-          }
-
-          .round-left {
-            border-radius: 100% 0 0 100%;
-            border-right: 0px;
-            width: 55px;
-            margin-right: -11px;
+            border-top: 0;
+            height: 3.92857rem;
+            margin-top: -0.5rem;
           }
 
           .square:active, .round-bottom:active {
@@ -269,22 +345,22 @@ class FiremoteCard extends LitElement {
           }
 
           .srcButton {
-            margin-top: 8px;
-            height: 28px; 
-            width: 80px;
-            border: solid #090909 1px;
-            border-radius: 2em;
+            margin-top: 0.57rem;
+            height: 2rem;
+            width: 5.714rem;
+            border: solid #090909 0.0714rem;
+            border-radius: 2rem;
             display: grid;
             justify-items: center;
             align-content: center;
             color: rgb(198 198 198);
             background: rgb(33 33 33);
-            box-shadow: rgb(0 0 0 / 13%) 0 3px 2px 0px;
+            box-shadow: rgb(0 0 0 / 13%) 0 0.214rem 0.1428rem 0;
             cursor: pointer;
             line-height: normal;
             user-select: none;
-            font-size: 16px;
-            padding: 4px;
+            font-size: 1.14rem;
+            padding: 0.285rem;
           }
 
           .srcButton:active {
@@ -295,19 +371,19 @@ class FiremoteCard extends LitElement {
           .primeButton {
             color: #c6c6c6;
             background: #293942;
-            font-size: 12px;
+            font-size: 0.857rem;
           }
 
           .primeButton:active, .primeButton.appActive {
             color: #fff;
-            text-shadow: 0 0 3px black;
+            text-shadow: 0 0 0.214rem black;
             background: #53a3d1;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 15%);
+            box-shadow: 0 0 0.857rem 0.1428rem rgb(255 255 255 / 15%);
           }
 
           .netflixButton {
             font-weight: bold;
-            font-size: 14px;
+            font-size: 1rem;
             color: #6d2427;
             background: #878787;
           }
@@ -315,7 +391,7 @@ class FiremoteCard extends LitElement {
           .netflixButton:active, .netflixButton.appActive {
             color: #d30a14;
             background: #fff;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 15%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 15%);
           }
 
           .disneyPlusButton {
@@ -326,7 +402,7 @@ class FiremoteCard extends LitElement {
           .disneyPlusButton:active, .disneyPlusButton.appActive {
             color: #d1f8ff;
             background: #07183f;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .huluButton {
@@ -337,7 +413,7 @@ class FiremoteCard extends LitElement {
           .huluButton:active, .huluButton.appActive {
             color: #000;
             background: #1ce783;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .jellyfinButton {
@@ -348,30 +424,30 @@ class FiremoteCard extends LitElement {
           .jellyfinButton:active, .jellyfinButton.appActive {
             color: #fff;
             background: linear-gradient(90deg, rgba(112,62,128,1) 0%, rgba(0,108,144,1) 100%);
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .hboMaxButton {
             color: #c6c6c6;
-            font-size: 13px;
+            font-size: 0.9285rem;
             background: linear-gradient(90deg, rgba(44,8,60,1) 0%, rgba(23,4,51,1) 100%);
           }
 
           .hboMaxButton:active, .hboMaxButton.appActive {
             color: #fff;
             background: linear-gradient(80deg, #73109E 0%, #2F0B62 100%);
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .showtimeButton {
             color: #6d0000;
-            font-size: 11px;
+            font-size: 0.7857rem;
             background: black;
           }
 
           .showtimeButton:active, .showtimeButton.appActive {
             color: #b10000;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .starzButton {
@@ -382,12 +458,12 @@ class FiremoteCard extends LitElement {
 
           .starzButton:active, .starzButton.appActive {
             color: #d2ff00;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
             background: linear-gradient(99deg, rgba(26,101,107,1) 0%, rgba(16,62,66,1) 40%, rgba(22,122,130,1) 80%, rgba(26,101,107,1) 100%);
           }
 
           .youtubeButton {
-            font-size: 14px;
+            font-size: 1rem;
             color: #919191;
             font-weight: bold;
             background: rgb(74 0 0);
@@ -396,12 +472,12 @@ class FiremoteCard extends LitElement {
           .youtubeButton:active, .youtubeButton.appActive {
             color: #ffffff;
             background: rgb(199 0 0);
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
-            text-shadow: 0 0 4px black;
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
+            text-shadow: 0 0 0.2857rem black;
           }
 
           .pandoraButton {
-            font-size: 14px;
+            font-size: 1rem;
             color: #919191;
             font-weight: bold;
             background: #304b9b
@@ -410,7 +486,7 @@ class FiremoteCard extends LitElement {
           .pandoraButton:active, .pandoraButton.appActive {
             color: #fff;
             background: #3668ff;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .plexButton {
@@ -423,7 +499,7 @@ class FiremoteCard extends LitElement {
           .plexButton:active, .plexButton.appActive {
             color: #fff;
             background: #000;
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .plexButton.appActive::after {
@@ -433,7 +509,7 @@ class FiremoteCard extends LitElement {
 
           .tennisChannelButton {
             color: #919191;
-            font-size: 9px;
+            font-size: 0.6428rem;
             font-weight: bold;
             background: linear-gradient(180deg, rgba(24,74,49,1) 0%, rgba(8,36,21,1) 100%);
           }
@@ -441,7 +517,7 @@ class FiremoteCard extends LitElement {
           .tennisChannelButton:active, .tennisChannelButton.appActive {
             color: #fff;
             background: linear-gradient(180deg, rgba(40,131,85,1) 0%, rgba(16,73,43,1) 100%);
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
           }
 
           .amcPlusButton {
@@ -452,12 +528,12 @@ class FiremoteCard extends LitElement {
           }
 
           .amcPlusButton:active, .amcPlusButton.appActive {
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
             filter: none;
           }
 
           .appleTvButton {
-            font-size: 14px;
+            font-size: 1rem;
             color: #fff;
             font-weight: bold;
             background: #000;
@@ -465,12 +541,12 @@ class FiremoteCard extends LitElement {
           }
 
           .appleTvButton:active, .appleTvButton.appActive {
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
             filter: none;
           }
 
           .paramountPlusButton {
-            font-size: 11px;
+            font-size: 0.7857rem;
             color: #fff;
             font-weight: bold;
             background: #0667fc;
@@ -478,28 +554,28 @@ class FiremoteCard extends LitElement {
           }
 
           .paramountPlusButton:active, .paramountPlusButton.appActive {
-            box-shadow: 0px 0px 12px 2px rgb(255 255 255 / 20%);
+            box-shadow: 0 0 0.857rem 0.142rem rgb(255 255 255 / 20%);
             filter: none;
           }
 
           .remote-logo {
             grid-column-start: 1;
             grid-column-end: 4;
-            padding: 35px 33px 0px 33px;
-            width: 106px;
+            padding: 2.5rem 2.357rem 0 2.357rem;
+            width: 7.5714rem;
           }
 
           .litbutton {
-              border: solid #4b4c3c 1px;
-              box-shadow: 0px 0px 12px 1px rgb(255 255 25 / 15%);
+              border: solid #4b4c3c 0.0714rem;
+              box-shadow: 0 0 0.857rem 0.0714rem rgb(255 255 25 / 15%);
           }
           .litbutton > ha-icon {
             color: yellow !important;
           }
 
           .dimlitbutton {
-              border: solid #34342b 1px;
-              box-shadow: 0px 0px 12px 1px rgb(255 255 116 / 15%);
+              border: solid #34342b 0.0714rem;
+              box-shadow: 0 0 0.857rem 0.0714rem rgb(255 255 116 / 15%);
           }
           .dimlitbutton > ha-icon {
             color: #e5e59a !important;
@@ -510,12 +586,38 @@ class FiremoteCard extends LitElement {
           }
   `;
 
-   setConfig(config) {
-     if (!config.entity) {
-       throw new Error('You need to define a Fire TV or Android TV entity');
-     }
-     this._config = config;
-   }
+  setConfig(config) {
+    if (!config.entity) {
+     throw new Error('You need to define a Fire TV or Android TV entity');
+    }
+    this._config = config;
+  }
+
+  // Set the card height, which will vary based on the device type
+  getCardSize() {
+    var height=10;
+    switch(this._config.device_type){
+      case 'fire_tv_4_series':
+        height = 15;
+        break;
+      case 'fire_tv_cube_second_gen':
+      case 'fire_tv_stick_4k_max':
+        height = 13;
+        break;
+      case 'fire_stick_4k':
+        height = 12;
+        break;
+      case 'fire_tv_stick_lite':
+        height = 11;
+        break;
+      case 'fire_stick_first_gen':
+        height = 10;
+        break;
+    }
+    //console.log(height);
+    return height;
+  }
+
 
     getOpenAppID() {
       return this.hass.states[this._config.entity].attributes.app_id;
@@ -525,6 +627,9 @@ class FiremoteCard extends LitElement {
     if (!this.hass || !this._config) {
       return html``;
     }
+
+    // allow hdmi inputs where appropriate
+    handlehdmi(this._config)
 
     const stateObj = this.hass.states[this._config.entity];
     if (!stateObj) {
@@ -571,7 +676,8 @@ class FiremoteCard extends LitElement {
         }
       }
       else {
-        return configvalue;
+        return ' ';
+        //return configvalue; //This will return the raw button name
       }
     }
 
@@ -580,6 +686,23 @@ class FiremoteCard extends LitElement {
         var confBtnTwo =   config.app_launch_2 || 'netflix';
         var confBtnThree = config.app_launch_3 || 'disney-plus';
         var confBtnFour =  config.app_launch_4 || 'hulu';
+        var fiveAndSix = '';
+        if(config.app_launch_5 || config.app_launch_6) {
+          var confBtnFive = config.app_launch_5 || '';
+          var confBtnSix =  config.app_launch_6 || '';
+          var fiveAndSix = html `
+            <div class="three-col-span">
+              <button class="srcButton ${getAppButtonData(confBtnFive, 'className')} ${getAppButtonData(confBtnFive, 'active')}"
+                      id="${confBtnFive}-button" @click=${e.buttonClicked}>
+                ${getAppButtonData(confBtnFive, 'button')}
+              </button>
+              <button class="srcButton ${getAppButtonData(confBtnSix, 'className')} ${getAppButtonData(confBtnSix, 'active')}"
+                      id="${confBtnSix}-button" @click=${e.buttonClicked}>
+                ${getAppButtonData(confBtnSix, 'button')}
+              </button>
+            </div>
+          `
+        }
         return html`
           <div class="three-col-span">
             <button class="srcButton ${getAppButtonData(confBtnOne, 'className')} ${getAppButtonData(confBtnOne, 'active')}" 
@@ -602,6 +725,7 @@ class FiremoteCard extends LitElement {
               ${getAppButtonData(confBtnFour, 'button')}
             </button>
           </div>
+          ${fiveAndSix}
         `;
     }
 
@@ -724,33 +848,21 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <button class="remote-button${powerStatusClass}" style="margin-bottom: -18px;" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div> </div>
           <div> </div>
 
-          <div> </div>
-          <button class="remote-button round-top" style="margin-bottom: -12px;" id="up-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-up-bold"></ha-icon>
-          </button>
-          <div> </div>
-
-          <button class="remote-button round-left" id="left-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-left-bold"></ha-icon>
-          </button>
-          <button class="remote-button square" id="center-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:checkbox-blank-circle"></ha-icon>
-          </button>
-          <button class="remote-button round-right" id="right-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-right-bold"></ha-icon>
-          </button>
-
-          <div> </div>
-          <button class="remote-button round-bottom" style="margin-bottom: 9px;" id="down-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-down-bold"></ha-icon>
-          </button>
-          <div> </div>
+          <div class="dpadContainer">
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+          </div>
 
           <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
@@ -818,33 +930,21 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <button class="remote-button${powerStatusClass}" style="margin-bottom: -18px;" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div> </div>
           <div> </div>
 
-          <div> </div>
-          <button class="remote-button round-top" style="margin-bottom: -12px;" id="up-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-up-bold"></ha-icon>
-          </button>
-          <div> </div>
-
-          <button class="remote-button round-left" id="left-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-left-bold"></ha-icon>
-          </button>
-          <button class="remote-button square" id="center-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:checkbox-blank-circle"></ha-icon>
-          </button>
-          <button class="remote-button round-right" id="right-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-right-bold"></ha-icon>
-          </button>
-
-          <div> </div>
-          <button class="remote-button round-bottom" style="margin-bottom: 9px;" id="down-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-down-bold"></ha-icon>
-          </button>
-          <div> </div>
+          <div class="dpadContainer">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
 
           <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
@@ -900,33 +1000,21 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <button class="remote-button${powerStatusClass}" style="margin-bottom: -18px;" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div> </div>
           <div> </div>
 
-          <div> </div>
-          <button class="remote-button round-top" style="margin-bottom: -12px;" id="up-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-up-bold"></ha-icon>
-          </button>
-          <div> </div>
-
-          <button class="remote-button round-left" id="left-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-left-bold"></ha-icon>
-          </button>
-          <button class="remote-button square" id="center-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:checkbox-blank-circle"></ha-icon>
-          </button>
-          <button class="remote-button round-right" id="right-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-right-bold"></ha-icon>
-          </button>
-
-          <div> </div>
-          <button class="remote-button round-bottom" style="margin-bottom: 9px;" id="down-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-down-bold"></ha-icon>
-          </button>
-          <div> </div>
+          <div class="dpadContainer">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
 
           <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
@@ -981,27 +1069,15 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <div> </div>
-          <button class="remote-button round-top" style="margin-bottom: -12px; margin-top: 15px;" id="up-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-up-bold"></ha-icon>
-          </button>
-          <div> </div>
-
-          <button class="remote-button round-left" id="left-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-left-bold"></ha-icon>
-          </button>
-          <button class="remote-button square" id="center-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:checkbox-blank-circle"></ha-icon>
-          </button>
-          <button class="remote-button round-right" id="right-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-right-bold"></ha-icon>
-          </button>
-
-          <div> </div>
-          <button class="remote-button round-bottom" style="margin-bottom: 9px;" id="down-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-down-bold"></ha-icon>
-          </button>
-          <div> </div>
+          <div class="dpadContainer" style="margin-top: 25px;">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
 
           <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
@@ -1050,27 +1126,15 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <div> </div>
-          <button class="remote-button round-top" style="margin-bottom: -12px; margin-top: 15px;" id="up-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-up-bold"></ha-icon>
-          </button>
-          <div> </div>
-
-          <button class="remote-button round-left" id="left-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-left-bold"></ha-icon>
-          </button>
-          <button class="remote-button square" id="center-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:checkbox-blank-circle"></ha-icon>
-          </button>
-          <button class="remote-button round-right" id="right-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-right-bold"></ha-icon>
-          </button>
-
-          <div> </div>
-          <button class="remote-button round-bottom" style="margin-bottom: 9px;" id="down-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-down-bold"></ha-icon>
-          </button>
-          <div> </div>
+          <div class="dpadContainer" style="margin-top: 25px;">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
 
           <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
@@ -1419,43 +1483,61 @@ class FiremoteCardEditor extends LitElement {
 
 
   getAppChoices(buttonIndex, optionvalue) {
-    var appkeys = [];
-    for (var [key, value] of appmap.entries()) {
-      appkeys.push(key)
+    if(this._config.device_type == 'fire_tv_4_series' || this._config.device_type == 'fire_tv_stick_4k_max' || this._config.device_type == 'fire_tv_cube_second_gen') {
+      var appkeys = [];
+      for (var [key, value] of appmap.entries()) {
+        appkeys.push(key)
+      }
+      var blankOption = '';
+      if(!(appmap.has(optionvalue))){
+        blankOption = html `<option value="-" selected> - - - - </option>`;
+        //this.configChanged;
+      }
+      if(buttonIndex == 5 || buttonIndex == 6) {
+        blankOption = html `<option value=""> - - - - </option>`;
+      }
+
+      return html `
+        App Launch Button ${buttonIndex}:
+        <select name="app_launch_${buttonIndex}" id="app_launch_${buttonIndex}" style="padding: .6em; font-size: 1em;"
+          .value=${optionvalue}
+          @focusout=${this.configChanged}
+          @change=${this.configChanged}
+        >
+          ${blankOption}
+          ${appkeys.map((app) => {
+            if (app != optionvalue) {
+              return html`<option value="${app}">${appmap.get(app).friendlyName}</option> `
+            }
+            else {
+              return html`<option value="${app}" selected>${appmap.get(app).friendlyName}</option> `
+            }
+          })}
+        </select>
+      `;
     }
-
-    return html `
-      <select name="app_launch_${buttonIndex}" id="app_launch_${buttonIndex}" style="padding: .6em; font-size: 1em;"
-        .value=${optionvalue}
-        @focusout=${this.configChanged}
-        @change=${this.configChanged}
-      >
-        ${appkeys.map((app) => {
-          if (app != optionvalue) {
-            return html`<option value="${app}">${appmap.get(app).friendlyName}</option> `;
-          }
-          else {
-            return html`<option value="${app}" selected>${appmap.get(app).friendlyName}</option> `;
-          }
-        })}
-      </select>
-    `;
   }
-
 
 
   render() {
     if (!this.hass || !this._config) {
       return html``;
     }
-
     const mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
+    var blankEntity = '';
+    if(this._config.entity == '') {
+      blankEntity = html `<option value="" selected> - - - - </option> `;
+    }
+
+    // Show and hide HDMI inputs if the device has them
+    handlehdmi(this._config);
 
     return html`
           Entity:<br>
           <select name="entity" id="entity" style="padding: .6em; font-size: 1em;" .value="${this._config.entity}"
             @focusout=${this.configChanged}
             @change=${this.configChanged} >
+            ${blankEntity}
             ${mediaPlayerEntities.map((eid) => {
               if (eid != this._config.entity) {
                 return html`<option value="${eid}">${this.hass.entities[eid].name || eid}</option> `;
@@ -1506,20 +1588,17 @@ class FiremoteCardEditor extends LitElement {
         </select>
         <br>
         <br>
-        App Launch Button 1: 
         ${this.getAppChoices("1", this._config.app_launch_1)}
         <br>
-        App Launch Button 2: 
         ${this.getAppChoices("2", this._config.app_launch_2)}
         <br>
-        App Launch Button 3: 
         ${this.getAppChoices("3", this._config.app_launch_3)}
         <br>
-        App Launch Button 4: 
         ${this.getAppChoices("4", this._config.app_launch_4)}
         <br>
-
-
+        ${this.getAppChoices("5", this._config.app_launch_5)}
+        <br>
+        ${this.getAppChoices("6", this._config.app_launch_6)}
     `;
   }
 }
