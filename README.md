@@ -38,7 +38,7 @@
 1. Click "SAVE"
 
 
-![Dashboard](https://github.com/PRProd/HA-Firemote/blob/main/Example%20Images/dashboard.jpg)
+![Dashboard](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/dashboard.jpg)
 
 
 ## YAML card setup options
