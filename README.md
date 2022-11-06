@@ -1,5 +1,7 @@
 # HA-Firemote
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/PRProd/HA-Firemote?style=for-the-badge)
+![Maintenance](https://img.shields.io/maintenance/yes/2023?style=for-the-badge)
 
 | Fire TV | Fire TV Cube,<br>Fire TV Stick 4K Max | Fire TV Stick 4K | Fire TV Stick Lite | Fire Stick (1st Gen) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -21,12 +23,8 @@
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
 1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
 1. Click on HACS and select Frontend
-1. Click the three dots in the upper right hand corner and select Custom Repositories
-1. Paste the URL of this repository in the "Repository" field: https://github.com/PRProd/HA-Firemote
-1. Under Category, select Lovelace
-1. Click "ADD"
 1. In the lower right hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
-1. Search for "Firemote Card", click on it and then click the "DOWNLOAD" button in the lower right hand corner
+1. Search for "Firemote Card", and then click the "DOWNLOAD" button in the lower right hand corner
 1. You will be prompted to reload your browser.  Click the RELOAD button to continue
 
 
