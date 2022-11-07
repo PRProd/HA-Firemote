@@ -42,7 +42,7 @@
 ## YAML card setup options
 Example:
 ```yaml
-type: cusom:firemote-card
+type: custom:firemote-card
 entity: media_player.fire_tv_192_168_1_30
 device_type: fire_tv_4_series
 compatibility_mode: default
