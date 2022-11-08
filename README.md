@@ -10,7 +10,7 @@
 ## Prerequisites
 * A functioning version of [Home Assistant](https://www.home-assistant.io/)
 * [HACS](https://peyanski.com/how-to-install-home-assistant-community-store-hacs/)
-* A supported Amazon Fire Device
+* A supported Amazon Fire Device - ( [Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) )
   * [Fire TV (4 Series)](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-edition-smart-tv.html?v=4-series)
   * [Fire TV Cube (2nd Gen)](https://www.amazon.com/dp/B08XMDNVX6)
   * [Fire TV Stick 4K Max](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvstick4kmax)
@@ -24,7 +24,7 @@
 1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
 1. Click on HACS and select Frontend
 1. In the lower right hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
-1. Search for "Firemote Card", and then click the "DOWNLOAD" button in the lower right hand corner
+1. Search for, and click on "Firemote Card", then click the "DOWNLOAD" button in the lower right hand corner
 1. You will be prompted to reload your browser.  Click the RELOAD button to continue
 
 
