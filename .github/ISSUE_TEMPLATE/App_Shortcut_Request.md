@@ -2,7 +2,7 @@
 name: App Shortcut request
 about: Request a new app shortcut
 title: 'App Shortcut Request: '
-labels: 'enhancement'
+labels: 'New App Shortcut'
 assignees: 'PRProd'
 
 ---
