@@ -1,0 +1,43 @@
+name: Device Support Request
+description: Request Support for a currently unsupported Device
+title: "[New Device Support]: "
+labels: ["New Device Support", "enhancement"]
+assignees:
+  - PRProd
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to contribute to this project with your requests!
+  - type: input
+    id: appname
+    attributes:
+      label: Device Name
+      description: The official name of the device you own that is not yet supported.  Please use this list to find the appropriate name to use in this field: https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart  This official Amazon Product link might be helpful to assist you with this task: https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html
+      placeholder: ex. Fire TV 4-Series (2021)
+    validations:
+      required: true
+  - type: dropdown
+    id: bestEventNumber
+    attributes:
+      label: Which compatability mode event number works BEST with your device?
+      multiple: false
+      options:
+        - event0
+        - event1
+        - event2
+        - event3
+        - event4
+        - event5
+        - event6
+        - event7
+        - event8
+      required: true
+  - type: textarea
+    id: additionalInfo
+    attributes:
+      label: Optional Comments
+      description: Do all of your buttons seem to work except for a few?  Which ones?  Do other event numbers also work?
+      placeholder: 
+    validations:
+      required: false
