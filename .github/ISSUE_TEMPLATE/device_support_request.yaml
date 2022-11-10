@@ -13,7 +13,7 @@ body:
     id: appname
     attributes:
       label: Device Name
-      description: The official name of the device you own that is not yet supported.  Please use this list to find the appropriate name to use in this field: https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart  This official Amazon Product link might be helpful to assist you with this task: https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html
+      description: 'The official name of the device you own that is not yet supported.  Please use this list to find the appropriate name to use in this field: https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart  This official Amazon Product link might be helpful to assist you with this task: https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html'
       placeholder: ex. Fire TV 4-Series (2021)
     validations:
       required: true
