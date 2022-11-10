@@ -11,14 +11,14 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 ## Prerequisites
 * A functioning version of [Home Assistant](https://www.home-assistant.io/)
 * [HACS](https://peyanski.com/how-to-install-home-assistant-community-store-hacs/)
-* A supported Amazon Fire Device - ( [Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) )
-  * [Fire TV (4 Series)](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-edition-smart-tv.html?v=4-series)
-  * [Fire TV Cube (2nd Gen)](https://www.amazon.com/dp/B08XMDNVX6)
-  * [Fire TV Stick 4K Max](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvstick4kmax)
-  * [Fire TV Stick 4K](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvstick4k)
-  * [Fire TV Stick Lite](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvsticklite)
-  * [Fire Stick (1st Gen)](https://developer.amazon.com/docs/fire-tv/device-specifications-fire-tv-streaming-media-player.html?v=ftvstickgen1) 
-  * Others might work as well with limited functionality
+* A supported Amazon Fire Device Type
+  * Amazon Fire Smart TV
+  * Amazon Fire Stick
+  * Amazon Fire Cube
+  * Other Android based non-fire devices might work as well, but with limited (and unsupported) functionality
+
+[Which devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)
+<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)
 
 ## Download and Setup
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
@@ -65,3 +65,22 @@ Options:
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | prime-video<br>netflix<br>disney-plus<br>hulu<br>jellyfin<br>hbo-max<br>showtime<br>starz<br>youtube<br>pandora<br>plex<br>tennis-channel<br>amc-plus<br>apple-tv<br>paramount-plus<br>hdmi_1<br>hdmi_2<br>hdmi_3<br>hdmi_4 | Quick launch apps customization |
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button |
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage.  Default size is 100 |
+<br>
+<br>
+<br>
+
+## FAQ
+### Why isn't my Fire Device supported?
+There are currently over 40 different kinds of Amazon Fire devices, so it will take a while for every device to gain properly tested support.  If Firemote doesn't support your device yet yet, you can still use Firemote!  Simply choose a supported device that is similar to the one that you have (preferrably a remote that looks the same as your physical remote), then you can test different compatability modes to find out which one works the best.<br>
+
+For extra credit, you could submit a request to have your device added!  It's simple!  Click on the [Issues](../../issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "Device Support Request" option.  Your help is VERY appreciated!
+<br>
+<br>
+
+### I want to have a shortcut button for an app I use frequently, but it's not on the list.  Can it be added?
+Absolutely!  Simply ask!  Here's how: Click on the [Issues](../../issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through traditional Amazon app downloading channels (not sideloaded), your request will be granted ASAP.
+<br>
+<br>
+
+### How do I report a problem, make a request, or just talk about stuff?
+Click on the [Issues](../../issues) button on the top of this page, click 'New Issue' and then select the appropriate category for your needs.  You're also welcome to join or begin a new [discussion ](../../discussions) if that seems more suitable for your needs.
