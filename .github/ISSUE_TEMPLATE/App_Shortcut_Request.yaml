@@ -1,0 +1,35 @@
+name: App Shortcut Request
+description: Reqeuest a new app shortcut
+title: "[New App Shortcut]: "
+labels: ["New App Shortcut", "enhancement"]
+assignees:
+  - PRProd
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to contribute to this project with your requests!
+  - type: input
+    id: appname
+    attributes:
+      label: App Name
+      description: The name of the app you'd like to see added
+      placeholder: ex. YouTube
+    validations:
+      required: true
+  - type: checkboxes
+    id: canBeDownloaded
+    attributes:
+      label: Can this app be freely downloaded through official means?
+      description: This answer must be yes.  Requests for apps that can only be "sideloaded" will be rejected.
+      options:
+        - label: Yes
+          required: true
+  - type: textarea
+    id: additionalInfo
+    attributes:
+      label: Optional Comments
+      description: Add any other related comments here, or leave this blank.
+      placeholder: 
+    validations:
+      required: false
