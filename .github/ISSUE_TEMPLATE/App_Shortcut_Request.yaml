@@ -23,7 +23,7 @@ body:
       label: Can this app be freely downloaded through official means?
       description: This answer must be yes.  Requests for apps that can only be "sideloaded" will be rejected.
       options:
-        - label: Yes
+        - label: 'Yes'
           required: true
   - type: textarea
     id: additionalInfo
