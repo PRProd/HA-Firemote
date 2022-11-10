@@ -32,7 +32,6 @@ body:
         - event6
         - event7
         - event8
-      required: true
   - type: textarea
     id: additionalInfo
     attributes:
