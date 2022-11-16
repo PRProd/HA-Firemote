@@ -143,7 +143,7 @@ const fastappchoices = {
   "crave-tv": {
       "button": "crave",
       "friendlyName": 'Crave TV (Canada)',
-      "appName": "Crave",
+      "appName": "ca.bellmedia.cravetv",
       "className": "craveTVButton",
       "androidName": "ca.bellmedia.cravetv" },
 
