@@ -53,6 +53,9 @@ app_launch_3: hdmi_1
 app_launch_4: youtube
 hdmi_1: Cable
 scale: 85
+button_overrides:
+  mute-button:
+    script: receiver_mute_script
 ```
 
 Options:

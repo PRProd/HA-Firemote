@@ -1,5 +1,7 @@
 import { LitElement, html, css } from "https://unpkg.com/lit?module";
 
+// https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html
+
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
   detail = detail === null || detail === undefined ? {} : detail;
@@ -129,6 +131,21 @@ const fastappchoices = {
       "className": "paramountPlusButton",
       "androidName": "com.cbs.ott",
       "adbLaunchCommand": "adb shell am start -n com.cbs.ott/com.cbs.app.tv.ui.activity.DeepLinkActivity" },
+
+  "bell-fibe-tv": {
+      "button": "Bell Fibe TV",
+      "friendlyName": 'Bell Fibe TV (Canada)',
+      "appName": "ca.bell.tv.firetv",
+      "className": "bellFibeTVButton",
+      "androidName": "ca.bell.tv.firetv",
+      "adbLaunchCommand": "adb shell am start -n ca.bell.tv.firetv/ca.bell.fiberemote.tv.MainTvActivity" },
+
+  "bbc-iplayer": {
+      "button": "BBC iPlayer",
+      "friendlyName": 'BBC iPlayer (UK)',
+      "appName": "uk.co.bbc.iplayer",
+      "className": "bbciplayerButton",
+      "androidName": "uk.co.bbc.iplayer" },
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
@@ -338,7 +355,7 @@ class FiremoteCard extends LitElement {
 
           .remote-button:active > ha-icon {
             color: #bcbcbc;
-            transform: scale(0.85);
+            transform: scale(calc(var(--sz) * 0.85));
           }
 
           .square {
@@ -580,6 +597,30 @@ class FiremoteCard extends LitElement {
             filter: none;
           }
 
+          .bellFibeTVButton {
+            color: rgb(255 255 255);
+            font-size: calc(var(--sz) * 0.78rem);
+            background: linear-gradient(180deg, rgba(71,86,255,1) 0%, rgba(46,62,234,1) 100%);
+            filter: grayscale(10%) brightness(80%);
+          }
+
+          .bellFibeTVButton:active, .bellFibeTVButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .bbciplayerButton {
+            color: rgb(255 255 255);
+            font-size: calc(var(--sz) * 0.78rem);
+            background: linear-gradient(120deg, rgba(52,3,61,1) 0%, rgba(183,14,209,1) 100%);
+            filter: grayscale(10%) brightness(80%);
+          }
+
+          .bbciplayerButton:active, .bbciplayerButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
           .remote-logo {
             grid-column-start: 1;
             grid-column-end: 4;
@@ -612,32 +653,6 @@ class FiremoteCard extends LitElement {
             height: calc(var(--sz) * 5.7143rem);
           }
   `;
-
-
-  // Set the card height, which will vary based on the device type - commented out since scale is a thing now
-  //getCardSize() {
-  //  var height=10;
-  //  switch(this._config.device_type){
-  //    case 'fire_tv_4_series':
-  //      height = 15;
-  //      break;
-  //    case 'fire_tv_cube_second_gen':
-  //    case 'fire_tv_stick_4k_max':
-  //      height = 13;
-  //      break;
-  //    case 'fire_stick_4k':
-  //      height = 12;
-  //      break;
-  //    case 'fire_tv_stick_lite':
-  //      height = 11;
-  //      break;
-  //    case 'fire_stick_first_gen':
-  //      height = 10;
-  //      break;
-  //  }
-  //  //console.log(height);
-  //  return height;
-  //}
 
 
     getOpenAppID() {
@@ -865,7 +880,7 @@ class FiremoteCard extends LitElement {
 
 
     // FireTV 4 Series Control
-    if (deviceType == 'fire_tv_4_series') {
+    if (deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35') {
     return html`
       <ha-card>
 
@@ -1244,12 +1259,34 @@ class FiremoteCard extends LitElement {
     // Inspect user prefs
     const deviceType = this._config.device_type;
     const compatibility_mode = this._config.compatibility_mode || 'default';
+    const overrides = this._config.button_overrides;
 
+    // Check for button override before proceeding
+    if(typeof overrides !== 'undefined' && overrides !== null) {
+        if(typeof overrides[clicked.target.id] !== 'undefined') {
+            const overrideDef = overrides[clicked.target.id];
+
+            if(overrideDef !== null && typeof overrideDef.script !== 'undefined') {
+                // handle overrides via external script
+                try{ this.hass.callService("script", overrideDef.script) }
+                catch { return; }
+                fireEvent(this, 'haptic', 'light'); // haptic feedback on success
+                return;
+            }
+            else {
+                // handle overrides via yaml instructions
+                // TODO: console.log('Im responding to a YAML override for the '+clicked.target.id);
+            }
+        }
+    }
+
+    // provide haptic feedback for button press
+    fireEvent(this, 'haptic', 'light')
 
     // Choose event listener path for client android device
     var eventListenerBinPath = '';
     if(compatibility_mode == 'default' || compatibility_mode == 'strong' || compatibility_mode == '') {
-        if(deviceType == 'fire_tv_4_series') {
+        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35') {
             var eventListenerBinPath = '/dev/input/event0';
         }
         if(deviceType == 'fire_stick_first_gen') {
@@ -1266,13 +1303,20 @@ class FiremoteCard extends LitElement {
         var eventListenerBinPath = '/dev/input/'+compatibility_mode;
     }
 
-    // provide haptic feedback for button press
-    fireEvent(this, 'haptic', 'light')
-
     // Power Button
     if(clicked.target.id == 'power-button') {
+      const state = this.hass.states[this._config.entity];
+      const stateStr = state ? state.state : 'off';
       if(compatibility_mode == 'strong') {
         this.hass.callService("media_player", "toggle", { entity_id: this._config.entity});
+      }
+      else if(deviceType == 'fire_stick_4k') {
+        if(stateStr != 'off' && stateStr != 'unavailable') {
+          this.hass.callService("media_player", "turn_off", { entity_id: this._config.entity});
+        }
+        else {
+          this.hass.callService("media_player", "turn_on", { entity_id: this._config.entity});
+        }
       }
       else {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
@@ -1319,7 +1363,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'CENTER' });
       }
       else {
-        if(deviceType == 'fire_tv_4_series') {
+        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35') {
           this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 28 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 28 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
         }
         else {
@@ -1402,7 +1446,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'FAST_FORWARD' });
       }
       else {
-        if(deviceType == 'fire_tv_4_series') {
+        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35') {
           this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 159 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 159 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
         }
         else {
@@ -1564,7 +1608,7 @@ class FiremoteCardEditor extends LitElement {
 
 
   getAppChoices(buttonIndex, optionvalue) {
-    if(this._config.device_type == 'fire_tv_4_series' || this._config.device_type == 'fire_tv_stick_4k_max' || this._config.device_type == 'fire_tv_cube_second_gen') {
+    if(this._config.device_type == 'fire_tv_4_series' || this._config.device_type == 'fire_tv_stick_4k_max' || this._config.device_type == 'fire_tv_cube_second_gen' || this._config.device_type == 'fire_tv_toshiba_v35') {
       var appkeys = [];
       for (var [key, value] of appmap.entries()) {
         appkeys.push(key)
@@ -1637,12 +1681,25 @@ class FiremoteCardEditor extends LitElement {
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
-          <option value="fire_tv_4_series">Fire TV (4 Series)</option>
-          <option value="fire_tv_cube_second_gen">Fire TV Cube (2nd Gen)</option>
-          <option value="fire_tv_stick_4k_max">Fire TV Stick 4K Max</option>
-          <option value="fire_stick_4k">Fire TV Stick 4K</option>
-          <option value="fire_tv_stick_lite">Fire TV Stick Lite</option>
-          <option value="fire_stick_first_gen">Fire Stick (1st gen)</option>
+          <optgroup label="Smart TV">
+            <option value="fire_tv_4_series">Fire TV (4 Series - 2021)</option>
+            <option value="fire_tv_toshiba_v35">Toshiba Fire TV (V35 Series - 2021)</option>
+          </optgroup>
+          <optgroup label="Fire TV Cube">
+            <option value="fire_tv_cube_third_gen" disabled>Fire TV Cube (3rd Gen - 2022)</option>
+            <option value="fire_tv_cube_second_gen">Fire TV Cube (2nd Gen - 2019)</option>
+            <option value="fire_tv_cube_first_gen" disabled>Fire TV Cube (1st Gen - 2018)</option>
+          </optgroup>
+          <optgroup label="Streaming Media Player">
+            <option value="fire_tv_stick_4k_max">Fire TV Stick 4K Max (1st Gen - 2020)</option>
+            <option value="fire_stick_4k_3rd_gen" disabled>Fire TV Stick (3rd Gen - 2020)</option>
+            <option value="fire_tv_stick_lite">Fire TV Stick Lite (1st Gen - 2020)</option>
+            <option value="fire_stick_4k">Fire TV Stick 4K (1st Gen - 2018)</option>
+            <option value="fire_stick_second_gen" disabled>Fire TV Stick (2nd gen - 2016 - 2019)</option>
+            <option value="fire_stick_basic" disabled>Fire TV Stick (Basic Edition - 2017)</option>
+            <option value="fire_stick_second_gen_2015" disabled>Fire TV Stick (2nd Gen - 2015)</option>
+            <option value="fire_stick_first_gen">Fire TV Stick (1st gen - 2014)</option>
+          </optgroup>
         </select>
 
         <br>
