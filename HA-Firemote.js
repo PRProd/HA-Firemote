@@ -145,7 +145,8 @@ const fastappchoices = {
       "friendlyName": 'Crave TV (Canada)',
       "appName": "ca.bellmedia.cravetv",
       "className": "craveTVButton",
-      "androidName": "ca.bellmedia.cravetv" },
+      "androidName": "ca.bellmedia.cravetv",
+      "adbLaunchCommand": "adb shell am start -n ca.bellmedia.cravetv/awl.application.MainActivity" },
 
   "bbc-iplayer": {
       "button": "BBC iPlayer",
