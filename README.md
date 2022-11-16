@@ -68,6 +68,44 @@ Options:
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | prime-video<br>netflix<br>disney-plus<br>hulu<br>jellyfin<br>hbo-max<br>showtime<br>starz<br>youtube<br>pandora<br>plex<br>tennis-channel<br>amc-plus<br>apple-tv<br>paramount-plus<br>hdmi_1<br>hdmi_2<br>hdmi_3<br>hdmi_4 | Quick launch apps customization |
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button |
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage.  Default size is 100 |
+| button_overrides | complex | no | read details in read me file | read details in read me file |
+<br>
+<br>
+<br>
+
+## Button Overrides
+Firemote buttons can be overridden by Home Assistant scripts through a simple YAML configuration.  
+
+Ex:
+```yaml
+button_overrides:
+  mute-button:
+    script: receiver_mute_script
+  volume-down-button:
+    script: receiver_volume_down_script
+```
+Valid button names are as follows:
+ - power-button
+ - keyboard-button
+ - up-button
+ - left-button
+ - center-button
+ - right-button
+ - down-button
+ - back-button
+ - home-button
+ - hamburger-button
+ - rewind-button
+ - playpause-button
+ - fastforward-button
+ - volume-up-button
+ - channel-up-button
+ - volume-down-button
+ - tv-button
+ - channel-down-button
+ - mute-button
+ - settings-button
+ - app-switch-button
 <br>
 <br>
 <br>
