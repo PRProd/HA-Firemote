@@ -140,6 +140,13 @@ const fastappchoices = {
       "androidName": "ca.bell.tv.firetv",
       "adbLaunchCommand": "adb shell am start -n ca.bell.tv.firetv/ca.bell.fiberemote.tv.MainTvActivity" },
 
+  "crave-tv": {
+      "button": "crave",
+      "friendlyName": 'Crave TV (Canada)',
+      "appName": "Crave",
+      "className": "craveTVButton",
+      "androidName": "ca.bellmedia.cravetv" },
+
   "bbc-iplayer": {
       "button": "BBC iPlayer",
       "friendlyName": 'BBC iPlayer (UK)',
@@ -617,6 +624,19 @@ class FiremoteCard extends LitElement {
           }
 
           .bbciplayerButton:active, .bbciplayerButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .craveTVButton {
+            color: #00c1f3;
+            background: #0a2aaa;
+            font-size: calc(var(--sz) * 1.3rem);
+            font-weight: bold;
+            filter: grayscale(20%) brightness(60%);
+          }
+
+          .craveTVButton:active, .craveTVButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
