@@ -54,7 +54,7 @@ const fastappchoices = {
       "appName": "ca.bellmedia.cravetv",
       "className": "craveTVButton",
       "androidName": "ca.bellmedia.cravetv",
-      "adbLaunchCommand": "adb shell $ am start -n ca.bellmedia.cravetv/axis.androidtv.sdk.app.MainActivity" },
+      "adbLaunchCommand": "adb shell am start -n ca.bellmedia.cravetv/axis.androidtv.sdk.app.MainActivity" },
 
   "disney-plus": {
       "button": "Disney+",
