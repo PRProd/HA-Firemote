@@ -17,97 +17,6 @@ const fireEvent = (node, type, detail, options) => {
 
 
 const fastappchoices = {
-  "prime-video" : { 
-      "button": "prime video",
-      "friendlyName": "Prime Video",
-      "appName": "Prime Video (FireTV)",
-      "className": "primeButton",
-      "androidName": "com.amazon.avod",
-      "androidName2": "com.amazon.firebat",
-      "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
-
-  "netflix": {
-      "button": "NETFLIX",
-      "friendlyName": "Netflix",
-      "appName": "Netflix",
-      "className": "netflixButton",
-      "androidName": "com.netflix.ninja",
-      "adbLaunchCommand": "adb shell am start -n com.netflix.ninja/.MainActivity" },
-
-  "disney-plus": {
-      "button": "Disney+",
-      "friendlyName": "Disney +",
-      "appName": "Disney+",
-      "className": "disneyPlusButton",
-      "androidName": "com.disney.disneyplus",
-      "adbLaunchCommand": "adb shell am start -n com.disney.disneyplus/com.bamtechmedia.dominguez.main.MainActivity" },
-
-  "hulu": { 
-      "button": "hulu",
-      "friendlyName": "Hulu",
-      "appName": "Hulu",
-      "className": "huluButton",
-      "androidName": "com.hulu.plus" },
-
-  "jellyfin": {
-      "button": "Jellyfin",
-      "friendlyName": "Jellyfin",
-      "appName": "Jellyfin",
-      "className": "jellyfinButton",
-      "androidName": "org.jellyfin.androidtv" },
-
-  "hbo-max": {
-      "button": "HBO max",
-      "friendlyName": "HBO Max",
-      "appName": "com.hbo.hbonow",
-      "className": "hboMaxButton",
-      "androidName": "com.hbo.hbonow",
-      "adbLaunchCommand": "adb shell am start -n com.hbo.hbonow/com.hbo.max.HboMaxActivity" },
-
-  "showtime": {
-      "button": "SHOWTIME",
-      "friendlyName": "Showtime",
-      "appName": "com.showtime.standalone",
-      "className": "showtimeButton",
-      "androidName": "com.showtime.standalone",
-      "adbLaunchCommand": "adb shell am start -n com.showtime.standalone/com.showtime.showtimeanytime.activities.IntroActivity" },
-
-  "starz": {
-      "button": "STARZ",
-      "friendlyName": "Starz",
-      "appName": "com.starz.starzplay.firetv",
-      "className": "starzButton",
-      "androidName": "com.starz.starzplay.firetv" },
-
-  "youtube": {
-      "button": "YouTube",
-      "friendlyName": "YouTube",
-      "appName": "YouTube (FireTV)",
-      "className": "youtubeButton",
-      "androidName": "com.amazon.firetv.youtube",
-      "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube/dev.cobalt.app.MainActivity" },
-
-  "pandora": {
-      "button": "pandora",
-      "friendlyName": "Pandora",
-      "appName": "com.pandora.android.gtv",
-      "className": "pandoraButton",
-      "androidName": "com.pandora.android.gtv" },
-
-  "plex": {
-      "button": "Plex",
-      "friendlyName": "plex",
-      "appName": "Plex",
-      "className": "plexButton",
-      "androidName": "com.plexapp.android" },
-
-  "tennis-channel": {
-      "button": "TENNIS CHANNEL",
-      "friendlyName": "Tennis Channel",
-      "appName": "com.tennischannel.tceverywhere.amazon",
-      "className": "tennisChannelButton",
-      "androidName": "com.tennischannel.tceverywhere.amazon" },
-
   "amc-plus": {
       "button": "amc+",
       "friendlyName": "AMC+",
@@ -124,13 +33,12 @@ const fastappchoices = {
       "androidName": "com.apple.atve.amazon.appletv",
       "adbLaunchCommand": "adb shell am start -n com.apple.atve.amazon.appletv/.MainActivity" },
 
-  "paramount-plus": {
-      "button": "Paramount+",
-      "friendlyName": 'Paramount+',
-      "appName": "com.cbs.ott",
-      "className": "paramountPlusButton",
-      "androidName": "com.cbs.ott",
-      "adbLaunchCommand": "adb shell am start -n com.cbs.ott/com.cbs.app.tv.ui.activity.DeepLinkActivity" },
+  "bbc-iplayer": {
+      "button": "BBC iPlayer",
+      "friendlyName": 'BBC iPlayer (UK)',
+      "appName": "uk.co.bbc.iplayer",
+      "className": "bbciplayerButton",
+      "androidName": "uk.co.bbc.iplayer" },
 
   "bell-fibe-tv": {
       "button": "Bell Fibe TV",
@@ -146,14 +54,114 @@ const fastappchoices = {
       "appName": "ca.bellmedia.cravetv",
       "className": "craveTVButton",
       "androidName": "ca.bellmedia.cravetv",
-      "adbLaunchCommand": "adb shell am start -n ca.bellmedia.cravetv/awl.application.MainActivity" },
+      "adbLaunchCommand": "adb shell $ am start -n ca.bellmedia.cravetv/axis.androidtv.sdk.app.MainActivity" },
 
-  "bbc-iplayer": {
-      "button": "BBC iPlayer",
-      "friendlyName": 'BBC iPlayer (UK)',
-      "appName": "uk.co.bbc.iplayer",
-      "className": "bbciplayerButton",
-      "androidName": "uk.co.bbc.iplayer" },
+  "disney-plus": {
+      "button": "Disney+",
+      "friendlyName": "Disney +",
+      "appName": "Disney+",
+      "className": "disneyPlusButton",
+      "androidName": "com.disney.disneyplus",
+      "adbLaunchCommand": "adb shell am start -n com.disney.disneyplus/com.bamtechmedia.dominguez.main.MainActivity" },
+
+  "hbo-max": {
+      "button": "HBO max",
+      "friendlyName": "HBO Max",
+      "appName": "com.hbo.hbonow",
+      "className": "hboMaxButton",
+      "androidName": "com.hbo.hbonow",
+      "adbLaunchCommand": "adb shell am start -n com.hbo.hbonow/com.hbo.max.HboMaxActivity" },
+
+  "hulu": { 
+      "button": "hulu",
+      "friendlyName": "Hulu",
+      "appName": "Hulu",
+      "className": "huluButton",
+      "androidName": "com.hulu.plus" },
+
+  "jellyfin": {
+      "button": "Jellyfin",
+      "friendlyName": "Jellyfin",
+      "appName": "Jellyfin",
+      "className": "jellyfinButton",
+      "androidName": "org.jellyfin.androidtv" },
+
+  "netflix": {
+      "button": "NETFLIX",
+      "friendlyName": "Netflix",
+      "appName": "Netflix",
+      "className": "netflixButton",
+      "androidName": "com.netflix.ninja",
+      "adbLaunchCommand": "adb shell am start -n com.netflix.ninja/.MainActivity" },
+
+  "pandora": {
+      "button": "pandora",
+      "friendlyName": "Pandora",
+      "appName": "com.pandora.android.gtv",
+      "className": "pandoraButton",
+      "androidName": "com.pandora.android.gtv" },
+
+  "paramount-plus": {
+      "button": "Paramount+",
+      "friendlyName": 'Paramount+',
+      "appName": "com.cbs.ott",
+      "className": "paramountPlusButton",
+      "androidName": "com.cbs.ott",
+      "adbLaunchCommand": "adb shell am start -n com.cbs.ott/com.cbs.app.tv.ui.activity.DeepLinkActivity" },
+
+  "plex": {
+      "button": "Plex",
+      "friendlyName": "plex",
+      "appName": "Plex",
+      "className": "plexButton",
+      "androidName": "com.plexapp.android" },
+
+  "prime-video" : {
+      "button": "prime video",
+      "friendlyName": "Prime Video",
+      "appName": "Prime Video (FireTV)",
+      "className": "primeButton",
+      "androidName": "com.amazon.avod",
+      "androidName2": "com.amazon.firebat",
+      "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
+
+  "showtime": {
+      "button": "SHOWTIME",
+      "friendlyName": "Showtime",
+      "appName": "com.showtime.standalone",
+      "className": "showtimeButton",
+      "androidName": "com.showtime.standalone",
+      "adbLaunchCommand": "adb shell am start -n com.showtime.standalone/com.showtime.showtimeanytime.activities.IntroActivity" },
+
+  "starz": {
+      "button": "STARZ",
+      "friendlyName": "Starz",
+      "appName": "com.starz.starzplay.firetv",
+      "className": "starzButton",
+      "androidName": "com.starz.starzplay.firetv" },
+
+  "tennis-channel": {
+      "button": "TENNIS CHANNEL",
+      "friendlyName": "Tennis Channel",
+      "appName": "com.tennischannel.tceverywhere.amazon",
+      "className": "tennisChannelButton",
+      "androidName": "com.tennischannel.tceverywhere.amazon" },
+
+  "twitch": {
+      "button": "Twitch",
+      "friendlyName": 'Twitch',
+      "appName": "Twitch (FireTV)",
+      "className": "twitchButton",
+      "androidName": "tv.twitch.android.viewer",
+      "adbLaunchCommand": "adb shell am start -n tv.twitch.android.viewer/tv.twitch.starshot64.app.StarshotActivity" },
+
+  "youtube": {
+      "button": "YouTube",
+      "friendlyName": "YouTube",
+      "appName": "YouTube (FireTV)",
+      "className": "youtubeButton",
+      "androidName": "com.amazon.firetv.youtube",
+      "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube/dev.cobalt.app.MainActivity" },
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
@@ -638,6 +646,18 @@ class FiremoteCard extends LitElement {
           }
 
           .craveTVButton:active, .craveTVButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .twitchButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #fff;
+            font-weight: bold;
+            background: #6441a5;
+            filter: brightness(50%);
+          }
+          .twitchButton:active, .twitchButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
