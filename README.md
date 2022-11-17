@@ -7,6 +7,9 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 | Fire TV | Fire TV Cube,<br>Fire TV Stick 4K Max | Fire TV Stick 4K | Fire TV Stick Lite | Fire Stick (1st Gen) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | ![Fire TV 4 Series Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVRemote.png) | ![Fire TV Cube (Gen 2) Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVCube2ndGen.png) | ![Fire TV Stick 4K](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStick4K.png) | ![Fire TV Stick Lite](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStickLite.png) | ![Fire Stick (1st Gen)](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireStick1stGen.png) |
+<br>
+<br>
+<br>
 
 ## Prerequisites
 * A functioning version of [Home Assistant](https://www.home-assistant.io/)
@@ -19,6 +22,9 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 
 [Which devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)
 <br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)
+<br>
+<br>
+<br>
 
 ## Download and Setup
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
@@ -27,7 +33,8 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 1. In the lower right hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
 1. Search for, and click on "Firemote Card", then click the "DOWNLOAD" button in the lower right hand corner
 1. You will be prompted to reload your browser.  Click the RELOAD button to continue
-
+<br>
+<br>
 
 ## How to use
 1. On any dashboard, click the +ADD CARD button
@@ -38,7 +45,9 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 
 
 ![Dashboard](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/dashboard.jpg)
-
+<br>
+<br>
+<br>
 
 ## YAML card setup options
 Example:
@@ -115,7 +124,7 @@ Valid button names are as follows:
 In many cases, your Amazon remote control actually sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  Since this is the case, these types of commands cannot be emulated through the same means that Firemote sends other commands.
 <br>
 
-[Issue #6](../../issues/6) is currently open to help eventually solve this issue by allowing button presses to be overridden using scripts or simple HA commands.
+In these cases, you still might be able to control your devices (TVs, Receivers, etc.) by using [Button Overrides](https://github.com/PRProd/HA-Firemote#button-overrides).  If you are able to control your non-fire devices through Home Assistant, you can write a HA script and attach that script to a button on your Firemote.
 <br>
 <br>
 
