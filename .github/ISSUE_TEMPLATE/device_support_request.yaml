@@ -35,8 +35,16 @@ body:
   - type: textarea
     id: additionalInfo
     attributes:
-      label: Optional Comments
+      label: Additional Comments (optional)
       description: Do all of your buttons seem to work except for a few?  Which ones?  Do other event numbers also work?
+      placeholder: 
+    validations:
+      required: false
+  - type: textarea
+    id: inputDump
+    attributes:
+      label: ADB Response (optional)
+      description: If you are able to run ADB commands, what is the output of the following command: `adb shell dumpsys input`
       placeholder: 
     validations:
       required: false
