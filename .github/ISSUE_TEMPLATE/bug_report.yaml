@@ -36,7 +36,7 @@ body:
     id: deviceType
     attributes:
       label: Which Fire TV Device do you own?
-      description: If applicable, please include the model of your Fire TV Device: [View List of Devices](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)
+      description: If applicable, please include the model of your Fire TV Device: https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart
       placeholder: 
     validations:
       required: true
@@ -44,7 +44,7 @@ body:
     id: troubleshootingsteps
     attributes:
       label: Troubleshooting Steps Completed
-      description: If applicable.  [See FAQ / Toubleshooting steps](https://github.com/PRProd/HA-Firemote#faq)
+      description: If applicable.  https://github.com/PRProd/HA-Firemote#faq
       placeholder: 
     validations:
       required: false
