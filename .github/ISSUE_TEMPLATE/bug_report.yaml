@@ -1,0 +1,59 @@
+name: Bug Report
+description: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to contribute to this project with your detailed issue reports
+  - type: textarea
+    id: bugdetail
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is
+      placeholder: 
+    validations:
+      required: true
+  - type: textarea
+    id: reproduceSteps
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: 
+    validations:
+      required: true
+  - type: textarea
+    id: expectedBehavior
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: 
+    validations:
+      required: true
+  - type: textarea
+    id: deviceType
+    attributes:
+      label: Which Fire TV Device do you own?
+      description: If applicable, please include the model of your Fire TV Device: [View List of Devices](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)
+      placeholder: 
+    validations:
+      required: true
+  - type: textarea
+    id: troubleshootingsteps
+    attributes:
+      label: Troubleshooting Steps Completed
+      description: If applicable.  [See FAQ / Toubleshooting steps](https://github.com/PRProd/HA-Firemote#faq)
+      placeholder: 
+    validations:
+      required: false
+  - type: textarea
+    id: addtlcontext
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here
+      placeholder: 
+    validations:
+      required: false
+
