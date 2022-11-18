@@ -44,7 +44,7 @@ body:
     id: inputDump
     attributes:
       label: ADB Response (optional)
-      description: If you are able to run ADB commands, what is the output of the following command: `adb shell dumpsys input`
+      description: If you are able to run ADB commands, what is the output of the following command `adb shell dumpsys input`
       placeholder: 
     validations:
       required: false
