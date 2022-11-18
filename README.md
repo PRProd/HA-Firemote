@@ -7,6 +7,7 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 | Fire TV | Fire TV Cube,<br>Fire TV Stick 4K Max | Fire TV Stick 4K | Fire TV Stick Lite | Fire Stick (1st Gen) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | ![Fire TV 4 Series Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVRemote.png) | ![Fire TV Cube (Gen 2) Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVCube2ndGen.png) | ![Fire TV Stick 4K](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStick4K.png) | ![Fire TV Stick Lite](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStickLite.png) | ![Fire Stick (1st Gen)](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireStick1stGen.png) |
+
 <br>
 <br>
 <br>
@@ -22,6 +23,7 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 
 [Which devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)
 <br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)
+
 <br>
 <br>
 <br>
@@ -33,6 +35,7 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 1. In the lower right hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
 1. Search for, and click on "Firemote Card", then click the "DOWNLOAD" button in the lower right hand corner
 1. You will be prompted to reload your browser.  Click the RELOAD button to continue
+
 <br>
 <br>
 
@@ -45,6 +48,7 @@ Need More Information?  Check out this project's [Wiki](../../wiki) page
 
 
 ![Dashboard](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/dashboard.jpg)
+
 <br>
 <br>
 <br>
@@ -78,6 +82,7 @@ Options:
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button |
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage.  Default size is 100 |
 | button_overrides | complex | no | read details in [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file | read details in [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file |
+
 <br>
 <br>
 <br>
