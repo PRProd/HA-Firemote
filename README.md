@@ -4,9 +4,9 @@
 ![Maintenance](https://img.shields.io/maintenance/yes/2023?style=for-the-badge)
 
 Need More Information?  Check out this project's [Wiki](../../wiki) page
-| Fire TV | Fire TV Cube,<br>Fire TV Stick 4K Max | Fire TV Stick 4K | Fire TV Stick Lite | Fire Stick (1st Gen) |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
+
 | ![Fire TV 4 Series Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVRemote.png) | ![Fire TV Cube (Gen 2) Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVCube2ndGen.png) | ![Fire TV Stick 4K](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStick4K.png) | ![Fire TV Stick Lite](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStickLite.png) | ![Fire Stick (1st Gen)](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireStick1stGen.png) |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
 
 <br>
 <br>
