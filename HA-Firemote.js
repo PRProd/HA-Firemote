@@ -72,13 +72,6 @@ const fastappchoices = {
       "androidName": "com.hbo.hbonow",
       "adbLaunchCommand": "adb shell am start -n com.hbo.hbonow/com.hbo.max.HboMaxActivity" },
 
-  "vlc": {
-      "button": "VLC",
-      "friendName": "VLC",
-      "appName": "org.videolan.vlc",
-      "className": "vlcButton",
-      "androidName": "org.videolan.vlc" },
-
   "hulu": { 
       "button": "hulu",
       "friendlyName": "Hulu",
@@ -169,6 +162,14 @@ const fastappchoices = {
       "className": "youtubeButton",
       "androidName": "com.amazon.firetv.youtube",
       "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube/dev.cobalt.app.MainActivity" },
+
+  "vlc": {
+      "button": "VLC",
+      "friendName": "VLC",
+      "appName": "org.videolan.vlc",
+      "className": "vlcButton",
+      "androidName": "org.videolan.vlc" },
+
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
@@ -478,17 +479,6 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
-          .vlcButton {
-            color: #FFF;
-            background: linear-gradient(120deg, rgba(89,40,0,1) 0%, rgba(100,72,0,1) 100%);
-	  }
-
-          .vlcButton:active, .vlcButton.appActive {
-	    color: #FFF;
-            background: linear-gradient(120deg, rgba(89,40,0,1) 0%, rgba(100,72,0,1) 100%);
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-	  }
-
           .jellyfinButton {
             color: #c6c6c6;
             background: linear-gradient(90deg, rgba(62,34,71,1) 0%, rgba(0,60,80,1) 100%);
@@ -675,9 +665,23 @@ class FiremoteCard extends LitElement {
             background: #6441a5;
             filter: brightness(50%);
           }
+
           .twitchButton:active, .twitchButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
+          }
+
+          .vlcButton {
+            color: #FFF;
+            font-weight: bold;
+            background: #f48b00;
+            text-shadow: 0 0 2px black;
+            filter: grayscale(20%) brightness(60%);
+          }
+
+          .vlcButton:active, .vlcButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .remote-logo {
@@ -1107,7 +1111,7 @@ class FiremoteCard extends LitElement {
     }
 
 
-    if (deviceType == 'fire_stick_4k') {
+    if (deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_3rd_gen') {
     return html`
       <ha-card>
 
@@ -1351,7 +1355,7 @@ class FiremoteCard extends LitElement {
         if(deviceType == 'fire_stick_first_gen') {
             var eventListenerBinPath = '/dev/input/event3';
         }
-        if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite') {
+        if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite' || deviceType == 'fire_tv_3rd_gen') {
             var eventListenerBinPath = '/dev/input/event4';
         }
         if(deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_cube_second_gen') {
@@ -1369,7 +1373,7 @@ class FiremoteCard extends LitElement {
       if(compatibility_mode == 'strong') {
         this.hass.callService("media_player", "toggle", { entity_id: this._config.entity});
       }
-      else if(deviceType == 'fire_stick_4k') {
+      else if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_3rd_gen') {
         if(stateStr != 'off' && stateStr != 'unavailable') {
           this.hass.callService("media_player", "turn_off", { entity_id: this._config.entity});
         }
@@ -1741,8 +1745,9 @@ class FiremoteCardEditor extends LitElement {
           @change=${this.configChanged}
         >
           <optgroup label="Smart TV">
-            <option value="fire_tv_4_series">Fire TV (4 Series - 2021)</option>
+            <option value="fire_tv_hisense_u6_4k_uhd_2022" disabled>Hisense U6 4K UHD - Fire TV (2022)</option>
             <option value="fire_tv_toshiba_v35">Toshiba Fire TV (V35 Series - 2021)</option>
+            <option value="fire_tv_4_series">Fire TV (4 Series - 2021)</option>
           </optgroup>
           <optgroup label="Fire TV Cube">
             <option value="fire_tv_cube_third_gen" disabled>Fire TV Cube (3rd Gen - 2022)</option>
@@ -1751,7 +1756,7 @@ class FiremoteCardEditor extends LitElement {
           </optgroup>
           <optgroup label="Streaming Media Player">
             <option value="fire_tv_stick_4k_max">Fire TV Stick 4K Max (1st Gen - 2020)</option>
-            <option value="fire_stick_4k_3rd_gen" disabled>Fire TV Stick (3rd Gen - 2020)</option>
+            <option value="fire_tv_3rd_gen">Fire TV Stick (3rd Gen - 2020)</option>
             <option value="fire_tv_stick_lite">Fire TV Stick Lite (1st Gen - 2020)</option>
             <option value="fire_stick_4k">Fire TV Stick 4K (1st Gen - 2018)</option>
             <option value="fire_stick_second_gen" disabled>Fire TV Stick (2nd gen - 2016 - 2019)</option>
@@ -1771,17 +1776,17 @@ class FiremoteCardEditor extends LitElement {
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
-          <option value="default">Default</option>
-          <option value="strong">Strong (Slower)</option>
-          <option value="event0">event0</option>
-          <option value="event1">event1</option>
-          <option value="event2">event2</option>
-          <option value="event3">event3</option>
-          <option value="event4">event4</option>
-          <option value="event5">event5</option>
-          <option value="event6">event6</option>
-          <option value="event7">event7</option>
-          <option value="event8">event8</option>
+          <option value="default">Default</option>
+          <option value="strong">Strong (Slower)</option>
+          <option value="event0">event0</option>
+          <option value="event1">event1</option>
+          <option value="event2">event2</option>
+          <option value="event3">event3</option>
+          <option value="event4">event4</option>
+          <option value="event5">event5</option>
+          <option value="event6">event6</option>
+          <option value="event7">event7</option>
+          <option value="event8">event8</option>
         </select>
         <br>
         <br>
