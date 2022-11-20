@@ -134,7 +134,7 @@ In these cases, you still might be able to control your devices (TVs, Receivers,
 <br>
 
 ### Why don't any of the buttons on the Firemote work at all? ###
- * If your Firemote used to work, and it suddenly stopped without making any configuration changes, it could be that all you need to do is press one button (any button) on your physical Fire TV device.  After doing that step, try your Firemote again.
+ * If your Firemote used to work perfectly, and some or all of the buttons suddenly stopped working, it could be that all you need to do is press one button (any button) on your Fire TV device's physical remote control.  After doing that step, try your Firemote again.
  * Check your card configuration:
    * Is the correct Android device selected?
    * Is the correct Fire TV Device type selected?
