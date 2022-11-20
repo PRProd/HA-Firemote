@@ -72,6 +72,13 @@ const fastappchoices = {
       "androidName": "com.hbo.hbonow",
       "adbLaunchCommand": "adb shell am start -n com.hbo.hbonow/com.hbo.max.HboMaxActivity" },
 
+  "vlc": {
+      "button": "VLC",
+      "friendName": "VLC",
+      "appName": "org.videolan.vlc",
+      "className": "vlcButton",
+      "androidName": "org.videolan.vlc" },
+
   "hulu": { 
       "button": "hulu",
       "friendlyName": "Hulu",
@@ -470,6 +477,17 @@ class FiremoteCard extends LitElement {
             background: #1ce783;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
+
+          .vlcButton {
+            color: #FFF;
+            background: linear-gradient(120deg, rgba(89,40,0,1) 0%, rgba(100,72,0,1) 100%);
+	  }
+
+          .vlcButton:active, .vlcButton.appActive {
+	    color: #FFF;
+            background: linear-gradient(120deg, rgba(89,40,0,1) 0%, rgba(100,72,0,1) 100%);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+	  }
 
           .jellyfinButton {
             color: #c6c6c6;
@@ -1753,17 +1771,17 @@ class FiremoteCardEditor extends LitElement {
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
-          <option value="default">Default</option>
-          <option value="strong">Strong (Slower)</option>
-          <option value="event0">event0</option>
-          <option value="event1">event1</option>
-          <option value="event2">event2</option>
-          <option value="event3">event3</option>
-          <option value="event4">event4</option>
-          <option value="event5">event5</option>
-          <option value="event6">event6</option>
-          <option value="event7">event7</option>
-          <option value="event8">event8</option>
+          <option value="default">Default</option>
+          <option value="strong">Strong (Slower)</option>
+          <option value="event0">event0</option>
+          <option value="event1">event1</option>
+          <option value="event2">event2</option>
+          <option value="event3">event3</option>
+          <option value="event4">event4</option>
+          <option value="event5">event5</option>
+          <option value="event6">event6</option>
+          <option value="event7">event7</option>
+          <option value="event8">event8</option>
         </select>
         <br>
         <br>
