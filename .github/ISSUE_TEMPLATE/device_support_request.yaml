@@ -43,8 +43,8 @@ body:
   - type: textarea
     id: inputDump
     attributes:
-      label: ADB Response (optional)
-      description: If you are able to run ADB commands, what is the output of the following command `adb shell dumpsys input`
+      label: Interrogation ADB Response (optional but EXTREMELY helpful)
+      description: 'Use this link https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#device-interrogation to gather important device information.  If you are able to run ADB commands, paste the output of the following command `adb shell dumpsys input`'
       placeholder: 
     validations:
       required: false
