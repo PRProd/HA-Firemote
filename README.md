@@ -76,7 +76,7 @@ Options:
 | ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
 | type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
 | entity      | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
-| device_type | string | yes      | fire_tv_4_series <br> fire_tv_cube_second_gen <br> fire_tv_stick_4k_max <br> fire_stick_4k <br> fire_tv_stick_lite <br> fire_stick_first_gen | The type of device you are controlling |
+| device_type | string | yes      | fire_tv_toshiba_v35 <br> fire_tv_4_series <br> fire_tv_cube_second_gen <br> fire_tv_stick_4k_max <br> fire_tv_3rd_gen <br> fire_tv_stick_lite <br> fire_stick_4k <br> fire_stick_first_gen | The type of device you are controlling |
 | compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> | Adjust this value only if your buttons are completely unresponsive |
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | amc-plus<br>apple-tv<br>bbc-iplayer<br>bell-fibe-tv<br>crave-tv<br>disney-plus<br>hbo-max<br>hulu<br>jellyfin<br>netflix<br>pandora<br>paramount-plus<br>plex<br>prime-video<br>showtime<br>starz<br>tennis-channel<br>twitch<br>youtube<br>hdmi_1<br>hdmi_2<br>hdmi_3<br>hdmi_4 | Quick launch apps customization |
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button |
