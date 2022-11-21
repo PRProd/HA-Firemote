@@ -165,7 +165,7 @@ const fastappchoices = {
 
   "vlc": {
       "button": "VLC",
-      "friendName": "VLC",
+      "friendlyName": "VLC",
       "appName": "org.videolan.vlc",
       "className": "vlcButton",
       "androidName": "org.videolan.vlc" },
@@ -1353,7 +1353,7 @@ class FiremoteCard extends LitElement {
             var eventListenerBinPath = '/dev/input/event0';
         }
         if(deviceType == 'fire_stick_first_gen') {
-            var eventListenerBinPath = '/dev/input/event3';
+            var eventListenerBinPath = '/dev/input/event1';
         }
         if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite' || deviceType == 'fire_tv_3rd_gen') {
             var eventListenerBinPath = '/dev/input/event4';
