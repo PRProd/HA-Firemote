@@ -56,6 +56,14 @@ const fastappchoices = {
       "androidName": "ca.bellmedia.cravetv",
       "adbLaunchCommand": "adb shell am start -n ca.bellmedia.cravetv/axis.androidtv.sdk.app.MainActivity" },
 
+  "cyberghost": {
+      "button": "CyberGhost",
+      "friendlyName": 'CyberGhost VPN',
+      "appName": "com.cyberghostvpn.amazon",
+      "className": "cyberghostButton",
+      "androidName": "com.cyberghostvpn.amazon",
+      "adbLaunchCommand": "adb shell am start -n com.cyberghostvpn.amazon/de.mobileconcepts.cyberghost.view.app.AppActivity" },
+
   "disney-plus": {
       "button": "Disney+",
       "friendlyName": "Disney +",
@@ -63,6 +71,13 @@ const fastappchoices = {
       "className": "disneyPlusButton",
       "androidName": "com.disney.disneyplus",
       "adbLaunchCommand": "adb shell am start -n com.disney.disneyplus/com.bamtechmedia.dominguez.main.MainActivity" },
+
+  "emby": {
+      "button": "emby",
+      "friendlyName": "Emby",
+      "appName": "tv.emby.embyatv",
+      "className": "embyButton",
+      "androidName": "tv.emby.embyatv" },
 
   "hbo-max": {
       "button": "HBO max",
@@ -169,6 +184,13 @@ const fastappchoices = {
       "appName": "org.videolan.vlc",
       "className": "vlcButton",
       "androidName": "org.videolan.vlc" },
+
+  "zattoo": {
+      "button": "Zattoo",
+      "friendlyName": "Zattoo",
+      "appName": "com.zattoo.player.firetv",
+      "className": "zattooButton",
+      "androidName": "com.zattoo.player.firetv" },
 
 };
 const appmap = new Map(Object.entries(fastappchoices));
@@ -672,14 +694,54 @@ class FiremoteCard extends LitElement {
           }
 
           .vlcButton {
+            font-size: calc(var(--sz) * 1.25rem);
             color: #FFF;
             font-weight: bold;
             background: #f48b00;
-            text-shadow: 0 0 2px black;
-            filter: grayscale(20%) brightness(60%);
+            text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
+            filter: grayscale(20%) brightness(70%);
           }
 
           .vlcButton:active, .vlcButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .zattooButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #FFF;
+            font-weight: bold;
+            background: #000;
+            filter: brightness(60%);
+          }
+
+          .zattooButton:active, .zattooButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .embyButton {
+            font-size: calc(var(--sz) * 1.2rem);
+            color: #FFF;
+            font-weight: bold;
+            background: #4CAF50;
+            text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
+            filter: grayscale(20%) brightness(60%);
+          }
+
+          .embyButton:active, .embyButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .cyberghostButton {
+            font-size: calc(var(--sz) * 0.8rem);
+            background: #242538;
+            color: #fc0;
+            filter: grayscale(20%) brightness(60%);
+          }
+
+          .cyberghostButton:active, .cyberghostButton.appActive {
             filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
@@ -943,7 +1005,7 @@ class FiremoteCard extends LitElement {
 
 
     // FireTV 4 Series Control
-    if (deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35') {
+    if (deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_cube_third_gen') {
     return html`
       <ha-card>
 
@@ -1671,7 +1733,7 @@ class FiremoteCardEditor extends LitElement {
 
 
   getAppChoices(buttonIndex, optionvalue) {
-    if(this._config.device_type == 'fire_tv_4_series' || this._config.device_type == 'fire_tv_stick_4k_max' || this._config.device_type == 'fire_tv_cube_second_gen' || this._config.device_type == 'fire_tv_toshiba_v35') {
+    if(this._config.device_type == 'fire_tv_4_series' || this._config.device_type == 'fire_tv_stick_4k_max' || this._config.device_type == 'fire_tv_cube_second_gen' || this._config.device_type == 'fire_tv_toshiba_v35' || this._config.device_type == 'fire_tv_cube_third_gen') {
       var appkeys = [];
       for (var [key, value] of appmap.entries()) {
         appkeys.push(key)
@@ -1787,6 +1849,11 @@ class FiremoteCardEditor extends LitElement {
           <option value="event6">event6</option>
           <option value="event7">event7</option>
           <option value="event8">event8</option>
+          <option value="event9">event9</option>
+          <option value="event10">event10</option>
+          <option value="event11">event11</option>
+          <option value="event12">event12</option>
+          <option value="event13">event13</option>
         </select>
         <br>
         <br>
