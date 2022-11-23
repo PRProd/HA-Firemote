@@ -140,6 +140,14 @@ const fastappchoices = {
       "androidName2": "com.amazon.firebat",
       "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
 
+  "shophq": {
+      "button": "ShopHQ",
+      "friendlyName": "ShopHQ",
+      "appName": "com.amazon.rialto.cordova.webapp.webappb656e5788fd9475ea16e928d2c034d68",
+      "className": "shopHQButton",
+      "androidName": "com.amazon.rialto.cordova.webapp.webappb656e5788fd9475ea16e928d2c034d68",
+      "adbLaunchCommand": "adb shell am start -n com.amazon.rialto.cordova.webapp.webappb656e5788fd9475ea16e928d2c034d68/.MainActivity" },
+
   "showtime": {
       "button": "SHOWTIME",
       "friendlyName": "Showtime",
@@ -147,6 +155,14 @@ const fastappchoices = {
       "className": "showtimeButton",
       "androidName": "com.showtime.standalone",
       "adbLaunchCommand": "adb shell am start -n com.showtime.standalone/com.showtime.showtimeanytime.activities.IntroActivity" },
+
+  "spotify": {
+      "button": "Spotify",
+      "friendlyName": "Spotify",
+      "appName": "com.spotify.tv.android",
+      "className": "spotifyButton",
+      "androidName": "com.spotify.tv.android",
+      "adbLaunchCommand": "adb shell am start -n com.spotify.tv.android/com.spotify.tv.android.SpotifyTVActivity" },
 
   "starz": {
       "button": "STARZ",
@@ -205,6 +221,12 @@ function handlehdmi(config) {
   appmap.delete('hdmi_2');
   appmap.delete('hdmi_3');
   appmap.delete('hdmi_4');
+  if( config.device_type == 'fire_tv_cube_third_gen') {
+    if( config.hdmi_1 ) {
+      const inputname = truncate(config.hdmi_1, 8);
+      appmap.set("hdmi_1", {"button": truncate(inputname, 8), "friendlyName": "HDMI - "+inputname, "androidName": "", "adbLaunchCommand": "adb shell am start -n com.amazon.tv.inputpreference.service/com.amazon.tv.inputpreference.player.InputChooserActivity"});
+    }
+  }
   if( config.device_type == 'fire_tv_4_series') {
     if( config.hdmi_1 ) {
       const inputname = truncate(config.hdmi_1, 8);
@@ -453,157 +475,6 @@ class FiremoteCard extends LitElement {
             box-shadow: none !important;
           }
 
-          .primeButton {
-            color: #c6c6c6;
-            background: #293942;
-            font-size: calc(var(--sz) * 0.857rem);
-          }
-
-          .primeButton:active, .primeButton.appActive {
-            color: #fff;
-            text-shadow: 0 0 calc(var(--sz) * 0.214rem) black;
-            background: #53a3d1;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.1428rem) rgb(255 255 255 / 15%);
-          }
-
-          .netflixButton {
-            font-weight: bold;
-            font-size: calc(var(--sz) * 1rem);
-            color: #6d2427;
-            background: #878787;
-          }
-
-          .netflixButton:active, .netflixButton.appActive {
-            color: #d30a14;
-            background: #fff;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
-          }
-
-          .disneyPlusButton {
-            color: #c6c6c6;
-            background: #1a1f28;
-          }
-
-          .disneyPlusButton:active, .disneyPlusButton.appActive {
-            color: #d1f8ff;
-            background: #07183f;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .huluButton {
-            color: #c6c6c6;
-            background: #151e19;
-          }
-
-          .huluButton:active, .huluButton.appActive {
-            color: #000;
-            background: #1ce783;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .jellyfinButton {
-            color: #c6c6c6;
-            background: linear-gradient(90deg, rgba(62,34,71,1) 0%, rgba(0,60,80,1) 100%);
-          }
-
-          .jellyfinButton:active, .jellyfinButton.appActive {
-            color: #fff;
-            background: linear-gradient(90deg, rgba(112,62,128,1) 0%, rgba(0,108,144,1) 100%);
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .hboMaxButton {
-            color: #c6c6c6;
-            font-size: calc(var(--sz) * 0.9285rem);
-            background: linear-gradient(90deg, rgba(44,8,60,1) 0%, rgba(23,4,51,1) 100%);
-          }
-
-          .hboMaxButton:active, .hboMaxButton.appActive {
-            color: #fff;
-            background: linear-gradient(80deg, #73109E 0%, #2F0B62 100%);
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .showtimeButton {
-            color: #6d0000;
-            font-size: calc(var(--sz) * 0.7857rem);
-            background: black;
-          }
-
-          .showtimeButton:active, .showtimeButton.appActive {
-            color: #b10000;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .starzButton {
-            font-size: calc(var(--sz) * 1rem);
-            color: #9abc00;
-            background: linear-gradient(99deg, rgba(16,65,69,1) 0%, rgba(8,31,33,1) 40%, rgba(13,71,75,1) 80%, rgba(16,60,64,1) 100%);
-          }
-
-          .starzButton:active, .starzButton.appActive {
-            color: #d2ff00;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            background: linear-gradient(99deg, rgba(26,101,107,1) 0%, rgba(16,62,66,1) 40%, rgba(22,122,130,1) 80%, rgba(26,101,107,1) 100%);
-          }
-
-          .youtubeButton {
-            font-size: calc(var(--sz) * 1rem);
-            color: #919191;
-            font-weight: bold;
-            background: rgb(74 0 0);
-          }
-
-          .youtubeButton:active, .youtubeButton.appActive {
-            color: #ffffff;
-            background: rgb(199 0 0);
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
-          }
-
-          .pandoraButton {
-            font-size: calc(var(--sz) * 1rem);
-            color: #919191;
-            font-weight: bold;
-            background: #304b9b
-          }
-
-          .pandoraButton:active, .pandoraButton.appActive {
-            color: #fff;
-            background: #3668ff;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .plexButton {
-            color: #919191;
-            font-weight: bold;
-            background: #000;
-            display: inline;
-          }
-
-          .plexButton:active, .plexButton.appActive {
-            color: #fff;
-            background: #000;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .plexButton.appActive::after {
-            content: '>';
-            color: yellow;
-          }
-
-          .tennisChannelButton {
-            color: #919191;
-            font-size: calc(var(--sz) * 0.6428rem);
-            font-weight: bold;
-            background: linear-gradient(180deg, rgba(24,74,49,1) 0%, rgba(8,36,21,1) 100%);
-          }
-
-          .tennisChannelButton:active, .tennisChannelButton.appActive {
-            color: #fff;
-            background: linear-gradient(180deg, rgba(40,131,85,1) 0%, rgba(16,73,43,1) 100%);
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .amcPlusButton {
             color: #51ceff;
@@ -611,7 +482,6 @@ class FiremoteCard extends LitElement {
             background: #091c3d;
             filter: grayscale(50%) brightness(80%);
           }
-
           .amcPlusButton:active, .amcPlusButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
@@ -624,33 +494,7 @@ class FiremoteCard extends LitElement {
             background: #000;
             filter: brightness(50%);
           }
-
           .appleTvButton:active, .appleTvButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
-
-          .paramountPlusButton {
-            font-size: calc(var(--sz) * 0.7857rem);
-            color: #fff;
-            font-weight: bold;
-            background: #0667fc;
-            filter: grayscale(50%) brightness(80%);
-          }
-
-          .paramountPlusButton:active, .paramountPlusButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
-
-          .bellFibeTVButton {
-            color: rgb(255 255 255);
-            font-size: calc(var(--sz) * 0.78rem);
-            background: linear-gradient(180deg, rgba(71,86,255,1) 0%, rgba(46,62,234,1) 100%);
-            filter: grayscale(10%) brightness(80%);
-          }
-
-          .bellFibeTVButton:active, .bellFibeTVButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
@@ -661,8 +505,18 @@ class FiremoteCard extends LitElement {
             background: linear-gradient(120deg, rgba(52,3,61,1) 0%, rgba(183,14,209,1) 100%);
             filter: grayscale(10%) brightness(80%);
           }
-
           .bbciplayerButton:active, .bbciplayerButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .bellFibeTVButton {
+            color: rgb(255 255 255);
+            font-size: calc(var(--sz) * 0.78rem);
+            background: linear-gradient(180deg, rgba(71,86,255,1) 0%, rgba(46,62,234,1) 100%);
+            filter: grayscale(10%) brightness(80%);
+          }
+          .bellFibeTVButton:active, .bellFibeTVButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
@@ -674,10 +528,197 @@ class FiremoteCard extends LitElement {
             font-weight: bold;
             filter: grayscale(20%) brightness(60%);
           }
-
           .craveTVButton:active, .craveTVButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
+          }
+
+          .cyberghostButton {
+            font-size: calc(var(--sz) * 0.8rem);
+            background: #242538;
+            color: #fc0;
+            filter: grayscale(20%) brightness(60%);
+          }
+          .cyberghostButton:active, .cyberghostButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .disneyPlusButton {
+            color: #c6c6c6;
+            background: #1a1f28;
+          }
+          .disneyPlusButton:active, .disneyPlusButton.appActive {
+            color: #d1f8ff;
+            background: #07183f;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .embyButton {
+            font-size: calc(var(--sz) * 1.2rem);
+            color: #FFF;
+            font-weight: bold;
+            background: #4CAF50;
+            text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
+            filter: grayscale(20%) brightness(60%);
+          }
+          .embyButton:active, .embyButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .hboMaxButton {
+            color: #c6c6c6;
+            font-size: calc(var(--sz) * 0.9285rem);
+            background: linear-gradient(90deg, rgba(44,8,60,1) 0%, rgba(23,4,51,1) 100%);
+          }
+          .hboMaxButton:active, .hboMaxButton.appActive {
+            color: #fff;
+            background: linear-gradient(80deg, #73109E 0%, #2F0B62 100%);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .huluButton {
+            color: #c6c6c6;
+            background: #151e19;
+          }
+          .huluButton:active, .huluButton.appActive {
+            color: #000;
+            background: #1ce783;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .jellyfinButton {
+            color: #c6c6c6;
+            background: linear-gradient(90deg, rgba(62,34,71,1) 0%, rgba(0,60,80,1) 100%);
+          }
+          .jellyfinButton:active, .jellyfinButton.appActive {
+            color: #fff;
+            background: linear-gradient(90deg, rgba(112,62,128,1) 0%, rgba(0,108,144,1) 100%);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .netflixButton {
+            font-weight: bold;
+            font-size: calc(var(--sz) * 1rem);
+            color: #6d2427;
+            background: #878787;
+          }
+          .netflixButton:active, .netflixButton.appActive {
+            color: #d30a14;
+            background: #fff;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
+          }
+
+          .pandoraButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #919191;
+            font-weight: bold;
+            background: #304b9b
+          }
+          .pandoraButton:active, .pandoraButton.appActive {
+            color: #fff;
+            background: #3668ff;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .paramountPlusButton {
+            font-size: calc(var(--sz) * 0.7857rem);
+            color: #fff;
+            font-weight: bold;
+            background: #0667fc;
+            filter: grayscale(50%) brightness(80%);
+          }
+          .paramountPlusButton:active, .paramountPlusButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .plexButton {
+            color: #919191;
+            font-weight: bold;
+            background: #000;
+            display: inline;
+          }
+          .plexButton:active, .plexButton.appActive {
+            color: #fff;
+            background: #000;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+          .plexButton.appActive::after {
+            content: '>';
+            color: yellow;
+          }
+
+          .primeButton {
+            color: #c6c6c6;
+            background: #293942;
+            font-size: calc(var(--sz) * 0.857rem);
+          }
+          .primeButton:active, .primeButton.appActive {
+            color: #fff;
+            text-shadow: 0 0 calc(var(--sz) * 0.214rem) black;
+            background: #53a3d1;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.1428rem) rgb(255 255 255 / 15%);
+          }
+
+          .shopHQButton {
+            color: yellow;
+            background: #000;
+            font-weight: bold;
+            filter: grayscale(30%) brightness(70%);
+            font-size: calc(var(--sz) * 0.857rem);
+          }
+          .shopHQButton:active, .shopHQButton.appActive {
+            color: #000;
+            background: yellow;
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .showtimeButton {
+            color: #6d0000;
+            font-size: calc(var(--sz) * 0.7857rem);
+            background: black;
+          }
+          .showtimeButton:active, .showtimeButton.appActive {
+            color: #b10000;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .spotifyButton {
+            color: #000;
+            background: #fff;
+            filter: brightness(50%);
+            font-weight: bold;
+          }
+          .spotifyButton:active, .spotifyButton.appActive {
+            color: rgb(23 163 73);
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .starzButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #9abc00;
+            background: linear-gradient(99deg, rgba(16,65,69,1) 0%, rgba(8,31,33,1) 40%, rgba(13,71,75,1) 80%, rgba(16,60,64,1) 100%);
+          }
+          .starzButton:active, .starzButton.appActive {
+            color: #d2ff00;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            background: linear-gradient(99deg, rgba(26,101,107,1) 0%, rgba(16,62,66,1) 40%, rgba(22,122,130,1) 80%, rgba(26,101,107,1) 100%);
+          }
+
+          .tennisChannelButton {
+            color: #919191;
+            font-size: calc(var(--sz) * 0.6428rem);
+            font-weight: bold;
+            background: linear-gradient(180deg, rgba(24,74,49,1) 0%, rgba(8,36,21,1) 100%);
+          }
+          .tennisChannelButton:active, .tennisChannelButton.appActive {
+            color: #fff;
+            background: linear-gradient(180deg, rgba(40,131,85,1) 0%, rgba(16,73,43,1) 100%);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .twitchButton {
@@ -687,10 +728,22 @@ class FiremoteCard extends LitElement {
             background: #6441a5;
             filter: brightness(50%);
           }
-
           .twitchButton:active, .twitchButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
+          }
+
+          .youtubeButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #919191;
+            font-weight: bold;
+            background: rgb(74 0 0);
+          }
+          .youtubeButton:active, .youtubeButton.appActive {
+            color: #ffffff;
+            background: rgb(199 0 0);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
           }
 
           .vlcButton {
@@ -701,7 +754,6 @@ class FiremoteCard extends LitElement {
             text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
             filter: grayscale(20%) brightness(70%);
           }
-
           .vlcButton:active, .vlcButton.appActive {
             filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
@@ -714,37 +766,11 @@ class FiremoteCard extends LitElement {
             background: #000;
             filter: brightness(60%);
           }
-
           .zattooButton:active, .zattooButton.appActive {
             filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
-          .embyButton {
-            font-size: calc(var(--sz) * 1.2rem);
-            color: #FFF;
-            font-weight: bold;
-            background: #4CAF50;
-            text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
-            filter: grayscale(20%) brightness(60%);
-          }
-
-          .embyButton:active, .embyButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
-
-          .cyberghostButton {
-            font-size: calc(var(--sz) * 0.8rem);
-            background: #242538;
-            color: #fc0;
-            filter: grayscale(20%) brightness(60%);
-          }
-
-          .cyberghostButton:active, .cyberghostButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .remote-logo {
             grid-column-start: 1;
@@ -1417,6 +1443,9 @@ class FiremoteCard extends LitElement {
         if(deviceType == 'fire_stick_first_gen') {
             var eventListenerBinPath = '/dev/input/event1';
         }
+        if(deviceType == 'fire_tv_cube_third_gen') {
+            var eventListenerBinPath = '/dev/input/event3';
+        }
         if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite' || deviceType == 'fire_tv_3rd_gen') {
             var eventListenerBinPath = '/dev/input/event4';
         }
@@ -1442,6 +1471,9 @@ class FiremoteCard extends LitElement {
         else {
           this.hass.callService("media_player", "turn_on", { entity_id: this._config.entity});
         }
+      }
+      else if (deviceType == 'fire_tv_cube_third_gen') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 116 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 116 0 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent /dev/input/event2 1 9 1 && sendevent /dev/input/event2 0 0 0 && sendevent /dev/input/event2 1 9 0 && sendevent /dev/input/event2 0 0 0' });
       }
       else {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
@@ -1611,8 +1643,12 @@ class FiremoteCard extends LitElement {
 
     // TV Button
     if(clicked.target.id == 'tv-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 362 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 362 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      return;
+      if (deviceType == 'fire_tv_cube_third_gen') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 297'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 362 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 362 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
     }
 
     // Channel Down Button
@@ -1634,7 +1670,7 @@ class FiremoteCard extends LitElement {
 
     // Settings Button
     if(clicked.target.id == 'settings-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || deviceType == 'fire_tv_cube_third_gen') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'SETTINGS' });
       }
       else {
@@ -1643,9 +1679,17 @@ class FiremoteCard extends LitElement {
       return;
     }
 
-    // App Switch Button
+    // App Switch (recents) Button
     if(clicked.target.id == 'app-switch-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 757 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 757 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RECENTS' });
+      }
+      else if (deviceType == 'fire_tv_cube_third_gen') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 304'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 757 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 757 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
       return;
     }
 
@@ -1812,7 +1856,7 @@ class FiremoteCardEditor extends LitElement {
             <option value="fire_tv_4_series">Fire TV (4 Series - 2021)</option>
           </optgroup>
           <optgroup label="Fire TV Cube">
-            <option value="fire_tv_cube_third_gen" disabled>Fire TV Cube (3rd Gen - 2022)</option>
+            <option value="fire_tv_cube_third_gen">Fire TV Cube (3rd Gen - 2022)</option>
             <option value="fire_tv_cube_second_gen">Fire TV Cube (2nd Gen - 2019)</option>
             <option value="fire_tv_cube_first_gen" disabled>Fire TV Cube (1st Gen - 2018)</option>
           </optgroup>

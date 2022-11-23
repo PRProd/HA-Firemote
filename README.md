@@ -76,9 +76,9 @@ Options:
 | ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
 | type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
 | entity      | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
-| device_type | string | yes      | fire_tv_toshiba_v35 <br> fire_tv_4_series <br> fire_tv_cube_second_gen <br> fire_tv_stick_4k_max <br> fire_tv_3rd_gen <br> fire_tv_stick_lite <br> fire_stick_4k <br> fire_stick_first_gen | The type of device you are controlling |
+| device_type | string | yes      | fire_tv_toshiba_v35 <br> fire_tv_4_series <br> fire_tv_cube_third_gen <br> fire_tv_cube_second_gen <br> fire_tv_stick_4k_max <br> fire_tv_3rd_gen <br> fire_tv_stick_lite <br> fire_stick_4k <br> fire_stick_first_gen | The type of device you are controlling |
 | compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> | Adjust this value only if your buttons are completely unresponsive |
-| app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | amc-plus<br>apple-tv<br>bbc-iplayer<br>bell-fibe-tv<br>crave-tv<br>cyberghost<br>disney-plus<br>emby<br>hbo-max<br>hulu<br>jellyfin<br>netflix<br>pandora<br>paramount-plus<br>plex<br>prime-video<br>showtime<br>starz<br>tennis-channel<br>twitch<br>youtube<br>vlc<br>zattoo<br>hdmi_1<br>hdmi_2<br>hdmi_3<br>hdmi_4 | Quick launch apps customization |
+| app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | amc-plus<br>apple-tv<br>bbc-iplayer<br>bell-fibe-tv<br>crave-tv<br>cyberghost<br>disney-plus<br>emby<br>hbo-max<br>hulu<br>jellyfin<br>netflix<br>pandora<br>paramount-plus<br>plex<br>prime-video<br>shophq<br>showtime<br>starz<br>tennis-channel<br>twitch<br>youtube<br>vlc<br>zattoo<br>hdmi_1<br>hdmi_2<br>hdmi_3<br>hdmi_4 | Quick launch apps customization |
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button |
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage.  Default size is 100 |
 | button_overrides | complex | no | read details in [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file | read details in [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file |
@@ -145,14 +145,14 @@ In these cases, you still might be able to control your devices (TVs, Receivers,
 ### Why isn't my Fire Device supported?
 There are currently over 40 different kinds of Amazon Fire devices, so it will take a while for every device to gain properly tested support.  If Firemote doesn't support your device yet yet, you can still use Firemote!  Simply choose a supported device that is similar to the one that you have (preferrably a remote that looks the same as your physical remote), then you can test different compatability modes to find out which one works the best.<br>
 
-For extra credit, you could submit a request to have your device added!  It's simple!  Click on the [Issues](../../issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "Device Support Request" option.  Your help is VERY appreciated!
+For extra credit, you could submit a request to have your device added!  It's simple!  Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "Device Support Request" option.  Your help is VERY appreciated!
 <br>
 <br>
 
 ### I want to have a shortcut button for an app I use frequently, but it's not on the list.  Can it be added?
-Absolutely!  Simply ask!  Here's how: Click on the [Issues](../../issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through traditional Amazon app downloading channels (not sideloaded), your request will be granted ASAP.
+Absolutely!  Simply ask!  Here's how: Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through traditional Amazon app downloading channels (not sideloaded), your request will be granted ASAP.
 <br>
 <br>
 
 ### How do I report a problem, make a request, or just talk about stuff?
-Click on the [Issues](../../issues) button on the top of this page, click 'New Issue' and then select the appropriate category for your needs.  You're also welcome to join or begin a new [discussion ](../../discussions) if that seems more suitable for your needs.
+Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then select the appropriate category for your needs.  You're also welcome to join or begin a new [discussion ](https://github.com/PRProd/HA-Firemote/discussions) if that seems more suitable for your needs.
