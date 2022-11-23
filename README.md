@@ -14,7 +14,7 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 
 ## Prerequisites
 * A functioning version of [Home Assistant](https://www.home-assistant.io/)
-* [HACS](https://peyanski.com/how-to-install-home-assistant-community-store-hacs/)
+* [HACS](https://peyanski.com/how-to-install-home-assistant-community-store-hacs/) (not required, but it makes things easier)
 * A supported Amazon Fire Device Type
   * Amazon Fire Smart TV
   * Amazon Fire Stick
@@ -28,13 +28,19 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 <br>
 <br>
 
-## Download and Setup
+## Download and Setup via Home Assistant UI & HACS
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
 1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
 1. Click on HACS and select Frontend
 1. In the lower right hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
 1. Search for, and click on "Firemote Card", then click the "DOWNLOAD" button in the lower right hand corner
 1. You will be prompted to reload your browser.  Click the RELOAD button to continue
+
+## OR Install Manually
+1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
+1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
+1. Download a copy of [HA-Firemote.js](https://github.com/PRProd/HA-Firemote/blob/main/HA-Firemote.js) and place it in your Home Assistant /config/www directory
+1. [Register this file as a new resource](https://developers.home-assistant.io/docs/frontend/custom-ui/registering-resources/)
 
 <br>
 <br>
@@ -76,12 +82,12 @@ Options:
 | ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
 | type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
 | entity      | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
-| device_type | string | yes      | fire_tv_toshiba_v35 <br> fire_tv_4_series <br> fire_tv_cube_third_gen <br> fire_tv_cube_second_gen <br> fire_tv_stick_4k_max <br> fire_tv_3rd_gen <br> fire_tv_stick_lite <br> fire_stick_4k <br> fire_stick_first_gen | The type of device you are controlling |
-| compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> | Adjust this value only if your buttons are completely unresponsive |
+| device_type | string | yes      | [fire_tv_toshiba_v35](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Toshiba-V35-Series-LED-FHD-HD---Fire-TV-(2021)) <br> [fire_tv_4_series](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Fire-TV-4-Series-(2021)) <br> [fire_tv_cube_third_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---3rd-Gen-(2022)) <br> [fire_tv_cube_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---2nd-Gen-(2019)) <br> [fire_tv_stick_4k_max](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max---1st-Gen-(2021)) <br> [fire_tv_3rd_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---3rd-Gen-(2020)) <br> [fire_tv_stick_lite](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-Lite---1st-Gen-(2020)) <br> [fire_stick_4k](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K---1st-Gen-(2018)) <br> [fire_stick_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-1st-Gen-(2014)) | The type of device you are controlling<br>[Which devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) |
+| compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> | Adjust this value only if your buttons are completely unresponsive<br>[FAQ Available for additional help](https://github.com/PRProd/HA-Firemote#faq) |
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | amc-plus<br>apple-tv<br>bbc-iplayer<br>bell-fibe-tv<br>crave-tv<br>cyberghost<br>disney-plus<br>emby<br>hbo-max<br>hulu<br>jellyfin<br>netflix<br>pandora<br>paramount-plus<br>plex<br>prime-video<br>shophq<br>showtime<br>starz<br>tennis-channel<br>twitch<br>youtube<br>vlc<br>zattoo<br>hdmi_1<br>hdmi_2<br>hdmi_3<br>hdmi_4 | Quick launch apps customization |
-|hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button |
+|hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button (truncated to 8 characters to fit)|
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage.  Default size is 100 |
-| button_overrides | complex | no | read details in [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file | read details in [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file |
+| button_overrides | object | no | Button name and HA script name are required.| Details are in the Button Overrides section of the [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file |
 
 <br>
 <br>
