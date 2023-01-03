@@ -48,6 +48,14 @@ const fastappchoices = {
       "androidName": "ca.bell.tv.firetv",
       "adbLaunchCommand": "adb shell am start -n ca.bell.tv.firetv/ca.bell.fiberemote.tv.MainTvActivity" },
 
+  "cnn": {
+      "button": "CNN",
+      "friendlyName": 'CNN',
+      "appName": "com.cnn.mobile.fire.tv",
+      "className": "cnnButton",
+      "androidName": "com.cnn.mobile.fire.tv",
+      "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.fire.tv/com.cnnplusrn.MainActivity" },
+
   "crave-tv": {
       "button": "crave",
       "friendlyName": 'Crave TV (Canada)',
@@ -108,6 +116,21 @@ const fastappchoices = {
       "className": "netflixButton",
       "androidName": "com.netflix.ninja",
       "adbLaunchCommand": "adb shell am start -n com.netflix.ninja/.MainActivity" },
+
+  "news": {
+      "button": "news",
+      "friendlyName": "News by Fire TV",
+      "appName": "com.amazon.hedwig",
+      "className": "newsButton",
+      "androidName": "com.amazon.hedwig" },
+
+  "nordvpn": {
+      "button": "NordVPN",
+      "friendlyName": "Nord VPN",
+      "appName": "com.nordvpn.android",
+      "className": "nordVPNButton",
+      "androidName": "com.nordvpn.android",
+      "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity" },
 
   "pandora": {
       "button": "pandora",
@@ -194,12 +217,27 @@ const fastappchoices = {
       "androidName": "com.amazon.firetv.youtube",
       "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube/dev.cobalt.app.MainActivity" },
 
+  "youtubeTV": {
+      "button": "YouTubeTV",
+      "friendlyName": "YouTubeTV",
+      "appName": "com.amazon.firetv.youtube.tv",
+      "className": "youtubeTVButton",
+      "androidName": "com.amazon.firetv.youtube.tv",
+      "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube.tv/dev.cobalt.app.MainActivity" },
+
   "vlc": {
       "button": "VLC",
       "friendlyName": "VLC",
       "appName": "org.videolan.vlc",
       "className": "vlcButton",
       "androidName": "org.videolan.vlc" },
+
+  "xfinityStream": {
+      "button": "Xfinity Stream",
+      "friendlyName": "Xfinity Stream",
+      "appName": "com.xfinity.cloudtvr.tenfoot",
+      "className": "xfinityStreamButton",
+      "androidName": "com.xfinity.cloudtvr.tenfoot" },
 
   "zattoo": {
       "button": "Zattoo",
@@ -468,6 +506,7 @@ class FiremoteCard extends LitElement {
             user-select: none;
             font-size: calc(var(--sz) * 1.14rem);
             padding: calc(var(--sz) * 0.285rem);
+            overflow: hidden;
           }
 
           .srcButton:active {
@@ -517,6 +556,17 @@ class FiremoteCard extends LitElement {
             filter: grayscale(10%) brightness(80%);
           }
           .bellFibeTVButton:active, .bellFibeTVButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .cnnButton {
+            color: rgb(255 255 255);
+            font-size: calc(var(--sz) * 1.25rem);
+            background: linear-gradient(0deg, rgba(110,0,0,1) 0%, rgba(227,0,0,1) 100%);
+            filter: grayscale(10%) brightness(80%);
+          }
+          .cnnButton:active, .cnnButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
@@ -608,6 +658,32 @@ class FiremoteCard extends LitElement {
             color: #d30a14;
             background: #fff;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
+          }
+
+          .newsButton {
+            font-weight: bold;
+            font-size: calc(var(--sz) * 1.4rem);
+            text-shadow: 0 0 calc(var(--sz) * 0.5rem) black;
+            color: #ffffff;
+            background: linear-gradient(45deg, rgba(255,184,81,1) 31%, rgba(202,21,205,1) 100%);
+            filter: brightness(75%);
+          }
+          .newsButton:active, .newsButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
+            filter: none;
+          }
+
+          .nordVPNButton {
+            font-weight: bold;
+            font-size: calc(var(--sz) * 1rem);
+            text-shadow: 0 0 calc(var(--sz) * 0.5rem) black;
+            color: #ffffff;
+            background: #64c1ff;
+            filter: grayscale(20%) brightness(50%);
+          }
+          .nordVPNButton:active, .nordVPNButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
+            filter: none;
           }
 
           .pandoraButton {
@@ -733,6 +809,19 @@ class FiremoteCard extends LitElement {
             filter: none;
           }
 
+          .xfinityStreamButton {
+            font-size: calc(var(--sz) * 0.85rem);
+            line-height: 0.75rem;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(150deg, rgba(59,48,173,1) 0%, rgba(101,168,250,1) 100%);
+            filter: brightness(75%);
+          }
+          .xfinityStreamButton:active, .xfinityStreamButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
           .youtubeButton {
             font-size: calc(var(--sz) * 1rem);
             color: #919191;
@@ -745,6 +834,19 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
           }
+
+          .youtubeTVButton {
+            font-size: calc(var(--sz) * .8rem);
+            color: #ffffff;
+            font-weight: bold;
+            background: #000000;
+            filter: brightness(50%);
+          }
+          .youtubeTVButton:active, .youtubeTVButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
 
           .vlcButton {
             font-size: calc(var(--sz) * 1.25rem);
@@ -922,6 +1024,7 @@ class FiremoteCard extends LitElement {
     // Reused SVG Logos
     function renderfiretvlogo() {
       return html`
+          <!-- <div class="three-col-span">Remote name</div> -->
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           	 viewBox="0 0 1276 712" style="enable-background:new 0 0 1276 712;" xml:space="preserve" class="remote-logo">
             <style type="text/css">
