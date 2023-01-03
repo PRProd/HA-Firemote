@@ -209,6 +209,14 @@ const fastappchoices = {
       "androidName": "tv.twitch.android.viewer",
       "adbLaunchCommand": "adb shell am start -n tv.twitch.android.viewer/tv.twitch.starshot64.app.StarshotActivity" },
 
+  "waipuTV": {
+      "button": "Waipu TV",
+      "friendlyName": "Waipu TV (DE)",
+      "appName": "Waipu TV",
+      "className": "waipuTVButton",
+      "androidName": "de.exaring.waipu.firetv.live" },
+
+
   "youtube": {
       "button": "YouTube",
       "friendlyName": "YouTube",
@@ -808,6 +816,20 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
+
+          .waipuTVButton {
+            font-size: calc(var(--sz) * 0.85rem);
+            line-height: 0.75rem;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(to right,#30182d 0,#0f2c4c 100%);
+            filter: brightness(75%);
+          }
+          .waipuTVButton:active, .waipuTVButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
 
           .xfinityStreamButton {
             font-size: calc(var(--sz) * 0.85rem);
