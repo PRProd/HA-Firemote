@@ -147,6 +147,13 @@ const fastappchoices = {
       "androidName": "com.cbs.ott",
       "adbLaunchCommand": "adb shell am start -n com.cbs.ott/com.cbs.app.tv.ui.activity.DeepLinkActivity" },
 
+  "paramount-plus-de": {
+      "button": "Paramount+",
+      "friendlyName": 'Paramount+ (DE)',
+      "appName": "com.cbs.ca",
+      "className": "paramountPlusButton",
+      "androidName": "com.cbs.ca" },
+
   "plex": {
       "button": "Plex",
       "friendlyName": "plex",
@@ -2036,6 +2043,13 @@ class FiremoteCardEditor extends LitElement {
         <label for="fader">Scale:&nbsp;
           <input type="range" min="20" max="120" .value=${this._config.scale} id="scale" name="scale" @change=${this.configChanged} style="width: 40ch;">
         </label>
+<!--
+        <br>
+        <br>
+        <label for="visibleNameText">Visible Device Name:&nbsp;
+          <input type="text" maxlength="15" .value=${ this._config.visibleNameText || ''} id="visibleNameText" name="visibleNameText" @change=${this.configChanged} style="padding: .6em; font-size: 1em; width: 10rem;">
+        </label>
+--!>
     `;
   }
 }
