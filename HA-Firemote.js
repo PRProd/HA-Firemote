@@ -1369,7 +1369,7 @@ class FiremoteCard extends LitElement {
     }
 
 
-    if (deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_3rd_gen') {
+    if (deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_3rd_gen' || deviceType == 'fire_stick_second_gen') {
     return html`
       <ha-card>
 
@@ -1619,7 +1619,8 @@ class FiremoteCard extends LitElement {
         if(deviceType == 'fire_tv_cube_third_gen') {
             var eventListenerBinPath = '/dev/input/event3';
         }
-        if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_lite' || deviceType == 'fire_tv_3rd_gen') {
+        if(deviceType == 'fire_stick_4k'   || deviceType == 'fire_tv_stick_lite' || 
+           deviceType == 'fire_tv_3rd_gen' || deviceType == 'fire_stick_second_gen') {
             var eventListenerBinPath = '/dev/input/event4';
         }
         if(deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_cube_second_gen') {
@@ -1637,7 +1638,8 @@ class FiremoteCard extends LitElement {
       if(compatibility_mode == 'strong') {
         this.hass.callService("media_player", "toggle", { entity_id: this._config.entity});
       }
-      else if(deviceType == 'fire_stick_4k' || deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_3rd_gen') {
+      else if(deviceType == 'fire_stick_4k'   || deviceType == 'fire_tv_stick_4k_max' || 
+              deviceType == 'fire_tv_3rd_gen' || deviceType =='fire_stick_second_gen') {
         if(stateStr != 'off' && stateStr != 'unavailable') {
           this.hass.callService("media_player", "turn_off", { entity_id: this._config.entity});
         }
@@ -2038,7 +2040,7 @@ class FiremoteCardEditor extends LitElement {
             <option value="fire_tv_3rd_gen">Fire TV Stick (3rd Gen - 2020)</option>
             <option value="fire_tv_stick_lite">Fire TV Stick Lite (1st Gen - 2020)</option>
             <option value="fire_stick_4k">Fire TV Stick 4K (1st Gen - 2018)</option>
-            <option value="fire_stick_second_gen" disabled>Fire TV Stick (2nd gen - 2016 - 2019)</option>
+            <option value="fire_stick_second_gen">Fire TV Stick (2nd gen - 2016 - 2019)</option>
             <option value="fire_stick_basic" disabled>Fire TV Stick (Basic Edition - 2017)</option>
             <option value="fire_stick_second_gen_2015" disabled>Fire TV Stick (2nd Gen - 2015)</option>
             <option value="fire_stick_first_gen">Fire TV Stick (1st gen - 2014)</option>
