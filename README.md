@@ -49,9 +49,10 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 1. On any dashboard, click the +ADD CARD button
 1. Search by cards for "Firemote Card", and click on it
 1. Under the Entity dropdown, a list of your Android TV integration entities will appear.  Select the one you wish to control.
-1. Under Fire Device Type, select the proper device type
-1. Click "SAVE"
+1. Under Fire Device Type, select the device model that you own. ([Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html))
+1. Make any other optional changes to your card, then click "SAVE"
 
+![UIConfig](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/uiConfig.jpg)
 
 ![Dashboard](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/dashboard.jpg)
 
