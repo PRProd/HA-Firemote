@@ -208,6 +208,14 @@ const fastappchoices = {
       "className": "tennisChannelButton",
       "androidName": "com.tennischannel.tceverywhere.amazon" },
 
+  "tvnz-plus": {
+      "button": "tvnz+",
+      "friendlyName": "TVNZ+ (NZ)",
+      "appName": "nz.co.tvnz.ondemand.tv",
+      "className": "tvnzPlusButton",
+      "androidName": "nz.co.tvnz.ondemand.tv",
+      "adbLaunchCommand": "adb shell am start -n nz.co.tvnz.ondemand.tv/nz.co.tvnz.ondemand.MainTVActivity" },
+
   "twitch": {
       "button": "Twitch",
       "friendlyName": 'Twitch',
@@ -222,7 +230,6 @@ const fastappchoices = {
       "appName": "Waipu TV",
       "className": "waipuTVButton",
       "androidName": "de.exaring.waipu.firetv.live" },
-
 
   "youtube": {
       "button": "YouTube",
@@ -836,6 +843,19 @@ class FiremoteCard extends LitElement {
             color: #fff;
             background: linear-gradient(180deg, rgba(40,131,85,1) 0%, rgba(16,73,43,1) 100%);
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .tvnzPlusButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #919191;
+            font-weight: bold;
+            background: linear-gradient(191deg, rgba(28,49,156,1) 0%, rgba(17,19,36,1) 100%);
+          }
+          .tvnzPlusButton:active, .tvnzPlusButton.appActive {
+            color: #ffffff;
+            background: linear-gradient(191deg, rgba(0,243,255,1) 0%, rgba(0,232,255,1) 38%, rgba(1,106,255,1) 100%);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
           }
 
           .twitchButton {
