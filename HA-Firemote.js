@@ -208,6 +208,14 @@ const fastappchoices = {
       "className": "tennisChannelButton",
       "androidName": "com.tennischannel.tceverywhere.amazon" },
 
+  "threenow": {
+      "button": "Three Now",
+      "friendlyName": "Three Now (NZ)",
+      "appName": "com.mediaworks.android.tv",
+      "className": "threenowButton",
+      "androidName": "com.mediaworks.android.tv",
+      "adbLaunchCommand": "adb shell am start -n com.mediaworks.android.tv/nz.co.mediaworks.vod.ui.splash.TVSplashActivity" },
+
   "tvnz-plus": {
       "button": "tvnz+",
       "friendlyName": "TVNZ+ (NZ)",
@@ -238,6 +246,14 @@ const fastappchoices = {
       "className": "youtubeButton",
       "androidName": "com.amazon.firetv.youtube",
       "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube/dev.cobalt.app.MainActivity" },
+
+  "youtubekids": {
+      "button": "YouTube Kids",
+      "friendlyName": "YouTube Kids",
+      "appName": "com.amazon.firetv.youtube.kids",
+      "className": "youtubekidsButton",
+      "androidName": "com.amazon.firetv.youtube.kids" ,
+      "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube.kids/dev.cobalt.app.MainActivity" },
 
   "youtubeTV": {
       "button": "YouTubeTV",
@@ -845,6 +861,21 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
+          .threenowButton {
+            font-size: calc(var(--sz) * .9rem);
+            color: #fff;
+            font-weight: bold;
+            background: #ff004f;
+            filter: grayscale(30%) brightness(70%);
+          }
+          .threenowButton:active, .threenowButton.appActive {
+            color: #fff;
+            background: #ff004f;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
+            filter: none;
+          }
+
           .tvnzPlusButton {
             font-size: calc(var(--sz) * 1rem);
             color: #919191;
@@ -910,6 +941,19 @@ class FiremoteCard extends LitElement {
             text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
           }
 
+          .youtubekidsButton {
+            font-size: calc(var(--sz) * 0.7rem);
+            color: #919191;
+            font-weight: bold;
+            background: rgb(74 0 0);
+          }
+          .youtubekidsButton:active, .youtubekidsButton.appActive {
+            color: #ffffff;
+            background: rgb(199 0 0);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
+          }
+
           .youtubeTVButton {
             font-size: calc(var(--sz) * .8rem);
             color: #ffffff;
@@ -921,7 +965,6 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
-
 
           .vlcButton {
             font-size: calc(var(--sz) * 1.25rem);
