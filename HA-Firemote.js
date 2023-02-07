@@ -109,6 +109,13 @@ const fastappchoices = {
       "className": "jellyfinButton",
       "androidName": "org.jellyfin.androidtv" },
 
+  "myCanal": {
+      "button": "my CANAL",
+      "friendlyName": 'my CANAL',
+      "appName": "com.canal.android.canal",
+      "className": "myCanalButton",
+      "androidName": "com.canal.android.canal" },
+
   "netflix": {
       "button": "NETFLIX",
       "friendlyName": "Netflix",
@@ -213,8 +220,7 @@ const fastappchoices = {
       "friendlyName": "Three Now (NZ)",
       "appName": "com.mediaworks.android.tv",
       "className": "threenowButton",
-      "androidName": "com.mediaworks.android.tv",
-      "adbLaunchCommand": "adb shell am start -n com.mediaworks.android.tv/nz.co.mediaworks.vod.ui.splash.TVSplashActivity" },
+      "androidName": "com.mediaworks.android.tv" },
 
   "tvnz-plus": {
       "button": "tvnz+",
@@ -254,6 +260,14 @@ const fastappchoices = {
       "className": "youtubekidsButton",
       "androidName": "com.amazon.firetv.youtube.kids" ,
       "adbLaunchCommand": "adb shell am start -n com.amazon.firetv.youtube.kids/dev.cobalt.app.MainActivity" },
+
+  "youtubekids-alt": {
+      "button": "YouTube Kids",
+      "friendlyName": "YouTube Kids (alt)",
+      "appName": "com.google.android.youtube.tvkids",
+      "className": "youtubekidsButton",
+      "androidName": "com.amazon.firetv.youtube.kids" ,
+      "adbLaunchCommand": "adb shell am start -n com.google.android.youtube.tvkids/com.google.android.apps.youtube.tvkids.activity.MainActivity" },
 
   "youtubeTV": {
       "button": "YouTubeTV",
@@ -710,6 +724,18 @@ class FiremoteCard extends LitElement {
             color: #fff;
             background: linear-gradient(90deg, rgba(112,62,128,1) 0%, rgba(0,108,144,1) 100%);
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .myCanalButton {
+            font-weight: bold;
+            font-size: calc(var(--sz) * 0.8rem);
+            color: #adadad;
+            background: #181818;
+          }
+          .myCanalButton:active, .myCanalButton.appActive {
+            color: #ffffff;
+            background: #ec3655;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
           }
 
           .netflixButton {
