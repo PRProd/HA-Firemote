@@ -21,7 +21,7 @@ body:
     id: canBeDownloaded
     attributes:
       label: Can this app be freely downloaded through official means?
-      description: This answer must be yes.  Requests for apps that can only be "sideloaded" will be rejected.
+      description: This answer must be yes.  If the app is not available to download through the native Fire TV app search feature, then it is potentially unsafe and will not be considered for app shortcuts.  All "sideloaded" app requests will be rejected.
       options:
         - label: 'Yes'
           required: true
