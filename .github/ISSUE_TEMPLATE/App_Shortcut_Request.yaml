@@ -29,7 +29,7 @@ body:
     id: additionalInfo
     attributes:
       label: Optional Comments
-      description: Add any other related comments here, or leave this blank.
+      description: Add any other related comments here, or leave this blank.  [Helpful comments might get your request processed faster](https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#details-for-app-requests)
       placeholder: 
     validations:
       required: false
