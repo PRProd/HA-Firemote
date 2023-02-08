@@ -25,6 +25,14 @@ const fastappchoices = {
       "androidName": "com.amcplus.amcfiretv",
       "adbLaunchCommand": "adb shell am start -n com.amcplus.amcfiretv/com.amcplus.tv.MainActivity" },
 
+  "app-opener": {
+      "button": "App Opener",
+      "friendlyName": "App Opener",
+      "appName": "devsimon.appopener",
+      "className": "appOpenerButton",
+      "androidName": "devsimon.appopener",
+      "adbLaunchCommand": "adb shell am start -n devsimon.appopener/devsimon.appopener.MainActivity" },
+
   "apple-tv": {
       "button": "Apple TV",
       "friendlyName": 'Apple TV',
@@ -176,6 +184,13 @@ const fastappchoices = {
       "androidName": "com.amazon.avod",
       "androidName2": "com.amazon.firebat",
       "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
+
+  "raiplay": {
+      "button": "RaiPlay",
+      "friendlyName": "RaiPlay (IT)",
+      "appName": "it.rainet",
+      "className": "raiPlayButton",
+      "androidName": "it.rainet" },
 
   "shophq": {
       "button": "ShopHQ",
@@ -594,12 +609,24 @@ class FiremoteCard extends LitElement {
           }
 
           .amcPlusButton {
+            font-size: calc(var(--sz) * 1.25rem);
             color: #51ceff;
             font-weight: bold;
             background: #091c3d;
             filter: grayscale(50%) brightness(80%);
           }
           .amcPlusButton:active, .amcPlusButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .appOpenerButton {
+            font-size: calc(var(--sz) * .75rem);
+            color: #ffffff;
+            background: #400080;
+            filter: grayscale(50%) brightness(80%);
+          }
+          .appOpenerButton:active, .appOpenerButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
@@ -826,6 +853,19 @@ class FiremoteCard extends LitElement {
             text-shadow: 0 0 calc(var(--sz) * 0.214rem) black;
             background: #53a3d1;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.1428rem) rgb(255 255 255 / 15%);
+          }
+
+          .raiPlayButton {
+            color: #ffffff;
+            background: linear-gradient(0deg, rgba(133,207,249,1) 21%, rgba(0,159,249,1) 100%);;
+            font-weight: bold;
+            text-shadow: 0 0 calc(var(--sz) * 0.214rem) black;
+            filter: brightness(60%);
+            font-size: calc(var(--sz) * 1rem);
+          }
+          .raiPlayButton:active, .raiPlayButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .shopHQButton {
@@ -1606,7 +1646,7 @@ class FiremoteCard extends LitElement {
 
 
 
-    if (deviceType == 'fire_stick_first_gen') {
+    if (deviceType == 'fire_stick_first_gen'  || deviceType == 'fire_tv_cube_first_gen') {
     return html`
       <ha-card>
 
@@ -1708,11 +1748,11 @@ class FiremoteCard extends LitElement {
         if(deviceType == 'fire_tv_cube_third_gen') {
             var eventListenerBinPath = '/dev/input/event3';
         }
-        if(deviceType == 'fire_stick_4k'   || deviceType == 'fire_tv_stick_lite' || 
+        if(deviceType == 'fire_stick_4k'   || deviceType == 'fire_tv_stick_lite' ||
            deviceType == 'fire_tv_3rd_gen' || deviceType == 'fire_stick_second_gen') {
             var eventListenerBinPath = '/dev/input/event4';
         }
-        if(deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_cube_second_gen') {
+        if(deviceType == 'fire_tv_stick_4k_max' || deviceType == 'fire_tv_cube_second_gen' || deviceType == 'fire_tv_cube_first_gen') {
             var eventListenerBinPath = '/dev/input/event5';
         }
     }
@@ -2122,7 +2162,7 @@ class FiremoteCardEditor extends LitElement {
           <optgroup label="Fire TV Cube">
             <option value="fire_tv_cube_third_gen">Fire TV Cube (3rd Gen - 2022)</option>
             <option value="fire_tv_cube_second_gen">Fire TV Cube (2nd Gen - 2019)</option>
-            <option value="fire_tv_cube_first_gen" disabled>Fire TV Cube (1st Gen - 2018)</option>
+            <option value="fire_tv_cube_first_gen">Fire TV Cube (1st Gen - 2018)</option>
           </optgroup>
           <optgroup label="Streaming Media Player">
             <option value="fire_tv_stick_4k_max">Fire TV Stick 4K Max (1st Gen - 2020)</option>
