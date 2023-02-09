@@ -761,7 +761,7 @@ class FiremoteCard extends LitElement {
           }
           .myCanalButton:active, .myCanalButton.appActive {
             color: #ffffff;
-            background: #ec3655;
+            background: #232227;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
           }
 
