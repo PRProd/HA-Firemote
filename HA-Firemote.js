@@ -188,9 +188,9 @@ const fastappchoices = {
   "raiplay": {
       "button": "RaiPlay",
       "friendlyName": "RaiPlay (IT)",
-      "appName": "it.rainet",
+      "appName": "it.rainet.androidtv",
       "className": "raiPlayButton",
-      "androidName": "it.rainet" },
+      "androidName": "it.rainet.androidtv" },
 
   "shophq": {
       "button": "ShopHQ",
