@@ -80,6 +80,14 @@ const fastappchoices = {
       "androidName": "com.cyberghostvpn.amazon",
       "adbLaunchCommand": "adb shell am start -n com.cyberghostvpn.amazon/de.mobileconcepts.cyberghost.view.app.AppActivity" },
 
+  "directv-stream": {
+      "button": "DIRECTV",
+      "friendlyName": "DIRECTV stream",
+      "appName": "com.att.tv",
+      "className": "direcTVStreamButton",
+      "androidName": "com.att.tv",
+      "adbLaunchCommand": "adb shell am start -n com.att.tv/tv.youi.clientapp.AppActivity" },
+
   "disney-plus": {
       "button": "Disney+",
       "friendlyName": "Disney +",
@@ -94,6 +102,14 @@ const fastappchoices = {
       "appName": "tv.emby.embyatv",
       "className": "embyButton",
       "androidName": "tv.emby.embyatv" },
+
+  "espn": {
+      "button": "ESPN",
+      "friendlyName": "ESPN",
+      "appName": "com.espn.gtv",
+      "className": "espnButton",
+      "androidName": "com.espn.gtv",
+      "adbLaunchCommand": "adb shell am start -n com.espn.gtv/com.espn.startup.presentation.StartupActivity" },
 
   "hbo-max": {
       "button": "HBO max",
@@ -185,12 +201,14 @@ const fastappchoices = {
       "androidName2": "com.amazon.firebat",
       "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
 
+
   "raiplay": {
       "button": "RaiPlay",
       "friendlyName": "RaiPlay (IT)",
       "appName": "it.rainet.androidtv",
       "className": "raiPlayButton",
-      "androidName": "it.rainet.androidtv" },
+      "androidName": "it.rainet.androidtv",
+      "adbLaunchCommand": "adb shell am start -n it.rainet.androidtv/.ui.PlayerActivity" },
 
   "shophq": {
       "button": "ShopHQ",
@@ -400,6 +418,20 @@ class FiremoteCard extends LitElement {
             outline: 0;
           }
 
+          .shield-remote-body {
+            background: linear-gradient(90deg, rgba(27,27,27,1) 0%, rgba(37,37,37,1) 8%, rgba(55,55,55,1) 50%, 
+                                               rgba(37,37,37,1) 92%, rgba(27,27,27,1) 100%); 
+            border: solid #252525 calc(var(--sz) * 0.14rem);
+            border-radius: calc(var(--sz) * 8rem) calc(var(--sz) * 8rem) calc(var(--sz) * 8rem) calc(var(--sz) * 8rem) / calc(var(--sz) * 2.5rem) calc(var(--sz) * 2.5rem) calc(var(--sz) * 2.5rem) calc(var(--sz) * 2.5rem);
+            padding: calc(var(--sz) * 1.428rem) calc(var(--sz) * 0.714rem) calc(var(--sz) * 2.143rem) calc(var(--sz) * 0.714rem);
+            display: grid;
+            justify-items: center;
+            grid-column-gap: calc(var(--sz) * 0.14rem);
+            grid-row-gap: calc(var(--sz) * 0.5rem);
+            grid-template-columns: 1fr 1fr;
+            width: calc(var(--sz) * 8.286rem);
+          }
+
           .remote-body {
             background: linear-gradient(90deg, rgba(27,27,27,1) 0%, rgba(37,37,37,1) 8%, rgba(55,55,55,1) 50%, 
                                                rgba(37,37,37,1) 92%, rgba(27,27,27,1) 100%); 
@@ -476,6 +508,12 @@ class FiremoteCard extends LitElement {
             height: calc(var(--sz) * 11.286rem);
           }
 
+          .shieldDpad {
+            grid-column: 1 / 3;
+            width: calc(var(--sz) * 8.2rem);
+            height: calc(var(--sz) * 8.2rem);
+          }
+
           .centerbutton{
             all: unset;
             border: solid black calc(var(--sz) * 0.0714rem);
@@ -488,6 +526,13 @@ class FiremoteCard extends LitElement {
             background: rgba(55,55,55,1);
             box-shadow: inset 0 0.calc(var(--sz) * 2857rem) calc(var(--sz) * 0.1428rem) calc(var(--sz) * -0.1428rem) #000000d9;
             z-index: 2;
+          }
+
+          .centerbuttonShield {
+            width: calc(var(--sz) * 8.2rem);
+            height: calc(var(--sz) * 8.2rem);
+            margin: 0px;
+            transform: scale(0.6);
           }
 
           .directionButtonContainer{
@@ -512,6 +557,11 @@ class FiremoteCard extends LitElement {
 
           .dpadbutton:active {
             background: #282828;
+          }
+
+          .dpadbuttonShield {
+            width: calc(var(--sz) * 4.101rem);
+            height: calc(var(--sz) * 4.101rem);
           }
 
           .centerbutton:active {
@@ -699,6 +749,20 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
+          .direcTVStreamButton {
+            font-size: calc(var(--sz) * .9rem);
+            font-weight: bold;
+            color: #337ace;
+            background: #ffffff;
+            filter: brightness(60%);
+          }
+          .direcTVStreamButton:active, .direcTVStreamButton.appActive {
+            color: #337ace;
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+
           .disneyPlusButton {
             color: #c6c6c6;
             background: #1a1f28;
@@ -718,6 +782,20 @@ class FiremoteCard extends LitElement {
             filter: grayscale(20%) brightness(60%);
           }
           .embyButton:active, .embyButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .espnButton {
+            color: #fff;
+            font-size: calc(var(--sz) * 1.15rem);
+            font-weight: bold;
+            font-style: italic;
+            filter: grayscale(50%) brightness(50%);
+            background: #ff0000;
+          }
+          .espnButton:active, .espnButton.appActive {
+            color: #fff;
             filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
@@ -1702,6 +1780,76 @@ class FiremoteCard extends LitElement {
       </ha-card>
     `;
     }
+
+
+    if (deviceType == 'nvidia_shield_pro') {
+    return html`
+      <ha-card>
+
+      ${scaleCss}
+
+      <div class="shield-remote-body">
+
+          <div> </div>
+          <div class="notch notchtall"> </div>
+
+          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div><div></div>
+
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu"></ha-icon>
+          </button>
+
+
+          <div class="dpadContainer shieldDpad">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton dpadbuttonShield" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton centerbuttonShield" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
+
+
+          <button class="remote-button" id="left-triangle-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu-left"></ha-icon>
+          </button>
+          <button class="remote-button" id="circle-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:circle"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="volume-up-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-high"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button" id="volume-down-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-medium"></ha-icon>
+          </button>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
 
   }
 
