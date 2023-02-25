@@ -201,14 +201,13 @@ const fastappchoices = {
       "androidName2": "com.amazon.firebat",
       "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity" },
 
-
   "raiplay": {
       "button": "RaiPlay",
       "friendlyName": "RaiPlay (IT)",
       "appName": "it.rainet.androidtv",
       "className": "raiPlayButton",
       "androidName": "it.rainet.androidtv",
-      "adbLaunchCommand": "adb shell am start -n it.rainet.androidtv/.ui.PlayerActivity" },
+      "adbLaunchCommand": "adb shell am start -n it.rainet.androidtv/.ui.MainLeanbackActivity" },
 
   "shophq": {
       "button": "ShopHQ",
