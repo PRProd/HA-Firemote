@@ -361,6 +361,15 @@ const fastappchoices = {
    },
 
 
+  "ipvanish": {
+      "button": "IP VANISH",
+      "friendlyName": "IPVanish VPN",
+      "className": "ipVanishButton",
+      "appName": "com.ixolit.ipvanish",
+      "androidName": "com.ixolit.ipvanish",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"],},
+
+
   "jellyfin": {
       "button": "Jellyfin",
       "friendlyName": "Jellyfin",
@@ -435,6 +444,16 @@ const fastappchoices = {
       "className": "npoButton",
       "androidName": "nl.uitzendinggemist",
       "deviceFamily": ["nvidia-shield"], },
+
+
+  "oqee-by-free": {
+      "button": "OQEE",
+      "friendlyName": "OQEE by Free (FR)",
+      "className": "oqeeButton",
+      "appName": "net.oqee.androidtv.store",
+      "androidName": "net.oqee.androidtv.store",
+      "adbLaunchCommand": "adb shell am start -n net.oqee.androidtv.store/net.oqee.androidtv.MainActivity",
+      "deviceFamily": ["amazon-fire"], },
 
 
   "pandora": {
@@ -539,6 +558,30 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "nvidia-shield"], },
 
 
+  "sky-news" : {
+      "button": "sky news",
+      "friendlyName": "Sky News",
+      "className": "skyNewsButton",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"],
+      "amazon-fire": {
+          "appName": "com.onemainstream.skynews.android",
+          "androidName": "com.onemainstream.skynews.android",
+      },
+      "nvidia-shield": {
+          "appName": "com.sky.news.androidtv",
+          "androidName": "com.sky.news.androidtv",
+      },
+   },
+
+  "smart-tube-next": {
+      "button": "STN",
+      "friendlyName": "SmartTubeNext",
+      "className": "smartTubeNextButton",
+      "appName": "com.teamsmart.videomanager.tv",
+      "androidName": "com.teamsmart.videomanager.tv",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"], },
+
+
   "spotify": {
       "button": "Spotify",
       "friendlyName": "Spotify",
@@ -565,6 +608,15 @@ const fastappchoices = {
    },
 
 
+  "streamz": {
+      "button": "streamz",
+      "friendlyName": "streamz (BE)",
+      "className": "streamzButton",
+      "appName": "be.dpgmedia.streamz",
+      "androidName": "be.dpgmedia.streamz",
+      "deviceFamily": ["nvidia-shield"], },
+
+
   "tennis-channel": {
       "button": "TENNIS CHANNEL",
       "friendlyName": "Tennis Channel",
@@ -581,6 +633,16 @@ const fastappchoices = {
       "className": "threenowButton",
       "androidName": "com.mediaworks.android.tv",
       "deviceFamily": ["amazon-fire"], },
+
+
+  "tivimate": {
+      "button": "TiviMate",
+      "friendlyName": "TiviMate IPTV Player",
+      "className": "tiviMateButton",
+      "appName": "ar.tvplayer.tv",
+      "androidName": "ar.tvplayer.tv",
+      "adbLaunchCommand": "adb shell am start -n ar.tvplayer.tv/ar.tvplayer.tv.ui.MainActivity",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"], },
 
 
   "tvnz-plus": {
@@ -625,6 +687,32 @@ const fastappchoices = {
           "androidName": "nl.rtl.videoland.v2",
       }, 
    },
+
+
+  "vtm-go": {
+      "button": "VTM GO",
+      "friendlyName": "VTM GO (BE)",
+      "className": "vtmGoButton",
+      "appName": "be.vmma.vtm.zenderapp",
+      "androidName": "be.vmma.vtm.zenderapp",
+      "deviceFamily": ["nvidia-shield"], },
+
+  "vrt-max": {
+      "button": "vrt max",
+      "friendlyName": "VRT MAX (BE)",
+      "className": "vrtMaxButton",
+      "appName": "be.vrt.vrtnu",
+      "androidName": "be.vrt.vrtnu",
+      "deviceFamily": ["nvidia-shield"], },
+
+
+  "vlc": {
+      "button": "VLC",
+      "friendlyName": "VLC",
+      "appName": "org.videolan.vlc",
+      "className": "vlcButton",
+      "androidName": "org.videolan.vlc",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"],},
 
 
   "waipuTV": {
@@ -687,15 +775,6 @@ const fastappchoices = {
           "adbLaunchCommand": "adb shell am start -n com.google.android.youtube.tvunplugged/com.google.android.apps.youtube.tvunplugged.activity.MainActivity",
       },
   },
-
-
-  "vlc": {
-      "button": "VLC",
-      "friendlyName": "VLC",
-      "appName": "org.videolan.vlc",
-      "className": "vlcButton",
-      "androidName": "org.videolan.vlc",
-      "deviceFamily": ["amazon-fire", "nvidia-shield"],},
 
 
   "xfinityStream": {
@@ -805,6 +884,7 @@ class FiremoteCard extends LitElement {
     );
     var defaultEntity = mediaPlayerEntities[0] || '';
     return { 'entity': defaultEntity,
+             'device_family': 'amazon-fire',
              'device_type': 'fire_tv_4_series',
              'compatibility_mode': 'default',
              'app_launch_1': 'prime-video',
@@ -1116,6 +1196,15 @@ class FiremoteCard extends LitElement {
             justify-items: center;
           }
 
+          .shield-remote-body .deviceNameTop {
+            display: unset;
+            align-items: unset;
+            align-content: unset;
+            justify-items: unset;
+            margin-left: 0;
+            margin-top: -1rem;
+          }
+
           .deviceNameBottom {
             grid-column: 1/4;
             color: var(--devicenamecolor);
@@ -1126,6 +1215,15 @@ class FiremoteCard extends LitElement {
             overflow: hidden;
             width: 100%;
             text-align: center;
+          }
+
+          .shield-remote-body .deviceNameBottom {
+            grid-column: 1 / 3;
+            font-size: calc(var(--sz) * 1rem);
+            margin-top: 0px;
+            margin-bottom: 0px;
+            position: absolute;
+            bottom: calc(var(--sz) * 0.3rem);
           }
 
           .amcPlusButton {
@@ -1232,7 +1330,6 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
-
           .disneyPlusButton {
             color: #c6c6c6;
             background: #1a1f28;
@@ -1291,6 +1388,20 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
+          .ipVanishButton {
+            color: #70bb44;
+            font-size: calc(var(--sz) * 0.8rem);
+            font-weight: bold;
+            background: #000;
+            border: solid #364a2a calc(var(--sz) * 0.0714rem);
+            filter: grayscale(20%) brightness(80%);
+          }
+          .ipVanishButton:active, .ipVanishButton.appActive {
+            filter: none;
+            border: solid #3f7a1d calc(var(--sz) * 0.0714rem);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
           .jellyfinButton {
             color: #c6c6c6;
             background: linear-gradient(90deg, rgba(62,34,71,1) 0%, rgba(0,60,80,1) 100%);
@@ -1346,6 +1457,7 @@ class FiremoteCard extends LitElement {
           .netflixButtonShield:active, .netflixButtonShield.appActive {
             color: #ff0000;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 87 87 / 15%);
+            border: solid #480a0a calc(var(--sz) * 0.0714rem);
           }
 
           .newsButton {
@@ -1384,6 +1496,18 @@ class FiremoteCard extends LitElement {
           .npoButton:active, .npoButton.appActive {
             color: #ffffff;
             background: #ff6600;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
+            filter: none;
+          }
+
+          .oqeeButton {
+            font-weight: bold;
+            font-size: calc(var(--sz) * 1.3rem);
+            color: #ff0000;
+            background: #ffffff;
+            filter: grayscale(20%) brightness(50%);
+          }
+          .oqeeButton:active, .oqeeButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
             filter: none;
           }
@@ -1489,6 +1613,28 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
+          .skyNewsButton {
+            color: #ffffff;
+            font-size: calc(var(--sz) * 1rem);
+            filter: grayscale(30%) brightness(70%);
+            background: linear-gradient(358deg, rgba(233,14,16,1) 0%, rgba(205,5,6,1) 53%, rgba(224,73,74,1) 54%, rgba(188,0,0,1) 95%);
+          }
+          .skyNewsButton:active, .skyNewsButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .smartTubeNextButton {
+            color: #fff;
+            background: #088db7;
+            font-size: calc(var(--sz) * 1.25rem);
+            filter: grayscale(30%) brightness(70%);
+          }
+          .smartTubeNextButton:active, .smartTubeNextButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
           .spotifyButton {
             color: #000;
             background: #fff;
@@ -1510,6 +1656,18 @@ class FiremoteCard extends LitElement {
             color: #d2ff00;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             background: linear-gradient(99deg, rgba(26,101,107,1) 0%, rgba(16,62,66,1) 40%, rgba(22,122,130,1) 80%, rgba(26,101,107,1) 100%);
+          }
+
+          .streamzButton {
+            font-size: calc(var(--sz) * 1.2rem);
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(90deg, #f20d3a, #ff0a5a 52%, #cc0243);
+            filter: grayscale(30%) brightness(50%);
+          }
+          .streamzButton:active, .streamzButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
           }
 
           .tennisChannelButton {
@@ -1537,6 +1695,18 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             text-shadow: 0 0 calc(var(--sz) * 0.2857rem) black;
             filter: none;
+          }
+
+          .tiviMateButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #33a8ff;
+            font-weight: bold;
+            background: #fff;
+            filter: grayscale(30%) brightness(50%);
+          }
+          .tiviMateButton:active, .tiviMateButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .tvnzPlusButton {
@@ -1574,6 +1744,43 @@ class FiremoteCard extends LitElement {
           .videolandButton:active, .videolandButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
+          }
+
+          .vlcButton {
+            font-size: calc(var(--sz) * 1.25rem);
+            color: #FFF;
+            font-weight: bold;
+            background: #f48b00;
+            text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
+            filter: grayscale(20%) brightness(70%);
+          }
+          .vlcButton:active, .vlcButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .vrtMaxButton {
+            font-size: calc(var(--sz) * 1.25rem);
+            color: #FFF;
+            font-weight: bold;
+            background: #FF484C;
+            filter: grayscale(30%) brightness(70%);
+          }
+          .vrtMaxButton:active, .vrtMaxButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .vtmGoButton {
+            font-size: calc(var(--sz) * 1.25rem);
+            color: #FFF;
+            font-weight: bold;
+            background: hsl(300deg 100% 60%);
+            filter: grayscale(30%) brightness(70%);
+          }
+          .vtmGoButton:active, .vtmGoButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .waipuTVButton {
@@ -1640,18 +1847,6 @@ class FiremoteCard extends LitElement {
             filter: none;
           }
 
-          .vlcButton {
-            font-size: calc(var(--sz) * 1.25rem);
-            color: #FFF;
-            font-weight: bold;
-            background: #f48b00;
-            text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
-            filter: grayscale(20%) brightness(70%);
-          }
-          .vlcButton:active, .vlcButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .zattooButton {
             font-size: calc(var(--sz) * 1rem);
@@ -1770,7 +1965,7 @@ class FiremoteCard extends LitElement {
     function getDeviceAttribute(deviceAttribute){
       return deviceAttributeQuery(deviceAttribute, confRef);
     }
- 
+
     // allow hdmi inputs where appropriate
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'))
 
@@ -2377,7 +2572,7 @@ class FiremoteCard extends LitElement {
 
           <div class="shieldNotch notchtall"> </div>
 
-          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div><div></div>
+          <div class="two-col-span"> ${drawDeviceName(this, this._config, 'top')} </div>
 
           <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:power"></ha-icon>
@@ -2890,6 +3085,7 @@ class FiremoteCardEditor extends LitElement {
 
   getAppChoices(buttonIndex, optionvalue, remoteStyle) {
     var family = this._config.device_family;
+    if(remoteStyle == "NS2" && (buttonIndex == 5 || buttonIndex == 6) ) { return }
     if(remoteStyle == "AF4" || remoteStyle == "AF5" || remoteStyle == "NS2") {
       var appkeys = [];
       for (var [key, value] of appmap.entries()) {
@@ -2951,32 +3147,6 @@ class FiremoteCardEditor extends LitElement {
     function getDeviceAttribute(deviceAttribute){
       return deviceAttributeQuery(deviceAttribute, confRef);
     }
-
-//    // Get current device's Attributes AND use any applicable overrides from user conf
-//    var deviceTypeRef = this._config.device_type;
-//    function getDeviceAttribute(deviceAttribute, configvar = deviceTypeRef){
-//      if(deviceTypeRef[deviceAttribute+'_override']) {
-//        if(deviceTypeRef[deviceAttribute+'_override'] != 'none') {
-//            return deviceTypeRef[deviceAttribute+'_override'];
-//        }
-//      }
-//      var attributeValue = '';
-//      var deviceSearch = function(deviceName, jsonData) {
-//        for (var key in jsonData) {
-//          if(typeof(jsonData[key]) === 'object') {
-//            if(key == deviceName) {
-//              attributeValue = String(jsonData[key][deviceAttribute]);
-//            }
-//            else {
-//              deviceSearch(deviceName, jsonData[key]);
-//            }
-//          } 
-//        }
-//        return attributeValue;
-//      }
-//      return String(deviceSearch(configvar, devices));
-//    }
-
 
     // Show and hide HDMI inputs if the device has them
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'));
