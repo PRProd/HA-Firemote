@@ -2,6 +2,8 @@ import { LitElement, html, css } from "https://unpkg.com/lit?module";
 import {unsafeHTML} from 'https://unpkg.com/lit-html@latest/directives/unsafe-html.js?module';
 
 // https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html
+// TODO: Test button script overrides!!
+// TODO: Consider Long Press events
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -150,25 +152,21 @@ const devices = {
         "supported": false,
         "friendlyName": "SHIELD TV (2015 or 2017)",
         "defaultRemoteStyle" : "NS1",
-        "defaultEventListenerBinPath": "Strong",
       },
       "shield-tv-pro-2017": {
         "supported": false,
         "friendlyName": "SHIELD TV Pro (2015 or 2017)",
         "defaultRemoteStyle" : "NS1",
-        "defaultEventListenerBinPath": "Strong",
       },
       "shield-tv-2019": {
         "supported": false,
         "friendlyName": "SHIELD TV (2019)",
         "defaultRemoteStyle" : "NS2",
-        "defaultEventListenerBinPath": "Strong",
       },
       "shield-tv-pro-2019": {
         "supported": true,
         "friendlyName": "SHIELD TV Pro (2019)",
         "defaultRemoteStyle" : "NS2",
-        "defaultEventListenerBinPath": "Strong",
       },
 
     },
@@ -651,7 +649,6 @@ const fastappchoices = {
       "nvidia-shield": {
           "appName": "YouTube",
           "androidName": "com.google.android.youtube.tv",
-          "adbLaunchCommand": "adb shell am start -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.MainActivity",
       },
   },
 
@@ -1773,31 +1770,7 @@ class FiremoteCard extends LitElement {
     function getDeviceAttribute(deviceAttribute){
       return deviceAttributeQuery(deviceAttribute, confRef);
     }
-//    function getDeviceAttribute(deviceAttribute, configvar = confRef.device_type){
-//      if(confRef[deviceAttribute+'_override']) {
-//        if(confRef[deviceAttribute+'_override'] != 'none') {
-//            return confRef[deviceAttribute+'_override'];
-//        }
-//      }
-//      var attributeValue = '';
-//      var deviceSearch = function(deviceName, jsonData) {
-//        for (var key in jsonData) {
-//          if(typeof(jsonData[key]) === 'object') {
-//            if(key == deviceName) {
-//              attributeValue = String(jsonData[key][deviceAttribute]);
-//            }
-//            else {
-//              deviceSearch(deviceName, jsonData[key]);
-//            }
-//          } 
-//        }
-//        return attributeValue;
-//      }
-//      console.log('native will return '+deviceSearch(configvar, devices))
-//      console.log('higher will return '+deviceAttributeQuery(deviceAttribute, confRef));
-//      return String(deviceSearch(configvar, devices));
-//    }    
-
+ 
     // allow hdmi inputs where appropriate
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'))
 
@@ -2502,7 +2475,7 @@ class FiremoteCard extends LitElement {
     // Choose event listener path for client android device
     var eventListenerBinPath = '';
     if(compatibility_mode == 'default' || compatibility_mode == 'strong' || compatibility_mode == '') {
-        var eventListenerBinPath = deviceAttributeQuery("defaultEventListenerBinPath", this._config);
+        eventListenerBinPath = deviceAttributeQuery("defaultEventListenerBinPath", this._config);
     }
     else {
         var eventListenerBinPath = '/dev/input/'+compatibility_mode;
@@ -2512,7 +2485,10 @@ class FiremoteCard extends LitElement {
     if(clicked.target.id == 'power-button') {
       const state = this.hass.states[this._config.entity];
       const stateStr = state ? state.state : 'off';
-      if(compatibility_mode == 'strong') {
+      if (compatibility_mode == 'strong' && eventListenerBinPath == 'undefined') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
+      }
+      else if(compatibility_mode == 'strong') {
         this.hass.callService("media_player", "toggle", { entity_id: this._config.entity});
       }
       else if(deviceType == 'fire_stick_4k'   || deviceType == 'fire_tv_stick_4k_max' || 
@@ -2546,7 +2522,7 @@ class FiremoteCard extends LitElement {
 
     // Up Button
     if(clicked.target.id == 'up-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'UP' });
       }
       else {
@@ -2557,7 +2533,7 @@ class FiremoteCard extends LitElement {
 
     // Left Button
     if(clicked.target.id == 'left-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'LEFT' });
       }
       else {
@@ -2568,7 +2544,7 @@ class FiremoteCard extends LitElement {
 
     // Center Button
     if(clicked.target.id == 'center-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'CENTER' });
       }
       else {
@@ -2584,7 +2560,7 @@ class FiremoteCard extends LitElement {
 
     // Right Button
     if(clicked.target.id == 'right-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RIGHT' });
       }
       else {
@@ -2595,7 +2571,7 @@ class FiremoteCard extends LitElement {
 
     // Down Button
     if(clicked.target.id == 'down-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'DOWN' });
       }
       else {
@@ -2621,7 +2597,7 @@ class FiremoteCard extends LitElement {
       if(deviceType == 'shield-tv-pro-2019') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'am start -a android.settings.SETTINGS' });
       }
-      else if(compatibility_mode == 'strong' || deviceType == 'shield-tv-pro-2019') {
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'MENU' });
       }
       else {
@@ -2632,7 +2608,7 @@ class FiremoteCard extends LitElement {
 
     // Rewind Button
     if(clicked.target.id == 'rewind-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'REWIND' });
       }
       else {
@@ -2643,7 +2619,7 @@ class FiremoteCard extends LitElement {
 
     // Play/Pause Button
     if(clicked.target.id == 'playpause-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("media_player", "media_play_pause", { entity_id: this._config.entity});
       }
       else {
@@ -2654,7 +2630,7 @@ class FiremoteCard extends LitElement {
 
     // Fast Forward Button
     if(clicked.target.id == 'fastforward-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'FAST_FORWARD' });
       }
       else {
@@ -2670,7 +2646,7 @@ class FiremoteCard extends LitElement {
 
     // Volume Up Button
     if(clicked.target.id == 'volume-up-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_UP' });
       }
       else {
@@ -2687,7 +2663,7 @@ class FiremoteCard extends LitElement {
 
     // Volume Down Button
     if(clicked.target.id == 'volume-down-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_DOWN' });
       }
       else {
@@ -2714,7 +2690,7 @@ class FiremoteCard extends LitElement {
 
     // Mute Button
     if(clicked.target.id == 'mute-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'MUTE' });
       }
       else {
@@ -2725,7 +2701,7 @@ class FiremoteCard extends LitElement {
 
     // Settings Button
     if(clicked.target.id == 'settings-button') {
-      if(compatibility_mode == 'strong' || deviceType == 'fire_tv_cube_third_gen') {
+      if(compatibility_mode == 'strong'  || eventListenerBinPath == 'undefined' || deviceType == 'fire_tv_cube_third_gen') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'SETTINGS' });
       }
       else {
@@ -2736,7 +2712,7 @@ class FiremoteCard extends LitElement {
 
     // App Switch (recents) Button
     if(clicked.target.id == 'app-switch-button') {
-      if(compatibility_mode == 'strong') {
+      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RECENTS' });
       }
       else if (deviceType == 'fire_tv_cube_third_gen') {
@@ -2919,18 +2895,14 @@ class FiremoteCardEditor extends LitElement {
       for (var [key, value] of appmap.entries()) {
         appkeys.push(key)
       }
-      var blankOption = '';
+      var blankOption = html `<option value=""> - - - - </option>`;
       var spacer = '';
       if(!(appmap.has(optionvalue))){
-        blankOption = html `<option value="-" selected> - - - - </option>`;
-      }
-      if(buttonIndex == 5 || buttonIndex == 6) {
-        blankOption = html `<option value=""> - - - - </option>`;
+        blankOption = html `<option value="" selected> - - - - </option>`;
       }
       if(buttonIndex == 1) {
         spacer = html `<br>`;
       }
-
 
       return html `
         ${spacer}
