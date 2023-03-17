@@ -17,11 +17,19 @@ body:
       placeholder: ex. YouTube
     validations:
       required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Device Platform
+      description: The kind of device you own.  This has to be either "Amazon Fire", "NVIDIA Shield", or both.
+      placeholder: ex. both
+    validations:
+      required: true
   - type: checkboxes
     id: canBeDownloaded
     attributes:
-      label: Can this app be freely downloaded through official means?
-      description: This answer must be yes.  If the app is not available to download through the native Fire TV app search feature, then it is potentially unsafe and will not be considered for app shortcuts.  All "sideloaded" app requests will be rejected.
+      label: Is this app downloadable through you device's "store" app?
+      description: This answer must be yes.  If the app is not available to download through the native download store, then it is potentially unsafe and will not be considered for app shortcuts.  All "sideloaded" app requests will be rejected for now.
       options:
         - label: 'Yes'
           required: true
@@ -29,7 +37,7 @@ body:
     id: additionalInfo
     attributes:
       label: Optional Comments
-      description: Add any other related comments here, or leave this blank.  [Helpful comments might get your request processed faster](https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#details-for-app-requests)
+      description: Add any other related comments here, or leave this blank.  [Specifically, these helpful steps will likely get your request processed faster](https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#details-for-app-requests)
       placeholder: 
     validations:
       required: false
