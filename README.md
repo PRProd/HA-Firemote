@@ -112,7 +112,7 @@ Options:
 Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through your device's app store (not sideloaded), your request will be granted ASAP.
 
 Options:
-| Value for YAML File     | App                     | Amazon Fire Support | NVIDIA Shield Support |
+| Value for YAML File     | App / Physical Input    | Amazon Fire Support | NVIDIA Shield Support |
 | ----------------------- | ----------------------- | :-----------------: | :-------------------: |
 | amc-plus                | AMC+                    | ✓                   | ✓                     |
 | app-opener              | App Opener              | ✓                   |                       |
@@ -216,7 +216,7 @@ Valid button names are as follows:
 <br>
 
 ## FAQ
-###  Why won't my volume, mute, and/or power butons work?
+###  Why won't the volume, mute, and/or power butons work for my Amazon Fire device?
 In many cases, your Amazon remote control actually sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  Since this is the case, these types of commands cannot be emulated through the same means that Firemote sends other commands.
 <br>
 
@@ -228,20 +228,21 @@ In these cases, you still might be able to control your devices (TVs, Receivers,
  * If your Firemote used to work perfectly, and some or all of the buttons suddenly stopped working, it could be that all you need to do is press one button (any button) on your Fire TV device's physical remote control.  After doing that step, try your Firemote again.
  * Check your card configuration:
    * Is the correct Android device selected?
-   * Is the correct Fire TV Device type selected?
+   * Is the correct Device Family selected?
+   * Is the correct Device type selected?
    * Is Compatibility Mode set to Default?
  * If the Default Compatibility Mode is not working on your device, and you've checked every other step, slowly choose "event0", "event1", etc. and test your remote buttons under each mode.  One of these will work.
 <br>
 
-### Why isn't my Fire Device supported?
-There are currently over 40 different kinds of Amazon Fire devices, so it will take a while for every device to gain properly tested support.  If Firemote doesn't support your device yet yet, you can still use Firemote!  Simply choose a supported device that is similar to the one that you have (preferrably a remote that looks the same as your physical remote), then you can test different compatability modes to find out which one works the best.<br>
+### Why isn't my Amazon Fire Device supported?
+There are currently over 40 different kinds of Amazon Fire devices, so it will take a while for every device to gain properly tested support.  If Firemote doesn't support your Amazon Fire device yet yet, you can still use Firemote!  Simply choose a supported device that is similar to the one that you have (preferrably a remote that looks the same as your physical remote), then you can test different compatability modes to find out which one works the best.<br>
 
 For extra credit, you could submit a request to have your device added!  It's simple!  Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "Device Support Request" option.  Your help is VERY appreciated!
 <br>
 <br>
 
 ### I want to have a shortcut button for an app I use frequently, but it's not on the list.  Can it be added?
-Absolutely!  Simply ask!  Here's how: Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through traditional Amazon app downloading channels (not sideloaded), your request will be granted ASAP.
+Absolutely!  Simply ask!  Here's how: Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through your device's official store (not sideloaded), your request will be granted ASAP.
 <br>
 <br>
 
