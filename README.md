@@ -8,6 +8,9 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 | ![Fire TV 4 Series Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVRemote.png) | ![Fire TV Cube (Gen 2) Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVCube2ndGen.png) | ![Fire TV Stick 4K](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStick4K.png) | ![Fire TV Stick Lite](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireTVStickLite.png) | ![Fire Stick (1st Gen)](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/fireStick1stGen.png) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 
+| ![NVIDIA Shield Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/shieldRemote2.png) | ![NVIDIA Shield Gen 2 Remote](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/shieldRemote1.png)
+| ------------- | ------------- |
+
 <br>
 <br>
 <br>
@@ -19,6 +22,8 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
   * Amazon Fire Smart TV
   * Amazon Fire Stick
   * Amazon Fire Cube
+  * NVIDIA Shield
+  * NVIDIA Shield Pro
   * Other Android based non-fire devices might work as well, but with limited (and unsupported) functionality
 
 [Which devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)
