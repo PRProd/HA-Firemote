@@ -56,7 +56,8 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 1. On any dashboard, click the +ADD CARD button
 1. Search by cards for "Firemote Card", and click on it
 1. Under the Entity dropdown, a list of your Android TV integration entities will appear.  Select the one you wish to control.
-1. Under Fire Device Type, select the device model that you own. ([Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html))
+1. Under Device Family, choose "Amazon Fire" or "NVIDIA Shield"
+1. Under Device Type, select the device model that you own. (Which [Amazon Fire](https://developer.amazon.com/docs/fire-tv/device-specifications.html) or [NVIDIA Shield](https://www.nvidia.com/en-us/shield/)  device do I own?)
 1. Make any other optional changes to your card, then click "SAVE"
 
 ![UIConfig](https://github.com/PRProd/HA-Firemote/raw/main/Example%20Images/uiConfig.jpg)
@@ -72,6 +73,7 @@ Example:
 ```yaml
 type: custom:firemote-card
 entity: media_player.fire_tv_192_168_1_30
+device_family: amazon-fire
 device_type: fire_tv_4_series
 compatibility_mode: default
 app_launch_1: prime-video
@@ -86,18 +88,91 @@ button_overrides:
 ```
 
 Options:
-| Name        | Type   | Required | Options                                                       | Description                            |
-| ----------- | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
-| type        | string | yes      | custom:firemote-card                                          | Type of the card                       |
-| entity      | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
-| device_type | string | yes      | [fire_tv_toshiba_v35](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Toshiba-V35-Series-LED-FHD-HD---Fire-TV-(2021)) <br> [fire_tv_4_series](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Fire-TV-4-Series-(2021)) <br> [fire_tv_cube_third_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---3rd-Gen-(2022)) <br> [fire_tv_cube_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---2nd-Gen-(2019)) <br> [fire_tv_cube_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---1st-Gen-(2018)) <br> [fire_tv_stick_4k_max](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max---1st-Gen-(2021)) <br> [fire_tv_3rd_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---3rd-Gen-(2020)) <br> [fire_tv_stick_lite](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-Lite---1st-Gen-(2020)) <br> [fire_stick_4k](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K---1st-Gen-(2018)) <br> [fire_stick_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---2nd-Gen-(2016---2019)) <br> [fire_stick_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-1st-Gen-(2014)) | The type of device you are controlling<br>[Which devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) |
-| compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> | Adjust this value only if your buttons are completely unresponsive<br>[FAQ Available for additional help](https://github.com/PRProd/HA-Firemote#faq) |
-| app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | amc-plus<br>app-opener<br>apple-tv<br>bbc-iplayer<br>bell-fibe-tv<br>cnn<br>crave-tv<br>cyberghost<br>directv-stream<br>disney-plus<br>emby<br>espn<br>hbo-max<br>hulu<br>jellyfin<br>myCanal<br>netflix<br>news<br>nordvpn<br>pandora<br>paramount-plus<br>paramount-plus-de<br>plex<br>prime-video<br>raiplay<br>shophq<br>showtime<br>spotify<br>starz<br>tennis-channel<br>threenow<br>tvnz-plus<br>twitch<br>youtube<br>youtubeTV<br>vlc<br>waipuTV<br>youtube<br>youtubekids<br>youtubekids-alt<br>youtubeTV<br>xfinityStream<br>zattoo<br>hdmi_1<br>hdmi_2<br>hdmi_3<br>hdmi_4 | Quick launch apps customization |
+| Name          | Type   | Required | Options                                                       | Description                            |
+| -----------   | ------ | -------- | ------------------------------------------------------------- | -------------------------------------- |
+| type          | string | yes      | custom:firemote-card                                          | Type of the card                       |
+| entity        | string | yes      | any valid entity created in the android tv integration        | entity_id                              |
+| device_family | string | yes      | amazon-fire<br>nvidia-shield                                  | Manufacturer Family                    |
+| device_type   | string | yes      | [fire_tv_toshiba_v35](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Toshiba-V35-Series-LED-FHD-HD---Fire-TV-(2021)) <br> [fire_tv_4_series](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Fire-TV-4-Series-(2021)) <br> [fire_tv_cube_third_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---3rd-Gen-(2022)) <br> [fire_tv_cube_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---2nd-Gen-(2019)) <br> [fire_tv_cube_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---1st-Gen-(2018)) <br> [fire_tv_stick_4k_max](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max---1st-Gen-(2021)) <br> [fire_tv_3rd_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---3rd-Gen-(2020)) <br> [fire_tv_stick_lite](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-Lite---1st-Gen-(2020)) <br> [fire_stick_4k](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K---1st-Gen-(2018)) <br> [fire_stick_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---2nd-Gen-(2016---2019)) <br> [fire_stick_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-1st-Gen-(2014)) <br> shield-tv-2017 <br> shield-tv-pro-2017 <br> shield-tv-2019 <br> shield-tv-pro-2019 | The type of device you are controlling<br>[Which devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) |
+| compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> event9 <br> event10 <br> event11 <br> event12 <br> event13 | Adjust this value only if your buttons are completely unresponsive<br>[FAQ Available for additional help](https://github.com/PRProd/HA-Firemote#faq) |
+|defaultRemoteStyle_override | string | no | AF1 <br> AF2 <br> AF3 <br> AF4 <br> AF5 <br> NS1 <br> NS2 | Optionally select a style of remote different from the one that shipped with your device |
+| app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | [ See App Launch Button Customization section for options](#app-launch-button-customization) | Quick launch apps customization |
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button (truncated to 8 characters to fit)|
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage.  Default size is 100 |
 | button_overrides | object | no | Button name and HA script name are required.| Details are in the Button Overrides section of the [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file |
 | visible_name_text | string | no | Any text                                                      | Optional device label for your firemote|
 | name_position | string | no     | hidden<br>bottom<br>top<br>                                   | Position for your optional device label|
+| visible_name_text_color | hex color value | no | Any hex color value eg: #ffffff                | Optional text color for the device name label |
+
+<br>
+<br>
+<br>
+
+## App Launch Button Customization
+Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through your device's app store (not sideloaded), your request will be granted ASAP.
+
+Options:
+| Value for YAML File     | App                     | Amazon Fire Support | NVIDIA Shield Support |
+| ----------------------- | ----------------------- | :-----------------: | :-------------------: |
+| amc-plus                | AMC+                    | ✓                   | ✓                     |
+| app-opener              | App Opener              | ✓                   |                       |
+| apple-tv                | Apple TV                | ✓                   | ✓                     |
+| bbc-iplayer             | BBC iPlayer (UK)        | ✓                   |                       |
+| bell-fibe-tv            | Bell Fibe TV (CA)       | ✓                   |                       |
+| cnn                     | CNN                     | ✓                   | ✓                     |
+| crave-tv                | Crave TV (CA)           | ✓                   |                       |
+| cyberghost              | CyberGhost VPN          | ✓                   | ✓                     |
+| directv-stream          | DIRECTV stream          | ✓                   | ✓                     |
+| disney-plus             | Disney +                | ✓                   | ✓                     |
+| emby                    | Emby                    | ✓                   | ✓                     |
+| espn                    | ESPN                    | ✓                   | ✓                     |
+| freevee                 | freevee                 | ✓                   | ✓                     |
+| hbo-max                 | HBO Max                 | ✓                   | ✓                     |
+| hulu                    | Hulu                    | ✓                   | ✓                     |
+| ipvanish                | IPVanish VPN            | ✓                   | ✓                     |
+| jellyfin                | Jellyfin                | ✓                   | ✓                     |
+| kodi                    | Kodi                    | ✓                   | ✓                     |
+| myCanal                 | my CANAL                | ✓                   | ✓                     |
+| netflix                 | Netflix                 | ✓                   | ✓                     |
+| news                    | News by Fire TV         | ✓                   |                       |
+| nordvpn                 | Nord VPN                | ✓                   | ✓                     |
+| npo                     | NPO (NL)                |                     | ✓                     |
+| oqee-by-free            | OQEE by Free (FR)       | ✓                   |                       |
+| pandora                 | Pandora                 | ✓                   | ✓                     |
+| paramount-plus          | Paramount+              | ✓                   | ✓                     |
+| paramount-plus-de       | Paramount+ (DE)         | ✓                   | ✓                     |
+| plex                    | Plex                    | ✓                   | ✓                     |
+| prime-video             | Prime Video             | ✓                   | ✓                     |
+| private-internet-access | Private Internet Access |                     | ✓                     |
+| raiplay                 | RaiPlay (IT)            | ✓                   | ✓                     |
+| shophq                  | ShopHQ                  | ✓                   |                       |
+| showtime                | Showtime                | ✓                   | ✓                     |
+| sky-news                | Sky News                | ✓                   | ✓                     |
+| smart-tube-next         | Smart Tube Next         | ✓                   | ✓                     |
+| spotify                 | Spotify                 | ✓                   | ✓                     |
+| starz                   | Starz                   | ✓                   | ✓                     |
+| streamz                 | streamz (BE)            | ✓                   |                       |
+| stremio                 | Stremio                 | ✓                   | ✓                     |
+| surfshark-vpn           | Surfshark VPN           | ✓                   | ✓                     |
+| tennis-channel          | Tennis Channel          | ✓                   |                       |
+| threenow                | Three Now (NZ)          | ✓                   |                       |
+| tivimate                | TiviMate IPTV Player    | ✓                   | ✓                     |
+| tvnz-plus               | TVNZ+ (NZ)              | ✓                   |                       |
+| twitch                  | Twitch                  | ✓                   | ✓                     |
+| videoland               | Videoland (NL)          |                     | ✓                     |
+| vtm-go                  | VTM GO (BE)             |                     | ✓                     |
+| vrt-max                 | VRT MAX (BE)            |                     | ✓                     |
+| vlc                     | VLC                     |                     | ✓                     |
+| waipuTV                 | Waipu TV (DE)           | ✓                   |                       |
+| youtube                 | YouTube                 | ✓                   | ✓                     |
+| youtubekids             | YouTube Kids            | ✓                   | ✓                     |
+| youtubeTV               | YouTube TV              | ✓                   | ✓                     |
+| xfinityStream           | Xfinity Stream          | ✓                   | ✓                     |
+| zattoo                  | Zattoo                  | ✓                   |                       |
+| hdmi_1                  | HDMI Input 1            | ✓ (device specific) |                       |
+| hdmi_2                  | HDMI Input 2            | ✓ (device specific) |                       |
+| hdmi_3                  | HDMI Input 3            | ✓ (device specific) |                       |
+| hdmi_4                  | HDMI Input 4            | ✓ (device specific) |                       |
 
 <br>
 <br>
