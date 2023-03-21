@@ -2,7 +2,6 @@ import { LitElement, html, css } from "https://unpkg.com/lit?module";
 import {unsafeHTML} from 'https://unpkg.com/lit-html@latest/directives/unsafe-html.js?module';
 
 // https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html
-// TODO: Test button script overrides!!
 // TODO: Consider Long Press events
 
 const fireEvent = (node, type, detail, options) => {
@@ -149,17 +148,17 @@ const devices = {
     "noCategory": {
 
       "shield-tv-2017": {
-        "supported": false,
+        "supported": true,
         "friendlyName": "SHIELD TV (2015 or 2017)",
         "defaultRemoteStyle" : "NS1",
       },
       "shield-tv-pro-2017": {
-        "supported": false,
+        "supported": true,
         "friendlyName": "SHIELD TV Pro (2015 or 2017)",
         "defaultRemoteStyle" : "NS1",
       },
       "shield-tv-2019": {
-        "supported": false,
+        "supported": true,
         "friendlyName": "SHIELD TV (2019)",
         "defaultRemoteStyle" : "NS2",
       },
@@ -331,6 +330,24 @@ const fastappchoices = {
           "androidName": "com.espn.score_center",
           "adbLaunchCommand": "adb shell am start -n com.espn.score_center/com.espn.startup.presentation.StartupActivity",
       }, 
+   },
+
+
+  "freevee": {
+      "button": "freevee",
+      "friendlyName": "freevee",
+      "className": "freeveeButton",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"],
+      "amazon-fire": {
+          "appName": "IMDb TV",
+          "androidName": "com.amazon.imdb.tv.android.app",
+          "adbLaunchCommand": "adb shell am start -n com.amazon.imdb.tv.android.app/com.amazon.imdb.tv.android.app.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "Freevee",
+          "androidName": "com.imdbtv.livingroom",
+          "adbLaunchCommand": "adb shell am start -n com.imdbtv.livingroom/com.amazon.ignition.MainActivity",
+      },
    },
 
 
@@ -799,7 +816,6 @@ const appmap = new Map(Object.entries(fastappchoices));
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
-  //console.log('requested device attribute is: '+deviceAttribute)
   var deviceTypeRef = configvar.device_type;
   if(configvar[deviceAttribute+'_override']) {
     if(configvar[deviceAttribute+'_override'] != 'none') {
@@ -820,7 +836,6 @@ function deviceAttributeQuery(deviceAttribute, configvar){
     }
     return attributeValue;
   }
-  //console.log('returning '+deviceSearch(deviceTypeRef, devices));
   return String(deviceSearch(deviceTypeRef, devices));
 }
 
@@ -928,7 +943,13 @@ class FiremoteCard extends LitElement {
             grid-row-gap: calc(var(--sz) * 0.5rem);
             grid-template-columns: 1fr 1fr;
             width: calc(var(--sz) * 8.286rem);
-            height: calc(var(--sz) * 45rem);
+            min-height: calc(var(--sz) * 45rem);
+          }
+
+          .shield-remote-body.ns1-body {
+            background: linear-gradient(90deg, rgb(28 28 28) 0%, rgb(37, 37, 37) 8%, rgb(40 40 40) 50%, rgb(37, 37, 37) 92%, rgb(28, 28, 28) 100%);
+            border: solid #1c1c1c calc(var(--sz) * 0.14rem);
+            border-radius: calc(var(--sz) * 1.2rem);
           }
 
           .remote-body {
@@ -963,6 +984,32 @@ class FiremoteCard extends LitElement {
             grid-column-gap: calc(var(--sz) * 0.143rem);
             grid-template-columns: 50% 50%;
             align-content: center;
+          }
+
+          .ns1-wings {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            width: 100%;
+            height: calc(var(--sz) * 25rem);
+            margin-top: calc(var(--sz) * -1rem);
+            display: grid;
+            grid-template-columns: 1fr 27% 1fr;
+          }
+
+          #wingL {
+            background: rgb(28 28 28);
+            -webkit-clip-path: polygon(100% 15%, 100% 85%, 0 100%, 0 0);
+            clip-path: polygon(100% 15%, 100% 85%, 0 100%, 0 0);
+            margin-left: calc(var(--sz) *-.714rem);
+            border-right: solid #121212 calc(var(--sz) * .15rem);
+          }
+
+          #wingR {
+            background: rgb(28 28 28);
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 85%, 0 15%);
+            clip-path: polygon(100% 0, 100% 100%, 0 85%, 0 15%);
+            margin-right: calc(var(--sz) *-.714rem);
+            border-left: solid #121212 calc(var(--sz) * .15rem);
           }
 
           .remote-button {
@@ -1006,6 +1053,10 @@ class FiremoteCard extends LitElement {
             --mdc-icon-size: 17px;
           }
 
+          .shield-remote-body.ns1-body #home-button {
+            --mdc-icon-size: 23px;
+          }
+
           .shield-remote-body #back-button {
             --mdc-icon-size: 41px;
           }
@@ -1029,6 +1080,13 @@ class FiremoteCard extends LitElement {
 
           .notchtall {
             margin-bottom: calc(var(--sz) * 1.65rem);
+          }
+
+          .ns1-body .shieldNotch {
+            height: calc(var(--sz) * 0.75rem);
+            width: calc(var(--sz) * 2.2rem);
+            border: solid #282828 calc(var(--sz) * 0.12rem);
+            border-radius: calc(var(--sz) * 0.5rem);
           }
 
           #keyboard-button {
@@ -1205,6 +1263,11 @@ class FiremoteCard extends LitElement {
             margin-top: -1rem;
           }
 
+          .shield-remote-body.ns1-body .deviceNameTop {
+            margin-top: 0rem;
+            margin-bottom: -0.75rem;
+          }
+
           .deviceNameBottom {
             grid-column: 1/4;
             color: var(--devicenamecolor);
@@ -1363,6 +1426,18 @@ class FiremoteCard extends LitElement {
           }
           .espnButton:active, .espnButton.appActive {
             color: #fff;
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          }
+
+          .freeveeButton {
+            color: #6b00ff;
+            font-size: calc(var(--sz) * 1.15rem);
+            font-weight: bold;
+            filter: grayscale(30%) brightness(40%);
+            background: #D8FF03;
+          }
+          .freeveeButton:active, .freeveeButton.appActive {
             filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
@@ -1868,6 +1943,22 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 7.5714rem);
           }
 
+          .ns1-body #keyboard-button {
+            margin-top: calc(var(--sz) * 1rem);
+            height: calc(var(--sz) * 5rem);
+            width: calc(var(--sz) * 5rem);
+            --mdc-icon-size: 34px;
+          }
+
+          .ns1-body .remote-button:active {
+            border: solid #395600 0.0714rem;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(153 231 0 / 20%);
+          }
+
+          .ns1-body .remote-button:active > ha-icon {
+            color: #99e700 !important;
+          }
+
           .litbutton {
               border: solid #4b4c3c 0.0714rem;
               box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(255 255 25 / 15%);
@@ -1883,6 +1974,15 @@ class FiremoteCard extends LitElement {
 
           .shield-remote-body .litbutton > ha-icon {
             color: red !important;
+          }
+
+          .shield-remote-body.ns1-body .litbutton {
+              border: solid #395600 0.0714rem;
+              box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(153 231 0 / 20%);
+          }
+
+          .shield-remote-body.ns1-body .litbutton > ha-icon {
+            color: #99e700 !important;
           }
 
           .dimlitbutton {
@@ -2007,7 +2107,7 @@ class FiremoteCard extends LitElement {
               return 'hidden';
             }
           }
-        if(config.defaultRemoteStyle_override == 'NS1' || config.defaultRemoteStyle_override == 'NS2' || config.device_type == 'shield-tv-pro-2019') {
+        if(config.defaultRemoteStyle_override == 'NS1' || config.defaultRemoteStyle_override == 'NS2' || config.device_type == 'shield-tv-pro-2019' || config.device_type == 'shield-tv-2019') {
           var confBtnOne =   config.app_launch_1 || 'netflix';
           var confBtnTwo =   config.app_launch_2 || '';
           var confBtnThree = config.app_launch_3 || '';
@@ -2186,6 +2286,294 @@ class FiremoteCard extends LitElement {
       `;
     }
 
+    function renderAmazonNameWithArrowLogo() {
+      return html`<svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0, 0, 400,140.46511627906978" xml:space="preserve" x="0px" y="0px" class="remote-logo" style="margin-top: 90px;"><g id="svgg"><path id="path0" d="M36.047 13.922 C 25.440 15.663,18.409 21.339,16.256 29.898 C 15.386 33.355,15.944 33.716,23.234 34.417 C 30.107 35.077,29.928 35.133,31.381 31.849 C 35.652 22.191,47.907 24.668,47.907 35.188 L 47.907 38.454 43.140 39.025 C 24.310 41.281,17.443 45.404,14.649 56.130 C 9.599 75.517,31.970 87.543,47.354 73.711 C 50.201 71.152,50.324 71.150,52.031 73.631 C 56.460 80.068,57.623 80.160,64.096 74.585 C 70.037 69.467,69.989 69.602,67.234 65.658 C 64.385 61.578,64.186 60.199,64.186 44.481 C 64.186 26.725,63.554 23.541,59.226 19.494 C 54.323 14.909,44.469 12.540,36.047 13.922 M186.744 13.922 C 176.330 15.631,169.990 20.534,167.390 28.888 C 165.975 33.434,166.192 33.603,174.534 34.465 C 180.636 35.095,181.475 34.834,182.015 32.134 C 182.650 28.960,186.790 26.067,190.698 26.067 C 195.996 26.067,198.575 29.032,198.594 35.144 L 198.605 38.427 190.985 39.444 C 173.765 41.743,166.724 46.806,165.131 58.037 C 162.420 77.148,182.807 86.721,198.346 73.634 L 201.111 71.305 203.071 73.969 C 207.640 80.175,208.370 80.214,214.845 74.602 C 220.532 69.673,220.651 69.411,218.542 66.499 C 215.103 61.751,215.144 62.006,214.858 43.721 C 214.565 24.975,214.487 24.520,210.880 20.508 C 206.094 15.184,195.940 12.413,186.744 13.922 M103.899 14.583 C 99.212 15.774,95.610 18.697,93.516 23.008 L 92.605 24.884 92.581 20.847 C 92.549 15.291,92.629 15.349,84.923 15.349 C 76.242 15.349,77.209 11.371,77.209 47.058 C 77.209 82.676,76.169 78.605,85.269 78.605 C 94.395 78.605,93.488 80.962,93.488 57.232 C 93.488 45.213,93.678 36.835,93.983 35.415 C 95.655 27.619,105.435 26.650,107.490 34.077 C 107.875 35.469,108.008 42.004,107.942 56.367 C 107.830 81.094,106.905 78.605,116.207 78.605 C 125.083 78.605,124.186 80.942,124.186 57.818 C 124.186 38.303,124.445 34.648,125.977 32.558 C 129.093 28.308,135.775 28.118,138.015 32.217 C 138.762 33.584,138.849 35.710,138.967 55.581 C 139.121 81.421,138.135 78.605,147.032 78.605 C 155.910 78.605,154.946 81.978,154.786 51.460 L 154.651 25.814 153.433 23.216 C 147.911 11.442,127.228 11.472,123.487 23.259 C 123.044 24.655,122.683 24.419,121.030 21.656 C 117.442 15.657,110.671 12.862,103.899 14.583 M298.774 14.615 C 285.440 17.133,277.963 28.760,277.963 46.977 C 277.963 67.645,287.466 79.560,303.922 79.525 C 321.679 79.488,332.781 61.905,329.312 39.314 C 326.649 21.981,313.990 11.742,298.774 14.615 M365.706 14.444 C 361.132 15.347,357.594 18.136,355.118 22.791 L 353.510 25.814 353.499 21.063 C 353.490 16.848,353.387 16.257,352.589 15.830 C 351.292 15.136,339.868 15.202,339.163 15.907 C 338.059 17.010,338.392 77.528,339.504 78.123 C 341.175 79.017,352.760 78.736,353.625 77.780 C 354.279 77.057,354.391 74.526,354.535 57.199 C 354.706 36.517,354.794 35.590,356.865 32.546 C 360.199 27.648,366.045 27.784,368.605 32.821 C 369.488 34.558,369.542 35.722,369.674 55.802 C 369.840 81.258,368.901 78.605,377.747 78.605 C 387.145 78.605,386.185 81.574,385.918 53.326 C 385.653 25.244,385.460 23.888,381.050 19.006 C 377.570 15.154,371.401 13.320,365.706 14.444 M229.395 15.907 C 228.463 16.840,228.641 26.700,229.605 27.501 C 230.182 27.981,232.851 28.197,240.345 28.372 L 250.317 28.605 246.877 33.488 C 225.578 63.731,226.518 62.053,226.514 69.846 C 226.510 77.165,227.179 78.065,231.128 76.064 C 240.755 71.186,254.759 70.813,265.639 75.147 C 270.087 76.918,271.392 77.100,271.811 76.008 C 272.287 74.767,272.123 64.647,271.611 63.690 C 270.386 61.400,262.537 58.786,254.613 58.027 L 248.986 57.488 255.726 47.930 C 259.433 42.673,264.371 35.651,266.698 32.326 L 270.930 26.279 271.089 21.495 C 271.198 18.214,271.071 16.496,270.684 16.029 C 269.925 15.115,230.304 14.998,229.395 15.907 M307.428 27.202 C 313.604 30.396,314.956 57.591,309.296 64.786 C 306.278 68.623,300.348 68.160,297.847 63.893 C 293.908 57.172,293.838 34.517,297.741 29.556 C 300.024 26.654,304.340 25.605,307.428 27.202 M47.816 53.140 C 47.451 62.310,43.833 67.442,37.733 67.442 C 29.210 67.442,28.768 53.144,37.183 49.647 C 38.778 48.984,43.987 48.007,46.221 47.952 L 48.024 47.907 47.816 53.140 M198.505 53.140 C 198.109 62.691,194.321 67.858,188.093 67.341 C 183.971 66.999,181.860 64.277,181.860 59.302 C 181.860 52.235,187.225 48.191,196.919 47.952 L 198.722 47.907 198.505 53.140 M243.256 81.389 C 228.857 83.572,219.241 91.284,232.867 89.721 C 239.505 88.959,250.067 88.951,250.823 89.707 C 251.112 89.996,251.700 90.233,252.129 90.233 C 255.453 90.233,254.387 98.588,249.481 110.993 C 246.496 118.538,247.584 119.927,252.619 115.000 C 259.876 107.900,266.457 88.534,263.140 84.042 C 261.471 81.783,250.399 80.306,243.256 81.389 M66.777 85.382 C 65.908 86.252,65.914 86.189,66.554 87.536 C 66.995 88.465,68.278 89.636,73.844 94.186 C 74.469 94.698,75.378 95.483,75.863 95.930 C 76.348 96.378,76.871 96.744,77.026 96.744 C 77.182 96.744,78.314 97.529,79.543 98.488 C 80.771 99.448,83.151 101.070,84.832 102.093 C 86.512 103.116,87.891 104.227,87.897 104.562 C 87.902 104.897,88.107 105.048,88.351 104.897 C 88.595 104.746,90.741 105.739,93.119 107.103 C 95.496 108.468,98.119 109.859,98.948 110.195 C 99.776 110.531,100.319 111.023,100.155 111.289 C 99.985 111.563,100.081 111.633,100.377 111.450 C 100.664 111.273,101.690 111.529,102.658 112.020 C 105.733 113.580,113.579 116.674,118.146 118.128 C 120.573 118.901,122.977 119.723,123.488 119.956 C 124.000 120.188,126.721 120.842,129.535 121.409 C 132.349 121.976,134.965 122.547,135.349 122.680 C 136.342 123.022,136.653 123.073,144.651 124.221 C 158.125 126.156,179.965 125.596,191.395 123.024 C 192.930 122.678,195.442 122.251,196.977 122.074 C 198.512 121.897,199.872 121.608,200.000 121.432 C 200.260 121.075,204.016 120.062,206.512 119.676 C 207.407 119.538,208.380 119.232,208.673 118.997 C 208.967 118.762,209.681 118.478,210.259 118.367 C 214.875 117.478,232.958 109.228,238.456 105.503 C 239.525 104.779,240.624 104.186,240.898 104.186 C 241.171 104.186,241.395 103.991,241.395 103.752 C 241.395 103.514,241.784 103.195,242.258 103.045 C 243.660 102.600,246.512 99.463,246.512 98.367 C 246.512 96.103,242.980 94.880,240.285 96.210 C 238.420 97.131,232.318 99.484,229.767 100.266 C 228.360 100.697,225.463 101.652,223.328 102.388 C 221.193 103.124,217.635 104.150,215.421 104.668 C 213.207 105.187,210.663 105.808,209.767 106.048 C 207.561 106.641,199.114 108.222,195.116 108.790 C 193.326 109.045,190.500 109.469,188.836 109.733 C 184.407 110.436,166.615 111.237,161.689 110.955 C 159.353 110.821,155.244 110.594,152.558 110.450 C 147.383 110.173,144.247 109.792,134.884 108.299 C 128.517 107.284,125.738 106.752,123.256 106.072 C 122.360 105.827,120.058 105.276,118.140 104.847 C 111.693 103.407,99.606 99.408,92.326 96.306 C 91.814 96.088,90.244 95.449,88.837 94.886 C 86.674 94.020,74.114 87.849,69.535 85.402 C 67.808 84.480,67.681 84.479,66.777 85.382 " stroke="none" fill="#0f0f0f" fill-rule="evenodd"></path></g></svg>`;
+    }
+
+    // Render Amazon Fire Remote Style AF1
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF1' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="remote-body">
+
+          <div> </div>
+          <div class="notch notchtall"> </div>
+          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
+
+          <div> </div>
+          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:home-outline"></ha-icon>
+          </button>
+          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${renderAmazonNameWithArrowLogo()}
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+    // Render Amazon Fire Remote Style AF2
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF2' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="remote-body">
+
+          <div> </div>
+          <div class="notch notchtall"> </div>
+          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
+
+          <div> </div>
+          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:home-outline"></ha-icon>
+          </button>
+          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+
+          <div> </div>
+          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:television-classic"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="eightygap"> </div>
+          <div> </div>
+          <div> </div>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${renderAmazonArrowlogo()}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+    // Render Amazon Fire Remote Style AF3
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF3' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="remote-body">
+
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <div class="notch"> </div>
+          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
+
+          <div> </div>
+          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:home-outline"></ha-icon>
+          </button>
+          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+
+          <div> </div>
+          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-plus"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div> </div>
+          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-minus"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div> </div>
+          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-mute"></ha-icon>
+          </button>
+          <div> </div>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${renderAmazonArrowlogo()}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+    // Render Amazon Fire Remote Style AF4
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF4' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="remote-body">
+
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <div class="notch"> </div>
+          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
+
+          <div> </div>
+          <button class="remote-button keyboard-button teal" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:home-outline"></ha-icon>
+          </button>
+          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-mute"></ha-icon>
+          </button>
+          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-plus"></ha-icon>
+          </button>
+          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:television-classic"></ha-icon>
+          </button>
+
+
+          <div> </div>
+          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-minus"></ha-icon>
+          </button>
+          <div></div>
+
+          ${drawAppLaunchButtons(this, this._config)}
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${renderfiretvlogo()}
+
+        </div>
+
+      </ha-card>
+    `;
+    }
+
 
     // Render Amazon Fire Remote Style AF5
     if ( getDeviceAttribute('defaultRemoteStyle') == 'AF5' ) {
@@ -2277,156 +2665,50 @@ class FiremoteCard extends LitElement {
     }
 
 
-    // Render Amazon Fire Remote Style AF4
-    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF4' ) {
+    // Render NVIDIA Shield Remote Style NS1
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'NS1' ) {
     return html`
       <ha-card>
 
       ${cssVars}
 
-      <div class="remote-body">
+      <div class="shield-remote-body ns1-body">
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:power"></ha-icon>
-          </button>
-          <div class="notch"> </div>
-          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
+          <div class="shieldNotch"> </div>
 
-          <div> </div>
-          <button class="remote-button keyboard-button teal" id="keyboard-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
-          </button>
-          <div> </div>
+          <div class="two-col-span"> ${drawDeviceName(this, this._config, 'top')} </div>
 
-          <div class="dpadContainer">
+          <div class="dpadContainer shieldDpad">
+            <button class="centerbutton centerbuttonShield" id="center-button" @click=${this.buttonClicked}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="down-button" @click=${this.buttonClicked}></button>
             </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
           </div>
 
+
           <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
+            <ha-icon icon="mdi:menu-left-outline"></ha-icon>
           </button>
           <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:home-outline"></ha-icon>
-          </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:menu"></ha-icon>
+            <ha-icon icon="mdi:circle-outline"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:rewind"></ha-icon>
-          </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:play-pause"></ha-icon>
-          </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:fast-forward"></ha-icon>
-          </button>
-
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:volume-mute"></ha-icon>
-          </button>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:volume-plus"></ha-icon>
-          </button>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:television-classic"></ha-icon>
-          </button>
-
-
-          <div> </div>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:volume-minus"></ha-icon>
-          </button>
-          <div></div>
-
-          ${drawAppLaunchButtons(this, this._config)}
-          ${drawDeviceName(this, this._config, 'bottom')}
-          ${renderfiretvlogo()}
-
-        </div>
-
-      </ha-card>
-    `;
-    }
-
-
-    // Render Amazon Fire Remote Style AF3
-    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF3' ) {
-    return html`
-      <ha-card>
-
-      ${cssVars}
-
-      <div class="remote-body">
-
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:power"></ha-icon>
-          </button>
-          <div class="notch"> </div>
-          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
-
-          <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
-          </button>
-          <div> </div>
-
-          <div class="dpadContainer">
-            <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
-            </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          <div class="two-col-span">
+            <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+            </button>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
-          </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:home-outline"></ha-icon>
-          </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:menu"></ha-icon>
-          </button>
-
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:rewind"></ha-icon>
-          </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:play-pause"></ha-icon>
-          </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:fast-forward"></ha-icon>
-          </button>
-
-          <div> </div>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:volume-plus"></ha-icon>
-          </button>
-          <div> </div>
-
-          <div> </div>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:volume-minus"></ha-icon>
-          </button>
-          <div> </div>
-
-          <div> </div>
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:volume-mute"></ha-icon>
-          </button>
-          <div> </div>
+          <div class="ns1-wings">
+            <div id="wingL"> </div>
+            <div> </div>
+            <div id="wingR"> </div>
+          </div>
 
           ${drawDeviceName(this, this._config, 'bottom')}
-          ${renderAmazonArrowlogo()}
 
       </div>
 
@@ -2435,133 +2717,7 @@ class FiremoteCard extends LitElement {
     }
 
 
-    // Render Amazon Fire Remote Style AF2
-    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF2' ) {
-    return html`
-      <ha-card>
-
-      ${cssVars}
-
-      <div class="remote-body">
-
-          <div> </div>
-          <div class="notch notchtall"> </div>
-          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
-
-          <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
-          </button>
-          <div> </div>
-
-          <div class="dpadContainer">
-            <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
-            </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
-          </div>
-
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
-          </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:home-outline"></ha-icon>
-          </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:menu"></ha-icon>
-          </button>
-
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:rewind"></ha-icon>
-          </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:play-pause"></ha-icon>
-          </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:fast-forward"></ha-icon>
-          </button>
-
-          <div> </div>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:television-classic"></ha-icon>
-          </button>
-          <div> </div>
-
-          <div class="eightygap"> </div>
-          <div> </div>
-          <div> </div>
-
-          ${drawDeviceName(this, this._config, 'bottom')}
-          ${renderAmazonArrowlogo()}
-
-      </div>
-
-      </ha-card>
-    `;
-    }
-
-    // Render Amazon Fire Remote Style AF1
-    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF1' ) {
-    return html`
-      <ha-card>
-
-      ${cssVars}
-
-      <div class="remote-body">
-
-          <div> </div>
-          <div class="notch notchtall"> </div>
-          <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
-
-          <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
-          </button>
-          <div> </div>
-
-          <div class="dpadContainer">
-            <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
-            </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
-          </div>
-
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
-          </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:home-outline"></ha-icon>
-          </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:menu"></ha-icon>
-          </button>
-
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:rewind"></ha-icon>
-          </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:play-pause"></ha-icon>
-          </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:fast-forward"></ha-icon>
-          </button>
-
-          ${drawDeviceName(this, this._config, 'bottom')}
-          <svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0, 0, 400,140.46511627906978" xml:space="preserve" x="0px" y="0px" class="remote-logo" style="margin-top: 90px;"><g id="svgg"><path id="path0" d="M36.047 13.922 C 25.440 15.663,18.409 21.339,16.256 29.898 C 15.386 33.355,15.944 33.716,23.234 34.417 C 30.107 35.077,29.928 35.133,31.381 31.849 C 35.652 22.191,47.907 24.668,47.907 35.188 L 47.907 38.454 43.140 39.025 C 24.310 41.281,17.443 45.404,14.649 56.130 C 9.599 75.517,31.970 87.543,47.354 73.711 C 50.201 71.152,50.324 71.150,52.031 73.631 C 56.460 80.068,57.623 80.160,64.096 74.585 C 70.037 69.467,69.989 69.602,67.234 65.658 C 64.385 61.578,64.186 60.199,64.186 44.481 C 64.186 26.725,63.554 23.541,59.226 19.494 C 54.323 14.909,44.469 12.540,36.047 13.922 M186.744 13.922 C 176.330 15.631,169.990 20.534,167.390 28.888 C 165.975 33.434,166.192 33.603,174.534 34.465 C 180.636 35.095,181.475 34.834,182.015 32.134 C 182.650 28.960,186.790 26.067,190.698 26.067 C 195.996 26.067,198.575 29.032,198.594 35.144 L 198.605 38.427 190.985 39.444 C 173.765 41.743,166.724 46.806,165.131 58.037 C 162.420 77.148,182.807 86.721,198.346 73.634 L 201.111 71.305 203.071 73.969 C 207.640 80.175,208.370 80.214,214.845 74.602 C 220.532 69.673,220.651 69.411,218.542 66.499 C 215.103 61.751,215.144 62.006,214.858 43.721 C 214.565 24.975,214.487 24.520,210.880 20.508 C 206.094 15.184,195.940 12.413,186.744 13.922 M103.899 14.583 C 99.212 15.774,95.610 18.697,93.516 23.008 L 92.605 24.884 92.581 20.847 C 92.549 15.291,92.629 15.349,84.923 15.349 C 76.242 15.349,77.209 11.371,77.209 47.058 C 77.209 82.676,76.169 78.605,85.269 78.605 C 94.395 78.605,93.488 80.962,93.488 57.232 C 93.488 45.213,93.678 36.835,93.983 35.415 C 95.655 27.619,105.435 26.650,107.490 34.077 C 107.875 35.469,108.008 42.004,107.942 56.367 C 107.830 81.094,106.905 78.605,116.207 78.605 C 125.083 78.605,124.186 80.942,124.186 57.818 C 124.186 38.303,124.445 34.648,125.977 32.558 C 129.093 28.308,135.775 28.118,138.015 32.217 C 138.762 33.584,138.849 35.710,138.967 55.581 C 139.121 81.421,138.135 78.605,147.032 78.605 C 155.910 78.605,154.946 81.978,154.786 51.460 L 154.651 25.814 153.433 23.216 C 147.911 11.442,127.228 11.472,123.487 23.259 C 123.044 24.655,122.683 24.419,121.030 21.656 C 117.442 15.657,110.671 12.862,103.899 14.583 M298.774 14.615 C 285.440 17.133,277.963 28.760,277.963 46.977 C 277.963 67.645,287.466 79.560,303.922 79.525 C 321.679 79.488,332.781 61.905,329.312 39.314 C 326.649 21.981,313.990 11.742,298.774 14.615 M365.706 14.444 C 361.132 15.347,357.594 18.136,355.118 22.791 L 353.510 25.814 353.499 21.063 C 353.490 16.848,353.387 16.257,352.589 15.830 C 351.292 15.136,339.868 15.202,339.163 15.907 C 338.059 17.010,338.392 77.528,339.504 78.123 C 341.175 79.017,352.760 78.736,353.625 77.780 C 354.279 77.057,354.391 74.526,354.535 57.199 C 354.706 36.517,354.794 35.590,356.865 32.546 C 360.199 27.648,366.045 27.784,368.605 32.821 C 369.488 34.558,369.542 35.722,369.674 55.802 C 369.840 81.258,368.901 78.605,377.747 78.605 C 387.145 78.605,386.185 81.574,385.918 53.326 C 385.653 25.244,385.460 23.888,381.050 19.006 C 377.570 15.154,371.401 13.320,365.706 14.444 M229.395 15.907 C 228.463 16.840,228.641 26.700,229.605 27.501 C 230.182 27.981,232.851 28.197,240.345 28.372 L 250.317 28.605 246.877 33.488 C 225.578 63.731,226.518 62.053,226.514 69.846 C 226.510 77.165,227.179 78.065,231.128 76.064 C 240.755 71.186,254.759 70.813,265.639 75.147 C 270.087 76.918,271.392 77.100,271.811 76.008 C 272.287 74.767,272.123 64.647,271.611 63.690 C 270.386 61.400,262.537 58.786,254.613 58.027 L 248.986 57.488 255.726 47.930 C 259.433 42.673,264.371 35.651,266.698 32.326 L 270.930 26.279 271.089 21.495 C 271.198 18.214,271.071 16.496,270.684 16.029 C 269.925 15.115,230.304 14.998,229.395 15.907 M307.428 27.202 C 313.604 30.396,314.956 57.591,309.296 64.786 C 306.278 68.623,300.348 68.160,297.847 63.893 C 293.908 57.172,293.838 34.517,297.741 29.556 C 300.024 26.654,304.340 25.605,307.428 27.202 M47.816 53.140 C 47.451 62.310,43.833 67.442,37.733 67.442 C 29.210 67.442,28.768 53.144,37.183 49.647 C 38.778 48.984,43.987 48.007,46.221 47.952 L 48.024 47.907 47.816 53.140 M198.505 53.140 C 198.109 62.691,194.321 67.858,188.093 67.341 C 183.971 66.999,181.860 64.277,181.860 59.302 C 181.860 52.235,187.225 48.191,196.919 47.952 L 198.722 47.907 198.505 53.140 M243.256 81.389 C 228.857 83.572,219.241 91.284,232.867 89.721 C 239.505 88.959,250.067 88.951,250.823 89.707 C 251.112 89.996,251.700 90.233,252.129 90.233 C 255.453 90.233,254.387 98.588,249.481 110.993 C 246.496 118.538,247.584 119.927,252.619 115.000 C 259.876 107.900,266.457 88.534,263.140 84.042 C 261.471 81.783,250.399 80.306,243.256 81.389 M66.777 85.382 C 65.908 86.252,65.914 86.189,66.554 87.536 C 66.995 88.465,68.278 89.636,73.844 94.186 C 74.469 94.698,75.378 95.483,75.863 95.930 C 76.348 96.378,76.871 96.744,77.026 96.744 C 77.182 96.744,78.314 97.529,79.543 98.488 C 80.771 99.448,83.151 101.070,84.832 102.093 C 86.512 103.116,87.891 104.227,87.897 104.562 C 87.902 104.897,88.107 105.048,88.351 104.897 C 88.595 104.746,90.741 105.739,93.119 107.103 C 95.496 108.468,98.119 109.859,98.948 110.195 C 99.776 110.531,100.319 111.023,100.155 111.289 C 99.985 111.563,100.081 111.633,100.377 111.450 C 100.664 111.273,101.690 111.529,102.658 112.020 C 105.733 113.580,113.579 116.674,118.146 118.128 C 120.573 118.901,122.977 119.723,123.488 119.956 C 124.000 120.188,126.721 120.842,129.535 121.409 C 132.349 121.976,134.965 122.547,135.349 122.680 C 136.342 123.022,136.653 123.073,144.651 124.221 C 158.125 126.156,179.965 125.596,191.395 123.024 C 192.930 122.678,195.442 122.251,196.977 122.074 C 198.512 121.897,199.872 121.608,200.000 121.432 C 200.260 121.075,204.016 120.062,206.512 119.676 C 207.407 119.538,208.380 119.232,208.673 118.997 C 208.967 118.762,209.681 118.478,210.259 118.367 C 214.875 117.478,232.958 109.228,238.456 105.503 C 239.525 104.779,240.624 104.186,240.898 104.186 C 241.171 104.186,241.395 103.991,241.395 103.752 C 241.395 103.514,241.784 103.195,242.258 103.045 C 243.660 102.600,246.512 99.463,246.512 98.367 C 246.512 96.103,242.980 94.880,240.285 96.210 C 238.420 97.131,232.318 99.484,229.767 100.266 C 228.360 100.697,225.463 101.652,223.328 102.388 C 221.193 103.124,217.635 104.150,215.421 104.668 C 213.207 105.187,210.663 105.808,209.767 106.048 C 207.561 106.641,199.114 108.222,195.116 108.790 C 193.326 109.045,190.500 109.469,188.836 109.733 C 184.407 110.436,166.615 111.237,161.689 110.955 C 159.353 110.821,155.244 110.594,152.558 110.450 C 147.383 110.173,144.247 109.792,134.884 108.299 C 128.517 107.284,125.738 106.752,123.256 106.072 C 122.360 105.827,120.058 105.276,118.140 104.847 C 111.693 103.407,99.606 99.408,92.326 96.306 C 91.814 96.088,90.244 95.449,88.837 94.886 C 86.674 94.020,74.114 87.849,69.535 85.402 C 67.808 84.480,67.681 84.479,66.777 85.382 " stroke="none" fill="#0f0f0f" fill-rule="evenodd"></path></g></svg>
-
-      </div>
-
-      </ha-card>
-    `;
-    }
-
-
+    // Render NVIDIA Shield Remote Style NS2
     if ( getDeviceAttribute('defaultRemoteStyle') == 'NS2' ) {
     return html`
       <ha-card>
@@ -2621,7 +2777,7 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:volume-medium"></ha-icon>
           </button>
 
-          ${drawAppLaunchButtons(this, this._config, 2, 4)}
+          ${drawAppLaunchButtons(this, this._config, 2, 6)}
           ${drawDeviceName(this, this._config, 'bottom')}
 
       </div>
@@ -2629,7 +2785,6 @@ class FiremoteCard extends LitElement {
       </ha-card>
     `;
     }
-
 
   }
 
@@ -2789,7 +2944,7 @@ class FiremoteCard extends LitElement {
 
     // Hamburger Button
     if(clicked.target.id == 'hamburger-button') {
-      if(deviceType == 'shield-tv-pro-2019') {
+      if(deviceType == 'shield-tv-pro-2019' || deviceType == 'shield-tv-2019') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'am start -a android.settings.SETTINGS' });
       }
       else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
@@ -3085,7 +3240,7 @@ class FiremoteCardEditor extends LitElement {
 
   getAppChoices(buttonIndex, optionvalue, remoteStyle) {
     var family = this._config.device_family;
-    if(remoteStyle == "NS2" && (buttonIndex == 5 || buttonIndex == 6) ) { return }
+    // if(remoteStyle == "NS2" && (buttonIndex == 5 || buttonIndex == 6) ) { return }
     if(remoteStyle == "AF4" || remoteStyle == "AF5" || remoteStyle == "NS2") {
       var appkeys = [];
       for (var [key, value] of appmap.entries()) {
@@ -3164,7 +3319,7 @@ class FiremoteCardEditor extends LitElement {
                 return html`<option value="${eid}" selected>${this.hass.states[eid].attributes.friendly_name || eid}</option> `;
               }
             })}
-          </select>     
+          </select>
         <br>
         <br>
 
@@ -3191,13 +3346,13 @@ class FiremoteCardEditor extends LitElement {
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
-          <option value="">Default for ${getDeviceAttribute('friendlyName')}</option>
-          <option value="AF1">Amazon Fire Style 1</option>
-          <option value="AF2">Amazon Fire Style 2</option>
-          <option value="AF3">Amazon Fire Style 3</option>
-          <option value="AF4">Amazon Fire Style 4</option>
-          <option value="AF5">Amazon Fire Style 5</option>
-          <option value="NS1" disabled>NVIDIA Shield Style 1</option>
+          <option value="">Default for ${getDeviceAttribute('friendlyName')}</option>
+          <option value="AF1">Amazon Fire Style 1</option>
+          <option value="AF2">Amazon Fire Style 2</option>
+          <option value="AF3">Amazon Fire Style 3</option>
+          <option value="AF4">Amazon Fire Style 4</option>
+          <option value="AF5">Amazon Fire Style 5</option>
+          <option value="NS1">NVIDIA Shield Style 1</option>
           <option value="NS2">NVIDIA Shield Style 2</option>
         </select>
         <br>
@@ -3209,22 +3364,22 @@ class FiremoteCardEditor extends LitElement {
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
-          <option value="default">Default for ${getDeviceAttribute('friendlyName')}</option>
-          <option value="strong">Strong (Slower)</option>
-          <option value="event0">event0</option>
-          <option value="event1">event1</option>
-          <option value="event2">event2</option>
-          <option value="event3">event3</option>
-          <option value="event4">event4</option>
-          <option value="event5">event5</option>
-          <option value="event6">event6</option>
-          <option value="event7">event7</option>
-          <option value="event8">event8</option>
-          <option value="event9">event9</option>
-          <option value="event10">event10</option>
-          <option value="event11">event11</option>
-          <option value="event12">event12</option>
-          <option value="event13">event13</option>
+          <option value="default">Default for ${getDeviceAttribute('friendlyName')}</option>
+          <option value="strong">Strong (Slower)</option>
+          <option value="event0">event0</option>
+          <option value="event1">event1</option>
+          <option value="event2">event2</option>
+          <option value="event3">event3</option>
+          <option value="event4">event4</option>
+          <option value="event5">event5</option>
+          <option value="event6">event6</option>
+          <option value="event7">event7</option>
+          <option value="event8">event8</option>
+          <option value="event9">event9</option>
+          <option value="event10">event10</option>
+          <option value="event11">event11</option>
+          <option value="event12">event12</option>
+          <option value="event13">event13</option>
         </select>
         <br>
         <br>
@@ -3247,9 +3402,9 @@ class FiremoteCardEditor extends LitElement {
         <br>
         Name Position:<br>
         <select name="name_position" id="name_position" .value=${this._config.name_position || 'hidden'} @focusout=${this.configChanged} @change=${this.configChanged}  style="padding: .6em; font-size: 1em;">
-          <option value="hidden" selected>hidden</option>
-          <option value="top">top</option>
-          <option value="bottom">bottom</option>
+          <option value="hidden" selected>hidden</option>
+          <option value="top">top</option>
+          <option value="bottom">bottom</option>
         </select><br>
         <br>
         <label for="visible_name_text_color">Device Name Text Color:<br><input type="color" name="visible_name_text_color" id="visible_name_text_color" .value=${this._config.visible_name_text_color || '#000000'} @change=${this.configChanged}></label>
