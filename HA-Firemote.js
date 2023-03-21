@@ -634,6 +634,31 @@ const fastappchoices = {
       "deviceFamily": ["nvidia-shield"], },
 
 
+  "stremio": {
+      "button": "Stremio",
+      "friendlyName": "Stremio",
+      "className": "stremioButton",
+      "appName": "com.stremio.one",
+      "androidName": "com.stremio.one",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"],
+      "amazon-fire": {
+          "adbLaunchCommand": "adb shell am start -n com.stremio.one/com.stremio.MainActivity",
+      },
+      "nvidia-shield": {
+          "adbLaunchCommand": "adb shell am start -n com.stremio.one/com.stremio.tv.MainActivity",
+      },
+  },
+
+
+  "surfshark-vpn": {
+      "button": "Surfshark",
+      "friendlyName": "Surfshark VPN",
+      "className": "surfsharkButton",
+      "appName": "com.surfshark.vpnclient.android",
+      "androidName": "com.surfshark.vpnclient.android",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"], },
+
+
   "tennis-channel": {
       "button": "TENNIS CHANNEL",
       "friendlyName": "Tennis Channel",
@@ -1741,6 +1766,29 @@ class FiremoteCard extends LitElement {
             filter: grayscale(30%) brightness(50%);
           }
           .streamzButton:active, .streamzButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .stremioButton {
+            font-size: calc(var(--sz) * 1rem);
+            color: #fff;
+            background: #8959ab;
+            filter: grayscale(30%) brightness(50%);
+          }
+          .stremioButton:active, .stremioButton.appActive {
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            filter: none;
+          }
+
+          .surfsharkButton {
+            font-size: calc(var(--sz) * 0.8rem);
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(45deg,#1bb4b7 0,#1f3c6a 100%);
+            filter: grayscale(30%) brightness(50%);
+          }
+          .surfsharkButton:active, .surfsharkButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
             filter: none;
           }
