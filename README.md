@@ -26,8 +26,10 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
   * NVIDIA Shield Pro
   * Other Android based non-fire devices might work as well, but with limited (and unsupported) functionality
 
-[Which devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)
-<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)
+[Which Amazon Fire devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)<br>
+[Which Amazon Fire device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)<br>
+[Which NVIDIA Shield devices are supported?](../../wiki/Existing-NVIDIA-Shield-Devices-Support-Chart)<br>
+[Which NVIDIA Shield device do I own?](https://www.nvidia.com/en-us/shield/)
 
 <br>
 <br>
