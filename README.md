@@ -128,6 +128,10 @@ Options:
 | espn                    | ESPN                    | ✓                   | ✓                     |
 | freevee                 | freevee                 | ✓                   | ✓                     |
 | hbo-max                 | HBO Max                 | ✓                   | ✓                     |
+| hdmi_1                  | HDMI Input 1            | ✓ (device specific) |                       |
+| hdmi_2                  | HDMI Input 2            | ✓ (device specific) |                       |
+| hdmi_3                  | HDMI Input 3            | ✓ (device specific) |                       |
+| hdmi_4                  | HDMI Input 4            | ✓ (device specific) |                       |
 | hulu                    | Hulu                    | ✓                   | ✓                     |
 | ipvanish                | IPVanish VPN            | ✓                   | ✓                     |
 | jellyfin                | Jellyfin                | ✓                   | ✓                     |
@@ -151,7 +155,7 @@ Options:
 | smart-tube-next         | Smart Tube Next         | ✓                   | ✓                     |
 | spotify                 | Spotify                 | ✓                   | ✓                     |
 | starz                   | Starz                   | ✓                   | ✓                     |
-| streamz                 | streamz (BE)            | ✓                   |                       |
+| streamz                 | streamz (BE)            |                     | ✓                     |
 | stremio                 | Stremio                 | ✓                   | ✓                     |
 | surfshark-vpn           | Surfshark VPN           | ✓                   | ✓                     |
 | tennis-channel          | Tennis Channel          | ✓                   |                       |
@@ -164,15 +168,11 @@ Options:
 | vrt-max                 | VRT MAX (BE)            |                     | ✓                     |
 | vlc                     | VLC                     |                     | ✓                     |
 | waipuTV                 | Waipu TV (DE)           | ✓                   |                       |
+| xfinityStream           | Xfinity Stream          | ✓                   | ✓                     |
 | youtube                 | YouTube                 | ✓                   | ✓                     |
 | youtubekids             | YouTube Kids            | ✓                   | ✓                     |
 | youtubeTV               | YouTube TV              | ✓                   | ✓                     |
-| xfinityStream           | Xfinity Stream          | ✓                   | ✓                     |
 | zattoo                  | Zattoo                  | ✓                   |                       |
-| hdmi_1                  | HDMI Input 1            | ✓ (device specific) |                       |
-| hdmi_2                  | HDMI Input 2            | ✓ (device specific) |                       |
-| hdmi_3                  | HDMI Input 3            | ✓ (device specific) |                       |
-| hdmi_4                  | HDMI Input 4            | ✓ (device specific) |                       |
 
 <br>
 <br>
