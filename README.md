@@ -179,7 +179,7 @@ Options:
 <br>
 
 ## Button Overrides
-Firemote buttons can be overridden by Home Assistant scripts through a simple YAML configuration.  
+Firemote buttons can be hidden or have their functions overridden by Home Assistant scripts through a simple YAML configuration.  
 
 Ex:
 ```yaml
@@ -188,6 +188,8 @@ button_overrides:
     script: receiver_mute_script
   volume-down-button:
     script: receiver_volume_down_script
+  power-button:
+    hidden: true
 ```
 Valid button names are as follows:
  - power-button
