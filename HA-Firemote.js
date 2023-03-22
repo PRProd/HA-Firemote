@@ -766,6 +766,15 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire"], },
 
 
+  "xfinityStream": {
+      "button": "Xfinity Stream",
+      "friendlyName": "Xfinity Stream",
+      "appName": "com.xfinity.cloudtvr.tenfoot",
+      "className": "xfinityStreamButton",
+      "androidName": "com.xfinity.cloudtvr.tenfoot",
+      "deviceFamily": ["amazon-fire", "nvidia-shield"],},
+
+
   "youtube": {
       "button": "YouTube",
       "friendlyName": "YouTube",
@@ -817,15 +826,6 @@ const fastappchoices = {
           "adbLaunchCommand": "adb shell am start -n com.google.android.youtube.tvunplugged/com.google.android.apps.youtube.tvunplugged.activity.MainActivity",
       },
   },
-
-
-  "xfinityStream": {
-      "button": "Xfinity Stream",
-      "friendlyName": "Xfinity Stream",
-      "appName": "com.xfinity.cloudtvr.tenfoot",
-      "className": "xfinityStreamButton",
-      "androidName": "com.xfinity.cloudtvr.tenfoot",
-      "deviceFamily": ["amazon-fire", "nvidia-shield"],},
 
 
   "zattoo": {
@@ -936,7 +936,7 @@ class FiremoteCard extends LitElement {
 
   setConfig(config) {
     if (!config.entity) {
-     throw new Error('You need to define a Fire TV or Android TV entity');
+     throw new Error('You need to define a Fire TV, NVIDIA Shield, or other Android TV entity');
     }
     this._config = config;
   }
@@ -1140,6 +1140,7 @@ class FiremoteCard extends LitElement {
 
           .centerbutton{
             all: unset;
+            cursor: pointer;
             border: solid black calc(var(--sz) * 0.0714rem);
             margin-left: calc(var(--sz) * 2.357rem);
             margin-top: calc(var(--sz) * 2.357rem);
@@ -1165,6 +1166,7 @@ class FiremoteCard extends LitElement {
 
           .dpadbutton{
             all: unset;
+            cursor: pointer;
             width: calc(var(--sz) * 5.5714rem);
             height: calc(var(--sz) * 5.5714rem);
             background: #141414;
@@ -2082,10 +2084,21 @@ class FiremoteCard extends LitElement {
     const appId = state.attributes.app_id;
     const deviceType = this._config.device_type;
     const scale = (parseInt(this._config.scale) || 100)/100;
+    const overrides = this._config.button_overrides;
+    var buttonHidingCss = '';
+    if(overrides && typeof overrides === 'object') {
+      for (let [key, value] of Object.entries(overrides)) {
+        if(value && typeof value === 'object') {
+          for (let [action, actionvalue] of Object.entries(value)) {
+            if(action == 'hidden' && actionvalue == true) {
+              buttonHidingCss += '#'+key+' { opacity: 0; pointer-events: none; } ';
+            }
+          }
+        }
+      }
+    }
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
-    const cssVars = html `<style> :host { --sz: ${scale}; --devicenamecolor: ${devicenamecolor} } </style>`;
-    const scaleCss = html`<style> :host { --sz: ${scale} } </style>`;
-    const namecolorCss = html`<style> :host { --devicenamecolor: ${devicenamecolor} } </style>`;
+    const cssVars = html `<style> :host { --sz: ${scale}; --devicenamecolor: ${devicenamecolor} } ${buttonHidingCss} </style>`;
 
     // Determine Power On/Off Status
     var powerStatusClass = ''
@@ -2825,6 +2838,9 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:volume-medium"></ha-icon>
           </button>
 
+          <!-- Find my remote: am start -a android.intent.action.VIEW -d -n com.nvidia.remotelocator/.ShieldRemoteLocatorActivity -->
+          <!-- Recents: am start -a com.android.systemui/com.android.systemui.recents.tv.RecentsTvActivity           com.android.systemui.recents.RecentsActivity             -->
+
           ${drawAppLaunchButtons(this, this._config, 2, 6)}
           ${drawDeviceName(this, this._config, 'bottom')}
 
@@ -3159,7 +3175,7 @@ window.customCards.push({
   type: "firemote-card",
   name: "Firemote Card",
   preview: true,
-  description: "Remote control card for Amazon FireTV devices"
+  description: "Remote control card for Amazon FireTV and NVIDIA Shield devices"
 });
 
 
