@@ -1021,6 +1021,20 @@ class FiremoteCard extends LitElement {
             grid-template-columns: 1fr 27% 1fr;
           }
 
+          #ns1spine {
+            display: grid;
+            padding: calc(var(--sz) * 4rem) 0;
+          }
+
+          #ns1spine button {
+            all: unset;
+            background: transparent;
+          }
+
+          #ns1spine button:active {
+            background: #363636;
+          }
+
           #wingL {
             background: rgb(28 28 28);
             -webkit-clip-path: polygon(100% 15%, 100% 85%, 0 100%, 0 0);
@@ -2765,7 +2779,10 @@ class FiremoteCard extends LitElement {
 
           <div class="ns1-wings">
             <div id="wingL"> </div>
-            <div> </div>
+            <div id="ns1spine">
+              <button class="ns1volume" id="volume-up-button" @click=${this.buttonClicked}></button>
+              <button class="ns1volume" id="volume-down-button" @click=${this.buttonClicked}></button>
+            </div>
             <div id="wingR"> </div>
           </div>
 
@@ -2868,17 +2885,31 @@ class FiremoteCard extends LitElement {
     if(typeof overrides !== 'undefined' && overrides !== null) {
         if(typeof overrides[clicked.target.id] !== 'undefined') {
             const overrideDef = overrides[clicked.target.id];
-
-            if(overrideDef !== null && typeof overrideDef.script !== 'undefined') {
+            if(overrideDef !== null) {
+              if(typeof overrideDef.script !== 'undefined') {
                 // handle overrides via external script
                 try{ this.hass.callService("script", overrideDef.script) }
                 catch { return; }
                 fireEvent(this, 'haptic', 'light'); // haptic feedback on success
                 return;
-            }
-            else {
+              }
+              else if(typeof overrideDef.service !== 'undefined' && typeof overrideDef.target !== 'undefined') {
                 // handle overrides via yaml instructions
-                // TODO: console.log('Im responding to a YAML override for the '+clicked.target.id);
+                const svcarray = overrideDef.service.split(".");
+                var data = Object;
+                if(typeof overrideDef.data !== 'undefined') {
+                  var extraData = JSON.parse(JSON.stringify(overrideDef.data));
+                  var target = JSON.parse(JSON.stringify(overrideDef.target));
+                  data = Object.assign(target, extraData);
+                }
+                else {
+                  data = Object.assign(overrideDef.target);
+                }
+                try{ this.hass.callService(svcarray[0], svcarray[1], data) }
+                catch { return; }
+                fireEvent(this, 'haptic', 'light'); // haptic feedback on success
+                return;
+              }
             }
         }
     }
