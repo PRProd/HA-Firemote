@@ -24,7 +24,7 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
   * Amazon Fire Cube
   * NVIDIA Shield
   * NVIDIA Shield Pro
-  * Other Android based non-fire devices might work as well, but with limited (and unsupported) functionality
+  * Other Android-based non-fire devices might work as well, but with limited (and unsupported) functionality
 
 [Which Amazon Fire devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)<br>
 [Which Amazon Fire device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)<br>
@@ -39,8 +39,8 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
 1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
 1. Click on HACS and select Frontend
-1. In the lower right hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
-1. Search for, and click on "Firemote Card", then click the "DOWNLOAD" button in the lower right hand corner
+1. In the lower right-hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
+1. Search for, and click on "Firemote Card" then click the "DOWNLOAD" button in the lower right-hand corner
 1. You will be prompted to reload your browser.  Click the RELOAD button to continue
 
 ## OR Install Manually
@@ -54,7 +54,7 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 
 ## How to use
 1. On any dashboard, click the +ADD CARD button
-1. Search by cards for "Firemote Card", and click on it
+1. Search by cards for "Firemote Card" and click on it
 1. Under the Entity dropdown, a list of your Android TV integration entities will appear.  Select the one you wish to control.
 1. Under Device Family, choose "Amazon Fire" or "NVIDIA Shield"
 1. Under Device Type, select the device model that you own. (Which [Amazon Fire](https://developer.amazon.com/docs/fire-tv/device-specifications.html) or [NVIDIA Shield](https://www.nvidia.com/en-us/shield/)  device do I own?)
@@ -98,18 +98,18 @@ Options:
 |defaultRemoteStyle_override | string | no | AF1 <br> AF2 <br> AF3 <br> AF4 <br> AF5 <br> NS1 <br> NS2 | Optionally select a style of remote different from the one that shipped with your device |
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>app_launch_6 | string | no | [ See App Launch Button Customization section for options](#app-launch-button-customization) | Quick launch apps customization |
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button (truncated to 8 characters to fit)|
-| scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage.  Default size is 100 |
+| scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage. The default size is 100 |
 | button_overrides | object | no | Button name and HA script name are required.| Details are in the Button Overrides section of the [README.md](https://github.com/PRProd/HA-Firemote/edit/main/README.md#button-overrides) file |
 | visible_name_text | string | no | Any text                                                      | Optional device label for your firemote|
 | name_position | string | no     | hidden<br>bottom<br>top<br>                                   | Position for your optional device label|
-| visible_name_text_color | hex color value | no | Any hex color value eg: #ffffff                | Optional text color for the device name label |
+| visible_name_text_color | hex color value | no | Any hex color value e.g.: #ffffff              | Optional text color for the device name label |
 
 <br>
 <br>
 <br>
 
 ## App Launch Button Customization
-Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through your device's app store (not sideloaded), your request will be granted ASAP.
+Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you and likely important to others as well!  As long as the app is easily downloaded through your device's app store (not sideloaded), your request will be granted ASAP.
 
 Options:
 | Value for YAML File     | App / Physical Input    | Amazon Fire Support | NVIDIA Shield Support |
@@ -179,18 +179,27 @@ Options:
 <br>
 
 ## Button Overrides
-Firemote buttons can be hidden or have their functions overridden by Home Assistant scripts through a simple YAML configuration.  
+Button Overrides can be very useful for customization.  These overrides can be used to call a Home Assistant service directly, run a script, or hide a button on your remote.  These options are accomplished through your Firemote's YAML configuration.
 
-Ex:
+Consider this example:
 ```yaml
 button_overrides:
   mute-button:
     script: receiver_mute_script
   volume-down-button:
     script: receiver_volume_down_script
+  volume-up-button:
+    service: light.toggle
+    target:
+      entity_id: light.bedroom_lamp
+    data:
+      color_name: red
+      transition: 2
+      brightness_pct: 100
   power-button:
     hidden: true
 ```
+
 Valid button names are as follows:
  - power-button
  - keyboard-button
@@ -213,16 +222,17 @@ Valid button names are as follows:
  - mute-button
  - settings-button
  - app-switch-button
+ 
 <br>
 <br>
 <br>
 
 ## FAQ
-###  Why won't the volume, mute, and/or power butons work for my Amazon Fire device?
-In many cases, your Amazon remote control actually sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  Since this is the case, these types of commands cannot be emulated through the same means that Firemote sends other commands.
+###  Why won't the volume, mute, and/or power buttons work for my Amazon Fire device?
+In many cases, your Amazon remote control sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  Since this is the case, these commands cannot be emulated through the same means that Firemote sends other commands.
 <br>
 
-In these cases, you still might be able to control your devices (TVs, Receivers, etc.) by using [Button Overrides](https://github.com/PRProd/HA-Firemote#button-overrides).  If you are able to control your non-fire devices through Home Assistant, you can write a HA script and attach that script to a button on your Firemote.
+In these cases, you might still be able to control your devices (TVs, Receivers, etc.) using [Button Overrides](https://github.com/PRProd/HA-Firemote#button-overrides).  If you can control your non-fire devices through Home Assistant, you can write a HA script and attach that script to a button on your Firemote.
 <br>
 <br>
 
@@ -237,16 +247,16 @@ In these cases, you still might be able to control your devices (TVs, Receivers,
 <br>
 
 ### Why isn't my Amazon Fire Device supported?
-There are currently over 40 different kinds of Amazon Fire devices, so it will take a while for every device to gain properly tested support.  If Firemote doesn't support your Amazon Fire device yet yet, you can still use Firemote!  Simply choose a supported device that is similar to the one that you have (preferrably a remote that looks the same as your physical remote), then you can test different compatability modes to find out which one works the best.<br>
+There are over 40 kinds of Amazon Fire devices, so it will take a while to gain properly tested support for all of them.  If Firemote doesn't support your Amazon Fire device yet, you can still use Firemote!  Simply choose a supported device that is similar to the one that you have (preferably a remote that looks the same as your physical remote), then you can test different compatibility modes to find out which one works the best.<br>
 
 For extra credit, you could submit a request to have your device added!  It's simple!  Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "Device Support Request" option.  Your help is VERY appreciated!
 <br>
 <br>
 
-### I want to have a shortcut button for an app I use frequently, but it's not on the list.  Can it be added?
-Absolutely!  Simply ask!  Here's how: Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you, and likely important for others as well!  As long as the app is easily downloaded through your device's official store (not sideloaded), your request will be granted ASAP.
+### I want a shortcut button for an app I use frequently, but it's not on the list.  Can it be added?
+Absolutely!  Simply ask!  Here's how: Click the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you and likely important to others as well!  If the app is easily downloaded through your device's official store (not sideloaded), your request will be granted ASAP.
 <br>
 <br>
 
-### How do I report a problem, make a request, or just talk about stuff?
-Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then select the appropriate category for your needs.  You're also welcome to join or begin a new [discussion ](https://github.com/PRProd/HA-Firemote/discussions) if that seems more suitable for your needs.
+### How do I report a problem, make a request, or talk about stuff?
+Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at the top of this page, click 'New Issue', and select the appropriate category for your needs.  You're also welcome to join or begin a new [discussion ](https://github.com/PRProd/HA-Firemote/discussions) if that suits your needs.
