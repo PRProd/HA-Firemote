@@ -127,6 +127,7 @@ Options:
 | emby                    | Emby                    | ✓                   | ✓                     |
 | espn                    | ESPN                    | ✓                   | ✓                     |
 | freevee                 | freevee                 | ✓                   | ✓                     |
+| google-play-store       | Google Play Store       |                     | ✓                     |
 | hbo-max                 | HBO Max                 | ✓                   | ✓                     |
 | hulu                    | Hulu                    | ✓                   | ✓                     |
 | ipvanish                | IPVanish VPN            | ✓                   | ✓                     |
