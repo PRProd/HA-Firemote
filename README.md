@@ -212,6 +212,7 @@ Valid button names are as follows:
  - center-button
  - right-button
  - down-button
+ - apps-button
  - back-button
  - home-button
  - hamburger-button
