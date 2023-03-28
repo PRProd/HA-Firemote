@@ -192,7 +192,7 @@ const devices = {
       "mi-box-s": {
         "supported": true,
         "friendlyName": "Mi Box S",
-        "defaultEventListenerBinPath": "/dev/input/event3",
+        "defaultEventListenerBinPath": "/dev/input/event2",
         "defaultRemoteStyle": "XM2",
         "hdmiInputs": 0,
       },
@@ -359,9 +359,10 @@ const fastappchoices = {
   "emby": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 263" xml:space="preserve"><path fill="#53B54C" d="m168.705 217.295-32.646-32.816-6.979 8.981-56.937-58.301 48.859-48.744-9.295-7.12c19.587-19.551 38.42-38.35 57.396-57.289L218.5 71.475l7.628-9.638c19.264 19.89 37.89 39.118 56.582 58.415l-48.8 48.706 8.916 6.61-58.591 57.31-15.53-15.583m.646-120.15c-5.248-2.94-10.495-5.882-15.967-8.95v79.326l69.21-39.728c-18.035-10.38-35.323-20.33-53.243-30.647z"/><path fill="#494949" d="M458.276 108.697c-6.415-5.733-13.48-6.655-20.7-3.275-8.461 3.96-11.654 11.608-11.871 20.459-.25 10.155-.013 20.323.002 30.486.01 6.64.002 13.281.002 20.292h-23.257V83.59h21.262l1.798 9.98c7.285-9.352 16.805-12.452 27.782-11.732 11.198.734 19.545 5.965 24.972 16.626 5.143-7.514 11.303-13.04 19.832-15.386 26.054-7.169 48.249 7.07 50.337 34.056 1.523 19.668.298 39.548.298 59.617h-22.859c0-2.95.033-5.887-.005-8.822-.204-15.977.108-31.984-.833-47.918-.594-10.046-6.281-15.382-14.545-16.404-8.692-1.075-16.73 3.581-20.11 12.35-1.402 3.638-2.104 7.75-2.17 11.661-.247 14.658-.1 29.321-.101 43.983v5.156h-23.24c0-3.31.036-6.582-.006-9.853-.194-15.144-.013-30.31-.872-45.416-.243-4.265-3.553-8.356-5.716-12.79z"/><path fill="#484848" d="M588.13 91.123c14.966-11.788 31.135-12.726 47.834-5.902 16.257 6.643 24.296 19.895 25.819 36.836.689 7.665.46 15.817-1.397 23.237-7.658 30.61-38.073 38.358-58.664 32.007-6.475-1.997-12.017-7.02-17.827-10.56l-1.332 9.9h-21.347V44.482H583.8v49.67l1.57 1.195c.836-1.325 1.671-2.65 2.761-4.225m42.187 18.024c-9.868-7.632-20.545-8.565-31.287-2.596-10.62 5.9-14.282 15.748-13.129 27.525 1.053 10.758 8.264 19.385 18.563 22.465 11.938 3.569 24.254-.864 30.556-10.998 6.892-11.083 5.162-25.977-4.703-36.396zM350.786 179.007c-6.608-.307-12.868.036-18.854-1.084-20.372-3.812-33.57-16.992-37.077-37.452-3.547-20.7.702-39.402 19.297-51.433 18.229-11.794 37.954-11.655 56.978-1.56 12.417 6.59 17.877 18.522 19.558 32.006.733 5.881.123 11.93.123 18.54h-73.002c1.678 9.66 7.035 15.337 15.373 18.038 13.434 4.35 25.932 1.894 37.377-6.073l14.195 14.977c-8.987 8.582-20.59 12.776-33.968 14.041M343.5 118.95h24.793c-1.498-11.63-10.489-17.925-24.282-17.873-11.71.044-24.23 7.155-24.948 17.873H343.5z"/><path fill="#494949" d="M704.02 215.903c-7.369.062-14.738.123-22.647-.088-.701-.508-.916-.677-1.183-.778 4.812-11.317 9.488-22.694 14.511-33.916 1.676-3.743 1.828-6.883.217-10.773-11.329-27.348-22.4-54.803-33.542-82.228-.549-1.35-.98-2.749-1.723-4.856 8.77 0 17.009-.144 25.229.176 1.073.042 2.483 2.323 3.012 3.823 7.023 19.918 13.915 39.883 20.842 59.836.207.593.432 1.18.994 2.715.973-2.404 1.635-4.032 2.291-5.664 7.693-19.13 15.335-38.28 23.173-57.35.606-1.474 2.54-3.336 3.93-3.399 7.46-.336 14.941-.159 23.225-.159-18.998 44.134-37.774 87.75-57.052 131.666-.76.532-1.018.764-1.276.995z"/><path fill="#FDFEFD" d="M169.668 97.33c17.604 10.134 34.892 20.083 52.927 30.463l-69.21 39.728V88.196c5.472 3.067 10.72 6.008 16.283 9.134z"/></svg>',
       "friendlyName": "Emby",
-      "appName": "Emby",
       "className": "embyButton",
+      "appName": "tv.emby.embyatv",
       "androidName": "tv.emby.embyatv",
+      "adbLaunchCommand": "adb shell am start -a android.intent.category.LEANBACK_LAUNCHER -d -n tv.emby.embyatv/.startup.StartupActivity",
       "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
 
 
@@ -488,7 +489,6 @@ const fastappchoices = {
       "appName": "Magenta TV",
       "className": "magentaTVButton",
       "androidName": "de.telekom.magentatv.atv",
-      "adbLaunchCommand": "de.telekom.magentatv.atv/tv.accedo.xdk.dtag.MainActivity",
       "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
 
 
@@ -3526,7 +3526,7 @@ class FiremoteCard extends LitElement {
     // Apps Button
     if(clicked.target.id == 'apps-button') {
       if (deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 580 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 580 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.google.android.tvlauncher/.appsview.AppsViewActivity' });
       }
       else if (deviceFamily == 'nvidia-shield') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_APP_SWITCH' });
@@ -3719,6 +3719,11 @@ class FiremoteCard extends LitElement {
         this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: sourceName});
       }
       else {
+        if(adbcommand == 'adb shell reboot') {
+          if(confirm('Are you sure you want to reboot '+this.hass.states[this._config.entity].attributes.friendly_name) == false) {
+            return;
+          }
+        }
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: adbcommand });
       }
       return;
