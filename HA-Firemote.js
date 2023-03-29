@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "https://unpkg.com/lit?module";
 import {unsafeHTML} from 'https://unpkg.com/lit-html@latest/directives/unsafe-html.js?module';
 
-console.info("%c    FIREMOTE-CARD    \n%c Version 2.1.0-beta4 ", "color: orange; font-weight: bold; background: black", "color: white; font-weight: bold; background: dimgray");
+console.info("%c  FIREMOTE-CARD  \n%c  Version 2.1.0  ", "color: orange; font-weight: bold; background: black", "color: white; font-weight: bold; background: dimgray");
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -3806,7 +3806,7 @@ window.customCards.push({
   type: "firemote-card",
   name: "Firemote Card",
   preview: true,
-  description: "Remote control card for Amazon FireTV and NVIDIA Shield devices"
+  description: "Remote control card for Amazon FireTV, NVIDIA Shield, and Xiaomi devices"
 });
 
 
