@@ -124,6 +124,7 @@ Options:
 | cnn                     | CNN                     | ✓                   | ✓                     | ✓                 |
 | crave-tv                | Crave TV (CA)           | ✓                   |                       |                   |
 | cyberghost              | CyberGhost VPN          | ✓                   | ✓                     | ✓                 |
+| dazn                    | DAZN                    | ✓                   | ✓                     | ✓                 |
 | directv-stream          | DIRECTV stream          | ✓                   | ✓                     | ✓                 |
 | disney-plus             | Disney +                | ✓                   | ✓                     | ✓                 |
 | emby                    | Emby                    | ✓                   | ✓                     | ✓                 |
@@ -145,7 +146,7 @@ Options:
 | oqee-by-free            | OQEE by Free (FR)       | ✓                   |                       |                   |
 | pandora                 | Pandora                 | ✓                   | ✓                     | ✓                 |
 | paramount-plus          | Paramount+              | ✓                   | ✓                     | ✓                 |
-| paramount-plus-de       | Paramount+ (DE)         | ✓                   | ✓                     | ✓                 |
+| paramount-plus-de       | Paramount+ (alt)        | ✓                   | ✓                     | ✓                 |
 | plex                    | Plex                    | ✓                   | ✓                     | ✓                 |
 | prime-video             | Prime Video             | ✓                   | ✓                     | ✓                 |
 | private-internet-access | Private Internet Access |                     | ✓                     | ✓                 |
@@ -154,6 +155,7 @@ Options:
 | showtime                | Showtime                | ✓                   | ✓                     | ✓                 |
 | sky-news                | Sky News                | ✓                   | ✓                     | ✓                 |
 | smart-tube-next         | Smart Tube Next         | ✓                   | ✓                     | ✓                 |
+| smart-tube-next-beta    | Smart Tube Next Beta    | ✓                   | ✓                     | ✓                 |
 | spotify                 | Spotify                 | ✓                   | ✓                     | ✓                 |
 | starz                   | Starz                   | ✓                   | ✓                     | ✓                 |
 | streamz                 | streamz (BE)            |                     | ✓                     | ✓                 |
