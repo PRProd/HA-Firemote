@@ -32,8 +32,8 @@ body:
   - type: textarea
     id: deviceType
     attributes:
-      label: Which Fire TV Device do you own?
-      description: 'If applicable, please include the model of your Fire TV Device: https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart'
+      label: Which Type of Device Do You Own?
+      description: 'If applicable, please include the model of your Fire, Shield, Xiaomi, or Android TV Device'
       placeholder: 
     validations:
       required: true
