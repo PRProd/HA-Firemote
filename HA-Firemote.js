@@ -1,5 +1,6 @@
-import { LitElement, html, css } from "https://unpkg.com/lit?module";
-import {unsafeHTML} from 'https://unpkg.com/lit-html@latest/directives/unsafe-html.js?module';
+//import { LitElement, html, css } from "https://unpkg.com/lit?module";
+//import {unsafeHTML} from 'https://unpkg.com/lit-html@latest/directives/unsafe-html.js?module';
+import {LitElement, html, css, unsafeHTML} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
 console.info("%c  FIREMOTE-CARD  \n%c  Version 2.1.1  ", "color: orange; font-weight: bold; background: black", "color: white; font-weight: bold; background: dimgray");
 
