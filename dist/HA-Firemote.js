@@ -1,8 +1,6 @@
-//import { LitElement, html, css } from "https://unpkg.com/lit?module";
-//import {unsafeHTML} from 'https://unpkg.com/lit-html@latest/directives/unsafe-html.js?module';
-import {LitElement, html, css, unsafeHTML} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
 
-console.info("%c  FIREMOTE-CARD  \n%c  Version 2.1.1  ", "color: orange; font-weight: bold; background: black", "color: white; font-weight: bold; background: dimgray");
+console.info("%c  FIREMOTE-CARD  \n%c  Version 2.1.3  ", "color: orange; font-weight: bold; background: black", "color: white; font-weight: bold; background: dimgray");
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -136,9 +134,9 @@ const devices = {
         "hdmiInputs": 0,
       },
       "fire_tv_third_gen_2017": {
-        "supported": false,
+        "supported": true,
         "friendlyName": "Fire TV (3rd Gen - 2017)",
-        "defaultEventListenerBinPath": "/dev/input/event1",
+        "defaultEventListenerBinPath": "/dev/input/event3",
         "defaultRemoteStyle": "AF1",
         "hdmiInputs": 0,
       },
@@ -423,7 +421,7 @@ const fastappchoices = {
 
 
   "google-play-store": {
-      "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px" fill-rule="evenodd" clip-rule="evenodd" baseProfile="basic"><linearGradient id="jFdG-76_seIEvf-hbjSsaa" x1="1688.489" x2="1685.469" y1="-883.003" y2="-881.443" gradientTransform="matrix(11.64 0 0 22.55 -19615.32 19904.924)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#047ed6"/><stop offset="1" stop-color="#50e6ff"/></linearGradient><path fill="url(#jFdG-76_seIEvf-hbjSsaa)" fill-rule="evenodd" d="M7.809,4.608c-0.45,0.483-0.708,1.227-0.708,2.194	v34.384c0,0.967,0.258,1.711,0.725,2.177l0.122,0.103L27.214,24.2v-0.433L7.931,4.505L7.809,4.608z" clip-rule="evenodd"/><linearGradient id="jFdG-76_seIEvf-hbjSsab" x1="1645.286" x2="1642.929" y1="-897.055" y2="-897.055" gradientTransform="matrix(9.145 0 0 7.7 -15001.938 6931.316)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffda1c"/><stop offset="1" stop-color="#feb705"/></linearGradient><path fill="url(#jFdG-76_seIEvf-hbjSsab)" fill-rule="evenodd" d="M33.623,30.647l-6.426-6.428v-0.45l6.428-6.428	l0.139,0.086l7.603,4.321c2.177,1.227,2.177,3.249,0,4.493l-7.603,4.321C33.762,30.561,33.623,30.647,33.623,30.647z" clip-rule="evenodd"/><linearGradient id="jFdG-76_seIEvf-hbjSsac" x1="1722.978" x2="1720.622" y1="-889.412" y2="-886.355" gradientTransform="matrix(15.02 0 0 11.5775 -25848.943 10324.73)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#d9414f"/><stop offset="1" stop-color="#8c193f"/></linearGradient><path fill="url(#jFdG-76_seIEvf-hbjSsac)" fill-rule="evenodd" d="M33.762,30.561l-6.565-6.567L7.809,43.382	c0.708,0.761,1.9,0.847,3.232,0.103L33.762,30.561" clip-rule="evenodd"/><linearGradient id="jFdG-76_seIEvf-hbjSsad" x1="1721.163" x2="1722.215" y1="-891.39" y2="-890.024" gradientTransform="matrix(15.02 0 0 11.5715 -25848.943 10307.886)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#33c481"/><stop offset="1" stop-color="#61e3a7"/></linearGradient><path fill="url(#jFdG-76_seIEvf-hbjSsad)" fill-rule="evenodd" d="M33.762,17.429L11.041,4.522	c-1.33-0.761-2.524-0.658-3.232,0.103l19.386,19.369L33.762,17.429z" clip-rule="evenodd"/></svg> Play Store',
+      "button": '<svg viewBox="0 0 162.28 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Capa 2"><g data-name="Capa 1"><path d="m159.36 13.46-3 7.64h-.09l-3.13-7.64h-2.83L155 24.14l-2.68 5.94h2.75l7.23-16.62zm-21.2-6.34h-2.62v17.62h2.62zm-9.86 0H122v17.62h2.64v-6.67h3.67a5.59 5.59 0 0 0 5.78-5.47 5.6 5.6 0 0 0-5.79-5.48Zm.07 8.49h-3.73v-6h3.74a3 3 0 0 1 0 6Zm16.25-2.53a4.94 4.94 0 0 0-4.69 2.7l2.34 1a2.48 2.48 0 0 1 2.4-1.28 2.52 2.52 0 0 1 2.76 2.27v.18a5.73 5.73 0 0 0-2.73-.69c-2.51 0-5.07 1.38-5.07 4 0 2.36 2.05 3.88 4.37 3.88a3.66 3.66 0 0 0 3.34-1.72h.1v1.36H150V18c0-3.13-2.34-4.87-5.36-4.87Zm-.31 9.66c-.86 0-2.06-.44-2.06-1.5 0-1.36 1.49-1.88 2.79-1.88a4.67 4.67 0 0 1 2.4.59 3.19 3.19 0 0 1-3.13 2.79Zm-94.82 2.38A9.46 9.46 0 0 1 40 15.81a9.46 9.46 0 0 1 9.49-9.31 8.91 8.91 0 0 1 6.41 2.57l-1.81 1.79A6.51 6.51 0 0 0 49.49 9a6.77 6.77 0 0 0 0 13.54 6.25 6.25 0 0 0 4.72-1.87 5.26 5.26 0 0 0 1.39-3.2h-6.11V15h8.6a8.38 8.38 0 0 1 .13 1.59 8.37 8.37 0 0 1-2.21 6 8.57 8.57 0 0 1-6.52 2.53Zm22.03-6a5.94 5.94 0 1 1-11.87 0 5.94 5.94 0 1 1 11.87 0zm-2.6 0a3.35 3.35 0 1 0-6.67 0 3.35 3.35 0 1 0 6.67 0zm15.9 0a5.93 5.93 0 1 1-11.86 0 5.93 5.93 0 1 1 11.86 0zm-2.59 0a3.35 3.35 0 1 0-6.67 0 3.35 3.35 0 1 0 6.67 0zm15.57-5.63v10.77c0 4.42-2.63 6.24-5.73 6.24a5.75 5.75 0 0 1-5.34-3.5L89 26a3.33 3.33 0 0 0 3 2.13c2 0 3.22-1.23 3.22-3.52v-.86h-.1A4.12 4.12 0 0 1 92 25.12a6 6 0 0 1 0-12 4.18 4.18 0 0 1 3.16 1.34h.1v-1h2.54Zm-2.33 5.66a3.39 3.39 0 0 0-3.21-3.66 3.48 3.48 0 0 0-3.36 3.66 3.45 3.45 0 0 0 3.36 3.61 3.35 3.35 0 0 0 3.21-3.61Zm6.96-12.01v17.61h-2.64V7.14Zm10.4 13.96 2.06 1.36a6 6 0 0 1-5 2.66 5.81 5.81 0 0 1-5.89-6 5.52 5.52 0 0 1 10.75-2.18l.27.69-8 3.31a3.07 3.07 0 0 0 2.92 1.82 3.44 3.44 0 0 0 2.89-1.66zm-6.31-2.16 5.38-2.22a2.34 2.34 0 0 0-2.24-1.27 3.29 3.29 0 0 0-3.14 3.49z" style="fill:#5f6368"/><path d="M13.54 15.28.12 29.34a3.64 3.64 0 0 0 5.33 2.16l15.1-8.6z" style="fill:#ea4335"/><path d="m27.11 12.89-6.53-3.74-7.35 6.45 7.38 7.28 6.48-3.7a3.55 3.55 0 0 0 0-6.29z" style="fill:#fbbc04"/><path d="M.12 2.66a3.46 3.46 0 0 0-.12.92v24.84a3.66 3.66 0 0 0 .12.92L14 15.64Z" style="fill:#4285f4"/><path d="m13.64 16 6.94-6.85L5.5.51A3.72 3.72 0 0 0 3.63 0 3.64 3.64 0 0 0 .12 2.65Z" style="fill:#34a853"/></g></g></svg>',
       "friendlyName": "Google Play Store",
       "appName": "Play Store",
       "className": "googlePlayStoreButton",
@@ -620,7 +618,7 @@ const fastappchoices = {
 
 
   "prime-video" : {
-      "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 801 247" width="800.3" height="246.3" style="enable-background:new 0 0 800.3 246.3" xml:space="preserve"><path style="fill:#fff" d="M396.5 246.3v-.4c.4-.5 1.1-.8 1.7-.7 2.9-.1 5.7-.1 8.6 0 .6 0 1.3.2 1.7.7v.4h-12z"/><path style="fill:#fff" d="M408.5 245.9c-4-.1-8-.1-12 0-5.5-.3-11-.5-16.5-.9-14.6-1.1-29.1-3.3-43.3-6.6-49.1-11.4-92.2-34.3-129.8-67.6-3.5-3.1-6.8-6.3-10.2-9.5-.8-.7-1.5-1.7-1.9-2.7-.6-1.4-.3-2.9.7-4s2.6-1.5 4-.9c.9.4 1.8.8 2.6 1.3 35.9 22.2 75.1 38.4 116.2 48 13.8 3.2 27.7 5.7 41.7 7.5 20.1 2.5 40.4 3.4 60.6 2.7 10.9-.3 21.7-1.3 32.5-2.7 25.2-3.2 50.1-8.9 74.2-16.9 12.7-4.2 25.1-9 37.2-14.6 1.8-1 4-1.3 6-.8 3.3.8 5.3 4.2 4.5 7.5-.1.4-.3.9-.5 1.3-.8 1.5-1.9 2.8-3.3 3.8-11.5 9-23.9 16.9-37 23.5-24.7 12.5-51.1 21.4-78.3 26.5-15.7 2.8-31.5 4.5-47.4 5.1zM260.4 43.2c2.5-1.5 5.1-3.1 7.8-4.5 7-3.6 14.8-5.4 22.7-5 5.7.3 10.9 1.9 14.9 6.1 3.8 3.9 5.2 8.7 5.6 13.9.1 1.1.1 2.2.1 3.4v51.8c0 4.5-.6 5.1-5.1 5.1h-12.2c-.8 0-1.6 0-2.4-.1-1.2-.1-2.2-1.1-2.4-2.3-.2-1.1-.2-2.2-.2-3.3V62c.1-1.9-.1-3.7-.6-5.5-.8-3.1-3.6-5.3-6.8-5.5-5.9-.4-11.8.8-17.2 3.3-.8.2-1.3 1-1.2 1.8v52.6c0 1 0 1.9-.2 2.9 0 1.4-1.1 2.4-2.5 2.4-1.5.1-3 .1-4.6.1h-10.6c-3.7 0-4.5-.9-4.5-4.6V62.2c0-1.7-.1-3.5-.5-5.2-.7-3.4-3.6-5.8-7-6-6-.4-12.1.8-17.5 3.4-.8.2-1.3 1.1-1.1 1.9v53.3c0 3.7-.8 4.5-4.5 4.5H197c-3.5 0-4.4-1-4.4-4.4V40.3c0-.8.1-1.6.3-2.4.4-1.2 1.6-1.9 2.8-1.9h12.5c1.8 0 2.9 1.1 3.5 2.8.5 1.4.8 2.7 1.3 4.2 1 0 1.6-.7 2.3-1.1 5.5-3.4 11.3-6.3 17.8-7.5 5-1 10-1 15 0 4.7 1 8.9 3.8 11.6 7.8.2.3.4.5.6.7-.1.1 0 .1.1.3z"/><path style="fill:#fff" d="M467.7 93c.6-2 1.2-3.9 1.8-5.9 4.6-15.5 9.2-30.9 13.8-46.4l.6-1.8c.5-1.8 2.2-2.9 4-2.9h15.2c3.8 0 4.6 1.1 3.3 4.7l-6 15.9c-6.7 17.4-13.4 34.9-20.1 52.3-.2.6-.5 1.2-.7 1.8-.7 2.1-2.8 3.5-5 3.3-4.4-.1-8.8-.1-13.2 0-3.1.1-4.9-1.3-6-4.1-2.5-6.6-5.1-13.3-7.6-19.9-6-15.7-12.1-31.4-18.1-47.2-.6-1.2-1-2.6-1.3-3.9-.3-2 .4-3 2.4-3 5.7-.1 11.4 0 17 0 2.4 0 3.5 1.6 4.1 3.7 1.1 3.8 2.2 7.7 3.4 11.5 4.1 13.9 8.1 27.9 12.2 41.8-.1.1 0 .1.2.1z"/><path style="fill:#fff" d="M112.6 47c.7-.2 1.3-.6 1.7-1.2 1.8-1.8 3.7-3.5 5.7-5.1 5.2-4 11.7-6 18.2-5.5 2.6.1 3.5.9 3.7 3.4.2 3.4.1 6.9.1 10.3.1 1.4 0 2.7-.2 4.1-.4 1.8-1.1 2.5-2.9 2.7-1.4.1-2.7 0-4.1-.1-6.7-.6-13.2.7-19.5 2.8-1.4.5-1.4 1.5-1.4 2.6v48c0 .9 0 1.7-.1 2.6-.1 1.3-1.1 2.3-2.4 2.3-.7.1-1.5.1-2.2.1h-13c-.7 0-1.5 0-2.2-.1-1.3-.1-2.3-1.2-2.4-2.5-.1-.8-.1-1.6-.1-2.4V41c0-4.6.5-5.1 5.1-5.1h9.6c2.6 0 3.8.9 4.5 3.4s1.3 5 1.9 7.7zM580.4 148.4c6.6.2 13.1.6 19.5 2.3 1.8.5 3.5 1.1 5.2 1.9 2.3.9 3.8 3.1 4.1 5.5.4 2.8.5 5.7.3 8.6-1.3 17.1-6.6 33.6-15.4 48.3-3.2 5.3-7.1 10.1-11.6 14.3-.9.9-2 1.6-3.2 2-1.9.5-3.1-.5-3.2-2.4.1-1 .3-2 .7-3 3.5-9.4 6.9-18.7 9.6-28.4 1.6-5.3 2.7-10.7 3.4-16.2.2-2 .3-4 .1-6-.1-3.4-2.3-6.3-5.6-7.3-3.1-1-6.3-1.6-9.6-1.8-9.2-.4-18.4 0-27.5 1.2l-12.1 1.5c-1.3.1-2.5 0-3.2-1.2s-.4-2.4.3-3.6c.8-1.1 1.8-2.1 3-2.8 7.4-5.3 15.7-8.5 24.5-10.6 6.8-1.4 13.7-2.1 20.7-2.3z"/><path style="fill:#fff" d="M538.5 75v36c-.2 2-1.1 2.9-3.1 3-5.4.1-10.7.1-16.1 0-2 0-2.9-1-3.1-2.9-.1-.6-.1-1.3-.1-1.9V40c.1-3.1.9-4 4-4h14.4c3.1 0 4 .9 4 4v35z"/><path style="fill:#fff" d="M151.6 74.8V39.3c.1-2.4 1-3.3 3.4-3.4 5.2-.1 10.4-.1 15.6 0 2.3 0 3 .7 3.2 3 .1.9.1 1.7.1 2.6v66.6c0 1.1-.1 2.2-.2 3.3-.1 1.3-1.1 2.2-2.4 2.3-.6.1-1.1.1-1.7.1h-13.9c-.5 0-.9 0-1.4-.1-1.4-.1-2.6-1.2-2.7-2.6-.1-.8-.1-1.6-.1-2.4.1-11.1.1-22.5.1-33.9zM163.2.1c1.6-.1 3.2.2 4.7.7 5.4 1.8 8.2 6.5 7.7 12.6-.4 5.2-4.3 9.4-9.5 10.2-2.2.4-4.5.4-6.7 0-5.7-1.1-9.9-5.3-9.5-12.5.6-7.1 5.3-11 13.3-11z"/><path style="fill:#fff" d="M527.4.1c2-.2 4 .2 5.9 1 3.9 1.5 6.6 5.1 6.8 9.3.8 9.1-5.3 13.7-13.4 13.5-1.1 0-2.2-.2-3.3-.4-6.2-1.5-9.4-6.3-8.8-13.2.5-5.5 4.8-9.6 10.7-10.1.7-.1 1.4-.2 2.1-.1z"/><path style="fill:#fff" d="M76.7 66.6c-.4-5.2-1.8-10.3-3.9-15-4.1-8.6-10.4-14.9-20-17.1-11-2.4-20.9 0-29.9 6.7-.6.6-1.3 1.1-2.1 1.5-.2-.1-.4-.2-.4-.3-.3-1-.5-2-.8-3-.8-2.5-1.8-3.4-4.5-3.4-3 0-6.1.1-9.1 0-2.3-.1-4.4.2-6 2 0 35 0 70.1.1 105 1.3 2.1 3.3 2.5 5.6 2.4 3.6-.1 7.2 0 10.8 0 6.3 0 6.3 0 6.3-6.2v-28.5c0-.7-.3-1.5.4-2.1 5 3.9 11.1 6.3 17.4 6.9 8.8.9 16.8-1.3 23.5-7.3 4.9-4.5 8.5-10.3 10.4-16.7 2.7-8.2 2.9-16.5 2.2-24.9zM52.8 87.3c-.7 3.1-2.3 5.9-4.6 8-2.6 2.2-5.8 3.5-9.2 3.5-5.1.3-10.1-.8-14.6-3.2-1.1-.5-1.8-1.6-1.7-2.8V74.7c0-6 .1-12 0-18-.1-1.4.7-2.6 2-3.1 5.5-2.6 11.2-3.8 17.2-2.6 4.2.6 7.8 3.3 9.5 7.2 1.5 3.2 2.4 6.7 2.6 10.2.6 6.4.6 12.8-1.2 18.9z"/><path style="fill:#fff" d="M800.1 82.2s0-.1 0 0c0-.1 0-.1 0 0zM800.2 68.8v.4c-.4-.4-.6-1-.4-1.5v-.8s0-.1.1-.1h-.1v-1h.2c0-.1-.1-.1-.1-.2-.2-1.9-.6-3.8-1.1-5.6-3.7-13.2-12-21.9-25.5-25.3-6.3-1.5-12.7-1.7-19.1-.7-13.5 2-23.2 9.2-27.9 22-4.6 12.2-4.5 25.6.1 37.8 4 11.1 12 18.1 23.5 21 6.1 1.5 12.5 1.9 18.8 1 21-2.5 29.7-18.4 31.1-32.2h-.1v-1.4c-.1-.6-.2-1.1.4-1.5v.2c0-.1.1-.3.2-.4V69c0-.1-.1-.1-.1-.2zm-24 19c-.6 2.1-1.5 4-2.8 5.8-2.2 3.1-5.7 5.1-9.5 5.4-1.9.2-3.8.2-5.7-.2-4.2-.8-7.7-3.6-9.4-7.5-1.5-3.1-2.4-6.5-2.7-9.9-.5-5.9-.6-11.8.8-17.6.5-2.3 1.5-4.6 2.7-6.6 2.2-3.6 6-5.9 10.2-6.2 1.9-.2 3.8-.2 5.7.2 4 .8 7.3 3.4 9.1 7.1 1.7 3.5 2.7 7.4 2.9 11.3.1 1.8.2 3.6.1 5.4.3 4.4-.2 8.7-1.4 12.8zM624.9.8H611c-3.8 0-4.5.7-4.5 4.5v32.4c0 .7.3 1.4-.2 2.1-.9-.1-1.4-.7-2.1-1.1-10.4-6.1-21.3-7.2-32.3-2.1-7.7 3.6-12.5 10.1-15.6 17.8-3 7.4-3.7 15.2-3.5 23.1 0 7.4 1.7 14.7 5 21.3 3.8 7.3 9.3 12.9 17.3 15.3 10.9 3.4 21.1 1.7 30.4-5.2.7-.4 1.1-1.1 2-1.3.5 1.1.9 2.3 1.1 3.5.4 1.6 1.8 2.7 3.5 2.7h2.4c3.6 0 7.1.1 10.6 0 2.8 0 3.6-.9 3.7-3.8V4.6c-.1-3.1-.9-3.8-3.9-3.8zm-18.3 73.6v18.2c.2 1.2-.5 2.3-1.6 2.8-4.8 2.7-10.3 3.8-15.7 3-4.6-.5-8.6-3.3-10.7-7.4-1.6-3.2-2.5-6.6-2.8-10.1-.8-6.3-.3-12.7 1.2-18.8.5-1.7 1.1-3.3 2-4.9 2.1-3.9 6.1-6.4 10.5-6.7 5.3-.5 10.6.5 15.4 2.7 1.2.4 1.9 1.6 1.8 2.9-.2 6.2-.1 12.2-.1 18.3z"/><path style="fill:#fff" d="M348 81.3c7.5 1.4 15.2 1.5 22.7.3 4.4-.6 8.6-1.9 12.5-4 4.5-2.6 7.8-6.2 9.2-11.2 3.5-12.6-1.9-25.3-15-30-6.4-2.1-13.2-2.8-19.9-1.9-15.8 1.8-26.1 10.5-30.8 25.6-3.3 10.3-2.9 20.8-.2 31.2 3.5 13.3 12.3 21.2 25.6 24 7.6 1.7 15.3 1.4 22.9.2 4-.7 8-1.7 11.8-3.2 2.3-.9 3.5-2.3 3.4-4.9-.1-2.4 0-4.9 0-7.4 0-3-1.2-3.9-4.1-3.2s-5.7 1.3-8.6 1.9c-6.2 1.3-12.6 1.3-18.8.2-8.5-1.7-14-9-13.5-18 .9.1 1.9.2 2.8.4zM345.5 66c.3-2.4 1-4.7 1.9-6.9 3-7.3 9.3-9.8 15.7-9.4 1.8.1 3.6.5 5.3 1.2 2.6 1.1 4.3 3.5 4.6 6.3.3 1.7.2 3.5-.3 5.2-1.2 3.6-4.1 5.1-7.6 5.8-2.1.5-4.3.7-6.5.5-3.9 0-7.9-.3-11.8-.9-1.5-.2-1.5-.2-1.3-1.8z"/><path style="fill:#fff" d="M685.3 82.3c5.8-.4 11.6-1.5 16.8-4.3 5.3-2.6 9-7.5 10.1-13.3.7-3.6.7-7.4-.1-11-2.1-9-7.8-14.6-16.4-17.5-4.8-1.5-9.9-2.1-14.9-1.9-16.8.4-29.6 8.9-34.8 25.7-3.5 11.1-3 22.4.4 33.5 3.5 11.4 11.5 18.3 22.9 21.4 4.9 1.2 10 1.7 15 1.5 7.3-.1 14.6-1.5 21.5-4.1 2.9-1.1 3.6-2.1 3.6-5.2v-7.2c-.1-2.9-1.3-3.9-4.2-3.2-2.2.6-4.3 1.1-6.5 1.6-6.7 1.6-13.7 1.9-20.5.7-6.8-1.3-11.4-5.2-13.2-12-.5-2-.9-4-1.1-6.1.5 0 1 0 1.4.2 6.6 1.2 13.3 1.7 20 1.2zm-20.9-16c.7-3.9 1.6-7.7 4-10.9 3.7-4.9 8.8-6.3 14.6-5.7.5 0 .9.2 1.4.2 7 1.1 8.7 6.7 7.4 12.1-1 4-4.3 5.5-8 6.2-2 .4-4.1.6-6.2.5-4.1-.1-8.1-.4-12.1-1-.9-.1-1.3-.5-1.1-1.4z"/></svg>',
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800.3 246.3" width="800.3" height="246.3" style="enable-background:new 0 0 800.3 246.3" xml:space="preserve"><style type="text/css">.pv0{fill:#fff} .pv1{fill:#fff}</style><path class="pv0" d="M408.5 245.9c-4-.1-8-.1-12 0-5.5-.3-11-.5-16.5-.9-14.6-1.1-29.1-3.3-43.3-6.6-49.1-11.4-92.2-34.3-129.8-67.6-3.5-3.1-6.8-6.3-10.2-9.5-.8-.7-1.5-1.7-1.9-2.7-.6-1.4-.3-2.9.7-4s2.6-1.5 4-.9c.9.4 1.8.8 2.6 1.3 35.9 22.2 75.1 38.4 116.2 48 13.8 3.2 27.7 5.7 41.7 7.5 20.1 2.5 40.4 3.4 60.6 2.7 10.9-.3 21.7-1.3 32.5-2.7 25.2-3.2 50.1-8.9 74.2-16.9 12.7-4.2 25.1-9 37.2-14.6 1.8-1 4-1.3 6-.8 3.3.8 5.3 4.2 4.5 7.5-.1.4-.3.9-.5 1.3-.8 1.5-1.9 2.8-3.3 3.8-11.5 9-23.9 16.9-37 23.5-24.7 12.5-51.1 21.4-78.3 26.5-15.7 2.8-31.5 4.5-47.4 5.1zM260.4 43.2c2.5-1.5 5.1-3.1 7.8-4.5 7-3.6 14.8-5.4 22.7-5 5.7.3 10.9 1.9 14.9 6.1 3.8 3.9 5.2 8.7 5.6 13.9.1 1.1.1 2.2.1 3.4v51.8c0 4.5-.6 5.1-5.1 5.1h-12.2c-.8 0-1.6 0-2.4-.1-1.2-.1-2.2-1.1-2.4-2.3-.2-1.1-.2-2.2-.2-3.3V62c.1-1.9-.1-3.7-.6-5.5-.8-3.1-3.6-5.3-6.8-5.5-5.9-.4-11.8.8-17.2 3.3-.8.2-1.3 1-1.2 1.8v52.6c0 1 0 1.9-.2 2.9 0 1.4-1.1 2.4-2.5 2.4-1.5.1-3 .1-4.6.1h-10.6c-3.7 0-4.5-.9-4.5-4.6V62.2c0-1.7-.1-3.5-.5-5.2-.7-3.4-3.6-5.8-7-6-6-.4-12.1.8-17.5 3.4-.8.2-1.3 1.1-1.1 1.9v53.3c0 3.7-.8 4.5-4.5 4.5H197c-3.5 0-4.4-1-4.4-4.4V40.3c0-.8.1-1.6.3-2.4.4-1.2 1.6-1.9 2.8-1.9h12.5c1.8 0 2.9 1.1 3.5 2.8.5 1.4.8 2.7 1.3 4.2 1 0 1.6-.7 2.3-1.1 5.5-3.4 11.3-6.3 17.8-7.5 5-1 10-1 15 0 4.7 1 8.9 3.8 11.6 7.8.2.3.4.5.6.7-.1.1 0 .1.1.3z"/><path class="pv1" d="M467.7 93c.6-2 1.2-3.9 1.8-5.9 4.6-15.5 9.2-30.9 13.8-46.4l.6-1.8c.5-1.8 2.2-2.9 4-2.9h15.2c3.8 0 4.6 1.1 3.3 4.7l-6 15.9c-6.7 17.4-13.4 34.9-20.1 52.3-.2.6-.5 1.2-.7 1.8-.7 2.1-2.8 3.5-5 3.3-4.4-.1-8.8-.1-13.2 0-3.1.1-4.9-1.3-6-4.1-2.5-6.6-5.1-13.3-7.6-19.9-6-15.7-12.1-31.4-18.1-47.2-.6-1.2-1-2.6-1.3-3.9-.3-2 .4-3 2.4-3 5.7-.1 11.4 0 17 0 2.4 0 3.5 1.6 4.1 3.7 1.1 3.8 2.2 7.7 3.4 11.5 4.1 13.9 8.1 27.9 12.2 41.8-.1.1 0 .1.2.1z"/><path class="pv0" d="M112.6 47c.7-.2 1.3-.6 1.7-1.2 1.8-1.8 3.7-3.5 5.7-5.1 5.2-4 11.7-6 18.2-5.5 2.6.1 3.5.9 3.7 3.4.2 3.4.1 6.9.1 10.3.1 1.4 0 2.7-.2 4.1-.4 1.8-1.1 2.5-2.9 2.7-1.4.1-2.7 0-4.1-.1-6.7-.6-13.2.7-19.5 2.8-1.4.5-1.4 1.5-1.4 2.6v48c0 .9 0 1.7-.1 2.6-.1 1.3-1.1 2.3-2.4 2.3-.7.1-1.5.1-2.2.1h-13c-.7 0-1.5 0-2.2-.1-1.3-.1-2.3-1.2-2.4-2.5-.1-.8-.1-1.6-.1-2.4V41c0-4.6.5-5.1 5.1-5.1h9.6c2.6 0 3.8.9 4.5 3.4s1.3 5 1.9 7.7zM580.4 148.4c6.6.2 13.1.6 19.5 2.3 1.8.5 3.5 1.1 5.2 1.9 2.3.9 3.8 3.1 4.1 5.5.4 2.8.5 5.7.3 8.6-1.3 17.1-6.6 33.6-15.4 48.3-3.2 5.3-7.1 10.1-11.6 14.3-.9.9-2 1.6-3.2 2-1.9.5-3.1-.5-3.2-2.4.1-1 .3-2 .7-3 3.5-9.4 6.9-18.7 9.6-28.4 1.6-5.3 2.7-10.7 3.4-16.2.2-2 .3-4 .1-6-.1-3.4-2.3-6.3-5.6-7.3-3.1-1-6.3-1.6-9.6-1.8-9.2-.4-18.4 0-27.5 1.2l-12.1 1.5c-1.3.1-2.5 0-3.2-1.2s-.4-2.4.3-3.6c.8-1.1 1.8-2.1 3-2.8 7.4-5.3 15.7-8.5 24.5-10.6 6.8-1.4 13.7-2.1 20.7-2.3z"/><path class="pv1" d="M538.5 75v36c-.2 2-1.1 2.9-3.1 3-5.4.1-10.7.1-16.1 0-2 0-2.9-1-3.1-2.9-.1-.6-.1-1.3-.1-1.9V40c.1-3.1.9-4 4-4h14.4c3.1 0 4 .9 4 4v35z"/><path class="pv0" d="M151.6 74.8V39.3c.1-2.4 1-3.3 3.4-3.4 5.2-.1 10.4-.1 15.6 0 2.3 0 3 .7 3.2 3 .1.9.1 1.7.1 2.6v66.6c0 1.1-.1 2.2-.2 3.3-.1 1.3-1.1 2.2-2.4 2.3-.6.1-1.1.1-1.7.1h-13.9c-.5 0-.9 0-1.4-.1-1.4-.1-2.6-1.2-2.7-2.6-.1-.8-.1-1.6-.1-2.4.1-11.1.1-22.5.1-33.9zM163.2.1c1.6-.1 3.2.2 4.7.7 5.4 1.8 8.2 6.5 7.7 12.6-.4 5.2-4.3 9.4-9.5 10.2-2.2.4-4.5.4-6.7 0-5.7-1.1-9.9-5.3-9.5-12.5.6-7.1 5.3-11 13.3-11z"/><path class="pv1" d="M527.4.1c2-.2 4 .2 5.9 1 3.9 1.5 6.6 5.1 6.8 9.3.8 9.1-5.3 13.7-13.4 13.5-1.1 0-2.2-.2-3.3-.4-6.2-1.5-9.4-6.3-8.8-13.2.5-5.5 4.8-9.6 10.7-10.1.7-.1 1.4-.2 2.1-.1z"/><path class="pv0" d="M76.7 66.6c-.4-5.2-1.8-10.3-3.9-15-4.1-8.6-10.4-14.9-20-17.1-11-2.4-20.9 0-29.9 6.7-.6.6-1.3 1.1-2.1 1.5-.2-.1-.4-.2-.4-.3-.3-1-.5-2-.8-3-.8-2.5-1.8-3.4-4.5-3.4-3 0-6.1.1-9.1 0-2.3-.1-4.4.2-6 2 0 35 0 70.1.1 105 1.3 2.1 3.3 2.5 5.6 2.4 3.6-.1 7.2 0 10.8 0 6.3 0 6.3 0 6.3-6.2v-28.5c0-.7-.3-1.5.4-2.1 5 3.9 11.1 6.3 17.4 6.9 8.8.9 16.8-1.3 23.5-7.3 4.9-4.5 8.5-10.3 10.4-16.7 2.7-8.2 2.9-16.5 2.2-24.9zM52.8 87.3c-.7 3.1-2.3 5.9-4.6 8-2.6 2.2-5.8 3.5-9.2 3.5-5.1.3-10.1-.8-14.6-3.2-1.1-.5-1.8-1.6-1.7-2.8V74.7c0-6 .1-12 0-18-.1-1.4.7-2.6 2-3.1 5.5-2.6 11.2-3.8 17.2-2.6 4.2.6 7.8 3.3 9.5 7.2 1.5 3.2 2.4 6.7 2.6 10.2.6 6.4.6 12.8-1.2 18.9z"/><path class="pv1" d="M800.1 82.2s0-.1 0 0c0-.1 0-.1 0 0zM800.2 68.8v.4c-.4-.4-.6-1-.4-1.5v-.8s0-.1.1-.1h-.1v-1h.2c0-.1-.1-.1-.1-.2-.2-1.9-.6-3.8-1.1-5.6-3.7-13.2-12-21.9-25.5-25.3-6.3-1.5-12.7-1.7-19.1-.7-13.5 2-23.2 9.2-27.9 22-4.6 12.2-4.5 25.6.1 37.8 4 11.1 12 18.1 23.5 21 6.1 1.5 12.5 1.9 18.8 1 21-2.5 29.7-18.4 31.1-32.2h-.1v-1.4c-.1-.6-.2-1.1.4-1.5v.2c0-.1.1-.3.2-.4V69c0-.1-.1-.1-.1-.2zm-24 19c-.6 2.1-1.5 4-2.8 5.8-2.2 3.1-5.7 5.1-9.5 5.4-1.9.2-3.8.2-5.7-.2-4.2-.8-7.7-3.6-9.4-7.5-1.5-3.1-2.4-6.5-2.7-9.9-.5-5.9-.6-11.8.8-17.6.5-2.3 1.5-4.6 2.7-6.6 2.2-3.6 6-5.9 10.2-6.2 1.9-.2 3.8-.2 5.7.2 4 .8 7.3 3.4 9.1 7.1 1.7 3.5 2.7 7.4 2.9 11.3.1 1.8.2 3.6.1 5.4.3 4.4-.2 8.7-1.4 12.8zM624.9.8H611c-3.8 0-4.5.7-4.5 4.5v32.4c0 .7.3 1.4-.2 2.1-.9-.1-1.4-.7-2.1-1.1-10.4-6.1-21.3-7.2-32.3-2.1-7.7 3.6-12.5 10.1-15.6 17.8-3 7.4-3.7 15.2-3.5 23.1 0 7.4 1.7 14.7 5 21.3 3.8 7.3 9.3 12.9 17.3 15.3 10.9 3.4 21.1 1.7 30.4-5.2.7-.4 1.1-1.1 2-1.3.5 1.1.9 2.3 1.1 3.5.4 1.6 1.8 2.7 3.5 2.7h2.4c3.6 0 7.1.1 10.6 0 2.8 0 3.6-.9 3.7-3.8V4.6c-.1-3.1-.9-3.8-3.9-3.8zm-18.3 73.6v18.2c.2 1.2-.5 2.3-1.6 2.8-4.8 2.7-10.3 3.8-15.7 3-4.6-.5-8.6-3.3-10.7-7.4-1.6-3.2-2.5-6.6-2.8-10.1-.8-6.3-.3-12.7 1.2-18.8.5-1.7 1.1-3.3 2-4.9 2.1-3.9 6.1-6.4 10.5-6.7 5.3-.5 10.6.5 15.4 2.7 1.2.4 1.9 1.6 1.8 2.9-.2 6.2-.1 12.2-.1 18.3z"/><path class="pv0" d="M348 81.3c7.5 1.4 15.2 1.5 22.7.3 4.4-.6 8.6-1.9 12.5-4 4.5-2.6 7.8-6.2 9.2-11.2 3.5-12.6-1.9-25.3-15-30-6.4-2.1-13.2-2.8-19.9-1.9-15.8 1.8-26.1 10.5-30.8 25.6-3.3 10.3-2.9 20.8-.2 31.2 3.5 13.3 12.3 21.2 25.6 24 7.6 1.7 15.3 1.4 22.9.2 4-.7 8-1.7 11.8-3.2 2.3-.9 3.5-2.3 3.4-4.9-.1-2.4 0-4.9 0-7.4 0-3-1.2-3.9-4.1-3.2s-5.7 1.3-8.6 1.9c-6.2 1.3-12.6 1.3-18.8.2-8.5-1.7-14-9-13.5-18 .9.1 1.9.2 2.8.4zM345.5 66c.3-2.4 1-4.7 1.9-6.9 3-7.3 9.3-9.8 15.7-9.4 1.8.1 3.6.5 5.3 1.2 2.6 1.1 4.3 3.5 4.6 6.3.3 1.7.2 3.5-.3 5.2-1.2 3.6-4.1 5.1-7.6 5.8-2.1.5-4.3.7-6.5.5-3.9 0-7.9-.3-11.8-.9-1.5-.2-1.5-.2-1.3-1.8z"/><path class="pv1" d="M685.3 82.3c5.8-.4 11.6-1.5 16.8-4.3 5.3-2.6 9-7.5 10.1-13.3.7-3.6.7-7.4-.1-11-2.1-9-7.8-14.6-16.4-17.5-4.8-1.5-9.9-2.1-14.9-1.9-16.8.4-29.6 8.9-34.8 25.7-3.5 11.1-3 22.4.4 33.5 3.5 11.4 11.5 18.3 22.9 21.4 4.9 1.2 10 1.7 15 1.5 7.3-.1 14.6-1.5 21.5-4.1 2.9-1.1 3.6-2.1 3.6-5.2v-7.2c-.1-2.9-1.3-3.9-4.2-3.2-2.2.6-4.3 1.1-6.5 1.6-6.7 1.6-13.7 1.9-20.5.7-6.8-1.3-11.4-5.2-13.2-12-.5-2-.9-4-1.1-6.1.5 0 1 0 1.4.2 6.6 1.2 13.3 1.7 20 1.2zm-20.9-16c.7-3.9 1.6-7.7 4-10.9 3.7-4.9 8.8-6.3 14.6-5.7.5 0 .9.2 1.4.2 7 1.1 8.7 6.7 7.4 12.1-1 4-4.3 5.5-8 6.2-2 .4-4.1.6-6.2.5-4.1-.1-8.1-.4-12.1-1-.9-.1-1.3-.5-1.1-1.4z"/></svg>',
       "friendlyName": "Prime Video",
       "className": "primeButton",
       "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"],
@@ -1066,6 +1064,8 @@ const fastappchoices = {
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
+const appButtonMax = { "AF4": 6, "AF5": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
+
 
 function deviceAttributeQuery(deviceAttribute, configvar){
   var deviceTypeRef = configvar.device_type;
@@ -1154,10 +1154,6 @@ class FiremoteCard extends LitElement {
              'device_family': 'amazon-fire',
              'device_type': 'fire_tv_4_series',
              'compatibility_mode': 'default',
-             'app_launch_1': 'prime-video',
-             'app_launch_2': 'netflix',
-             'app_launch_3': 'disney-plus',
-             'app_launch_4': 'hulu',
            };
   }
 
@@ -1172,7 +1168,8 @@ class FiremoteCard extends LitElement {
 
           ha-card {
             background: rgba(30,30,30,0); 
-            width: max-content; 
+            display: grid;
+            justify-content: center;
             padding: 0; 
             margin: auto;
             box-shadow: none;
@@ -1224,6 +1221,13 @@ class FiremoteCard extends LitElement {
             border-radius: calc(var(--sz) * 2rem);
           }
 
+          .AL1, .AL2 {
+            display: block;
+            width: unset;
+            border-radius: 0;
+            padding: calc(var(--sz) * 1.4rem) calc(var(--sz) * 0.714rem);
+          }
+
           .two-col-span {
             grid-column-start: 1;
             grid-column-end: 3;
@@ -1265,6 +1269,16 @@ class FiremoteCard extends LitElement {
             margin-bottom: calc(var(--sz) * 0.57rem);
           }
 
+          .appLauncherAppsContainer {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            gap: calc(var(--sz) * 0.9rem);
+          }
+
           .ns1-wings {
             grid-column-start: 1;
             grid-column-end: 3;
@@ -1303,6 +1317,20 @@ class FiremoteCard extends LitElement {
             clip-path: polygon(100% 0, 100% 100%, 0 85%, 0 15%);
             margin-right: calc(var(--sz) *-.714rem);
             border-left: solid #121212 calc(var(--sz) * .15rem);
+          }
+
+          .ALControlsContainer {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            place-items: center;
+            padding-top: calc(var(--sz) * 2rem);
+            margin-top: calc(var(--sz) * 2rem);
+            border-top: groove rgb(0 0 0 / 42%) calc(var(--sz) * 0.2rem);;
+          }
+
+          .left-pocket-controls {
+            display: flex;
+            gap: 1rem;
           }
 
           .remote-button {
@@ -1420,6 +1448,10 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 8.2rem);
             height: calc(var(--sz) * 8.2rem);
             position: relative;
+          }
+
+          .ALControlsContainer .dpadContainer {
+            grid-column: unset;
           }
 
           .centerbutton{
@@ -1552,7 +1584,7 @@ class FiremoteCard extends LitElement {
             align-content: center;
             color: rgb(198 198 198);
             background: rgb(33 33 33);
-            box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.1428rem) 0;
+            box-shadow: rgb(0 0 0 / 25%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.1428rem) 0;
             cursor: pointer;
             line-height: normal;
             user-select: none;
@@ -1560,6 +1592,12 @@ class FiremoteCard extends LitElement {
             padding: calc(var(--sz) * 0.285rem);
             white-space: nowrap;
             overflow: hidden;
+            filter: grayscale(25%) brightness(58%);
+          }
+
+          .srcButton:active, .srcButton.appActive {
+            filter: none;
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .shield-remote-body .srcButton {
@@ -1597,6 +1635,12 @@ class FiremoteCard extends LitElement {
             justify-items: center;
           }
 
+          .AL1 .deviceNameTop {
+            margin: 0; 
+            margin-top: calc(var(--sz) * -1.1rem);
+            font-size: calc(var(--sz) * 1.25rem);
+          }
+
           .shield-remote-body .deviceNameTop {
             display: unset;
             align-items: unset;
@@ -1629,6 +1673,12 @@ class FiremoteCard extends LitElement {
             align-self: flex-end;
           }
 
+          .AL1 .deviceNameBottom {
+            margin-bottom: calc(var(--sz) * -1.5rem);
+            margin-top: calc(var(--sz) * 1rem);
+            overflow: unset;
+          }
+
           .shield-remote-body .deviceNameBottom {
             grid-column: 1 / 3;
             font-size: calc(var(--sz) * 1rem);
@@ -1648,25 +1698,15 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .amcPlusButton svg {
             width: calc(var(--sz) * 3.75rem);
           }
-          .amcPlusButton:active, .amcPlusButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .appOpenerButton {
             font-size: calc(var(--sz) * .75rem);
             color: #fff;
             background: #400080;
-            filter: grayscale(50%) brightness(80%);
-          }
-          .appOpenerButton:active, .appOpenerButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .appleTvButton {
             background: rgb(46, 46, 46);
-            filter: brightness(50%);
           }
           .appleTvButton svg {
             width: calc(var(--sz) * 2.4rem);
@@ -1675,38 +1715,23 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .appleTvButton svg {
             width: calc(var(--sz) * 3rem);
           }
-          .appleTvButton:active, .appleTvButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .bbciplayerButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .bbciplayerButton svg {
             width: calc(var(--sz) * 3rem);
           }
-          .bbciplayerButton:active, .bbciplayerButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .bellFibeTVButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .bellFibeTVButton svg {
             width: calc(var(--sz) * 2.5rem);
           }
-          .bellFibeTVButton:active, .bellFibeTVButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .cnnButton {
             background: linear-gradient(0deg, rgba(110,0,0,1) 0%, rgba(227,0,0,1) 100%);
-            filter: grayscale(50%) brightness(60%);
           }
           .cnnButton svg {
             width: calc(var(--sz) * 2.15rem);
@@ -1714,60 +1739,37 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .cnnButton svg {
             width: calc(var(--sz) * 3.25rem);
           }
-          .cnnButton:active, .cnnButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .craveTVButton {
             background: #030839;
-            filter: grayscale(20%) brightness(60%);
           }
           .craveTVButton svg {
             width: calc(var(--sz) * 4rem);
           }
-          .craveTVButton:active, .craveTVButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .cyberghostButton {
             background: #242538;
-            filter: grayscale(20%) brightness(60%);
-          }
-          .cyberghostButton:active, .cyberghostButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .daznButton {
             background: #1b3848;
-            filter: grayscale(30%) brightness(50%);
           }
           .daznButton svg {
-            width: calc(var(--sz) * 3.4rem);
+            width: calc(var(--sz) * 4.5rem);
+            height: calc(var(--sz) * 1.6rem);
           }
           .shield-remote-body .daznButton svg {
-            width: calc(var(--sz) * 4.6rem);
-          }
-          .daznButton:active, .daznButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            height: calc(var(--sz) * 2.1rem);
           }
 
           .direcTVStreamButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .direcTVStreamButton svg {
             width: calc(var(--sz) * 3.4rem);
           }
           .shield-remote-body .direcTVStreamButton svg {
             width: calc(var(--sz) * 4.6rem);
-          }
-          .direcTVStreamButton:active, .direcTVStreamButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .disneyPlusButton {
@@ -1781,22 +1783,12 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .disneyPlusButton svg {
             width: calc(var(--sz) * 4.8rem);
           }
-          .disneyPlusButton:active, .disneyPlusButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .embyButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .embyButton:active, .embyButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .espnButton {
-            filter: grayscale(50%) brightness(50%);
             background: #fff;
           }
           .espnButton svg {
@@ -1805,14 +1797,9 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .espnButton svg {
             width: calc(var(--sz) * 4.8rem);
           }
-          .espnButton:active, .espnButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .freeveeButton {
             background: #D8FF03;
-            filter: grayscale(30%) brightness(40%);
           }
           .freeveeButton svg {
             width: calc(var(--sz) * 3.6rem);
@@ -1820,51 +1807,19 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .freeveeButton svg {
             width: calc(var(--sz) * 4.8rem);
           }
-          .freeveeButton:active, .freeveeButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .googlePlayStoreButton {
-            display: grid;
-            grid-template-columns: auto auto;
-            align-items: center;
-            justify-content: center;
-            color: rgb(12 12 12);
-            font-size: calc(var(--sz) * 1rem);
-            font-weight: bold;
-            filter: grayscale(30%) brightness(50%);
             background: rgb(255, 255, 255);
-          }
-          .afappsgrid .googlePlayStoreButton {
-            font-size: 0;
-          }
-          .shield-remote-body .googlePlayStoreButton > ha-icon {
-            --mdc-icon-size: calc(var(--sz) * 1.3rem);
-          }
-          .shield-remote-body .googlePlayStoreButton > svg {
-            display: block;
-            width: calc(var(--sz) * 1.75rem);
-            height: calc(var(--sz) * 1.75rem);
-          }
-          .googlePlayStoreButton:active, .googlePlayStoreButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .hboMaxButton {
             background: linear-gradient(90deg, #8d28e8 0%, #440cc3 50%, #4076d6 100%);
-            filter: grayscale(20%) brightness(50%);
           }
           .hboMaxButton svg {
             width: calc(var(--sz) * 4rem);
           }
           .shield-remote-body .hboMaxButton svg {
             width: calc(var(--sz) * 5.25rem);
-          }
-          .hboMaxButton:active, .hboMaxButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .huluButton {
@@ -1874,24 +1829,15 @@ class FiremoteCard extends LitElement {
           .huluButton svg {
             width: calc(var(--sz) * 2.8rem);
           }
-          .huluButton:active, .huluButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .ipVanishButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .ipVanishButton svg {
             width: calc(var(--sz) * 4rem);
           }
           .shield-remote-body .ipVanishButton svg {
             width: calc(var(--sz) * 5.25rem);
-          }
-          .ipVanishButton:active, .ipVanishButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .jellyfinButton {
@@ -1901,14 +1847,9 @@ class FiremoteCard extends LitElement {
           .jellyfinButton svg {
             margin-top: calc(var(--sz) * -0.1rem);
           }
-          .jellyfinButton:active, .jellyfinButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .kodiButton {
             background: rgba(27,67,82,1);
-            filter: brightness(60%);
           }
           .kodiButton svg {
             width: calc(var(--sz) * 3.8rem);
@@ -1916,18 +1857,9 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .kodiButton svg {
             width: calc(var(--sz) * 5.25rem);
           }
-          .kodiButton:active, .kodiButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .magentaTVButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .magentaTVButton:active, .magentaTVButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .myCanalButton {
@@ -1973,7 +1905,6 @@ class FiremoteCard extends LitElement {
             text-shadow: 0 0 calc(var(--sz) * 0.5rem) black;
             color: #ffffff;
             background: linear-gradient(45deg, rgba(255,184,81,1) 31%, rgba(202,21,205,1) 100%);
-            filter: brightness(75%);
           }
           .newsButton:active, .newsButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
@@ -1982,16 +1913,10 @@ class FiremoteCard extends LitElement {
 
           .nordVPNButton {
             background: #F3F7FC;
-            filter: grayscale(20%) brightness(60%);
-          }
-          .nordVPNButton:active, .nordVPNButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
-            filter: none;
           }
 
           .nowTVButton {
             background: linear-gradient(220deg, rgba(4,121,129,1) 57%, rgba(6,30,31,1) 100%);
-            filter: grayscale(20%) brightness(60%);
           }
           .nowTVButton svg {
             width: calc(var(--sz) * 3rem);
@@ -1999,33 +1924,19 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .nowTVButton svg {
             width: calc(var(--sz) * 4.5rem);
           }
-          .nowTVButton:active, .nowTVButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
-            filter: none;
-          }
 
           .npoButton {
             background: #fff;
             filter: grayscale(20%) brightness(50%);
           }
-          .npoButton:active, .npoButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
-            filter: none;
-          }
 
           .oqeeButton {
             font-weight: bold;
             background: #161616;
-            filter: grayscale(20%) brightness(50%);
-          }
-          .oqeeButton:active, .oqeeButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
-            filter: none;
           }
 
           .pandoraButton {
             background: #3668ff;
-            filter: grayscale(20%) brightness(50%);
           }
           .pandoraButton > svg {
             width: calc(var(--sz) * 4rem);
@@ -2033,23 +1944,13 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .pandoraButton > svg {
             width: calc(var(--sz) * 5.5rem);
           }
-          .pandoraButton:active, .pandoraButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .paramountPlusButton {
             background: #0667fc;
-            filter: grayscale(20%) brightness(50%);
-          }
-          .paramountPlusButton:active, .paramountPlusButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .plexButton {
             background: #000;
-            filter: grayscale(30%) brightness(50%);
           }
           .plexButton svg {
             width: calc(var(--sz) * 2.5rem);
@@ -2057,14 +1958,13 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .plexButton svg {
             width: calc(var(--sz) * 3.5rem);
           }
-          .plexButton:active, .plexButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .primeButton {
             background: rgb(58 94 114);
             filter: grayscale(30%) brightness(65%);
+          }
+          .XM2 .primeButton {
+            background: #fff;
           }
           .primeButton svg {
             width: calc(var(--sz) * 3.8rem);
@@ -2072,9 +1972,11 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .primeButton > svg {
             width: calc(var(--sz) * 5rem);
           }
-          .primeButton:active, .primeButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.1428rem) rgb(255 255 255 / 15%);
+          .XM2 .primeButton .pv0 {
+            fill: #00a8e1;
+          }
+          .XM2 .primeButton .pv1 {
+            fill: #232f3e;
           }
 
           .privateInternetAccessButton {
@@ -2084,14 +1986,9 @@ class FiremoteCard extends LitElement {
             background: #56b14d;
             filter: grayscale(50%) brightness(80%);
           }
-          .privateInternetAccessButton:active, .privateInternetAccessButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .raiPlayButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .raiPlayButton svg {
             height: calc(var(--sz) * 1.5rem);
@@ -2099,23 +1996,12 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .raiPlayButton svg {
             height: calc(var(--sz) * 3rem);
           }
-          .raiPlayButton:active, .raiPlayButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .shopHQButton {
             color: yellow;
-            background: #000;
+            background: #2e2e2e;
             font-weight: bold;
-            filter: grayscale(30%) brightness(70%);
             font-size: calc(var(--sz) * 0.857rem);
-          }
-          .shopHQButton:active, .shopHQButton.appActive {
-            color: #000;
-            background: yellow;
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .showtimeButton {
@@ -2128,42 +2014,22 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .showtimeButton svg {
             width: calc(var(--sz) * 5rem);
           }
-          .showtimeButton:active, .showtimeButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .skyNewsButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .skyNewsButton:active, .skyNewsButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .smartTubeNextButton {
             color: #fff;
             background: #088db7;
             font-size: calc(var(--sz) * 1.1rem);
-            filter: grayscale(30%) brightness(70%);
-          }
-          .smartTubeNextButton:active, .smartTubeNextButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .spotifyButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .spotifyButton:active, .spotifyButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .starzButton {
-            filter: grayscale(30%) brightness(70%);
             background: linear-gradient(99deg, rgba(16,65,69,1) 0%, rgba(8,31,33,1) 40%, rgba(13,71,75,1) 80%, rgba(16,60,64,1) 100%);
           }
           .starzButton svg {
@@ -2172,74 +2038,40 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .starzButton svg {
             width: calc(var(--sz) * 4.5rem);
           }
-          .starzButton:active, .starzButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .streamzButton {
             background: #020012;
-            filter: grayscale(30%) brightness(50%);
           }
           .streamzButton svg {
             width: calc(var(--sz) * 5.5rem);
-          }
-          .streamzButton:active, .streamzButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .stremioButton {
             font-size: calc(var(--sz) * 1rem);
             color: #fff;
             background: #8959ab;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .stremioButton:active, .stremioButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .surfsharkButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .surfsharkButton:active, .surfsharkButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .telenetTvButton {
             background: #332822;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .telenetTvButton:active, .telenetTvButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .tennisChannelButton {
-            color: #919191;
+            color: #fff;
             font-size: calc(var(--sz) * 0.57rem);
             font-weight: bold;
-            background: linear-gradient(180deg, rgba(24,74,49,1) 0%, rgba(8,36,21,1) 100%);
-          }
-          .tennisChannelButton:active, .tennisChannelButton.appActive {
-            color: #fff;
             background: linear-gradient(180deg, rgba(40,131,85,1) 0%, rgba(16,73,43,1) 100%);
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .threenowButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .threenowButton svg {
             height: calc(var(--sz) * 2rem);
-          }
-          .threenowButton:active, .threenowButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .tiviMateButton {
@@ -2247,16 +2079,10 @@ class FiremoteCard extends LitElement {
             color: #33a8ff;
             font-weight: bold;
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .tiviMateButton:active, .tiviMateButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .tubiButton {
             background: linear-gradient(180deg, rgba(229,78,25,1) 10%, rgba(127,0,195,1) 100%);
-            filter: grayscale(30%) brightness(50%);
           }
           .tubiButton svg {
             width: calc(var(--sz) * 2.75rem);
@@ -2264,14 +2090,9 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .tubiButton svg {
             width: calc(var(--sz) * 3.5rem);
           }
-          .tubiButton:active, .tubiButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .tvnzPlusButton {
             background: #000;
-            filter: grayscale(30%) brightness(50%);
           }
           .tvnzPlusButton svg {
             height: calc(var(--sz) * 1rem);
@@ -2279,14 +2100,9 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .tvnzPlusButton svg {
             height: calc(var(--sz) * 1.25rem);
           }
-          .tvnzPlusButton:active, .tvnzPlusButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .twitchButton {
             background: #6441a5;
-            filter: grayscale(30%) brightness(50%);
           }
           .twitchButton svg {
             width: calc(var(--sz) * 3.75rem);
@@ -2295,21 +2111,9 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .twitchButton svg {
             width: calc(var(--sz) * 5.5rem);
           }
-          .twitchButton:active, .twitchButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
-          }
 
           .videolandButton {
-            font-size: calc(var(--sz) * 1rem);
-            font-weight: bold;
-            color: #fff;
             background: #ff3746;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .videolandButton:active, .videolandButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .vlcButton {
@@ -2318,16 +2122,10 @@ class FiremoteCard extends LitElement {
             font-weight: bold;
             background: #f48b00;
             text-shadow: black 0px 1px 1px, black 1px 0px 1px, black 0px 0px 2px;
-            filter: grayscale(20%) brightness(70%);
-          }
-          .vlcButton:active, .vlcButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .vrtMaxButton {
             background: #020b26;
-            filter: grayscale(30%) brightness(50%);
           }
           .vrtMaxButton svg {
             width: calc(var(--sz) * 5.5rem) !important;
@@ -2337,18 +2135,9 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 5.5rem) !important;
             height: calc(var(--sz) * 1.5rem) !important;
           }
-          .vrtMaxButton:active, .vrtMaxButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .vtmGoButton {
             background: linear-gradient(180deg, rgba(15,15,15,1) 0%, rgba(78,32,116,1) 100%);;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .vtmGoButton:active, .vtmGoButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .waipuTVButton {
@@ -2357,11 +2146,6 @@ class FiremoteCard extends LitElement {
             color: #fff;
             font-weight: bold;
             background: linear-gradient(to right,#30182d 0,#0f2c4c 100%);
-            filter: brightness(75%);
-          }
-          .waipuTVButton:active, .waipuTVButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .xfinityStreamButton {
@@ -2369,53 +2153,32 @@ class FiremoteCard extends LitElement {
             color: #fff;
             font-weight: bold;
             background: linear-gradient(150deg, rgba(59,48,173,1) 0%, rgba(101,168,250,1) 100%);
-            filter: brightness(75%);
-          }
-          .xfinityStreamButton:active, .xfinityStreamButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .youtubeButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .shield-remote-body .youtubeButton svg {
             width: calc(var(--sz) * 5.75rem);
           }
-          .youtubeButton:active, .youtubeButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-          }
 
           .youtubekidsButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
-          .youtubekidsButton:active, .youtubekidsButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+          .youtubekidsButton svg {
+            width: calc(var(--sz) * 4.5rem);
+            height: calc(var(--sz) * 1.6rem);
           }
 
           .youtubeTVButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
-          }
-          .youtubeTVButton:active, .youtubeTVButton.appActive {
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
-            filter: none;
           }
 
           .zattooButton {
             background: #fff;
-            filter: grayscale(30%) brightness(50%);
           }
           .zattooButton svg {
             margin-top: calc(var(--sz) * -0.2rem);
-          }
-          .zattooButton:active, .zattooButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
           }
 
           .functionAppSwitchButton, .functionFindRemoteButton, .functionMuteButton, .functionRebootButton {
@@ -2613,7 +2376,19 @@ class FiremoteCard extends LitElement {
       }
     }
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
-    const cssVars = html `<style> :host { --sz: ${scale}; --devicenamecolor: ${devicenamecolor} } ${buttonHidingCss} </style>`;
+    const cssVars = html `<style>
+                            :host {
+                              --sz: ${scale};
+                              --devicenamecolor: ${devicenamecolor}
+                            }
+                            ${buttonHidingCss}
+                            .AL1, .AL2 {
+                              --sz: calc(${scale} * 2);
+                            }
+                            .ALControlsContainer{
+                              --sz: calc(${scale} * 1.5);
+                            }
+                          </style>`;
 
     // Determine Power On/Off Status
     var powerStatusClass = ''
@@ -2632,10 +2407,9 @@ class FiremoteCard extends LitElement {
 
     // Determine Play/Pause
     var playingStatusClass = '';
-    if(stateStr == 'playing' && appId != 'com.amazon.firebat' && appId != 'com.android.systemui' &&
-                                appId != 'com.android.vending' && appId != 'com.android.tv.settings' &&
-                                appId != 'com.nvidia.shieldtech.accessoryui' && appId != 'com.esaba.downloader' &&
-                                appId != 'com.amazon.venezia') {
+    var alwaysRegisterdAsPlaying = ['com.amazon.firebat', 'com.android.systemui', 'com.android.vending', 'com.android.tv.settings',
+                                    'com.nvidia.shieldtech.accessoryui', 'com.esaba.downloader', 'com.amazon.venezia'];
+    if(stateStr == 'playing' && !(alwaysRegisterdAsPlaying.includes(appId))) {
       playingStatusClass = ' litbutton';
     }
 
@@ -2681,84 +2455,42 @@ class FiremoteCard extends LitElement {
         if(cols == 2) {
           spanclass = "two-col-span nsappsgrid";
         }
+        if(cols == 'fill') {
+          spanclass = "appLauncherAppsContainer";
+        }
         function showHide(buttonKey) {
           if (buttonKey === '') {
             return 'hidden';
           }
         }
-        var confBtnOne =   config.app_launch_1 || '';
-        var confBtnTwo =   config.app_launch_2 || '';
-        var confBtnThree = config.app_launch_3 || '';
-        var confBtnFour =  config.app_launch_4 || '';
-        var confBtnFive =  config.app_launch_5 || '';
-        var confBtnSix =   config.app_launch_6 || '';
+        const appLaunchButtons = new Map();
+        for(let i=1; i<=max; i++) {
+          var appid = config["app_launch_"+i] || '';
+          appLaunchButtons.set("confBtn"+i, appid);
+        }
         if(config.defaultRemoteStyle_override == 'NS1' || config.defaultRemoteStyle_override == 'NS2' ||
            config.device_type == 'shield-tv-pro-2019' || config.device_type == 'shield-tv-2019') {
-          var confBtnOne =   config.app_launch_1 || 'netflix';
+             appLaunchButtons.set("confBtn1", config.app_launch_1 || 'netflix');
         }
         else if(config.defaultRemoteStyle_override == 'XM2' || config.device_type == 'mi-box-s') {
-          var confBtnOne =   config.app_launch_1 || 'netflix';
-          var confBtnTwo =   config.app_launch_2 || 'prime-video';
+          appLaunchButtons.set("confBtn1", config.app_launch_1 || 'netflix');
+          appLaunchButtons.set("confBtn2", config.app_launch_2 || 'prime-video');
         }
         else {
-          var confBtnOne   = config.app_launch_1 || 'prime-video';
-          var confBtnTwo   = config.app_launch_2 || 'netflix';
-          var confBtnThree = config.app_launch_3 || 'disney-plus';
-          var confBtnFour  = config.app_launch_4 || 'hulu';
+          appLaunchButtons.set("confBtn1", config.app_launch_1 || 'prime-video');
+          appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
+          appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
+          appLaunchButtons.set("confBtn4", config.app_launch_4 || 'hulu');
         }
-        var oversix = '';
-        if(max > 6) {
-          var confBtnSeven = config.app_launch_7  || '';
-          var confBtnEight = config.app_launch_8  || '';
-          var confBtnNine  = config.app_launch_9  || '';
-          var confBtnTen   = config.app_launch_10 || '';
-          oversix = html `
-            <button class="srcButton ${getAppButtonData(config, confBtnSeven, 'className')} ${getAppButtonData(config, confBtnSeven, 'active')} ${showHide(confBtnSeven)}"
-                    id="${confBtnSeven}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnSeven, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnEight, 'className')} ${getAppButtonData(config, confBtnEight, 'active')} ${showHide(confBtnEight)}"
-                    id="${confBtnEight}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnEight, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnNine, 'className')} ${getAppButtonData(config, confBtnNine, 'active')} ${showHide(confBtnNine)}"
-                    id="${confBtnNine}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnNine, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnTen, 'className')} ${getAppButtonData(config, confBtnTen, 'active')} ${showHide(confBtnTen)}"
-                    id="${confBtnTen}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnTen, 'button'))}
-            </button>
-          `
-        }
-
-        return html`
+        return html `
           <div class="${spanclass}">
-            <button class="srcButton ${getAppButtonData(config, confBtnOne, 'className')} ${getAppButtonData(config, confBtnOne, 'active')} ${showHide(confBtnOne)}"
-                    id="${confBtnOne}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnOne, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnTwo, 'className')} ${getAppButtonData(config, confBtnTwo, 'active')} ${showHide(confBtnTwo)}"
-                    id="${confBtnTwo}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnTwo, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnThree, 'className')} ${getAppButtonData(config, confBtnThree, 'active')} ${showHide(confBtnThree)}"
-                    id="${confBtnThree}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnThree, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnFour, 'className')} ${getAppButtonData(config, confBtnFour, 'active')} ${showHide(confBtnFour)}"
-                    id="${confBtnFour}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnFour, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnFive, 'className')} ${getAppButtonData(config, confBtnFive, 'active')} ${showHide(confBtnFive)}"
-                    id="${confBtnFive}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnFive, 'button'))}
-            </button>
-            <button class="srcButton ${getAppButtonData(config, confBtnSix, 'className')} ${getAppButtonData(config, confBtnSix, 'active')} ${showHide(confBtnSix)}"
-                    id="${confBtnSix}-button" @click=${e.buttonClicked}>
-              ${unsafeHTML(getAppButtonData(config, confBtnSix, 'button'))}
-            </button>
-            ${oversix}
+          ${ Array.from(appLaunchButtons.keys()).map(key => {
+            var val = appLaunchButtons.get(key);
+            return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonClicked}>
+                           ${unsafeHTML(getAppButtonData(config, val, 'button'))}
+                         </button>`;
+
+          })}
           </div>
         `;
     }
@@ -3168,7 +2900,7 @@ class FiremoteCard extends LitElement {
           </button>
           <div></div>
 
-          ${drawAppLaunchButtons(this, this._config)}
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["AF4"])}
           ${drawDeviceName(this, this._config, 'bottom')}
           ${renderfiretvlogo()}
 
@@ -3258,7 +2990,7 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:file-multiple-outline"></ha-icon>
           </button>
 
-          ${drawAppLaunchButtons(this, this._config)}
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["AF5"])}
           ${drawDeviceName(this, this._config, 'bottom')}
           ${renderfiretvlogo()}
 
@@ -3384,7 +3116,7 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:volume-medium"></ha-icon>
           </button>
 
-          ${drawAppLaunchButtons(this, this._config, 2, 6)}
+          ${drawAppLaunchButtons(this, this._config, 2, appButtonMax["NS2"])}
           ${drawDeviceName(this, this._config, 'bottom')}
 
         </div>
@@ -3436,7 +3168,7 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:checkbox-blank-circle-outline"></ha-icon>
           </button>
 
-          ${drawAppLaunchButtons(this, this._config, 3, 10)}
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["XM2"])}
 
           <div> </div>
           <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
@@ -3458,6 +3190,72 @@ class FiremoteCard extends LitElement {
       </ha-card>
     `;
     }
+
+
+    // Render App Launcher 1
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AL1' ) {
+    return html`
+      <ha-card>
+        ${cssVars}
+        <div class="remote-body AL1">
+          ${drawDeviceName(this, this._config, 'top')}
+          ${drawAppLaunchButtons(this, this._config, 'fill', appButtonMax["AL1"])}
+          ${drawDeviceName(this, this._config, 'bottom')}
+        </div>
+      </ha-card>
+    `;
+    }
+
+    // Render App Launcher 2
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AL2' ) {
+    return html`
+      <ha-card>
+        ${cssVars}
+        <div class="remote-body AL2">
+          ${drawDeviceName(this, this._config, 'top')}
+          ${drawAppLaunchButtons(this, this._config, 'fill', appButtonMax["AL2"])}
+
+          <div class="ALControlsContainer">
+
+            <div class="left-pocket-controls">
+              <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+                <ha-icon icon="mdi:arrow-left"></ha-icon>
+              </button>
+              <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+                <ha-icon icon="mdi:home-outline"></ha-icon>
+              </button>
+            </div>
+
+            <div class="center-pocket-controls">
+              <div class="dpadContainer">
+                <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+                <div class="directionButtonContainer">
+                  <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+                  <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+                  <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+                  <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+                </div>
+              </div>
+            </div>
+
+            <div id="right-pocket-container">
+              <div class="volumeContainer">
+                <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+                  +
+                </button>
+                <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+                  &#x2013;
+                </button>
+              </div>
+            </div>
+
+          </div>
+          ${drawDeviceName(this, this._config, 'bottom')}
+        </div>
+      </ha-card>
+    `;
+    }
+
 
   }
 
@@ -3710,7 +3508,10 @@ class FiremoteCard extends LitElement {
 
     // Volume Up Button
     if(clicked.target.id == 'volume-up-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(deviceFamily == 'nvidia-shield') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --adj raise' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_UP' });
       }
       else {
@@ -3727,7 +3528,10 @@ class FiremoteCard extends LitElement {
 
     // Volume Down Button
     if(clicked.target.id == 'volume-down-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(deviceFamily == 'nvidia-shield') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --adj lower' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_DOWN' });
       }
       else {
@@ -3972,7 +3776,6 @@ class FiremoteCardEditor extends LitElement {
   getAppChoices(buttonIndex, optionvalue, remoteStyle) {
     var family = this._config.device_family;
     if(remoteStyle == "AF4" || remoteStyle == "AF5" || remoteStyle == "NS2" || remoteStyle == "XM2") {
-      if((remoteStyle != 'XM1' && remoteStyle != 'XM2') && buttonIndex > 6) { return; }
       var appkeys = [];
       for (var [key, value] of appmap.entries()) {
         appkeys.push(key)
@@ -4006,7 +3809,54 @@ class FiremoteCardEditor extends LitElement {
     }
   }
 
- 
+  getAppChoiceOptionMenus(remoteStyle) {
+    var family = this._config.device_family;
+    if(appButtonMax[remoteStyle]) {
+      var appkeys = [];
+      for (var [key, value] of appmap.entries()) {
+        appkeys.push(key)
+      }
+      const optionsmap = new Map();
+      for(let i=1; i<=appButtonMax[remoteStyle]; i++) {
+        optionsmap.set(i, "app_launch_"+i);
+      }
+      var optionkeys = [];
+      for (var [key, value] of optionsmap.entries()) {
+        optionkeys.push(key)
+      }
+      return html `
+        ${optionkeys.map((optionnumber) => {
+          var blankOption = html `<option value=""> - - - - </option>`;
+          if(!(appmap.has(optionvalue))){
+            blankOption = html `<option value="" selected> - - - - </option>`;
+          }
+          var optionvalue = this._config[optionsmap.get(optionnumber)];
+          return html `
+            App Launch Button ${optionnumber}:
+            <select name="app_launch_${optionnumber}" id="app_launch_${optionnumber}" style="padding: .6em; font-size: 1em;"
+              .value=${optionvalue}
+              @focusout=${this.configChanged}
+              @change=${this.configChanged}
+            >
+              ${blankOption}
+              ${appkeys.map((app) => {
+               if ((appmap.get(app).deviceFamily && appmap.get(app).deviceFamily.includes(family)) || !(appmap.get(app).deviceFamily)) {
+                if (app != optionvalue) {
+                  return html`<option value="${app}">${appmap.get(app).friendlyName}</option> `
+                }
+                else {
+                  return html`<option value="${app}" selected>${appmap.get(app).friendlyName}</option> `
+                }
+               }
+              })}
+            </select>
+            <br>
+          `;
+        })}
+      `;
+    }
+  }
+
 
   render() {
     if (!this.hass || !this._config) {
@@ -4031,6 +3881,7 @@ class FiremoteCardEditor extends LitElement {
 
     // Show and hide HDMI inputs if the device has them
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'));
+
     return html`
           Android TV Entity:<br>
           <select name="entity" id="entity" style="padding: .6em; font-size: 1em;" .value="${this._config.entity}"
@@ -4082,6 +3933,8 @@ class FiremoteCardEditor extends LitElement {
           <option value="NS2">NVIDIA Shield Style 2</option>
           <option value="XM1" disabled>Xiomi Mi Style 1</option>
           <option value="XM2">Xiomi Mi Style 2</option>
+          <option value="AL1">App Launcher 1</option>
+          <option value="AL2">App Launcher 2</option>
         </select>
         <br>
 
@@ -4111,17 +3964,7 @@ class FiremoteCardEditor extends LitElement {
         </select>
         <br>
         <br>
-
-        ${this.getAppChoices("1", this._config.app_launch_1, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("2", this._config.app_launch_2, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("3", this._config.app_launch_3, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("4", this._config.app_launch_4, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("5", this._config.app_launch_5, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("6", this._config.app_launch_6, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("7", this._config.app_launch_7, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("8", this._config.app_launch_8, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("9", this._config.app_launch_9, getDeviceAttribute("defaultRemoteStyle"))}
-        ${this.getAppChoices("10",this._config.app_launch_10,getDeviceAttribute("defaultRemoteStyle"))}
+        ${this.getAppChoiceOptionMenus(getDeviceAttribute("defaultRemoteStyle"))}
         <br>
 
         <hr>
