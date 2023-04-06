@@ -1,6 +1,8 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.3-beta1 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
+console.groupEnd();
 
-console.info("%c  FIREMOTE-CARD  \n%c  Version 2.1.3  ", "color: orange; font-weight: bold; background: black", "color: white; font-weight: bold; background: dimgray");
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -1224,7 +1226,7 @@ class FiremoteCard extends LitElement {
           .AL1, .AL2 {
             display: block;
             width: unset;
-            border-radius: 0;
+            border-radius: calc(var(--sz) * 0.5rem);
             padding: calc(var(--sz) * 1.4rem) calc(var(--sz) * 0.714rem);
           }
 
@@ -1320,17 +1322,47 @@ class FiremoteCard extends LitElement {
           }
 
           .ALControlsContainer {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
+            display: flex;
+            gap: calc(var(--sz) * 1rem);
             place-items: center;
             padding-top: calc(var(--sz) * 2rem);
             margin-top: calc(var(--sz) * 2rem);
-            border-top: groove rgb(0 0 0 / 42%) calc(var(--sz) * 0.2rem);;
+            border-top: groove rgb(0 0 0 / 42%) calc(var(--sz) * 0.2rem);
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 100%;
+          }
+
+          .ALControlsContainer > div {
+            min-width: 31%;
+            max-width: 75%;
+            display: grid;
+            justify-items: center;
+            justify-content: center;
           }
 
           .left-pocket-controls {
             display: flex;
-            gap: 1rem;
+            column-gap: calc(var(--sz) * 2rem);
+            row-gap: calc(var(--sz) * 0.5rem);
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+
+          .ALControlsContainer .row {
+            display: flex;
+            align-items: center;
+            gap: calc(var(--sz) * 0.5rem);
+            padding: calc(var(--sz) * 0.75rem);
+            background: rgb(255 255 255 / 6%);
+            border: inset #000 calc(var(--sz) * 0.2rem);
+          }
+
+          .right-pocket-controls > .row {
+            column-gap: calc(var(--sz) * 1.5rem);
+            padding-right: calc(var(--sz) * 1.5rem);
+            padding-left: calc(var(--sz) * 1.5rem);
           }
 
           .remote-button {
@@ -1636,7 +1668,7 @@ class FiremoteCard extends LitElement {
           }
 
           .AL1 .deviceNameTop {
-            margin: 0; 
+            margin: 0;
             margin-top: calc(var(--sz) * -1.1rem);
             font-size: calc(var(--sz) * 1.25rem);
           }
@@ -3206,6 +3238,7 @@ class FiremoteCard extends LitElement {
     `;
     }
 
+
     // Render App Launcher 2
     if ( getDeviceAttribute('defaultRemoteStyle') == 'AL2' ) {
     return html`
@@ -3218,12 +3251,25 @@ class FiremoteCard extends LitElement {
           <div class="ALControlsContainer">
 
             <div class="left-pocket-controls">
-              <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
-                <ha-icon icon="mdi:arrow-left"></ha-icon>
-              </button>
-              <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
-                <ha-icon icon="mdi:home-outline"></ha-icon>
-              </button>
+              <div class="row">
+                <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:arrow-left"></ha-icon>
+                </button>
+                <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:home-outline"></ha-icon>
+                </button>
+              </div>
+              <div class="row">
+                <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:rewind"></ha-icon>
+                </button>
+                <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:play-pause"></ha-icon>
+                </button>
+                <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:fast-forward"></ha-icon>
+                </button>
+              </div>
             </div>
 
             <div class="center-pocket-controls">
@@ -3238,13 +3284,18 @@ class FiremoteCard extends LitElement {
               </div>
             </div>
 
-            <div id="right-pocket-container">
-              <div class="volumeContainer">
-                <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
-                  +
-                </button>
-                <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
-                  &#x2013;
+            <div class="right-pocket-controls">
+              <div class="row">
+                <div class="volumeContainer">
+                  <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+                    +
+                  </button>
+                  <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+                    &#x2013;
+                  </button>
+                </div>
+                <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:volume-mute"></ha-icon>
                 </button>
               </div>
             </div>
