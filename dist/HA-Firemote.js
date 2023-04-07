@@ -1,8 +1,7 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.3-beta1 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.3 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
-
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -558,6 +557,16 @@ const fastappchoices = {
       "className": "npoButton",
       "androidName": "nl.uitzendinggemist",
       "deviceFamily": ["nvidia-shield", "xiaomi"], },
+
+
+  "ott-navigator": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 201 201" width="201" height="201" xml:space="preserve"><g><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#fff;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M39.5 26.5c58.334-.167 116.668 0 175 .5 5.865 1.51 10.032 5.01 12.5 10.5.667 47 .667 94 0 141-2.193 6.517-6.693 10.35-13.5 11.5-10.328.5-20.661.666-31 .5.167 10.672 0 21.339-.5 32a6.978 6.978 0 0 1-2.5 3.5 700.819 700.819 0 0 1-52.5 1.5 700.819 700.819 0 0 1-52.5-1.5 6.977 6.977 0 0 1-2.5-3.5 512.462 512.462 0 0 1-.5-32c-10.672.167-21.339 0-32-.5-6.14-2.141-10.307-6.307-12.5-12.5a4692.265 4692.265 0 0 1 0-137c1.917-6.747 6.084-11.414 12.5-14z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#2a3841;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M42.5 37.5c56.001-.167 112.001 0 168 .5 2.671 1.25 4.837 3.083 6.5 5.5l.5 64c.151 22.395-.349 44.728-1.5 67-1.78 2.803-4.28 4.469-7.5 5l-62-16a1076.482 1076.482 0 0 0-19.5-55 1076.482 1076.482 0 0 0-19.5 55 2864.094 2864.094 0 0 0-62.5 16c-2.5-.583-4.5-1.916-6-4a2195.553 2195.553 0 0 1-1-132 40.775 40.775 0 0 1 4.5-6z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#fff;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M104.5 49.5a1682.092 1682.092 0 0 1 41 55c.06.543.393.876 1 1 1-18.655 1.333-37.321 1-56h34v113h-4c-2.015-1.424-4.348-2.09-7-2a69.08 69.08 0 0 1-18.5-5 2186.873 2186.873 0 0 0-25-57c-8.149 18.97-16.316 37.97-24.5 57a248.55 248.55 0 0 1-30 8v-114h32z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#2d3b45;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M125.5 122.5a784.68 784.68 0 0 1 1 56c-21 1.333-42 1.333-63 0a1739.259 1739.259 0 0 1 44.5-8l4.5.5c4.354 2.671 8.687 5.004 13 7a64.882 64.882 0 0 1-10-13.5 958.928 958.928 0 0 0 10-42z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#2b3942;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M190.5 178.5a481.12 481.12 0 0 1-62 0 54.172 54.172 0 0 1 15-8 723.413 723.413 0 0 0 47 8z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#2c3b44;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M89.5 190.5c19.173-1.015 25.34 7.318 18.5 25-5.269 4.745-11.436 6.245-18.5 4.5-9.055-5.94-11.222-13.773-6.5-23.5a53.871 53.871 0 0 1 6.5-6z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#2a3841;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M142.5 190.5a32.128 32.128 0 0 1-3 7 246.697 246.697 0 0 0-7 2c-.991 6.813-1.325 13.813-1 21h-9v-22h-7a32.508 32.508 0 0 1-3-7c9.819-.994 19.819-1.327 30-1zm6 0h25v8c-3.542-.313-6.875.021-10 1-.991 6.813-1.325 13.813-1 21h-9v-22h-9l4-8z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#fff;fill-rule:evenodd;opacity:1" transform="translate(-26 -26)" d="M92.5 198.5c5.84-.921 9.507 1.413 11 7-.797 4.464-3.464 6.797-8 7-7.933-3.072-8.933-7.739-3-14z"/></g></svg>',
+      "friendlyName": "OTT Navigator",
+      "className": "ottNavigatorButton",
+      "appName": "studio.scillarium.ottnavigator",
+      "androidName": "studio.scillarium.ottnavigator",
+      "adbLaunchCommand": "adb shell am start -n studio.scillarium.ottnavigator/.MainActivity",
+      "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
 
 
   "oqee-by-free": {
@@ -1629,7 +1638,7 @@ class FiremoteCard extends LitElement {
 
           .srcButton:active, .srcButton.appActive {
             filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 30%);
           }
 
           .shield-remote-body .srcButton {
@@ -1667,9 +1676,11 @@ class FiremoteCard extends LitElement {
             justify-items: center;
           }
 
-          .AL1 .deviceNameTop {
-            margin: 0;
-            margin-top: calc(var(--sz) * -1.1rem);
+          .AL1 .deviceNameTop, .AL2 .deviceNameTop {
+            margin: 0rem 0px calc(var(--sz) * 1.25rem);
+            display: block;
+            height: unset;
+            overflow: unset;
             font-size: calc(var(--sz) * 1.25rem);
           }
 
@@ -1705,9 +1716,9 @@ class FiremoteCard extends LitElement {
             align-self: flex-end;
           }
 
-          .AL1 .deviceNameBottom {
-            margin-bottom: calc(var(--sz) * -1.5rem);
-            margin-top: calc(var(--sz) * 1rem);
+          .AL1 .deviceNameBottom, .AL2 .deviceNameBottom {
+            margin-bottom: unset;
+            margin-top: calc(var(--sz) * 1.8rem);
             overflow: unset;
           }
 
@@ -1960,6 +1971,10 @@ class FiremoteCard extends LitElement {
           .npoButton {
             background: #fff;
             filter: grayscale(20%) brightness(50%);
+          }
+
+          .ottNavigatorButton {
+            background: #22518f;
           }
 
           .oqeeButton {
@@ -3560,7 +3575,7 @@ class FiremoteCard extends LitElement {
     // Volume Up Button
     if(clicked.target.id == 'volume-up-button') {
       if(deviceFamily == 'nvidia-shield') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --adj raise' });
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --show --adj raise' });
       }
       else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_UP' });
@@ -3580,7 +3595,7 @@ class FiremoteCard extends LitElement {
     // Volume Down Button
     if(clicked.target.id == 'volume-down-button') {
       if(deviceFamily == 'nvidia-shield') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --adj lower' });
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --show --adj lower' });
       }
       else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_DOWN' });
