@@ -48,8 +48,8 @@ Which Xiaomi Mi device do I own?
 ## OR Install Manually
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
 1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
-1. Download a copy of [HA-Firemote.js](https://github.com/PRProd/HA-Firemote/blob/main/HA-Firemote.js) and place it in your Home Assistant /config/www directory
-1. [Register this file as a new resource](https://developers.home-assistant.io/docs/frontend/custom-ui/registering-resources/)
+1. Download the contents of the [dist/](https://github.com/PRProd/HA-Firemote/blob/main/dist/) directory, and place it in your Home Assistant /config/www directory
+1. [Register the HA-Firemote.js file that you just installed as a new resource](https://developers.home-assistant.io/docs/frontend/custom-ui/registering-resources/)
 
 <br>
 <br>
@@ -127,8 +127,10 @@ Options:
 | dazn                    | DAZN                    | ✓                   | ✓                     | ✓                 |
 | directv-stream          | DIRECTV stream          | ✓                   | ✓                     | ✓                 |
 | disney-plus             | Disney +                | ✓                   | ✓                     | ✓                 |
+| ds-video                | DS Video                | ✓                   | ✓                     | ✓                 |
 | emby                    | Emby                    | ✓                   | ✓                     | ✓                 |
 | espn                    | ESPN                    | ✓                   | ✓                     | ✓                 |
+| firetv-store            | FireTV Store            | ✓                   |                       |                   |
 | freevee                 | freevee                 | ✓                   | ✓                     | ✓                 |
 | google-play-store       | Google Play Store       |                     | ✓                     | ✓                 |
 | hbo-max                 | HBO Max                 | ✓                   | ✓                     | ✓                 |
@@ -148,6 +150,7 @@ Options:
 | pandora                 | Pandora                 | ✓                   | ✓                     | ✓                 |
 | paramount-plus          | Paramount+              | ✓                   | ✓                     | ✓                 |
 | paramount-plus-de       | Paramount+ (alt)        | ✓                   | ✓                     | ✓                 |
+| peacock                 | Peacock                 | ✓                   | ✓                     | ✓                 |
 | plex                    | Plex                    | ✓                   | ✓                     | ✓                 |
 | prime-video             | Prime Video             | ✓                   | ✓                     | ✓                 |
 | private-internet-access | Private Internet Access |                     | ✓                     | ✓                 |
