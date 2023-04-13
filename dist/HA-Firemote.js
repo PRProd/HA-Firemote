@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.5 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.6 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -323,6 +323,25 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire"],},
 
 
+  "crunchyroll": {
+      "button": '<svg version="1.1" id="cr_close" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 615 116.9" xml:space="preserve"><style>.crunchyroll{fill:#f47521}</style><path class="crunchyroll" d="M601.3 90.5V21.7h12.1v68.9h-12.1zM575.2 90.5V21.7h12.1v68.9h-12.1zM565 65.7c0 16.6-8.3 25.5-23.6 25.5s-23.6-8.9-23.6-25.5 8.3-25.5 23.6-25.5S565 49.1 565 65.7zm-11.5 0c0-13.4-4.5-15.9-11.5-15.9s-11.5 2.5-11.5 15.9S535 81.6 542 81.6c6.4 0 11.5-2.5 11.5-15.9zM512.7 40.2v10.2c-6.4 0-14 0-14 3.2v37h-12.1v-44c.6-7.7 26.1-6.4 26.1-6.4zM440 110.3c9-22.3 8.3-20.4 9-22.3l-17.9-47.2h12.8l11.5 34.4 10.8-34.4H479l-19.1 51-7 18.5H440zM424.1 60.6v30H412V59.9c0-4.5-1.3-8.9-12.1-8.9-2.8.1-5.6.5-8.3 1.3v38.3h-12.1V21.7h12.1v19.8c3.2-1.4 6.7-2 10.2-1.9 14.6.6 22.3 8.2 22.3 21zM357.2 81c4.4-.2 8.7-1 12.8-2.6v10.2c-4.7 1.9-9.6 2.7-14.7 2.5-15.3 0-23.6-8.9-23.6-25.5s8.3-26.1 23.6-26.1c5 .2 9.9 1 14.7 2.6v10.2c-4.1-1.6-8.4-2.4-12.8-2.5-8.3 0-13.4 2.5-13.4 15.3 0 13.3 5.1 15.9 13.4 15.9zM324 59.3v31.2h-11.5V59.3c0-4.5 0-8.9-10.2-8.9-3.2 0-9.6.6-9.6 2.5v37.6h-11.5V49.1c0-8.3 10.2-9.6 22.9-9.6 12.9.7 19.9 5.8 19.9 19.8zM269.8 40.8v27.4c0 14.7-5.1 23.6-22.3 23.6s-21.7-8.9-21.7-23.6V40.8h11.5v28.7c0 8.3 3.2 10.8 10.2 10.8 7 0 10.2-2.5 10.2-10.8V40.8h12.1zM216.3 40.2v10.2c-6.4 0-14 0-14 3.2v37h-12.1v-44c.6-7.7 26.1-6.4 26.1-6.4zM166.5 81c4.2-.1 8.3-1 12.1-2.6v10.2c-4.7 1.9-9.6 2.7-14.7 2.5-15.3 0-23.6-8.9-23.6-25.5s8.3-26.1 23.6-26.1c5 .2 9.9 1 14.7 2.6v10.2c-3.9-1.5-8-2.4-12.1-2.5-8.3 0-13.4 2.5-13.4 15.3-.6 13.3 5.2 15.9 13.4 15.9zM15.5 65.7c0-27.9 22.6-50.4 50.5-50.4 26.3.1 48.1 20.3 50.2 46.5v-3.2c0-31.7-25.7-57.4-57.4-57.4S1.4 27 1.4 58.7 27.1 116 58.8 116h3.8c-26.4-1.8-47-23.8-47.1-50.3z"/><path class="crunchyroll" d="M93.2 68.2C83 68.2 74.8 60 74.7 49.9c0-7.8 4.8-14.7 12.1-17.4-5.7-3-12-4.6-18.5-4.5-22.2 0-40.2 18-40.2 40.2s18 40.2 40.2 40.2 40.2-18 40.2-40.2c.1-2.6-.1-5.1-.6-7.7-3.1 5.1-8.8 8-14.7 7.7z"/></svg>',
+      "friendlyName": 'Crunchyroll',
+      "className": "crunchyrollButton",
+      "appName": "com.crunchyroll.crunchyroid",
+      "androidName": "com.crunchyroll.crunchyroid",
+      "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.MainActivity",
+      },
+      "nvidia-shield": {
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.main.ui.MainActivity",
+      },
+      "xiaomi": {
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.main.ui.MainActivity",
+      },
+  },
+
+
   "cyberghost": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.969 34.024" width="148.969" height="34.024"><path d="M34.024 17.012a17.012 17.012 0 1 0-17.012 17.012 17.025 17.025 0 0 0 17.012-17.012z" style="fill:#fc0"/><path d="M45.381 28.721a8.407 8.407 0 1 0-16.814 0c0 4.65-1.956 13.043 2.694 13.043 20.698-.001 14.12-8.393 14.12-13.043zm-10.264 4.848C33.388 33.569 32 31.613 32 29.2s1.389-4.366 3.119-4.366 3.119 1.956 3.119 4.366-1.419 4.369-3.121 4.369zm7.23-1.446c-1.361 0-2.467-1.559-2.467-3.459s1.106-3.459 2.467-3.459 2.467 1.559 2.467 3.459c0 1.928-1.106 3.459-2.467 3.459z" transform="translate(-20.175 -14.544)" style="fill:#323232"/><path d="M46.613 25.744c-5.387 0-6.635-3.317-6.72-6.1-.226-5.78 2.836-11.989 10.038-11.989a13.355 13.355 0 0 1 3.487.425l-.652 2.609a10.68 10.68 0 0 0-3.119-.482c-4.678 0-6.606 4.395-6.465 8.761.085 2.807 1.531 4.168 4.366 4.168a17.848 17.848 0 0 0 3.431-.369 10.72 10.72 0 0 0 1.73-.6 18.189 18.189 0 0 1 .4 2.41 10.145 10.145 0 0 1-1.73.6 24.91 24.91 0 0 1-4.763.567z" style="fill:#fff"/><path d="M55.998 29.289a6.016 6.016 0 0 1-4.451 2.041 8.046 8.046 0 0 1-1.7-.17l.4-2.523a4.016 4.016 0 0 0 1.418.227 2.917 2.917 0 0 0 2.1-.936 3.752 3.752 0 0 0 .964-2.92 44.142 44.142 0 0 0-2.134-10.746h3.2a36.329 36.329 0 0 1 1.418 8.137 5.538 5.538 0 0 1-.085.964h.057a68.91 68.91 0 0 0 3.828-9.045l2.949-.028c-2.804 8.053-5.384 12.306-7.964 14.999z" style="fill:#fff"/><path d="M66.943 25.829a17.979 17.979 0 0 1-4.055-.425L65.1 11.171l.028-.057a30.578 30.578 0 0 0-1.928-.227l.283-1.843a33.848 33.848 0 0 1 4.877-.2l-.766 4.877a24.8 24.8 0 0 1-1.106 4.111h.057c1.077-2.268 2.637-3.884 4.65-3.884 1.73 0 2.722 1.134 2.807 3.544.114 4.368-2.069 8.337-7.059 8.337zm3.145-9.328c-1.644 0-3.516 3.743-3.884 6.1l-.142.766a5.787 5.787 0 0 0 1.276.17c2.637 0 3.743-3.062 3.658-5.444-.027-1.11-.339-1.592-.908-1.592zM77.319 20.982a4.852 4.852 0 0 0-.028.907c.057 1.3.567 1.7 2.155 1.7a8.751 8.751 0 0 0 3.289-.68l.822-.34-.454 2.467a13.55 13.55 0 0 1-4.508.822c-2.892 0-4.083-1.333-4.168-3.856-.17-4.763 2.608-8 6.153-8 2.807 0 3.743 1.389 3.8 2.779.056 2.726-2.609 4.059-7.061 4.201zm2.977-4.82c-1.5 0-2.382 1.361-2.75 2.864 2.637-.085 4-.652 3.941-1.843 0-.653-.453-1.021-1.191-1.021z" style="fill:#fff"/><path d="M91.609 16.866c-2.013-.766-3.856 2.637-4.423 6.266l-.369 2.467h-2.863s1.219-7.542 1.389-8.676a2.846 2.846 0 0 0-.851-2.5l3.969-.34a26.12 26.12 0 0 1-.879 3.544h.057c1.134-2.438 2.325-4.111 4.48-3.658zM101.335 25.773c-4.735 0-7.4-2.382-7.542-6.663-.227-6.72 4.395-11.568 11.029-11.568a19.2 19.2 0 0 1 4.905.624l-.766 2.75a13.269 13.269 0 0 0-4.423-.822c-4.508 0-7.769 3.686-7.6 8.563.085 2.864 1.928 4.565 4.933 4.565a9.791 9.791 0 0 0 2.694-.369l.17-.057.964-6.294h2.835l-1.276 8.279a19.375 19.375 0 0 1-5.926.992zM120.165 25.631h-2.864l1.134-7.145c.2-1.389-.028-1.956-.766-1.956-1.531 0-3.459 3.573-3.884 6.238l-.454 2.892h-2.866l2.24-14.432.028-.057a30.578 30.578 0 0 0-1.928-.227l.255-1.843a34.023 34.023 0 0 1 4.877-.2l-.737 4.82a23.735 23.735 0 0 1-1.077 4.055l.057.028c.964-2.041 2.467-3.8 4.65-3.8 2.212 0 2.92 1.559 2.552 3.771zM126.484 25.859c-3.176 0-4.508-1.5-4.593-4.083-.17-4.763 2.949-7.769 6.578-7.769 3.261 0 4.537 1.73 4.622 4.14.17 4.706-3.034 7.712-6.607 7.712zm1.645-9.357c-2.127 0-3.317 2.552-3.232 4.82.057 1.248.567 2.013 1.9 2.013 2.041 0 3.374-2.268 3.289-4.82-.057-1.308-.624-2.008-1.957-2.008zM148.6 16.502h-2.694l-.794 5.132c-.2 1.361 0 1.73.936 1.73a5.106 5.106 0 0 0 1.418-.17l-.2 2.325a11.156 11.156 0 0 1-2.325.312c-2.438 0-3.176-1.162-2.75-3.884l.851-5.444h-1.814l.369-2.268h1.815l.539-3.516 2.949-.6-.624 4.111h2.694z" style="fill:#fff"/><path d="M138.821 16.134a6.435 6.435 0 0 1 1.786.227l.369-2.155a11.8 11.8 0 0 0-2.126-.2c-3.261 0-4.82 1.616-4.763 3.686.085 2.694 3.005 3.034 3.062 4.565a1.1 1.1 0 0 1-.68 1.077h-.028c-.085.028-.2.085-.284.113a4.54 4.54 0 0 1-3.374-.312 5.388 5.388 0 0 1-1.758 2.041 13.048 13.048 0 0 0 4.054.68c3.544.028 5.132-1.985 5.075-3.884-.085-2.523-3.062-3.176-3.119-4.593-.003-.707.592-1.245 1.786-1.245z"style="fill:#fff" /></svg>',
       "friendlyName": 'CyberGhost VPN',
@@ -425,7 +444,7 @@ const fastappchoices = {
       "className": "fireTVStoreButton",
       "appName": "FireTV Store",
       "androidName": "com.amazon.venezia",
-      "adbLaunchCommand": "adb shell am start -n com.amazon.venezia/.ade.ADEHomeActivity",
+      "adbLaunchCommand": "adb shell am start -a com.amazon.venezia.ade.FIND_LAUNCH -n com.amazon.venezia/.ade.ADEHomeActivity",
       "deviceFamily": ["amazon-fire"], },
 
 
@@ -607,7 +626,7 @@ const fastappchoices = {
       "appName": "net.oqee.androidtv.store",
       "androidName": "net.oqee.androidtv.store",
       "adbLaunchCommand": "adb shell am start -n net.oqee.androidtv.store/net.oqee.androidtv.MainActivity",
-      "deviceFamily": ["amazon-fire"], },
+      "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
 
 
   "pandora": {
@@ -848,6 +867,16 @@ const fastappchoices = {
       "appName": "com.surfshark.vpnclient.android",
       "androidName": "com.surfshark.vpnclient.android",
       "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
+
+
+  "svt-play": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 722.63 292.2"><g><polyline fill="#00c800" points="563.77 63.83 563.77 288.56 722.63 176.19 563.77 63.83"></polyline><g fill="#ffffff"><path d="M478.89,292.35c-26.7,0-57.73-14.37-70.87-50.75-4.48-12.39-4.33-21.94-4.36-32V.15h45v64.5h69L501.3,108.58H448.63V209.65c0,7,.36,15.5,3.46,22,5.14,10.71,15.64,17.8,26.8,17.8,7.95,0,16.65-3.31,23.53-8.9l28.11,32.12A77.8,77.8,0,0,1,478.89,292.35Z" transform="translate(-3.69 -0.15)"></path><polygon points="328.99 64.5 269.92 222.88 210.85 64.5 162.65 64.5 245.82 287.5 294.02 287.5 377.19 64.5 328.99 64.5"></polygon><path d="M84.69,292.16c-34.79,0-64-18.24-81-42.54l35.2-25.5c13.66,16.8,29.43,26,44.5,26,18.06,0,33.25-9.21,33.25-24.88,0-16.4-18.6-23.89-29.17-28.4-9.1-3.9-13.61-5.78-23.86-10.18-31.74-13.6-47.94-34.88-47.94-62.86,0-40.55,33.31-63.35,68.9-63.35,27.35,0,52.89,12.87,67,33.67L118.13,118.4c-10.06-10.75-20.57-16-32.11-16-13.56,0-25.65,7.63-25.65,21.62,0,10.47,8.69,19.24,26.59,26.8,3.58,1.51,22.22,9.79,26.74,11.86,32.32,14.82,48,35.07,48,61.9C161.73,265.47,127.93,292.16,84.69,292.16Z" transform="translate(-3.69 -0.15)"></path></g></g></svg>',
+      "friendlyName": "SVT Play",
+      "className": "svtPlayButton",
+      "appName": "se.svt.android.svtplay",
+      "androidName": "se.svt.android.svtplay",
+      "adbLaunchCommand": "adb shell am start -n se.svt.android.svtplay/se.svt.svtplay.ui.tv.MainActivity",
+      "deviceFamily": ["nvidia-shield", "xiaomi"], },
 
 
   "telenet-tv": {
@@ -1130,7 +1159,7 @@ const fastappchoices = {
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
-const appButtonMax = { "AF4": 6, "AF5": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
+const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
@@ -1279,6 +1308,10 @@ class FiremoteCard extends LitElement {
             grid-row-gap: calc(var(--sz) * 0.5rem);
             grid-template-columns: 1fr 1fr 1fr;
             width: calc(var(--sz) * 12.286rem);
+          }
+
+          .remote-body.AF6 {
+            border-radius: calc(var(--sz) * 2.8rem);
           }
 
           .XM2 {
@@ -1476,6 +1509,12 @@ class FiremoteCard extends LitElement {
             color: #835437;
           }
 
+          #headset-button {
+            height: calc(var(--sz) * 2.8rem);
+            width: calc(var(--sz) * 2.8rem);
+            margin-bottom: calc(var(--sz) * -0.643rem);
+          }
+
           .shield-remote-body #home-button {
             --mdc-icon-size: 17px;
           }
@@ -1666,9 +1705,15 @@ class FiremoteCard extends LitElement {
           .remote-body #volume-up-button, .remote-body #volume-down-button {
               font-size: calc(var(--sz) * 2.5rem);
           }
+          .remote-body #programmable-one-button, .remote-body #programmable-two-button {
+              font-size: calc(var(--sz) * 1.75rem);
+          }
 
           .remote-body #volume-up-button:active, .remote-body #volume-down-button:active {
               font-size: calc(var(--sz) * 2rem);
+          }
+          .remote-body #programmable-one-button:active, .remote-body #programmable-two-button:active {
+              font-size: calc(var(--sz) * 1.45rem);
           }
 
           .srcButton {
@@ -1732,6 +1777,14 @@ class FiremoteCard extends LitElement {
             justify-items: center;
           }
 
+          .AF6 .deviceNameTop {
+            grid-column: 1 / 4;
+            display: block;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+          }
+
           .AL1 .deviceNameTop, .AL2 .deviceNameTop {
             margin: 0rem 0px calc(var(--sz) * 1.25rem);
             display: block;
@@ -1770,6 +1823,10 @@ class FiremoteCard extends LitElement {
             width: 100%;
             text-align: center;
             align-self: flex-end;
+          }
+
+          .AF6 .deviceNameBottom {
+            margin-bottom: calc(var(--sz) * -1rem);
           }
 
           .AL1 .deviceNameBottom, .AL2 .deviceNameBottom {
@@ -1850,6 +1907,10 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 4rem);
           }
 
+          .crunchyrollButton {
+            background: #23252b;
+          }
+
           .cyberghostButton {
             background: #242538;
           }
@@ -1912,7 +1973,7 @@ class FiremoteCard extends LitElement {
             background: linear-gradient(0deg, rgba(255,159,82,1) 0%, rgba(193,87,0,1) 40%, rgba(193,87,0,1) 60%, rgba(255,159,82,1) 100%);
             font-weight: bold;
             color: #fff;
-            font-size: 0.9rem;
+            font-size: calc(var(--sz) * 0.9rem);
           }
 
           .freeveeButton {
@@ -2187,6 +2248,16 @@ class FiremoteCard extends LitElement {
             background: #fff;
           }
 
+          .svtPlayButton {
+            background: #000;
+          }
+          .svtPlayButton svg {
+            height: calc(var(--sz) * 1.2rem);
+          }
+          .shield-remote-body .svtPlayButton svg {
+            height: calc(var(--sz) * 1.6rem);
+          }
+
           .telenetTvButton {
             background: #332822;
           }
@@ -2376,6 +2447,10 @@ class FiremoteCard extends LitElement {
             grid-column-end: 4;
             padding: calc(var(--sz) * 2.5rem) calc(var(--sz) * 2.357rem) 0 calc(var(--sz) * 2.357rem);
             width: calc(var(--sz) * 7.5714rem);
+          }
+
+          .AF6 .remote-logo {
+            padding: calc(var(--sz) * .75rem) calc(var(--sz) * 2.357rem) 0 calc(var(--sz) * 2.357rem);
           }
 
           .miLogo {
@@ -3132,6 +3207,103 @@ class FiremoteCard extends LitElement {
     }
 
 
+    // Render Amazon Fire Remote Style AF6
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AF6' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="remote-body AF6">
+
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <div class="notch"> </div>
+          <button class="remote-button" id="headset-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:headphones"></ha-icon>
+          </button>
+
+          <div> </div>
+          <button class="remote-button keyboard-button teal" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:home-outline"></ha-icon>
+          </button>
+          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+
+          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            +
+          </button>
+          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:television-classic"></ha-icon>
+          </button>
+          <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu-up"></ha-icon>
+          </button>
+
+          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            &#x2013;
+          </button>
+          <button class="remote-button" id="settings-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:cog"></ha-icon>
+          </button>
+          <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu-down"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-mute"></ha-icon>
+          </button>
+          <button class="remote-button" id="programmable-one-button" @click=${this.buttonClicked}>
+            1
+          </button>
+          <button class="remote-button" id="programmable-two-button" @click=${this.buttonClicked}>
+            2
+          </button>
+
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["AF6"])}
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${renderfiretvlogo()}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+
     // Render NVIDIA Shield Remote Style NS1
     if ( getDeviceAttribute('defaultRemoteStyle') == 'NS1' ) {
     return html`
@@ -3754,6 +3926,23 @@ class FiremoteCard extends LitElement {
       return;
     }
 
+    // Headset Button
+    if(clicked.target.id == 'headset-button') {
+      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent BUTTON_3'});
+      return;
+    }
+
+    // 1 Button
+    if(clicked.target.id == 'programmable-one-button') {
+      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent BUTTON_1'});
+      return;
+    }
+
+    // 2 Button
+    if(clicked.target.id == 'programmable-two-button') {
+      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent BUTTON_2'});
+      return;
+    }
 
     // App launch button (existing in JSON map)
     const clickedAppButtonID = clicked.target.id;
@@ -3925,7 +4114,7 @@ class FiremoteCardEditor extends LitElement {
 
   getAppChoices(buttonIndex, optionvalue, remoteStyle) {
     var family = this._config.device_family;
-    if(remoteStyle == "AF4" || remoteStyle == "AF5" || remoteStyle == "NS2" || remoteStyle == "XM2") {
+    if(remoteStyle == "AF4" || remoteStyle == "AF5" || remoteStyle == "AF6" || remoteStyle == "NS2" || remoteStyle == "XM2") {
       var appkeys = [];
       for (var [key, value] of appmap.entries()) {
         appkeys.push(key)
@@ -4079,6 +4268,7 @@ class FiremoteCardEditor extends LitElement {
           <option value="AF3">Amazon Fire Style 3</option>
           <option value="AF4">Amazon Fire Style 4</option>
           <option value="AF5">Amazon Fire Style 5</option>
+          <option value="AF6">Amazon Fire Style 6</option>
           <option value="NS1">NVIDIA Shield Style 1</option>
           <option value="NS2">NVIDIA Shield Style 2</option>
           <option value="XM1" disabled>Xiomi Mi Style 1</option>
