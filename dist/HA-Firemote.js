@@ -1050,10 +1050,12 @@ const fastappchoices = {
       "nvidia-shield": {
           "appName": "YouTube",
           "androidName": "com.google.android.youtube.tv",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity",
       },
       "xiaomi": {
           "appName": "YouTube",
           "androidName": "com.google.android.youtube.tv",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity",
       },
   },
 
