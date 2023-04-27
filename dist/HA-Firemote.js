@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.6 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.7 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -491,7 +491,7 @@ const fastappchoices = {
 
 
   "hulu": { 
-      "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 329.813" width="1000" height="329.813"><path d="M-241.012 192.768c16.556 13.46 24.846 34.472 24.846 63.043V399.29h-78.882V266.37c0-5.794-2.174-10.869-6.52-15.217-4.35-4.349-9.426-6.52-15.219-6.52h-45.963c-5.803 0-10.772 2.172-14.906 6.52-4.144 4.348-6.212 9.423-6.212 15.217v132.92h-79.504V69.475h79.503V176.93c1.243-.408 4.134-1.242 8.697-2.485 4.551-1.24 10.557-1.862 18.012-1.862h50.931c26.912 0 48.652 6.734 65.217 20.186zM9.3 172.581h79.503v139.13c0 26.087-7.144 47.205-21.428 63.354C53.088 391.215 33.726 399.29 9.3 399.29h-78.26c-27.33 0-49.176-7.55-65.528-22.67-16.364-15.11-24.536-36.743-24.536-64.907v-139.13h79.503v132.92c0 5.803 2.07 10.771 6.212 14.906 4.134 4.144 9.104 6.211 14.907 6.211h45.964c5.793 0 10.868-2.067 15.217-6.21 4.35-4.136 6.521-9.105 6.521-14.908zM149.05 69.476h79.503V399.29H149.05zm387.578 103.105v139.13c0 26.087-7.144 47.205-21.429 63.354-14.285 16.15-33.646 24.224-58.074 24.224h-77.64c-27.746 0-49.797-7.55-66.149-22.67-16.363-15.11-24.534-36.743-24.534-64.907v-139.13h79.503v132.92c0 5.803 2.066 10.771 6.211 14.906 4.135 4.144 9.104 6.211 14.906 6.211h46.584c5.795 0 10.764-2.067 14.907-6.21 4.134-4.136 6.212-9.105 6.212-14.908v-132.92z" style="fill:#000;fill-opacity:1" transform="translate(463.372 -69.476)"/></svg>',
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 329.813" width="1000" height="329.813"><path class="huluButtonSVG" d="M-241.012 192.768c16.556 13.46 24.846 34.472 24.846 63.043V399.29h-78.882V266.37c0-5.794-2.174-10.869-6.52-15.217-4.35-4.349-9.426-6.52-15.219-6.52h-45.963c-5.803 0-10.772 2.172-14.906 6.52-4.144 4.348-6.212 9.423-6.212 15.217v132.92h-79.504V69.475h79.503V176.93c1.243-.408 4.134-1.242 8.697-2.485 4.551-1.24 10.557-1.862 18.012-1.862h50.931c26.912 0 48.652 6.734 65.217 20.186zM9.3 172.581h79.503v139.13c0 26.087-7.144 47.205-21.428 63.354C53.088 391.215 33.726 399.29 9.3 399.29h-78.26c-27.33 0-49.176-7.55-65.528-22.67-16.364-15.11-24.536-36.743-24.536-64.907v-139.13h79.503v132.92c0 5.803 2.07 10.771 6.212 14.906 4.134 4.144 9.104 6.211 14.907 6.211h45.964c5.793 0 10.868-2.067 15.217-6.21 4.35-4.136 6.521-9.105 6.521-14.908zM149.05 69.476h79.503V399.29H149.05zm387.578 103.105v139.13c0 26.087-7.144 47.205-21.429 63.354-14.285 16.15-33.646 24.224-58.074 24.224h-77.64c-27.746 0-49.797-7.55-66.149-22.67-16.363-15.11-24.534-36.743-24.534-64.907v-139.13h79.503v132.92c0 5.803 2.066 10.771 6.211 14.906 4.135 4.144 9.104 6.211 14.906 6.211h46.584c5.795 0 10.764-2.067 14.907-6.21 4.134-4.136 6.212-9.105 6.212-14.908v-132.92z" style="fill:#000;fill-opacity:1" transform="translate(463.372 -69.476)"/></svg>',
       "friendlyName": "Hulu",
       "className": "huluButton",
       "deviceFamily": ["amazon-fire", "nvidia-shield"],
@@ -783,6 +783,17 @@ const fastappchoices = {
           "androidName": "com.sky.news.androidtv",
       },
    },
+
+
+  "sky-sport-now": {
+      "button": '<svg version="1.1" id="ssnid" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 940 141" style="enable-background:new 0 0 940 141" xml:space="preserve"><style>.ssn0{fill:#f32836}.ssn1{fill:#000139}.ssn2{fill:#fff}</style><path class="ssn0" d="m287.5 67.5-15-4c-5.5-1.5-8-4-8-7.5 0-2.5 1-4.5 3.5-6s5-2 8.5-2c5.5 0 11 2 16.5 6.5 2.5 2 4.5 2 6.5 0L305 49c2-2 1.5-4-.5-6-2.5-2.5-6.5-5-11.5-6.5-5-2-10-2.5-16-2.5-9 0-16.5 2.5-22 7-6 4.5-8.5 10.5-8.5 17.5 0 5.5 1.5 10.5 5 14 3.5 4 8 6.5 14.5 8l13.5 3.5c4 1 6.5 2 8.5 3.5s3 3.5 3 5.5c0 2.5-1 4-3.5 6s-5.5 2.5-9.5 2.5c-7 0-13.5-2.5-19-8-2-2-4-2.5-6-1l-7 5.5c-1 1-1.5 2-1.5 3.5s1 2.5 2 3.5c3 3 7 6 12.5 8s11.5 3.5 18.5 3.5c10 0 18-2.5 23.5-7.5s8.5-11 8.5-17.5c0-12.5-7.5-20-22-24zM372.5 42.5c-5-5-12-7.5-20.5-7.5h-31c-.5 0-1.5 0-2 .5s-.5 1-.5 2v74c0 .5 0 1.5.5 2s1 1 2 .5h12c.5 0 1.5-.5 2-.5.5-.5 1-1 .5-2v-24H352c8.5 0 15.5-2.5 20.5-7.5s7.5-11.5 7.5-19c-.5-7-3-13.5-7.5-18.5zm-14 27c-2.5 2-5 3-8.5 3.5h-14.5V50H350c3.5 0 6.5 1 8.5 3 2.5 2 3.5 5 3.5 8.5 0 3-1 6-3.5 8zM456 45c-8-8-18-12-30-12s-21.5 4-30 12c-8 8-12 17.5-12 29.5s4 21.5 12 29.5 18 12 30 12 21.5-4 30-12c8-8 12-17.5 12-29.5S464 53 456 45zm-12.5 47.5c-4.5 5-10.5 7.5-17.5 7.5s-13-2.5-17.5-7.5-7-11-7-18 2.5-13 7-18S419 49 426 49s13 2.5 17.5 7.5 7 11 7 18-2.5 13-7 18zM544.5 111l-18-29c3.5-1 7-3.5 9.5-6 2.5-3 4-5.5 5-8.5 1-2.5 1.5-5.5 1.5-8.5 0-7-2.5-12.5-7.5-17.5-5-4.5-11.5-7-20-7h-35.5c-1 0-1.5.5-2 1s-.5 1-.5 1.5v74c0 .5 0 1.5.5 2s1 1 2 .5h12c.5 0 1.5 0 2-.5s1-1 .5-2V84.5h15l16.5 27c1 1.5 2.5 2.5 4.5 2.5h13c1 0 1.5-.5 2-1 0-.5 0-1.5-.5-2zM521 68c-2 2-5 3-8.5 3h-19V50h19c3 0 6 1 8.5 3 2 2 3.5 4.5 3.5 7.5S523 66 521 68zM613 35.5c-.5-.5-1-1-2-.5h-62.5c-.5 0-1.5.5-2 .5-.5.5-1 1-.5 2V48c0 .5 0 1.5.5 2s1 .5 2 .5H571v61c0 .5 0 1.5.5 2s1 1 2 .5H586c.5 0 1.5 0 2-.5s1-1 .5-2v-61H611c.5 0 1.5-.5 2-.5.5-.5 1-1 .5-2V37.5c0-.5 0-1.5-.5-2z"/><g><path class="ssn1" d="m58 70-18.5-7.5c-5.5-2.5-7.5-4-7-6s1.5-3.5 7-3.5h38c1 0 2-.5 2-1.5l3-14c.5-1-.5-2-1.5-2.5H40.5C21.5 35 14 45 12 55.5 9 69 19.5 75 27.5 78L48 86.5c5 2 6 4 5 6-.5 2-2.5 3.5-8.5 3.5H5c-1 0-2 .5-2 1.5L0 112c0 1 .5 2 1.5 2.5h43c19.5 0 26-10 28.5-21C76 79 67.5 74 58 70zM236 35h-18c-.5 0-1 .5-1.5.5l-29 33L168 36c-.5-.5-1-1-2-1h-25c-.5 0-1 .5-1.5.5L105 74l23.5 39.5c.5.5 1 1 2 1H149c1 0 2-1 2-2 0-.5 0-.5-.5-1l-22.5-37L151.5 48l23 39-11 51.5c0 1 .5 2 1.5 2.5h16c1 0 2-.5 2-1.5l12-53 42.5-48c1-1 .5-2 0-3-.5-.5-1-.5-1.5-.5z"/><path class="ssn1" d="M118.5 0h-16c-1 0-2 .5-2 1.5L77 112c0 1 .5 2 1.5 2.5H95c1 0 2-.5 2-1.5L120.5 2.5c0-1.5-.5-2.5-2-2.5z"/></g><g><path class="ssn1" d="M934 17H637.5c-3.5 0-6 3-6 6v102c0 3.5 3 6 6 6H934c3.5 0 6-3 6-6V23.5c0-3.5-3-6.5-6-6.5z"/><path class="ssn2" d="M717.5 111.5c0 1-.5 1.5-1 2s-1 .5-2 .5h-13c-2.5 0-4.5-1-5.5-2.5l-31-50V112c0 .5 0 1.5-.5 2s-1 .5-2 .5h-12c-1.5 0-2.5-1-2.5-2V37c0-.5 0-1.5.5-2s1.5-.5 2-.5H666c1.5 0 3 .5 3.5 2l30.5 49V37c0-1.5 1-2.5 2-2.5h12.5c.5 0 1.5.5 2 .5.5.5 1 1 1 2v74.5zM925 38.5 907 112c0 1-1 1.5-1.5 2s-1 .5-1.5.5h-18c-1.5 0-3-1-3-2.5l-13-51-12.5 51c-.5 1.5-1.5 2.5-3 2.5H835c-1.5 0-3-1-3-2.5l-18.5-73.5c-.5-1 0-2 .5-3s1-1 2-1h13.5c1.5 0 2.5 1 2.5 2v.5l13 57 14-57c.5-1.5 1.5-2.5 2.5-2.5H877c1.5 0 2.5 1 2.5 2v.5l14 56.5 13-56.5c.5-1.5 1-2.5 2.5-2.5h13c3 0 3.5 1 3 4zM799.5 45c-8-8-18-12-30-12s-22 4-30 12C731 53 727 63 727 74.5s4.5 21.5 12.5 29.5 18 12 30 12 22-4 30-12 12-18 12.5-29.5C811.5 63 807.5 53 799.5 45zM787 92c-4.5 5-10.5 7.5-17.5 7.5s-13-3-17.5-7.5-7-11-7-18 2.5-13 7-18 10.5-7.5 17.5-7.5 13 3 17.5 7.5 7 11 7 18-2.5 13-7 18z"/></g></svg>',
+      "friendlyName": "Sky Sport Now (NZ)",
+      "className": "skySportNowButton",
+      "appName": "nz.co.skytv.fanpass.ced",
+      "androidName": "nz.co.skytv.fanpass.ced",
+      "adbLaunchCommand": "adb shell am start -n nz.co.skytv.fanpass.ced/com.dicetv.MainActivity",
+      "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
+
 
   "smart-tube-next": {
       "button": "STN",
@@ -1693,7 +1704,7 @@ class FiremoteCard extends LitElement {
 
           .round-bottom {
             border-radius: 0 0 100% 100%;
-            border-top: 0;
+             border-top: 0;
             height: calc(var(--sz) * 3.92857rem);
             margin-top: calc(var(--sz) * -0.5rem);
           }
@@ -1735,11 +1746,13 @@ class FiremoteCard extends LitElement {
             white-space: nowrap;
             overflow: hidden;
             filter: grayscale(25%) brightness(58%);
+            transition: filter 250ms;
           }
 
           .srcButton:active, .srcButton.appActive {
             filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 30%);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%);
+            transition: filter 0s;
           }
 
           .shield-remote-body .srcButton {
@@ -1748,8 +1761,14 @@ class FiremoteCard extends LitElement {
           }
 
           .srcButton:active {
-            transform: scale(0.9);
-            box-shadow: none !important;
+            filter: brightness(90%);
+            transform: scale(.95);
+            box-shadow: none;
+            //box-shadow: rgb(0 0 0 / 45%) 0px 3px 9px 2px inset !important;
+          }
+
+          .srcButton:active > * {
+            //transform: scale(.95);
           }
 
           .srcButton svg {
@@ -1940,6 +1959,9 @@ class FiremoteCard extends LitElement {
             background: #07183f;
             filter: brightness(60%);
           }
+          .AF6 .disneyPlusButton {
+            background: rgb(37, 37, 37);
+          }
           .disneyPlusButton svg {
             margin-top: calc(var(--sz) * 0.2rem);
             width: calc(var(--sz) * 3.6rem);
@@ -2004,8 +2026,18 @@ class FiremoteCard extends LitElement {
             background: #1ce783;
             filter: grayscale(30%) brightness(40%);
           }
+          .AF6 .huluButton {
+            background: rgb(37, 37, 37);
+            filter: grayscale(40%) brightness(65%);
+          }
+          .AF6 .huluButtonSVG {
+            fill: rgb(28, 231, 131)!important;
+          }
           .huluButton svg {
             width: calc(var(--sz) * 2.8rem);
+          }
+          .AF6 .huluButton:active, .AF6 .huluButton.appActive {
+            filter: none;
           }
 
           .ipVanishButton {
@@ -2054,27 +2086,28 @@ class FiremoteCard extends LitElement {
 
           .netflixButton {
             background: #fff;
-            filter: brightness(50%);
           }
-          .netflixButton > svg {
-            width: calc(var(--sz) * 3.8rem);
-          }
-          .netflixButton:active, .netflixButton.appActive {
-            filter: none;
-            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
-          }
-
           .shield-remote-body .netflixButton {
             background: #252525;
             filter: grayscale(30%) brightness(80%);
           }
+          .AF6 .netflixButton {
+            background: rgb(37, 37, 37);
+            filter: grayscale(30%) brightness(65%);
+          }
+          .netflixButton > svg {
+            width: calc(var(--sz) * 3.8rem);
+          }
           .shield-remote-body .netflixButton > svg {
             width: calc(var(--sz) * 4rem);
           }
-          .shield-remote-body .netflixButton:active, .netflixButton.appActive {
+          .shield-remote-body .netflixButton:active, .shield-remote-body .netflixButton.appActive {
             filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 87 87 / 15%);
             border: solid #480a0a calc(var(--sz) * 0.0714rem);
+          }
+          .AF6 .netflixButton:active, .AF6 .netflixButton.appActive {
+            filter: none;
           }
 
           .newsButton {
@@ -2158,6 +2191,9 @@ class FiremoteCard extends LitElement {
           .XM2 .primeButton {
             background: #fff;
           }
+          .AF6 .primeButton {
+            background: rgb(37, 37, 37);
+          }
           .primeButton svg {
             width: calc(var(--sz) * 3.8rem);
           }
@@ -2169,6 +2205,9 @@ class FiremoteCard extends LitElement {
           }
           .XM2 .primeButton .pv1 {
             fill: #232f3e;
+          }
+          .AF6 .primeButton .pv0, .AF6 .primeButton .pv1 {
+            fill: #99dcff;
           }
 
           .privateInternetAccessButton {
@@ -2209,6 +2248,11 @@ class FiremoteCard extends LitElement {
 
           .skyNewsButton {
             background: #fff;
+          }
+
+          .skySportNowButton {
+            background: #fff;
+            font-size: calc(var(--sz) * 1rem);
           }
 
           .smartTubeNextButton {
