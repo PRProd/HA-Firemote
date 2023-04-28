@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.8 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.9 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -550,6 +550,7 @@ const fastappchoices = {
       "amazon-fire": {
           "appName": "tv.accedo.xdk.dtag.production",
           "androidName": "tv.accedo.xdk.dtag.production",
+          "adbLaunchCommand": "adb shell am start -n tv.accedo.xdk.dtag.production/tv.accedo.xdk.dtag.MainActivity",
       },
       "nvidia-shield": {
           "appName": "Magenta TV",
