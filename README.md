@@ -119,6 +119,7 @@ Custom app launch buttons are not limited to the few that came printed on your r
 Options:
 | Value for YAML File     | App / Physical Input    | Amazon Fire Support | NVIDIA Shield Support | Xiaomi Mi Support |
 | ----------------------- | ----------------------- | :-----------------: | :-------------------: | :---------------: |
+| abc-iview               | ABC iview (AU)          | ✓                   | ✓                     | ✓                 |
 | amc-plus                | AMC+                    | ✓                   | ✓                     | ✓                 |
 | app-opener              | App Opener              | ✓                   |                       |                   |
 | apple-tv                | Apple TV                | ✓                   | ✓                     | ✓                 |
@@ -141,6 +142,7 @@ Options:
 | hulu                    | Hulu                    | ✓                   | ✓                     |                   |
 | ipvanish                | IPVanish VPN            | ✓                   | ✓                     | ✓                 |
 | jellyfin                | Jellyfin                | ✓                   | ✓                     | ✓                 |
+| kayo                    | Kayo Sports (AU)        | ✓                   | ✓                     | ✓                 |
 | kodi                    | Kodi                    | ✓                   | ✓                     | ✓                 |
 | magenta-tv              | Magenta TV              | ✓                   | ✓                     | ✓                 |
 | myCanal                 | my CANAL                | ✓                   | ✓                     | ✓                 |
@@ -149,6 +151,7 @@ Options:
 | nordvpn                 | Nord VPN                | ✓                   | ✓                     | ✓                 |
 | now-tv                  | Now TV                  | ✓                   |                       |                   |
 | npo                     | NPO (NL)                |                     | ✓                     | ✓                 |
+| optus-sport             | Optus Sport (AU)        | ✓                   | ✓                     | ✓                 |
 | ott-navigator           | OTT Navigator           | ✓                   | ✓                     | ✓                 |
 | oqee-by-free            | OQEE by Free (FR)       | ✓                   |                       |                   |
 | pandora                 | Pandora                 | ✓                   | ✓                     | ✓                 |
@@ -159,6 +162,7 @@ Options:
 | prime-video             | Prime Video             | ✓                   | ✓                     | ✓                 |
 | private-internet-access | Private Internet Access |                     | ✓                     | ✓                 |
 | raiplay                 | RaiPlay (IT)            | ✓                   | ✓                     | ✓                 |
+| sbs-on-demand           | SBS On Demand (AU)      | ✓                   | ✓                     | ✓                 |
 | shophq                  | ShopHQ                  | ✓                   |                       |                   |
 | showtime                | Showtime                | ✓                   | ✓                     | ✓                 |
 | sky-news                | Sky News                | ✓                   | ✓                     | ✓                 |
@@ -166,6 +170,7 @@ Options:
 | smart-tube-next         | Smart Tube Next         | ✓                   | ✓                     | ✓                 |
 | smart-tube-next-beta    | Smart Tube Next Beta    | ✓                   | ✓                     | ✓                 |
 | spotify                 | Spotify                 | ✓                   | ✓                     | ✓                 |
+| stan                    | Stan (AU)               | ✓                   | ✓                     | ✓                 |
 | starz                   | Starz                   | ✓                   | ✓                     | ✓                 |
 | streamz                 | streamz (BE)            |                     | ✓                     | ✓                 |
 | stremio                 | Stremio                 | ✓                   | ✓                     | ✓                 |
@@ -183,6 +188,7 @@ Options:
 | vrt-max                 | VRT MAX (BE)            |                     | ✓                     | ✓                 |
 | vlc                     | VLC                     |                     | ✓                     | ✓                 |
 | waipuTV                 | Waipu TV (DE)           | ✓                   |                       |                   |
+| xciptv-player           | XCIPTV Player           | ✓                   | ✓                     | ✓                 |
 | xfinityStream           | Xfinity Stream          | ✓                   | ✓                     |                   |
 | youtube                 | YouTube                 | ✓                   | ✓                     | ✓                 |
 | youtubekids             | YouTube Kids            | ✓                   | ✓                     | ✓                 |
