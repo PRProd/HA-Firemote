@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.10-beta1 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.10 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -562,6 +562,16 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
 
 
+  "live-channels": {
+      "button": 'Live Channels',
+      "friendlyName": "Live Channels",
+      "className": "liveChannelsButton",
+      "appName": "Live Channels",
+      "androidName": "com.google.android.tv",
+      "adbLaunchCommand": "adb shell am start -n com.google.android.tv/com.android.tv.MainActivity",
+      "deviceFamily": ["nvidia-shield", "xiaomi"], },
+
+
   "magenta-tv": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 643.262 79.536" overflow="visible" xml:space="preserve"><path fill="#E20074" d="M272.893 4.834c-18.561 0-28.992 13.544-28.992 35.014 0 21.468 9.83 35.012 29.292 35.012 16.955 0 26.883-10.935 26.883-33.108v-3.708h-26.079v11.638h12.238c-1.105 8.931-5.921 12.238-13.044 12.238-10.132 0-15.248-7.625-15.248-22.071 0-14.45 5.421-22.07 14.949-22.07 5.916 0 10.235 3.209 11.738 8.225h14.447c-1.907-12.541-11.74-21.17-26.184-21.17M643.262 6.34h-14.043l-14.345 46.952h-.605L599.926 6.34h-13.944l21.769 67.017h13.646L643.262 6.34zm-62.027 0h-47.853v12.54h17.157v54.478h13.543V18.879h17.152V6.34zm-82.06 0h-13.54l-22.876 67.017h13.744l4.215-12.941h23.271l4.318 12.941h13.742L499.175 6.34zm-14.248 41.434 7.128-21.772h.6l7.224 21.772h-14.952zM467.595 6.34H419.74v12.54h17.162v54.478h13.541V18.879h17.151V6.34zm-55.224 0h-13.443v42.136h-.6L374.251 6.34h-13.74v67.017h13.538V31.419h.604l23.977 41.938h13.742V6.34zm-63.088 0H309.86v67.017h39.423V60.818h-25.885V45.575h24.882V33.023h-24.882V18.879h25.881l.004-12.539zm-129.668 0h-13.543l-22.876 67.017h13.745l4.21-12.941h23.278l4.312 12.941h13.745L219.615 6.34zm-14.248 41.434 7.122-21.772h.603l7.225 21.772h-14.95zM176.268 6.34h-12.44l-19.866 37.117h-.602L123.397 6.34h-12.439v67.017H124.5V35.533h.603l16.352 29.499h4.315l16.452-29.499h.601v37.823h13.444V6.34z"/><defs><path id="magtva" d="M26.343 79.536c-1.86 0-4.145-1.316-5.075-2.929L1.691 42.699c-.93-1.612-.93-4.248 0-5.86L21.269 2.93C22.198 1.32 24.483 0 26.343 0h39.154c1.86 0 4.145 1.32 5.074 2.93l19.578 33.909c.93 1.612.93 4.248 0 5.86L70.571 76.607c-.93 1.612-3.214 2.929-5.074 2.929H26.343z"/></defs><clipPath id="magtvclipb"><use xlink:href="#magtva"/></clipPath><path clip-path="url(#magtvclipb)" fill="#E10073" d="m31.305 14.46 43.876 25.329-43.876 25.335z"/><path clip-path="url(#magtvclipb)" fill="#FDF3F8" d="M31.305 14.46 68.879 0l6.302 39.789z"/><path clip-path="url(#magtvclipb)" fill="#F29DC9" d="m75.181 39.789-6.302 39.747-37.574-14.412z"/><path clip-path="url(#magtvclipb)" fill="#FDF3F8" d="M31.305 65.124 0 39.77l31.305-25.31z"/><path clip-path="url(#magtvclipb)" fill="#EB56A1" d="M31.305 14.46 22.96 0h45.919z"/><path clip-path="url(#magtvclipb)" fill="#F29DC9" d="M0 39.77 22.96 0l8.345 14.46zM75.181 39.789 68.879 0 91.84 39.77z"/><path clip-path="url(#magtvclipb)" fill="#EB56A1" d="m68.879 79.536 6.302-39.747 16.659-.019zM22.96 79.536l8.345-14.412 37.574 14.412z"/><path clip-path="url(#magtvclipb)" fill="#F29DC9" d="M22.96 79.536 0 39.77l31.305 25.354z"/></svg>',
       "friendlyName": 'Magenta TV',
@@ -583,6 +593,16 @@ const fastappchoices = {
           "adbLaunchCommand": "adb shell am start -n de.telekom.magentatv.atv/tv.accedo.xdk.dtag.MainActivity",
       },
    },
+
+
+  "movistar-plus": {
+      "button": '<svg viewBox="0 0 298.88 134.78" xmlns="http://www.w3.org/2000/svg"><g><path fill="#fff" d="M144 .68a22.24 22.24 0 0 1 20 4.74c7.76 6.69 11.12 16.8 13.9 26.33a148.4 148.4 0 0 1 2.47 61.73c-.74 4.84-2.29 10-6.31 13.14-3.56 3-9.51 3.06-12.67-.55-2.86-3.39-3.17-8.12-2.79-12.36.86-9.7 2.27-19.4 1.86-29.17-.2-3.62-.64-7.48-2.81-10.51a8.57 8.57 0 0 0-10.41-2.79c-5.71 2.64-9.28 8.22-12.18 13.57-6.54 13-10.21 27.2-14.76 41-2.4 6.92-6.3 13.63-12.4 17.9-7.22 5.06-16.38 6.4-25 6-10.69-.64-20.16-7.5-25.66-16.45-6.33-10.44-12.2-21.16-18.35-31.71-1.85-3-3.76-6.15-6.77-8.1-3.2-2.18-8-.27-9.24 3.28-1.46 3.82-1.11 8.06-.5 12 1.8 10.58 6 20.54 8.46 30.94.89 3.86 1.37 8.34-1 11.77-3.36 4.82-11.26 4.19-14.72-.19S9.88 121.54 8 116.39C1.76 97.91-2.08 78 1.19 58.55 3.26 46.3 6.6 33.43 15.31 24.12c7.24-8 19.66-11 29.53-6.4 5.59 2.77 10 7.46 13.78 12.32 5.32 7.08 10 14.6 14.67 22.13 3.12 5 7.2 9.7 12.73 12a15.18 15.18 0 0 0 16.32-3.07c3.09-2.94 4.78-7 6.36-10.84 4.16-10.31 8.13-20.71 13-30.73C126.07 10.58 134.11 3 144 .68zM241.26 20.87H267v31.87h31.87V78.5H267v31.87h-25.75V78.5h-31.88V52.75h31.88c.01-10.63-.01-21.25.01-31.88z"/></g></svg>',
+      "friendlyName": "Movistar Plus+",
+      "className": "movistarPlusButton",
+      "appName": "com.movistarplus.androidtv",
+      "androidName": "com.movistarplus.androidtv",
+      "adbLaunchCommand": "adb shell am start -n com.movistarplus.androidtv/com.movistarplus.androidtv.MainActivity",
+      "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
 
 
   "myCanal": {
@@ -1352,6 +1372,7 @@ class FiremoteCard extends LitElement {
             box-shadow: none;
             border: 0;
             outline: 0;
+            isolation: isolate;
           }
 
           .hidden {
@@ -2153,8 +2174,27 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 5.25rem);
           }
 
+          .liveChannelsButton {
+            color: #fff;
+            background: #17b0f5;
+            font-size: calc(var(--sz) * .75rem);
+          }
+          .shield-remote-body .liveChannelsButton {
+            font-size: calc(var(--sz) * 1rem);
+          }
+
           .magentaTVButton {
             background: #fff;
+          }
+
+          .movistarPlusButton {
+            background: #2b2b2b;
+          }
+          .movistarPlusButton svg {
+            height: calc(var(--sz) * 1.2rem);
+          }
+          .shield-remote-body .movistarPlusButton svg {
+            height: calc(var(--sz) * 2rem);
           }
 
           .myCanalButton {
@@ -4355,6 +4395,11 @@ class FiremoteCardEditor extends LitElement {
     if(this._config.entity == '') {
       blankEntity = html `<option value="" selected> - - - - </option> `;
     }
+
+/// TODO:
+    //var remoteEntities = this.getEntitiesByPlatform('androidtv_remote');
+    //console.log('the available remoteEntities are ' + remoteEntities);
+    //console.log(this.hass.entities);
 
     if(!this._config.device_family) {
         this._config.device_family = devicemap.keys().next().value;

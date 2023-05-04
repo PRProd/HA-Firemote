@@ -144,7 +144,9 @@ Options:
 | jellyfin                | Jellyfin                | ✓                   | ✓                     | ✓                 |
 | kayo                    | Kayo Sports (AU)        | ✓                   | ✓                     | ✓                 |
 | kodi                    | Kodi                    | ✓                   | ✓                     | ✓                 |
+| live-channels           | Live Channels           |                     | ✓                     | ✓                 |
 | magenta-tv              | Magenta TV              | ✓                   | ✓                     | ✓                 |
+| movistar-plus           | Movistar Plus+          | ✓                   | ✓                     | ✓                 |
 | myCanal                 | my CANAL                | ✓                   | ✓                     | ✓                 |
 | netflix                 | Netflix                 | ✓                   | ✓                     | ✓                 |
 | news                    | News by Fire TV         | ✓                   |                       |                   |
