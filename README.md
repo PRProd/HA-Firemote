@@ -42,7 +42,7 @@ Which Xiaomi Mi device do I own?
 
 ## Download and Setup via Home Assistant UI & HACS
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
-1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
+1. Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
 1. Click on HACS and select Frontend
 1. In the lower right-hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
 1. Search for, and click on "Firemote Card" then click the "DOWNLOAD" button in the lower right-hand corner
@@ -50,7 +50,7 @@ Which Xiaomi Mi device do I own?
 
 ## OR Install Manually
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon device
-1. Set up the Home Assistant [Android TV Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
+1. Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your Amazon Fire Device
 1. Download the contents of the [dist/](https://github.com/PRProd/HA-Firemote/blob/main/dist/) directory, and place it in your Home Assistant /config/www directory
 1. [Register the HA-Firemote.js file that you just installed as a new resource](https://developers.home-assistant.io/docs/frontend/custom-ui/registering-resources/)
 
@@ -60,8 +60,8 @@ Which Xiaomi Mi device do I own?
 ## How to use
 1. On any dashboard, click the +ADD CARD button
 1. Search by cards for "Firemote Card" and click on it
-1. Under the Entity dropdown, a list of your Android TV integration entities will appear.  Select the one you wish to control.
-1. Under Device Family, choose "Amazon Fire" or "NVIDIA Shield"
+1. Under the Entity dropdown, a list of your Android Debug Bridge integration entities will appear.  Select the one you wish to control.
+1. Under Device Family, choose "Amazon Fire", "NVIDIA Shield", or "Xiaomi"
 1. Under Device Type, select the device model that you own. (Which [Amazon Fire](https://developer.amazon.com/docs/fire-tv/device-specifications.html) or [NVIDIA Shield](https://www.nvidia.com/en-us/shield/)  device do I own?)
 1. Make any other optional changes to your card, then click "SAVE"
 
