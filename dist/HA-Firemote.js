@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.1.10 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.2.0-b1 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -1356,7 +1356,7 @@ class FiremoteCard extends LitElement {
 
   setConfig(config) {
     if (!config.entity) {
-     throw new Error('You need to define a Fire TV, NVIDIA Shield, Xiaomi Mi, or other Android TV entity');
+     throw new Error('You need to define a Fire TV, NVIDIA Shield, Xiaomi Mi, or other Android Debug Bridge entity');
     }
     this._config = config;
   }
@@ -2737,7 +2737,12 @@ class FiremoteCard extends LitElement {
 
 
     getOpenAppID() {
-      return this.hass.states[this._config.entity].attributes.app_id;
+      if(this._config.android_tv_remote_entity == '' || typeof this._config.android_tv_remote_entity == 'undefined' || this._config.device_family == 'amazon-fire' ) {
+        return this.hass.states[this._config.entity].attributes.app_id;
+      }
+      else {
+        return this.hass.states[this._config.android_tv_remote_entity].attributes.current_activity;
+      }
     }
 
 
@@ -2754,7 +2759,8 @@ class FiremoteCard extends LitElement {
     const entityId = this._config.entity;
     const state = this.hass.states[entityId];
     const stateStr = state ? state.state : 'off';
-    const appId = state.attributes.app_id;
+    // const appId = state.attributes.app_id;
+    const appId = this.getOpenAppID();
     const deviceType = this._config.device_type;
     const scale = (parseInt(this._config.scale) || 100)/100;
     const overrides = this._config.button_overrides;
@@ -3782,6 +3788,7 @@ class FiremoteCard extends LitElement {
     const deviceFamily = this._config.device_family;
     const compatibility_mode = this._config.compatibility_mode || 'default';
     const overrides = this._config.button_overrides;
+    const atvRemoteEntity = this._config.android_tv_remote_entity;
 
     // Check for button override before proceeding
     if(typeof overrides !== 'undefined' && overrides !== null) {
@@ -3819,6 +3826,12 @@ class FiremoteCard extends LitElement {
     // provide haptic feedback for button press
     fireEvent(this, 'haptic', 'light')
 
+    // Check for user set Associated Android TV Remote Integration entity
+    var hasATVAssociation = true;
+    if(atvRemoteEntity == '' || typeof atvRemoteEntity == 'undefined' || deviceFamily == 'amazon-fire' ) {
+        hasATVAssociation = false;
+    }
+
     // Choose event listener path for client android device
     var eventListenerBinPath = '';
     if(compatibility_mode == 'default' || compatibility_mode == 'strong' || compatibility_mode == '') {
@@ -3832,7 +3845,10 @@ class FiremoteCard extends LitElement {
     if(clicked.target.id == 'power-button') {
       const state = this.hass.states[this._config.entity];
       const stateStr = state ? state.state : 'off';
-      if (compatibility_mode == 'strong' && eventListenerBinPath == 'undefined') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_POWER' });
+      }
+      else if (compatibility_mode == 'strong' && eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
       }
       else if(compatibility_mode == 'strong') {
@@ -3869,7 +3885,10 @@ class FiremoteCard extends LitElement {
 
     // Up Button
     if(clicked.target.id == 'up-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_UP' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'UP' });
       }
       else {
@@ -3880,7 +3899,10 @@ class FiremoteCard extends LitElement {
 
     // Left Button
     if(clicked.target.id == 'left-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_LEFT' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'LEFT' });
       }
       else {
@@ -3891,7 +3913,10 @@ class FiremoteCard extends LitElement {
 
     // Center Button
     if(clicked.target.id == 'center-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_CENTER' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'CENTER' });
       }
       else {
@@ -3910,7 +3935,10 @@ class FiremoteCard extends LitElement {
 
     // Right Button
     if(clicked.target.id == 'right-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_RIGHT' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RIGHT' });
       }
       else {
@@ -3921,7 +3949,10 @@ class FiremoteCard extends LitElement {
 
     // Down Button
     if(clicked.target.id == 'down-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_DOWN' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'DOWN' });
       }
       else {
@@ -3952,13 +3983,23 @@ class FiremoteCard extends LitElement {
 
     // Back Button
     if(clicked.target.id == 'back-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'BACK' });
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_BACK' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'BACK' });
+      }
       return;
     }
 
     // Home Button
     if(clicked.target.id == 'home-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'HOME' });
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_HOME' });
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'HOME' });
+      }
       return;
     }
 
@@ -3981,7 +4022,10 @@ class FiremoteCard extends LitElement {
 
     // Rewind Button
     if(clicked.target.id == 'rewind-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_REWIND' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'REWIND' });
       }
       else {
@@ -3992,7 +4036,10 @@ class FiremoteCard extends LitElement {
 
     // Play/Pause Button
     if(clicked.target.id == 'playpause-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_PLAY_PAUSE' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
         this.hass.callService("media_player", "media_play_pause", { entity_id: this._config.entity});
       }
       else {
@@ -4003,7 +4050,10 @@ class FiremoteCard extends LitElement {
 
     // Fast Forward Button
     if(clicked.target.id == 'fastforward-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_FAST_FORWARD' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'FAST_FORWARD' });
       }
       else {
@@ -4019,7 +4069,10 @@ class FiremoteCard extends LitElement {
 
     // Volume Up Button
     if(clicked.target.id == 'volume-up-button') {
-      if(deviceFamily == 'nvidia-shield') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_UP' });
+      }
+      else if(deviceFamily == 'nvidia-shield') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --show --adj raise' });
       }
       else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
@@ -4039,7 +4092,10 @@ class FiremoteCard extends LitElement {
 
     // Volume Down Button
     if(clicked.target.id == 'volume-down-button') {
-      if(deviceFamily == 'nvidia-shield') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_DOWN' });
+      }
+      else if(deviceFamily == 'nvidia-shield') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --show --adj lower' });
       }
       else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
@@ -4072,7 +4128,10 @@ class FiremoteCard extends LitElement {
 
     // Mute Button
     if(clicked.target.id == 'mute-button') {
-      if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+      if(hasATVAssociation) {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_MUTE' });
+      }
+      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'MUTE' });
       }
       else if (deviceType == 'mi-box-s') {
@@ -4254,6 +4313,33 @@ class FiremoteCardEditor extends LitElement {
   }
 
 
+  getAssociatedAndroidRemoteEntityDropdown(optionValue){
+    if(this._config.device_family == 'amazon-fire') { return; }
+    var blankRemoteEntity = html `<option value=""> - - - - </option> `;
+    var androidTVRemoteEntities = this.getEntitiesByPlatform('androidtv_remote');
+    if(this._config.androidTVRemoteEntity == '' || typeof this._config.androidTVRemoteEntity == 'undefined') {
+      blankRemoteEntity = html `<option value="" selected> - - - - </option> `;
+    }
+    return html`
+          Associated Android TV Remote Entity: (optional)<br>
+          <select name="android_tv_remote_entity" id="android_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
+            @focusout=${this.configChanged}
+            @change=${this.configChanged} >
+            ${blankRemoteEntity}
+            ${androidTVRemoteEntities.map((eid) => {
+              if (eid != this._config.android_tv_remote_entity) {
+                return html`<option value="${eid}">${this.hass.states[eid].attributes.friendly_name || eid}</option> `;
+              }
+              else {
+                return html`<option value="${eid}" selected>${this.hass.states[eid].attributes.friendly_name || eid}</option> `;
+              }
+            })}
+          </select>
+        <br>
+        <br>`
+  }
+
+
   getDeviceTypeDropdown(optionValue){
     var family = this._config.device_family;
     var optionMenu = String();
@@ -4396,15 +4482,9 @@ class FiremoteCardEditor extends LitElement {
       blankEntity = html `<option value="" selected> - - - - </option> `;
     }
 
-/// TODO:
-    //var remoteEntities = this.getEntitiesByPlatform('androidtv_remote');
-    //console.log('the available remoteEntities are ' + remoteEntities);
-    //console.log(this.hass.entities);
-
     if(!this._config.device_family) {
         this._config.device_family = devicemap.keys().next().value;
     }
-
 
     // Get current device's Attributes AND use any applicable overrides from user conf
     var confRef = this._config;
@@ -4416,7 +4496,7 @@ class FiremoteCardEditor extends LitElement {
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'));
 
     return html`
-          Android TV Entity:<br>
+          Android Debug Bridge Entity:<br>
           <select name="entity" id="entity" style="padding: .6em; font-size: 1em;" .value="${this._config.entity}"
             @focusout=${this.configChanged}
             @change=${this.configChanged} >
@@ -4436,6 +4516,8 @@ class FiremoteCardEditor extends LitElement {
         Device Family:<br>
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
         <br>
+
+        ${this.getAssociatedAndroidRemoteEntityDropdown(this._config.android_tv_remote_entity)}
 
         ${devicemap.get(this._config.device_family).meta.friendlyName} Device Type:<br>
         ${this.getDeviceTypeDropdown(this._config.device_type)}
