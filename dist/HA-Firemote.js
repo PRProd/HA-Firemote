@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.2.0-b1 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.2.0-b2     installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -2735,16 +2735,25 @@ class FiremoteCard extends LitElement {
           }
   `;
 
+    getState() {
+      if(this._config.android_tv_remote_entity == '' || typeof this._config.android_tv_remote_entity == 'undefined' || this._config.device_family == 'amazon-fire' ) {
+        return this.hass.states[this._config.entity];
+      }
+      else {
+        return this.hass.states[this._config.android_tv_remote_entity];
+      }
+    }
 
     getOpenAppID() {
       if(this._config.android_tv_remote_entity == '' || typeof this._config.android_tv_remote_entity == 'undefined' || this._config.device_family == 'amazon-fire' ) {
         return this.hass.states[this._config.entity].attributes.app_id;
       }
       else {
-        return this.hass.states[this._config.android_tv_remote_entity].attributes.current_activity;
+        if(this.getState().state == 'on') {
+          return this.hass.states[this._config.android_tv_remote_entity].attributes.current_activity;
+        }
       }
     }
-
 
    render() {
     if (!this.hass || !this._config) {
@@ -2757,7 +2766,8 @@ class FiremoteCard extends LitElement {
     }
 
     const entityId = this._config.entity;
-    const state = this.hass.states[entityId];
+    //const state = this.hass.states[entityId];
+    const state = this.getState();
     const stateStr = state ? state.state : 'off';
     // const appId = state.attributes.app_id;
     const appId = this.getOpenAppID();
@@ -4519,7 +4529,7 @@ class FiremoteCardEditor extends LitElement {
 
         ${this.getAssociatedAndroidRemoteEntityDropdown(this._config.android_tv_remote_entity)}
 
-        ${devicemap.get(this._config.device_family).meta.friendlyName} Device Type:<br>
+        ${devicemap.get(this._config.device_family).meta.friendlyName} Device Model:<br>
         ${this.getDeviceTypeDropdown(this._config.device_type)}
         <br>
 
