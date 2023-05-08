@@ -126,6 +126,7 @@ Options:
 | bbc-iplayer             | BBC iPlayer (UK)        | ✓                   |                       |                   |
 | bell-fibe-tv            | Bell Fibe TV (CA)       | ✓                   |                       |                   |
 | cnn                     | CNN                     | ✓                   | ✓                     | ✓                 |
+| cosmote-tv              | COSMOTE TV              |                     | ✓                     | ✓                 |
 | crave-tv                | Crave TV (CA)           | ✓                   |                       |                   |
 | crunchyroll             | Crunchyroll             | ✓                   | ✓                     | ✓                 |
 | cyberghost              | CyberGhost VPN          | ✓                   | ✓                     | ✓                 |
@@ -134,6 +135,8 @@ Options:
 | disney-plus             | Disney +                | ✓                   | ✓                     | ✓                 |
 | ds-video                | DS Video                | ✓                   | ✓                     | ✓                 |
 | emby                    | Emby                    | ✓                   | ✓                     | ✓                 |
+| eon-tv                  | EON TV                  |                     | ✓                     | ✓                 |
+| ertflix                 | ERT FLIX                |                     | ✓                     | ✓                 |
 | espn                    | ESPN                    | ✓                   | ✓                     | ✓                 |
 | firetv-store            | FireTV Store            | ✓                   |                       |                   |
 | freevee                 | freevee                 | ✓                   | ✓                     | ✓                 |
@@ -141,6 +144,7 @@ Options:
 | hbo-max                 | HBO Max                 | ✓                   | ✓                     | ✓                 |
 | hulu                    | Hulu                    | ✓                   | ✓                     |                   |
 | ipvanish                | IPVanish VPN            | ✓                   | ✓                     | ✓                 |
+| israel-station          | Israel Station          | ✓                   | ✓                     | ✓                 |
 | jellyfin                | Jellyfin                | ✓                   | ✓                     | ✓                 |
 | kayo                    | Kayo Sports (AU)        | ✓                   | ✓                     | ✓                 |
 | kodi                    | Kodi                    | ✓                   | ✓                     | ✓                 |
