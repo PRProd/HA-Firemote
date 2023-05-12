@@ -120,6 +120,7 @@ Options:
 | Value for YAML File     | App / Physical Input    | Amazon Fire Support | NVIDIA Shield Support | Xiaomi Mi Support |
 | ----------------------- | ----------------------- | :-----------------: | :-------------------: | :---------------: |
 | abc-iview               | ABC iview (AU)          | ✓                   | ✓                     | ✓                 |
+| ace-stream-media        | Ace Stream Media        | ✓                   | ✓                     | ✓                 |
 | amc-plus                | AMC+                    | ✓                   | ✓                     | ✓                 |
 | app-opener              | App Opener              | ✓                   |                       |                   |
 | apple-tv                | Apple TV                | ✓                   | ✓                     | ✓                 |

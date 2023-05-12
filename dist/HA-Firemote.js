@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.2.0-b3 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.2.0 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -80,7 +80,7 @@ const devices = {
 
       "fire_tv_stick_4k_max": {
         "supported": true,
-        "friendlyName": "Fire TV Stick 4K Max (1st Gen - 2020)",
+        "friendlyName": "Fire TV Stick 4K Max (1st Gen - 2021)",
         "defaultEventListenerBinPath": "/dev/input/event5",
         "defaultRemoteStyle": "AF4",
         "hdmiInputs": 0,
@@ -233,6 +233,34 @@ const fastappchoices = {
       "androidName": "au.net.abc.iview",
       "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n au.net.abc.iview/.ui.router.TvLauncherActivity",
       "deviceFamily": ["amazon-fire", "nvidia-shield", "xiaomi"], },
+
+
+  "ace-stream-media": {
+      "button": '<svg viewBox="0 0 245 59" width="245" height="59" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)" fill-rule="evenodd" clip-rule="evenodd"><path d="M55.5 2.937C50.676-.052 46-.485 41.754.422c-4.072.866-7.992 3.035-11.318 5.597-.861-.551-1.693-1.103-2.511-1.637-.746 1.626-1.512 3.29-2.296 4.973l-2.416 5.289c2.178-.705 4.388-1.424 6.646-2.15l7.025-2.264-3.231-2.105c2.976-2.135 6.25-3.943 9.757-4.97a22.877 22.877 0 0 1 12.075-.218h.015z" fill="#F15E4B"/><path d="M63.268 29.802c3.745-8.059 3.306-13.344.723-16.611-2.402-3.039-6.643-4.353-11.12-4.592.629-1.416 1.254-2.814 1.857-4.183l-7.413 3.466-7.174 3.36 3.851 3.656 4.305 4.093c.765-1.733 1.514-3.441 2.247-5.124 3.67.52 7.077 1.704 9.47 4.026 2.528 2.47 3.934 6.25 3.263 11.93l-.009-.021z" fill="#8A5DA7"/><path d="M31.294 59.003c9.817-1.831 16.291-6.184 19.961-11.42a20.021 20.021 0 0 0 3.25-7.428c.566-2.673.58-5.435.042-8.115a959.168 959.168 0 0 0 6.816-2.31 1492.244 1492.244 0 0 1-7.341-4.044 2954.423 2954.423 0 0 1-6.451-3.512 5148.106 5148.106 0 0 0-3.708 7.2c-1.28 2.504-2.586 5.064-3.92 7.68 2.25-.774 4.531-1.553 6.847-2.362a22.833 22.833 0 0 1-2.706 12.682c-2.393 4.38-6.477 8.469-12.79 11.626v.003z" fill="#4A8DA0"/><path d="M2.25 47.317c2.53 5.528 6.54 7.914 11.117 8.04 4.821.134 9.998-2.24 14.535-5.634 1.217 1.336 2.468 2.712 3.753 4.127.982-2.874 1.952-5.67 2.887-8.393.92-2.635 1.816-5.208 2.686-7.72-2.947.67-5.834 1.31-8.655 1.949l-8.124 1.84c1.105 1.201 2.236 2.446 3.407 3.723-3.708 2.538-7.608 4.43-11.436 4.942-3.699.505-7.203-.29-10.17-2.889v.015z" fill="#26A75A"/><path d="M5.008 20.868C1.102 26.602-.258 30.885.038 34.016c.315 3.313 2.507 5.364 5.52 6.395-.906 1.712-1.839 3.445-2.78 5.199 2.284-1.034 4.596-2.085 6.936-3.151 2.364-1.06 4.752-2.152 7.174-3.256-.984-1.808-1.923-3.544-2.84-5.216-.873-1.61-1.718-3.164-2.535-4.662-.91 1.699-1.836 3.422-2.778 5.17-2.41-.895-4.264-2.325-5.013-4.598-.712-2.157-.44-5.086 1.28-9.035l.006.006z" fill="#FEC827"/><path d="M29.216 1.955c-6.281 1.817-10.483 4.272-13.29 6.961a17.393 17.393 0 0 0-5.096 8.821l-4.264 1.419a2217.403 2217.403 0 0 0 6.006 6.423c1.48-1.958 2.942-3.884 4.382-5.777 1.415-1.848 2.807-3.682 4.17-5.487-1.691.56-3.366 1.112-5.025 1.655a17.582 17.582 0 0 1 3.851-7.4c2.009-2.31 4.95-4.558 9.266-6.612v-.003z" fill="#F58120"/></g><path d="m111.078 37-7.777-12.918c-.278-.464-.612-.761-1.132-.761-.52 0-.872.297-1.15.76L93.258 37h2.692l6.125-10.357 3.007 5.049h-4.14l-1.113 1.911h6.385L108.238 37h2.84zm13.133 0v-2.357h-7.313c-2.431 0-4.194-1.875-4.194-4.418 0-2.561 1.781-4.361 4.194-4.361h7.313v-2.358h-7.313c-3.768 0-6.552 2.636-6.552 6.608 0 3.916 2.784 6.886 6.552 6.886h7.313zm13.978 0v-2.357h-9.726v-8.78h9.708v-2.357h-12.046V37h12.064zm-.52-5.865v-1.986h-7.479v1.986h7.479zM155.78 37c2.821 0 4.194-1.689 4.194-3.953 0-2.617-1.466-3.898-4.194-3.898h-6.181c-1.039 0-1.689-.613-1.689-1.634 0-1.02.631-1.651 1.708-1.651h9.688v-2.358h-9.688c-2.692 0-4.158 1.615-4.158 3.787 0 2.227 1.578 3.842 4.12 3.842h6.2c1.262 0 1.967.594 1.967 1.744 0 1.059-.705 1.764-1.967 1.764h-10.116V37h10.116zm12.897 0V25.864h5.123v-2.358h-12.603v2.358h5.123V37h2.357zm22.546 0-4.065-4.102c1.745-.668 2.784-2.246 2.784-4.473 0-3.007-1.818-4.919-4.9-4.919h-9.688V37h2.338V25.864h7.35c1.615 0 2.58.853 2.58 2.598 0 1.745-.891 2.71-2.58 2.71h-5.623v2.079h5.048L187.882 37h3.341zm13.288 0v-2.357h-9.726v-8.78h9.707v-2.357h-12.046V37h12.065zm-.52-5.865v-1.986h-7.48v1.986h7.48zM223.439 37l-7.777-12.918c-.279-.464-.613-.761-1.133-.761-.519 0-.872.297-1.15.76L205.62 37h2.692l6.125-10.357 3.006 5.049h-4.139l-1.113 1.911h6.385L220.599 37h2.84zm20.588 0-3.452-12.695c-.186-.65-.557-.966-1.132-.966-.502 0-.91.279-1.133.799l-4.157 9.54-4.158-9.54a1.272 1.272 0 0 0-1.188-.799c-.631 0-1.002.316-1.169.966L224.167 37h2.32l2.58-9.485 3.805 8.78c.241.575.65.89 1.207.89.575 0 .946-.315 1.206-.89l3.823-8.78 2.58 9.485h2.339z" fill="#F2F2F2"/><defs><clipPath id="a"><path fill="#fff" d="M0 0h66v59H0z"/></clipPath></defs></svg>',
+      "friendlyName": "Ace Stream Media",
+      "className": "aceStreamMediaButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "org.acestream.media",
+          "androidName": "org.acestream.media",
+      },
+      "chromecast": {
+          "appName": "org.acestream.media.atv",
+          "androidName": "org.acestream.media.atv",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.media.atv/org.videolan.vlc.gui.tv.MainTvActivity",
+      },
+      "nvidia-shield": {
+          "appName": "org.acestream.media.atv",
+          "androidName": "org.acestream.media.atv",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.media.atv/org.videolan.vlc.gui.tv.MainTvActivity",
+      },
+      "xiaomi": {
+          "appName": "org.acestream.media.atv",
+          "androidName": "org.acestream.media.atv",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.media.atv/org.videolan.vlc.gui.tv.MainTvActivity",
+      },
+  },
+
 
 
   "all-4": {
@@ -1473,10 +1501,10 @@ class FiremoteCard extends LitElement {
           }
 
           .chromecast-remote-body {
-            background: #fff;
+            background: #ebebea;
             border-radius: calc(var(--sz) * 6rem);
-            /*width: calc(var(--sz) * 8.286rem);*/
-            width: unset;
+            border: solid #cfcfcf calc(var(--sz) * 0.1rem);
+            width: calc(var(--sz) * 11.287rem);
             padding: calc(var(--sz) * 0.35rem);
             display: grid;
             justify-items: center;
@@ -1484,7 +1512,7 @@ class FiremoteCard extends LitElement {
             grid-column-gap: calc(var(--sz) * 1.2rem);
             grid-row-gap: calc(var(--sz) * 0.5rem);
             grid-template-columns: 1fr 1fr;
-            min-height: calc(var(--sz) * 45rem);
+            min-height: calc(var(--sz) * 40.5rem);
           }
 
           .remote-body {
@@ -1670,11 +1698,6 @@ class FiremoteCard extends LitElement {
             padding: calc(var(--sz) * 0.2857rem);
           }
 
-          .chromecast-remote-body .remote-button {
-            color: #000;
-            background: #fff;
-          }
-
           #power-button {
             height: calc(var(--sz) * 2.8rem);
             width: calc(var(--sz) * 2.8rem);
@@ -1684,6 +1707,21 @@ class FiremoteCard extends LitElement {
           .shield-remote-body .remote-button {
             height: calc(var(--sz) * 3rem);
             width: calc(var(--sz) * 3rem);
+          }
+
+          .chromecast-remote-body .remote-button, .chromecast-remote-body #keyboard-button, .chromecast-remote-body .srcButton {
+            background: #fff;
+            border: solid #bfbfbf calc(var(--sz) * 0.02em);
+            height: calc(var(--sz) * 4.2rem);
+            width: calc(var(--sz) * 4.2rem);
+          }
+
+          .chromecast-remote-body #keyboard-button {
+            background: #484848;
+          }
+
+          .chromecast-remote-body #keyboard-button > ha-icon {
+            color: rgb(235, 235, 234);
           }
 
           .shield-remote-body #power-button, .XM2 #power-button{
@@ -1771,6 +1809,7 @@ class FiremoteCard extends LitElement {
 
           .chromecast-remote-body .dpadContainer{
             grid-column: 1 / 3;
+            margin-bottom: 0;
           }
 
           .XM2 .dpadContainer {
@@ -1901,6 +1940,18 @@ class FiremoteCard extends LitElement {
           .remote-button:active > ha-icon {
             color: #bcbcbc;
             transform: scale(calc(var(--sz) * 0.85));
+          }
+
+          .chromecast-remote-body ha-icon {
+            color: #686868;
+          }
+
+          .chromecast-remote-body .remote-button:active {
+            box-shadow: rgb(0 0 0 / 5%) 0px 0px calc(var(--sz) * 0.125rem) calc(var(--sz) * 0.1875rem) inset;
+          }
+
+          .chromecast-remote-body .remote-button:active > ha-icon {
+            color: #000;
           }
 
           .square {
@@ -2080,6 +2131,10 @@ class FiremoteCard extends LitElement {
 
           .abciviewButton{
             background: #fff;
+          }
+
+          .aceStreamMediaButton {
+            background: rgb(33, 33, 33);
           }
 
           .allFourButton {
@@ -2838,6 +2893,16 @@ class FiremoteCard extends LitElement {
             color: #ff7700 !important;
           }
 
+
+          .chromecast-remote-body .litbutton {
+              border: calc(var(--sz) * 0.0714rem) solid rgb(243 223 0);
+              box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(255 188 63 / 25%)
+          }
+
+          .chromecast-remote-body .litbutton > ha-icon {
+            color: rgb(143 132 0) !important;
+          }
+
           .shield-remote-body.ns1-body .litbutton {
               border: solid #395600 0.0714rem;
               box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(153 231 0 / 20%);
@@ -3035,23 +3100,39 @@ class FiremoteCard extends LitElement {
           appLaunchButtons.set("confBtn1", config.app_launch_1 || 'netflix');
           appLaunchButtons.set("confBtn2", config.app_launch_2 || 'prime-video');
         }
+        else if (config.defaultRemoteStyle_override == 'CC1' || config.device_type == 'chromecast-4k') {
+          appLaunchButtons.set("confBtn1", config.app_launch_1 || 'youtube');
+          appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
+        }
         else {
           appLaunchButtons.set("confBtn1", config.app_launch_1 || 'prime-video');
           appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
           appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
           appLaunchButtons.set("confBtn4", config.app_launch_4 || 'hulu');
         }
-        return html `
-          <div class="${spanclass}">
-          ${ Array.from(appLaunchButtons.keys()).map(key => {
-            var val = appLaunchButtons.get(key);
-            return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonClicked}>
-                           ${unsafeHTML(getAppButtonData(config, val, 'button'))}
-                         </button>`;
-
-          })}
-          </div>
-        `;
+        if(config.defaultRemoteStyle_override == 'CC1' || config.device_type == 'chromecast-4k') {
+          return html `
+            ${ Array.from(appLaunchButtons.keys()).map(key => {
+              var val = appLaunchButtons.get(key);
+              return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonClicked}>
+                             ${unsafeHTML(getAppButtonData(config, val, 'button'))}
+                           </button>`;
+            })}
+          `;
+        }
+        else {
+          return html `
+            <div class="${spanclass}">
+            ${ Array.from(appLaunchButtons.keys()).map(key => {
+              var val = appLaunchButtons.get(key);
+              return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonClicked}>
+                             ${unsafeHTML(getAppButtonData(config, val, 'button'))}
+                           </button>`;
+  
+            })}
+            </div>
+          `;
+        }
     }
 
     // Draw optional device name
@@ -3877,38 +3958,21 @@ class FiremoteCard extends LitElement {
 
 
           <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:checkbox-blank-circle-outline"></ha-icon>
+            <ha-icon icon="mdi:home"></ha-icon>
           </button>
-          <button class="remote-button}" id="mute-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:mute"></ha-icon>
+          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
-
-          <button class="remote-button" id="apps-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:apps"></ha-icon>
-          </button>
-
-
 
           ${drawAppLaunchButtons(this, this._config, 2, appButtonMax["CC1"])}
 
           <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
-            <ha-icon icon="mdi:power"></ha-icon>
+          <button class="remote-button" id="input-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:import"></ha-icon>
           </button>
 
-          <div> </div>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
-            +
-          </button>
-          <div> </div>
-
-          <div> </div>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
-            &#x2013;
-          </button>
-          <div> </div>
 
           ${drawDeviceName(this, this._config, 'bottom')}
 
