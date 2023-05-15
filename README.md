@@ -139,6 +139,7 @@ Options:
 | eon-tv                  | EON TV                  |                     | ✓                     | ✓                 |
 | ertflix                 | ERT FLIX                |                     | ✓                     | ✓                 |
 | espn                    | ESPN                    | ✓                   | ✓                     | ✓                 |
+| f1-tv                   | F1 TV                   | ✓                   | ✓                     | ✓                 |
 | firetv-store            | FireTV Store            | ✓                   |                       |                   |
 | freevee                 | freevee                 | ✓                   | ✓                     | ✓                 |
 | google-play-store       | Google Play Store       |                     | ✓                     | ✓                 |
