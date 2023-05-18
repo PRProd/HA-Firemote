@@ -133,6 +133,7 @@ Options:
 | cyberghost              | CyberGhost VPN          | ✓                   | ✓                     | ✓                 |
 | dazn                    | DAZN                    | ✓                   | ✓                     | ✓                 |
 | directv-stream          | DIRECTV stream          | ✓                   | ✓                     | ✓                 |
+| discovery-plus          | Discovery +             | ✓                   | ✓                     | ✓                 |
 | disney-plus             | Disney +                | ✓                   | ✓                     | ✓                 |
 | ds-video                | DS Video                | ✓                   | ✓                     | ✓                 |
 | emby                    | Emby                    | ✓                   | ✓                     | ✓                 |
@@ -142,6 +143,7 @@ Options:
 | f1-tv                   | F1 TV                   | ✓                   | ✓                     | ✓                 |
 | firetv-store            | FireTV Store            | ✓                   |                       |                   |
 | freevee                 | freevee                 | ✓                   | ✓                     | ✓                 |
+| go-play                 | GOPLAY                  | ✓                   | ✓                     | ✓                 |
 | google-play-store       | Google Play Store       |                     | ✓                     | ✓                 |
 | hbo-max                 | HBO Max                 | ✓                   | ✓                     | ✓                 |
 | hulu                    | Hulu                    | ✓                   | ✓                     |                   |
@@ -180,6 +182,7 @@ Options:
 | spotify                 | Spotify                 | ✓                   | ✓                     | ✓                 |
 | stan                    | Stan (AU)               | ✓                   | ✓                     | ✓                 |
 | starz                   | Starz                   | ✓                   | ✓                     | ✓                 |
+| stream-tv               | StreamTV                | ✓                   | ✓                     | ✓                 |
 | streamz                 | streamz (BE)            |                     | ✓                     | ✓                 |
 | stremio                 | Stremio                 | ✓                   | ✓                     | ✓                 |
 | surfshark-vpn           | Surfshark VPN           | ✓                   | ✓                     | ✓                 |
