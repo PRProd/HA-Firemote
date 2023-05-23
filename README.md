@@ -167,6 +167,7 @@ Options:
 | f1-tv                   | F1 TV                   | ✓            | ✓                  | ✓              | ✓              |
 | firetv-store            | FireTV Store            | ✓            |                    |                |                |
 | freevee                 | freevee                 | ✓            | ✓                  | ✓              | ✓              |
+| gcn-plus                | GCN+                    | ✓            | ✓                  | ✓              | ✓              |
 | go-play                 | GOPLAY                  | ✓            | ✓                  | ✓              | ✓              |
 | google-play-store       | Google Play Store       |              | ✓                  | ✓              | ✓              |
 | hbo-max                 | HBO Max                 | ✓            | ✓                  | ✓              | ✓              |
@@ -182,6 +183,7 @@ Options:
 | myCanal                 | my CANAL                | ✓            | ✓                  | ✓              | ✓              |
 | netflix                 | Netflix                 | ✓            | ✓                  | ✓              | ✓              |
 | news                    | News by Fire TV         | ✓            |                    |                |                |
+| nlziet                  | NLZIET                  | ✓            | ✓                  | ✓              | ✓              |
 | nordvpn                 | Nord VPN                | ✓            | ✓                  | ✓              | ✓              |
 | now-tv                  | Now TV                  | ✓            |                    |                |                |
 | npo                     | NPO (NL)                |              | ✓                  | ✓              | ✓              |
@@ -212,6 +214,7 @@ Options:
 | stremio                 | Stremio                 | ✓            | ✓                  | ✓              | ✓              |
 | surfshark-vpn           | Surfshark VPN           | ✓            | ✓                  | ✓              | ✓              |
 | svt-play                | SVT Play                |              | ✓                  | ✓              | ✓              |
+| t2-tv                   | T-2 TV                  | ✓            | ✓                  | ✓              | ✓              |
 | telenet-tv              | Telenet TV (BE)         | ✓            | ✓                  | ✓              | ✓              |
 | tennis-channel          | Tennis Channel          | ✓            |                    |                |                |
 | threenow                | Three Now (NZ)          | ✓            | ✓                  | ✓              | ✓              |
