@@ -28,7 +28,7 @@ body:
   - type: input
     id: appstoreLink
     attributes:
-      label: Google App Store Link or URL to .apk file if sideloaded
+      label: App Store Link or URL to .apk file if sideloaded
       description: Optionally provide a link to the Google Play store where this app can be downloaded.  If this is a sideloaded app, please include a full URL for where the .apk can be found
     validations:
       required: false
