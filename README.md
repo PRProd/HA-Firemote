@@ -164,13 +164,15 @@ Options:
 | eon-tv                  | EON TV                  |              | ✓                  | ✓              | ✓              |
 | ertflix                 | ERT FLIX                |              | ✓                  | ✓              | ✓              |
 | espn                    | ESPN                    | ✓            | ✓                  | ✓              | ✓              |
+| f-droid                 | F-Droid                 | ✓            | ✓                  | ✓              | ✓              |
 | f1-tv                   | F1 TV                   | ✓            | ✓                  | ✓              | ✓              |
 | firetv-store            | FireTV Store            | ✓            |                    |                |                |
 | freevee                 | freevee                 | ✓            | ✓                  | ✓              | ✓              |
 | gcn-plus                | GCN+                    | ✓            | ✓                  | ✓              | ✓              |
 | go-play                 | GOPLAY                  | ✓            | ✓                  | ✓              | ✓              |
 | google-play-store       | Google Play Store       |              | ✓                  | ✓              | ✓              |
-| hbo-max                 | HBO Max                 | ✓            | ✓                  | ✓              | ✓              |
+| hbo-max                 | Max                     | ✓            | ✓                  | ✓              | ✓              |
+| home-assistant          | Home Assistant          | ✓            |                    |                |                |
 | hulu                    | Hulu                    | ✓            | ✓                  | ✓              |                |
 | ipvanish                | IPVanish VPN            | ✓            | ✓                  | ✓              | ✓              |
 | israel-station          | Israel Station          | ✓            | ✓                  | ✓              | ✓              |
@@ -179,6 +181,8 @@ Options:
 | kodi                    | Kodi                    | ✓            | ✓                  | ✓              | ✓              |
 | live-channels           | Live Channels           |              | ✓                  | ✓              | ✓              |
 | magenta-tv              | Magenta TV              | ✓            |                    | ✓              | ✓              |
+| mediaset-infinity       | Mediaset Infinity       | ✓            | ✓                  | ✓              | ✓              |
+| mediaset-infinity-alt   | Mediaset Infinity (alt) | ✓            | ✓                  | ✓              | ✓              |
 | movistar-plus           | Movistar Plus+          | ✓            | ✓                  | ✓              | ✓              |
 | myCanal                 | my CANAL                | ✓            | ✓                  | ✓              | ✓              |
 | netflix                 | Netflix                 | ✓            | ✓                  | ✓              | ✓              |
