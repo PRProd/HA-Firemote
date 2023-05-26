@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.3.2 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
+console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c 2.3.3-b1 installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
 
@@ -145,6 +145,35 @@ const devices = {
     },
   },
 
+
+  "chromecast": {
+
+    "meta": {
+      "friendlyName": "Chromecast",
+      "supported": true,
+    },
+
+    "noCategory": {
+
+      "chromecast-4k": {
+        "supported": true,
+        "friendlyName": "Chromecast 4K",
+        "defaultRemoteStyle": "CC1",
+        "hdmiInputs": 0,
+      },
+
+      "chromecast-hd": {
+        "supported": true,
+        "friendlyName": "Chromecast HD",
+        "defaultRemoteStyle": "CC1",
+        "hdmiInputs": 0,
+      },
+
+    }
+
+  },
+
+
   "nvidia-shield": {
 
     "meta": {
@@ -186,7 +215,7 @@ const devices = {
       "supported": true,
     },
 
-    "mibox": {
+    "Mi Box": {
 
       "mi-box-s": {
         "supported": true,
@@ -196,29 +225,29 @@ const devices = {
         "hdmiInputs": 0,
       },
 
-    }
-
-  },
-
-  "chromecast": {
-
-    "meta": {
-      "friendlyName": "Chromecast",
-      "supported": true,
     },
 
-    "noCategory": {
+    "TV Stick": {
 
-      "chromecast-4k": {
-        "supported": true,
-        "friendlyName": "Chromecast 4K",
-        "defaultRemoteStyle": "CC1",
+      "xiaomi-tv-stick-4k": {
+        "supported": false,
+        "friendlyName": "TV Stick 4K",
+        "defaultEventListenerBinPath": "/dev/input/event2",
+        "defaultRemoteStyle": "XM1",
         "hdmiInputs": 0,
       },
 
-    }
+      "mi-tv-stick": {
+        "supported": false,
+        "friendlyName": "Mi TV Stick",
+        "defaultEventListenerBinPath": "/dev/input/event2",
+        "defaultRemoteStyle": "XM2",
+        "hdmiInputs": 0,
+      },
 
-  }
+    },
+
+  },
 
 }
 const devicemap = new Map(Object.entries(devices));
@@ -1565,6 +1594,17 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire"],},
 
 
+  "ziggo-go": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="870" viewBox="0.143 316.628 593.85 206.554"><path d="M191.212 490.321a12.138 12.138 0 0 1 3.566 8.607c0 3.715-1.663 6.707-3.563 8.608-3.626 3.62-8.56 7.39-15.007 10.057a45.808 45.808 0 0 1-17.602 3.495H46.143c-12.703 0-24.202-5.146-32.527-13.47C5.291 499.293.143 487.795.143 475.089V362.622c0-12.703 5.146-24.201 13.473-32.524 8.324-8.322 19.824-13.47 32.527-13.47H158.605a45.821 45.821 0 0 1 17.603 3.49c7.434 3.081 12.188 6.88 16.776 11.833 1.827 1.972 3.566 4.89 3.566 8.608 0 3.114-1.19 6.229-3.566 8.607a12.141 12.141 0 0 1-8.607 3.566 12.235 12.235 0 0 1-8.607-3.566c-3.244-3.247-5.024-4.914-8.744-6.489a21.515 21.515 0 0 0-8.419-1.705H46.143c-5.971 0-11.384 2.428-15.304 6.352-3.919 3.918-6.348 9.329-6.348 15.299V475.09c0 5.976 2.429 11.385 6.348 15.303 3.92 3.921 9.333 6.352 15.304 6.352H158.605c2.982 0 5.828-.604 8.419-1.705a22.018 22.018 0 0 0 6.973-4.718 12.22 12.22 0 0 1 8.608-3.564 12.13 12.13 0 0 1 8.607 3.563zm-32.965-14.489c-.438-8.879-6.437-22.549-21.515-24.346H83.089l61.804-59.167c2.609-2.49 8.466-10.932 4.296-20.016-3.35-7.304-8.959-10.417-18.762-10.417h-76.99c.314 10.214 5.411 22.408 18.948 24.591h43.993L51.362 447.58c-2.638 2.532-6.976 10.315-3.552 18.22 3.09 7.124 8.297 10.032 17.975 10.032h92.462zm176.127-55.745v45.34c0 16.772-5.132 31.355-16.769 42.987-10.459 10.463-23.676 14.768-38.188 14.768-28.457 0-43.118-21.988-43.118-21.988 7.651-7.651 18.293-12.3 28.712-6.058 1.752 1.048 7.005 3.917 14.522 3.917 26.337 0 30.624-23.535 30.624-30.541-9.124 5.516-19.427 8.261-30.866 8.267h-.015c-14.882-.006-27.934-4.71-38.791-13.994l-.143-.123c-10.654-10.217-16.105-22.819-16.196-37.471-.072-3.009-.072-12.648 0-14.889.034-14.404 5.482-26.958 16.196-37.218 10.817-10.36 23.919-15.616 38.933-15.62h.013c19.953 0 34.602 9.878 41.375 18.093 1.728 2.091 2.729 4.786 2.729 7.707 0 3.382-1.366 6.446-3.584 8.665a12.221 12.221 0 0 1-8.666 3.586c-3.349 0-6.552-1.4-8.589-3.522-7.601-7.903-14.829-10.396-23.27-10.397-8.44.001-15.475 2.817-21.505 8.604-5.991 5.649-8.817 12.073-8.901 20.243-.134 3.575-.134 11.175-.005 14.606.067 8.371 2.881 14.89 8.856 20.614 6.228 5.685 13.297 8.471 21.556 8.475 8.259-.004 15.33-2.79 21.61-8.526 3.276-3.144 5.603-6.542 7.037-10.364 1.152-3.069 3.561-9.473 11.707-12.723 6.864-2.732 14.736-2.438 14.736-2.438zm115.028 2.439c-8.146 3.248-10.553 9.65-11.706 12.722-1.437 3.821-3.765 7.222-7.042 10.364-6.275 5.735-13.347 8.521-21.607 8.525-8.261-.004-15.322-2.79-21.555-8.474-5.979-5.724-8.789-12.242-8.858-20.614-.126-3.434-.126-11.031.009-14.606.082-8.171 2.904-14.594 8.898-20.244 6.027-5.788 13.064-8.604 21.506-8.604 8.438.001 15.669 2.494 23.267 10.397 2.038 2.123 5.242 3.522 8.593 3.522 3.385 0 6.45-1.371 8.662-3.586a12.218 12.218 0 0 0 3.589-8.665c0-2.919-1.008-5.614-2.729-7.708-6.78-8.216-21.425-18.093-41.375-18.093h-.014c-15.017.004-28.113 5.26-38.933 15.62-10.717 10.26-16.163 22.814-16.195 37.218-.077 2.241-.077 11.88 0 14.888.09 14.652 5.54 27.256 16.195 37.473l.139.123c10.859 9.284 23.911 13.988 38.794 13.993h.012c11.439-.005 21.739-2.75 30.864-8.267 0 7.005-4.289 30.541-30.623 30.541-7.517 0-12.773-2.868-14.524-3.916-10.418-6.242-21.062-1.596-28.711 6.057 0 0 14.66 21.988 43.122 21.988 14.51 0 27.725-4.304 38.188-14.767 11.638-11.633 16.765-26.216 16.765-42.988v-45.341c-.006.003-7.873-.291-14.731 2.442zM593.937 410.4c-.033-14.496-5.482-27.053-16.191-37.317-10.821-10.361-23.925-15.616-38.944-15.62H538.789c-15.014.004-28.11 5.26-38.934 15.62-10.712 10.26-16.158 22.814-16.194 37.218-.073 2.24-.073 11.88 0 14.888.092 14.651 5.546 27.255 16.194 37.472l.145.123c10.854 9.284 23.907 13.989 38.789 13.994h.016c14.869-.005 27.927-4.71 38.798-13.989l.144-.128c10.649-10.217 16.097-22.823 16.19-37.415.074-3.064.074-12.704 0-14.846m-55.139 43.738c-8.257-.004-15.322-2.79-21.556-8.475-5.975-5.725-8.789-12.241-8.854-20.614-.132-3.433-.132-11.031.004-14.606.086-8.17 2.909-14.594 8.898-20.243 6.031-5.789 13.064-8.604 21.507-8.604 8.44.001 15.475 2.817 21.529 8.631 5.976 5.623 8.798 12.047 8.889 20.295.114 3.344.163 10.908 0 14.623-.074 8.278-2.895 14.802-8.808 20.468-6.278 5.735-13.349 8.522-21.609 8.525m-334.179-92.252c-12.766.023-24.35 10.728-24.35 22.21v91.736c12.766-.028 24.35-10.729 24.35-22.21v-91.736z" fill="#f48c00"/></svg>',
+      "friendlyName": "Ziggo Go",
+      "className": "ziggoGoButton",
+      "appName": "com.lgi.ziggotv",
+      "androidName": "com.lgi.ziggotv",
+      "adbLaunchCommand": "adb shell am start -n com.lgi.ziggotv/com.libertyglobal.horizonx.MainActivity",
+      "adbLaunchCommand": "adb shell am start -n com.ziggo.tv/com.libertyglobal.horizonx.MainActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
+
+
   "function-app-switch": {
       "button": "<ha-icon icon=\"mdi:swap-horizontal\"></ha-icon>Switch Apps",
       "friendlyName": "Function: Switch Apps",
@@ -1932,6 +1972,7 @@ class FiremoteCard extends LitElement {
             column-gap: calc(var(--sz) * 1.5rem);
             padding-right: calc(var(--sz) * 1.5rem);
             padding-left: calc(var(--sz) * 1.5rem);
+            line-height: calc(var(--sz) * .4rem);
           }
 
           .remote-button {
@@ -1991,9 +2032,13 @@ class FiremoteCard extends LitElement {
             margin-bottom: unset;
           }
 
-          .XM2 #power-button, .XM2 #keyboard-button {
+          .XM2 #power-button, .XM2 #keyboard-button, .AL2 #power-button, .AL2 #keyboard-button {
             height: calc(var(--sz) * 3.572rem);
             width: calc(var(--sz) * 3.572rem);
+          }
+
+          .AL2 #power-button {
+            margin-bottom: unset;
           }
 
           .shield-remote-body #power-button > ha-icon {
@@ -3184,13 +3229,21 @@ class FiremoteCard extends LitElement {
             margin-top: calc(var(--sz) * -0.2rem);
           }
 
-          .functionAppSwitchButton, .functionFindRemoteButton, .functionMuteButton, .functionRebootButton {
+          .ziggoGoButton {
+            background: #1a1a1a;
+          }
+
+          .functionAppSwitchButton, .functionFindRemoteButton, .functionMuteButton, .functionRebootButton, .functionKeyboardButton, .functionMenuButton {
             color: #ff0000;
             font-weight: bold;
             background: #000;
             border: solid calc(var(--sz) * 0.1rem) #850000;
             filter: brightness(60%);
             display: block;
+          }
+
+          .functionKeyboardButton {
+            display: inherit;
           }
 
           .functionAppSwitchButton > ha-icon, .functionFindRemoteButton > ha-icon, .functionMuteButton > ha-icon, .functionRebootButton > ha-icon {
@@ -3446,6 +3499,9 @@ class FiremoteCard extends LitElement {
     const appId = this.getOpenAppID();
     const deviceType = this._config.device_type;
     const scale = (parseInt(this._config.scale) || 100)/100;
+    var launcherscaleoffset = 0;
+    if (this._config.app_launcher_relative_size) { launcherscaleoffset = (parseInt(this._config.app_launcher_relative_size) || 100)/100 };
+    const launcherscale = scale + launcherscaleoffset;
     const overrides = this._config.button_overrides;
     var buttonHidingCss = '';
     if(overrides && typeof overrides === 'object') {
@@ -3469,6 +3525,9 @@ class FiremoteCard extends LitElement {
                             .AL1, .AL2 {
                               --sz: calc(${scale} * 2);
                             }
+                            .AL2 .appLauncherAppsContainer {
+                              --sz: calc(${launcherscale} * 2);
+                            }
                             .CC1 {
                               --sz: calc(${scale} * 1.2);
                             }
@@ -3477,27 +3536,31 @@ class FiremoteCard extends LitElement {
                             }
                           </style>`;
 
-    // Determine Power On/Off Status
+    // Handle standard button highlight/lit states
     var powerStatusClass = ''
-    if(stateStr != 'off' && stateStr != 'unavailable') {
-      powerStatusClass = ' litbutton';
-    }
-    if(stateStr == 'standby') {
-      powerStatusClass = ' dimlitbutton';
-    }
-
-    // Determine Home Status
     var homeStatusClass = '';
-    if(appId == 'com.amazon.tv.launcher' || appId == 'com.google.android.tvlauncher' || appId == 'com.google.android.apps.tv.launcherx') {
-      homeStatusClass = ' litbutton';
-    }
-
-    // Determine Play/Pause
     var playingStatusClass = '';
-    var alwaysRegisterdAsPlaying = ['com.amazon.firebat', 'com.android.systemui', 'com.android.vending', 'com.android.tv.settings',
-                                    'com.nvidia.shieldtech.accessoryui', 'com.esaba.downloader', 'com.amazon.venezia'];
-    if(stateStr == 'playing' && !(alwaysRegisterdAsPlaying.includes(appId))) {
-      playingStatusClass = ' litbutton';
+    if ((this._config.hide_button_highlights != true)) {
+
+        // Determine Power On/Off Status
+        if(stateStr != 'off' && stateStr != 'unavailable') {
+          powerStatusClass = ' litbutton';
+        }
+        if(stateStr == 'standby') {
+          powerStatusClass = ' dimlitbutton';
+        }
+    
+        // Determine Home Status
+        if(appId == 'com.amazon.tv.launcher' || appId == 'com.google.android.tvlauncher' || appId == 'com.google.android.apps.tv.launcherx') {
+          homeStatusClass = ' litbutton';
+        }
+    
+        // Determine Play/Pause
+        var alwaysRegisterdAsPlaying = ['com.amazon.firebat', 'com.android.systemui', 'com.android.vending', 'com.android.tv.settings',
+                                        'com.nvidia.shieldtech.accessoryui', 'com.esaba.downloader', 'com.amazon.venezia'];
+        if(stateStr == 'playing' && !(alwaysRegisterdAsPlaying.includes(appId))) {
+          playingStatusClass = ' litbutton';
+        }
     }
 
     // Get current device's Attributes AND use any applicable overrides from user conf
@@ -3563,7 +3626,7 @@ class FiremoteCard extends LitElement {
           appLaunchButtons.set("confBtn1", config.app_launch_1 || 'netflix');
           appLaunchButtons.set("confBtn2", config.app_launch_2 || 'prime-video');
         }
-        else if (config.defaultRemoteStyle_override == 'CC1' || (config.device_type == 'chromecast-4k' && !(config.defaultRemoteStyle_override))) {
+        else if (config.defaultRemoteStyle_override == 'CC1' || ((config.device_type == 'chromecast-4k' || config.device_type == 'chromecast-hd') && !(config.defaultRemoteStyle_override))) {
           appLaunchButtons.set("confBtn1", config.app_launch_1 || 'youtube');
           appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
         }
@@ -3573,7 +3636,7 @@ class FiremoteCard extends LitElement {
           appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
           appLaunchButtons.set("confBtn4", config.app_launch_4 || 'hulu');
         }
-        if(config.defaultRemoteStyle_override == 'CC1' || (config.device_type == 'chromecast-4k' && !(config.defaultRemoteStyle_override))) {
+        if(config.defaultRemoteStyle_override == 'CC1' || ((config.device_type == 'chromecast-4k' || config.device_type == 'chromecast-hd') && !(config.defaultRemoteStyle_override))) {
           return html `
             ${ Array.from(appLaunchButtons.keys()).map(key => {
               var val = appLaunchButtons.get(key);
@@ -3727,6 +3790,10 @@ class FiremoteCard extends LitElement {
 
     function renderMiLogo() {
       return html`<svg xmlns="http://www.w3.org/2000/svg" width="55" height="50" xml:space="preserve" viewBox="0 70 300 55" class="remote-logo miLogo"><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#000;fill-rule:nonzero;opacity:1" transform="translate(99.01 41.62)" d="M204.546-41.122c1.759 0 3.223 1.417 3.223 3.161v189.386c0 1.715-1.464 3.139-3.223 3.139H163.05c-1.781 0-3.228-1.424-3.228-3.139V-37.961c0-1.743 1.446-3.161 3.228-3.161h41.496zm-180.078 0c31.303 0 64.033 1.435 80.176 17.589 15.871 15.897 17.59 47.549 17.656 78.286v96.671c0 1.715-1.446 3.139-3.219 3.139h-41.49c-1.777 0-3.229-1.424-3.229-3.139V53.09c-.044-17.167-1.031-34.81-9.884-43.692C56.858 1.757 42.639.007 27.853-.356h-75.21c-1.764 0-3.208 1.419-3.208 3.136v148.645c0 1.715-1.462 3.139-3.237 3.139h-41.516c-1.774 0-3.201-1.424-3.201-3.139V-37.961c0-1.743 1.426-3.161 3.201-3.161H24.468zm9.287 75.427c1.766 0 3.201 1.413 3.201 3.143v113.977c0 1.715-1.436 3.139-3.201 3.139H-9.829c-1.792 0-3.228-1.424-3.228-3.139V37.448c0-1.73 1.436-3.143 3.228-3.143h43.584z"></path></svg>`;
+    }
+
+    function renderXiaomiLogo() {
+      return html`<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 281 46" width="281" height="46" xml:space="preserve" class="remote-logo"><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#000;fill-rule:nonzero;opacity:1" transform="translate(.5 .5)" d="M158.12.7c-6.42 0-12.86.81-16.92 4.81s-5.64 10-5.64 17.38S137 36.16 141 40.16s10.66 5 17.08 5 12.86-.86 16.92-4.86 5.67-10 5.67-17.41-1.43-13.24-5.49-17.23S164.55.7 158.12.7zm9.75 32.82c-2.27 2.58-6.37 3-9.75 3s-7.47-.45-9.74-3S146 27.38 146 22.9s.15-7.95 2.41-10.54 5.9-3 9.74-3 7.48.45 9.74 3 2.41 6.05 2.41 10.54-.17 8.03-2.43 10.62zM69.1 1.49H60a.69.69 0 0 0-.7.69v41.49a.69.69 0 0 0 .7.69h9.1a.7.7 0 0 0 .7-.69V2.18a.7.7 0 0 0-.7-.69zM30.87 22.57 47 2.57a.66.66 0 0 0-.52-1.08H34.87a.9.9 0 0 0-.71.35L23.48 16 13.07 1.85a.9.9 0 0 0-.71-.36H.68a.66.66 0 0 0-.52 1.08l16.35 20.37L.14 43.29a.66.66 0 0 0 .52 1.07h11.68a.9.9 0 0 0 .72-.37L24 29.89 34.29 44a.91.91 0 0 0 .72.36h11.53a.66.66 0 0 0 .52-1.07zM252.33 4.64c-3.7-3.44-9.65-3.86-14.46-3.86-6.22 0-10.18 1.32-12.58 2.56h-1.67c-2.35-1.3-6.49-2.56-13-2.56-4.82 0-10.72.35-14.36 3.41-3 2.52-3.71 5.89-3.71 12.79v26.67a.7.7 0 0 0 .71.69h9.09a.7.7 0 0 0 .71-.69V21.7c0-4-.15-8.08.7-9.62.67-1.2 1.71-2.53 6.65-2.53 5.89 0 7.28.41 8.21 3a9.37 9.37 0 0 1 .38 2.56v28.54a.69.69 0 0 0 .7.69h9.09a.7.7 0 0 0 .71-.69V15.13a9.37 9.37 0 0 1 .38-2.56c.93-2.61 2.31-3 8.2-3 4.94 0 6 1.33 6.65 2.53.86 1.54.7 5.66.7 9.62v22a.7.7 0 0 0 .71.69h9.09a.7.7 0 0 0 .7-.69v-25c0-7.28-.23-10.95-3.6-14.08zM121.82 7.18C117.62 1.39 110-.36 102.14.06a56 56 0 0 0-15 2.66c-.88.33-.77 1.09-.78 1.55 0 1.53-.15 5.49-.14 7.1 0 .71.87 1 1.6.78a56.6 56.6 0 0 1 12.62-3c4.67-.38 11 0 12.76 2.65.83 1.26.87 3.19 1 5.16a78.77 78.77 0 0 0-11.51-.4c-3.35.15-9.69.44-13.5 2.44-3.06 1.63-4.86 3.11-5.82 5.87a17 17 0 0 0-.73 7.06c.56 5 2.28 7.43 4.61 9.15 3.67 2.72 8.31 4.15 17.89 3.94 12.75-.28 16.1-4.4 17.79-7.33 2.88-5 2.38-12.85 2.29-17.68-.03-2.01-.33-8.59-3.4-12.83zm-8.31 26.17c-1.2 2.53-5.49 2.92-8 3-4.7.21-8.16 0-10.4-1.08A5.12 5.12 0 0 1 92.4 31c-.08-1.63-.05-2.46.68-3.43 1.66-2.15 6-2.61 10.41-2.78a78.94 78.94 0 0 1 10.94.63c-.03 3.24-.24 6.5-.92 7.93zM280.17 1.49h-9.09a.7.7 0 0 0-.71.69v41.49a.7.7 0 0 0 .71.69h9.09a.7.7 0 0 0 .71-.69V2.18a.7.7 0 0 0-.71-.69z"/></svg>`;
     }
 
     // Render Amazon Fire Remote Style AF1
@@ -4325,8 +4392,73 @@ class FiremoteCard extends LitElement {
     `;
     }
 
+    // Render Xiaomi Remote 1
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'XM1' ) {
+    return html`
+      <ha-card>
 
-    // Render Xiaomi Mi Box S
+      ${cssVars}
+
+      <div class="remote-body XM2">
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <div> </div>
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div> </div>
+          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+          </div>
+
+          <button class="remote-button" id="apps-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:apps"></ha-icon>
+          </button>
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-left"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:checkbox-blank-circle-outline"></ha-icon>
+          </button>
+
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["XM2"])}
+
+          <div> </div>
+          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            +
+          </button>
+          <div> </div>
+
+          <div> </div>
+          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            &#x2013;
+          </button>
+          <div> </div>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${renderXiaomiLogo()}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+    // Render Xiaomi Mi Remote
     if ( getDeviceAttribute('defaultRemoteStyle') == 'XM2' ) {
     return html`
       <ha-card>
@@ -4524,6 +4656,15 @@ class FiremoteCard extends LitElement {
                 <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
                   <ha-icon icon="mdi:volume-mute"></ha-icon>
                 </button>
+                <div>
+                  <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+                    <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+                  </button>
+                  <br>
+                  <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+                    <ha-icon icon="mdi:menu"></ha-icon>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -5253,6 +5394,19 @@ class FiremoteCardEditor extends LitElement {
         this._config.device_family = devicemap.keys().next().value;
     }
 
+    var appLauncherRelativeScaleSlide = '';
+    if(this._config.defaultRemoteStyle_override == 'AL2') {
+      if(!(this._config.app_launcher_relative_size)) {
+        this._config.app_launcher_relative_size = 0;
+      }
+      appLauncherRelativeScaleSlide = html `
+        <br>
+        <label for="relativefader">App Launcher Relative Scale:&nbsp;
+          <input type="range" min="-25" max="75" .value=${this._config.app_launcher_relative_size} id="app_launcher_relative_size" name="app_launcher_relative_size" @change=${this.configChanged} style="width: 40ch;">
+        </label>
+        <br>`;
+    }
+
     // Get current device's Attributes AND use any applicable overrides from user conf
     var confRef = this._config;
     function getDeviceAttribute(deviceAttribute){
@@ -5297,6 +5451,7 @@ class FiremoteCardEditor extends LitElement {
           <input type="range" min="20" max="120" .value=${this._config.scale} id="scale" name="scale" @change=${this.configChanged} style="width: 40ch;">
         </label>
         <br>
+        ${appLauncherRelativeScaleSlide}
 
         <br>
         Remote Style:<br>
