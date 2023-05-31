@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.3.3-b2';
+const HAFiremoteVersion = 'v2.3.3';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -233,7 +233,7 @@ const devices = {
       "xiaomi-tv-stick-4k": {
         "supported": false,
         "friendlyName": "TV Stick 4K",
-        "defaultEventListenerBinPath": "/dev/input/event2",
+        "defaultEventListenerBinPath": "/dev/input/event5",
         "defaultRemoteStyle": "XM1",
         "hdmiInputs": 0,
       },
@@ -450,20 +450,8 @@ const fastappchoices = {
       "className": "crunchyrollButton",
       "appName": "com.crunchyroll.crunchyroid",
       "androidName": "com.crunchyroll.crunchyroid",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],
-      "amazon-fire": {
-          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.MainActivity",
-      },
-      "chromecast": {
-          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.main.ui.MainActivity",
-      },
-      "nvidia-shield": {
-          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.main.ui.MainActivity",
-      },
-      "xiaomi": {
-          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.main.ui.MainActivity",
-      },
-  },
+      "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n com.crunchyroll.crunchyroid/.main.ui.MainActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
 
 
   "curiosity-stream": {
@@ -1845,7 +1833,7 @@ class FiremoteCard extends LitElement {
             border: solid #cfcfcf calc(var(--sz) * 0.1rem);
             width: calc(var(--sz) * 11.287rem);
             padding: calc(var(--sz) * 0.35rem);
-            padding-bottom: calc(var(--sz) *2rem);
+            padding-bottom: calc(var(--sz) * 4rem);
             display: grid;
             justify-items: center;
             align-content: flex-start;
@@ -2400,15 +2388,10 @@ class FiremoteCard extends LitElement {
             filter: brightness(90%);
             transform: scale(.95);
             box-shadow: none;
-            //box-shadow: rgb(0 0 0 / 45%) 0px 3px 9px 2px inset !important;
           }
 
           .chromecast-remote-body .srcButton:active {
             filter: none;
-          }
-
-          .srcButton:active > * {
-            //transform: scale(.95);
           }
 
           .srcButton svg {
@@ -2444,6 +2427,30 @@ class FiremoteCard extends LitElement {
             height: calc(var(--sz) * 2.3rem) !important;
             width: calc(var(--sz) * 2.3rem) !important;
             margin: 0 !important;
+          }
+
+          .chromecastVolumeRocker {
+            grid-column: 1 / 3;
+            place-items: center;
+            width: calc(100% - (var(--sz) * 1.2rem) - (var(--sz) * 0.4rem * 2));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .chromecastVolumeRocker > button {
+            height: calc(var(--sz) * 2rem) !important;
+            width: 100% !important;
+            box-shadow: rgb(0 0 0 / 5%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.1428rem) 0;
+          }
+
+          .chromecastVolumeRocker #volume-down-button {
+            border-radius: calc(var(--sz) * 2rem) 0 0 calc(var(--sz) * 2rem);
+            border-right: calc(var(--sz) * 0.05rem) solid #ebebeb;
+          }
+
+          .chromecastVolumeRocker #volume-up-button {
+            border-radius: 0% calc(var(--sz) * 2rem) calc(var(--sz) * 2rem) 0;
+            border-left: 0;
           }
 
           .deviceNameTop {
@@ -2553,7 +2560,7 @@ class FiremoteCard extends LitElement {
             width: 100%;
             justify-self: right;
             display: block !important;
-            font-size: calc(var(--sz) * 1.25rem);
+            font-size: calc(var(--sz) * .9rem);
             position: absolute;
             bottom: calc(var(--sz) * .35rem);
             right: calc(var(--sz) * .4rem);
@@ -3561,10 +3568,8 @@ class FiremoteCard extends LitElement {
     }
 
     const entityId = this._config.entity;
-    //const state = this.hass.states[entityId];
     const state = this.getState();
     const stateStr = state ? state.state : 'off';
-    // const appId = state.attributes.app_id;
     const appId = this.getOpenAppID();
     const deviceType = this._config.device_type;
     const scale = (parseInt(this._config.scale) || 100)/100;
@@ -4658,6 +4663,15 @@ class FiremoteCard extends LitElement {
             </button>
           </div>
 
+          <div class="chromecastVolumeRocker">
+            <button class="remote-button" id="volume-down-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:volume-minus"></ha-icon>
+            </button>
+            <button class="remote-button" id="volume-up-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:volume-plus"></ha-icon>
+            </button>
+          </div>
+
           ${drawDeviceName(this, this._config, 'bottom')}
           ${drawFiremoteVersionNumber(this, this._config)}
 
@@ -4742,9 +4756,15 @@ class FiremoteCard extends LitElement {
                     &#x2013;
                   </button>
                 </div>
-                <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
-                  <ha-icon icon="mdi:volume-mute"></ha-icon>
-                </button>
+                <div>
+                  <button class="remote-button" id="reboot-button" @click=${this.buttonClicked}>
+                    <ha-icon icon="mdi:restart"></ha-icon>
+                  </button>
+                  <br>
+                  <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+                    <ha-icon icon="mdi:volume-mute"></ha-icon>
+                  </button>
+                </div>
                 <div>
                   <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
                     <ha-icon icon="mdi:keyboard-outline"></ha-icon>
@@ -4861,7 +4881,6 @@ class FiremoteCard extends LitElement {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
       }
       return;
-      // 116 is the power command for the 4k max
     }
 
 
@@ -5189,11 +5208,18 @@ class FiremoteCard extends LitElement {
       return;
     }
 
+    // Reboot Button
+    if(clicked.target.id == 'reboot-button') {
+      if(confirm('Are you sure you want to reboot '+this.hass.states[this._config.entity].attributes.friendly_name) == false) {
+        return;
+      }
+      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell reboot' });
+    }
+
     // App launch button (existing in JSON map)
     const clickedAppButtonID = clicked.target.id;
     const appkey = clickedAppButtonID.substr(0, clickedAppButtonID.indexOf("-button"));
     if(appmap.has(appkey)) {
-      //var deviceFamily = this._config.device_family;
       var familySpecificAppData = appmap.get(appkey)[deviceFamily];
       if(familySpecificAppData && (familySpecificAppData.adbLaunchCommand || familySpecificAppData.appName)) {
         var adbcommand = familySpecificAppData.adbLaunchCommand;

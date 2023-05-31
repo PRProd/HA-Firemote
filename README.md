@@ -131,6 +131,8 @@ Options:
 | visible_name_text       | string | no      | Any text                                                         | Optional device label for your firemote|
 | name_position           | string | no      | hidden<br>bottom<br>top<br>                                      | Position for your optional device label|
 | visible_name_text_color | hex color value | no | Any hex color value e.g.: #ffffff                            | Optional text color for the device name label |
+| show_version_number     | bool   | no      | true<br>false                                                    | Optionally display the Firemote Version number on the card|
+| hide_button_highlights  | bool   | no      | true<br>false                                                    | Optionally hide the status higlighting decorations for the power, home, and play/pause buttons |
 
 <br>
 <br>
@@ -154,6 +156,7 @@ Options:
 | cosmote-tv              | COSMOTE TV              |              | ✓                  | ✓              | ✓              |
 | crave-tv                | Crave TV (CA)           | ✓            |                    |                |                |
 | crunchyroll             | Crunchyroll             | ✓            | ✓                  | ✓              | ✓              |
+| curiosity-stream        | Curiosity Stream        | ✓            | ✓                  | ✓              | ✓              |
 | cyberghost              | CyberGhost VPN          | ✓            | ✓                  | ✓              | ✓              |
 | dazn                    | DAZN                    | ✓            | ✓                  | ✓              | ✓              |
 | directv-stream          | DIRECTV stream          | ✓            | ✓                  | ✓              | ✓              |
@@ -186,6 +189,7 @@ Options:
 | movistar-plus           | Movistar Plus+          | ✓            | ✓                  | ✓              | ✓              |
 | myCanal                 | my CANAL                | ✓            | ✓                  | ✓              | ✓              |
 | netflix                 | Netflix                 | ✓            | ✓                  | ✓              | ✓              |
+| nebula                  | Nebula                  | ✓            | ✓                  | ✓              | ✓              |
 | news                    | News by Fire TV         | ✓            |                    |                |                |
 | nlziet                  | NLZIET                  | ✓            | ✓                  | ✓              | ✓              |
 | nordvpn                 | Nord VPN                | ✓            | ✓                  | ✓              | ✓              |
@@ -203,6 +207,7 @@ Options:
 | private-internet-access | Private Internet Access |              | ✓                  | ✓              | ✓              |
 | raiplay                 | RaiPlay (IT)            | ✓            | ✓                  | ✓              | ✓              |
 | sbs-on-demand           | SBS On Demand (AU)      | ✓            | ✓                  | ✓              | ✓              |
+| shaw-bluecurve-tv       | Shaw Bluecurve TV (CA)  | ✓            | ✓                  | ✓              | ✓              |
 | shophq                  | ShopHQ                  | ✓            |                    |                |                |
 | showtime                | Showtime                | ✓            | ✓                  | ✓              | ✓              |
 | sky-news                | Sky News                | ✓            | ✓                  | ✓              | ✓              |
@@ -299,6 +304,7 @@ Valid button names are as follows:
  - input-button
  - programmable-one-button
  - programmable-two-button
+ - restart-button
  
 <br>
 <br>
