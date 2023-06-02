@@ -188,6 +188,7 @@ Options:
 | mediaset-infinity-alt   | Mediaset Infinity (alt) | ✓            | ✓                  | ✓              | ✓              |
 | movistar-plus           | Movistar Plus+          | ✓            | ✓                  | ✓              | ✓              |
 | myCanal                 | my CANAL                | ✓            | ✓                  | ✓              | ✓              |
+| my-family-cinema        | My Family Cinema        | ✓            | ✓                  | ✓              | ✓              |
 | netflix                 | Netflix                 | ✓            | ✓                  | ✓              | ✓              |
 | nebula                  | Nebula                  | ✓            | ✓                  | ✓              | ✓              |
 | news                    | News by Fire TV         | ✓            |                    |                |                |
@@ -206,6 +207,7 @@ Options:
 | prime-video             | Prime Video             | ✓            | ✓                  | ✓              | ✓              |
 | private-internet-access | Private Internet Access |              | ✓                  | ✓              | ✓              |
 | raiplay                 | RaiPlay (IT)            | ✓            | ✓                  | ✓              | ✓              |
+| redplay                 | RedPlay                 | ✓            | ✓                  | ✓              | ✓              |
 | sbs-on-demand           | SBS On Demand (AU)      | ✓            | ✓                  | ✓              | ✓              |
 | shaw-bluecurve-tv       | Shaw Bluecurve TV (CA)  | ✓            | ✓                  | ✓              | ✓              |
 | shophq                  | ShopHQ                  | ✓            |                    |                |                |
