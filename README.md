@@ -229,9 +229,11 @@ Options:
 | telenet-tv              | Telenet TV (BE)         | ✓            | ✓                  | ✓              | ✓              |
 | tennis-channel          | Tennis Channel          | ✓            |                    |                |                |
 | threenow                | Three Now (NZ)          | ✓            | ✓                  | ✓              | ✓              |
+| tidal                   | Tidal                   | ✓            | ✓                  | ✓              | ✓              |
 | tivimate                | TiviMate IPTV Player    | ✓            | ✓                  | ✓              | ✓              |
 | tubi                    | tubi                    | ✓            | ✓                  | ✓              | ✓              |
 | tvnz-plus               | TVNZ+ (NZ)              | ✓            | ✓                  | ✓              | ✓              |
+| twire                   | Twire                   | ✓            | ✓                  | ✓              | ✓              |
 | twitch                  | Twitch                  | ✓            | ✓                  | ✓              | ✓              |
 | videoland               | Videoland (NL)          |              | ✓                  | ✓              | ✓              |
 | vlc                     | VLC                     |              | ✓                  | ✓              | ✓              |
@@ -318,7 +320,7 @@ Valid button names are as follows:
 In many cases, your remote control sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  Since this is the case, these IR commands cannot be emulated through the same means that Firemote sends other commands.
 <br>
 
-In these cases, you might still have options.  If your Amazon Fire or Android TV device offers CEC options, then activating them will allow the Firemote controls to work as expected.  [Click here](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls) to learn more about how to [configure CEC to work with your Firemote](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls).  Another option might be to control your devices (TVs, Receivers, etc.) using [Button Overrides](https://github.com/PRProd/HA-Firemote#button-overrides).  If you can control those kinds of devices through Home Assistant, you can write a HA script and attach that script to a button on your Firemote.
+In these cases, you might still have options.  If your Amazon Fire or Android TV media device AND the device they are connected to both offer CEC options, then activating them will allow the Firemote controls to work as expected.  [Click here](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls) to learn more about how to [configure CEC to work with your Firemote](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls).  Another option might be to control your devices (TVs, Receivers, etc.) using [Button Overrides](https://github.com/PRProd/HA-Firemote#button-overrides).  If you can control those kinds of devices through Home Assistant, you can write a HA script and attach that script to a button on your Firemote.
 <br>
 <br>
 
