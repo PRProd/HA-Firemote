@@ -173,6 +173,7 @@ Options:
 | freevee                 | freevee                 | ✓            | ✓                  | ✓              | ✓              |
 | gcn-plus                | GCN+                    | ✓            | ✓                  | ✓              | ✓              |
 | go-play                 | GOPLAY                  | ✓            | ✓                  | ✓              | ✓              |
+| go-tv                   | GO TV                   | ✓            | ✓                  | ✓              | ✓              |
 | google-play-store       | Google Play Store       |              | ✓                  | ✓              | ✓              |
 | hbo-max                 | Max                     | ✓            | ✓                  | ✓              | ✓              |
 | home-assistant          | Home Assistant          | ✓            |                    |                |                |
@@ -232,9 +233,11 @@ Options:
 | tidal                   | Tidal                   | ✓            | ✓                  | ✓              | ✓              |
 | tivimate                | TiviMate IPTV Player    | ✓            | ✓                  | ✓              | ✓              |
 | tubi                    | tubi                    | ✓            | ✓                  | ✓              | ✓              |
+| tvexpress-br            | TVExpress (BR)          | ✓            | ✓                  | ✓              | ✓              |
 | tvnz-plus               | TVNZ+ (NZ)              | ✓            | ✓                  | ✓              | ✓              |
 | twire                   | Twire                   | ✓            | ✓                  | ✓              | ✓              |
 | twitch                  | Twitch                  | ✓            | ✓                  | ✓              | ✓              |
+| viaplay                 | Viaplay                 | ✓            | ✓                  | ✓              | ✓              |
 | videoland               | Videoland (NL)          |              | ✓                  | ✓              | ✓              |
 | vlc                     | VLC                     |              | ✓                  | ✓              | ✓              |
 | vtm-go                  | VTM GO (BE)             |              | ✓                  | ✓              | ✓              |
