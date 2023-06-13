@@ -214,6 +214,7 @@ Options:
 | shophq                  | ShopHQ                  | ✓            |                    |                |                |
 | showtime                | Showtime                | ✓            | ✓                  | ✓              | ✓              |
 | sky-news                | Sky News                | ✓            | ✓                  | ✓              | ✓              |
+| sky-showtime            | Skyshowtime             | ✓            |                    |                |                |
 | sky-sport-now           | Sky Sport Now           | ✓            | ✓                  | ✓              | ✓              |
 | smart-tube-next         | Smart Tube Next         | ✓            | ✓                  | ✓              | ✓              |
 | smart-tube-next-beta    | Smart Tube Next Beta    | ✓            | ✓                  | ✓              | ✓              |
