@@ -185,14 +185,17 @@ Options:
 | kodi                    | Kodi                    | ✓            | ✓                  | ✓              | ✓              |
 | live-channels           | Live Channels           |              | ✓                  | ✓              | ✓              |
 | magenta-tv              | Magenta TV              | ✓            |                    | ✓              | ✓              |
+| max-player              | MaxPlayer               | ✓            | ✓                  | ✓              | ✓              |
 | mediaset-infinity       | Mediaset Infinity       | ✓            | ✓                  | ✓              | ✓              |
 | mediaset-infinity-alt   | Mediaset Infinity (alt) | ✓            | ✓                  | ✓              | ✓              |
+| mlb                     | MLB                     | ✓            | ✓                  | ✓              | ✓              |
 | movistar-plus           | Movistar Plus+          | ✓            | ✓                  | ✓              | ✓              |
 | myCanal                 | my CANAL                | ✓            | ✓                  | ✓              | ✓              |
 | my-family-cinema        | My Family Cinema        | ✓            | ✓                  | ✓              | ✓              |
 | netflix                 | Netflix                 | ✓            | ✓                  | ✓              | ✓              |
 | nebula                  | Nebula                  | ✓            | ✓                  | ✓              | ✓              |
 | news                    | News by Fire TV         | ✓            |                    |                |                |
+| nine-now                | 9now                    | ✓            | ✓                  | ✓              | ✓              |
 | nlziet                  | NLZIET                  | ✓            | ✓                  | ✓              | ✓              |
 | nordvpn                 | Nord VPN                | ✓            | ✓                  | ✓              | ✓              |
 | now-tv                  | Now TV                  | ✓            |                    |                |                |
@@ -210,6 +213,7 @@ Options:
 | raiplay                 | RaiPlay (IT)            | ✓            | ✓                  | ✓              | ✓              |
 | redplay                 | RedPlay                 | ✓            | ✓                  | ✓              | ✓              |
 | sbs-on-demand           | SBS On Demand (AU)      | ✓            | ✓                  | ✓              | ✓              |
+| seven-plus              | 7plus (AU)              | ✓            | ✓                  | ✓              | ✓              |
 | shaw-bluecurve-tv       | Shaw Bluecurve TV (CA)  | ✓            | ✓                  | ✓              | ✓              |
 | shophq                  | ShopHQ                  | ✓            |                    |                |                |
 | showtime                | Showtime                | ✓            | ✓                  | ✓              | ✓              |
@@ -229,6 +233,7 @@ Options:
 | svt-play                | SVT Play                |              | ✓                  | ✓              | ✓              |
 | t2-tv                   | T-2 TV                  | ✓            | ✓                  | ✓              | ✓              |
 | telenet-tv              | Telenet TV (BE)         | ✓            | ✓                  | ✓              | ✓              |
+| ten-play                | 10play (AU)             | ✓            | ✓                  | ✓              | ✓              |
 | tennis-channel          | Tennis Channel          | ✓            |                    |                |                |
 | threenow                | Three Now (NZ)          | ✓            | ✓                  | ✓              | ✓              |
 | tidal                   | Tidal                   | ✓            | ✓                  | ✓              | ✓              |
