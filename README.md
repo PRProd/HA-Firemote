@@ -77,7 +77,8 @@ Which Chromecast device do I own?
 <br>
 
 ## Screenshots from Users
-![Dashboard](https://github.com/PRProd/HA-Firemote/assets/25486599/ddc0dc74-2b5d-47bd-b73f-05249dda3377)
+![Dashboard](https://github.com/PRProd/HA-Firemote/assets/25486599/ddc0dc74-2b5d-47bd-b73f-05249dda3377)<br>
+[Click here](https://github.com/PRProd/HA-Firemote/discussions/129) to see the full gallery
 
 <br>
 <br>
