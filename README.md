@@ -153,6 +153,8 @@ Options:
 | apple-tv                | Apple TV                | ✓            | ✓                  | ✓              | ✓              |
 | bbc-iplayer             | BBC iPlayer (UK)        | ✓            | ✓                  |                |                |
 | bell-fibe-tv            | Bell Fibe TV (CA)       | ✓            |                    |                |                |
+| bgtime-tv               | bgtime.tv               | ✓            | ✓                  | ✓              | ✓              |
+| binge-au                | Binge (AU)              | ✓            | ✓                  | ✓              | ✓              |
 | cnn                     | CNN                     | ✓            | ✓                  | ✓              | ✓              |
 | cosmote-tv              | COSMOTE TV              |              | ✓                  | ✓              | ✓              |
 | crave-tv                | Crave TV (CA)           | ✓            |                    |                |                |
@@ -179,6 +181,7 @@ Options:
 | hbo-max                 | Max                     | ✓            | ✓                  | ✓              | ✓              |
 | home-assistant          | Home Assistant          | ✓            |                    |                |                |
 | hulu                    | Hulu                    | ✓            | ✓                  | ✓              |                |
+| ignite-tv               | Ignite TV (Shaw)        | ✓            | ✓                  | ✓              | ✓              |
 | ipvanish                | IPVanish VPN            | ✓            | ✓                  | ✓              | ✓              |
 | israel-station          | Israel Station          | ✓            | ✓                  | ✓              | ✓              |
 | jellyfin                | Jellyfin                | ✓            | ✓                  | ✓              | ✓              |
@@ -193,6 +196,7 @@ Options:
 | movistar-plus           | Movistar Plus+          | ✓            | ✓                  | ✓              | ✓              |
 | myCanal                 | my CANAL                | ✓            | ✓                  | ✓              | ✓              |
 | my-family-cinema        | My Family Cinema        | ✓            | ✓                  | ✓              | ✓              |
+| nba-on-fire-tv          | NBA on Fire TV          | ✓            |                    |                |                |
 | netflix                 | Netflix                 | ✓            | ✓                  | ✓              | ✓              |
 | nebula                  | Nebula                  | ✓            | ✓                  | ✓              | ✓              |
 | news                    | News by Fire TV         | ✓            |                    |                |                |
@@ -215,7 +219,6 @@ Options:
 | redplay                 | RedPlay                 | ✓            | ✓                  | ✓              | ✓              |
 | sbs-on-demand           | SBS On Demand (AU)      | ✓            | ✓                  | ✓              | ✓              |
 | seven-plus              | 7plus (AU)              | ✓            | ✓                  | ✓              | ✓              |
-| shaw-bluecurve-tv       | Shaw Bluecurve TV (CA)  | ✓            | ✓                  | ✓              | ✓              |
 | shophq                  | ShopHQ                  | ✓            |                    |                |                |
 | showtime                | Showtime                | ✓            | ✓                  | ✓              | ✓              |
 | sky-news                | Sky News                | ✓            | ✓                  | ✓              | ✓              |
@@ -240,6 +243,7 @@ Options:
 | tidal                   | Tidal                   | ✓            | ✓                  | ✓              | ✓              |
 | tivimate                | TiviMate IPTV Player    | ✓            | ✓                  | ✓              | ✓              |
 | tubi                    | tubi                    | ✓            | ✓                  | ✓              | ✓              |
+| tver                    | TVer                    | ✓            | ✓                  | ✓              | ✓              |
 | tvexpress-br            | TVExpress (BR)          | ✓            | ✓                  | ✓              | ✓              |
 | tvnz-plus               | TVNZ+ (NZ)              | ✓            | ✓                  | ✓              | ✓              |
 | twire                   | Twire                   | ✓            | ✓                  | ✓              | ✓              |
@@ -261,6 +265,7 @@ Options:
 | function-find-my-remote | Shield's Remote Locator |              |                    | ✓              |                |
 | function-mute           | Mutes your device       | ✓            |                    | ✓              | ✓              |
 | function-reboot         | Reboots your device     | ✓            | ✓                  | ✓              | ✓              |
+| function-settings       | Launches Settings Menu  | ✓            | ✓                  | ✓              | ✓              |
 | hdmi_1                  | HDMI Input 1            | ✓ (device specific) |             |                |                |
 | hdmi_2                  | HDMI Input 2            | ✓ (device specific) |             |                |                |
 | hdmi_3                  | HDMI Input 3            | ✓ (device specific) |             |                |                |

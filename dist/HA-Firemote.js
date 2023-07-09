@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.3.9-b1';
+const HAFiremoteVersion = 'v2.3.9';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -403,6 +403,16 @@ const fastappchoices = {
       "appName": "bg.mytv.android",
       "androidName": "bg.mytv.android",
       "adbLaunchCommand": "adb shell am start -n bg.mytv.android/.activities.ActivityLogin",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
+  "binge-au": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="915" height="201" viewbox="0 0 915 201"><g transform="matrix(3.78 0 0 3.78 457.39 100.22)"><linearGradient id="bingeA" gradientUnits="userSpaceOnUse" x1="13.739" y1="48.924" x2="243.549" y2="49.113"><stop offset="0%" stop-color="#2173fa"/><stop offset="13.900000000000002%" stop-color="#3241de"/><stop offset="35.6%" stop-color="#5117bf"/><stop offset="42.9%" stop-color="#6911ac"/><stop offset="54.7%" stop-color="#92078b"/><stop offset="62.8%" stop-color="#a90178"/><stop offset="72.1%" stop-color="#c00057"/><stop offset="80.4%" stop-color="#cf0541"/><stop offset="88.9%" stop-color="#db363a"/><stop offset="100%" stop-color="#eb7531"/></linearGradient><path transform="translate(-132.29 -49.89)" d="M11.245 76.421h26.194c5.931 0 12.038.366 17.462-2.51 8.324-4.415 13.434-21.009 1.058-23.948 2.255-1.055 4.375-1.83 5.874-3.969C65.335 41 64.78 30.71 59.927 26.78c-2.79-2.26-6.354-2.724-9.788-3.056-7.142-.691-14.517-.22-21.696-.22h-7.409l-2.75.017-.646 3.952-1.407 10.054-4.986 38.894m61.648-52.916L71.04 38.057h18.212L75.009 45.4l-5.207 3.079-1.184 8.098-2.34 19.844h12.965l5 .012.53-3.716 1.349-10.054 3.131-24.606 1.963-14.589-6.417.037H72.893M89.56 76.42l16.421.017 3.44-27.517 3.667 6.35 7.503 14.023 3.815 7.14 4.594.004h11.906l6.615-52.916-16.421-.017-3.44 27.781c-3.834-5.814-6.866-12.557-9.988-18.785-1.234-2.462-4.264-8.973-4.264-8.973l-4.004-.023h-9.26l-3.81.046-.73 5.775M200.95 45.993h-23.019c1.056 2.536 2.507 5.015 3.857 7.408.575 1.02 2.021 3.103 2.021 3.103s-2.036 2.93-2.968 3.687c-4.787 3.89-12.214.618-14.988-4.144-3.526-6.05-.54-14.498 5.993-17.075 3.39-1.337 7.284-.916 10.848-.916h19.314l1.852-14.552h-23.018c-4.835 0-9.86-.409-14.552.984-18.74 5.562-24.61 30.614-11.354 44.52 6.746 7.077 15.218 7.412 24.318 7.412h13.23l4.45-.023 1.177-8.179c1.054-7.374 1.479-14.902 2.839-22.225m1.058 30.427h41.275l3.344-.021.697-3.948 1.251-10.318-28.046-.265.53-4.762h23.283l1.852-14.552H222.91l.53-4.498 28.31-.265 1.588-14.023-32.809-.264h-8.202l-3.563.012-.48 3.956-1.29 10.054-4.986 38.894M31.882 44.142c.231-1.489 1.437-7.633 1.437-7.633l3.061-.04c2.709 0 6.636-.523 8.826 1.446 2.686 2.417.536 5.668-2.211 6.11-1.386.224-2.835.117-4.234.117h-6.879M29.36 63.986l1.255-8.874 4.775-.058c2.981 0 6.322-.385 8.963 1.305 4.144 2.526.799 6.798-2.416 7.414-1.57.3-3.171.213-4.762.213z" fill="url(#bingeA)" fill-rule="evenodd"/></g></svg>',
+      "friendlyName": 'Binge (AU)',
+      "className": "bingeAuButton",
+      "appName": "au.com.streamotion.ares.tv",
+      "androidName": "au.com.streamotion.ares.tv",
+      "adbLaunchCommand": "adb shell am start -n au.com.streamotion.ares.tv/au.com.streamotion.ares.tv.main.MainActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
 
 
@@ -2801,6 +2811,10 @@ class FiremoteCard extends LitElement {
 
           .bgtimeTvButton {
             background: linear-gradient(90deg, #12365c, #171f42);
+          }
+
+          .bingeAuButton {
+            background: #fff;
           }
 
           .cnnButton {
