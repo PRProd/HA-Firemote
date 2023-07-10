@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.3.9';
+const HAFiremoteVersion = 'v2.3.10-b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -3838,6 +3838,8 @@ class FiremoteCard extends LitElement {
       }
     }
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
+    var backgroundInherit = '';
+    if (this._config.use_theme_background == true) { backgroundInherit = 'background: inherit !important; border: inherit !important; border-radius: inherit !important;';}
     const cssVars = html `<style>
                             :host {
                               --sz: ${scale};
@@ -3846,6 +3848,7 @@ class FiremoteCard extends LitElement {
                             ${buttonHidingCss}
                             .AL1, .AL2 {
                               --sz: calc(${scale} * 2);
+                              ${backgroundInherit}
                             }
                             .AL2 .appLauncherAppsContainer {
                               --sz: calc(${launcherscale} * 2);
