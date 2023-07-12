@@ -133,7 +133,8 @@ Options:
 | name_position           | string | no      | hidden<br>bottom<br>top<br>                                      | Position for your optional device label|
 | visible_name_text_color | hex color value | no | Any hex color value e.g.: #ffffff                            | Optional text color for the device name label |
 | show_version_number     | bool   | no      | true<br>false                                                    | Optionally display the Firemote Version number on the card|
-| hide_button_highlights  | bool   | no      | true<br>false                                                    | Optionally hide the status higlighting decorations for the power, home, and play/pause buttons |
+| hide_button_highlights  | bool   | no      | true<br>false                                                    | Optionally hide the status higlighting decorations for the power, home, and play/pause buttons|
+| use_theme_background    | bool   | no      | true<br>false                                                    | Optionally hide the AL1 or AL2 remote style's background color to let the HA theme color show|
 
 <br>
 <br>
@@ -143,133 +144,135 @@ Options:
 Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you and likely important to others as well!  As long as the app is easily downloaded through your device's app store (not sideloaded), your request will be granted ASAP.
 
 Options:
-| Value for YAML File     | App / Physical Input    | Fire Support | Chromecast Support | Shield Support | Xiaomi Support |
-| ----------------------- | ----------------------- | :----------: | :----------------: | :------------: | :------------: |
-| abc-iview               | ABC iview (AU)          | ✓            | ✓                  | ✓              | ✓              |
-| ace-stream-media        | Ace Stream Media        | ✓            | ✓                  | ✓              | ✓              |
-| all-4                   | ALL4                    | ✓            | ✓                  | ✓              | ✓              |
-| amc-plus                | AMC+                    | ✓            | ✓                  | ✓              | ✓              |
-| app-opener              | App Opener              | ✓            |                    |                |                |
-| apple-tv                | Apple TV                | ✓            | ✓                  | ✓              | ✓              |
-| bbc-iplayer             | BBC iPlayer (UK)        | ✓            | ✓                  |                |                |
-| bell-fibe-tv            | Bell Fibe TV (CA)       | ✓            |                    |                |                |
-| bgtime-tv               | bgtime.tv               | ✓            | ✓                  | ✓              | ✓              |
-| binge-au                | Binge (AU)              | ✓            | ✓                  | ✓              | ✓              |
-| cnn                     | CNN                     | ✓            | ✓                  | ✓              | ✓              |
-| cosmote-tv              | COSMOTE TV              |              | ✓                  | ✓              | ✓              |
-| crave-tv                | Crave TV (CA)           | ✓            |                    |                |                |
-| crunchyroll             | Crunchyroll             | ✓            | ✓                  | ✓              | ✓              |
-| curiosity-stream        | Curiosity Stream        | ✓            | ✓                  | ✓              | ✓              |
-| cyberghost              | CyberGhost VPN          | ✓            | ✓                  | ✓              | ✓              |
-| dazn                    | DAZN                    | ✓            | ✓                  | ✓              | ✓              |
-| directv-stream          | DIRECTV stream          | ✓            | ✓                  | ✓              | ✓              |
-| discovery-plus          | Discovery +             | ✓            | ✓                  | ✓              | ✓              |
-| disney-plus             | Disney +                | ✓            | ✓                  | ✓              | ✓              |
-| ds-video                | DS Video                | ✓            | ✓                  | ✓              | ✓              |
-| emby                    | Emby                    | ✓            | ✓                  | ✓              | ✓              |
-| eon-tv                  | EON TV                  |              | ✓                  | ✓              | ✓              |
-| ertflix                 | ERT FLIX                |              | ✓                  | ✓              | ✓              |
-| espn                    | ESPN                    | ✓            | ✓                  | ✓              | ✓              |
-| f-droid                 | F-Droid                 | ✓            | ✓                  | ✓              | ✓              |
-| f1-tv                   | F1 TV                   | ✓            | ✓                  | ✓              | ✓              |
-| firetv-store            | FireTV Store            | ✓            |                    |                |                |
-| freevee                 | freevee                 | ✓            | ✓                  | ✓              | ✓              |
-| gcn-plus                | GCN+                    | ✓            | ✓                  | ✓              | ✓              |
-| go-play                 | GOPLAY                  | ✓            | ✓                  | ✓              | ✓              |
-| go-tv                   | GO TV                   | ✓            | ✓                  | ✓              | ✓              |
-| google-play-store       | Google Play Store       |              | ✓                  | ✓              | ✓              |
-| hbo-max                 | Max                     | ✓            | ✓                  | ✓              | ✓              |
-| home-assistant          | Home Assistant          | ✓            |                    |                |                |
-| hulu                    | Hulu                    | ✓            | ✓                  | ✓              |                |
-| ignite-tv               | Ignite TV (Shaw)        | ✓            | ✓                  | ✓              | ✓              |
-| ipvanish                | IPVanish VPN            | ✓            | ✓                  | ✓              | ✓              |
-| israel-station          | Israel Station          | ✓            | ✓                  | ✓              | ✓              |
-| jellyfin                | Jellyfin                | ✓            | ✓                  | ✓              | ✓              |
-| kayo                    | Kayo Sports (AU)        | ✓            |                    | ✓              | ✓              |
-| kodi                    | Kodi                    | ✓            | ✓                  | ✓              | ✓              |
-| live-channels           | Live Channels           |              | ✓                  | ✓              | ✓              |
-| magenta-tv              | Magenta TV              | ✓            |                    | ✓              | ✓              |
-| max-player              | MaxPlayer               | ✓            | ✓                  | ✓              | ✓              |
-| mediaset-infinity       | Mediaset Infinity       | ✓            | ✓                  | ✓              | ✓              |
-| mediaset-infinity-alt   | Mediaset Infinity (alt) | ✓            | ✓                  | ✓              | ✓              |
-| mlb                     | MLB                     | ✓            | ✓                  | ✓              | ✓              |
-| movistar-plus           | Movistar Plus+          | ✓            | ✓                  | ✓              | ✓              |
-| myCanal                 | my CANAL                | ✓            | ✓                  | ✓              | ✓              |
-| my-family-cinema        | My Family Cinema        | ✓            | ✓                  | ✓              | ✓              |
-| nba-on-fire-tv          | NBA on Fire TV          | ✓            |                    |                |                |
-| netflix                 | Netflix                 | ✓            | ✓                  | ✓              | ✓              |
-| nebula                  | Nebula                  | ✓            | ✓                  | ✓              | ✓              |
-| news                    | News by Fire TV         | ✓            |                    |                |                |
-| nine-now                | 9now                    | ✓            | ✓                  | ✓              | ✓              |
-| nlziet                  | NLZIET                  | ✓            | ✓                  | ✓              | ✓              |
-| nordvpn                 | Nord VPN                | ✓            | ✓                  | ✓              | ✓              |
-| now-tv                  | Now TV                  | ✓            |                    |                |                |
-| npo                     | NPO (NL)                |              | ✓                  | ✓              | ✓              |
-| optus-sport             | Optus Sport (AU)        | ✓            | ✓                  | ✓              | ✓              |
-| ott-navigator           | OTT Navigator           | ✓            | ✓                  | ✓              | ✓              |
-| oqee-by-free            | OQEE by Free (FR)       | ✓            | ✓                  |                |                |
-| pandora                 | Pandora                 | ✓            | ✓                  | ✓              | ✓              |
-| paramount-plus          | Paramount+              | ✓            | ✓                  | ✓              | ✓              |
-| paramount-plus-de       | Paramount+ (alt)        | ✓            | ✓                  | ✓              | ✓              |
-| peacock                 | Peacock                 | ✓            | ✓                  | ✓              | ✓              |
-| plex                    | Plex                    | ✓            | ✓                  | ✓              | ✓              |
-| prime-video             | Prime Video             | ✓            | ✓                  | ✓              | ✓              |
-| private-internet-access | Private Internet Access |              | ✓                  | ✓              | ✓              |
-| raiplay                 | RaiPlay (IT)            | ✓            | ✓                  | ✓              | ✓              |
-| redplay                 | RedPlay                 | ✓            | ✓                  | ✓              | ✓              |
-| sbs-on-demand           | SBS On Demand (AU)      | ✓            | ✓                  | ✓              | ✓              |
-| seven-plus              | 7plus (AU)              | ✓            | ✓                  | ✓              | ✓              |
-| shophq                  | ShopHQ                  | ✓            |                    |                |                |
-| showtime                | Showtime                | ✓            | ✓                  | ✓              | ✓              |
-| sky-news                | Sky News                | ✓            | ✓                  | ✓              | ✓              |
-| sky-showtime            | Skyshowtime             | ✓            |                    |                |                |
-| sky-sport-now           | Sky Sport Now           | ✓            | ✓                  | ✓              | ✓              |
-| smart-tube-next         | Smart Tube Next         | ✓            | ✓                  | ✓              | ✓              |
-| smart-tube-next-beta    | Smart Tube Next Beta    | ✓            | ✓                  | ✓              | ✓              |
-| spotify                 | Spotify                 | ✓            | ✓                  | ✓              | ✓              |
-| stan                    | Stan (AU)               | ✓            | ✓                  | ✓              | ✓              |
-| starz                   | Starz                   | ✓            | ✓                  | ✓              | ✓              |
-| steam-link              | Steam Link              |              | ✓                  | ✓              | ✓              |
-| stream-tv               | StreamTV                | ✓            | ✓                  | ✓              | ✓              |
-| streamz                 | streamz (BE)            |              | ✓                  | ✓              | ✓              |
-| stremio                 | Stremio                 | ✓            | ✓                  | ✓              | ✓              |
-| surfshark-vpn           | Surfshark VPN           | ✓            | ✓                  | ✓              | ✓              |
-| svt-play                | SVT Play                |              | ✓                  | ✓              | ✓              |
-| t2-tv                   | T-2 TV                  | ✓            | ✓                  | ✓              | ✓              |
-| telenet-tv              | Telenet TV (BE)         | ✓            | ✓                  | ✓              | ✓              |
-| ten-play                | 10play (AU)             | ✓            | ✓                  | ✓              | ✓              |
-| tennis-channel          | Tennis Channel          | ✓            |                    |                |                |
-| threenow                | Three Now (NZ)          | ✓            | ✓                  | ✓              | ✓              |
-| tidal                   | Tidal                   | ✓            | ✓                  | ✓              | ✓              |
-| tivimate                | TiviMate IPTV Player    | ✓            | ✓                  | ✓              | ✓              |
-| tubi                    | tubi                    | ✓            | ✓                  | ✓              | ✓              |
-| tver                    | TVer                    | ✓            | ✓                  | ✓              | ✓              |
-| tvexpress-br            | TVExpress (BR)          | ✓            | ✓                  | ✓              | ✓              |
-| tvnz-plus               | TVNZ+ (NZ)              | ✓            | ✓                  | ✓              | ✓              |
-| twire                   | Twire                   | ✓            | ✓                  | ✓              | ✓              |
-| twitch                  | Twitch                  | ✓            | ✓                  | ✓              | ✓              |
-| viaplay                 | Viaplay                 | ✓            | ✓                  | ✓              | ✓              |
-| videoland               | Videoland (NL)          |              | ✓                  | ✓              | ✓              |
-| vlc                     | VLC                     |              | ✓                  | ✓              | ✓              |
-| vtm-go                  | VTM GO (BE)             |              | ✓                  | ✓              | ✓              |
-| vrt-max                 | VRT MAX (BE)            |              | ✓                  | ✓              | ✓              |
-| waipuTV                 | Waipu TV (DE)           | ✓            |                    |                |                |
-| xciptv-player           | XCIPTV Player           | ✓            | ✓                  | ✓              | ✓              |
-| xfinityStream           | Xfinity Stream          | ✓            |                    | ✓              |                |
-| youtube                 | YouTube                 | ✓            | ✓                  | ✓              | ✓              |
-| youtubekids             | YouTube Kids            | ✓            | ✓                  | ✓              | ✓              |
-| youtubeTV               | YouTube TV              | ✓            | ✓                  | ✓              | ✓              |
-| zattoo                  | Zattoo                  | ✓            |                    |                |                |
-| ziggo-go                | Ziggo Go                | ✓            | ✓                  | ✓              | ✓              |
-| function-app-switch     | Built-in App Switcher   |              | ✓                  | ✓              | ✓              |
-| function-find-my-remote | Shield's Remote Locator |              |                    | ✓              |                |
-| function-mute           | Mutes your device       | ✓            |                    | ✓              | ✓              |
-| function-reboot         | Reboots your device     | ✓            | ✓                  | ✓              | ✓              |
-| function-settings       | Launches Settings Menu  | ✓            | ✓                  | ✓              | ✓              |
-| hdmi_1                  | HDMI Input 1            | ✓ (device specific) |             |                |                |
-| hdmi_2                  | HDMI Input 2            | ✓ (device specific) |             |                |                |
-| hdmi_3                  | HDMI Input 3            | ✓ (device specific) |             |                |                |
-| hdmi_4                  | HDMI Input 4            | ✓ (device specific) |             |                |                |
+| Value for YAML File        | App / Physical Input      | Fire Support | Chromecast Support | Shield Support | Xiaomi Support |
+| -------------------------- | ------------------------- | :----------: | :----------------: | :------------: | :------------: |
+| abc-iview                  | ABC iview (AU)            | ✓            | ✓                  | ✓              | ✓              |
+| ace-stream-media           | Ace Stream Media          | ✓            | ✓                  | ✓              | ✓              |
+| all-4                      | ALL4                      | ✓            | ✓                  | ✓              | ✓              |
+| amc-plus                   | AMC+                      | ✓            | ✓                  | ✓              | ✓              |
+| app-opener                 | App Opener                | ✓            |                    |                |                |
+| apple-tv                   | Apple TV                  | ✓            | ✓                  | ✓              | ✓              |
+| bbc-iplayer                | BBC iPlayer (UK)          | ✓            | ✓                  |                |                |
+| bell-fibe-tv               | Bell Fibe TV (CA)         | ✓            |                    |                |                |
+| bgtime-tv                  | bgtime.tv                 | ✓            | ✓                  | ✓              | ✓              |
+| binge-au                   | Binge (AU)                | ✓            | ✓                  | ✓              | ✓              |
+| cnn                        | CNN                       | ✓            | ✓                  | ✓              | ✓              |
+| cosmote-tv                 | COSMOTE TV                |              | ✓                  | ✓              | ✓              |
+| crave-tv                   | Crave TV (CA)             | ✓            |                    |                |                |
+| crunchyroll                | Crunchyroll               | ✓            | ✓                  | ✓              | ✓              |
+| curiosity-stream           | Curiosity Stream          | ✓            | ✓                  | ✓              | ✓              |
+| cyberghost                 | CyberGhost VPN            | ✓            | ✓                  | ✓              | ✓              |
+| dazn                       | DAZN                      | ✓            | ✓                  | ✓              | ✓              |
+| directv-stream             | DIRECTV stream            | ✓            | ✓                  | ✓              | ✓              |
+| discovery-plus             | Discovery +               | ✓            | ✓                  | ✓              | ✓              |
+| disney-plus                | Disney +                  | ✓            | ✓                  | ✓              | ✓              |
+| ds-video                   | DS Video                  | ✓            | ✓                  | ✓              | ✓              |
+| emby                       | Emby                      | ✓            | ✓                  | ✓              | ✓              |
+| eon-tv                     | EON TV                    |              | ✓                  | ✓              | ✓              |
+| ertflix                    | ERT FLIX                  |              | ✓                  | ✓              | ✓              |
+| espn                       | ESPN                      | ✓            | ✓                  | ✓              | ✓              |
+| f-droid                    | F-Droid                   | ✓            | ✓                  | ✓              | ✓              |
+| f1-tv                      | F1 TV                     | ✓            | ✓                  | ✓              | ✓              |
+| firetv-store               | FireTV Store              | ✓            |                    |                |                |
+| freevee                    | freevee                   | ✓            | ✓                  | ✓              | ✓              |
+| gcn-plus                   | GCN+                      | ✓            | ✓                  | ✓              | ✓              |
+| go-play                    | GOPLAY                    | ✓            | ✓                  | ✓              | ✓              |
+| go-tv                      | GO TV                     | ✓            | ✓                  | ✓              | ✓              |
+| google-play-store          | Google Play Store         |              | ✓                  | ✓              | ✓              |
+| hbo-max                    | Max                       | ✓            | ✓                  | ✓              | ✓              |
+| home-assistant             | Home Assistant            | ✓            |                    |                |                |
+| hulu                       | Hulu                      | ✓            | ✓                  | ✓              |                |
+| ignite-tv                  | Ignite TV (Shaw)          | ✓            | ✓                  | ✓              | ✓              |
+| ipvanish                   | IPVanish VPN              | ✓            | ✓                  | ✓              | ✓              |
+| israel-station             | Israel Station            | ✓            | ✓                  | ✓              | ✓              |
+| jellyfin                   | Jellyfin                  | ✓            | ✓                  | ✓              | ✓              |
+| kayo                       | Kayo Sports (AU)          | ✓            |                    | ✓              | ✓              |
+| КиноПоиск                  | КиноПоиск                 | ✓            | ✓                  | ✓              | ✓              |
+| kodi                       | Kodi                      | ✓            | ✓                  | ✓              | ✓              |
+| live-channels              | Live Channels             |              | ✓                  | ✓              | ✓              |
+| magenta-tv                 | Magenta TV                | ✓            |                    | ✓              | ✓              |
+| max-player                 | MaxPlayer                 | ✓            | ✓                  | ✓              | ✓              |
+| mediaset-infinity          | Mediaset Infinity         | ✓            | ✓                  | ✓              | ✓              |
+| mediaset-infinity-alt      | Mediaset Infinity (alt)   | ✓            | ✓                  | ✓              | ✓              |
+| mlb                        | MLB                       | ✓            | ✓                  | ✓              | ✓              |
+| movistar-plus              | Movistar Plus+            | ✓            | ✓                  | ✓              | ✓              |
+| myCanal                    | my CANAL                  | ✓            | ✓                  | ✓              | ✓              |
+| my-family-cinema           | My Family Cinema          | ✓            | ✓                  | ✓              | ✓              |
+| nba-on-fire-tv             | NBA on Fire TV            | ✓            |                    |                |                |
+| netflix                    | Netflix                   | ✓            | ✓                  | ✓              | ✓              |
+| nebula                     | Nebula                    | ✓            | ✓                  | ✓              | ✓              |
+| news                       | News by Fire TV           | ✓            |                    |                |                |
+| nine-now                   | 9now                      | ✓            | ✓                  | ✓              | ✓              |
+| nlziet                     | NLZIET                    | ✓            | ✓                  | ✓              | ✓              |
+| nordvpn                    | Nord VPN                  | ✓            | ✓                  | ✓              | ✓              |
+| now-tv                     | Now TV                    | ✓            |                    |                |                |
+| npo                        | NPO (NL)                  |              | ✓                  | ✓              | ✓              |
+| optus-sport                | Optus Sport (AU)          | ✓            | ✓                  | ✓              | ✓              |
+| ott-navigator              | OTT Navigator             | ✓            | ✓                  | ✓              | ✓              |
+| oqee-by-free               | OQEE by Free (FR)         | ✓            | ✓                  |                |                |
+| pandora                    | Pandora                   | ✓            | ✓                  | ✓              | ✓              |
+| paramount-plus             | Paramount+                | ✓            | ✓                  | ✓              | ✓              |
+| paramount-plus-de          | Paramount+ (alt)          | ✓            | ✓                  | ✓              | ✓              |
+| peacock                    | Peacock                   | ✓            | ✓                  | ✓              | ✓              |
+| plex                       | Plex                      | ✓            | ✓                  | ✓              | ✓              |
+| prime-video                | Prime Video               | ✓            | ✓                  | ✓              | ✓              |
+| private-internet-access    | Private Internet Access   |              | ✓                  | ✓              | ✓              |
+| raiplay                    | RaiPlay (IT)              | ✓            | ✓                  | ✓              | ✓              |
+| redplay                    | RedPlay                   | ✓            | ✓                  | ✓              | ✓              |
+| sbs-on-demand              | SBS On Demand (AU)        | ✓            | ✓                  | ✓              | ✓              |
+| seven-plus                 | 7plus (AU)                | ✓            | ✓                  | ✓              | ✓              |
+| shophq                     | ShopHQ                    | ✓            |                    |                |                |
+| showtime                   | Showtime                  | ✓            | ✓                  | ✓              | ✓              |
+| sky-news                   | Sky News                  | ✓            | ✓                  | ✓              | ✓              |
+| sky-showtime               | Skyshowtime               | ✓            |                    |                |                |
+| sky-sport-now              | Sky Sport Now             | ✓            | ✓                  | ✓              | ✓              |
+| smart-tube-next            | Smart Tube Next           | ✓            | ✓                  | ✓              | ✓              |
+| smart-tube-next-beta       | Smart Tube Next Beta      | ✓            | ✓                  | ✓              | ✓              |
+| smart-tv-client-for-twitch | SmartTV Client for Twitch | ✓            | ✓                  | ✓              | ✓              |
+| spotify                    | Spotify                   | ✓            | ✓                  | ✓              | ✓              |
+| stan                       | Stan (AU)                 | ✓            | ✓                  | ✓              | ✓              |
+| starz                      | Starz                     | ✓            | ✓                  | ✓              | ✓              |
+| steam-link                 | Steam Link                |              | ✓                  | ✓              | ✓              |
+| stream-tv                  | StreamTV                  | ✓            | ✓                  | ✓              | ✓              |
+| streamz                    | streamz (BE)              |              | ✓                  | ✓              | ✓              |
+| stremio                    | Stremio                   | ✓            | ✓                  | ✓              | ✓              |
+| surfshark-vpn              | Surfshark VPN             | ✓            | ✓                  | ✓              | ✓              |
+| svt-play                   | SVT Play                  |              | ✓                  | ✓              | ✓              |
+| t2-tv                      | T-2 TV                    | ✓            | ✓                  | ✓              | ✓              |
+| telenet-tv                 | Telenet TV (BE)           | ✓            | ✓                  | ✓              | ✓              |
+| ten-play                   | 10play (AU)               | ✓            | ✓                  | ✓              | ✓              |
+| tennis-channel             | Tennis Channel            | ✓            |                    |                |                |
+| threenow                   | Three Now (NZ)            | ✓            | ✓                  | ✓              | ✓              |
+| tidal                      | Tidal                     | ✓            | ✓                  | ✓              | ✓              |
+| tivimate                   | TiviMate IPTV Player      | ✓            | ✓                  | ✓              | ✓              |
+| tubi                       | tubi                      | ✓            | ✓                  | ✓              | ✓              |
+| tver                       | TVer                      | ✓            | ✓                  | ✓              | ✓              |
+| tvexpress-br               | TVExpress (BR)            | ✓            | ✓                  | ✓              | ✓              |
+| tvnz-plus                  | TVNZ+ (NZ)                | ✓            | ✓                  | ✓              | ✓              |
+| twire                      | Twire                     | ✓            | ✓                  | ✓              | ✓              |
+| twitch                     | Twitch                    | ✓            | ✓                  | ✓              | ✓              |
+| viaplay                    | Viaplay                   | ✓            | ✓                  | ✓              | ✓              |
+| videoland                  | Videoland (NL)            |              | ✓                  | ✓              | ✓              |
+| vlc                        | VLC                       |              | ✓                  | ✓              | ✓              |
+| vtm-go                     | VTM GO (BE)               |              | ✓                  | ✓              | ✓              |
+| vrt-max                    | VRT MAX (BE)              |              | ✓                  | ✓              | ✓              |
+| waipuTV                    | Waipu TV (DE)             | ✓            |                    |                |                |
+| xciptv-player              | XCIPTV Player             | ✓            | ✓                  | ✓              | ✓              |
+| xfinityStream              | Xfinity Stream            | ✓            |                    | ✓              |                |
+| youtube                    | YouTube                   | ✓            | ✓                  | ✓              | ✓              |
+| youtubekids                | YouTube Kids              | ✓            | ✓                  | ✓              | ✓              |
+| youtubeTV                  | YouTube TV                | ✓            | ✓                  | ✓              | ✓              |
+| zattoo                     | Zattoo                    | ✓            |                    |                |                |
+| ziggo-go                   | Ziggo Go                  | ✓            | ✓                  | ✓              | ✓              |
+| function-app-switch        | Built-in App Switcher     |              | ✓                  | ✓              | ✓              |
+| function-find-my-remote    | Shield's Remote Locator   |              |                    | ✓              |                |
+| function-mute              | Mutes your device         | ✓            |                    | ✓              | ✓              |
+| function-reboot            | Reboots your device       | ✓            | ✓                  | ✓              | ✓              |
+| function-settings          | Launches Settings Menu    | ✓            | ✓                  | ✓              | ✓              |
+| hdmi_1                     | HDMI Input 1              | ✓ (device specific) |             |                |                |
+| hdmi_2                     | HDMI Input 2              | ✓ (device specific) |             |                |                |
+| hdmi_3                     | HDMI Input 3              | ✓ (device specific) |             |                |                |
+| hdmi_4                     | HDMI Input 4              | ✓ (device specific) |             |                |                |
 
 <br>
 <br>
