@@ -156,6 +156,7 @@ Options:
 | bell-fibe-tv               | Bell Fibe TV (CA)         | ✓            |                    |                |                |
 | bgtime-tv                  | bgtime.tv                 | ✓            | ✓                  | ✓              | ✓              |
 | binge-au                   | Binge (AU)                | ✓            | ✓                  | ✓              | ✓              |
+| channels-dvr               | Channels: whole home DVR  | ✓            | ✓                  | ✓              | ✓              |
 | cnn                        | CNN                       | ✓            | ✓                  | ✓              | ✓              |
 | cosmote-tv                 | COSMOTE TV                |              | ✓                  | ✓              | ✓              |
 | crave-tv                   | Crave TV (CA)             | ✓            |                    |                |                |
@@ -183,12 +184,15 @@ Options:
 | home-assistant             | Home Assistant            | ✓            |                    |                |                |
 | hulu                       | Hulu                      | ✓            | ✓                  | ✓              |                |
 | ignite-tv                  | Ignite TV (Shaw)          | ✓            | ✓                  | ✓              | ✓              |
+| internet-silk-browser      | internet (Silk Browser)   | ✓            |                    |                |                |
+| iptv-extreme-pro           | IPTV Extreme Pro          | ✓            | ✓                  | ✓              | ✓              |
 | ipvanish                   | IPVanish VPN              | ✓            | ✓                  | ✓              | ✓              |
 | israel-station             | Israel Station            | ✓            | ✓                  | ✓              | ✓              |
 | jellyfin                   | Jellyfin                  | ✓            | ✓                  | ✓              | ✓              |
 | kayo                       | Kayo Sports (AU)          | ✓            |                    | ✓              | ✓              |
 | КиноПоиск                  | КиноПоиск                 | ✓            | ✓                  | ✓              | ✓              |
 | kodi                       | Kodi                      | ✓            | ✓                  | ✓              | ✓              |
+| lazymedia-deluxe           | LAZYMEDIA DELUXE          | ✓            | ✓                  | ✓              | ✓              |
 | live-channels              | Live Channels             |              | ✓                  | ✓              | ✓              |
 | magenta-tv                 | Magenta TV                | ✓            |                    | ✓              | ✓              |
 | max-player                 | MaxPlayer                 | ✓            | ✓                  | ✓              | ✓              |
@@ -256,7 +260,7 @@ Options:
 | vlc                        | VLC                       |              | ✓                  | ✓              | ✓              |
 | vtm-go                     | VTM GO (BE)               |              | ✓                  | ✓              | ✓              |
 | vrt-max                    | VRT MAX (BE)              |              | ✓                  | ✓              | ✓              |
-| waipuTV                    | Waipu TV (DE)             | ✓            |                    |                |                |
+| waipuTV                    | Waipu TV (DE)             | ✓            | ✓                  | ✓              | ✓              |
 | xciptv-player              | XCIPTV Player             | ✓            | ✓                  | ✓              | ✓              |
 | xfinityStream              | Xfinity Stream            | ✓            |                    | ✓              |                |
 | youtube                    | YouTube                   | ✓            | ✓                  | ✓              | ✓              |
