@@ -152,7 +152,7 @@ Options:
 | amc-plus                   | AMC+                      | ✓            | ✓                  | ✓              | ✓              |
 | app-opener                 | App Opener                | ✓            |                    |                |                |
 | apple-tv                   | Apple TV                  | ✓            | ✓                  | ✓              | ✓              |
-| bbc-iplayer                | BBC iPlayer (UK)          | ✓            | ✓                  |                |                |
+| bbc-iplayer                | BBC iPlayer (UK)          | ✓            | ✓                  | ✓              |                |
 | bell-fibe-tv               | Bell Fibe TV (CA)         | ✓            |                    |                |                |
 | bgtime-tv                  | bgtime.tv                 | ✓            | ✓                  | ✓              | ✓              |
 | binge-au                   | Binge (AU)                | ✓            | ✓                  | ✓              | ✓              |
@@ -221,6 +221,7 @@ Options:
 | plex                       | Plex                      | ✓            | ✓                  | ✓              | ✓              |
 | prime-video                | Prime Video               | ✓            | ✓                  | ✓              | ✓              |
 | private-internet-access    | Private Internet Access   |              | ✓                  | ✓              | ✓              |
+| purple-cheetah             | Purple Cheetah            | ✓            | ✓                  | ✓              | ✓              |
 | raiplay                    | RaiPlay (IT)              | ✓            | ✓                  | ✓              | ✓              |
 | redplay                    | RedPlay                   | ✓            | ✓                  | ✓              | ✓              |
 | sbs-on-demand              | SBS On Demand (AU)        | ✓            | ✓                  | ✓              | ✓              |
