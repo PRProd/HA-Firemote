@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.3.13-b1';
+const HAFiremoteVersion = 'v2.3.13-b2';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -1674,12 +1674,11 @@ const fastappchoices = {
 
 
   "tving": {
-      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="425.675" height="104.438" viewBox="0 0 425.675 104.438"><path d="M278.894 58.887l20.731 41.837h32.214V2.577H301v40.856a2.733 2.733 0 0 1-5.185 1.214l-20.838-42.07h-32.214v98.142h30.932V60.096a2.733 2.733 0 0 1 5.185-1.209m-83.824-56.31h33.826v98.142h-33.826zM341.836 42.36v18.09c0 17.595 6.637 30.316 19.722 37.802 20.877 11.949 50.94 4.574 64.117-5.171V47.409h-30.549v28.723l-.583.228a17.435 17.435 0 0 1-14.998-1.141 16.299 16.299 0 0 1-5.972-14.429V40.549a10.919 10.919 0 0 1 8.171-11.842 11.327 11.327 0 0 1 13.458 7.618l29.592-15.871A40.812 40.812 0 0 0 387.179.062c-1.995 0-3.938.097-5.787.262a46.726 46.726 0 0 0-27.228 10.832 40.526 40.526 0 0 0-12.303 31.204M83.931 2.577H0V31.31h25.247v69.429h33.389V31.31h25.271zm69.298 0l-21.149 65.714a2.733 2.733 0 0 1-5.341-.835V2.572H94.666v98.147h60.646l33.195-98.142z" fill="#fff"/></svg>',
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="425.675" height="104.438" viewBox="0 0 425.675 104.438"><path d="M278.894 58.887l20.731 41.837h32.214V2.577H301v40.856a2.733 2.733 0 0 1-5.185 1.214l-20.838-42.07h-32.214v98.142h30.932V60.096a2.733 2.733 0 0 1 5.185-1.209m-83.824-56.31h33.826v98.142h-33.826zM341.836 42.36v18.09c0 17.595 6.637 30.316 19.722 37.802 20.877 11.949 50.94 4.574 64.117-5.171V47.409h-30.549v28.723l-.583.228a17.435 17.435 0 0 1-14.998-1.141 16.299 16.299 0 0 1-5.972-14.429V40.549a10.919 10.919 0 0 1 8.171-11.842 11.327 11.327 0 0 1 13.458 7.618l29.592-15.871A40.812 40.812 0 0 0 387.179.062c-1.995 0-3.938.097-5.787.262a46.726 46.726 0 0 0-27.228 10.832 40.526 40.526 0 0 0-12.303 31.204M83.931 2.577H0V31.31h25.247v69.429h33.389V31.31h25.271zm69.298 0l-21.149 65.714a2.733 2.733 0 0 1-5.341-.835V2.572H94.666v98.147h60.646l33.195-98.142z" fill="#fe133c"/></svg>',
       "friendlyName": "TVING",
       "className": "tvingButton",
       "appName": "net.cj.em.tving",
       "androidName": "net.cj.em.tving",
-      "adbLaunchCommand": "adb shell am start -n net.cj.em.tving/net.cj.em.tving.app.SplashActivity",
       "deviceFamily": ["chromecast", "nvidia-shield", "xiaomi"], },
 
 
@@ -3604,7 +3603,7 @@ class FiremoteCard extends LitElement {
           }
 
           .tvingButton {
-            background: linear-gradient(90deg, rgba(217,0,1,1) 0%, rgba(254,0,101,1) 50%, rgba(255,0,102,1) 100%);
+            background: #fff;
           }
 
           .tvnzPlusButton {
