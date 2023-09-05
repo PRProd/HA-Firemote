@@ -219,6 +219,7 @@ Options:
 | paramount-plus-de          | Paramount+ (alt)          | ✓            | ✓                  | ✓              | ✓              |
 | peacock                    | Peacock                   | ✓            | ✓                  | ✓              | ✓              |
 | plex                       | Plex                      | ✓            | ✓                  | ✓              | ✓              |
+| poda-tv                    | PODA.tv                   | ✓            | ✓                  | ✓              | ✓              |
 | prime-video                | Prime Video               | ✓            | ✓                  | ✓              | ✓              |
 | private-internet-access    | Private Internet Access   |              | ✓                  | ✓              | ✓              |
 | purple-cheetah             | Purple Cheetah            | ✓            | ✓                  | ✓              | ✓              |
@@ -228,6 +229,7 @@ Options:
 | seven-plus                 | 7plus (AU)                | ✓            | ✓                  | ✓              | ✓              |
 | shophq                     | ShopHQ                    | ✓            |                    |                |                |
 | showtime                   | Showtime                  | ✓            | ✓                  | ✓              | ✓              |
+| siriusxm                   | SiriusXM                  | ✓            | ✓                  | ✓              | ✓              |
 | sky-news                   | Sky News                  | ✓            | ✓                  | ✓              | ✓              |
 | sky-showtime               | Skyshowtime               | ✓            |                    |                |                |
 | sky-sport-now              | Sky Sport Now             | ✓            | ✓                  | ✓              | ✓              |
@@ -253,6 +255,7 @@ Options:
 | tubi                       | tubi                      | ✓            | ✓                  | ✓              | ✓              |
 | tver                       | TVer                      | ✓            | ✓                  | ✓              | ✓              |
 | tvexpress-br               | TVExpress (BR)            | ✓            | ✓                  | ✓              | ✓              |
+| tving                      | TVING                     |              | ✓                  | ✓              | ✓              |
 | tvnz-plus                  | TVNZ+ (NZ)                | ✓            | ✓                  | ✓              | ✓              |
 | twire                      | Twire                     | ✓            | ✓                  | ✓              | ✓              |
 | twitch                     | Twitch                    | ✓            | ✓                  | ✓              | ✓              |
