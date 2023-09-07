@@ -166,6 +166,7 @@ Options:
 | dazn                       | DAZN                      | ✓            | ✓                  | ✓              | ✓              |
 | directv-stream             | DIRECTV stream            | ✓            | ✓                  | ✓              | ✓              |
 | discovery-plus             | Discovery +               | ✓            | ✓                  | ✓              | ✓              |
+| dish-anywhere              | Dish Anywhere             | ✓            | ✓                  | ✓              | ✓              |
 | disney-plus                | Disney +                  | ✓            | ✓                  | ✓              | ✓              |
 | ds-video                   | DS Video                  | ✓            | ✓                  | ✓              | ✓              |
 | emby                       | Emby                      | ✓            | ✓                  | ✓              | ✓              |
@@ -175,6 +176,7 @@ Options:
 | f-droid                    | F-Droid                   | ✓            | ✓                  | ✓              | ✓              |
 | f1-tv                      | F1 TV                     | ✓            | ✓                  | ✓              | ✓              |
 | firetv-store               | FireTV Store              | ✓            |                    |                |                |
+| fox-sports                 | FOX Sports                | ✓            | ✓                  | ✓              | ✓              |
 | freevee                    | freevee                   | ✓            | ✓                  | ✓              | ✓              |
 | gcn-plus                   | GCN+                      | ✓            | ✓                  | ✓              | ✓              |
 | go-play                    | GOPLAY                    | ✓            | ✓                  | ✓              | ✓              |
@@ -189,6 +191,7 @@ Options:
 | ipvanish                   | IPVanish VPN              | ✓            | ✓                  | ✓              | ✓              |
 | israel-station             | Israel Station            | ✓            | ✓                  | ✓              | ✓              |
 | jellyfin                   | Jellyfin                  | ✓            | ✓                  | ✓              | ✓              |
+| justwatch-streaming-guide  | JustWatch - Streaming Guide | ✓            | ✓                  | ✓              | ✓              |
 | kayo                       | Kayo Sports (AU)          | ✓            |                    | ✓              | ✓              |
 | КиноПоиск                  | КиноПоиск                 | ✓            | ✓                  | ✓              | ✓              |
 | kodi                       | Kodi                      | ✓            | ✓                  | ✓              | ✓              |
@@ -202,10 +205,12 @@ Options:
 | movistar-plus              | Movistar Plus+            | ✓            | ✓                  | ✓              | ✓              |
 | myCanal                    | my CANAL                  | ✓            | ✓                  | ✓              | ✓              |
 | my-family-cinema           | My Family Cinema          | ✓            | ✓                  | ✓              | ✓              |
+| nbc-sports                 | NBC Sports                | ✓            | ✓                  | ✓              | ✓              |
 | nba-on-fire-tv             | NBA on Fire TV            | ✓            |                    |                |                |
 | netflix                    | Netflix                   | ✓            | ✓                  | ✓              | ✓              |
 | nebula                     | Nebula                    | ✓            | ✓                  | ✓              | ✓              |
 | news                       | News by Fire TV           | ✓            |                    |                |                |
+| nfl                        | NFL                       | ✓            | ✓                  | ✓              | ✓              |
 | nine-now                   | 9now                      | ✓            | ✓                  | ✓              | ✓              |
 | nlziet                     | NLZIET                    | ✓            | ✓                  | ✓              | ✓              |
 | nordvpn                    | Nord VPN                  | ✓            | ✓                  | ✓              | ✓              |
@@ -246,12 +251,14 @@ Options:
 | surfshark-vpn              | Surfshark VPN             | ✓            | ✓                  | ✓              | ✓              |
 | svt-play                   | SVT Play                  |              | ✓                  | ✓              | ✓              |
 | t2-tv                      | T-2 TV                    | ✓            | ✓                  | ✓              | ✓              |
+| tbs                        | tbs                       | ✓            | ✓                  | ✓              | ✓              |
 | telenet-tv                 | Telenet TV (BE)           | ✓            | ✓                  | ✓              | ✓              |
 | ten-play                   | 10play (AU)               | ✓            | ✓                  | ✓              | ✓              |
 | tennis-channel             | Tennis Channel            | ✓            |                    |                |                |
 | threenow                   | Three Now (NZ)            | ✓            | ✓                  | ✓              | ✓              |
 | tidal                      | Tidal                     | ✓            | ✓                  | ✓              | ✓              |
 | tivimate                   | TiviMate IPTV Player      | ✓            | ✓                  | ✓              | ✓              |
+| tnt                        | TNT                       | ✓            | ✓                  | ✓              | ✓              |
 | tubi                       | tubi                      | ✓            | ✓                  | ✓              | ✓              |
 | tver                       | TVer                      | ✓            | ✓                  | ✓              | ✓              |
 | tvexpress-br               | TVExpress (BR)            | ✓            | ✓                  | ✓              | ✓              |
@@ -343,10 +350,10 @@ Valid button names are as follows:
 
 ## FAQ
 ###  Why won't the volume, mute, and/or power buttons work from my Firemote card?
-In many cases, your remote control sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  Since this is the case, these IR commands cannot be emulated through the same means that Firemote sends other commands.
+In many cases, your remote control sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  These IR commands cannot be sent in a traditional Home Assistant setup.
 <br>
 
-In these cases, you might still have options.  If your Amazon Fire or Android TV media device AND the device they are connected to both offer CEC options, then activating them will allow the Firemote controls to work as expected.  [Click here](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls) to learn more about how to [configure CEC to work with your Firemote](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls).  Another option might be to control your devices (TVs, Receivers, etc.) using [Button Overrides](https://github.com/PRProd/HA-Firemote#button-overrides).  If you can control those kinds of devices through Home Assistant, you can write a HA script and attach that script to a button on your Firemote.
+If your Amazon Fire or Android TV media device AND the device they are connected to both offer CEC options, then activating CEC will allow the Firemote card controls to work as expected.  [Click here](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls) to learn more about how to [configure CEC to work with your Firemote](https://github.com/PRProd/HA-Firemote/wiki/Using-CEC-Controls).  Another option might be to control your devices (TVs, Receivers, etc.) using [Button Overrides](https://github.com/PRProd/HA-Firemote#button-overrides).  If you can control those kinds of devices through Home Assistant, you can write a HA script and attach that script to a button on your Firemote.
 <br>
 <br>
 
