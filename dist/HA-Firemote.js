@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.3.14';
+const HAFiremoteVersion = 'v2.4.1-b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -2303,11 +2303,21 @@ class FiremoteCard extends LitElement {
             border-radius: calc(var(--sz) * 2rem);
           }
 
-          .AL1, .AL2 {
+          .AL1, .AL2, CO1 {
             display: block;
             width: unset;
             border-radius: calc(var(--sz) * 0.5rem);
             padding: calc(var(--sz) * 1.4rem) calc(var(--sz) * 0.714rem);
+          }
+
+          .remote-body.CO1 {
+            display: block;
+            background: var(--card-background-color);
+            border-radius: var(--ha-card-border-radius,12px);
+            border-style: solid;
+            border-width: var(--ha-card-border-width,1px);
+            border-color: var(--ha-card-border-color,var(--divider-color,#e0e0e0));
+            width: unset;
           }
 
           .two-col-span {
@@ -2405,13 +2415,20 @@ class FiremoteCard extends LitElement {
             display: flex;
             gap: calc(var(--sz) * .25rem);
             place-items: center;
-            padding-top: calc(var(--sz) * 2rem);
-            margin-top: calc(var(--sz) * 2rem);
-            border-top: groove rgb(0 0 0 / 42%) calc(var(--sz) * 0.2rem);
             justify-content: space-evenly;
             flex-wrap: wrap;
             flex-direction: row;
             width: 100%;
+          }
+
+          .AL1 .ALControlsContainer, .AL2 .ALControlsContainer {
+            padding-top: calc(var(--sz) * 2rem);
+            margin-top: calc(var(--sz) * 2rem);
+            border-top: groove rgb(0 0 0 / 42%) calc(var(--sz) * 0.2rem);
+          }
+
+          .CO1 .ALControlsContainer {
+              flex-direction: column;
           }
 
           .ALControlsContainer > div {
@@ -2440,6 +2457,15 @@ class FiremoteCard extends LitElement {
           .right-pocket-controls > .row {
             column-gap: calc(var(--sz) * 0.5rem);
             line-height: calc(var(--sz) * .4rem);
+          }
+
+          .CO1 .row {
+            display: flex;
+            align-items: center;
+            gap: calc(var(--sz) * 0.5rem);
+            padding: calc(var(--sz) * 0.75rem);
+            background: unset;
+            border: none;
           }
 
           .remote-button {
@@ -2499,12 +2525,12 @@ class FiremoteCard extends LitElement {
             margin-bottom: unset;
           }
 
-          .XM2 #power-button, .XM2 #keyboard-button, .AL2 #power-button, .AL2 #keyboard-button {
+          .XM2 #power-button, .XM2 #keyboard-button, .AL2 #power-button, .AL2 #keyboard-button, .CO1 #power-button, .CO1 #keyboard-button {
             height: calc(var(--sz) * 3.572rem);
             width: calc(var(--sz) * 3.572rem);
           }
 
-          .AL2 #power-button {
+          .AL2 #power-button, .CO1 #power-button {
             margin-bottom: unset;
           }
 
@@ -2907,7 +2933,7 @@ class FiremoteCard extends LitElement {
             padding: 0;
           }
 
-          .AL1 .deviceNameTop, .AL2 .deviceNameTop {
+          .AL1 .deviceNameTop, .AL2 .deviceNameTop, .CO1 .deviceNameTop {
             margin: 0rem 0px calc(var(--sz) * 1.25rem);
             display: block;
             height: unset;
@@ -2959,7 +2985,7 @@ class FiremoteCard extends LitElement {
             margin-bottom: calc(var(--sz) * -1rem);
           }
 
-          .AL1 .deviceNameBottom, .AL2 .deviceNameBottom {
+          .AL1 .deviceNameBottom, .AL2 .deviceNameBottom, .CO1 .deviceNameBottom {
             margin-bottom: unset;
             margin-top: calc(var(--sz) * 1.8rem);
             overflow: unset;
@@ -4154,7 +4180,7 @@ class FiremoteCard extends LitElement {
                               --devicenamecolor: ${devicenamecolor}
                             }
                             ${buttonHidingCss}
-                            .AL1, .AL2 {
+                            .AL1, .AL2, .CO1 {
                               --sz: calc(${scale} * 2);
                               ${backgroundInherit}
                             }
@@ -5344,6 +5370,52 @@ class FiremoteCard extends LitElement {
     }
 
 
+    // Render Controller Only 1
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'CO1' ) {
+    return html`
+      <ha-card>
+        ${cssVars}
+        <div class="remote-body CO1">
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <div class="ALControlsContainer">
+
+            <div>
+              <div class="row">
+                <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:arrow-left"></ha-icon>
+                </button>
+                <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:home-outline"></ha-icon>
+                </button>
+                <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:menu"></ha-icon>
+                </button>
+                <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+                  <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="center-pocket-controls">
+              <div class="dpadContainer">
+                <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+                <div class="directionButtonContainer">
+                  <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+                  <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+                  <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+                  <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${drawFiremoteVersionNumber(this, this._config)}
+        </div>
+      </ha-card>
+    `;
+    }
+
   }
 
 
@@ -6148,6 +6220,7 @@ class FiremoteCardEditor extends LitElement {
           <option value="XM2">Xiomi Mi Style 2</option>
           <option value="AL1">App Launcher 1</option>
           <option value="AL2">App Launcher 2</option>
+          <option value="CO1">Controls Only</option>
         </select>
         <br>
 
