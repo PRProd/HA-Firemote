@@ -154,6 +154,7 @@ Options:
 | amc-plus                   | AMC+                      | ✓            | ✓                  | ✓              | ✓              |
 | app-opener                 | App Opener                | ✓            |                    |                |                |
 | apple-tv                   | Apple TV                  | ✓            | ✓                  | ✓              | ✓              |
+| ard-mediathek              | ARD Mediathek             | ✓            | ✓                  | ✓              |                |
 | bbc-iplayer                | BBC iPlayer (UK)          | ✓            | ✓                  | ✓              |                |
 | bell-fibe-tv               | Bell Fibe TV (CA)         | ✓            |                    |                |                |
 | bgtime-tv                  | bgtime.tv                 | ✓            | ✓                  | ✓              | ✓              |
@@ -192,6 +193,7 @@ Options:
 | iptv-extreme-pro           | IPTV Extreme Pro          | ✓            | ✓                  | ✓              | ✓              |
 | ipvanish                   | IPVanish VPN              | ✓            | ✓                  | ✓              | ✓              |
 | israel-station             | Israel Station            | ✓            | ✓                  | ✓              | ✓              |
+| iqiyi                      | iQIYI                     | ✓            | ✓                  | ✓              | ✓              |
 | jellyfin                   | Jellyfin                  | ✓            | ✓                  | ✓              | ✓              |
 | justwatch-streaming-guide  | JustWatch - Streaming Guide | ✓            | ✓                  | ✓              | ✓              |
 | kayo                       | Kayo Sports (AU)          | ✓            |                    | ✓              | ✓              |
@@ -224,8 +226,10 @@ Options:
 | pandora                    | Pandora                   | ✓            | ✓                  | ✓              | ✓              |
 | paramount-plus             | Paramount+                | ✓            | ✓                  | ✓              | ✓              |
 | paramount-plus-de          | Paramount+ (alt)          | ✓            | ✓                  | ✓              | ✓              |
+| pbs                        | PBS                       | ✓            | ✓                  | ✓              | ✓              |
 | peacock                    | Peacock                   | ✓            | ✓                  | ✓              | ✓              |
 | plex                       | Plex                      | ✓            | ✓                  | ✓              | ✓              |
+| pluto-tv                   | Pluto TV                  | ✓            | ✓                  | ✓              | ✓              |
 | poda-tv                    | PODA.tv                   | ✓            | ✓                  | ✓              | ✓              |
 | prime-video                | Prime Video               | ✓            | ✓                  | ✓              | ✓              |
 | private-internet-access    | Private Internet Access   |              | ✓                  | ✓              | ✓              |
@@ -252,6 +256,7 @@ Options:
 | stremio                    | Stremio                   | ✓            | ✓                  | ✓              | ✓              |
 | surfshark-vpn              | Surfshark VPN             | ✓            | ✓                  | ✓              | ✓              |
 | svt-play                   | SVT Play                  |              | ✓                  | ✓              | ✓              |
+| syncler                    | SYNCLER                   | ✓            | ✓                  | ✓              | ✓              |
 | t2-tv                      | T-2 TV                    | ✓            | ✓                  | ✓              | ✓              |
 | tbs                        | tbs                       | ✓            | ✓                  | ✓              | ✓              |
 | telenet-tv                 | Telenet TV (BE)           | ✓            | ✓                  | ✓              | ✓              |
@@ -271,15 +276,19 @@ Options:
 | viaplay                    | Viaplay                   | ✓            | ✓                  | ✓              | ✓              |
 | videoland                  | Videoland (NL)            |              | ✓                  | ✓              | ✓              |
 | vlc                        | VLC                       |              | ✓                  | ✓              | ✓              |
+| volleyball-tv              | Volleyball TV             |              | ✓                  | ✓              | ✓              |
 | vtm-go                     | VTM GO (BE)               |              | ✓                  | ✓              | ✓              |
 | vrt-max                    | VRT MAX (BE)              |              | ✓                  | ✓              | ✓              |
 | waipuTV                    | Waipu TV (DE)             | ✓            | ✓                  | ✓              | ✓              |
+| watched                    | WATCHED                   | ✓            | ✓                  | ✓              | ✓              |
+| wow                        | WOW                       | ✓            | ✓                  | ✓              | ✓              |
 | xciptv-player              | XCIPTV Player             | ✓            | ✓                  | ✓              | ✓              |
 | xfinityStream              | Xfinity Stream            | ✓            |                    | ✓              |                |
 | youtube                    | YouTube                   | ✓            | ✓                  | ✓              | ✓              |
 | youtubekids                | YouTube Kids              | ✓            | ✓                  | ✓              | ✓              |
 | youtubeTV                  | YouTube TV                | ✓            | ✓                  | ✓              | ✓              |
 | zattoo                     | Zattoo                    | ✓            |                    |                |                |
+| zdf-mediathek              | ZDF Mediathek             | ✓            | ✓                  | ✓              | ✓              |
 | ziggo-go                   | Ziggo Go                  | ✓            | ✓                  | ✓              | ✓              |
 | function-app-switch        | Built-in App Switcher     |              | ✓                  | ✓              | ✓              |
 | function-find-my-remote    | Shield's Remote Locator   |              |                    | ✓              |                |
