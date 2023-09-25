@@ -155,6 +155,7 @@ Options:
 | app-opener                 | App Opener                | ✓            |                    |                |                |
 | apple-tv                   | Apple TV                  | ✓            | ✓                  | ✓              | ✓              |
 | ard-mediathek              | ARD Mediathek             | ✓            | ✓                  | ✓              |                |
+| arte                       | ARTE                      | ✓            | ✓                  | ✓              | ✓              |
 | bbc-iplayer                | BBC iPlayer (UK)          | ✓            | ✓                  | ✓              |                |
 | bell-fibe-tv               | Bell Fibe TV (CA)         | ✓            |                    |                |                |
 | bgtime-tv                  | bgtime.tv                 | ✓            | ✓                  | ✓              | ✓              |
@@ -180,12 +181,14 @@ Options:
 | f1-tv                      | F1 TV                     | ✓            | ✓                  | ✓              | ✓              |
 | firetv-store               | FireTV Store              | ✓            |                    |                |                |
 | fox-sports                 | FOX Sports                | ✓            | ✓                  | ✓              | ✓              |
+| france-tv                  | france.tv                 | ✓            | ✓                  | ✓              | ✓              |
 | freevee                    | freevee                   | ✓            | ✓                  | ✓              | ✓              |
 | gcn-plus                   | GCN+                      | ✓            | ✓                  | ✓              | ✓              |
 | go-play                    | GOPLAY                    | ✓            | ✓                  | ✓              | ✓              |
 | go-tv                      | GO TV                     | ✓            | ✓                  | ✓              | ✓              |
 | google-play-store          | Google Play Store         |              | ✓                  | ✓              | ✓              |
 | hbo-max                    | Max                       | ✓            | ✓                  | ✓              | ✓              |
+| hdhomerun                  | HDHomeRun                 | ✓            | ✓                  | ✓              | ✓              |
 | home-assistant             | Home Assistant            | ✓            |                    |                |                |
 | hulu                       | Hulu                      | ✓            | ✓                  | ✓              |                |
 | ignite-tv                  | Ignite TV (Shaw)          | ✓            | ✓                  | ✓              | ✓              |
@@ -281,6 +284,7 @@ Options:
 | vrt-max                    | VRT MAX (BE)              |              | ✓                  | ✓              | ✓              |
 | waipuTV                    | Waipu TV (DE)             | ✓            | ✓                  | ✓              | ✓              |
 | watched                    | WATCHED                   | ✓            | ✓                  | ✓              | ✓              |
+| weyd                       | weyd                      | ✓            | ✓                  | ✓              | ✓              |
 | wow                        | WOW                       | ✓            | ✓                  | ✓              | ✓              |
 | xciptv-player              | XCIPTV Player             | ✓            | ✓                  | ✓              | ✓              |
 | xfinityStream              | Xfinity Stream            | ✓            |                    | ✓              |                |
