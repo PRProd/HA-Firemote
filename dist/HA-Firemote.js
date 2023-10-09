@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.4.0-b1';
+const HAFiremoteVersion = 'v2.4.0-b2';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -1349,6 +1349,14 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
 
 
+  "iptvx": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="459" height="561" viewBox="0 0 459 561" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="iA6a" x1="0%" y1="83%" x2="100%" y2="17%"><stop offset="4%" stop-color="#fe2201"/><stop offset="30%" stop-color="#a70000"/><stop offset="70%" stop-color="#a70000"/><stop offset="90%" stop-color="#fe2201"/></linearGradient><linearGradient id="Zunv" x1="0%" y1="44%" x2="100%" y2="56%"><stop offset="71%" stop-color="#ff2500"/><stop offset="100%" stop-color="#ff551b"/></linearGradient></defs><g stroke="none"><path d="M347.2 34.5c-34 1-58 38.4-61.4 42.8-42.6 79-64 96-63.6 96.2l88 107L419 135c8.8-17.2 8-23.5 8.3-26.2a70 70 0 0 0-.3-15.6 68 68 0 0 0-5.3-18.1c-5.4-11.5-11-17-18.3-22.5a104 104 0 0 0-20.6-12.1 86 86 0 0 0-35.5-5.9M175.2 243a839 839 0 0 1-41.3 59.1C50.2 400.4 41.5 413 32.2 436.4c-14.5 71.5 48 91.5 65.2 90.4 22.8-.4 32.8-7.4 49-19.5 8.4-5.6 30-31.6 33.7-37l75-130" fill="url(#iA6a)"/><path d="M91 31.2a64 64 0 0 0-16.9 7.3c-14.5 10.5-22 20-22 20-4.5 6.5-5.3 8-6.3 9.8a77 77 0 0 0-8.5 21c-2.7 25.7 2.3 39.2 2.3 38.7l13.2 31.2 93 144.3c32 49.4 34.6 131.5 33.5 155 0 9 .8 11.7 1 12 0 0-.1.1.3-.4l46-69.8C257.6 444.5 290 494.5 315 517c22.5 17.5 51.5 12.5 73 1 14.5-8.5 24-15.6 32-32.6 8-22 7-32 6.6-40.5 0-17-22-44.3-22-44.6-85.7-129.8-88.7-137.8-90-141.8-31.6-87-29.6-106.5-31.5-122a285 285 0 0 1 2.6-60.3c-.7 1.2-5.2 7-14 19.7l-39.2 57.8-73-102.8c-9-10.5-21-16.5-36.3-19.3-3-.7-16.2-3.2-32.3-.5" fill="url(#Zunv)"/></g></svg>',
+      "friendlyName": "IPTVX",
+      "className": "iptvXButton",
+      "appName": "IPTVX",
+      "deviceFamily": ["apple-tv"], },
+
+
   "ipvanish": {
       "button": '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 119.3 29.4" xml:space="preserve"><path style="fill:#64bc44" d="M31.5 23.4 25.9 6.1h5.3l1.8 7.5c.4 1.8 1 4 1.3 6h.1c.3-2 .7-4.2 1.2-6.1l1.7-7.4h5.3l-5.8 17.3h-5.3zM48.2 19.5l-1.1 4h-4.7l5.5-17.3h5.9l4.9 17.3H54l-1.1-4h-4.7zm4.1-2.7-.9-3.6c-.2-1.1-.6-2.8-.9-4h-.1c-.2 1.2-.6 3-.9 4l-1 3.6h3.8zM61.3 23.4V6.1h4.5l3.9 6.8c.7 1.4 1.9 3.5 2.7 5h.1c-.1-1.8-.5-4.8-.5-8V6.1h4.3v17.3h-4.5l-3.9-6.6c-.9-1.5-1.9-3.6-2.6-5.2h-.1c.1 1.7.3 4.4.3 7.9v3.9h-4.2zM85.4 6.1v17.3h-4.9V6.1h4.9zM89.2 20c1 .4 2.7.6 4.2.6 2.4 0 3.4-.9 3.4-1.9 0-1.3-1.1-1.9-3.2-2.8-3.4-1.4-4.7-3.3-4.7-4.8 0-2.8 2.7-5.1 7.9-5.1 1.6 0 3.2.3 4 .6l-.8 2.9c-.7-.3-1.8-.6-3.2-.6-2 0-3.1.9-3.1 1.8 0 1.1.7 1.6 3.4 2.7 3.3 1.4 4.5 3.1 4.5 4.9 0 3.2-3.4 5.2-8.3 5.2-2 0-4-.3-4.8-.7l.7-2.8zM109.2 6.1v7h5.1v-7h4.9v17.3h-4.9v-7.3h-5.1v7.3h-4.9V6.1h4.9z"/><g><path d="M4.9 6.1v17.5H0V6.1h4.9zM9 6.3c1.4-.2 3.2-.3 5.1-.3 2.9 0 5.2.3 6.9 1.4 1.5.9 2.2 2.4 2.2 3.9 0 1.9-.9 3.2-2.2 4.2-1.6 1.2-4.1 1.6-6.1 1.6h-1v6.5H9V6.3zm4.8 8h.8c2.5 0 3.6-1.2 3.6-2.8 0-1.5-.9-2.7-3.2-2.7-.4 0-.9 0-1.2.1v5.4z"/></g></svg>',
       "friendlyName": "IPVanish VPN",
@@ -2136,10 +2144,19 @@ const fastappchoices = {
   "private-internet-access": {
       "button": "PIA",
       "friendlyName": "Private Internet Access",
-      "appName": "com.privateinternetaccess.android",
       "className": "privateInternetAccessButton",
+      "appName": "com.privateinternetaccess.android",
       "androidName": "com.privateinternetaccess.android",
       "deviceFamily": ["chromecast", "nvidia-shield", "xiaomi"], },
+
+
+  "proximus-pickx": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2704" height="1024" viewBox="0 0 2704 1024" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M1460.6 386.2a191 191 0 0 1 36.3 119.8c0 54.5-12.7 96.2-38 125.3s-63.5 45.4-103.5 43.6a118 118 0 0 1-92.6-36.3v158H1150V350h112.6v31c25.4-25.4 60-40 96.2-38 38.2-1.8 76.3 14.5 101.7 43.5h0zM1368 566a86 86 0 0 0 16.3-58.1 83 83 0 0 0-14.5-54.5c-11-12.7-29-20-45.4-18.2-14.5 0-27.2 1.8-40 9-7.3 5.4-14.5 12.7-18.2 20-1.8 5.4-3.6 9-3.6 14.5v72.7c0 21.8 18.2 32.7 54.5 32.7 20 3.6 38-3.7 50.8-18.2h0zm265-363.2a60.3 60.3 0 1 1-85.3 85.3 60 60 0 0 1 0-85.3c11-11 27.2-18.2 41.8-18.2 18 0 32.6 5.5 43.5 18.2zm-98 466.6V349.8h112.6v321.4H1535v-1.8zm370.4-325c14.5 1.8 25.4 3.6 32.7 5.4s12.7 3.6 16.3 3.6l-12.7 87c-3.6 0-11-1.8-23.6-3.6s-27.2-3.6-40-3.6c-21.8-1.8-43.6 3.6-60 18.2a77 77 0 0 0-18.2 58 75 75 0 0 0 21.8 59.9c16.3 12.7 38 20 58 18.2a183 183 0 0 0 63.5-11l14.5 85.3c-12.7 5.4-27.2 9-41.8 11-16.3 1.8-32.7 3.6-47.2 3.6-60 0-105.3-14.5-134.4-41.8S1689 564 1689 509.4s14.5-96.2 45.4-123.5S1807 344 1865 344c11-1.6 25.6.2 40 .2h0zm441.2 325l-130.7-176L2330.3 350H2205l-100 125.3V195.5h-110.8v474H2105v-158l118 158h123.5zm121.7 0H2352l118-161.6-114.4-158H2472l56.3 80 56.3-80h116.2l-116.2 158 118 161.6h-116.2l-60-83.5-58 83.5h0zM928.2 338c12.7-11 87-69 94.4-154.3 3.6-49-16.3-98-52.7-130.7C937.3 16.7 888.2-3.2 839.2.4 754 7.7 695.8 80.3 685 94.8 634 162 601.4 242 587 323.6l-74.4 3.6c-25.4 0-50.8-1.8-76.3-3.6-14.5-83.5-49-161.6-98-228.8-11-12.7-69-87-154.4-94.4C135-3.2 86 16.7 53.2 53 16.8 85.7-3.2 134.8.4 183.8 7.7 269 80.3 327.2 94.8 338c67.2 50.8 147 83.5 228.8 98l3.6 76.3-3.6 74.4c-83.5 14.5-161.6 49-228.8 98-12.7 11-87 69-94.4 154.3-3.6 49 16.3 98 52.7 130.7 32.7 36.3 81.7 56.3 130.7 52.7 85.3-7.3 143.4-80 154.3-94.4 50.8-67.2 83.5-147 98-228.8 25.4-1.8 49-3.6 74.4-3.6l76.3 3.6c14.5 83.5 49 161.6 98 228.8 11 12.7 69 87 154.3 94.4a179 179 0 0 0 183.4-176.1V839c-7.3-85.3-80-143.4-94.4-154.3-67.2-50.8-147-83.5-228.8-98l-3.6-76.3c0-25.4 1.8-50.8 3.6-74.4 83.6-14.5 161.7-47.2 229-98h0zM784.8 174.7l1.8-1.8c12.7-16.3 40-41.8 61.7-43.6 3.6 0 14.5-1.8 31 16.3h0c16.3 16.3 16.3 27.2 16.3 31-1.8 21.8-27.2 49-43.6 61.7l-2 1.7a390 390 0 0 1-123.5 59.9h0 0a332 332 0 0 1 58.2-125.2h0zM296.4 298.2a373 373 0 0 1-123.5-59.9l-1.8-1.8c-16.3-12.7-41.8-40-43.6-61.7 0-3.6-1.8-14.5 16.3-31h0c16.3-16.3 27.2-16.3 31-16.3 21.8 1.8 49 27.2 61.7 43.6l1.8 1.8a437 437 0 0 1 58.2 125.2h0 0 0zm-60 552l-1.8 3.6c-12.7 16.3-40 41.8-61.7 43.6-3.6 0-14.5 1.8-31-16.3h0c-16.3-16.3-16.3-27.2-16.3-31 1.8-21.8 27.2-49 43.6-61.7l1.8-1.8a390 390 0 0 1 123.5-59.9h0 0a340 340 0 0 1-58.2 123.4h0 0zm332.3-279.6l-58-1.8-58 1.8 1.8-58-1.8-58c20 1.8 38 1.8 58 1.8l58-1.8c-1.8 20-1.8 38-1.8 58s1.8 40 1.8 58zm156 156a373 373 0 0 1 123.5 59.9l1.8 1.8c16.3 12.7 41.8 40 43.6 61.7 0 3.6 1.8 14.5-16.3 31h0c-16.3 16.3-27.2 16.3-31 16.3-21.8-1.8-49-27.2-61.7-43.6l-1.8-1.8a437 437 0 0 1-58.2-125.2h0 0 0z"/></svg>',
+      "friendlyName": "Proximus Pickx",
+      "appName": "Proximus Pickx",
+      "className": "proximusPickxButton",
+      "androidName": "com.privateinternetaccess.android",
+      "deviceFamily": ["apple-tv"], },
 
 
   "purple-cheetah": {
@@ -2150,6 +2167,15 @@ const fastappchoices = {
       "androidName": "com.purple.cheetah.player",
       "adbLaunchCommand": "adb shell am start com.purple.cheetah.player/com.purpleplayer.iptv.android.activities.SplashActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
+  "qmusic-be": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="314" height="375" viewBox="0 0 314 375" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M295.7 360.5c-6.6 9.2-15 13.2-25.6 13.2-17.4 0-30.2-13.6-30.2-30.6a30 30 0 0 1 30.4-30.6c9.7 0 18.5 4.7 23.7 11.8l-10.7 9.8a16 16 0 0 0-13-7.1c-8.8 0-15.3 7.2-15.3 16 0 9.3 6.4 16 15.6 16 6.2 0 11-3.8 13.5-7.7l11.6 9M219 372.6h15v-58.8h-15zm-42.4-18a23 23 0 0 0 15.5 5.8c4 0 7.2-2 7.2-5 0-9-27.3-5.7-27.3-24.6 0-11.3 10.4-18.3 21.6-18.3 7.3 0 15.4 3 19 6l-7 11.4c-3-2.2-6.7-4-10.8-4-4.2 0-7.7 1.7-7.7 4.7 0 7.7 27.3 4.7 27.3 25 0 11.3-10.5 18.2-22.4 18.2a38 38 0 0 1-22.7-7.9l7.3-11.3m-64-7v-33h15V345c0 5.3 1 8 2.8 10 2.3 2.7 5.6 3.6 8.5 3.6 5 0 12-2.6 12-14v-30h15v32.7c0 16-10.8 26-27.7 26a25 25 0 0 1-26-25.7M81 312c-9.4 0-15 5.6-19.3 10.5-4.3-5-10-10.5-19.3-10.5-14.6 0-26.2 10-26.2 25.8V372h15v-31.4c0-11.4 7-14 12-14a11 11 0 0 1 8.4 3.7c1.7 2 2.7 4.7 2.7 10V372h15v-31.8c0-5.3 1-8 2.8-10 2.3-2.7 5.5-3.7 8.4-3.7 5 0 12 2.7 12 14V372h15v-34c-.5-16-12-26-26.5-26" fill="#313533"/><path d="M161.6 183.8c.4-8.2 5.7-14 12.7-14s12.7 6.3 12.7 14c0 1.3-.2 2.5-.4 3.7-.5 3.5-3.5 11.6-12.4 21.8L170 204c-4.2-5.3-8.6-12-8.3-20.3zm148.6-97.4c0-.2 0-.5-.1-.7-.1-.6-.2-1-.3-1.7a106 106 0 0 0-16.5-39.3 99 99 0 0 0-36.1-31.5A121 121 0 0 0 208.4.3a151 151 0 0 0-25.1.6c-30 3-60.5 14.6-90.7 34C33.5 73.2-2 134.5.1 187a94 94 0 0 0 10.7 41.3c13.7 26 36.8 44.3 65 52a114 114 0 0 0 42.1 3.2l2-.2c15.6-2 31.2-6.8 46.4-14.6 4-2 7.8-4.5 11.8-7.3 11 8.8 21 16 28.3 21 3.3 1.7 7 2.4 11 2h0c5.5-.5 10.5-3.4 13.7-8 3-4.2 4.2-9.2 3.3-14.3s-3.7-9.5-8-12.5l-20.7-15.5-.1-.1.1-.1c.2-.2.3-.5.5-.7 7-9.7 19-28.8 18.7-48.3a56 56 0 0 0-13.3-35.1c-9.3-11-22.2-17.3-36.2-17.7l-6.3.3c-19.6 2-37 15.5-43 33.5-2.4 7-3.4 14-3 21a68 68 0 0 0 21.1 44.2l3.6 3.6h.1l-.1.1c-11.3 5.6-22.7 9-34 10.3-9.6 1-19 .3-27.8-2-17.8-5-32.4-16.5-41-32.8a57 57 0 0 1-6.3-25.1c-.5-13.5 2.7-28.7 9.5-44.2 12.8-28.8 36-55 65.4-74 25-16.2 49.8-25.6 73.7-28 6.4-.7 12.7-1 18.7-.5 24.4 1.5 44 11.3 55.5 27.8a70 70 0 0 1 10.7 26.5v.4a5 5 0 0 1 .2 1.2l.3 1.3v.1c1.4 9 1.3 18.8-.2 29-3.3 21.8-13.5 43.4-29 61.8-5.2 8-3.7 19 4 25.2 4 3.3 9 5 14.3 4h0c5 0 9.6-3 13-6.8 20.8-25.4 33.6-54.8 36.8-85.2 1.4-13 1-25.6-1.3-37.5h0z" fill="#db342a"/></svg>',
+      "friendlyName": "Qmusic-BE",
+      "className": "qmusicButton",
+      "appName": "Qmusic-BE",
+      "deviceFamily": ["apple-tv"],
+  },
 
 
   "raiplay": {
@@ -2475,9 +2501,23 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 139 24" width="139" height="24" xml:space="preserve"><g><path d="M18.417 10.288a5.336 5.336 0 0 1 .398-2.059H0v3.918h18.74a5.087 5.087 0 0 1-.323-1.86" fill="#FED71F"/><path d="M18.739 12.143H0v4.007h25.479c-2.433-.727-5.713-1.356-6.74-4.008" fill="#FF0A5A"/><path d="M25.479 16.152H0v3.929h17.868a7.926 7.926 0 0 1-.187-.385l3.185-1.849c.619 1.571 2.059 2.51 4.024 2.51H25.177c1.763 0 3.123-.588 3.123-2.057 0-1.15-1.23-1.671-2.821-2.155" fill="#CC0243"/><path d="M17.868 20.08H0V24h25.124c-3.464-.016-6.005-1.506-7.253-3.914" fill="#F20D3A"/><path d="M18.815 8.229c.894-2.146 3.199-3.45 5.978-3.556H0V8.23h18.815z" fill="#E64400"/><path fill-rule="evenodd" clip-rule="evenodd" d="m37.891 0-3.968 1.176v16.922c0 4.777 2.426 6.467 8.525 5.732v-3.566c-3.018.143-4.557.183-4.557-2.17V8.23h4.557V4.661h-4.557V0zM22.314 10.215c0-1.322 1.249-1.947 2.683-1.947 1.506 0 2.793.662 3.45 2.095l3.343-1.868c-1.293-2.426-3.785-3.823-6.797-3.823-3.748 0-6.724 2.169-6.724 5.624 0 3.857 3.4 4.82 6.212 5.618 1.982.562 3.672 1.04 3.672 2.392 0 1.469-1.36 2.057-3.124 2.057-2.02 0-3.491-.992-4.079-2.646l-3.417 1.979c1.175 2.646 3.821 4.3 7.496 4.3 3.97 0 7.165-1.985 7.165-5.66 0-3.995-3.414-4.944-6.23-5.726-1.974-.55-3.654-1.016-3.654-2.395h.004zM48.715 8.23c1.103-2.497 3.345-3.57 5.66-3.57l.003 4.3c-2.609-.183-5.66 1.182-5.66 5.298V24h-3.97V4.66h3.968v3.57zm15.358-3.564c-5.767.002-9.698 4.228-9.698 9.665 0 5.511 3.932 9.665 9.994 9.665 3.601 0 6.358-1.508 8.047-4.006l-3.27-1.911c-.881 1.293-2.535 2.278-4.743 2.278-2.939 0-5.254-1.469-5.88-4.336H73.15c.085-.547.133-1.1.143-1.653 0-5.29-3.747-9.7-9.22-9.702zM58.49 12.79c.55-2.756 2.57-4.52 5.547-4.52 2.389 0 4.704 1.36 5.256 4.52H58.49zm25.818-8.128c5.405 0 9.696 4.066 9.696 9.544V24h-3.97v-2.367c-1.6 1.394-3.57 2.367-5.726 2.367-5.368 0-9.705-4.228-9.705-9.669 0-5.478 4.337-9.669 9.705-9.669zm-5.734 9.669c0 3.346 2.499 5.809 5.734 5.809 3.236 0 5.735-2.463 5.735-5.809s-2.5-5.809-5.735-5.809c-3.235 0-5.734 2.463-5.734 5.809zm36.024-9.67c-2.209 0-4.168 1.093-5.517 2.299-1.351-1.204-3.295-2.3-5.493-2.3-4.515 0-7.549 2.65-7.549 6.596V24h4.106V11.978c0-1.373.598-3.441 3.449-3.441s3.449 2.067 3.449 3.441V24h4.122V11.978c0-1.373.598-3.441 3.449-3.441s3.449 2.067 3.449 3.441V24h4.077V11.256c0-3.945-3.018-6.595-7.522-6.595h-.02zm23.665 2.647-8.562 12.773h8.929v3.915h-14.33V21.35l8.598-13.121h-8.598V4.662h13.963v2.646z" fill="#fff"/></g></svg>',
       "friendlyName": "streamz (BE)",
       "className": "streamzButton",
-      "appName": "be.dpgmedia.streamz",
-      "androidName": "be.dpgmedia.streamz",
-      "deviceFamily": ["chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "apple-tv": {
+          "appName": "Streamz",
+      },
+      "chromecast": {
+          "appName": "be.dpgmedia.streamz",
+          "androidName": "be.dpgmedia.streamz",
+      },
+      "nvidia-shield": {
+          "appName": "be.dpgmedia.streamz",
+          "androidName": "be.dpgmedia.streamz",
+      },
+      "xiaomi": {
+          "appName": "be.dpgmedia.streamz",
+          "androidName": "be.dpgmedia.streamz",
+      },
+  },
 
 
   "stremio": {
@@ -2620,6 +2660,14 @@ const fastappchoices = {
           "appName": "Tennis Channel",
       },
   },
+
+
+  "testflight": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1025" height="1025" viewBox="0 0 1025 1025" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M117 512a394 394 0 0 1 395-395 394 394 0 0 1 395 395 394 394 0 0 1-395 395 394 394 0 0 1-395-395z" stroke="#fff" stroke-linejoin="miter" stroke-opacity=".3" fill="none" stroke-width="30"/><g stroke="none"><path d="M529.7 109c26.7 0 30 33 30 53.4v.6L543 429.6A88 88 0 0 1 600 512l-.5 9.2c70.6 28.6 147.7 67 231.2 115l3.3 2c17.5 10 45.3 29.6 31.8 53l-18 31c-13.4 23.2-43.6 9.4-61.2-.7l-.6-.3-216.3-142.8A88 88 0 0 1 512 600c-22.2 0-42.5-8.2-58-21.8a1920 1920 0 0 1-213.3 141.2l-3.4 2c-17.4 10-48.2 24.4-61.7 1l-18-31c-13.4-23.2 13.7-42.5 31.2-52.7l.6-.3 235-117.3a87 87 0 0 1-.5-8.9 88 88 0 0 1 56.4-82.1c-11-76.8-16.6-164.4-16.7-263v-4c0-20.2 3-54 30-54h36zM430 544l-2 1-169 81-55 31.8 24 41.5 53.7-31c39.7-23 92-58.7 157-107.4a91 91 0 0 1-8.6-16.7zm164 .3l-.3.8a93 93 0 0 1-8.4 15.9l155.2 106.3 55 31.8 24-41.5-53.7-31c-39.7-23-97-50.4-171.8-82.3zM512 452l-6.3.3c-.2.1-.5.1-.7.1l.7-.1c-.5.1-1 .1-1.5.2l.8-.1c-.3 0-.6.1-1 .1h.1c-.3 0-.6.1-.8.1l.7-.1c-.4.1-.8.1-1.2.2l.5-.1c-.3.1-.6.1-1 .2l.4-.1c-.3 0-.6.1-1 .1h.5c-.3 0-.6 0-1 .1l.4-.1c-.3.1-.6.1-1 .2h.5c-.2 0-.5.1-.7.1h.2c-.3 0-.5.1-.8.1h.6c-.3.1-.7.2-1 .2l.4-.1-1 .3c-.2 0-.4.1-.6.1l.6-.1c-.3 0-.6.1-.8.2l.2-.1c-.3.1-.6.1-.8.2l.6-.1c-.4 0-.7.1-1 .2l.5-.1c-.3.1-.6.1-.8.2l.3-.1c-.3.1-.5.1-.8.2h.5c-.3.1-.6.2-1 .2h.4c-.3.1-.6.2-.8.2l.4-.1c-.4.1-.8.3-1.2.4l.8-.3c-.3.1-.6.2-1 .3h.2c-.3.1-.6.2-1 .2l.7-.2c-.3.1-.6.2-1 .3l.3-.1c-.2.1-.5.2-.8.3l.5-.2c-.2.1-.5.2-.8.3h.3l-1 .3.6-.2-.8.3.2-.1-.8.3.6-.2-1 .3.3-.1c-.4.1-.7.3-1 .4l.8-.3c-.3.1-.7.2-1 .4h.2l-.8.3.6-.2-.8.3.2-.1c-.3.1-.6.2-.8.4l.6-.3c-.3.1-.6.2-1 .4l.3-.1-.8.3.5-.2c-.3.1-.6.2-1 .4l.4-.2c-.2.1-.5.2-.7.3l.3-.1c-.2.1-.5.2-.7.3l.4-.2-1.2.6.8-.4a3 3 0 0 0-.8.4h0c-.2.1-.5.2-.7.3l.7-.3c-.3.1-.7.3-1 .4l.3-.1A60 60 0 0 0 452 512v1h0v.8-.8 1h0c0 .3 0 .5.1.8v-.6c0 .3.1.7.1 1v-.4c0 .7 0 1.4.1 2v.4-.4c0 .3 0 .6.1 1l-.1-.5c0 .3.1.6.1.8v-.3c0 .3 0 .6.1 1l-.1-.6c0 .3.1.6.1 1v-.3c0 .7.1 1.4.2 2 0 .2.1.3.1.5l-.1-.5c.1.3.1.6.2 1l-.1-.4c0 .2.1.5.1.8v-.4c0 .3 0 .6.1 1l-.1-.5c.1.3.1.6.2 1v-.4c0 .3.1.5.1.8v-.4c0 .3.1.6.1 1 .1.3.1.5.2.7l-.2-.7.3 1-.1-.4c.1.3.1.7.2 1l-.1-.6c0 .2.1.5.1.7v-.1c.1.3.1.6.2 1l-.2-.8c.1.3.2.6.3 1l-.1-.2c.2.6.3 1.2.5 2 0 0 0 .1.1.2l-.1-.2.3 1-.2-.7c0 .3.1.5.2.8v-.1c.1.3.2.6.3 1l.2.8c.1.1.1.1.1.2.1.2.2.5.2.7l-.2-.7.3 1-.1-.2c.1.2.2.5.3.7l-.2-.5.3.8-.1-.3c1.5 4 3.4 8 5.7 11.6l-.3-.5c.2.4.4.7.7 1 .1.1.1.2.2.4l-.2-.4c.1.2.2.4.4.6v-.2c.2.2.4.5.5.7l-.3-.5.5.8-.2-.3c.2.2.3.5.5.7l-.3-.4c.2.2.3.4.5.7v-.3c.2.3.4.5.5.7l-.3-.4c.2.2.4.5.5.7l-.2-.3c.2.2.3.4.5.6l-.3-.3 1.2 1.5h-.1c.1.2.3.4.5.6l-.4-.5c.2.3.4.6.6.8l-.2-.3c.2.3.4.5.5.7l-.3-.4c.2.3.4.5.6.7l-.3-.3c.2.2.4.5.6.7l-.3-.4c.1.2.3.4.5.6h-.2l.6.6-.4-.4c.2.3.4.5.6.7v-.3c.4.6 1 1 1.4 1.6v.1-.1l1.2 1.2c.1.1.1.2.2.2l-.2-.2c.2.3.4.5.7.7l-.5-.5.6.6h-.1c.2.2.3.4.5.6l-.4-.5c.2.2.4.4.6.7l-.2-.2 1.5 1.3h.1-.1c.3.2.5.4.7.6l-.6-.5c.3.2.5.4.8.6v-.1c.2.2.4.4.7.6l-.5-.5c.2.3.4.5.7.7l-.2-.2c.2.1.4.3.6.5l-.4-.3c.2.2.5.4.7.6l-.3-.3c.2.2.4.3.6.5h-.3c.2.1.5.3.7.5l-.4-.3c.2.2.5.4.7.5l-.3-.2c.3.2.6.5 1 .7 10 7.5 22.5 12 36 12 13 0 25.3-4.2 35.2-11.4 1.7-1.2 3.3-2.5 4.8-4 .1-.1.1-.1.2-.1l-.2.1.6-.6-.4.5.6-.6h-.2c.2-.1.4-.3.6-.5l-.4.4.7-.7-.3.3 1.5-1.4c.1-.2.2-.3.3-.4l-.3.4c.2-.2.4-.5.6-.7l-.3.3.6-.6-.3.3c.2-.2.4-.4.6-.5l-.3.2c.2-.2.4-.4.6-.7l-.3.5c.1-.3.3-.5.5-.7l-.2.2.6-.6-.4.4.6-.6-.2.2c.2-.2.4-.5.6-.7l-.4.5c.2-.3.4-.5.6-.7l-.2.2 1.3-1.5c.1-.1.2-.2.3-.4l-.3.4c.1-.2.3-.4.5-.7l-.2.3c.1-.2.3-.4.5-.6l-.3.3c.2-.2.4-.5.6-.7l-.3.4c.2-.2.3-.5.5-.7l-.2.3c.1-.2.3-.4.5-.6l-.3.3c.2-.2.3-.5.5-.7l-.2.4 1.7-2.5c.1-.1.2-.3.2-.4l-.2.4c.1-.2.3-.5.4-.7l-.2.3c.2-.2.3-.4.4-.6l-.2.3c2.6-4 4.7-8.2 6.2-12.6l.3-.8c0-.1.1-.3.1-.4.1-.2.1-.4.2-.5l-.2.5.3-.8-.1.3.3-.8-.2.5c.1-.3.2-.6.2-1v.4c0-.3.1-.6.2-1l-.2.5c.2-.4.3-1 .4-1.3.1-.1.1-.2.1-.3v.3c.1-.2.1-.4.2-.6v.3c.1-.3.2-.6.2-.8l-.1.5c.1-.3.1-.6.2-1l-.1.4c.1-.3.2-.6.2-1l-.1.5c.1-.3.1-.5.2-.8l-.1.3c.1-.3.2-.6.2-1l-.1.6c.1-.3.1-.6.2-1h0c.1-.4.2-.8.2-1.2.1-.1.1-.3.1-.5v.5c.1-.3.1-.6.2-1v.4c.1-.3.1-.6.2-1l-.1.5c0-.2.1-.5.1-.8v.3c0-.2.1-.5.1-.8l-.1.5c.1-.4.1-.7.2-1 .1-.6.1-1 .2-1.6 0-.2 0-.3.1-.5l-.1.5c0-.3.1-.6.1-.8v.3-.8.5c0-.3 0-.6.1-1l-.1.4c.1-.3.1-.6.1-1v.5c0-.8.1-1.5.1-2.2v-.4.4c.1-.6.1-1.3.1-2h0 0v-.7.5-1-.3-.7h0a60 60 0 0 0-33.3-52.6l-.1-.1h0c-.3-.2-.7-.4-1-.5-.1-.1-.2-.1-.3-.2l.3.2c-.3-.2-.6-.3-1-.4l.6.2c-.2-.1-.5-.2-.7-.3l.1.1-.6-.3.5.2c-.3-.1-.6-.2-1-.4l.4.2-.8-.3.4.1-.8-.3.4.2c-.2-.2-.5-.3-.8-.4l.4.2-.8-.3.4.1c-.4-.1-.8-.3-1.2-.4-.1-.1-.2-.1-.3-.2l.3.2c-.2-.1-.5-.2-.7-.3l.4.1-.8-.3.4.2-.8-.3.4.1c-.3-.1-.6-.2-1-.2l.5.1-1-.3.4.2a3 3 0 0 0-1-.4l.6.2c-.2-.1-.5-.2-.8-.2h.2c-.3-.1-.6-.2-1-.3l.8.3c-.3-.2-.7-.3-1-.4l.3.1c-.2-.1-.5-.1-.8-.2l.5.1-1-.3.4.2-.8-.3h.4c-.3 0-.6-.1-1-.2h.5c-.3 0-.6-.1-1-.2l.4.1c-.2 0-.5-.1-.8-.2l.4.1-2-.5h-.3.3c-.3 0-.5-.1-.8-.1l.5.1c-.3-.1-.6-.2-1-.2l.4.1c-.3-.1-.6-.2-1-.2h.5c-.3-.1-.6-.1-1-.2h.4c-.3-.1-.6-.1-1-.2l.5.1c-.3 0-.6-.1-.8-.1h.3c-.4 0-.7-.1-1-.1l.8.1c-.4-.1-.7-.1-1-.2-.3 0-.6-.1-.8-.1l.8.1c-.4 0-.7-.1-1-.1h.3c-.3 0-.6-.1-.8-.1l.5.1c-.3-.1-.7-.1-1-.1h.5c-.3 0-.6-.1-1-.1l.4.1c-.3-.1-.6-.1-1-.1h.5c-.4 0-.7-.1-1-.1l.5.1c-.3-.1-.6-.1-1-.1h.4l-5.2-.2zm23.7-286h-48v62c0 47 5 112.6 15.4 196.4 3-.2 6-.4 9-.4l8.3.4c10-83 15.3-147.8 15.4-194.8V166z"/><path d="M536 489l-.3 7c0 1-.4 2-1 2.7L521.2 512l13.4 13.4c.7.7 1 1.7 1 2.7l.3 7a1 1 0 0 1-1 1l-7-.3c-1 0-2-.4-2.7-1L512 521.2l-13.4 13.4c-.7.7-1.7 1-2.7 1l-7 .3a1 1 0 0 1-1-1h0 0l.3-7c0-1 .4-2 1-2.7l13.4-13.4-13.4-13.4c-.7-.7-1-1.7-1-2.7l-.3-7a1 1 0 0 1 1-1l7 .3c1 0 2 .4 2.7 1l13.4 13.4 13.4-13.4c.7-.7 1.7-1 2.7-1l7-.3a1 1 0 0 1 1 1z" opacity=".3"/></g></svg>',
+      "className": "testflightButton",
+      "friendlyName": "TestFlight",
+      "appName": "TestFlight",
+      "deviceFamily": ["apple-tv"], },
 
 
   "threenow": {
@@ -2948,9 +2996,23 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 279 63" width="279" height="63" xml:space="preserve"><g><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#fff;fill-rule:nonzero;opacity:1" transform="translate(0 -31)" d="M276.218 51.25c-7.821-13.54-25.405-18.25-38.952-10.432l6.662 11.533a15.113 15.113 0 0 1 7.485-2.042c8.394-.062 15.249 6.69 15.31 15.08.061 8.39-6.693 15.24-15.088 15.302-8.394.062-15.249-6.69-15.31-15.08 0-.037.004-.073.004-.11h-.004v-6.184h-25.687v12.366h12.843v6.064a15.106 15.106 0 0 1-8.855 2.944c-8.395.062-15.25-6.69-15.31-15.08-.062-8.39 6.693-15.24 15.087-15.302 2.81-.021 5.437.735 7.704 2.046l6.665-11.537A28.541 28.541 0 0 0 214.514 37C198.872 37 186 49.865 186 65.5S198.872 94 214.514 94c7.024 0 13.483-2.599 18.475-6.872 8.937 7.59 22.116 9.215 32.792 3.054 13.547-7.818 18.259-25.392 10.437-38.932"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#f0f;fill-rule:evenodd;opacity:1" transform="translate(0 -31)" d="M168.11 59.112c-4.263-19.578-28.316-18.588-36.623-6.38-6.688-11.152-22.57-10.975-31.424-3.636v-5.47H82.44V76.7h-5.838c-5.248 0-8.685-3.117-8.685-9.546v-6.192h9.041V43.628l-9.033-.003L67.917 30l-7.844 13.625-21.867-.02-8.31 14.427c-.36.625-.99.938-1.621.938-.63 0-1.261-.313-1.622-.938l-8.31-14.427H4.852c-3.73 0-6.06 4.045-4.196 7.283L24.08 91.552a4.802 4.802 0 0 0 4.196 2.428c1.631 0 3.262-.81 4.194-2.428l17.62-30.589v8.065C50.09 83.518 58.684 94 74.298 94l25.736-.032V69.235c0-8.771 15.687-11.608 15.687-1.736V93.95h19.291V69.235c0-8.58 14.186-11.47 14.819-2.37v27.1H169V67.767c0-2.052.04-4.368-.89-8.656"/></g></svg>',
       "friendlyName": "VTM GO (BE)",
       "className": "vtmGoButton",
-      "appName": "be.vmma.vtm.zenderapp",
-      "androidName": "be.vmma.vtm.zenderapp",
-      "deviceFamily": ["chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "apple-tv": {
+          "appName": "VTM GO",
+      },
+      "chromecast": {
+          "appName": "be.vmma.vtm.zenderapp",
+          "androidName": "be.vmma.vtm.zenderapp",
+      },
+      "nvidia-shield": {
+          "appName": "be.vmma.vtm.zenderapp",
+          "androidName": "be.vmma.vtm.zenderapp",
+      },
+      "xiaomi": {
+          "appName": "be.vmma.vtm.zenderapp",
+          "androidName": "be.vmma.vtm.zenderapp",
+      },
+   },
 
 
   "vrt-max": {
@@ -3328,7 +3390,7 @@ const fastappchoices = {
 
 
   "function-apple-settings": {
-      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="122" height="122" viewBox="0 0 122 122" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="JApC" x1="-704.75%" x2="-704.75%" y1="-1192.22%" y2="-1195.33%"><stop offset="0%" stop-color="#b4b4b9"/></linearGradient><linearGradient id="O6gJ" x1="-455.40%" x2="-455.40%" y1="-768.24%" y2="-770.32%"><stop offset="0%" stop-color="#dcdce1"/><stop offset="100%" stop-color="#98989d"/></linearGradient></defs><g stroke="none"><path d="M8 60A52 52 0 0 1 60 8a52 52 0 0 1 52 52 52 52 0 0 1-52 52A52 52 0 0 1 8 60z" fill="#2e2e2f" fill-rule="nonzero"/><path d="M59 32h1.7l.8-4h.7l.3 4c.5 0 1 .1 1.5.2l1.2-4 .7.1-.2 4c.5.1 1 .2 1.5.4l1.6-3.7.6.2-.7 4c.5.2 1 .3 1.5.5l2-3.5.6.3-1 4c.5.2 1 .5 1.4.7l2.4-3.3.6.3-1.6 3.8 1.3 1 2.8-3 .5.4-2 3.6c.4.3.8.7 1.2 1l3-2.6.5.5-2.4 3.3 1 1 3.4-2.2.4.5-2.7 3 1 1.2 3.6-1.8.4.6-3 2.7c.3.4.5 1 .8 1.3l3.8-1.4.3.6-3.4 2.3.6 1.5 4-1 .2.6-3.5 1.8c.2.5.3 1 .5 1.5l4-.5.2.7-3.8 1.4.3 1.6h4l.1.7-4 1c0 .5.1 1 .1 1.6l4 .5v.7l-4 .5-.1 1.5 4 1-.1.7h-4l-.3 1.5L91 67v.6l-4-.4c-.1.5-.3 1-.4 1.5l3.6 1.8v.6l-4-1-.6 1.5 3.4 2.3-.3.6-4-1.3c-.2.4-.5 1-.7 1.3l3 2.6-.4.6L83 76c-.3.5-.6 1-1 1.3l2.8 3-.4.5-3.4-2.2c-.3.4-.7.8-1 1l2.4 3.3-.5.5-3.2-2.6-1.2 1 2 3.5-.5.4-2.8-3c-.4.3-1 .6-1.3 1l1.6 3.8-.6.3-2.5-3.2c-.4.3-1 .5-1.4.7l1.2 4-.6.3-2-3.5-1.5.5.7 4-.6.2-1.7-3.7-1.5.4.2 4-.7.1-1.2-4c-.5.1-1 .1-1.6.2l-.2 4h-.7l-.8-4H59l-.7 4H58l-.3-4c-.5 0-1-.1-1.6-.2l-1.2 4-.7-.1.2-4-1.5-.4-1.6 3.7-.6-.2.7-4c-.5-.2-1-.3-1.5-.5l-2 3.5-.6-.3 1-4c-.5-.2-1-.5-1.4-.7L44.4 88l-.6-.3 1.6-3.8c-.4-.3-1-.6-1.3-1l-2.8 3-.5-.4 2-3.6c-.4-.3-.8-.7-1.2-1l-3 2.6-.5-.5 2.4-3.3c-.3-.4-.7-.8-1-1L36 81l-.4-.5 2.8-3c-.4-.4-.7-.8-1-1.3L33.7 78l-.4-.6 3-2.6c-.3-.4-.5-1-.8-1.4l-3.8 1.4-.3-.6 3.4-2.3-.6-1.5-4 1-.2-.6 3.6-2c-.2-.5-.3-1-.5-1.5l-4 .5-.2-.7 3.8-1.4-.3-1.6h-4l-.1-.7 4-1c0-.5-.1-1-.1-1.6l-4-.5v-.7l4-.5c0-.5 0-1 .1-1.6l-4-1 .1-.7 4-.1.3-1.5-3.8-1.4.2-.6 4 .4c.1-.5.3-1 .4-1.5L30 49.3l.2-.6 4 1 .6-1.5-3.4-2.2.3-.6 3.8 1.3c.3-.5.5-1 .8-1.4l-3-2.6.4-.6 3.6 1.8c.3-.4.6-1 1-1.3l-2.8-3 .4-.5 3.4 2.2c.3-.4.7-.8 1-1.2l-2.4-3.3.5-.5 3 2.6c.4-.4.8-.7 1.2-1l-2-3.5.5-.4 2.8 3 1.3-1-1.6-3.7.6-.3 2.5 3.2c.4-.3 1-.5 1.4-.7l-1-4 .6-.3 2 3.5c.5-.2 1-.4 1.5-.5l-.7-4 .6-.2 1.7 3.7c.5-.1 1-.3 1.5-.4l-.2-4 .7-.1 1.2 4c.5-.1 1-.1 1.6-.2l.2-4h.7zm1 5.4c-12.4 0-22.5 10-22.5 22.5s10 22.5 22.5 22.5 22.5-10 22.5-22.5-10-22.5-22.5-22.5z" fill="url(#JApC)"/><path d="M58.5 18H61l1-6h1l.4 6 2.3.3 1.8-6 1 .2-.3 6.2 2.2.5 2.5-5.7 1 .3-1 6.2a18 18 0 0 1 2.1.8l3.2-5.5 1 .4-1.7 6c.7.3 1.4.7 2 1l3.8-5 1 .5-2.5 6c.7.4 1.3.8 2 1.3L88 21l.8.6-3.2 5.6 1.7 1.5 5-4 .7.7-3.8 5.2 1.5 1.6 5.4-3.5.6.8L92 34l1.3 1.8 5.8-3 .6.8-5 4.3 1 2 6.2-2.2.5 1-5.4 3.7c.3.7.6 1.3 1 2l6.4-1.5.3 1-5.8 3 .6 2 6.5-.7.2 1-6 2.3.4 2h6.6l.1 1-6.4 1.6c.1.8.1 1.5.1 2.3l6.5.8v1l-6.5.8v2l6.4 1.5-.1 1-6.6.1c-.1.7-.2 1.5-.4 2.2l6 2.3-.2 1-6.5-.7-.6 2 5.8 3-.3 1-6.3-1.4q-.4 1-1 2l5.4 3.6-.4 1-6-2c-.3.7-.7 1.3-1 2l5 4.2-.5.8-5.8-2.8-1.3 1.8 4.4 4.7-.6.8-5.4-3.5-1.5 1.7 3.8 5-.7.7-5-4-1.7 1.5 3 5.5-.8.6-4.4-4.5c-.6.4-1.2 1-2 1.3l2.5 5.7-1 .5-3.8-5c-.7.4-1.4.7-2 1l1.8 6-1 .4-3.2-5.3c-.7.3-1.4.6-2 .8l1 6-1 .3-2.5-5.6-2.3.6.3 6-1 .2-1.8-5.7-2.4.3-.4 6h-1l-1-6h-2.6l-1 6h-1l-.4-6c-.8-.1-1.6-.1-2.4-.2l-1.7 5.7-1-.2.3-6c-.8-.2-1.6-.3-2.4-.5l-2.4 5.4-1-.3 1-5.8c-.8-.2-1.5-.5-2.3-.8l-3 5-1-.4 1.6-5.6a15 15 0 0 1-2.2-1.1l-3.5 4.6-1-.5 2.2-5.3-2-1.3-4 4.2-.8-.6 2.8-5-2-1.6-4.4 3.6-.7-.7 3.3-4.6-1.8-1.8-4.7 3-.7-.8 3.8-4.2-1.5-2-5 2.5-.6-.8 4.2-3.7c-.5-.7-1-1.4-1.3-2.2l-5.3 2-.4-1 4.6-3-1-2.4-5.4 1.2-.3-1 5-2.5-.8-2.5-5.5.6-.2-1 5.2-2c-.2-.8-.3-1.7-.5-2.5h-5.6l-.1-1 5.4-1.4c-.1-.8-.1-1.7-.2-2.5l-5.5-.7v-1l5.5-.7c0-1 .1-1.7.1-2.6L11.5 55l.1-1 5.6-.1.4-2.5-5.2-2 .2-1 5.5.6.7-2.5-5-2.5.4-1 5.4 1.2 1-2.3-4.7-3 .4-1 5.3 2c.4-.8.8-1.5 1.3-2.2L18.6 34l.5-.8 5 2.5c.5-.7 1-1.4 1.5-2l-4-4.2.6-.8 4.8 3L29 30l-3.4-4.6.7-.7 4.5 3.6 2-1.6-3-5 .8-.6 4 4.2 2-1.4-2.3-5.4 1-.5 3.6 4.6c.7-.4 1.5-.7 2.2-1L39.3 16l1-.4 3 5c.8-.3 1.5-.6 2.3-.8l-1-6 1-.3L48 19c.8-.2 1.5-.4 2.3-.5l-.3-6 1-.2 1.8 5.7 2.4-.3.4-6 1-.1zM34 86.8c2.7 2.6 7 1.5 9-1.8L54 66a12 12 0 0 0-.2-12l-11-18.8c-2-3.2-6.3-4.3-9-1.6-7.2 7-11.2 16.7-11 26.7a37 37 0 0 0 11.6 26.5zm23-35c2.2 3.7 6.3 6 10.6 6h21.8c3.8 0 7-3.2 6-7a37 37 0 0 0-17.6-23.2c-8.8-5-19.3-6.2-29-3.3-3.6 1-5 5.4-3 8.7zm10.7 10c-4.3 0-8.3 2.3-10.5 6L46.5 87c-1 1.5-1.2 3.4-.5 5 .6 1.7 2 3 3.7 3.5a37 37 0 0 0 28.6-3.7 37 37 0 0 0 17.3-23.1c1-3.6-2.2-7-6-7zm-8.3-4a2 2 0 1 0 0 4 2 2 0 1 0 0-4z" fill="url(#O6gJ)"/></g></svg>',
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="121" height="121" viewBox="0 0 121 121" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="Jrk8" x1="-704.75%" x2="-704.75%" y1="-1192.22%" y2="-1195.33%"><stop offset="0%" stop-color="#b4b4b9"/></linearGradient><linearGradient id="ZgKC" x1="-455.40%" x2="-455.40%" y1="-768.24%" y2="-770.32%"><stop offset="0%" stop-color="#dcdce1"/><stop offset="100%" stop-color="#98989d"/></linearGradient></defs><g stroke="none"><path d="M8 60A52 52 0 0 1 60 8a52 52 0 0 1 52 52 52 52 0 0 1-52 52A52 52 0 0 1 8 60z" fill="#2e2e2f" fill-rule="nonzero"/><path d="M59 32h1.7l.8-4h.7l.3 4c.5 0 1 .1 1.5.2l1.2-4 .7.1-.2 4c.5.1 1 .2 1.5.4l1.6-3.7.6.2-.7 4c.5.2 1 .3 1.5.5l2-3.5.6.3-1 4c.5.2 1 .5 1.4.7l2.4-3.3.6.3-1.6 3.8 1.3 1 2.8-3 .5.4-2 3.6c.4.3.8.7 1.2 1l3-2.6.5.5-2.4 3.3 1 1 3.4-2.2.4.5-2.7 3 1 1.2 3.6-1.8.4.6-3 2.7c.3.4.5 1 .8 1.3l3.8-1.4.3.6-3.4 2.3.6 1.5 4-1 .2.6-3.5 1.8c.2.5.3 1 .5 1.5l4-.5.2.7-3.8 1.4.3 1.6h4l.1.7-4 1c0 .5.1 1 .1 1.6l4 .5v.7l-4 .5-.1 1.5 4 1-.1.7h-4l-.3 1.5L91 67v.6l-4-.4c-.1.5-.3 1-.4 1.5l3.6 1.8v.6l-4-1-.6 1.5 3.4 2.3-.3.6-4-1.3c-.2.4-.5 1-.7 1.3l3 2.6-.4.6L83 76c-.3.5-.6 1-1 1.3l2.8 3-.4.5-3.4-2.2c-.3.4-.7.8-1 1l2.4 3.3-.5.5-3.2-2.6-1.2 1 2 3.5-.5.4-2.8-3c-.4.3-1 .6-1.3 1l1.6 3.8-.6.3-2.5-3.2c-.4.3-1 .5-1.4.7l1.2 4-.6.3-2-3.5-1.5.5.7 4-.6.2-1.7-3.7-1.5.4.2 4-.7.1-1.2-4c-.5.1-1 .1-1.6.2l-.2 4h-.7l-.8-4H59l-.7 4H58l-.3-4c-.5 0-1-.1-1.6-.2l-1.2 4-.7-.1.2-4-1.5-.4-1.6 3.7-.6-.2.7-4c-.5-.2-1-.3-1.5-.5l-2 3.5-.6-.3 1-4c-.5-.2-1-.5-1.4-.7L44.4 88l-.6-.3 1.6-3.8c-.4-.3-1-.6-1.3-1l-2.8 3-.5-.4 2-3.6c-.4-.3-.8-.7-1.2-1l-3 2.6-.5-.5 2.4-3.3c-.3-.4-.7-.8-1-1L36 81l-.4-.5 2.8-3c-.4-.4-.7-.8-1-1.3L33.7 78l-.4-.6 3-2.6c-.3-.4-.5-1-.8-1.4l-3.8 1.4-.3-.6 3.4-2.3-.6-1.5-4 1-.2-.6 3.6-2c-.2-.5-.3-1-.5-1.5l-4 .5-.2-.7 3.8-1.4-.3-1.6h-4l-.1-.7 4-1c0-.5-.1-1-.1-1.6l-4-.5v-.7l4-.5c0-.5 0-1 .1-1.6l-4-1 .1-.7 4-.1.3-1.5-3.8-1.4.2-.6 4 .4c.1-.5.3-1 .4-1.5L30 49.3l.2-.6 4 1 .6-1.5-3.4-2.2.3-.6 3.8 1.3c.3-.5.5-1 .8-1.4l-3-2.6.4-.6 3.6 1.8c.3-.4.6-1 1-1.3l-2.8-3 .4-.5 3.4 2.2c.3-.4.7-.8 1-1.2l-2.4-3.3.5-.5 3 2.6c.4-.4.8-.7 1.2-1l-2-3.5.5-.4 2.8 3 1.3-1-1.6-3.7.6-.3 2.5 3.2c.4-.3 1-.5 1.4-.7l-1-4 .6-.3 2 3.5c.5-.2 1-.4 1.5-.5l-.7-4 .6-.2 1.7 3.7c.5-.1 1-.3 1.5-.4l-.2-4 .7-.1 1.2 4c.5-.1 1-.1 1.6-.2l.2-4h.7zm1 5.4c-12.4 0-22.5 10-22.5 22.5s10 22.5 22.5 22.5 22.5-10 22.5-22.5-10-22.5-22.5-22.5z" fill="url(#Jrk8)"/><path d="M58.5 18H61l1-6h1l.4 6 2.3.3 1.8-6 1 .2-.3 6.2 2.2.5 2.5-5.7 1 .3-1 6.2a18 18 0 0 1 2.1.8l3.2-5.5 1 .4-1.7 6c.7.3 1.4.7 2 1l3.8-5 1 .5-2.5 6c.7.4 1.3.8 2 1.3L88 21l.8.6-3.2 5.6 1.7 1.5 5-4 .7.7-3.8 5.2 1.5 1.6 5.4-3.5.6.8L92 34l1.3 1.8 5.8-3 .6.8-5 4.3 1 2 6.2-2.2.5 1-5.4 3.7c.3.7.6 1.3 1 2l6.4-1.5.3 1-5.8 3 .6 2 6.5-.7.2 1-6 2.3.4 2h6.6l.1 1-6.4 1.6c.1.8.1 1.5.1 2.3l6.5.8v1l-6.5.8v2l6.4 1.5-.1 1-6.6.1c-.1.7-.2 1.5-.4 2.2l6 2.3-.2 1-6.5-.7-.6 2 5.8 3-.3 1-6.3-1.4q-.4 1-1 2l5.4 3.6-.4 1-6-2c-.3.7-.7 1.3-1 2l5 4.2-.5.8-5.8-2.8-1.3 1.8 4.4 4.7-.6.8-5.4-3.5-1.5 1.7 3.8 5-.7.7-5-4-1.7 1.5 3 5.5-.8.6-4.4-4.5c-.6.4-1.2 1-2 1.3l2.5 5.7-1 .5-3.8-5c-.7.4-1.4.7-2 1l1.8 6-1 .4-3.2-5.3c-.7.3-1.4.6-2 .8l1 6-1 .3-2.5-5.6-2.3.6.3 6-1 .2-1.8-5.7-2.4.3-.4 6h-1l-1-6h-2.6l-1 6h-1l-.4-6c-.8-.1-1.6-.1-2.4-.2l-1.7 5.7-1-.2.3-6c-.8-.2-1.6-.3-2.4-.5l-2.4 5.4-1-.3 1-5.8c-.8-.2-1.5-.5-2.3-.8l-3 5-1-.4 1.6-5.6a15 15 0 0 1-2.2-1.1l-3.5 4.6-1-.5 2.2-5.3-2-1.3-4 4.2-.8-.6 2.8-5-2-1.6-4.4 3.6-.7-.7 3.3-4.6-1.8-1.8-4.7 3-.7-.8 3.8-4.2-1.5-2-5 2.5-.6-.8 4.2-3.7c-.5-.7-1-1.4-1.3-2.2l-5.3 2-.4-1 4.6-3-1-2.4-5.4 1.2-.3-1 5-2.5-.8-2.5-5.5.6-.2-1 5.2-2c-.2-.8-.3-1.7-.5-2.5h-5.6l-.1-1 5.4-1.4c-.1-.8-.1-1.7-.2-2.5l-5.5-.7v-1l5.5-.7c0-1 .1-1.7.1-2.6L11.5 55l.1-1 5.6-.1.4-2.5-5.2-2 .2-1 5.5.6.7-2.5-5-2.5.4-1 5.4 1.2 1-2.3-4.7-3 .4-1 5.3 2c.4-.8.8-1.5 1.3-2.2L18.6 34l.5-.8 5 2.5c.5-.7 1-1.4 1.5-2l-4-4.2.6-.8 4.8 3L29 30l-3.4-4.6.7-.7 4.5 3.6 2-1.6-3-5 .8-.6 4 4.2 2-1.4-2.3-5.4 1-.5 3.6 4.6c.7-.4 1.5-.7 2.2-1L39.3 16l1-.4 3 5c.8-.3 1.5-.6 2.3-.8l-1-6 1-.3L48 19c.8-.2 1.5-.4 2.3-.5l-.3-6 1-.2 1.8 5.7 2.4-.3.4-6 1-.1zM34 86.8c2.7 2.6 7 1.5 9-1.8L54 66a12 12 0 0 0-.2-12l-11-18.8c-2-3.2-6.3-4.3-9-1.6-7.2 7-11.2 16.7-11 26.7a37 37 0 0 0 11.6 26.5zm23-35c2.2 3.7 6.3 6 10.6 6h21.8c3.8 0 7-3.2 6-7a37 37 0 0 0-17.6-23.2c-8.8-5-19.3-6.2-29-3.3-3.6 1-5 5.4-3 8.7zm10.7 10c-4.3 0-8.3 2.3-10.5 6L46.5 87c-1 1.5-1.2 3.4-.5 5 .6 1.7 2 3 3.7 3.5a37 37 0 0 0 28.6-3.7 37 37 0 0 0 17.3-23.1c1-3.6-2.2-7-6-7zm-8.3-4a2 2 0 1 0 0 4 2 2 0 1 0 0-4z" fill="url(#ZgKC)"/></g></svg>',
       "friendlyName": "Function: Settings",
       "className": "functionAppleSettingsButton",
       "appName": "Settings",
@@ -3357,6 +3419,30 @@ const fastappchoices = {
 const appmap = new Map(Object.entries(fastappchoices));
 
 const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "AR3": 8, "CC1": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
+
+
+
+// App name translations languageCode->englishWord:translation
+const rosettaStone = {
+  "nl": {
+      "Apple Music": "Apple Muziek",
+      "Apple Photos": "Apple Foto's",
+      "Function: Switch Apps": "Functie: Schakel Apps",
+      "Function: Control Center": "Functie: Controlecentrum",
+      "Function: Next": "Functie: Volgende",
+      "Function: Previous": "Functie: Vorige",
+      "Function: Search": "Functie: Zoeken",
+      "Function: Settings": "Functie: Instellingen",
+      "Function: Skip Backward": "Functie: Achterwaarts springen",
+      "Function: Skip Forward": "Functie: Vooruitspringen",
+      "Music": "Muziek",
+      "Photos": "Foto's",
+      "Settings": "Instellingen",
+      "Search": "Zoek",
+  },
+};
+const translationmap = new Map(Object.entries(rosettaStone));
+
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
@@ -4730,6 +4816,10 @@ class FiremoteCard extends LitElement {
             background: #fff;
           }
 
+          .iptvXButton {
+            background: #000;
+          }
+
           .ipVanishButton {
             background: #fff;
           }
@@ -5019,7 +5109,15 @@ class FiremoteCard extends LitElement {
             filter: grayscale(50%) brightness(80%);
           }
 
+          .proximusPickxButton {
+            background: #000;
+          }
+
           .purpleCheetahButton {
+            background: #fff;
+          }
+
+          .qmusicButton {
             background: #fff;
           }
 
@@ -5167,6 +5265,10 @@ class FiremoteCard extends LitElement {
 
           .tennisChannelButton {
             background: #fff;
+          }
+
+          .testflightButton {
+            background: linear-gradient(0deg, rgba(29,133,243,1) 0%, rgba(0,212,255,1) 100%);
           }
 
           .threenowButton {
@@ -5641,6 +5743,7 @@ class FiremoteCard extends LitElement {
       }
     }
 
+
    render() {
     if (!this.hass || !this._config) {
       return html``;
@@ -5760,6 +5863,7 @@ class FiremoteCard extends LitElement {
         return ' ';
       }
     }
+
 
     function drawAppLaunchButtons(e, config, cols=3, max=6) {
         var spanclass = "three-col-span afappsgrid";
@@ -6945,6 +7049,7 @@ class FiremoteCard extends LitElement {
   }
 
 
+
   // Remote Button Click Handler
   buttonClicked(clicked) {
 
@@ -6957,6 +7062,22 @@ class FiremoteCard extends LitElement {
     const compatibility_mode = this._config.compatibility_mode || 'default';
     const overrides = this._config.button_overrides;
     const atvRemoteEntity = this._config.android_tv_remote_entity;
+
+    // Function to check for and return app name translations
+    const ha_language = this.hass.config.language;
+    function translateSourceName(sourceName) {
+        //console.log('Source name in = '+sourceName)
+        //const ha_language = 'nl';
+        //console.log(ha_language);
+        var translatedName = sourceName;
+        if (typeof translationmap.get(ha_language) !== 'undefined'){
+            if (typeof translationmap.get(ha_language)[sourceName] !== 'undefined'){
+                translatedName = translationmap.get(ha_language)[sourceName];
+            }
+        }
+        //console.log('Source name out = '+translatedName)
+        return translatedName;
+    }
 
     // Check for button override before proceeding
     if(typeof overrides !== 'undefined' && overrides !== null) {
@@ -7428,6 +7549,7 @@ class FiremoteCard extends LitElement {
       this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell reboot' });
     }
 
+
     // App launch button (existing in JSON map)
     const clickedAppButtonID = clicked.target.id;
     const appkey = clickedAppButtonID.substr(0, clickedAppButtonID.indexOf("-button"));
@@ -7443,6 +7565,7 @@ class FiremoteCard extends LitElement {
         var sourceName = appmap.get(appkey).appName;
         var remoteCommand = appmap.get(appkey).remoteCommand
       }
+      sourceName = translateSourceName(sourceName);
       if (typeof remoteCommand != 'undefined' && this._config.device_family == 'apple-tv') {
         var data = JSON.parse(remoteCommand);
         data['entity_id'] = this._config.apple_tv_remote_entity;
@@ -7714,7 +7837,7 @@ class FiremoteCardEditor extends LitElement {
     return html`
         Compatibility Mode:<br>
         <select name="compatibility_mode" id="compatibility_mode" style="padding: .6em; font-size: 1em;"
-          .value=${optionValue} 
+          .value=${optionValue}
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
@@ -7741,47 +7864,6 @@ class FiremoteCardEditor extends LitElement {
   }
 
 
-
-
-
-
-
-  getAppChoices(buttonIndex, optionvalue, remoteStyle) {
-    var family = this._config.device_family;
-    if(remoteStyle == "AF4" || remoteStyle == "AF5" || remoteStyle == "AF6" || remoteStyle == "NS2" || remoteStyle == "XM2") {
-      var appkeys = [];
-      for (var [key, value] of appmap.entries()) {
-        appkeys.push(key)
-      }
-      var blankOption = html `<option value=""> - - - - </option>`;
-      if(!(appmap.has(optionvalue))){
-        blankOption = html `<option value="" selected> - - - - </option>`;
-      }
-
-      return html `
-        App Launch Button ${buttonIndex}:
-        <select name="app_launch_${buttonIndex}" id="app_launch_${buttonIndex}" style="padding: .6em; font-size: 1em;"
-          .value=${optionvalue}
-          @focusout=${this.configChanged}
-          @change=${this.configChanged}
-        >
-          ${blankOption}
-          ${appkeys.map((app) => {
-           if ((appmap.get(app).deviceFamily && appmap.get(app).deviceFamily.includes(family)) || !(appmap.get(app).deviceFamily)) {
-            if (app != optionvalue) {
-              return html`<option value="${app}">${appmap.get(app).friendlyName}</option> `
-            }
-            else {
-              return html`<option value="${app}" selected>${appmap.get(app).friendlyName}</option> `
-            }
-           }
-          })}
-        </select>
-        <br>
-      `;
-    }
-  }
-
   getAppChoiceOptionMenus(remoteStyle) {
     var family = this._config.device_family;
     if(appButtonMax[remoteStyle]) {
@@ -7797,6 +7879,22 @@ class FiremoteCardEditor extends LitElement {
       for (var [key, value] of optionsmap.entries()) {
         optionkeys.push(key)
       }
+
+      // Function to check for and return app name translations
+      const ha_language = this.hass.config.language;
+      function translateSourceName(sourceName) {
+          //console.log('Source name in = '+sourceName)
+          //const ha_language = 'nl';
+          var translatedName = sourceName;
+          if (typeof translationmap.get(ha_language) !== 'undefined'){
+              if (typeof translationmap.get(ha_language)[sourceName] !== 'undefined'){
+                  translatedName = translationmap.get(ha_language)[sourceName];
+              }
+          }
+          //console.log('Source name out = '+translatedName)
+          return translatedName;
+      }
+
       return html `
         ${optionkeys.map((optionnumber) => {
           var blankOption = html `<option value=""> - - - - </option>`;
@@ -7813,12 +7911,13 @@ class FiremoteCardEditor extends LitElement {
             >
               ${blankOption}
               ${appkeys.map((app) => {
+               var userLanguageAppName = translateSourceName(appmap.get(app).friendlyName);
                if ((appmap.get(app).deviceFamily && appmap.get(app).deviceFamily.includes(family)) || !(appmap.get(app).deviceFamily)) {
                 if (app != optionvalue) {
-                  return html`<option value="${app}">${appmap.get(app).friendlyName}</option> `
+                  return html`<option value="${app}">${userLanguageAppName}</option> `
                 }
                 else {
-                  return html`<option value="${app}" selected>${appmap.get(app).friendlyName}</option> `
+                  return html`<option value="${app}" selected>${userLanguageAppName}</option> `
                 }
                }
               })}
