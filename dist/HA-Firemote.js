@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.4.0-b2';
+const HAFiremoteVersion = 'v2.4.0-b3';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -157,9 +157,9 @@ const devices = {
     "noCategory": {
 
       "appletv-gen4": {
-        "supported": false,
-        "friendlyName": "Apple TV - Gen4 2015",
-        "defaultRemoteStyle": "AR3",
+        "supported": true,
+        "friendlyName": "Apple TV - (HD) Gen4 2015",
+        "defaultRemoteStyle": "AR2",
         "hdmiInputs": 0,
       },
 
@@ -3418,31 +3418,46 @@ const fastappchoices = {
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
-const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "AR3": 8, "CC1": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
+const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "AR1": 10, "AR2": 6, "AR3": 8, "CC1": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
 
 
 // App name translations languageCode->englishWord:translation
 const rosettaStone = {
   "nl": {
+      "App Launch Button": "Knop Voor Het Starten van apps",
       "Apple Music": "Apple Muziek",
       "Apple Photos": "Apple Foto's",
-      "Function: Switch Apps": "Functie: Schakel Apps",
+      "Associated": "Aangesloten",
+      "bottom": "onderkant",
+      "Compatibility Mode": "Compatibiliteitsmodus",
+      "Device Family": "Apparaatfamilie",
+      "Device Model": "Apparaat Model",
+      "Device Name Text Color": "Apparaatnaam Tekstkleur",
       "Function: Control Center": "Functie: Controlecentrum",
+      "Function: Find My Remote": "Functie: Vind Mijn afstandsbediening",
+      "Function: Mute": "Functie: Dempen",
       "Function: Next": "Functie: Volgende",
       "Function: Previous": "Functie: Vorige",
+      "Function: Reboot": "Functie: opnieuw opstarten",
       "Function: Search": "Functie: Zoeken",
       "Function: Settings": "Functie: Instellingen",
       "Function: Skip Backward": "Functie: Achterwaarts springen",
       "Function: Skip Forward": "Functie: Vooruitspringen",
+      "Function: Switch Apps": "Functie: Schakel Apps",
+      "hidden": "verborgen",
       "Music": "Muziek",
+      "Name Position": "Positie van Naam",
       "Photos": "Foto's",
+      "Remote Style": "Afstandsbedieningstijl",
+      "Scale": "Meten",
       "Settings": "Instellingen",
       "Search": "Zoek",
+      "top": "bovenkant",
+      "Visible Device Name": "Zichtbare apparaatnaam",
   },
 };
 const translationmap = new Map(Object.entries(rosettaStone));
-
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
@@ -3612,11 +3627,51 @@ class FiremoteCard extends LitElement {
             padding-bottom: calc(var(--sz) * 1.5rem);
           }
 
-          .apple-remote-body > button:nth-of-type(odd) {
+          .apple-remote-body.AR1 {
+            padding-top: calc(var(--sz) * 4.75rem);
+            min-height: calc(var(--sz) * 47rem);
+            grid-column-gap: calc(var(--sz) * 0.25rem);
+            grid-row-gap: calc(var(--sz) * 0.75rem);
+            font-size: calc(var(--sz) * 1rem);
+          }
+
+          .apple-remote-body.AR2 {
+            background: linear-gradient(30deg, rgb(0, 0, 0) 0%, rgb(41, 41, 41) 70%);
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            grid-row-gap: 0;
+            border: solid #2d2d2d calc(var(--sz) * 0.01rem);
+            min-height: calc(var(--sz) * 41rem);
+            overflow: hidden;
+          }
+
+          .AR2TopSection, .AR2BottomSection {
+            display: grid;
+            justify-items: center;
+            align-content: flex-start;
+            grid-column-gap: calc(var(--sz) * 1.5rem);
+            grid-row-gap: calc(var(--sz) * 0.5rem);
+            grid-template-columns: 1fr 1fr;
+            box-sizing: border-box;
+          }
+
+          .AR2TopSection {
+            background: linear-gradient(0deg, rgba(46,46,46,1) 0%, rgba(59,59,59,1) 100%);
+            height: 100%;
+            width: 100%;
+            padding-bottom: calc(var(--sz) * 0.25rem);
+          }
+
+          .AR2BottomSection {
+            padding-top: calc(var(--sz) * 0.5rem);
+          }
+
+          .apple-remote-body.AR2 > div > button:nth-of-type(odd), .apple-remote-body.AR3 > button:nth-of-type(odd) {
             justify-self: self-end;
           }
 
-          .apple-remote-body > button:nth-of-type(even) {
+          .apple-remote-body.AR2 > div > button:nth-of-type(even), .apple-remote-body.AR3 > button:nth-of-type(even) {
             justify-self: self-start;
           }
 
@@ -3827,6 +3882,22 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 4.75rem);
           }
 
+          .apple-remote-body.AR2 .remote-button {
+            height: calc(var(--sz) * 4.5rem);
+            width: calc(var(--sz) * 4.5rem);
+          }
+
+          .apple-remote-body.AR1 #back-button.remote-button, .apple-remote-body.AR2 #back-button.remote-button {
+            font-size: calc(var(--sz) * 1rem);
+            font-weight: 600;
+          }
+
+          .apple-remote-body.AR2 #search-button.remote-button, .apple-remote-body.AR3 #back-button.remote-button {
+            background: linear-gradient(rgb(0, 0, 0) 0%, rgb(48, 48, 48) 100%);
+            outline: solid #2b2b2b calc(var(--sz) * 0.01rem);
+          }
+
+
           .chromecast-remote-body .remote-button, .chromecast-remote-body #keyboard-button {
             background: #fff;
             border: solid #bfbfbf calc(var(--sz) * 0.02em);
@@ -3984,6 +4055,10 @@ class FiremoteCard extends LitElement {
             margin-bottom: 0;
           }
 
+          .apple-remote-body.AR2 .dpadContainer {
+            overflow: hidden;
+          }
+
           .XM2 .dpadContainer {
             align-items: center;
             justify-items: center;
@@ -4027,6 +4102,15 @@ class FiremoteCard extends LitElement {
             position: relative;
           }
 
+          .AR2 .directionButtonContainer {
+            margin-top: calc(var(--sz) * -1.4rem);
+            margin-left: calc(var(--sz) * -1.35rem);
+            border-radius: 0;
+            border: 0;
+            overflow: unset;
+            box-shadow: none;
+          }
+
           .chromecast-remote-body .directionButtonContainer {
             border: calc(var(--sz) * 0.0714rem) solid #9d9d9d;
             box-shadow: #b1b1b1 0 0 calc(var(--sz) * 0.4rem)  calc(var(--sz) * 0.02rem);
@@ -4042,6 +4126,12 @@ class FiremoteCard extends LitElement {
             outline: solid #2e2e2e calc(var(--sz) * 0.0714rem);
           }
 
+          .AR2 .dpadbutton {
+            width: calc(var(--sz) * 7rem);
+            height: calc(var(--sz) * 7rem);
+            outline: none;
+          }
+
           .XM2 .dpadbutton {
             background: rgb(28 28 28);
             outline: solid #000 calc(var(--sz) * 0.0714rem);
@@ -4052,7 +4142,7 @@ class FiremoteCard extends LitElement {
             outline: solid #c5c5c5 calc(var(--sz) * 0.0714rem);
           }
 
-          .apple-remote-body .dpadbutton:nth-child(1)::after {
+          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(1)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -4062,7 +4152,7 @@ class FiremoteCard extends LitElement {
             padding-bottom: calc(var(--sz) * 1.2rem);
           }
 
-          .apple-remote-body .dpadbutton:nth-child(2)::after {
+          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(2)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -4072,7 +4162,7 @@ class FiremoteCard extends LitElement {
             padding-bottom: calc(var(--sz) * 1.2rem);
           }
 
-          .apple-remote-body .dpadbutton:nth-child(3)::after {
+          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(3)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -4082,7 +4172,7 @@ class FiremoteCard extends LitElement {
             padding-top: calc(var(--sz) * 1.2rem);
           }
 
-          .apple-remote-body .dpadbutton:nth-child(4)::after {
+          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(4)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -4148,6 +4238,31 @@ class FiremoteCard extends LitElement {
             outline: solid #2e2e2e calc(var(--sz) * 0.0714rem);
           }
 
+          .apple-remote-body.AR1 .centerbutton {
+            background: linear-gradient(180deg, rgb(147, 148, 150) 0%, rgb(207, 211, 213) 100%);
+          }
+
+          .apple-remote-body.AR2 .centerbutton {
+            border-radius: 0;
+            border: 0;
+            outline: 0;
+            transform: scale(.75);
+            transform-origin: center;
+            text-align: center;
+          }
+
+          .apple-remote-body.AR2 .dpadContainer button {
+            background: none;
+            color: transparent;
+          }
+          .apple-remote-body.AR2 .dpadContainer button:hover,
+          .apple-remote-body.AR2 .dpadContainer button:active {
+            /*background: #353535;*/
+            color: #636363;
+            text-align: center;
+          }
+
+
           .centerbutton:active {
             transform: scale(95%);
           }
@@ -4208,7 +4323,7 @@ class FiremoteCard extends LitElement {
             margin-top: calc(var(--sz) * -0.5rem);
           }
 
-          .apple-remote-body .round-bottom {
+          .apple-remote-body .round-bottom, .apple-remote-body.AR2 .round-bottom {
             height: calc(var(--sz) * 5.25rem);
           }
 
@@ -4415,6 +4530,10 @@ class FiremoteCard extends LitElement {
           .apple-remote-body .deviceNameTop {
             grid-column: 1 / 3;
             margin: 0 0 calc(var(--sz) * -1.8rem) 0;
+          }
+
+          .apple-remote-body.AR1 .deviceNameTop {
+            margin: calc(var(--sz) * -4rem) 0 calc(var(--sz) * -2.5rem) 0;
           }
 
           .deviceNameBottom {
@@ -5895,7 +6014,8 @@ class FiremoteCard extends LitElement {
           appLaunchButtons.set("confBtn1", config.app_launch_1 || 'youtube');
           appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
         }
-        else if (config.defaultRemoteStyle_override == 'AR3' || ((config.device_type == 'appletv-4k-gen2') && !(config.defaultRemoteStyle_override))) {
+        else if (config.defaultRemoteStyle_override == 'AR1' || config.defaultRemoteStyle_override == 'AR2' || config.defaultRemoteStyle_override == 'AR3' || 
+                (((config.device_type == 'appletv-4k-gen2' || config.device_type == 'appletv-gen4')) && !(config.defaultRemoteStyle_override))) {
           // no default app launch buttons
         }
         else {
@@ -5904,7 +6024,7 @@ class FiremoteCard extends LitElement {
           appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
           appLaunchButtons.set("confBtn4", config.app_launch_4 || 'hulu');
         }
-        if(config.defaultRemoteStyle_override == 'CC1' || config.defaultRemoteStyle_override == 'AR3' || ((config.device_type == 'chromecast-4k' || config.device_type == 'chromecast-hd' || config.device_type == 'appletv-4k-gen2') && !(config.defaultRemoteStyle_override))) {
+        if(config.defaultRemoteStyle_override == 'CC1' || config.defaultRemoteStyle_override == 'AR1'|| config.defaultRemoteStyle_override == 'AR2' || config.defaultRemoteStyle_override == 'AR3' || ((config.device_type == 'chromecast-4k' || config.device_type == 'chromecast-hd' || config.device_type == 'appletv-4k-gen2') && !(config.defaultRemoteStyle_override))) {
           return html `
             ${ Array.from(appLaunchButtons.keys()).map(key => {
               var val = appLaunchButtons.get(key);
@@ -6878,7 +6998,122 @@ class FiremoteCard extends LitElement {
     }
 
 
-    // Render Apple TV Remote 3rd Gen
+    // Render Apple TV Remote - Style 1
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AR1' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="apple-remote-body AR1">
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <div class="dpadContainer">
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}></button>
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+          </div>
+
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            MENU
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+
+          ${drawAppLaunchButtons(this, this._config, 2, appButtonMax["AR1"])}
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${drawFiremoteVersionNumber(this, this._config)}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+    // Render Apple TV Remote - Style 2
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AR2' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="apple-remote-body AR2">
+        <div class="AR2TopSection">
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <div class="two-col-span apple-tv-top">
+            <div></div>
+            <div class="notch"></div>
+            <div></div>
+          </div>
+
+          <div class="dpadContainer">
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:checkbox-blank-circle"></ha-icon>
+            </button>
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}>
+                <ha-icon icon="mdi:arrow-top-left"></ha-icon>
+              </button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}>
+                <ha-icon icon="mdi:arrow-top-right"></ha-icon>
+              </button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}>
+                <ha-icon icon="mdi:arrow-bottom-left"></ha-icon>
+              </button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}>
+                <ha-icon icon="mdi:arrow-bottom-right"></ha-icon>
+              </button>
+            </div>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            MENU
+          </button>
+          <button class="remote-button" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:monitor"></ha-icon>
+          </button>
+
+        </div>
+        <div class="AR2BottomSection">
+
+          <button class="remote-button" id="search-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:magnify"></ha-icon>
+          </button>
+          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            +
+          </button>
+
+
+          <button class="remote-button" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            &#x2013;
+          </button>
+
+          ${drawAppLaunchButtons(this, this._config, 2, appButtonMax["AR2"])}
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${drawFiremoteVersionNumber(this, this._config)}
+        </div>
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+    // Render Apple TV Remote - Style 3
     if ( getDeviceAttribute('defaultRemoteStyle') == 'AR3' ) {
     return html`
       <ha-card>
@@ -7063,20 +7298,16 @@ class FiremoteCard extends LitElement {
     const overrides = this._config.button_overrides;
     const atvRemoteEntity = this._config.android_tv_remote_entity;
 
-    // Function to check for and return app name translations
+    // Function to handle translations from English to the user's language
     const ha_language = this.hass.config.language;
-    function translateSourceName(sourceName) {
-        //console.log('Source name in = '+sourceName)
-        //const ha_language = 'nl';
-        //console.log(ha_language);
-        var translatedName = sourceName;
+    function translateToUsrLang(englishString) {
+        var translatedString = englishString;
         if (typeof translationmap.get(ha_language) !== 'undefined'){
             if (typeof translationmap.get(ha_language)[sourceName] !== 'undefined'){
-                translatedName = translationmap.get(ha_language)[sourceName];
+                translatedString = translationmap.get(ha_language)[englishString];
             }
         }
-        //console.log('Source name out = '+translatedName)
-        return translatedName;
+        return translatedString;
     }
 
     // Check for button override before proceeding
@@ -7549,6 +7780,11 @@ class FiremoteCard extends LitElement {
       this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell reboot' });
     }
 
+    // Search Button (Apple TV Remote style 2)
+    if(clicked.target.id == 'search-button') {
+      this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: "Search"});
+    }
+
 
     // App launch button (existing in JSON map)
     const clickedAppButtonID = clicked.target.id;
@@ -7565,7 +7801,7 @@ class FiremoteCard extends LitElement {
         var sourceName = appmap.get(appkey).appName;
         var remoteCommand = appmap.get(appkey).remoteCommand
       }
-      sourceName = translateSourceName(sourceName);
+      sourceName = translateToUsrLang(sourceName);
       if (typeof remoteCommand != 'undefined' && this._config.device_family == 'apple-tv') {
         var data = JSON.parse(remoteCommand);
         data['entity_id'] = this._config.apple_tv_remote_entity;
@@ -7633,6 +7869,22 @@ class FiremoteCardEditor extends LitElement {
       composed: true,
     });
     this.dispatchEvent(event);
+  }
+
+
+  translateToUsrLang(englishString) {
+    const ha_language = this.hass.config.language;
+    //console.log('English string in = '+englishString)
+    //const ha_language = 'nl';
+    //console.log(ha_language);
+    var translatedString = englishString;
+    if (typeof translationmap.get(ha_language) !== 'undefined'){
+        if (typeof translationmap.get(ha_language)[englishString] !== 'undefined'){
+            translatedString = translationmap.get(ha_language)[englishString];
+        }
+    }
+    //console.log('Translated string out = '+translatedString)
+    return translatedString;
   }
 
 
@@ -7742,7 +7994,7 @@ class FiremoteCardEditor extends LitElement {
         }
         remoteEntities = this.getRemoteEntitiesByPlatform('apple_tv');
         return html`
-              Associated Apple TV Remote Entity:<br>
+              ${this.translateToUsrLang('Associated')} Apple TV Remote Entity:<br>
               <select name="apple_tv_remote_entity" id="apple_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
@@ -7765,7 +8017,7 @@ class FiremoteCardEditor extends LitElement {
         }
         remoteEntities = this.getEntitiesByPlatform('androidtv_remote');
         return html`
-              Associated Android TV Remote Entity: (optional)<br>
+              ${this.translateToUsrLang('Associated')} Android TV Remote Entity: (optional)<br>
               <select name="android_tv_remote_entity" id="android_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
@@ -7834,8 +8086,9 @@ class FiremoteCardEditor extends LitElement {
 
   getCompatibilityModeDropdown(optionValue, deviceFriendlyName){
     if(this._config.device_family == 'apple-tv') { return; }
+    var heading = this.translateToUsrLang('Compatibility Mode');
     return html`
-        Compatibility Mode:<br>
+        ${heading}:<br>
         <select name="compatibility_mode" id="compatibility_mode" style="padding: .6em; font-size: 1em;"
           .value=${optionValue}
           @focusout=${this.configChanged}
@@ -7880,30 +8133,16 @@ class FiremoteCardEditor extends LitElement {
         optionkeys.push(key)
       }
 
-      // Function to check for and return app name translations
-      const ha_language = this.hass.config.language;
-      function translateSourceName(sourceName) {
-          //console.log('Source name in = '+sourceName)
-          //const ha_language = 'nl';
-          var translatedName = sourceName;
-          if (typeof translationmap.get(ha_language) !== 'undefined'){
-              if (typeof translationmap.get(ha_language)[sourceName] !== 'undefined'){
-                  translatedName = translationmap.get(ha_language)[sourceName];
-              }
-          }
-          //console.log('Source name out = '+translatedName)
-          return translatedName;
-      }
-
       return html `
         ${optionkeys.map((optionnumber) => {
           var blankOption = html `<option value=""> - - - - </option>`;
           if(!(appmap.has(optionvalue))){
             blankOption = html `<option value="" selected> - - - - </option>`;
           }
+          var heading = this.translateToUsrLang('App Launch Button');
           var optionvalue = this._config[optionsmap.get(optionnumber)];
           return html `
-            App Launch Button ${optionnumber}:
+            ${heading} ${optionnumber}:
             <select name="app_launch_${optionnumber}" id="app_launch_${optionnumber}" style="padding: .6em; font-size: 1em;"
               .value=${optionvalue}
               @focusout=${this.configChanged}
@@ -7911,7 +8150,7 @@ class FiremoteCardEditor extends LitElement {
             >
               ${blankOption}
               ${appkeys.map((app) => {
-               var userLanguageAppName = translateSourceName(appmap.get(app).friendlyName);
+               var userLanguageAppName = this.translateToUsrLang(appmap.get(app).friendlyName);
                if ((appmap.get(app).deviceFamily && appmap.get(app).deviceFamily.includes(family)) || !(appmap.get(app).deviceFamily)) {
                 if (app != optionvalue) {
                   return html`<option value="${app}">${userLanguageAppName}</option> `
@@ -7962,11 +8201,11 @@ class FiremoteCardEditor extends LitElement {
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'));
 
     return html`
-        Device Family:<br>
+        ${this.translateToUsrLang('Device Family')}: <br>
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
         <br>
 
-        ${devicemap.get(this._config.device_family).meta.friendlyName} Device Model:<br>
+        ${devicemap.get(this._config.device_family).meta.friendlyName} ${this.translateToUsrLang('Device Model')}:<br>
         ${this.getDeviceTypeDropdown(this._config.device_type)}
         <br>
 
@@ -7978,14 +8217,14 @@ class FiremoteCardEditor extends LitElement {
         <hr>
 
         <br>
-        <label for="fader">Scale:&nbsp;
+        <label for="fader">${this.translateToUsrLang('Scale')}:&nbsp;
           <input type="range" min="20" max="120" .value=${this._config.scale} id="scale" name="scale" @change=${this.configChanged} style="width: 40ch;">
         </label>
         <br>
         ${appLauncherRelativeScaleSlide}
 
         <br>
-        Remote Style:<br>
+        ${this.translateToUsrLang('Remote Style')}:<br>
         <select name="defaultRemoteStyle_override" id="defaultRemoteStyle_override" style="padding: .6em; font-size: 1em;"
           .value=${this._config.defaultRemoteStyle_override || ''} 
           @focusout=${this.configChanged}
@@ -7998,8 +8237,8 @@ class FiremoteCardEditor extends LitElement {
           <option value="AF4">Amazon Fire Style 4</option>
           <option value="AF5">Amazon Fire Style 5</option>
           <option value="AF6">Amazon Fire Style 6</option>
-          <option value="AR1" disabled>Apple TV Remote Style 1</option>
-          <option value="AR2" disabled>Apple TV Remote Style 2</option>
+          <option value="AR1">Apple TV Remote Style 1</option>
+          <option value="AR2">Apple TV Remote Style 2</option>
           <option value="AR3">Apple TV Remote Style 3</option>
           <option value="CC1">Chromecast</option>
           <option value="NS1">NVIDIA Shield Style 1</option>
@@ -8022,19 +8261,19 @@ class FiremoteCardEditor extends LitElement {
         <hr>
 
         <br>
-        <label for="visible_name_text">Visible Device Name:<br>
+        <label for="visible_name_text">${this.translateToUsrLang('Visible Device Name')}:<br>
           <input type="text" maxlength="15" .value=${ this._config.visible_name_text || ''} id="visible_name_text" name="visible_name_text" @change=${this.configChanged} @focusout=${this.configChanged} @keyup=${this.configChanged} style="padding: .6em; font-size: 1em; width: 10rem;">
         </label>
         <br>
         <br>
-        Name Position:<br>
+        ${this.translateToUsrLang('Name Position')}:<br>
         <select name="name_position" id="name_position" .value=${this._config.name_position || 'hidden'} @focusout=${this.configChanged} @change=${this.configChanged}  style="padding: .6em; font-size: 1em;">
-          <option value="hidden" selected>hidden</option>
-          <option value="top">top</option>
-          <option value="bottom">bottom</option>
+          <option value="hidden" selected>${this.translateToUsrLang('hidden')}</option>
+          <option value="top">${this.translateToUsrLang('top')}</option>
+          <option value="bottom">${this.translateToUsrLang('bottom')}</option>
         </select><br>
         <br>
-        <label for="visible_name_text_color">Device Name Text Color:<br><input type="color" name="visible_name_text_color" id="visible_name_text_color" .value=${this._config.visible_name_text_color || '#000000'} @change=${this.configChanged}></label>
+        <label for="visible_name_text_color">${this.translateToUsrLang('Device Name Text Color')}:<br><input type="color" name="visible_name_text_color" id="visible_name_text_color" .value=${this._config.visible_name_text_color || '#000000'} @change=${this.configChanged}></label>
     `;
   }
 }
