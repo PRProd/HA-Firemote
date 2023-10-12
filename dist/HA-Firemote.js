@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.4.0-b3';
+const HAFiremoteVersion = 'v2.4.0-b4';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -370,6 +370,15 @@ const fastappchoices = {
       "androidName": "devsimon.appopener",
       "adbLaunchCommand": "adb shell am start -n devsimon.appopener/devsimon.appopener.MainActivity",
       "deviceFamily": ["amazon-fire"], },
+
+
+  "apple-appstore": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="778" height="728" viewBox="0 0 778 728" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M93.3 506.7c-18.4 0-33.3-15-33.3-33.4S75 440 93.3 440h350c33.4 0 66.7 66.7 50 66.7h-400zm466.7 0c-18.4 0-33.3-15-33.3-33.4s15-33.3 33.3-33.3h133.3c18.4 0 33.4 15 33.4 33.3s-15 33.4-33.4 33.4H560zm-145.6-450c9.2-16 29.6-21.4 45.6-12.2 16 9 21.4 29.5 12.2 45.5L242 490c-9.2 16-29.6 21.4-45.5 12.2-16-9.2-21.5-29.6-12.3-45.5l230.2-400zm-287.7 500c16.6-33.4 116.6-66.7 83.3-9.3L155.6 640c-9.2 16-29.6 21.4-45.6 12.2-16-9.2-21.4-29.5-12.2-45.5l29-50zM297.8 90c-9.2-16-3.7-36.4 12.2-45.5 16-9.2 36.4-3.7 45.6 12.2l58 101c9.2 16 3.7 36.3-12.3 45.5-16 9.2-36.3 3.7-45.5-12.3l-58-101zm129 233.3c-30-50 0-150 23.8-100l221.7 383.5c9.2 16 3.7 36.3-12.2 45.5-16 9.2-36.4 3.7-45.6-12.2L426.7 323.3z" fill="#fff" fill-rule="nonzero" stroke="none"/></svg>',
+      "friendlyName": 'Apple App Store',
+      "className": "appleAppStoreButton",
+      "appName": "App Store",
+      "deviceFamily": ["apple-tv"],
+  },
 
 
   "apple-tv": {
@@ -1858,6 +1867,16 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
 
 
+  "nostv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="774" height="415" viewBox="0 0 774 415" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#231f20" fill-rule="nonzero"><path d="M74 225.4l-34.8-48-.6.2.6 53.6v69H0V114.6h38.5l55.7 75 35 48 .5-.3-.5-53.6v-69h39.2v185.7H130zM647.5 249c20 13 43.6 18.5 58.2 18.5 15 0 26-6 26-19.7 0-17.2-17.5-18.8-41.4-26.5-25.6-8.4-48.7-21-48.7-53.3 0-34.6 26.2-56.2 65.2-56.2 18.2 0 40.5 4.6 56.7 13.3v40.3c-19.8-12.3-42.6-18-57-18-14 0-24 5-24 17.4 0 16.4 17.2 17.7 39.5 25.2 28 9.2 50.6 22.3 50.6 55 0 36.2-27.5 58-67.5 58a137 137 0 0 1-57.7-13.1zM404 86.7l6-.1 6 .1L418.5 0h-17zm0 240.3l6 .2 6-.2 2.5 86.8h-17zM289.7 213l-.1-6 .1-6-86.7-2.5v17zm240.3 0c.1-2 .1-4 .1-6v-6l86.7-2.5v17zM383 89.7a56 56 0 0 1 5.9-1.2l6-1-12.6-86-17 3zm41.8 236.6a60 60 0 0 0 5.9-.9 60 60 0 0 0 6.1-1.2l17.5 85-17 3zm-132-92.5l-1.2-6a64 64 0 0 1-.9-6.1l-86 12.6 3 16.8zM529.3 192l-1-6a60 60 0 0 0-1.2-6.1l85-17.5 3 16.8zM363 96l5.6-2.2 5.8-2-27.2-82.3-16 5.8zm82.3 226l5.7-2 5.7-2.2 32 80.7-16 5.8zM299 253.7c-.7-1.8-1.5-3.7-2.2-5.6l-2-5.8-82.4 27.3 5.8 16zm226-82.2l-2-5.7c-.8-2-1.5-3.8-2.3-5.7l80.7-32 5.8 16zm-180.4-65.7l5-3 5.4-3-41-76.4-15 8.6zM464.8 314l5.3-3a146 146 0 0 0 5.2-3.2l45.6 74-15 8.5zM309 272.3l-3-5-3-5.4-76.4 41.2L235 318zm208-120l-3-5.3-3.2-5.3L585 96l8.5 14.8zm-189-33.4a58 58 0 0 1 4.5-4l4.8-3.8-54-68-13 11zM482.5 303a152 152 0 0 0 4.7-3.7l4.6-4 57.7 65-13 11zm-160.7-14.2l-4-4.5c-1.3-1.6-2.6-3.2-3.8-4.8l-68 54 11 13zM506 134.4l-3.7-4.7-4-4.6L563 67.4l11 13zm-192 0l3.7-4.7c1.3-1.6 2.7-3 4-4.6l-65-57.7-11 13zm184 154.4c1.3-1.5 2.7-3 4-4.5l3.8-4.8 68 54-11 13zM337.4 303l-4.7-3.7c-1.6-1.3-3-2.7-4.6-4l-57.7 65 13 11zM492 118.8l-4.5-4-4.8-3.8 53.8-68 13.2 11zm-189 33.4l2.8-5.3a93 93 0 0 1 3.2-5.3L235 96l-8.5 14.8zm208 120l3-5a73 73 0 0 0 3-5.4l76.3 41.2-8.5 14.8zM355.2 314l-5.3-3-5.3-3.2-45.5 74 14.8 8.5zm120-208l-5-3.2-5.4-3 41-76.4 14.8 8.6zM295 171.5c.5-2 1.2-3.8 2-5.7l2.2-5.7-80.7-32-5.8 16zm225.8 82.2l2.2-5.6c.7-2 1.3-4 2-5.8l82.4 27.3-5.8 16zM374.5 322l-5.7-2-5.7-2.2-32 80.6 16 6zm82.3-226l-5.6-2.2-5.8-2 27.3-82.4 16 5.8zm-166.2 96a123 123 0 0 1 .8-6l1.3-6-85-17.5-3 16.8zm236.7 41.8l1.2-6 1-6 86 12.6-3 17zM395 326.3l-6-1a60 60 0 0 1-6.1-1.2l-17.5 85 16.8 3zm41.8-236.7l-5.8-1.2-6-1 12.6-86 16.8 3z"/></svg>',
+      "friendlyName": "NOSTV",
+      "className": "nostvButton",
+      "appName": "pt.nostv.tv",
+      "androidName": "pt.nostv.tv",
+      "adbLaunchCommand": "adb shell am start -n pt.nostv.tv/pt.nos.iris.online.tv.MainTvActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
   "now-tv": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="78" height="24" viewBox="0 0 78 24" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M34.295 17.698c-3.156 0-5.714-2.564-5.714-5.727s2.558-5.726 5.714-5.726 5.714 2.564 5.714 5.726-2.558 5.727-5.714 5.727M75.883.879c-1.834-.925-4.078-.17-4.995 1.688l-3.951 7.964L64.379 3h-.005C63.866 1.537 62.483.487 60.858.487c-1.296 0-2.438.667-3.105 1.679l-.006-.001-5.104 7.84-.905-6.352c-.312-2.044-2.21-3.438-4.237-3.125s-3.422 2.201-3.111 4.235l.159 1.065C42.461 2.337 38.65 0 34.295 0c-4.394 0-8.234 2.379-10.308 5.921l.227-1.116c.398-1.951-.858-3.855-2.805-4.254a3.6 3.6 0 0 0-4.245 2.812l-1.547 7.593-5.689-8.825C9.284 1.143 8.174.49 6.913.49c-1.727 0-3.17 1.222-3.521 2.854L.074 19.62c-.397 1.951.835 3.848 2.785 4.262a3.87 3.87 0 0 0 .744.078c1.669.011 3.171-1.163 3.522-2.897l1.547-7.594 5.583 8.686.194.291a3.6 3.6 0 0 0 2.928 1.514c1.774 0 3.249-1.293 3.545-2.994l1.523-7.476c.744 5.894 5.766 10.453 11.85 10.453 5.604 0 10.306-3.868 11.595-9.084l.848 5.712c.239 1.88 1.778 3.368 3.706 3.368 1.387 0 2.519-.794 3.238-1.897l6.12-9.399 2.939 8.653c.527 1.543 1.886 2.643 3.56 2.643 1.554 0 2.776-.935 3.445-2.323l7.8-15.734c.921-1.845.172-4.077-1.663-5.003" stroke="none" fill-rule="nonzero"/></svg>',
       "friendlyName": "Now TV",
@@ -2782,6 +2801,37 @@ const fastappchoices = {
    },
 
 
+  "tv4-play": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="902" height="668" viewBox="0 0 902 668" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M443.5 459.5h-47.8V52.3c0-3.3-2-6-5.2-7-3-1-6.3.2-8 3L51.2 538c-1.5 2.2-1.6 5-.3 7.5 1.2 2.4 3.7 4 6.4 4h244.4v55.2c0 3.8 3.4 7.2 7.3 7.2h79.4c4 0 7.3-3.4 7.3-7.2v-55.2h47.8c4.2 0 7.3-3.2 7.3-7.4v-75c0-4-3-7.4-7.3-7.4m-142 .3h-92l92-136zm543.8-109L607 488.7c-1.2.6-2.6.5-3.6-.4s-1.3-2.3-.8-3.5l2.3-5.4a354 354 0 0 0 0-272.5l-2.5-6c-.5-1.2-.1-2.5.8-3.4 1-.8 2.4-1 3.5-.3L845.3 335c6.2 3.6 6.2 12.5 0 16z"/></svg>',
+      "friendlyName": "TV4 Play",
+      "className": "tv4PlayButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "se.tv4.tv4playtab",
+          "androidName": "se.tv4.tv4playtab",
+          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n se.tv4.tv4playtab/se.tv4.tv4play.startup.SplashActivity",
+      },
+      "apple-tv": {
+          "appName": "TV4 Play",
+      },
+      "chromecast": {
+          "appName": "se.tv4.tv4playtab",
+          "androidName": "se.tv4.tv4playtab",
+          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n se.tv4.tv4playtab/se.tv4.tv4play.startup.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "se.tv4.tv4playtab",
+          "androidName": "se.tv4.tv4playtab",
+          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n se.tv4.tv4playtab/se.tv4.tv4play.startup.SplashActivity",
+      },
+      "xiaomi": {
+          "appName": "se.tv4.tv4playtab",
+          "androidName": "se.tv4.tv4playtab",
+          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n se.tv4.tv4playtab/se.tv4.tv4play.startup.SplashActivity",
+      },
+   },
+
+
   "tver": {
       "button": '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100" height="52.9" viewBox="0 0 100 52.9" xml:space="preserve"><style>.st2{fill:#3c3c3c}</style><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="3.737" y1="-6.042" x2="39.833" y2="49.542"><stop offset="0" style="stop-color:#0ff"/><stop offset=".43" style="stop-color:#00b4dc"/><stop offset=".512" style="stop-color:#009fd3"/><stop offset=".68" style="stop-color:#007ac2"/><stop offset=".815" style="stop-color:#0062b8"/><stop offset=".9" style="stop-color:#005ab4"/></linearGradient><path d="M35.5.3v10.1H22.9v40.3h-10V10.3H.3V.3h35.2z" style="fill:url(#SVGID_1_)"/><linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="42.409" y1="-7.448" x2="78.506" y2="48.136"><stop offset="0" style="stop-color:#0ff"/><stop offset=".43" style="stop-color:#00b4dc"/><stop offset=".512" style="stop-color:#009fd3"/><stop offset=".68" style="stop-color:#007ac2"/><stop offset=".815" style="stop-color:#0062b8"/><stop offset=".9" style="stop-color:#005ab4"/></linearGradient><path style="fill:url(#SVGID_2_)" d="M52.4 50.6 29.8.3h10.7l11.9 26.5L64.3.3h10.8z"/><path class="st2" d="M74.2 46.9c-5 3.4-8.1-.3-7.7-3.5 5.5 2.6 12.7-.9 12.7-7 0-4.8-3.5-9.2-9.9-8.3-5.7.9-8.4 7.6-8.4 14.8 0 5.2 3.2 9.7 8.9 9.9 5.3.2 10.5-2.9 9.9-5.8-.2-1.6-2.3-2.2-5.5-.1zm-4.6-7.2c-1.2 0-2.5-1-2.5-2.5 0-2 1.1-4.5 3.6-4.5 1.7 0 2.7 1.6 2.7 3.8.1 2-1.2 3.2-3.8 3.2zM91.9 30c-2.1.1-3.9 1.1-4.6 2.5.1-1.7.3-5-2.2-4.8-2.1.1-3.4 1.1-3.3 3.2.2 4.5.5 8.8.6 15.4 0 1.5-.2 3-.3 3.5-.1 1.8 1.1 2.8 3.2 2.8 1.9 0 3.2-1 2.9-2.8-.6-3.2-.9-6.1-.4-9.6s1.7-5 3.2-5.3c1.9-.4 3.7.5 4.6 1.8.7 1 2.1 1.6 3.3.4 1.1-1.2.6-2.5 0-3.4-1.3-2.2-3.7-3.9-7-3.7z"/></svg>',
       "friendlyName": "TVer",
@@ -3418,7 +3468,7 @@ const fastappchoices = {
 };
 const appmap = new Map(Object.entries(fastappchoices));
 
-const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "AR1": 10, "AR2": 6, "AR3": 8, "CC1": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
+const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "AR1": 10, "AR2": 8, "AR3": 8, "CC1": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
 
 
@@ -3538,21 +3588,39 @@ class FiremoteCard extends LitElement {
   }
 
   static getStubConfig(e) {
-    // Return a minimal configuration that will result in a working card configuration=
-    var mediaPlayerEntities = Object.keys(e.entities).filter(
+    // Returns a minimal configuration that will result in a working card
+    var androidTVEntities = Object.keys(e.entities).filter(
         (eid) => e.entities[eid].platform === 'androidtv'
     );
-    var defaultEntity = mediaPlayerEntities[0] || '';
-    return { 'entity': defaultEntity,
-             'device_family': 'amazon-fire',
-             'device_type': 'fire_tv_4_series',
-             'compatibility_mode': 'default',
-           };
+    var appleTVEntities = Object.keys(e.entities).filter(
+        (eid) => e.entities[eid].platform === 'apple_tv'
+    );
+    if (androidTVEntities.length > 0) {
+        return { 'entity': androidTVEntities[0],
+                 'device_family': 'amazon-fire',
+                 'device_type': 'fire_tv_4_series',
+                 'compatibility_mode': 'default',
+               };
+    }
+    else if (appleTVEntities.length > 0) {
+        return { 'entity': appleTVEntities[0],
+                 'device_family': 'apple-tv',
+                 'device_type': 'appletv-4k-gen2',
+                 'compatibility_mode': 'default',
+               };
+    }
+    else {
+        return { 'entity': '',
+                 'device_family': 'amazon-fire',
+                 'device_type': 'fire_tv_4_series',
+                 'compatibility_mode': 'default',
+               };
+    }
   }
 
   setConfig(config) {
     if (!config.entity) {
-     throw new Error('You need to define a Fire TV, NVIDIA Shield, Xiaomi Mi, or other Android Debug Bridge entity');
+     throw new Error('You need to define an Apple TV, Fire TV, NVIDIA Shield, Xiaomi Mi, or other Android Debug Bridge entity');
     }
     this._config = config;
   }
@@ -4369,7 +4437,7 @@ class FiremoteCard extends LitElement {
             padding: calc(var(--sz) * 0.285rem);
             white-space: nowrap;
             overflow: hidden;
-            filter: grayscale(25%) brightness(58%);
+            filter: var(--appButtonFilter);
             transition: filter 250ms;
           }
 
@@ -4611,8 +4679,8 @@ class FiremoteCard extends LitElement {
 
           .amcPlusButton {
             background: #192f54;
-            filter: grayscale(20%) brightness(60%);
           }
+          
           .amcPlusButton svg {
             width: calc(var(--sz) * 2.7rem);
           }
@@ -4672,6 +4740,10 @@ class FiremoteCard extends LitElement {
             font-size: calc(var(--sz) * .75rem);
             color: #fff;
             background: #400080;
+          }
+
+          .appleAppStoreButton {
+            background: linear-gradient(0deg, rgba(12,88,239,1) 0%, rgba(14,212,252,1) 100%);
           }
 
           .appleTvButton {
@@ -4790,7 +4862,6 @@ class FiremoteCard extends LitElement {
 
           .disneyPlusButton {
             background: #07183f;
-            filter: brightness(60%);
           }
           .AF6 .disneyPlusButton {
             background: rgb(37, 37, 37);
@@ -4907,20 +4978,15 @@ class FiremoteCard extends LitElement {
 
           .huluButton {
             background: #1ce783;
-            filter: grayscale(30%) brightness(40%);
           }
           .AF6 .huluButton {
             background: rgb(37, 37, 37);
-            filter: grayscale(40%) brightness(65%);
           }
           .AF6 .huluButtonSVG {
             fill: rgb(28, 231, 131)!important;
           }
           .huluButton svg {
             width: calc(var(--sz) * 2.8rem);
-          }
-          .AF6 .huluButton:active, .AF6 .huluButton.appActive {
-            filter: none;
           }
 
           .igniteTVShawButton {
@@ -4968,7 +5034,6 @@ class FiremoteCard extends LitElement {
 
           .jellyfinButton {
             background: #000b25;
-            filter: grayscale(25%) brightness(60%);
           }
           .jellyfinButton svg {
             margin-top: calc(var(--sz) * -0.1rem);
@@ -5069,11 +5134,9 @@ class FiremoteCard extends LitElement {
           }
           .shield-remote-body .netflixButton {
             background: #252525;
-            filter: grayscale(30%) brightness(80%);
           }
           .AF6 .netflixButton {
             background: rgb(37, 37, 37);
-            filter: grayscale(30%) brightness(65%);
           }
           .netflixButton > svg {
             width: calc(var(--sz) * 3.8rem);
@@ -5082,12 +5145,8 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 4rem);
           }
           .shield-remote-body .netflixButton:active, .shield-remote-body .netflixButton.appActive {
-            filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 87 87 / 15%);
             border: solid #480a0a calc(var(--sz) * 0.0714rem);
-          }
-          .AF6 .netflixButton:active, .AF6 .netflixButton.appActive {
-            filter: none;
           }
 
           .newsButton {
@@ -5099,7 +5158,6 @@ class FiremoteCard extends LitElement {
           }
           .newsButton:active, .newsButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
-            filter: none;
           }
 
           .nflButton {
@@ -5118,6 +5176,10 @@ class FiremoteCard extends LitElement {
             background: #F3F7FC;
           }
 
+          .nostvButton {
+            background: #fff;
+          }
+
           .nowTVButton {
             background: linear-gradient(220deg, rgba(4,121,129,1) 57%, rgba(6,30,31,1) 100%);
           }
@@ -5130,7 +5192,6 @@ class FiremoteCard extends LitElement {
 
           .npoButton {
             background: #fff;
-            filter: grayscale(20%) brightness(50%);
           }
 
           .optusSportButton {
@@ -5196,7 +5257,6 @@ class FiremoteCard extends LitElement {
 
           .primeButton {
             background: rgb(58 94 114);
-            filter: grayscale(30%) brightness(65%);
           }
           .XM2 .primeButton {
             background: #fff;
@@ -5225,7 +5285,6 @@ class FiremoteCard extends LitElement {
             color: #fff;
             font-weight: bold;
             background: #56b14d;
-            filter: grayscale(50%) brightness(80%);
           }
 
           .proximusPickxButton {
@@ -5271,7 +5330,6 @@ class FiremoteCard extends LitElement {
 
           .showtimeButton {
             background: black;
-            filter: grayscale(50%) brightness(70%);
           }
           .showtimeButton svg {
             width: calc(var(--sz) * 3.3rem);
@@ -5425,6 +5483,10 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 3.5rem);
           }
 
+          .tv4PlayButton {
+            background: #e0001c;
+          }
+
           .tverButton {
             background: #fff;
           }
@@ -5574,7 +5636,6 @@ class FiremoteCard extends LitElement {
             font-weight: bold;
             background: #000;
             border: solid calc(var(--sz) * 0.1rem) #850000;
-            filter: brightness(60%);
             display: block;
           }
 
@@ -5872,7 +5933,6 @@ class FiremoteCard extends LitElement {
     if (!stateObj) {
       return html` <ha-card>Unknown entity: ${this._config.entity}</ha-card> `;
     }
-
     const entityId = this._config.entity;
     const state = this.getState();
     const stateStr = state ? state.state : 'off';
@@ -5895,13 +5955,18 @@ class FiremoteCard extends LitElement {
         }
       }
     }
+    var AppLaunchButtonFilterCssValue = 'grayscale(25%) brightness(58%)';
+    if(this._config.device_family == 'apple-tv') {
+      AppLaunchButtonFilterCssValue = 'none !important';
+    }
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
     var backgroundInherit = '';
     if (this._config.use_theme_background == true) { backgroundInherit = 'background: inherit !important; border: inherit !important; border-radius: inherit !important;';}
     const cssVars = html `<style>
                             :host {
                               --sz: ${scale};
-                              --devicenamecolor: ${devicenamecolor}
+                              --devicenamecolor: ${devicenamecolor};
+                              --appButtonFilter: ${AppLaunchButtonFilterCssValue};
                             }
                             ${buttonHidingCss}
                             .AL1, .AL2 {
@@ -6024,7 +6089,7 @@ class FiremoteCard extends LitElement {
           appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
           appLaunchButtons.set("confBtn4", config.app_launch_4 || 'hulu');
         }
-        if(config.defaultRemoteStyle_override == 'CC1' || config.defaultRemoteStyle_override == 'AR1'|| config.defaultRemoteStyle_override == 'AR2' || config.defaultRemoteStyle_override == 'AR3' || ((config.device_type == 'chromecast-4k' || config.device_type == 'chromecast-hd' || config.device_type == 'appletv-4k-gen2') && !(config.defaultRemoteStyle_override))) {
+        if(config.defaultRemoteStyle_override == 'CC1' || config.defaultRemoteStyle_override == 'AR1'|| config.defaultRemoteStyle_override == 'AR2' || config.defaultRemoteStyle_override == 'AR3' || ((config.device_type == 'chromecast-4k' || config.device_type == 'chromecast-hd' || config.device_type == 'appletv-gen4' || config.device_type == 'appletv-4k-gen2') && !(config.defaultRemoteStyle_override))) {
           return html `
             ${ Array.from(appLaunchButtons.keys()).map(key => {
               var val = appLaunchButtons.get(key);
@@ -7196,7 +7261,20 @@ class FiremoteCard extends LitElement {
 
     // Render App Launcher 2
     if ( getDeviceAttribute('defaultRemoteStyle') == 'AL2' ) {
-    return html`
+      var lpb4icon = 'mdi:rewind';
+      var lpb6icon = 'mdi:fast-forward';
+      var rpb2icon = 'mdi:restart';
+      var rpb2id = 'reboot-button';
+      var hiddenclass = '';
+      if(this._config.device_family == 'apple-tv') {
+        var lpb4icon = 'mdi:skip-backward';
+        var lpb6icon = 'mdi:skip-forward';
+        var rpb2icon = 'mdi:magnify';
+        var rpb2id = 'search-button';
+        var hiddenclass = 'hidden';
+      }
+    
+      return html`
       <ha-card>
         ${cssVars}
         <div class="remote-body AL2">
@@ -7219,13 +7297,13 @@ class FiremoteCard extends LitElement {
               </div>
               <div class="row">
                 <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
-                  <ha-icon icon="mdi:rewind"></ha-icon>
+                  <ha-icon icon="${lpb4icon}"></ha-icon>
                 </button>
                 <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
                   <ha-icon icon="mdi:play-pause"></ha-icon>
                 </button>
                 <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
-                  <ha-icon icon="mdi:fast-forward"></ha-icon>
+                  <ha-icon icon="${lpb6icon}"></ha-icon>
                 </button>
               </div>
             </div>
@@ -7253,8 +7331,8 @@ class FiremoteCard extends LitElement {
                   </button>
                 </div>
                 <div>
-                  <button class="remote-button" id="reboot-button" @click=${this.buttonClicked}>
-                    <ha-icon icon="mdi:restart"></ha-icon>
+                  <button class="remote-button" id="${rpb2id}" @click=${this.buttonClicked}>
+                    <ha-icon icon="${rpb2icon}"></ha-icon>
                   </button>
                   <br>
                   <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
@@ -7262,11 +7340,11 @@ class FiremoteCard extends LitElement {
                   </button>
                 </div>
                 <div>
-                  <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+                  <button class="remote-button keyboard-button ${hiddenclass}" id="keyboard-button" @click=${this.buttonClicked}>
                     <ha-icon icon="mdi:keyboard-outline"></ha-icon>
                   </button>
                   <br>
-                  <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+                  <button class="remote-button ${hiddenclass}" id="hamburger-button" @click=${this.buttonClicked}>
                     <ha-icon icon="mdi:menu"></ha-icon>
                   </button>
                 </div>
@@ -7578,6 +7656,10 @@ class FiremoteCard extends LitElement {
 
     // Rewind Button
     if(clicked.target.id == 'rewind-button') {
+      if(this._config.device_family == 'apple-tv') {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'skip_backward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
+      }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_REWIND' });
       }
@@ -7612,6 +7694,10 @@ class FiremoteCard extends LitElement {
 
     // Fast Forward Button
     if(clicked.target.id == 'fastforward-button') {
+      if(this._config.device_family == 'apple-tv') {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'skip_forward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
+      }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_FAST_FORWARD' });
       }
@@ -7960,7 +8046,7 @@ class FiremoteCardEditor extends LitElement {
       heading = 'Android Debug Bridge Entity';
     }
     var blankEntity = '';
-    if(this._config.entity == '') {
+    if(this._config.entity == '' || !(mediaPlayerEntities).includes(optionValue)) {
       blankEntity = html `<option value="" selected> - - - - </option> `;
     }
     return html`
