@@ -21,15 +21,15 @@ body:
     id: platform
     attributes:
       label: Device Platform
-      description: The kind of device you own.  You can write "Amazon Fire", "Chromecast", "NVIDIA Shield", "Xiaomi" or any combination.
+      description: The kind of device you own.  You can write "Amazon Fire", "Apple TV", "Chromecast", "NVIDIA Shield", "Xiaomi" or any combination.
       placeholder: ex. NVIDIA Shield
     validations:
       required: true
   - type: input
     id: appstoreLink
     attributes:
-      label: App Store Link or URL to .apk file if sideloaded
-      description: Optionally provide a link to the Google Play store where this app can be downloaded.  If this is a sideloaded app, please include a full URL for where the .apk can be found
+      label: App Store Link and/or URL to .apk file if sideloaded
+      description: Optionally provide a link to the Google Play or Apple store where this app can be downloaded.  If this is a sideloaded app, please include a full URL for where the .apk can be found
     validations:
       required: false
   - type: textarea
