@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v2.4.0-b4';
+const HAFiremoteVersion = 'v3.0.0';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -79,6 +79,13 @@ const devices = {
 
     "Streaming Media Player": {
 
+      "fire_tv_stick_4k_max_second_gen": {
+        "supported": false,
+        "friendlyName": "Fire TV Stick 4K Max (2nd Gen - 2023)",
+        "defaultEventListenerBinPath": "/dev/input/event6",
+        "defaultRemoteStyle": "AF4",
+        "hdmiInputs": 0,
+      },
       "fire_tv_stick_4k_max": {
         "supported": true,
         "friendlyName": "Fire TV Stick 4K Max (1st Gen - 2021)",
@@ -847,7 +854,7 @@ const fastappchoices = {
       "amazon-fire": {
           "appName": "com.att.tv",
           "androidName": "com.att.tv",
-          "adbLaunchCommand": "adb shell am start -n com.att.tv/tv.youi.clientapp.AppActivity",
+          "adbLaunchCommand": "adb shell am start -n com.att.tv/com.clientapp.MainActivity",
       },
       "apple-tv": {
           "appName": "DIRECTV",
@@ -855,17 +862,17 @@ const fastappchoices = {
       "chromecast": {
           "appName": "com.att.tv",
           "androidName": "com.att.tv",
-          "adbLaunchCommand": "adb shell am start -n com.att.tv/tv.youi.clientapp.AppActivity",
+          "adbLaunchCommand": "adb shell am start -n com.att.tv/com.clientapp.MainActivity",
       },
       "nvidia-shield": {
           "appName": "com.att.tv",
           "androidName": "com.att.tv",
-          "adbLaunchCommand": "adb shell am start -n com.att.tv/tv.youi.clientapp.AppActivity",
+          "adbLaunchCommand": "adb shell am start -n com.att.tv/com.clientapp.MainActivity",
       },
       "xiaomi": {
           "appName": "com.att.tv",
           "androidName": "com.att.tv",
-          "adbLaunchCommand": "adb shell am start -n com.att.tv/tv.youi.clientapp.AppActivity",
+          "adbLaunchCommand": "adb shell am start -n com.att.tv/com.clientapp.MainActivity",
       },
    },
 
@@ -1871,10 +1878,31 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="774" height="415" viewBox="0 0 774 415" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#231f20" fill-rule="nonzero"><path d="M74 225.4l-34.8-48-.6.2.6 53.6v69H0V114.6h38.5l55.7 75 35 48 .5-.3-.5-53.6v-69h39.2v185.7H130zM647.5 249c20 13 43.6 18.5 58.2 18.5 15 0 26-6 26-19.7 0-17.2-17.5-18.8-41.4-26.5-25.6-8.4-48.7-21-48.7-53.3 0-34.6 26.2-56.2 65.2-56.2 18.2 0 40.5 4.6 56.7 13.3v40.3c-19.8-12.3-42.6-18-57-18-14 0-24 5-24 17.4 0 16.4 17.2 17.7 39.5 25.2 28 9.2 50.6 22.3 50.6 55 0 36.2-27.5 58-67.5 58a137 137 0 0 1-57.7-13.1zM404 86.7l6-.1 6 .1L418.5 0h-17zm0 240.3l6 .2 6-.2 2.5 86.8h-17zM289.7 213l-.1-6 .1-6-86.7-2.5v17zm240.3 0c.1-2 .1-4 .1-6v-6l86.7-2.5v17zM383 89.7a56 56 0 0 1 5.9-1.2l6-1-12.6-86-17 3zm41.8 236.6a60 60 0 0 0 5.9-.9 60 60 0 0 0 6.1-1.2l17.5 85-17 3zm-132-92.5l-1.2-6a64 64 0 0 1-.9-6.1l-86 12.6 3 16.8zM529.3 192l-1-6a60 60 0 0 0-1.2-6.1l85-17.5 3 16.8zM363 96l5.6-2.2 5.8-2-27.2-82.3-16 5.8zm82.3 226l5.7-2 5.7-2.2 32 80.7-16 5.8zM299 253.7c-.7-1.8-1.5-3.7-2.2-5.6l-2-5.8-82.4 27.3 5.8 16zm226-82.2l-2-5.7c-.8-2-1.5-3.8-2.3-5.7l80.7-32 5.8 16zm-180.4-65.7l5-3 5.4-3-41-76.4-15 8.6zM464.8 314l5.3-3a146 146 0 0 0 5.2-3.2l45.6 74-15 8.5zM309 272.3l-3-5-3-5.4-76.4 41.2L235 318zm208-120l-3-5.3-3.2-5.3L585 96l8.5 14.8zm-189-33.4a58 58 0 0 1 4.5-4l4.8-3.8-54-68-13 11zM482.5 303a152 152 0 0 0 4.7-3.7l4.6-4 57.7 65-13 11zm-160.7-14.2l-4-4.5c-1.3-1.6-2.6-3.2-3.8-4.8l-68 54 11 13zM506 134.4l-3.7-4.7-4-4.6L563 67.4l11 13zm-192 0l3.7-4.7c1.3-1.6 2.7-3 4-4.6l-65-57.7-11 13zm184 154.4c1.3-1.5 2.7-3 4-4.5l3.8-4.8 68 54-11 13zM337.4 303l-4.7-3.7c-1.6-1.3-3-2.7-4.6-4l-57.7 65 13 11zM492 118.8l-4.5-4-4.8-3.8 53.8-68 13.2 11zm-189 33.4l2.8-5.3a93 93 0 0 1 3.2-5.3L235 96l-8.5 14.8zm208 120l3-5a73 73 0 0 0 3-5.4l76.3 41.2-8.5 14.8zM355.2 314l-5.3-3-5.3-3.2-45.5 74 14.8 8.5zm120-208l-5-3.2-5.4-3 41-76.4 14.8 8.6zM295 171.5c.5-2 1.2-3.8 2-5.7l2.2-5.7-80.7-32-5.8 16zm225.8 82.2l2.2-5.6c.7-2 1.3-4 2-5.8l82.4 27.3-5.8 16zM374.5 322l-5.7-2-5.7-2.2-32 80.6 16 6zm82.3-226l-5.6-2.2-5.8-2 27.3-82.4 16 5.8zm-166.2 96a123 123 0 0 1 .8-6l1.3-6-85-17.5-3 16.8zm236.7 41.8l1.2-6 1-6 86 12.6-3 17zM395 326.3l-6-1a60 60 0 0 1-6.1-1.2l-17.5 85 16.8 3zm41.8-236.7l-5.8-1.2-6-1 12.6-86 16.8 3z"/></svg>',
       "friendlyName": "NOSTV",
       "className": "nostvButton",
-      "appName": "pt.nostv.tv",
-      "androidName": "pt.nostv.tv",
-      "adbLaunchCommand": "adb shell am start -n pt.nostv.tv/pt.nos.iris.online.tv.MainTvActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "pt.nostv.tv",
+          "androidName": "pt.nostv.tv",
+          "adbLaunchCommand": "adb shell am start -n pt.nostv.tv/pt.nos.iris.online.tv.MainTvActivity",
+      },
+      "apple-tv": {
+          "appName": "NOS TV",
+      },
+      "chromecast": {
+          "appName": "pt.nostv.tv",
+          "androidName": "pt.nostv.tv",
+          "adbLaunchCommand": "adb shell am start -n pt.nostv.tv/pt.nos.iris.online.tv.MainTvActivity",
+      },
+      "nvidia-shield": {
+          "appName": "pt.nostv.tv",
+          "androidName": "pt.nostv.tv",
+          "adbLaunchCommand": "adb shell am start -n pt.nostv.tv/pt.nos.iris.online.tv.MainTvActivity",
+      },
+      "xiaomi": {
+          "appName": "pt.nostv.tv",
+          "androidName": "pt.nostv.tv",
+          "adbLaunchCommand": "adb shell am start -n pt.nostv.tv/pt.nos.iris.online.tv.MainTvActivity",
+      },
+   },
 
 
   "now-tv": {
@@ -3505,6 +3533,58 @@ const rosettaStone = {
       "Search": "Zoek",
       "top": "bovenkant",
       "Visible Device Name": "Zichtbare apparaatnaam",
+  },
+  "pt": {
+      "App Launch Button": "Botão de Inicialização Da Aplicação",
+      "Associated": "Associada",
+      "bottom": "fundo",
+      "Compatibility Mode": "Modo de compatibilidade",
+      "Device Family": "Família de Dispositivos",
+      "Device Model": "Modelo do Dispositivo",
+      "Device Name Text Color": "Cor do Texto do Nome do dispositivo",
+      "Function: Control Center": "Função: Centro de Controlo",
+      "Function: Find My Remote": "Função: Encontrar Controlo Remoto",
+      "Function: Mute": "Função: Mudo",
+      "Function: Next": "Função: Próximo",
+      "Function: Previous": "Função: Anterior",
+      "Function: Reboot": "Função: Reiniciar",
+      "Function: Search": "Função: Pesquisa",
+      "Function: Settings": "Função: Configurações",
+      "Function: Skip Backward": "Função: Saltar Para trás",
+      "Function: Skip Forward": "Função: Saltar par aa Frente",
+      "Function: Switch Apps": "Função: Alternar Aplicativos",
+      "hidden": "escondido",
+      "Name Position": "Posição do Nome",
+      "Remote Style": "Estilo Controlo Remoto",
+      "Scale": "Escala",
+      "top": "topo",
+      "Visible Device Name": "Nome do Dispositivo Visível",
+  },
+  "pt-BR": {
+      "App Launch Button": "Botão de Inicialização Do Aplicativo",
+      "Associated": "Associada",
+      "bottom": "fundo",
+      "Compatibility Mode": "Modo de compatibilidade",
+      "Device Family": "Família de Dispositivos",
+      "Device Model": "Modelo do Dispositivo",
+      "Device Name Text Color": "Cor do Texto do Nome do dispositivo",
+      "Function: Control Center": "Função: Centro de Controle",
+      "Function: Find My Remote": "Função: Encontre Meu Controle Remoto",
+      "Function: Mute": "Função: Mudo",
+      "Function: Next": "Função: Próximo",
+      "Function: Previous": "Função: Anterior",
+      "Function: Reboot": "Função: Reiniciar",
+      "Function: Search": "Função: Pesquisa",
+      "Function: Settings": "Função: Configurações",
+      "Function: Skip Backward": "Função: Pular Para trás",
+      "Function: Skip Forward": "Função: Pular Adiante",
+      "Function: Switch Apps": "Função: Alternar Aplicativos",
+      "hidden": "escondido",
+      "Name Position": "Posição do Nome",
+      "Remote Style": "Estilo Remoto",
+      "Scale": "Escala",
+      "top": "topo",
+      "Visible Device Name": "Nome do Dispositivo Visível",
   },
 };
 const translationmap = new Map(Object.entries(rosettaStone));
@@ -7961,7 +8041,7 @@ class FiremoteCardEditor extends LitElement {
   translateToUsrLang(englishString) {
     const ha_language = this.hass.config.language;
     //console.log('English string in = '+englishString)
-    //const ha_language = 'nl';
+    //const ha_language = 'pt';
     //console.log(ha_language);
     var translatedString = englishString;
     if (typeof translationmap.get(ha_language) !== 'undefined'){
