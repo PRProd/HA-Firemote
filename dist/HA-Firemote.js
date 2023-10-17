@@ -574,7 +574,7 @@ const fastappchoices = {
       "chromecast": {
           "appName": "bbc.iplayer.android",
           "androidName": "bbc.iplayer.android",
-          "adbLaunchCommand": "adb shell am start -n bbc.iplayer.android/uk.co.bbc.iplayer.startup.StartupActivity",
+          "adbLaunchCommand": "adb shell am start -n bbc.iplayer.android/external.androidtv.bbciplayer.deeplinking.DeepLinkActivity",
       },
       "nvidia-shield": {
           "appName": "com.nvidia.bbciplayer",
