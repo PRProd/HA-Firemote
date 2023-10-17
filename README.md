@@ -462,4 +462,6 @@ Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at th
 <br>
 
 ### How can I contribute?
-Take a look at the current [discussions board](https://github.com/PRProd/HA-Firemote/discussions) to see if anything is tagged with "Help Wanted".
+ - Take a look at the current [discussions board](https://github.com/PRProd/HA-Firemote/discussions) to see if anything is tagged with "Help Wanted".
+ - <a href="https://www.buymeacoffee.com/PRProd" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+ - Since it is personally expensive for me to purchase, evaluate, and develop integrations for all of your requests, I've set up an [Amazon Wish List (US)](https://www.amazon.com/hz/wishlist/ls/2UDS10RPJ6F5K?ref_=wl_share) and an [Amazon Wish List (DE)](https://www.amazon.de/hz/wishlist/ls/HFABU3R70GWE?ref_=wl_share) for any of you who are feeling incredibly generous and want to send me something that I don't already own.
