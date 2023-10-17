@@ -451,6 +451,11 @@ For extra credit, you could submit a request to have your device added!  It's si
 <br>
 <br>
 
+### Why do only some of the Firemote buttons for the Apps that came with my Apple TV work properly, while others don't?
+Apple TV app shortcuts work simply by passing the name of the app to the apple tv remote entity.  Firemote is built and tested against an environment that uses English as the primary language.  In some scenarios, built-in Apple TV apps use language app specific names, which is why asking it to open the English version of that app's name does not work.  In order to overcome this, I request that you click the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at the top of this page so we can work together and make all of these buttons work in your native language.
+<br>
+<br>
+
 ### I want a shortcut button for an app I use frequently, but it's not on the list.  Can it be added?
 Absolutely!  Simply ask!  Here's how: Click the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you and likely important to others as well!  If the app is easily downloaded through your device's official store (not sideloaded), your request will be granted ASAP.
 <br>
