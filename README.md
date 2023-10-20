@@ -156,7 +156,7 @@ Options:
 | device_family          | string | yes      | amazon-fire<br>apple-tv<br>chromecast<br>nvidia-shield<br>xiaomi | Manufacturer Family                    |
 |android_tv_remote_entity| string | no       | any valid entity created in the [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) | entity_id<br>Ignored in Apple TV configurations
 | apple_tv_remote_entity | string | yes*     | any valid remote entity created in the [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv)  | entity_id<br>* Required ONLY in Apple TV configurations
-| device_type            | string | yes      | appletv-4k-gen2<br>appletv-gen4<br>chromecast-4k<br>[fire_tv_toshiba_v35](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Toshiba-V35-Series-LED-FHD-HD---Fire-TV-(2021)) <br> [fire_tv_4_series](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Fire-TV-4-Series-(2021)) <br> [fire_tv_cube_third_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---3rd-Gen-(2022)) <br> [fire_tv_cube_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---2nd-Gen-(2019)) <br> [fire_tv_cube_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---1st-Gen-(2018)) <br> [fire_tv_stick_4k_max](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max---1st-Gen-(2021)) <br> [fire_tv_3rd_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---3rd-Gen-(2020)) <br> [fire_tv_stick_lite](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-Lite---1st-Gen-(2020)) <br> [fire_stick_4k](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K---1st-Gen-(2018)) <br> [fire_stick_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---2nd-Gen-(2016---2019)) <br> [fire_stick_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-1st-Gen-(2014)) <br> shield-tv-2017 <br> shield-tv-pro-2017 <br> shield-tv-2019 <br> shield-tv-pro-2019 <br> mi-box-s | The type of device you are controlling<br>[Which devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) |
+| device_type            | string | yes      | appletv-4k-gen2<br>appletv-gen4<br>chromecast-4k<br>[fire_tv_toshiba_v35](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Toshiba-V35-Series-LED-FHD-HD---Fire-TV-(2021)) <br> [fire_tv_4_series](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Fire-TV-4-Series-(2021)) <br> [fire_tv_cube_third_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---3rd-Gen-(2022)) <br> [fire_tv_cube_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---2nd-Gen-(2019)) <br> [fire_tv_cube_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---1st-Gen-(2018)) <br> [fire_tv_stick_4k_max_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max-2nd-Gen-(2023)) <br> [fire_tv_stick_4k_max](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max---1st-Gen-(2021)) <br> [fire_tv_3rd_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---3rd-Gen-(2020)) <br> [fire_tv_stick_lite](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-Lite---1st-Gen-(2020)) <br> [fire_stick_4k](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K---1st-Gen-(2018)) <br> [fire_stick_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---2nd-Gen-(2016---2019)) <br> [fire_stick_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-1st-Gen-(2014)) <br> shield-tv-2017 <br> shield-tv-pro-2017 <br> shield-tv-2019 <br> shield-tv-pro-2019 <br> mi-box-s | The type of device you are controlling<br>[Which devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) |
 | compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> event9 <br> event10 <br> event11 <br> event12 <br> event13 | Adjust this value only if your buttons are completely unresponsive<br><br>Ignored in Apple TV configurations<br><br>[FAQ Available for additional help](https://github.com/PRProd/HA-Firemote#faq) |
 |defaultRemoteStyle_override | string | no | AF1 <br> AF2 <br> AF3 <br> AF4 <br> AF5 <br> AF6 <br> CC1 <br> NS1 <br> NS2 <br> XM2 <br> AL1 <br> AL2 | Optionally select a style of remote different from the one that shipped with your device |
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>etc... | string | no | [ See App Launch Button Customization section for options](#app-launch-button-customization) | Quick launch apps customization |
@@ -180,7 +180,7 @@ Custom app launch buttons are not limited to the few that came printed on your r
 Options:
 | Value for YAML File        | App / Physical Input      | Apple Support | Fire Support | Chromecast Support | Shield Support | Xiaomi Support |
 | -------------------------- | ------------------------- | :-----------: | :----------: | :----------------: | :------------: | :------------: |
-| abc-iview                  | ABC iview (AU)            |               | ✓            | ✓                  | ✓              | ✓              |
+| abc-iview                  | ABC iview (AU)            | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | ace-stream-media           | Ace Stream Media          |               | ✓            | ✓                  | ✓              | ✓              |
 | all-4                      | ALL4                      |               | ✓            | ✓                  | ✓              | ✓              |
 | amc-plus                   | AMC+                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -201,7 +201,7 @@ Options:
 | bbc-iplayer                | BBC iPlayer (UK)          |               | ✓            | ✓                  | ✓              |                |
 | bell-fibe-tv               | Bell Fibe TV (CA)         |               | ✓            |                    |                |                |
 | bgtime-tv                  | bgtime.tv                 | ✓             | ✓            | ✓                  | ✓              | ✓              |
-| binge-au                   | Binge (AU)                |               | ✓            | ✓                  | ✓              | ✓              |
+| binge-au                   | Binge (AU)                | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | channels-dvr               | Channels: whole home DVR  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | cnn                        | CNN                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | cosmote-tv                 | COSMOTE TV                |               |              | ✓                  | ✓              | ✓              |
@@ -223,6 +223,7 @@ Options:
 | f-droid                    | F-Droid                   |               | ✓            | ✓                  | ✓              | ✓              |
 | f1-tv                      | F1 TV                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | firetv-store               | FireTV Store              |               | ✓            |                    |                |                |
+| flash                      | Flash                     | ✓             |              |                    |                |                |
 | fox-sports                 | FOX Sports                | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | france-tv                  | france.tv                 |               | ✓            | ✓                  | ✓              | ✓              |
 | freevee                    | freevee                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -235,6 +236,7 @@ Options:
 | home-assistant             | Home Assistant            |               | ✓            |                    |                |                |
 | hulu                       | Hulu                      | ✓             | ✓            | ✓                  | ✓              |                |
 | ignite-tv                  | Ignite TV (Shaw)          |               | ✓            |                    |                |                |
+| infuse                     | Infuse                    | ✓             |              |                    |                |                |
 | internet-silk-browser      | internet (Silk Browser)   |               | ✓            |                    |                |                |
 | iptv-extreme-pro           | IPTV Extreme Pro          |               | ✓            | ✓                  | ✓              | ✓              |
 | iptvx                      | IPTVX                     | ✓             |              |                    |                |                |
@@ -243,7 +245,7 @@ Options:
 | israel-station             | Israel Station            |               | ✓            | ✓                  | ✓              | ✓              |
 | jellyfin                   | Jellyfin                  |               | ✓            | ✓                  | ✓              | ✓              |
 | justwatch-streaming-guide  | JustWatch - Streaming Guide | ✓           | ✓            | ✓                  | ✓              | ✓              |
-| kayo                       | Kayo Sports (AU)          |               | ✓            |                    | ✓              | ✓              |
+| kayo                       | Kayo Sports (AU)          | ✓             | ✓            |                    | ✓              | ✓              |
 | КиноПоиск                  | КиноПоиск                 |               | ✓            | ✓                  | ✓              | ✓              |
 | kodi                       | Kodi                      |               | ✓            | ✓                  | ✓              | ✓              |
 | lazymedia-deluxe           | LAZYMEDIA DELUXE          |               | ✓            | ✓                  | ✓              | ✓              |
@@ -262,13 +264,13 @@ Options:
 | netflix                    | Netflix                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | news                       | News by Fire TV           |               | ✓            |                    |                |                |
 | nfl                        | NFL                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
-| nine-now                   | 9now                      |               | ✓            | ✓                  | ✓              | ✓              |
+| nine-now                   | 9now                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | nlziet                     | NLZIET                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | nordvpn                    | Nord VPN                  |               | ✓            | ✓                  | ✓              | ✓              |
 | nostv                      | NOSTV                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | now-tv                     | Now TV                    |               | ✓            |                    |                |                |
 | npo                        | NPO (NL)                  | ✓             |              | ✓                  | ✓              | ✓              |
-| optus-sport                | Optus Sport (AU)          |               | ✓            | ✓                  | ✓              | ✓              |
+| optus-sport                | Optus Sport (AU)          | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | ott-navigator              | OTT Navigator             |               | ✓            | ✓                  | ✓              | ✓              |
 | oqee-by-free               | OQEE by Free (FR)         | ✓             | ✓            | ✓                  |                |                |
 | pandora                    | Pandora                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -287,8 +289,8 @@ Options:
 | raiplay                    | RaiPlay (IT)              | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | redplay                    | RedPlay                   |               | ✓            | ✓                  | ✓              | ✓              |
 | s0und-tv                   | S0undTV                   |               | ✓            | ✓                  | ✓              | ✓              |
-| sbs-on-demand              | SBS On Demand (AU)        |               | ✓            | ✓                  | ✓              | ✓              |
-| seven-plus                 | 7plus (AU)                |               | ✓            | ✓                  | ✓              | ✓              |
+| sbs-on-demand              | SBS On Demand (AU)        | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| seven-plus                 | 7plus (AU)                | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | shophq                     | ShopHQ                    | ✓             | ✓            |                    |                |                |
 | showtime                   | Showtime                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | siriusxm                   | SiriusXM                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -299,7 +301,8 @@ Options:
 | smart-tube-next-beta       | Smart Tube Next Beta      |               | ✓            | ✓                  | ✓              | ✓              |
 | smart-tv-client-for-twitch | SmartTV Client for Twitch |               | ✓            | ✓                  | ✓              | ✓              |
 | spotify                    | Spotify                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
-| stan                       | Stan (AU)                 |               | ✓            | ✓                  | ✓              | ✓              |
+| stan                       | Stan (AU)                 | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| startup-show               | Startup Show              | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | starz                      | Starz                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | steam-link                 | Steam Link                | ✓             |              | ✓                  | ✓              | ✓              |
 | stream-tv                  | StreamTV                  |               | ✓            | ✓                  | ✓              | ✓              |
@@ -308,6 +311,7 @@ Options:
 | surfshark-vpn              | Surfshark VPN             |               | ✓            | ✓                  | ✓              | ✓              |
 | svt-play                   | SVT Play                  | ✓             |              | ✓                  | ✓              | ✓              |
 | syncler                    | SYNCLER                   |               | ✓            | ✓                  | ✓              | ✓              |
+| syncnext                   | Syncnext                  | ✓             |              |                    |                |                |
 | t2-tv                      | T-2 TV                    |               | ✓            | ✓                  | ✓              | ✓              |
 | tbs                        | tbs                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | telenet-tv                 | Telenet TV (BE)           |               | ✓            | ✓                  | ✓              | ✓              |
