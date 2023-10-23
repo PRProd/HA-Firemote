@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.0.2';
+const HAFiremoteVersion = 'v3.0.3b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -4782,7 +4782,6 @@ class FiremoteCard extends LitElement {
           }
           .apple-remote-body.AR2 .dpadContainer button:hover,
           .apple-remote-body.AR2 .dpadContainer button:active {
-            /*background: #353535;*/
             color: #636363;
             text-align: center;
           }
@@ -6458,7 +6457,8 @@ class FiremoteCard extends LitElement {
     }
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
     var backgroundInherit = '';
-    if (this._config.use_theme_background == true) { backgroundInherit = 'background: inherit !important; border: inherit !important; border-radius: inherit !important;';}
+    //if (this._config.use_theme_background == true) { backgroundInherit = 'background: inherit !important; border: inherit !important; border-radius: inherit !important;';}
+    if (this._config.use_theme_background == true) { backgroundInherit = 'background: var(--ha-card-background,var(--card-background-color,#fff))!important; border: inherit !important; border-radius: inherit !important;';}
     const cssVars = html `<style>
                             :host {
                               --sz: ${scale};
