@@ -202,6 +202,7 @@ Options:
 | bell-fibe-tv               | Bell Fibe TV (CA)         |               | ✓            |                    |                |                |
 | bgtime-tv                  | bgtime.tv                 | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | binge-au                   | Binge (AU)                | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| bookmarker-1               | Bookmarker 1              |               | ✓            |                    |                |                |
 | channels-dvr               | Channels: whole home DVR  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | cnn                        | CNN                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | cosmote-tv                 | COSMOTE TV                |               |              | ✓                  | ✓              | ✓              |
@@ -243,6 +244,7 @@ Options:
 | ipvanish                   | IPVanish VPN              |               | ✓            | ✓                  | ✓              | ✓              |
 | iqiyi                      | iQIYI                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | israel-station             | Israel Station            |               | ✓            | ✓                  | ✓              | ✓              |
+| iVysílání-České-televize   | iVysílání                 | ✓             |              | ✓                  | ✓              | ✓              |
 | jellyfin                   | Jellyfin                  |               | ✓            | ✓                  | ✓              | ✓              |
 | justwatch-streaming-guide  | JustWatch - Streaming Guide | ✓           | ✓            | ✓                  | ✓              | ✓              |
 | kayo                       | Kayo Sports (AU)          | ✓             | ✓            |                    | ✓              | ✓              |
@@ -291,12 +293,14 @@ Options:
 | s0und-tv                   | S0undTV                   |               | ✓            | ✓                  | ✓              | ✓              |
 | sbs-on-demand              | SBS On Demand (AU)        | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | seven-plus                 | 7plus (AU)                | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| seznam                     | Seznam.cz                 |               |              | ✓                  | ✓              | ✓              |
 | shophq                     | ShopHQ                    | ✓             | ✓            |                    |                |                |
 | showtime                   | Showtime                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | siriusxm                   | SiriusXM                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | sky-news                   | Sky News                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | sky-showtime               | Skyshowtime               |               | ✓            |                    |                |                |
 | sky-sport-now              | Sky Sport Now             |               | ✓            | ✓                  | ✓              | ✓              |
+| sling                      | Sling                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | smart-tube-next            | Smart Tube Next           |               | ✓            | ✓                  | ✓              | ✓              |
 | smart-tube-next-beta       | Smart Tube Next Beta      |               | ✓            | ✓                  | ✓              | ✓              |
 | smart-tv-client-for-twitch | SmartTV Client for Twitch |               | ✓            | ✓                  | ✓              | ✓              |
@@ -330,6 +334,7 @@ Options:
 | tvnz-plus                  | TVNZ+ (NZ)                | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | twire                      | Twire                     |               | ✓            | ✓                  | ✓              | ✓              |
 | twitch                     | Twitch                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| u-next                     | U-NEXT                    | ✓             |              |                    |                |                |
 | viaplay                    | Viaplay                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | videoland                  | Videoland (NL)            | ✓             |              | ✓                  | ✓              | ✓              |
 | vlc                        | VLC                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
