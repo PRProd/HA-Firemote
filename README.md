@@ -225,6 +225,7 @@ Options:
 | f1-tv                      | F1 TV                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | firetv-store               | FireTV Store              |               | ✓            |                    |                |                |
 | flash                      | Flash                     | ✓             |              |                    |                |                |
+| fubo                       | fubo                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | fox-sports                 | FOX Sports                | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | france-tv                  | france.tv                 |               | ✓            | ✓                  | ✓              | ✓              |
 | freevee                    | freevee                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -239,6 +240,7 @@ Options:
 | ignite-tv                  | Ignite TV (Shaw)          |               | ✓            |                    |                |                |
 | infuse                     | Infuse                    | ✓             |              |                    |                |                |
 | internet-silk-browser      | internet (Silk Browser)   |               | ✓            |                    |                |                |
+| i-play-tv                  | iPlayTV                   | ✓             |              |                    |                |                |
 | iptv-extreme-pro           | IPTV Extreme Pro          |               | ✓            | ✓                  | ✓              | ✓              |
 | iptvx                      | IPTVX                     | ✓             |              |                    |                |                |
 | ipvanish                   | IPVanish VPN              |               | ✓            | ✓                  | ✓              | ✓              |
@@ -290,6 +292,7 @@ Options:
 | qmusic-be                  | Qmusic-BE                 | ✓             |              |                    |                |                |
 | raiplay                    | RaiPlay (IT)              | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | redplay                    | RedPlay                   |               | ✓            | ✓                  | ✓              | ✓              |
+| rumble                     | rumble                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | s0und-tv                   | S0undTV                   |               | ✓            | ✓                  | ✓              | ✓              |
 | sbs-on-demand              | SBS On Demand (AU)        | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | seven-plus                 | 7plus (AU)                | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -314,9 +317,11 @@ Options:
 | stremio                    | Stremio                   |               | ✓            | ✓                  | ✓              | ✓              |
 | surfshark-vpn              | Surfshark VPN             |               | ✓            | ✓                  | ✓              | ✓              |
 | svt-play                   | SVT Play                  | ✓             |              | ✓                  | ✓              | ✓              |
+| swiftfin                   | Swiftfin                  | ✓             |              |                    |                |                |
 | syncler                    | SYNCLER                   |               | ✓            | ✓                  | ✓              | ✓              |
 | syncnext                   | Syncnext                  | ✓             |              |                    |                |                |
 | t2-tv                      | T-2 TV                    |               | ✓            | ✓                  | ✓              | ✓              |
+| tailscale                  | Tailscale                 | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | tbs                        | tbs                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | telenet-tv                 | Telenet TV (BE)           |               | ✓            | ✓                  | ✓              | ✓              |
 | ten-play                   | 10play (AU)               |               | ✓            | ✓                  | ✓              | ✓              |
