@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.0.3';
+const HAFiremoteVersion = 'v3.0.4';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -82,6 +82,13 @@ const devices = {
       "fire_tv_stick_4k_max_second_gen": {
         "supported": true,
         "friendlyName": "Fire TV Stick 4K Max (2nd Gen - 2023)",
+        "defaultEventListenerBinPath": "/dev/input/event5",
+        "defaultRemoteStyle": "AF4",
+        "hdmiInputs": 0,
+      },
+      "fire_tv_stick_4k_second_gen": {
+        "supported": true,
+        "friendlyName": "Fire TV Stick 4K (2nd Gen - 2023)",
         "defaultEventListenerBinPath": "/dev/input/event5",
         "defaultRemoteStyle": "AF4",
         "hdmiInputs": 0,
@@ -1009,6 +1016,37 @@ const fastappchoices = {
   },
 
 
+  "drtv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="901" height="901" viewBox="0 0 901 901" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M50 25v800h800V25z" fill="#ff001e"/><path d="M50 585h800v240H50z" fill="#000"/><path d="M369.3 643.7H198c-.6-.1-1.2.2-1.7.6a2 2 0 0 0-.6 1.7v115.3c-.1.6.2 1.2.6 1.7.5.4 1 .6 1.7.6h171.2c50.3 0 75.7-16.7 75.7-60.3 0-43.3-25.4-59.6-75.7-59.6zM325 741.5h-53.7c-1.5 0-1.8-.6-1.8-1.8v-72c0-1.2.3-2 1.8-2H325c32 0 44.6 9 44.6 38 0 28.7-12.7 38-44.6 38zm390 17.2l-49.5-35c-1.3-1-2-1.4-2-2 0-.7.4-1 1.5-1 25 0 44.5-11.7 44.5-37.6 0-25.8-16.7-39.6-47.5-39.6H474.4c-.6-.1-1.3.2-1.7.6a2 2 0 0 0-.6 1.7V761c-.1.6.2 1.2.6 1.7.4.4 1 .6 1.7.6h69c.6 0 1.2-.2 1.7-.6.4-.5.6-1 .6-1.7v-27c0-1.3.4-1.8 1.8-1.8h39.7c2 0 2.8.2 4 1.2l34.5 28.6c1.3 1.2 3 1.8 5 1.7h85.8q1.8 0 1.8-1.4c.1-1.2-2-2.6-3.3-3.5zm-107.6-48h-59.8c-1.3 0-1.8-.4-1.8-1.8v-41.3c0-1.4.5-2 1.8-2h60c20 0 28.5 5.5 28.5 22 0 16.8-8.5 23-28.5 23zM402 374.7l122-70.3c1.5-1 2.4-2.6 2.4-4.3 0-1.8-1-3.4-2.4-4.3l-122-70.3c-1.6-1-3.4-1-5 0-1.6.8-2.5 2.5-2.5 4.2v140.8c0 1.7 1 3.4 2.5 4.2 1.5 1 3.4 1 5 0zm44.6 117.7a192 192 0 0 1-176.8-117.1l44.8-19a143 143 0 0 0 132 87.4c79 0 143.4-64.3 143.4-143.3S525.7 157 446.6 157a143 143 0 0 0-132.1 87.6l-44.8-19c30-71.2 99.7-117.4 177-117.3a192 192 0 0 1 192 192c0 105.8-86.2 192-192 192z"/></svg>',
+      "friendlyName": "DRTV",
+      "className": "drtvButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "dk.dr.tvplayer",
+          "androidName": "dk.dr.tvplayer",
+          "adbLaunchCommand": "adb shell am start -n dk.dr.tvplayer/axis.androidtv.sdk.app.MainActivity",
+      },
+      "apple-tv": {
+          "appName": "DRTV",
+      },
+      "chromecast": {
+          "appName": "dk.dr.tvplayer",
+          "androidName": "dk.dr.tvplayer",
+          "adbLaunchCommand": "adb shell am start -n dk.dr.tvplayer/axis.androidtv.sdk.app.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "dk.dr.tvplayer",
+          "androidName": "dk.dr.tvplayer",
+          "adbLaunchCommand": "adb shell am start -n dk.dr.tvplayer/axis.androidtv.sdk.app.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "dk.dr.tvplayer",
+          "androidName": "dk.dr.tvplayer",
+          "adbLaunchCommand": "adb shell am start -n dk.dr.tvplayer/axis.androidtv.sdk.app.MainActivity",
+      },
+   },
+
+
   "ds-video": {
       "button": 'DS Video',
       "friendlyName": "DS Video",
@@ -1347,7 +1385,7 @@ const fastappchoices = {
 
   "hbo-max": {
       "button": '<svg viewBox="0 0 111 31" width="111" height="31" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#maxapp)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.832 29.74H0V1.26h7.358v3.56C11.25 1.83 14.288.5 17.278.5c2.516 0 5.317 1.092 6.598 4.272C27.864 1.734 30.902.5 33.892.5c3.513 0 7.168 2.136 7.168 8.544V29.74h-7.832V11.798c0-2.374-.997-3.323-2.516-3.323-1.33 0-2.848.854-6.266 3.512v17.754h-7.832V11.798c0-2.374-.997-3.323-2.516-3.323-1.281 0-2.848.854-6.266 3.56V29.74zm49.13.76c3.844 0 7.167-1.424 9.73-4.51v3.75h7.453V1.26h-7.452v3.75C64.129 1.924 60.806.5 56.962.5c-7.785 0-14.24 6.693-14.24 15s6.455 15 14.24 15zm-7.215-15a8.387 8.387 0 0 1 8.401-8.402A8.387 8.387 0 0 1 66.55 15.5a8.387 8.387 0 0 1-8.402 8.402 8.387 8.387 0 0 1-8.401-8.402zm1.946 0c0 3.607 2.895 6.503 6.455 6.503s6.456-2.895 6.456-6.503c0-3.607-2.895-6.503-6.456-6.503-3.56 0-6.455 2.896-6.455 6.503zm23.829 14.24h9.446a62.37 62.37 0 0 1 7.642-9.968c2.849 3.086 5.222 6.361 7.453 9.969h9.541c-3.275-4.984-6.836-9.731-11.108-14.43 4.225-4.51 7.833-9.162 11.108-14.051h-9.351c-2.326 3.607-4.842 6.645-7.642 9.636-2.849-2.99-5.365-6.029-7.643-9.636h-9.446C78.75 6.29 82.405 10.8 86.677 15.31c-4.272 4.7-7.927 9.59-11.155 14.43z" fill="#fff"/></g><defs><clipPath id="maxapp"><path fill="#fff" transform="translate(0 .5)" d="M0 0h109.604v30H0z"/></clipPath></defs></svg>',
-      "friendlyName": "Max",
+      "friendlyName": "HBO Max - will be removed soon",
       "className": "hboMaxButton",
       "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
@@ -1730,6 +1768,37 @@ const fastappchoices = {
           "adbLaunchCommand": "adb shell am start -n de.telekom.magentatv.atv/tv.accedo.xdk.dtag.MainActivity",
       },
    },
+
+
+  "max": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="978" height="341" viewBox="0 0 978 341" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M112.7 284H50V56h59v28.5c31-24 55.4-34.6 79.3-34.6 20.2 0 42.6 8.7 52.8 34.2C273 60 297.2 50 321 50c28 0 57.4 17 57.4 68.4V284h-62.7V140.4c0-19-8-26.6-20-26.6-10.6 0-22.8 6.8-50 28v142H183V140.4c0-19-8-26.6-20-26.6-10.3 0-22.8 6.8-50 28.5V284zm393 6c30.7 0 57.3-11.4 77.8-36v30h59.7V56h-59.7v30c-20.5-24.7-47-36-77.8-36-62.3 0-114 53.5-114 120s51.6 120 114 120zM448 170a67 67 0 0 1 19.6-47.6c12.6-12.6 29.8-19.6 47.6-19.6a67 67 0 0 1 67.2 67.2 67 67 0 0 1-67.2 67.2c-17.8 0-35-7-47.6-19.6A67 67 0 0 1 448 170zm15.5 0a52 52 0 0 0 51.7 52c28.5 0 51.6-23 51.6-52s-23-52-51.6-52a52 52 0 0 0-51.7 52zm190.7 114h75.5a499 499 0 0 1 61.2-79.7c22.8 24.7 41.8 51 59.6 79.7h76.3L838 168.5c33.8-36 62.6-73.3 88.8-112.4H852c-18.6 28.8-38.7 53-61 77-22.8-24-43-48.3-61.2-77h-75.5c25.8 40.2 55 76.3 89.2 112.4a970 970 0 0 0-89.2 115.4z" stroke="none"/></svg>',
+      "friendlyName": "Max",
+      "className": "maxButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "HBO Max",
+          "androidName": "com.hbo.hbonow",
+          "adbLaunchCommand": "adb shell am start -n com.hbo.hbonow/com.wbd.beam.BeamActivity",
+      },
+      "apple-tv": {
+          "appName": "Max",
+      },
+      "chromecast": {
+          "appName": "com.wbd.stream",
+          "androidName": "com.wbd.stream",
+          "adbLaunchCommand": "adb shell am start -n com.wbd.stream/com.wbd.beam.BeamActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.wbd.stream",
+          "androidName": "com.wbd.stream",
+          "adbLaunchCommand": "adb shell am start -n com.wbd.stream/com.wbd.beam.BeamActivity",
+      },
+      "xiaomi": {
+          "appName": "com.wbd.stream",
+          "androidName": "com.wbd.stream",
+          "adbLaunchCommand": "adb shell am start -n com.wbd.stream/com.wbd.beam.BeamActivity",
+      },
+  },
 
 
   "max-player": {
@@ -3283,6 +3352,32 @@ const fastappchoices = {
    },
 
 
+  "tv2-play": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1611" height="850" viewBox="0 0 1611 850" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M419.3 798.6c206.7 0 374.3-167.6 374.3-374.3S626 50 419.3 50 45 217.6 45 424.3s167.6 374.3 374.3 374.3z" fill="#f0281e"/><path d="M324.7 477.7c-13.4 23.8-19.2 34.3-33.3 34.3-10 0-20-5-20-23.6l.3-93.3H214v98c0 57.7 42.3 76.6 76.8 76.6 31.4 0 52-14.3 74-52.5l70-122h-63.6l-46.7 82.6zm311 90.3h-227l32.7-57.6h194zM578 279.8H173.8v57.6H578c16 0 29.2 12.5 29.2 28.5S594 395 578 395h-72.6L472 452.7h106a87 87 0 0 0 86.9-86.8c0-47.8-39-86-87-86zm445.6 29.2h-87v229.8H979v-82h44.7c15 0 28.3-3 40.2-9.3a71 71 0 0 0 28.3-26.2 72 72 0 0 0 10.4-38.6 72 72 0 0 0-10.2-38.1c-6.8-11.3-16.2-20-28.2-26.2a86 86 0 0 0-40.6-9.4zm23.3 101.2c-7.7 6.8-18 10.2-30.4 10.2H979v-74.8h36.6a48 48 0 0 1 31.4 9.6c7.8 6.4 11.6 15.3 11.6 27a35 35 0 0 1-11.6 28zM1178 309h-42.3v229.8h42.3zm51.7 219.3c-10.5-9.2-15.7-21.2-15.7-36 0-16.2 6.3-29.3 19-39.2 12.7-10 29.8-15 51.7-15h32.3v-7.8a27 27 0 0 0-10.3-22.4c-7-5.6-16.2-8.2-28-8.2a69 69 0 0 0-28.4 6.2 99 99 0 0 0-23.3 13.8V382c5.6-5 13.8-9.5 24.4-13.6a96 96 0 0 1 34-6 75 75 0 0 1 53.1 18.9c13.6 12.7 20.4 30.6 20.4 54v55.3c0 5.2 1.4 9.2 4.2 12 2.7 2.8 6.3 4.2 10.7 4.2 1.5 0 3.3-.3 5.7-1 2.2-.6 4.3-1.5 6.2-2.6V535c-7.5 4.8-17 7.2-28.4 7.2-11 0-19.8-3-26.3-9-6.6-6-10.6-13.7-12-23-3.2 9-9.4 16.4-18.6 22.7a54 54 0 0 1-31.2 9.4c-16 0-29.3-4.5-39.7-13.7zm35-23.3a26 26 0 0 0 17.3 6 33 33 0 0 0 24.9-10.6c6.7-7 10-16.2 10-27.7V464h-26c-10.2 0-18.2 2.4-24.4 7.2a23 23 0 0 0-9.2 18.7c.1 6 2.3 11 7 15zm128.4 55.2v37.2a104 104 0 0 0 16.4 1.7c39 0 65-17.3 78-51.8l67-181.6h-45l-40.8 127-41-127h-45.2l61.4 166.7c-4 11.2-8.6 18.8-14.2 23-5.6 4-13 6-22.3 6-4.5 0-9.3-.5-14.2-1.3z"/></svg>',
+      "friendlyName": "TV 2 Play",
+      "className": "tv2PlayButton",
+      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "apple-tv": {
+          "appName": "TV 2 Play",
+      },
+      "chromecast": {
+          "appName": "dk.tv2.tv2playtv",
+          "androidName": "dk.tv2.tv2playtv",
+          "adbLaunchCommand": "adb shell am start -n dk.tv2.tv2playtv/dk.tv2.tv2playtv.main.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "dk.tv2.tv2playtv",
+          "androidName": "dk.tv2.tv2playtv",
+          "adbLaunchCommand": "adb shell am start -n dk.tv2.tv2playtv/dk.tv2.tv2playtv.main.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "dk.tv2.tv2playtv",
+          "androidName": "dk.tv2.tv2playtv",
+          "adbLaunchCommand": "adb shell am start -n dk.tv2.tv2playtv/dk.tv2.tv2playtv.main.MainActivity",
+      },
+   },
+
+
   "tv4-play": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="902" height="668" viewBox="0 0 902 668" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M443.5 459.5h-47.8V52.3c0-3.3-2-6-5.2-7-3-1-6.3.2-8 3L51.2 538c-1.5 2.2-1.6 5-.3 7.5 1.2 2.4 3.7 4 6.4 4h244.4v55.2c0 3.8 3.4 7.2 7.3 7.2h79.4c4 0 7.3-3.4 7.3-7.2v-55.2h47.8c4.2 0 7.3-3.2 7.3-7.4v-75c0-4-3-7.4-7.3-7.4m-142 .3h-92l92-136zm543.8-109L607 488.7c-1.2.6-2.6.5-3.6-.4s-1.3-2.3-.8-3.5l2.3-5.4a354 354 0 0 0 0-272.5l-2.5-6c-.5-1.2-.1-2.5.8-3.4 1-.8 2.4-1 3.5-.3L845.3 335c6.2 3.6 6.2 12.5 0 16z"/></svg>',
       "friendlyName": "TV4 Play",
@@ -4477,6 +4572,12 @@ class FiremoteCard extends LitElement {
             width: 100%;
           }
 
+          .ALControlsContainer.noApps {
+            padding-top: 0;
+            margin-top: 0;
+            border-top: 0;
+          }
+
           .ALControlsContainer > div {
             display: grid;
             justify-items: center;
@@ -5469,6 +5570,10 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 4.8rem);
           }
 
+          .drtvButton {
+            background: #ff001e;
+          }
+
           .dsVideoButton {
             color: #fff;
             background: #cd4242;
@@ -5700,6 +5805,10 @@ class FiremoteCard extends LitElement {
 
           .magentaTVButton {
             background: #fff;
+          }
+
+          .maxButton {
+              background: radial-gradient(circle, rgba(0,51,255,1) 0%, rgba(0,0,103,1) 100%);
           }
 
           .maxPlayerButton {
@@ -6132,6 +6241,10 @@ class FiremoteCard extends LitElement {
           }
           .shield-remote-body .tubiButton svg {
             width: calc(var(--sz) * 3.5rem);
+          }
+
+          .tv2PlayButton {
+            background: #000523;
           }
 
           .tv4PlayButton {
@@ -6704,7 +6817,6 @@ class FiremoteCard extends LitElement {
       }
     }
 
-
     function drawAppLaunchButtons(e, config, cols=3, max=6) {
         var spanclass = "three-col-span afappsgrid";
         if(cols == 2) {
@@ -6741,6 +6853,9 @@ class FiremoteCard extends LitElement {
                 (((config.device_type == 'appletv-4k-gen2' || config.device_type == 'appletv-gen4')) && !(config.defaultRemoteStyle_override))) {
           // no default app launch buttons
           buttonStyle = 'button-round';
+        }
+        else if (config.defaultRemoteStyle_override == 'AL2') {
+          // no default app launch buttons
         }
         else {
           appLaunchButtons.set("confBtn1", config.app_launch_1 || 'prime-video');
@@ -7932,6 +8047,18 @@ class FiremoteCard extends LitElement {
         var rpb2id = 'search-button';
         var hiddenclass = 'hidden';
       }
+
+      // conditionally hide the app launcher section if no apps are selected
+      var configuredAppLaunchButtons = 0;
+      for(let i=1; i<=appmap.size; i++) {
+        if(this._config["app_launch_"+i] && this._config["app_launch_"+i] != '') {
+            configuredAppLaunchButtons++;
+        }
+      }
+      var noAppsClass = '';
+      if (configuredAppLaunchButtons==0){
+        noAppsClass = 'noApps';
+      }
     
       return html`
       <ha-card>
@@ -7940,7 +8067,7 @@ class FiremoteCard extends LitElement {
           ${drawDeviceName(this, this._config, 'top')}
           ${drawAppLaunchButtons(this, this._config, 'fill', appButtonMax["AL2"])}
 
-          <div class="ALControlsContainer">
+          <div class="ALControlsContainer ${noAppsClass}">
 
             <div class="left-pocket-controls">
               <div class="row">
