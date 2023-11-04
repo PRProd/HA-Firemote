@@ -227,6 +227,7 @@ Options:
 | firetv-store               | FireTV Store              |               | ✓            |                    |                |                |
 | flash                      | Flash                     | ✓             |              |                    |                |                |
 | fubo                       | fubo                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| fox-news                   | Fox News                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | fox-sports                 | FOX Sports                | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | france-tv                  | france.tv                 |               | ✓            | ✓                  | ✓              | ✓              |
 | freevee                    | freevee                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -259,11 +260,13 @@ Options:
 | max-player                 | MaxPlayer                 |               | ✓            | ✓                  | ✓              | ✓              |
 | mediaset-infinity          | Mediaset Infinity         | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | mediaset-infinity-alt      | Mediaset Infinity (alt)   |               | ✓            | ✓                  | ✓              | ✓              |
+| meo-go                     | MEO Go                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | mlb                        | MLB                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | movistar-plus              | Movistar Plus+            |               | ✓            | ✓                  | ✓              | ✓              |
 | myCanal                    | my CANAL                  |               | ✓            | ✓                  | ✓              | ✓              |
 | my-family-cinema           | My Family Cinema          |               | ✓            | ✓                  | ✓              | ✓              |
 | nba-on-fire-tv             | NBA on Fire TV            |               | ✓            |                    |                |                |
+| nbc-news                   | NBC News                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | nbc-sports                 | NBC Sports                | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | nebula                     | Nebula                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | netflix                    | Netflix                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -300,6 +303,7 @@ Options:
 | seznam                     | Seznam.cz                 |               |              | ✓                  | ✓              | ✓              |
 | shophq                     | ShopHQ                    | ✓             | ✓            |                    |                |                |
 | showtime                   | Showtime                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| showtime-anytime           | Showtime Anytime          | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | siriusxm                   | SiriusXM                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | sky-news                   | Sky News                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | sky-showtime               | Skyshowtime               |               | ✓            |                    |                |                |
