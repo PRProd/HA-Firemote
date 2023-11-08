@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.0.5';
+const HAFiremoteVersion = 'v3.0.6';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -365,6 +365,18 @@ const fastappchoices = {
       "androidName": "com.channel4.ondemand",
       "adbLaunchCommand": "adb shell am start -n com.channel4.ondemand/com.novoda.all4.launch.LaunchActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
+
+  "allente": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1062" height="293" viewBox="0 0 1062 293" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g stroke="none" fill="#fff" fill-rule="nonzero"><use xlink:href="#umH6"/><path d="M236 239c-1 0-1-2-1-13V69c0-10-2-17-2-19h54c1 2 3 8 3 17v160c0 7 0 11 1 12h-55zm483 1h-54c-2 0-2-2-2-72 0-13-6-20-19-20-14 0-24 8-24 20v72h-54V108h53v19c7-15 26-22 48-22 36 0 51 20 51 51l1 84zm85-90v40c0 9 4 12 15 12 5 0 10-1 14-2h2v37c-8 2-23 4-39 4-22 0-47-9-47-41v-50h-18v-42h18c1-5 1-29 1-29h53v29h33v42h-32zm-488 89c-1 0-1-2-1-13V69c0-10-2-17-2-19h54c1 2 3 8 3 17v160c0 7 0 11 1 12h-55zm-100-30V107h-51v16c-9-12-25-18-48-18s-44 11-54 26c-9 11-13 25-13 43s4 32 13 43c11 16 29 24 53 24 26 0 36-5 46-13 0 5 1 11 2 11h55c-3-3-3-18-3-30zm-59-15c-5 5-12 9-24 9s-20-5-24-11c-3-4-5-12-5-19s2-15 6-20c5-5 12-9 24-9 11 0 18 4 22 9 5 4 7 12 7 20s-2 16-6 21z"/><use xlink:href="#umH6" x="460"/></g><defs ><path id="umH6" d="M545 147c-11-25-36-42-75-42-33 0-56 10-70 28-10 11-14 25-14 40 0 18 5 32 13 42 13 19 39 27 86 27 30 0 48-6 55-8v-34h-1c-8 3-34 7-50 7-20 0-31-1-39-6-5-3-10-9-10-14h110c1-15-1-29-5-40zm-105 13c0-2 2-8 5-11 5-6 13-9 24-9 12 0 20 4 24 9 3 4 4 8 4 11h-57z"/></defs></svg>',
+      "friendlyName": "Allente",
+      "className": "allenteButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "Allente",
+      },
+  },
 
 
   "amc-plus": {
@@ -1250,6 +1262,34 @@ const fastappchoices = {
    },
 
 
+  "fotoo": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="534" viewBox="0 0 1216 534" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M78 51.6c-43.5 1.6-58.5 70.6-51.4 69.7 49-63 76.4-53 183.6 6.3L314 190.2c-33.5 143-48.5 250.5-36.8 273.6a36 36 0 0 0 31.3 18.4c29 1 42-29 42-41.5 0-45-10-87.5-15.7-98.7l-2.5-5 5.8-11.3c35-57.5 77.4-72.5 94-62.6 0 .1 29.5 13.6 23.7 36-1 4.6-1 5.3-.3 6.2 2.5 2.8 13-1.4 19.7-7.8l2.2-2-.5 2c-10.3 53.6 18.7 81.6 42.7 83.6 20 2 41-15 49-31h0c10-20 12.6-43 13-45 .5-3.5 3.5-5.5 16-5-13.5 61 1 75 11 76 26 3 50.8-34.7 57-43 3.8 21.3 11.8 32.3 28.8 41.3 15 5 35 5 49-7 24-21 26-38 31.3-63l11.5-3.3c-11.8 45.8 9.2 66.3 23 73 17.2 6.4 33.2 3.4 46.2-3.6 24-15 33-39 35-66 0 0 26-9 40-19 46.6-28.4 49-23 61-23 18 3 23 24 20.6 37.4-.5 6 3.4 6.6 10.4 4.6a28 28 0 0 0 16-22c3-35-44-53-87-24-54.7 36.8-57.2 36.7-57.5 36.7 3.5-41.7 1.5-55.7-11.5-64.7-18-11-48-13-61 6-5 5-7.7 16.7-9 16.7-3 0-6.2 1-12.2 8.3l-11.5 30.3c-11.8 3.7-12.8 4.5-12.3 2.7 5.5-41.7 5.5-55-9.5-67.5-22.5-7.5-40-10-60.5 8.7-4 5.3-3.5 13.3-8.4 17-4.6 1-9 3-10 4.6a453 453 0 0 0-24.5 65c-5 11-20 25-26.6 22-8.4-3 25-123.4 26-123.4 16-3.7 27.8-11.7 28.2-15 0-2.4-.6-3.8-3-3.6l-21.6 2.3c-.1-.3 17.7-57.7 17.6-57.5 1.3-11 .4-16-17.8-16-28 1-25 3-27.4 10.2l-19 62.4c-12-3.5-14.4-3-16-1.3l-1 1.3c-3.5 10.5-3.5 12.5 11.5 15.5 5 1 2 8-14.5 74-2 4-11 5-17.5 3.5 5-51.4-11-73.5-27-76-21-1.5-36 5.5-51 31.5l-4.3 1.7c-7.7 1.3-10.7 2.3-14 14.3-1 3.8-2 4.2-2 4.3C468.8 237 451 234 440 234c-48.4.3-79.3 34.3-97.4 64.3-17 25-17.2 21-17 20.4 17-86.4 30-117.4 33-121.4 32 5 48 2 64 0 68-18 59.7-74.4 59.5-75.4-1.4-31-34-48.6-74-46-30 2.5-67.5 22.5-90 98.8C190.6 108.2 161.6 56.7 120.6 52.2c-25-4-35-1.5-42.5-.6m360.6 61.6c13.3 6.3 15.8 18.8 12 39-3.7 14.8-15 31-31 34-24 4.5-57-1-57-1 11.8-35.7 22.8-70.7 52.8-73.7 13-1 15.2-1.3 23.2 1.7M739 245.4c28.4.1 13.6 50.5 12 50-21.6-1-26.8-8.2-29.6-16 0-3 3-8.3 3-8.6 5.2-8.7 6.2-12 5.7-13.7-.4-1.5-5.7-5-7.7-5-3.6-.1 5-7 8.6-7 3.3-1 7.7.1 8.3.1m113.5-.8c31.5.8 15 52 12.5 50.8-21-2-27-8-30-15 0-3 5.8-14.8 6-15 2-3 4.8-11 .1-12l-3.6-1c-3.5-.8 6-8 14.5-7.8m-304 2.2c18.3 6.5 13.3 38.5 10 50-6.8 3.5-33.3-8.5-31.8-13.5 11.5-27 14.5-25 2-31-1-.3 1-3.7 2.6-4.5 4-3.7 12.4-3.2 17.2-1M719.2 295c5.8 3.3 17.8 7.5 31.8 9.3-1.5 30.2-19 50.2-36.5 45.2-17.5-10-7.5-42.5 2-54.6 1-1.3.8-1.3 2.6.1m113.8-.5c7 2.5 21 9.5 34 10-3.5 38-16.5 50-29.5 47-24-10-12-44-4.5-57m-310-.8c3 3 12 8 34.5 10-6 33.5-13 49.5-29 45.5-25-12-6.6-56-5.6-55.5M322.7 352c.2 1 1 2 1 2 7.4 13.3 4.6 36.7 4.6 44.2 2.3 19.8-11 64-11.7 65-3 5.4-11 3.6-11-2.5C317 356.2 319 348.7 320 347.2c.8 1 1.6 3 2.6 5" stroke="none" fill="#fff"/></svg>',
+      "friendlyName": "Fotoo",
+      "className": "fotooButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.bo.fotoo",
+          "androidName": "com.bo.fotoo",
+          "adbLaunchCommand": "adb shell am start -n com.bo.fotoo/.ui.splash.FTSplashActivity",
+      },
+      "chromecast": {
+          "appName": "com.bo.fotoo",
+          "androidName": "com.bo.fotoo",
+          "adbLaunchCommand": "adb shell am start -n com.bo.fotoo/.ui.splash.FTSplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.bo.fotoo",
+          "androidName": "com.bo.fotoo",
+          "adbLaunchCommand": "adb shell am start -n com.bo.fotoo/.ui.splash.FTSplashActivity",
+      },
+      "xiaomi": {
+          "appName": "com.bo.fotoo",
+          "androidName": "com.bo.fotoo",
+          "adbLaunchCommand": "adb shell am start -n com.bo.fotoo/.ui.splash.FTSplashActivity",
+      },
+   },
+
+
   "fox-sports": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69 42" fill-rule="evenodd"><path d="M.66 28.347V0h17.207l.53 7.753H8.761v3.695h7.851v7.737H8.705v9.162H.66m66.275-.084l-8.61-14.707L66.147 0H57.53l-3.573 6.102L50.444 0H41.53l7.97 13.65-8.442 14.63 8.66-.004 4.133-7.164 4.177 7.151h8.908" fill="#fff"/><path d="M34.24 19.87V8.544c0-1.289-1.132-2.448-2.41-2.448-1.272 0-2.304 1.16-2.304 2.448l-.005 11.29c0 1.293 1.037 2.34 2.31 2.34s2.41-1.011 2.41-2.306zm-16.062-5.662c0-7.606 6.094-13.78 13.612-13.78 7.525 0 13.621 6.174 13.621 13.78 0 7.617-6.096 13.786-13.621 13.786-7.518 0-13.612-6.169-13.612-13.786zM0 40.651v-1.465l.755-.725H6.86l.23-.228V36.68l-.166-.168H1.257L0 35.267v-3.57l1.45-1.437h8.215v1.58l-.59.6H3.114l-.23.228v1.516l.166.163h5.655l1.256 1.25v3.618L8.514 40.65H0m18.579-5.359l.423-.418v-1.99l-.423-.419h-3.933v2.827h3.933zm-6.82-5.03h8.526l1.615 1.6v3.851l-1.615 1.603h-5.639v3.336h-2.887v-10.39zm18.469 7.957l.596-.58v-4.536l-.596-.587h-3.356l-.588.587v4.535l.588.581h3.356zm-6.815.835v-7.191l1.6-1.602h7.077l1.615 1.602v7.191l-1.615 1.598h-7.076l-1.601-1.598zm18.944-4.335l.41-.407v-1.515l-.41-.407h-3.885v2.329h3.885zM35.59 30.26h8.614l1.45 1.436v3.317l-1.384 1.373 1.821 4.265h-3.208l-1.356-3.769h-3.054v3.77H35.59V30.26zm14.37 2.408h-3.334V30.26h9.553v2.408h-3.333v7.983h-2.885v-7.983m7.775 8.269V39.47l.757-.725h6.104l.23-.227v-1.554l-.166-.167h-5.665l-1.26-1.246v-3.57l1.45-1.437h8.217v1.58l-.59.6h-5.958l-.231.228v1.516l.165.164h5.657l1.255 1.25V39.5l-1.45 1.437h-8.515" fill="#fff"/></svg>',
       "friendlyName": "FOX Sports",
@@ -1490,7 +1530,7 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 329.813" width="1000" height="329.813"><path class="huluButtonSVG" d="M-241.012 192.768c16.556 13.46 24.846 34.472 24.846 63.043V399.29h-78.882V266.37c0-5.794-2.174-10.869-6.52-15.217-4.35-4.349-9.426-6.52-15.219-6.52h-45.963c-5.803 0-10.772 2.172-14.906 6.52-4.144 4.348-6.212 9.423-6.212 15.217v132.92h-79.504V69.475h79.503V176.93c1.243-.408 4.134-1.242 8.697-2.485 4.551-1.24 10.557-1.862 18.012-1.862h50.931c26.912 0 48.652 6.734 65.217 20.186zM9.3 172.581h79.503v139.13c0 26.087-7.144 47.205-21.428 63.354C53.088 391.215 33.726 399.29 9.3 399.29h-78.26c-27.33 0-49.176-7.55-65.528-22.67-16.364-15.11-24.536-36.743-24.536-64.907v-139.13h79.503v132.92c0 5.803 2.07 10.771 6.212 14.906 4.134 4.144 9.104 6.211 14.907 6.211h45.964c5.793 0 10.868-2.067 15.217-6.21 4.35-4.136 6.521-9.105 6.521-14.908zM149.05 69.476h79.503V399.29H149.05zm387.578 103.105v139.13c0 26.087-7.144 47.205-21.429 63.354-14.285 16.15-33.646 24.224-58.074 24.224h-77.64c-27.746 0-49.797-7.55-66.149-22.67-16.363-15.11-24.534-36.743-24.534-64.907v-139.13h79.503v132.92c0 5.803 2.066 10.771 6.211 14.906 4.135 4.144 9.104 6.211 14.906 6.211h46.584c5.795 0 10.764-2.067 14.907-6.21 4.134-4.136 6.212-9.105 6.212-14.908v-132.92z" style="fill:#000;fill-opacity:1" transform="translate(463.372 -69.476)"/></svg>',
       "friendlyName": "Hulu",
       "className": "huluButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
           "appName": "Hulu",
           "androidName": "com.hulu.plus",
@@ -1504,6 +1544,11 @@ const fastappchoices = {
           "adbLaunchCommand": "adb shell am start -n com.hulu.livingroomplus/.WKFactivity",
       },
       "nvidia-shield": {
+          "appName": "com.hulu.livingroomplus",
+          "androidName": "com.hulu.livingroomplus",
+          "adbLaunchCommand": "adb shell am start -n com.hulu.livingroomplus/.WKFactivity",
+      },
+      "xiaomi": {
           "appName": "com.hulu.livingroomplus",
           "androidName": "com.hulu.livingroomplus",
           "adbLaunchCommand": "adb shell am start -n com.hulu.livingroomplus/.WKFactivity",
@@ -1892,27 +1937,27 @@ const fastappchoices = {
       "className": "meoGoButton",
       "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
-          "appName": "pt.ptinovacao.rma.meomobile",
-          "androidName": "pt.ptinovacao.rma.meomobile",
-          "adbLaunchCommand": "adb shell am start -n pt.ptinovacao.rma.meomobile/com.alticelabs.meogo.android.features.splash.ui.SplashActivity",
+          "appName": "com.alticelabs.meo.androidtv",
+          "androidName": "com.alticelabs.meo.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.alticelabs.meo.androidtv/com.alticelabs.meo.androidtv.features.splash.ui.SplashActivity",
       },
       "apple-tv": {
           "appName": "MEO",
       },
       "chromecast": {
-          "appName": "pt.ptinovacao.rma.meomobile",
-          "androidName": "pt.ptinovacao.rma.meomobile",
-          "adbLaunchCommand": "adb shell am start -n pt.ptinovacao.rma.meomobile/com.alticelabs.meogo.android.features.splash.ui.SplashActivity",
+          "appName": "com.alticelabs.meo.androidtv",
+          "androidName": "com.alticelabs.meo.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.alticelabs.meo.androidtv/com.alticelabs.meo.androidtv.features.splash.ui.SplashActivity",
       },
       "nvidia-shield": {
-          "appName": "pt.ptinovacao.rma.meomobile",
-          "androidName": "pt.ptinovacao.rma.meomobile",
-          "adbLaunchCommand": "adb shell am start -n pt.ptinovacao.rma.meomobile/com.alticelabs.meogo.android.features.splash.ui.SplashActivity",
+          "appName": "com.alticelabs.meo.androidtv",
+          "androidName": "com.alticelabs.meo.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.alticelabs.meo.androidtv/com.alticelabs.meo.androidtv.features.splash.ui.SplashActivity",
       },
       "xiaomi": {
-          "appName": "pt.ptinovacao.rma.meomobile",
-          "androidName": "pt.ptinovacao.rma.meomobile",
-          "adbLaunchCommand": "adb shell am start -n pt.ptinovacao.rma.meomobile/com.alticelabs.meogo.android.features.splash.ui.SplashActivity",
+          "appName": "com.alticelabs.meo.androidtv",
+          "androidName": "com.alticelabs.meo.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.alticelabs.meo.androidtv/com.alticelabs.meo.androidtv.features.splash.ui.SplashActivity",
       },
    },
 
@@ -1956,6 +2001,17 @@ const fastappchoices = {
       "androidName": "com.movistarplus.androidtv",
       "adbLaunchCommand": "adb shell am start -n com.movistarplus.androidtv/com.movistarplus.androidtv.MainActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
+  "mrmc": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1131" height="390" viewBox="0 0 1131 390" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M180.3 52c-29 4.7-49.3 17.8-59.5 38.3-6 12.2-6.7 10.7-6.7-15 0-25.8 1-24-12.6-22l-50 7.4c-1.8 2-2 272.4-.3 275.7 1 2 56 3.4 61.2 1.5 1.7-158 2-163 6-177.8 17.3-61.8 100.6-64.4 119.7-3.8l3 9.2 2 171.7 2.4.6a645 645 0 0 0 59 0l2.5-.6c0-170 .1-171.5 8.8-188.8 21.5-43 83.5-50 105.7-12 6 10.2 6 11 6-34.7v-42l-4-1.7a150 150 0 0 0-77.3-3.4c-26 8-46 22.8-59.6 44-4.4 7-8.7 10-8.7 6.6 0-2.2-7.6-16.2-11.8-22a81 81 0 0 0-54.9-31.1c-16.7-2-18.6-2-31-.1m386-.3c-29.8 4-49.7 16.5-61.7 39.2-6.3 11.7-6.6 11-6.6-16.3V52l-3 .1-58.6 8.4c-2 2.7-2 275 .2 276.7 1 1 10 1.2 31.2 1l29.6-.3.6-78c.7-83 1-88.7 6-103.5 13-38 53.3-55 90-37.5l9 4c32.2-54 32.2-54 30.7-56-5.6-6.7-42.7-18-54.8-16.8l-12.6 1.7m178.5.4c-34.2 5-54.4 17.7-74 46.4-6.8 10-6.6 10-12.5-1.8C648 76 642 70.8 637.7 79c-27.8 49.8-28.3 51.4-25 56.2 3 4.2 7.5 13.4 9.5 19 4.8 14 5 16.5 5 101.6v81.2l2.4.6c6 1.7 59.2.8 61-1l3.2-169.7c14.2-65.5 95.6-76.4 119.8-16 1.4 3.5 4.5 4 4.5.8 0-7 17.6-42 25.3-50 12-12.7 12-13.4 1.8-23-16.8-15.5-38-24-68.7-27.3-17.4-2-15-2-31.6.6m200.6 0a145 145 0 0 0-34.8 8.6c-12.2 2.7-53 32-66.8 53.2-25.7 39.4-32 89.5-16 129.6a144 144 0 0 0 102.6 90.5c14.3 3.8 85.5 6.6 90.3 3.5 1.5-11 1.4-25 1.4-39v-25.2l-36.6-.4c-37.4-.4-41-.7-52-5-73.6-29.3-64-131.5 14.4-151.8 21.7-5.6 51.5 3.5 70 21.3a52 52 0 0 0 10.6 9 853 853 0 0 0 48-30.3c4-3 3.8-5-1.5-11.8a148 148 0 0 0-79.9-50c-21.4-5-38.4-4-49.4-2.2M819.2 291.5v45.7l2.4.6c3.2 1 57.6 1 60 .1 1.3-.6 1.7-2.3 1.7-8l-.1-7.2-7.8-5.4c-20-14-51.6-53.4-51.8-65 0-.6-1-2.4-2.2-4-2-2.7-2-2.6-2 43"/><path d="M943.3 146.3c-14.2 3-17 79.4-3.5 94.3 10.5 11.4 74.6-29 74.6-47 0-15.5-53.5-51.2-71-47.4" fill="#f20606"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="838" height="902" viewBox="0 0 838 902" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M434.3 50.4c-47.8 2-101.5 14.2-141 32-76 34-134.2 83-178.4 150.6-17.3 26.5-28.4 48.8-40.5 81.3a398 398 0 0 0-18.7 72.1l-1.6 10c-4.4 27-4.4 76.4 0 109 24.2 177 166.4 319 342.5 342l16.4 2.2c8.6 1.2 203.6 2.5 208 1.4l2.4-.6-.5-193.3-98.4-.6-101.4-1.3-11.3-2.3C243 621.3 186.3 403.8 318 293c31.6-26.6 65.3-41 110-47.5 20.3-3 51-.6 74.8 5.6 47.5 12.4 92.8 44.5 118.5 83.8 2 3.2 2 3.3 31.2-15.7l133.7-87-2-3.2c-1-1.8-6.3-9.2-11.7-16.5-79.2-106.7-207-168-338.3-162.2"/><path d="M395.2 320c-34.5 11-40 223-6.6 256.4 28 28 202.4-81.6 202.2-127-.1-40.7-154.3-142.6-195.6-129.3" fill="#e13232"/></svg>',
+      "friendlyName": "MrMC",
+      "className": "mrMcButton",
+      "appName": "com.",
+      "androidName": "com.",
+      "adbLaunchCommand": "adb shell am start -n com.",
+      "deviceFamily": [], },
 
 
   "myCanal": {
@@ -2471,6 +2527,37 @@ const fastappchoices = {
           "appName": "com.peacocktv.peacockandroid",
           "androidName": "com.peacocktv.peacockandroid",
           "adbLaunchCommand": "adb shell am start com.peacocktv.peacockandroid/com.peacock.peacocktv.GoogleMainActivity",
+      },
+  },
+
+
+  "philo": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1083" height="567" viewBox="0 0 1083 567" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#0c93f2" fill-rule="nonzero"><path d="M908.5 185c-51 0-92.5 40.4-92.5 90 0 49.8 41.4 90 92.5 90s92.5-40.3 92.5-90-41.4-90-92.5-90m123.3 90c0 66.3-55.2 120-123.3 120s-123.3-53.8-123.3-120 55.2-120 123.3-120 123.3 53.8 123.3 120M651 72.4a19 19 0 0 1-19 18.7 19 19 0 0 1-19.2-18.7A19 19 0 0 1 632 53.6a19 19 0 0 1 19.1 18.8M341.7 50c-1.5 0-2.7 1.2-2.7 2.6v1 325.6c0 8.3 7 14.5 15.3 14.5 8.5 0 15.5-6 15.5-13.6l-.2-115.4c.2-45 38.8-79.3 85-79.3s69.2 33.3 69.4 78.4v113.8c-.1.3 0 .5 0 .7a16 16 0 0 0 15.2 16c8.5 0 15.6-6.6 15.6-14V259c0-81.5-54-104-100.2-104-34.7 0-65.5 13.5-84.8 39.8V87.3c0-17.8-10.4-35.5-28-37.2zm274.7 330h0c0 7.5 7 15 15.5 15s15.3-7.4 15.3-15h0V194c0-17.8-10.4-35.5-28-37.2h-.1c-1.5 0-2.7 1.2-2.7 2.6z"/><path d="M709 380h0c0 7.5 7 15 15.5 15s15.3-7.5 15.3-15V87c0-17.8-10.4-35.5-28-37.2h-.1c-1.5 0-2.7 1.2-2.7 2.6zM80.8 477.8c0 17.8-10.4 35.5-28 37.2h-.1c-1.5 0-2.7-1.2-2.7-2.6V275c0-67.6 54-120 123.3-120 69.6 0 123.3 52.5 123.3 120s-54 120-123.3 120c-49.4 0-56.8-25.2-51.8-41h.1c.4-1.3 1.7-2.2 3-2.2.7 0 1.4.2 2 .6l.4.3c12 8 22.3 13 46.2 13a93 93 0 0 0 92.5-90.7c0-45-38.5-90-92.2-90-54.2 0-92.8 45-92.8 90z"/></svg>',
+      "friendlyName": 'Philo',
+      "className": "philoButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.philo.philo",
+          "androidName": "com.philo.philo",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.MAIN -n com.philo.philo/.auth.activity.AuthActivity",
+      },
+      "apple-tv": {
+          "appName": "Philo",
+      },
+      "chromecast": {
+          "appName": "com.philo.philo.google",
+          "androidName": "com.philo.philo.google",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.MAIN -n com.philo.philo.google/com.philo.philo.auth.activity.AuthActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.philo.philo.google",
+          "androidName": "com.philo.philo.google",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.MAIN -n com.philo.philo.google/com.philo.philo.auth.activity.AuthActivity",
+      },
+      "xiaomi": {
+          "appName": "com.philo.philo.google",
+          "androidName": "com.philo.philo.google",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.MAIN -n com.philo.philo.google/com.philo.philo.auth.activity.AuthActivity",
       },
   },
 
@@ -3918,14 +4005,17 @@ const fastappchoices = {
       "chromecast": {
           "appName": "YouTube",
           "androidName": "com.google.android.youtube.tv",
+          "adbLaunchCommand": "adb shell am start -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity"
       },
       "nvidia-shield": {
           "appName": "YouTube",
           "androidName": "com.google.android.youtube.tv",
+          "adbLaunchCommand": "adb shell am start -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity"
       },
       "xiaomi": {
           "appName": "YouTube",
           "androidName": "com.google.android.youtube.tv",
+          "adbLaunchCommand": "adb shell am start -n com.google.android.youtube.tv/com.google.android.apps.youtube.tv.activity.ShellActivity"
       },
   },
 
@@ -5490,6 +5580,10 @@ class FiremoteCard extends LitElement {
             background: #1e2226;
           }
 
+          .allenteButton {
+            background: #fd6100;
+          }
+
           .amcPlusButton {
             background: #192f54;
           }
@@ -5757,6 +5851,10 @@ class FiremoteCard extends LitElement {
             background: #036;
           }
 
+          .fotooButton {
+            background: #705f4b;
+          }
+
           .foxSportsButton {
             background: #000;
           }
@@ -5966,6 +6064,10 @@ class FiremoteCard extends LitElement {
             height: calc(var(--sz) * 2rem);
           }
 
+          .mrMcButton {
+            background: #231f20;
+          }
+
           .myCanalButton {
             background: #fff;
           }
@@ -6096,6 +6198,10 @@ class FiremoteCard extends LitElement {
           }
           .shield-remote-body .peacockButton svg {
             width: calc(var(--sz) * 5.5rem);
+          }
+
+          .philoButton {
+            background: linear-gradient(90deg, rgba(50,68,88,1) 0%, rgba(32,44,58,1) 100%);
           }
 
           .plexButton {

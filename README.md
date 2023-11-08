@@ -183,6 +183,7 @@ Options:
 | abc-iview                  | ABC iview (AU)            | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | ace-stream-media           | Ace Stream Media          |               | ✓            | ✓                  | ✓              | ✓              |
 | all-4                      | ALL4                      |               | ✓            | ✓                  | ✓              | ✓              |
+| allente                    | Allente                   | ✓             |              |                    |                |                |
 | amc-plus                   | AMC+                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | app-opener                 | App Opener                |               | ✓            |                    |                |                |
 | apple-appstore             | Apple App Store           | ✓             |              |                    |                |                |
@@ -226,6 +227,7 @@ Options:
 | f1-tv                      | F1 TV                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | firetv-store               | FireTV Store              |               | ✓            |                    |                |                |
 | flash                      | Flash                     | ✓             |              |                    |                |                |
+| fotoo                      | fotoo                     |               | ✓            | ✓                  | ✓              | ✓              |
 | fubo                       | fubo                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | fox-news                   | Fox News                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | fox-sports                 | FOX Sports                | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -237,7 +239,7 @@ Options:
 | google-play-store          | Google Play Store         |               |              | ✓                  | ✓              | ✓              |
 | hdhomerun                  | HDHomeRun                 | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | home-assistant             | Home Assistant            |               | ✓            |                    |                |                |
-| hulu                       | Hulu                      | ✓             | ✓            | ✓                  | ✓              |                |
+| hulu                       | Hulu                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | ignite-tv                  | Ignite TV (Shaw)          |               | ✓            |                    |                |                |
 | infuse                     | Infuse                    | ✓             |              |                    |                |                |
 | internet-silk-browser      | internet (Silk Browser)   |               | ✓            |                    |                |                |
@@ -286,6 +288,7 @@ Options:
 | paramount-plus-de          | Paramount+ (alt)          |               | ✓            | ✓                  | ✓              | ✓              |
 | pbs                        | PBS                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | peacock                    | Peacock                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| philo                      | philo                     | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | plex                       | Plex                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | pluto-tv                   | Pluto TV                  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | poda-tv                    | PODA.tv                   |               | ✓            | ✓                  | ✓              | ✓              |
