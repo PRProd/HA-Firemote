@@ -264,7 +264,9 @@ Options:
 | mediaset-infinity-alt      | Mediaset Infinity (alt)   |               | ✓            | ✓                  | ✓              | ✓              |
 | meo-go                     | MEO Go                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | mlb                        | MLB                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
+| moonlight-game-streaming   | Moonlight Game Streaming  | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | movistar-plus              | Movistar Plus+            |               | ✓            | ✓                  | ✓              | ✓              |
+| mrmc                       | MrMC                      |               |              |                    | ✓              | ✓              |
 | myCanal                    | my CANAL                  |               | ✓            | ✓                  | ✓              | ✓              |
 | my-family-cinema           | My Family Cinema          |               | ✓            | ✓                  | ✓              | ✓              |
 | nba-on-fire-tv             | NBA on Fire TV            |               | ✓            |                    |                |                |
@@ -273,6 +275,7 @@ Options:
 | nebula                     | Nebula                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | netflix                    | Netflix                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | news                       | News by Fire TV           |               | ✓            |                    |                |                |
+| newsmax                    | Newsmax                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | nfl                        | NFL                       | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | nine-now                   | 9now                      | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | nlziet                     | NLZIET                    | ✓             | ✓            | ✓                  | ✓              | ✓              |
@@ -315,6 +318,7 @@ Options:
 | smart-tube-next            | Smart Tube Next           |               | ✓            | ✓                  | ✓              | ✓              |
 | smart-tube-next-beta       | Smart Tube Next Beta      |               | ✓            | ✓                  | ✓              | ✓              |
 | smart-tv-client-for-twitch | SmartTV Client for Twitch |               | ✓            | ✓                  | ✓              | ✓              |
+| snappier-iptv              | Snappier IPTV             | ✓             |              |                    |                |                |
 | spotify                    | Spotify                   | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | stan                       | Stan (AU)                 | ✓             | ✓            | ✓                  | ✓              | ✓              |
 | startup-show               | Startup Show              | ✓             | ✓            | ✓                  | ✓              | ✓              |

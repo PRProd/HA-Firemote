@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.0.6';
+const HAFiremoteVersion = 'v3.0.7';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -1993,6 +1993,38 @@ const fastappchoices = {
    },
 
 
+  "moonlight-game-streaming": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1023" height="441" viewBox="0 0 1023 441" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M196 1c-41 5-77 19-108 43-7 5-17 13-17 14s139 140 140 140V99 0h-4c-3 0-8 1-11 1m33-1v198l70-70c69-69 70-70 69-71-24-23-60-42-96-51-15-4-41-7-43-6M55 73C25 107 3 159 0 204v7h99 99c0-1-139-140-140-140 0 0-1 1-3 2m257 68l-70 70h99 99v-2c0-4-2-20-3-25-1-9-2-12-3-15-7-30-21-60-40-84-6-8-11-14-12-14s-32 32-70 70m487 22v45h7v-89h-7m117 1v88h7v-22-22l1-3c7-13 24-16 30-5 2 4 2 9 2 32v19h7v-23c0-25-1-27-3-32-7-10-24-11-33-1-2 1-4 3-4 3 0-31 0-34-1-34-1-1-5-1-6 0m-90 4c-4 3-2 8 3 8 3 0 5-2 5-5s-5-5-8-3m-324 0c-1 1-1 19-1 42v42h7v-35-35l1-1 1 1 29 69c6 1 6 1 6-1l29-69c0-1 1-1 1-1 1 0 1 3 0 13v36 22l7 1v-42-42h-9l-1 3-28 66c-2 5-3 5-4 0l-29-69h-9m483 6l-1 15-11-1v6h5c7 0 7-2 7 26v24l1 2c3 5 5 6 12 7 7 0 8 0 8-3s-1-3-5-3c-5 0-7-1-8-4-1-1-2-46-1-48 0 0 2-1 6-1h6v-5h-12v-8-7m-373 15c-27 6-28 54-2 63 17 5 32-5 36-22 1-4 1-16 0-20-4-16-18-25-34-21m65 0c-13 3-21 14-21 31 0 21 11 33 28 33s28-12 28-33c0-22-15-36-35-31m71 0c-5 1-7 2-11 6-5 4-4 4-4-1l-1-5h-6v63h4 3v-44l2-3c6-13 24-16 29-4l2 3v24 24h8l-1-21c1-26 0-30-4-36s-13-9-21-6m112 0c-13 3-19 13-19 31 1 14 3 20 9 26 8 9 23 9 32 1l2-3v7c0 7 0 8-2 11-6 11-20 13-30 4l-4-4c-3 4-3 5-1 7 9 10 29 11 38 1 6-7 6-8 6-48v-33h-6v3c0 5-1 6-3 3-5-6-14-8-22-6m-41 0v62h6v-62m-203 5c13 2 21 17 17 33-5 31-41 25-41-6 0-16 8-26 21-28 0 0 2 1 3 1m65 0c14 2 22 21 16 38-7 22-34 20-39-3-4-19 4-33 20-36 0 0 1 1 3 1m183 0c6 1 10 5 13 10 2 4 2 29 1 33-7 14-26 14-33 0-8-17-1-41 12-43 4-1 4-1 7 0M0 232c0 43 23 98 56 135l2 2 70-70 70-70H99 0v3m242-3l70 70 70 70 2-3c14-14 30-39 39-61 4-10 10-28 12-36 0 0 0-3 1-5 1-4 1-8 2-15 1-6 2-19 2-20s-198-1-198 0m-101 83l-70 70c0 1 7 6 14 12 24 19 54 33 84 40 7 2 11 3 22 4 5 1 19 2 20 2v-99-99l-70 70m88-70c-1 1 0 197 1 198 1 0 18-1 29-3 29-5 59-17 84-34 8-6 22-16 25-20l1-1-70-70-70-70m281 27c-10 4-14 11-14 26 0 13 2 19 9 24s21 4 27-1l3-3v-9-9h-18v3h13v7c0 8 0 8-4 10-7 3-16 2-21-3-9-11-5-40 6-41 3-1 6-2 9-1 5 2 8 4 10 10 1 3 5 2 4-1-3-10-14-15-24-12m205 0c-11 3-15 14-8 21 2 3 5 4 13 7 13 4 16 7 14 14-3 11-27 10-27-2 0-2-1-3-3-3s-2 0-2 2c0 17 35 19 37 3 1-8-4-13-17-17-10-3-14-6-14-12 0-5 3-8 8-10 8-2 18 3 18 11 0 1 0 1 2 1h3l-1-2c-1-10-12-16-23-13m221 1c-1 2 0 4 2 4s3-1 3-3c0-3-4-4-5-1m-186 8v4l-4 1c-5 0-5 2 0 3h3c0 32 1 32 4 35 3 2 9 2 10 0 0-2-1-2-3-2-6 0-6-1-6-19v-14h8v-3h-8v-11h-4m-197 11c-3 1-6 4-7 6-2 3-2 3 1 3 2 0 2 0 2-1s4-5 7-6c7-2 13 2 13 9v4h-7c-16 1-24 11-15 20 3 4 11 5 14 4 2-1 3-2 5-3 3-2 3-2 4 0 0 2 0 2 2 2 3 0 2 0 2-1s0-8-1-16c0-13 0-14-1-16-3-6-12-8-19-5m43-1c-2 1-4 3-6 4-1 2-2 1-2-1s0-2-2-2l-2-1v39h5c0-28 0-28 1-31 3-4 8-6 12-5 6 2 7 3 7 21v15h4v-13c0-15 0-16 4-20 5-5 10-4 12-2 6 4 5 5 5 21v14h4c1-33 0-34-5-37-5-4-13-3-18 2-2 2-3 2-3 1-3-4-10-7-16-5m63 0c-19 8-15 40 5 40 8 0 15-5 12-8l-1-1-1 2c-7 9-22 2-22-11v-3h27l-1-4c0-11-10-18-19-15m122 0c-2 1-3 2-4 3-2 2-2 2-2 0s0-2-2-2l-2-1v20 19h4v-14c0-11 0-15 1-16 2-4 6-6 10-6 2 0 2 0 2-2s-4-2-7-1m24 0c-15 6-16 32-1 39 8 3 24-2 19-7l-1-1-2 2c-9 9-21 2-22-11v-2l13-1h14v-4c-1-11-10-18-20-15m37 0c-7 2-13 10-8 10 2 0 3 0 3-1s3-5 6-6c5-1 7 0 8 1 4 1 5 4 5 9v3h-6c-11 0-15 3-18 8-5 12 9 21 21 13 3-2 3-2 4 0 0 2 1 2 3 2s2 0 2-1c-1-1-1-8-1-16 0-14-1-14-2-16-3-5-11-8-17-6m41 0c-1 1-3 2-4 3-3 2-3 2-3 0-1-2-1-2-3-2h-1v38h4v-14-14l1-3c4-5 10-7 14-4 5 2 5 3 5 20v15h4v-13c0-7 1-14 1-15 2-6 10-10 15-7 4 2 5 2 5 19v16h4v-14c0-17 0-19-3-22-5-5-14-4-20 1-2 2-3 3-3 2-1-5-10-8-16-6m81 1c-2 0-4 1-5 3-2 2-3 2-3-1 0-2 0-2-2-2h-2v19 19h4l1-14c0-16 0-16 4-19 5-5 12-4 15 1v17l1 15h4v-15c0-15 0-17-2-20-3-4-10-6-15-3m37-1c-13 5-14 34 0 39 4 2 13 1 15-2s2 2 1 7c-3 8-14 10-20 3-1-1-2-1-2 0-2 1-2 2 0 3 6 6 17 6 23 0 4-4 4-4 4-28v-21h-2c-2-1-2 0-2 3v1l-2-2c-4-3-10-5-15-3m-64 1l-1 38h4l1-38h-4m-271 2c4 0 7 6 8 10v3h-11c-13 0-13 0-10-6 6-9 10-7 13-7m148 1c4 2 6 5 6 9l1 3h-12-11v-2c2-8 9-13 16-10m196-1c7 3 8 6 8 18-1 12-2 15-10 16-8 0-12-5-12-17 0-13 5-19 14-17m-441 21c0 7-2 10-7 12-8 3-16-3-13-10 2-5 6-7 15-7h5v5m287 1v5l-2 3c-7 7-17 5-18-3-1-7 5-11 15-11l5 1v5" stroke="none"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="542" height="541" viewBox="0 0 542 541" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M245.6 51c-40.2 5-76.3 19.2-108 43-7 5-16.5 13.4-16.5 14.2 0 .6 139 139.7 139.5 139.7.2 0 .4-44.4.4-98.8V50h-4.6l-11 .8m33.5-.5c-.6.5-.5 197.3 0 197.3.2 0 32-31.4 70.3-70l69-71a225 225 0 0 0-96.3-51c-15.5-3.8-41.3-7-43-5.5m-173.7 73a224 224 0 0 0-55 130.7L50 261h99l99-.5c0-.6-139-139.4-139.6-139.4-.3 0-1.6 1-2.8 2.4m256.2 67.2L292 260.5c-.1.3 44.4.5 99 .5h99v-2.3c0-3.7-1.8-19.6-2.8-25l-3-15a223 223 0 0 0-40-83.4c-6.6-8.5-11.6-14-12.5-14-.5 0-32 31.3-70.2 69.5M50.2 282.3c0 42.5 22.7 97.5 55.5 134.5l2.2 2.5 70-70 70-70.3c0-.2-44.4-.4-98.8-.4H50.2v3.7m242.3-3c0 .3 31.3 32 69.7 70.3l69.7 69.7 2.6-2.7c13.8-14.6 29.3-39 38.8-61.7a259 259 0 0 0 11.5-35.5l1-5.5 2.6-15a141 141 0 0 0 1.4-19.3c-.4-1-197.4-1.4-197.4-.3M191 361.6L121.2 432c0 .7 6.7 6.6 14 12.3a224 224 0 0 0 83.4 40l22 4a161 161 0 0 0 20.1 1.6c.1-.1.2-44.8.1-99.2l-.1-99-69.8 69.8m88-69.5c-1 1-.5 197.4.5 197.8a182 182 0 0 0 29.4-3.1 223 223 0 0 0 83.7-33.9 223 223 0 0 0 25.3-19.8l1.3-1.5L279 292" stroke="none"/></svg>',
+      "friendlyName": "Moonlight Game Streaming",
+      "className": "moonlightGameStreamingButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.limelight",
+          "androidName": "com.limelight",
+          "adbLaunchCommand": "adb shell am start -n com.limelight/com.limelight.PcView",
+      },
+      "apple-tv": {
+          "appName": "Moonlight",
+      },
+      "chromecast": {
+          "appName": "com.limelight",
+          "androidName": "com.limelight",
+          "adbLaunchCommand": "adb shell am start -n com.limelight/com.limelight.PcView",
+      },
+      "nvidia-shield": {
+          "appName": "com.limelight",
+          "androidName": "com.limelight",
+          "adbLaunchCommand": "adb shell am start -n com.limelight/com.limelight.PcView",
+      },
+      "xiaomi": {
+          "appName": "com.limelight",
+          "androidName": "com.limelight",
+          "adbLaunchCommand": "adb shell am start -n com.limelight/com.limelight.PcView",
+      },
+   },
+
+
   "movistar-plus": {
       "button": '<svg viewBox="0 0 298.88 134.78" xmlns="http://www.w3.org/2000/svg"><g><path fill="#fff" d="M144 .68a22.24 22.24 0 0 1 20 4.74c7.76 6.69 11.12 16.8 13.9 26.33a148.4 148.4 0 0 1 2.47 61.73c-.74 4.84-2.29 10-6.31 13.14-3.56 3-9.51 3.06-12.67-.55-2.86-3.39-3.17-8.12-2.79-12.36.86-9.7 2.27-19.4 1.86-29.17-.2-3.62-.64-7.48-2.81-10.51a8.57 8.57 0 0 0-10.41-2.79c-5.71 2.64-9.28 8.22-12.18 13.57-6.54 13-10.21 27.2-14.76 41-2.4 6.92-6.3 13.63-12.4 17.9-7.22 5.06-16.38 6.4-25 6-10.69-.64-20.16-7.5-25.66-16.45-6.33-10.44-12.2-21.16-18.35-31.71-1.85-3-3.76-6.15-6.77-8.1-3.2-2.18-8-.27-9.24 3.28-1.46 3.82-1.11 8.06-.5 12 1.8 10.58 6 20.54 8.46 30.94.89 3.86 1.37 8.34-1 11.77-3.36 4.82-11.26 4.19-14.72-.19S9.88 121.54 8 116.39C1.76 97.91-2.08 78 1.19 58.55 3.26 46.3 6.6 33.43 15.31 24.12c7.24-8 19.66-11 29.53-6.4 5.59 2.77 10 7.46 13.78 12.32 5.32 7.08 10 14.6 14.67 22.13 3.12 5 7.2 9.7 12.73 12a15.18 15.18 0 0 0 16.32-3.07c3.09-2.94 4.78-7 6.36-10.84 4.16-10.31 8.13-20.71 13-30.73C126.07 10.58 134.11 3 144 .68zM241.26 20.87H267v31.87h31.87V78.5H267v31.87h-25.75V78.5h-31.88V52.75h31.88c.01-10.63-.01-21.25.01-31.88z"/></g></svg>',
       "friendlyName": "Movistar Plus+",
@@ -2008,10 +2040,10 @@ const fastappchoices = {
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="838" height="902" viewBox="0 0 838 902" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M434.3 50.4c-47.8 2-101.5 14.2-141 32-76 34-134.2 83-178.4 150.6-17.3 26.5-28.4 48.8-40.5 81.3a398 398 0 0 0-18.7 72.1l-1.6 10c-4.4 27-4.4 76.4 0 109 24.2 177 166.4 319 342.5 342l16.4 2.2c8.6 1.2 203.6 2.5 208 1.4l2.4-.6-.5-193.3-98.4-.6-101.4-1.3-11.3-2.3C243 621.3 186.3 403.8 318 293c31.6-26.6 65.3-41 110-47.5 20.3-3 51-.6 74.8 5.6 47.5 12.4 92.8 44.5 118.5 83.8 2 3.2 2 3.3 31.2-15.7l133.7-87-2-3.2c-1-1.8-6.3-9.2-11.7-16.5-79.2-106.7-207-168-338.3-162.2"/><path d="M395.2 320c-34.5 11-40 223-6.6 256.4 28 28 202.4-81.6 202.2-127-.1-40.7-154.3-142.6-195.6-129.3" fill="#e13232"/></svg>',
       "friendlyName": "MrMC",
       "className": "mrMcButton",
-      "appName": "com.",
-      "androidName": "com.",
-      "adbLaunchCommand": "adb shell am start -n com.",
-      "deviceFamily": [], },
+      "appName": "tv.mrmc.mrmc",
+      "androidName": "tv.mrmc.mrmc",
+      "adbLaunchCommand": "adb shell am start -n tv.mrmc.mrmc/tv.mrmc.mrmc.Main",
+      "deviceFamily": ["nvidia-shield", "xiaomi"], },
 
 
   "myCanal": {
@@ -2175,6 +2207,37 @@ const fastappchoices = {
       "appName": "com.amazon.hedwig",
       "androidName": "com.amazon.hedwig",
       "deviceFamily": ["amazon-fire"],},
+
+
+  "newsmax": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1002" height="157" viewBox="0 0 1002 157" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="lJIP" x1="2.6" y1="151.1" x2="2.6" y2="72.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b5000b"/><stop offset=".2" stop-color="#c01"/><stop offset=".4" stop-color="#e60017"/><stop offset=".6" stop-color="#fe001c"/></linearGradient></defs><g transform="translate(.5 .5)"><svg width="1000" height="154.8" viewBox="0 0 1000 154.8"><g stroke="none"><path d="M34.3 151H0V72.4L34.3 127z" fill="url(#lJIP)"/><g fill="#294ea6"><path d="M34.3 111.5L0 55.8v-52h40.2l59.5 96.5V3.8h33.6V151H94L34.3 54.6zM144.8 151V3.8h99v29.8H179v28.6h61v28h-61v31h68.6V151zm143 0L250 3.8h34l22 88 19-88h39.4l22 88 20-88h34.3L403 151h-35.6l-22-95.3L323 151zm167.8-41l-23.2 23.7s18 21 55.3 21c34.5 0 56.2-19.6 56.2-48.8 0-49.6-68.7-37-68.7-62.2 0-7.5 6.5-14.7 20.2-14.7a44 44 0 0 1 27 12.5l22-23.5s-16.7-18-48-18c-35.2 0-56.8 20.2-56.8 46 0 52 68 36.2 68 63.6 0 10.7-9 16.3-20 16.3-19.6 0-32-15.8-32-15.8zm98 41V3.8h50l34.5 95.7L671 3.8h50.5V151H687V47l-38 104h-25L586.7 45.8V151z"/><path d="M783 3.8L721.4 151h38l11-29.2h57L839 151H893l31-51.8 32.5 51.8h43.4l-53-77.7 46.8-69.6h-41.3l-27.2 45.8-27.4-45.8h-43.2l47.8 69.6-34.6 52.8L817.3 3.8zm16.4 39.7l19 50.4h-38z"/></g></g></svg></g></svg>',
+      "friendlyName": "Newsmax",
+      "className": "newsmaxButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.fli.android.newsmaxapp",
+          "androidName": "com.fli.android.newsmaxapp",
+          "adbLaunchCommand": "adb shell am start -n com.fli.android.newsmaxapp/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+      },
+      "apple-tv": {
+          "appName": "Newsmax TV",
+      },
+      "chromecast": {
+          "appName": "com.fli.android.newsmaxapp",
+          "androidName": "com.fli.android.newsmaxapp",
+          "adbLaunchCommand": "adb shell am start -n com.fli.android.newsmaxapp/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.fli.android.newsmaxapp",
+          "androidName": "com.fli.android.newsmaxapp",
+          "adbLaunchCommand": "adb shell am start -n com.fli.android.newsmaxapp/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+      },
+      "xiaomi": {
+          "appName": "com.fli.android.newsmaxapp",
+          "androidName": "com.fli.android.newsmaxapp",
+          "adbLaunchCommand": "adb shell am start -n com.fli.android.newsmaxapp/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+      },
+   },
 
 
   "nfl": {
@@ -3064,6 +3127,17 @@ const fastappchoices = {
       "androidName": "com.fgl27.twitch",
       "adbLaunchCommand": "adb shell am start -n com.fgl27.twitch/com.fgl27.twitch.PlayerActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield","xiaomi"], },
+
+
+  "snappier-iptv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="776" viewBox="0 0 800 776" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="BNJh" x1="67%" y1="0%" x2="33%" y2="100%"><stop offset="0%" stop-color="#f81b4e"/><stop offset="100%" stop-color="#862864"/></linearGradient></defs><path d="M250.3 58.5c0 .6-55-31-77.3-31.2-27.7.2-32.7 23.7-32.7 24.2l1.2 439c1 29.5 32 35.5 61 22.5 9-4 265-149.4 266-149.4 10.4-5 32-3.6 47 11.4 16 19.5 3 42-6.7 47.4L173 617.5c-12.5 7.5-32.5 27.5-32.5 52.5-.2-.1 1 50 1 50.3 4 24.7 19 29.7 38 29.7 11 0 24-7 23.8-7l540-329.6c8-5.4 9-16.4 9.3-27-.7-11.8-5.7-20.3-17.5-29.7-1.6-1.6-210.6-128-210.6-128-9-6-25-6.6-37.5-.1-.2.1-172.5 99.5-175.5 101.5-43.5 25-83.5-27.5-31.7-59.5 6.7-3.5 107-65.8 109.2-68 24.5-16.5 21.5-43.5 1.5-55.5" stroke="none" fill="url(#BNJh)"/></svg>',
+      "friendlyName": "Snappier IPTV",
+      "className": "snappierIPTVButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "Snappier IPTV",
+      },
+   },
 
 
   "spotify": {
@@ -6054,6 +6128,10 @@ class FiremoteCard extends LitElement {
             background: #fff;
           }
 
+          .moonlightGameStreamingButton {
+            background: #535b63;
+          }
+
           .movistarPlusButton {
             background: #2b2b2b;
           }
@@ -6121,6 +6199,10 @@ class FiremoteCard extends LitElement {
           }
           .newsButton:active, .newsButton.appActive {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 15%);
+          }
+
+          .newsmaxButton {
+            background: #fff;
           }
 
           .nflButton {
@@ -6348,6 +6430,10 @@ class FiremoteCard extends LitElement {
 
           .smartTvClientForTwitchButton {
             background: #444;
+          }
+
+          .snappierIPTVButton {
+            background: #000;
           }
 
           .spotifyButton {
