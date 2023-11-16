@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.1.0b1';
+const HAFiremoteVersion = 'v3.1.0b2';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -1038,6 +1038,38 @@ const fastappchoices = {
           "adbLaunchCommand": "adb shell am start -n com.disney.disneyplus/com.bamtechmedia.dominguez.main.MainActivity",
       },
   },
+
+
+  "dropout": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1064" height="195" viewBox="0 0 1064 195" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M407.8 26c-59.5 9-82.4 80-39.6 122.2a72 72 0 0 0 90.8 7.1c60.7-43 22-140.4-51.2-129.3m275 0C620 35.3 599 113.6 648.5 153c23.8 19 60 20 85.4 2 60.6-43 22-140.4-51.2-129.3M222 96.7v70.5h39.3v-43l15.4.6L301 167h42.7l-29.2-51.3 4.8-4.8a50 50 0 0 0-13.3-80.4c-8.5-4-10.3-4.3-49.5-4.3H222v70.6m283.3 0v70.5h39.2v-43c33-.6 34.2-.8 42.5-4.6 2.3-1 3.4-1.8 7-4.4 29.7-21.7 24.7-69-9-85-8-3.8-7.2-3.7-45.2-4l-34.4-.2v70.6M778 63c0 49.7 1.2 60.2 8.8 74.5 11 20.6 28.5 30.2 55.4 30.2a64 64 0 0 0 19.8-2.1c20.5-4.8 35.6-21.5 41.3-45.3 2.2-9.5 2.4-13.4 2.4-54.6l.1-39.7H886h-19.6l-.2 41.4-2.5 49c-6.4 20.6-33 22.8-42 3.5-4-8.8-4-7.8-4.3-53.2L817 26H778v37m139.4-19.8v17h40.4v106.8H997V60.4h40.4V26h-120v17.2m-834.8 54v70.6h30c39.6 0 44.2-.6 59.4-7.6 22.2-10.3 36-34.5 36-63 0-32.6-17-58-44.8-67-10.3-3.2-10.2-3.2-47-3.5l-34-.2v70.6M25 64.3v18.3h36V46H25m400 14.6c23.6 5 33 39 17 61.2-12.4 17-41.7 14.7-50.8-4-15.3-30.8 4.2-63.7 34-57.3m275 0c8.7 1.8 21 12.2 21 17.7 0 .4.2 1 .5 1 .5.3.6.5 2 6.7 4 17-3 36.6-15.2 43.3-18.6 10.4-40.4.4-46-21-7.4-29 11.8-53.2 38-47.7m-411 1.6c7 5.4 7.3 20.8.2 26l-2.2 1.6h-25.8V60.4l25.8.3 2 1.6m278.5-1c5 2 7 5.7 6.2 17.5.8 8.2-6.7 10.7-18 11h-11.3V60.4a86 86 0 0 1 23.1.9m-422 .5c31.2 8.3 30.4 64.2-1 71-2.4.5-7.2.7-13.3.8h-9.5V61l23.7.8M25 130.7V149h36v-36.6H25v18.3" stroke="none" fill="#242423"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="1056" height="816" viewBox="0 0 1056 816" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M360.4 764.5C717 764.5 707 772 795 733.7c112-48.4 182.2-148 195.3-277 20-196-78.8-351.7-248.4-392.3-22-5.2-41.7-8.2-71.6-10.7-5.4-.5-50.7-.7-158.7-1l-151.2-.2M69.6 242.8l.2 92 179 .3V150.7H69.5m578.4 73c78.3 5.5 131.2 58.7 143.7 144.6 4.7 32.6 2.8 73.4-5 102.5-18 67.2-55 105.8-114 120.8-36 6-116 2-116 3l-.5-.4V408.6 223h42l50 .6m-578.3 355l.2 92 179 .2V486.4H69.5" stroke="none" fill="#242423"/></svg>',
+      "friendlyName": "DROPOUT",
+      "className": "dropoutButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.collegehumor.chdropout",
+          "androidName": "com.collegehumor.chdropout",
+          "adbLaunchCommand": "adb shell am start -n com.collegehumor.chdropout/tv.vhx.tv.home.TvHomeActivity",
+      },
+      "apple-tv": {
+          "appName": "DROPOUT",
+      },
+      "chromecast": {
+          "appName": "com.collegehumor.chdropout",
+          "androidName": "com.collegehumor.chdropout",
+          "adbLaunchCommand": "adb shell am start -n com.collegehumor.chdropout/tv.vhx.tv.home.TvHomeActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.collegehumor.chdropout",
+          "androidName": "com.collegehumor.chdropout",
+          "adbLaunchCommand": "adb shell am start -n com.collegehumor.chdropout/tv.vhx.tv.home.TvHomeActivity",
+      },
+      "xiaomi": {
+          "appName": "com.collegehumor.chdropout",
+          "androidName": "com.collegehumor.chdropout",
+          "adbLaunchCommand": "adb shell am start -n com.collegehumor.chdropout/tv.vhx.tv.home.TvHomeActivity",
+      },
+   },
 
 
   "drtv": {
@@ -2862,6 +2894,17 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
 
 
+  "salt-tv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1027" height="272" viewBox="0 0 1027 272" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M465.2 2.3L395.8 20c-4.4 1.7-4.4 4.7 0 4.7 5.2 0 11.8 6.2 13.4 12.6a2992 2992 0 0 1-.5 209.8c-2 5.5-6.5 10.2-11.8 12-7.3 2.6 2.4 3.2 48.4 3.2 50.5 0 53.5-.3 43.7-4.6-13.3-6-13-1-13-138.3l-4-119m-391.4 14C31 23.8 3 53 3 95.7 3 131 19.3 149.2 75.8 177c48.4 23.8 60.7 34.5 60.7 53 0 20-16.4 32.3-42.5 32.3-33.4 0-57.4-25-69.8-73-4.3-16.8-8.8-14-13.4 8.2L.5 246.2c-3 9 6.6 13.6 43.7 21 20 4 65.3 4 75.6.2 1.5-.6 6-2 10-3.2 68.8-20.6 82.6-101.5 23.6-138.2a187 187 0 0 0-29.7-15.1l-9.7-4.3-8.5-3.7c-33.8-14.5-46.8-25.4-50.3-42C50.6 39.2 66 23 93 21.3c30.3-2 47.8 17.5 58.2 64.8 1.5 6.7 3.4 9.3 6.7 8.6 2-.4 3.2-3.3 7.2-17.4l11-36.7c3-8.7 2.3-12-2.2-13.7a651 651 0 0 0-37.3-10.8 138 138 0 0 0-55.8-1.7M584.5 32a60 60 0 0 0-4 7c-12.7 25.4-41 54.2-63.7 64.8-12.6 6-13 8-1.3 8 9.7.1 9-5 9.4 65.5l.3 63.7 3.4 6c18.7 33.3 70.2 26.8 96-12 6.5-9.8 5.3-14.5-2-8-10.7 9.3-24 8-29.5-3.2-2.2-4.3-2.4-8.2-2.7-58.3L590 112h15.5c17.2 0 21.6-1.3 19-5.7-1.2-2-3.3-2.2-15.2-2.5l-16.5-1-2.7-.6-.3-35.5c-.4-36.6-1-40.4-5.4-34.6m207.3 12.5l-8.8 4v36.5h-34.3v20h33.7l-.2 67c0 71.5 0 73 11 84.6 8.3 8.2 23.7 11.6 42 9.3 10.5-1.4 12.2-3 12.2-10.6 0-9-.2-9.2-11.4-8.3-16.4 1.4-26-4.7-28.7-15-2-7.4-1-127-1-127h37.5v-20h-39.5V63c0-22.3.6-24.6-12.4-18.4M863.6 87l71.6 175.3h21.5c.5 0 68.5-175 68.5-175 0 .1-21.3 0-21.5.1.2-.1-58 142.3-58.2 142.4-.2-.1-58.3-142.7-58.3-142.7h-23.6M265.7 98c-31 4.6-47.3 16.4-48.8 35-2.3 28.6 38.2 35.8 51.7 9.2 2.4-4.7 4.5-14 5.7-26 .8-8.7 4.2-13 10.4-13 11 0 13.3 6.6 12.8 38.2l-.3 24.2-4.2 1.4-11.6 3.5c-4 1.2-10.2 3.2-14 4.5l-9 3c-27 8-50 30.6-51.3 51-2.6 39.7 46.8 54 85.4 24.5 7.6-6 8.2-6 12 0 11 17.4 37.7 20.6 63.8 7.7 7.6-3.8 20.6-16 20.6-19.6 0-3.3-2.2-4.3-4.6-2.2-6.8 6-12.2 6.6-17 2-2.7-2.4-2.7-2.7-2.7-49 0-63.2-4-74.2-30.8-86.7C319 99 285 95.2 265.7 98M297.5 207l.3 32.3-2.7 1.5c-5 2.7-15.3 1.6-20.2-2.3-18.5-14.7-10-49.8 14.8-62 7.7-3.8 7.5-4.7 7.8 30.6M685.3 184c-31.4 10-42.3 46-21 70.2 22 25 62.7 16 73-16 10.2-31.2-21.2-64-52-54.2" stroke="none" fill="#fff"/></svg>',
+      "friendlyName": "Salt.tv",
+      "className": "saltTvButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "Salt TV",
+      },
+  },
+
+
   "sbs-on-demand": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="632" height="94" viewBox="0 0 632 94" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M-.5 50.8C4 46.3 8.2 40.4 11.2 33.4c3-7 4.6-14 4.6-20.6-5 5-9 11-11.7 17.4-3 7-4.6 14-4.6 20.6"/><path d="M4.3 60.6c6-6 11.7-14 16-23.3 4-9.4 6-19 6.3-27.6-6 6-11.6 14-15.7 23.3-4.3 9.7-6.3 19-6.5 27.6"/><path d="M11 74.5a100 100 0 0 0 21.5-31.7C38 30 41 17 41.2 5.4H41a100 100 0 0 0-21.5 31.7A100 100 0 0 0 11 74.5"/><path d="M20.2 92.6a128 128 0 0 0 28.9-42.7A132 132 0 0 0 60.6-.5l-.2.2a132 132 0 0 0-28.9 42.8c-7.4 17-11 34.6-11.3 50m72.3-53.7h9.5c-.2-10.4-8-17.5-21-17.5-11 0-19.7 6.5-19.7 16C61.4 58.3 94 48 94 62c0 5.5-5.5 8.3-11.3 8.3-8 0-13.5-3.8-14-11.6h-9.4C59.4 73 71 78 81.8 78c12.5 0 21.7-6 21.7-16.7 0-21.7-32.8-12-32.8-25.3 0-4.5 4.2-7 10-7 8.8.1 11.4 4.6 11.8 9.7zM107 22.6v54h26.4c10.4 0 18.4-5 18.4-15 0-7-2.4-11.6-10-14 4.3-1.8 7.6-4.7 7.6-11.7 0-9-6-13.3-15.8-13.3H107zm9.4 7.6H132c6 0 8.2 3.4 8.2 7.6 0 4.7-3 7.6-7.7 7.6h-16V30.2h0zm0 22H133c6.6 0 9.5 3.6 9.5 8.5 0 5.4-4.4 8.5-9.3 8.5h-16.8v-17zm71.2-13.4h9.5c-.2-10.4-8-17.5-21-17.5-11 0-19.7 6.5-19.7 16 0 21 32.6 10.8 32.6 25 0 5.5-5.5 8.3-11.3 8.3-8 0-13.5-3.8-14-11.6h-9.4c.2 14 11.7 19 22.7 19 12.5 0 21.7-6 21.7-16.7 0-21.7-32.8-12-32.8-25.3 0-4.5 4.2-7 10-7 8.7.1 11.4 4.6 11.8 9.7z"/><path d="M208 34.7v30l21.2-15zm46.2-13.4c-12.2 0-22.5 7.7-26.5 18.5l14 9.8-14 9.8c4 10.8 14.4 18.4 26.5 18.4 15.6 0 28.3-12.6 28.3-28.2 0-15.7-12.7-28.3-28.3-28.3zm0 40.8c-7 0-12.6-5.6-12.6-12.5 0-7 5.7-12.6 12.6-12.6 7 0 12.6 5.6 12.6 12.6S261.2 62 254.2 62zm82 14.4h-15.8l-16.5-29v29h-16.3v-54h15.7l16.6 29v-29h16.3zm25.6-54c8.3.2 14.4 2.5 18.6 7 4 4.4 6.2 11 6.2 20s-2 15.6-6.2 20-10.3 6.7-18.6 7h-18.6v-54h18.6zM359.3 72a36 36 0 0 0 10-1.2c2.8-.8 5-2.2 7-4s3-4 4-7a39 39 0 0 0 1.3-10.3c0-4-.5-7.5-1.3-10.4a17 17 0 0 0-4-7 17 17 0 0 0-7-4 36 36 0 0 0-10-1.2h-11v45h11zm69-49.5V27h-32v19.5h30v4.3h-30V72h32.4v4.4H391v-54h37.3zm13.4 0l18 47.3 18.6-47.3h7.5v54h-5V30h-.2L462 76.5h-4.8L439.5 30h-.1v46.6h-5v-54h7.5zm73.8 0l21.2 54h-5.5l-6.6-16.8H500l-6.5 16.8H488l21.7-54h5.7zm7.4 32.8l-10.5-27.7-10.8 27.7H523zm23.3-32.8L577.6 68h.2V22.6h5v54H577L545.8 31h-.1v45.6h-5v-54h5.7zm59.6 0c8.2.2 14.4 2.5 18.6 7 4 4.4 6.2 11 6.2 20s-2 15.6-6.2 20-10.4 6.7-18.6 7h-18.6v-54H606zM603.4 72a37 37 0 0 0 10-1.2c2.8-.8 5-2.2 7-4s3-4 4-7a39 39 0 0 0 1.3-10.3c0-4-.5-7.5-1.3-10.4a17 17 0 0 0-4-7 17 17 0 0 0-7-4 37 37 0 0 0-10-1.2h-11v45h11z" fill="#fdb715"/></svg>',
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="471" height="284" viewBox="0 0 471 284" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#2e2e2e" fill-rule="nonzero"><path d="M47.5 146a94 94 0 0 0 22.7-34.4 94 94 0 0 0 9.3-40.4h0a104 104 0 0 0-22.7 34.5C50 119 47.5 133.3 47.5 146"/><path d="M56.7 165.2c11.8-11.7 22.7-27 31-45.4A130 130 0 0 0 99.6 66h0a139 139 0 0 0-30.3 45.4 146 146 0 0 0-12.6 53.8"/><path d="M70.2 192.2c16-16 31-37 42-62.2 11-25.3 17-51.3 17-73.2h-1c-16 16-31 37-42 62.2a185 185 0 0 0-16 73.2"/><path d="M88.7 227.5c22-21 42-49.6 57.2-84a267 267 0 0 0 22.7-98.4l-1 .8a264 264 0 0 0-57 84 251 251 0 0 0-21.9 97.6m80.6-120.8v73l51.4-36.3zm248 88.6H387l-32.2-56v56h-31.4V90.8h30.4l32.2 56v-56h31.4zM260 88.3a54 54 0 0 0-48.8 30l25.3 18c2.8-10.2 12.3-17.6 23.5-17.6 13.3 0 24.5 10.7 24.5 24.5 0 13.3-11 24.6-24.5 24.6-11 0-20.2-7.2-23.2-17l-25.3 17.8C220.7 186 238.8 198 260 198c30.2 0 54.7-24.5 54.7-54.7a55 55 0 0 0-54.7-55z"/></svg>',
@@ -4387,7 +4430,7 @@ const fastappchoices = {
 
 
 };
-const appmap = new Map(Object.entries(fastappchoices));
+var appmap = new Map(Object.entries(fastappchoices));
 
 const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "AR1": 10, "AR2": 8, "AR3": 8, "CC1": 6, "NS2": 6, "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
@@ -4545,11 +4588,13 @@ function truncate(str, length) {
   return str.length > length ? str.substr(0, length) : str;
 }
 
+
+function resetAppMap(){
+    appmap = new Map(Object.entries(fastappchoices));
+}
+
+
 function handlehdmi(config, inputs = 0) {
-  appmap.delete('hdmi_1');
-  appmap.delete('hdmi_2');
-  appmap.delete('hdmi_3');
-  appmap.delete('hdmi_4');
   if( inputs == 1) {
     if( config.hdmi_1 ) {
       const inputname = truncate(config.hdmi_1, 8);
@@ -4577,10 +4622,7 @@ function handlehdmi(config, inputs = 0) {
 }
 
 
-function handlecustomlaunchers(config, maxLaunchers=20) {
-    for (let i = 1; i < maxLaunchers; i++) {
-      appmap.delete('customlauncher_'+i);
-    }
+function handlecustomlaunchers(config) {
     let customlaunchers = config.custom_launchers;
     if(typeof customlaunchers == 'undefined' || customlaunchers == null) {
       return;
@@ -4590,9 +4632,9 @@ function handlecustomlaunchers(config, maxLaunchers=20) {
     }
     var l = 1;
     customlaunchers.forEach((launcher) => {
-       var friendlyname = launcher.friendly_name || launcher.label || "customlauncher_"+l;
-       var label = launcher.label || launcher.friendly_name || "customlauncher_"+l;
-       appmap.set("customlauncher_"+l, {"button": truncate(label, 8), "friendlyName": "Custom: "+friendlyname, "script": launcher.script,});
+       var friendlyname = launcher.friendly_name || launcher.label || "customlauncher "+l;
+       var label = launcher.label || launcher.friendly_name || "customlauncher "+l;
+       appmap.set("customlauncher "+friendlyname, {"button": truncate(label, 8), "friendlyName": "Custom: "+friendlyname, "script": launcher.script,});
        l++;
     })
 }
@@ -5926,6 +5968,10 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 4.8rem);
           }
 
+          .dropoutButton {
+            background: #fbeb3c;
+          }
+
           .drtvButton {
             background: #ff001e;
           }
@@ -6439,6 +6485,10 @@ class FiremoteCard extends LitElement {
 
           .s0undTVButton {
             background: #a30f2c;
+          }
+
+          .saltTvButton {
+            background: #000;
           }
 
           .sbsOnDemandButton {
@@ -7186,10 +7236,9 @@ class FiremoteCard extends LitElement {
       return deviceAttributeQuery(deviceAttribute, confRef);
     }
 
-    // allow hdmi inputs where appropriate
-    handlehdmi(this._config, getDeviceAttribute('hdmiInputs'))
-
-    // add configured custom launchers to the appmap if set
+    // Rebuild AppMap - allow hdmi inputs where appropriate & add configured custom launchers from YAML
+    resetAppMap();
+    handlehdmi(this._config, getDeviceAttribute('hdmiInputs'));
     handlecustomlaunchers(this._config);
 
     // get app button details from appmap json
@@ -8558,10 +8607,9 @@ class FiremoteCard extends LitElement {
   // Remote Button Click Handler
   buttonClicked(clicked) {
 
-    // Refresh the appmap with any configured HDMI inputs (max 4)
-    handlehdmi(this._config, 4)
-
-    // Refresh the appmap with any configured Custom Launchers
+    // Rebuild AppMap - allow hdmi inputs where appropriate & add configured custom launchers from YAML
+    resetAppMap();
+    handlehdmi(this._config, 4);
     handlecustomlaunchers(this._config);
 
     // Inspect user prefs
@@ -8604,7 +8652,7 @@ class FiremoteCard extends LitElement {
 
 
     // Handle custom launcher buttons
-    var customLauncherIDPfx = new RegExp('customlauncher_')
+    var customLauncherIDPfx = new RegExp('customlauncher ')
     if(customLauncherIDPfx.test(clicked.target.id)){
         var clickedButtonID = clicked.target.id;
         const customLauncherKey = clickedButtonID.substr(0, clickedButtonID.indexOf("-button"));
@@ -9540,10 +9588,9 @@ class FiremoteCardEditor extends LitElement {
       return deviceAttributeQuery(deviceAttribute, confRef);
     }
 
-    // Show and hide HDMI inputs if the device has them
+    // Rebuild AppMap - allow hdmi inputs where appropriate & add configured custom launchers from YAML
+    resetAppMap();
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'));
-
-    // add configured custom launchers to the appmap if set
     handlecustomlaunchers(this._config);
 
     return html`
