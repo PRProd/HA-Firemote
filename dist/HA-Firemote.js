@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.1.0b2';
+const HAFiremoteVersion = 'v3.1.0b3';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -4632,9 +4632,20 @@ function handlecustomlaunchers(config) {
     }
     var l = 1;
     customlaunchers.forEach((launcher) => {
+       var style = null; var icon = null; var imagePath = null;
+       if (launcher.color) { style = 'color:'+launcher.color+';'; }
+       if (launcher.background) { style = style+'background:'+launcher.background+';'; }
        var friendlyname = launcher.friendly_name || launcher.label || "customlauncher "+l;
        var label = launcher.label || launcher.friendly_name || "customlauncher "+l;
-       appmap.set("customlauncher "+friendlyname, {"button": truncate(label, 8), "friendlyName": "Custom: "+friendlyname, "script": launcher.script,});
+       if (launcher.icon) {
+         icon = '<div class="customLauncherBackground" style="'+style+'"></div><ha-icon icon="'+launcher.icon+'" class="customLauncherIcon" style="'+style+'"></ha-icon>';
+       }
+       if (launcher.image_path) {
+         imagePath = '<div class="customLauncherBackground" style="'+style+'"></div><img src="'+launcher.image_path+'" alt="'+label+'" class="customLauncherImg">';
+       }
+       label = '<div class="customLauncherBackground" style="'+style+'"></div><div style="'+style+'" class="customLauncherTxt">'+truncate(label, 10)+'</div>';
+       var buttonFace = imagePath || icon || label
+       appmap.set("customlauncher "+friendlyname, {"button": buttonFace, "friendlyName": "Custom: "+friendlyname, "script": launcher.script,});
        l++;
     })
 }
@@ -5515,7 +5526,6 @@ class FiremoteCard extends LitElement {
           }
 
           .apple-remote-body .srcButton {
-            filter: none;
             border: none;
             box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.143rem 0);
             transition: none;
@@ -5533,7 +5543,7 @@ class FiremoteCard extends LitElement {
           }
 
           .srcButton.appActiveUnknown {
-            filter: none;
+            filter: grayscale(0%) brightness(100%);
             transition: filter 0s;
           }
 
@@ -5741,6 +5751,36 @@ class FiremoteCard extends LitElement {
             position: absolute;
             bottom: calc(var(--sz) * .35rem);
             right: calc(var(--sz) * .4rem);
+          }
+
+          .customLauncherBackground {
+            pointer-events: none;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transform: scale(1.25);
+          }
+
+          .customLauncherTxt {
+            z-index: 1;
+            pointer-events: none;
+          }
+
+          .customLauncherIcon {
+            display: flex;
+            max-width: 100%;
+            max-height: 100%;
+            transform: scale(var(--sz));
+            display: flex;
+            align-items: center;
+          }
+
+          .customLauncherImg {
+            pointer-events: none;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+            z-index: 1;
           }
 
           .abciviewButton{
@@ -7175,11 +7215,10 @@ class FiremoteCard extends LitElement {
     }
     var AppLaunchButtonFilterCssValue = 'grayscale(25%) brightness(58%)';
     if(this._config.device_family == 'apple-tv') {
-      AppLaunchButtonFilterCssValue = 'none !important';
+      AppLaunchButtonFilterCssValue = 'grayscale(0%) brightness(100%)';
     }
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
     var backgroundInherit = '';
-    //if (this._config.use_theme_background == true) { backgroundInherit = 'background: inherit !important; border: inherit !important; border-radius: inherit !important;';}
     if (this._config.use_theme_background == true) { backgroundInherit = 'background: var(--ha-card-background,var(--card-background-color,#fff))!important; border: inherit !important; border-radius: inherit !important;';}
     const cssVars = html `<style>
                             :host {
@@ -8622,7 +8661,6 @@ class FiremoteCard extends LitElement {
     // Function to handle translations from English to the user's language
     const ha_language = this.hass.config.language;
     function translateToUsrLang(englishString) {
-        //console.log(ha_language);
         var translatedString = englishString;
         if (typeof translationmap.get(ha_language) !== 'undefined'){
             if (typeof translationmap.get(ha_language)[sourceName] !== 'undefined'){
@@ -9265,16 +9303,12 @@ class FiremoteCardEditor extends LitElement {
 
   translateToUsrLang(englishString) {
     const ha_language = this.hass.config.language;
-    //console.log('English string in = '+englishString)
-    //const ha_language = 'pt';
-    //console.log(ha_language);
     var translatedString = englishString;
     if (typeof translationmap.get(ha_language) !== 'undefined'){
         if (typeof translationmap.get(ha_language)[englishString] !== 'undefined'){
             translatedString = translationmap.get(ha_language)[englishString];
         }
     }
-    //console.log('Translated string out = '+translatedString)
     return translatedString;
   }
 
