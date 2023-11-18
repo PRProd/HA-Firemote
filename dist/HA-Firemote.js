@@ -5520,9 +5520,10 @@ class FiremoteCard extends LitElement {
             font-size: calc(var(--sz) * 1.14rem);
             padding: calc(var(--sz) * 0.285rem);
             white-space: nowrap;
+            transform: translate3d(0,0,0); /* because ios safari mobile */
             overflow: hidden;
-            filter: var(--appButtonFilter);
             transition: filter 250ms;
+            filter: var(--appButtonFilter);
           }
 
           .apple-remote-body .srcButton {
@@ -5759,10 +5760,12 @@ class FiremoteCard extends LitElement {
             height: 100%;
             width: 100%;
             transform: scale(1.25);
+            z-index: 1;
+            overflow: hidden;
           }
 
           .customLauncherTxt {
-            z-index: 1;
+            z-index: 2;
             pointer-events: none;
           }
 
@@ -5773,6 +5776,7 @@ class FiremoteCard extends LitElement {
             transform: scale(var(--sz));
             display: flex;
             align-items: center;
+            z-index: 2;
           }
 
           .customLauncherImg {
@@ -5780,7 +5784,7 @@ class FiremoteCard extends LitElement {
             max-width: 100%;
             max-height: 100%;
             overflow: hidden;
-            z-index: 1;
+            z-index: 2;
           }
 
           .abciviewButton{
