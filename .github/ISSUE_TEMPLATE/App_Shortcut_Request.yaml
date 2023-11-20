@@ -17,7 +17,7 @@ body:
       placeholder: ex. YouTube
     validations:
       required: true
-  - type: input
+  - type: dropdown
     id: platform
     attributes:
       label: Device Platform
