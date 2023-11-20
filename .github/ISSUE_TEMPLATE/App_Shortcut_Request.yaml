@@ -17,6 +17,9 @@ body:
       placeholder: ex. YouTube
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: <br>
   - type: dropdown
     id: platform
     attributes:
