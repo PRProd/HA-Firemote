@@ -34,6 +34,9 @@ body:
       description: The kind of device you own.  You can choose one or more from this list.
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: <br>
   - type: input
     id: appstoreLink
     attributes:
@@ -41,14 +44,20 @@ body:
       description: Optionally provide a link to the Google Play or Apple store where this app can be downloaded.  If this is a sideloaded app, please include a full URL for where the .apk can be found
     validations:
       required: false
+  - type: markdown
+    attributes:
+      value: <br>Follow the instructions listed, and paste the results into this box. [Instructions for Amazon Fire, Chromecast, NVIDIA Shield, and Xiaomi Android devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-fire-tv-chromecast-nvidia-shield-xiaomi-mi-and-other-android-based-devices), or [Apple TV Devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-apple-tv-devices)
   - type: textarea
     id: detailedAppInfo
     attributes:
-      label: Application Info
+      label: Application Details
       description: Optional, but EXTREMELY helpful.  Follow the instructions [listed here](https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#details-for-app-requests) and paste the results.
       placeholder: 
     validations:
       required: false
+  - type: markdown
+    attributes:
+      value: <br>
   - type: textarea
     id: additionalInfo
     attributes:
