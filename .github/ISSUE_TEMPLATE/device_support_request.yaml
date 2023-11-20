@@ -1,6 +1,6 @@
-name: Device Support Request
-description: Request Support for a currently unsupported Device
-title: "[New Device Support]: "
+name: Amazon Fire TV Device Support Request
+description: Request Support for a currently unsupported Amazon Fire TV Device
+title: "[Amazon Fire TV Device Support]: "
 labels: ["New Device Support", "enhancement"]
 assignees:
   - PRProd
@@ -8,19 +8,22 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to contribute to this project with your requests!
+        Thanks for taking the time to contribute to this project with your requests!  This form is to request official support for any **Amazon Fire TV** device that is not yet supported.  ([See supported Fire devices here](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart))
   - type: input
-    id: appname
+    id: firedevicename
     attributes:
       label: Device Name
       description: 'The official name of the device you own that is not yet supported.  Please use this list to find the appropriate name to use in this field: https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart  This official Amazon Product link might be helpful to assist you with this task: https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html'
       placeholder: ex. Fire TV 4-Series (2021)
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: <br>
   - type: dropdown
     id: bestEventNumber
     attributes:
-      label: Which compatibility mode event number works BEST with your device?
+      label: Which compatibility mode event number works BEST with your device? ([how do I check?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
       multiple: false
       options:
         - event0
@@ -32,6 +35,16 @@ body:
         - event6
         - event7
         - event8
+        - event9
+        - event10
+        - event11
+        - event12
+        - event13
+        - Strong (slower)
+      required: true
+  - type: markdown
+    attributes:
+      value: <br>
   - type: textarea
     id: additionalInfo
     attributes:
@@ -40,6 +53,9 @@ body:
       placeholder: 
     validations:
       required: false
+  - type: markdown
+    attributes:
+      value: <br>
   - type: textarea
     id: inputDump
     attributes:
