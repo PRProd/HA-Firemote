@@ -9,17 +9,20 @@ body:
     attributes:
       value: |
         Thanks for taking the time to contribute to this project with your requests!  This form is to request official support for any **Amazon Fire TV** device that is not yet supported.  ([See supported Fire devices here](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart))
+  - type: markdown
+    attributes:
+      value: Please reference [this list](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart) to find the appropriate name to use in this **Device Name** field.   This official [Amazon Products link](https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html) might also be helpful to assist you with this task
   - type: input
     id: firedevicename
     attributes:
       label: Device Name
-      description: 'The official name of the device you own that is not yet supported.  Please use this list to find the appropriate name to use in this field: https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart  This official Amazon Product link might be helpful to assist you with this task: https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html'
+      description: The official name of the device you own that is not yet supported.  
       placeholder: ex. Fire TV 4-Series (2021)
     validations:
       required: true
   - type: markdown
     attributes:
-      value: <br>([how do I test different event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
+      value: <br>([How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
   - type: dropdown
     id: bestEventNumber
     attributes:
