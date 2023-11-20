@@ -19,11 +19,11 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: <br>
+      value: <br>([how do I test different event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
   - type: dropdown
     id: bestEventNumber
     attributes:
-      label: Which compatibility mode event number works BEST with your device? ([how do I check?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
+      label: Which compatibility mode event number works BEST with your device?
       multiple: false
       options:
         - event0
