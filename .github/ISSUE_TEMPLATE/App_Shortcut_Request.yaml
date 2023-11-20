@@ -21,8 +21,14 @@ body:
     id: platform
     attributes:
       label: Device Platform
-      description: The kind of device you own.  You can write "Amazon Fire", "Apple TV", "Chromecast", "NVIDIA Shield", "Xiaomi" or any combination.
-      placeholder: ex. NVIDIA Shield
+      options: 
+       - Amazon Fire
+       - Apple TV
+       - Chromecast
+       - NVIDIA Shield
+       - Xiaomi
+      multiple: true
+      description: The kind of device you own.  You can choose one or more from this list.
     validations:
       required: true
   - type: input
