@@ -11,7 +11,7 @@ body:
         Thanks for taking the time to contribute to this project with your requests!  This form is to request official support for any **Amazon Fire TV** device that is not yet supported.  ([See supported Fire devices here](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart))
   - type: markdown
     attributes:
-      value: Please reference [this list](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart) to find the appropriate name to use in this **Device Name** field.   This official [Amazon Products link](https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html) might also be helpful to assist you with this task
+      value: <br>Please reference [this list](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart) to find the appropriate name to use in this **Device Name** field.   This official [Amazon Products link](https://developer.amazon.com/docs/fire-tv/device-specifications-comparison-table.html) might also be helpful to assist you with this task
   - type: input
     id: firedevicename
     attributes:
@@ -22,7 +22,7 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: <br>([How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
+      value: <br><br>Help: ([How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
   - type: dropdown
     id: bestEventNumber
     attributes:
@@ -50,21 +50,21 @@ body:
     attributes:
       value: <br>
   - type: textarea
-    id: additionalInfo
+    id: inputDump
     attributes:
-      label: Additional Comments (optional)
-      description: Do all of your buttons seem to work except for a few?  Which ones?  Do other event numbers also work?
+      label: Device ADB Input Interrogation Response
+      description: 'Use this link https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#device-interrogation to gather important device information.  If you are able to run ADB commands, paste the output of the following command `adb shell dumpsys input`'
       placeholder: 
     validations:
-      required: false
+      required: true
   - type: markdown
     attributes:
       value: <br>
   - type: textarea
-    id: inputDump
+    id: additionalInfo
     attributes:
-      label: Interrogation ADB Response (optional but EXTREMELY helpful)
-      description: 'Use this link https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#device-interrogation to gather important device information.  If you are able to run ADB commands, paste the output of the following command `adb shell dumpsys input`'
+      label: Additional Comments (optional)
+      description: Do all of your buttons seem to work except for a few?  Which ones?  Do other event numbers also work?
       placeholder: 
     validations:
       required: false
