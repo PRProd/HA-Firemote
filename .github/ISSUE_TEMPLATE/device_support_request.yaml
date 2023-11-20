@@ -22,7 +22,7 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: <br><br>Help: ([How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))
+      value: "<br><br>Help: ([How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))"
   - type: dropdown
     id: bestEventNumber
     attributes:
