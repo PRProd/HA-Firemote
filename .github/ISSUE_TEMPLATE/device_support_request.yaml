@@ -22,7 +22,7 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: "<br><br>Help: ([How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all))"
+      value: "<br><br>Help: [How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all)"
   - type: dropdown
     id: bestEventNumber
     attributes:
@@ -53,7 +53,7 @@ body:
     id: inputDump
     attributes:
       label: Device ADB Input Interrogation Response
-      description: 'Follow the instructions in this link https://github.com/PRProd/HA-Firemote/wiki/Getting-Android-Device-Attributes#getting-device-input-details to gather the required device information.
+      description: 'Follow the instructions in this link https://github.com/PRProd/HA-Firemote/wiki/Getting-Android-Device-Attributes#getting-device-input-details to gather the required device information.'
       placeholder: 
     validations:
       required: true
