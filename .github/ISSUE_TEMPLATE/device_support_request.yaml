@@ -53,7 +53,7 @@ body:
     id: inputDump
     attributes:
       label: Device ADB Input Interrogation Response
-      description: 'Use this link https://github.com/PRProd/HA-Firemote/wiki/How-Can-I-Help%3F#device-interrogation to gather important device information.  If you are able to run ADB commands, paste the output of the following command `adb shell dumpsys input`'
+      description: 'Follow the instructions in this link https://github.com/PRProd/HA-Firemote/wiki/Getting-Android-Device-Attributes#getting-device-input-details to gather the required device information.
       placeholder: 
     validations:
       required: true
