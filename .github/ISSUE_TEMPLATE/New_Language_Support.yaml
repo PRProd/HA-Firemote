@@ -1,0 +1,81 @@
+name: Language Support
+description: 
+title: "[New Language Support]: "
+labels: ["Region Issue", "enhancement"]
+assignees:
+  - PRProd
+body:
+  - type: markdown
+    attributes:
+      value: "Thank you for taking the time to contribute to this project!  Please use this issue form to request new language support for any currently unsupported language.  [Click here](https://github.com/PRProd/HA-Firemote/wiki/#which-languages-are-currently-supported) to view the currently supported languages.<br><br>"
+  - type: input
+    id: langcode
+    attributes:
+      label: Language Code
+      description: The official 2 letter language code.  Code lookup can be found here: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes  
+      placeholder: example: en
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "<br><br>For Apple TV Users: Follow the instructions [listed here](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-apple-tv-devices)."
+  - type: textarea
+    id: appleTVSourceList
+    attributes:
+      label: Apple TV source_list
+      placeholder: 
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: <br>
+  - type: textarea
+    id: wordPhraseMap
+    attributes:
+      label: Translation Chart
+      description: 'To the best of your ability, Please write the best translation for each of the items listed here'
+      value: |
+        App Launch Button: 
+        Apple Computers:
+        Apple Music:
+        Apple Photos":
+        Associated:
+        bottom:
+        Compatibility Mode:
+        Computers:
+        Device Family:
+        Device Model:
+        Device Name Text Color:
+        Function: Control Center:
+        Function: Find My Remote:
+        Function: Mute:
+        Function: Next:
+        Function: Previous:
+        Function: Reboot:
+        Function: Search:
+        Function: Settings:
+        Function: Skip Backward:
+        Function: Skip Forward:
+        Function: Switch Apps:
+        hidden:
+        Music:
+        Name Position:
+        Photos:
+        Remote Style:
+        Scale:
+        Settings:
+        Search:
+        Visible Device Name:
+      render: text
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: <br>
+  - type: textarea
+    id: additionalInfo
+    attributes:
+      label: Additional Comments (optional)
+      placeholder: 
+    validations:
+      required: false
