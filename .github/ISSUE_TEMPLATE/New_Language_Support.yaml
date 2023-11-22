@@ -33,7 +33,7 @@ body:
   - type: textarea
     id: wordPhraseMap
     attributes:
-      label: Translation Chart
+      label: 'Translation Chart'
       description: 'To the best of your ability, Please write the best translation for each of the items listed here'
       render: text
       value: |
