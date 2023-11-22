@@ -13,7 +13,7 @@ body:
     attributes:
       label: Language Code
       description: "The official 2 letter language code.  Code lookup can be found here: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
-      placeholder: example: en
+      placeholder: "example: en"
     validations:
       required: true
   - type: markdown
