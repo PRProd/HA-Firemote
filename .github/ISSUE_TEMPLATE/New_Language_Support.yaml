@@ -1,5 +1,5 @@
 name: Language Support
-description: 
+description: "Request support for any currently unsupported language"
 title: "[New Language Support]: "
 labels: ["Region Issue", "enhancement"]
 assignees:
