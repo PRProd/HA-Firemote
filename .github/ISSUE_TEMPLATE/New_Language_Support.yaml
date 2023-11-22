@@ -37,37 +37,40 @@ body:
       description: 'To the best of your ability, Please write the best translation for each of the items listed here'
       render: text
       value: |
-        App Launch Button: 
-        Apple Computers:
-        Apple Music:
-        Apple Photos:
-        Associated:
-        bottom:
-        Compatibility Mode:
-        Computers:
-        Device Family:
-        Device Model:
-        Device Name Text Color:
-        Function: Control Center:
-        Function: Find My Remote:
-        Function: Mute:
-        Function: Next:
-        Function: Previous:
-        Function: Reboot:
-        Function: Search:
-        Function: Settings:
-        Function: Skip Backward:
-        Function: Skip Forward:
-        Function: Switch Apps:
-        hidden:
-        Music:
-        Name Position:
-        Photos:
-        Remote Style:
-        Scale:
-        Settings:
-        Search:
-        Visible Device Name:
+         1. App Launch Button => 
+         2. App Launcher Relative Scale =>
+         3. Apple Computers => 
+         4. Apple Music => 
+         5. Apple Photos => 
+         6. Associated => 
+         7. bottom => 
+         8. Compatibility Mode => 
+         9. Computers => 
+        10. Device Family => 
+        11. Device Model => 
+        12. Device Name Text Color => 
+        13. Function: Control Center => 
+        14. Function: Find My Remote => 
+        15. Function: Mute => 
+        16. Function: Next => 
+        17. Function: Previous => 
+        18. Function: Reboot => 
+        19. Function: Search => 
+        20. Function: Settings => 
+        21. Function: Skip Backward => 
+        22. Function: Skip Forward => 
+        23. Function: Switch Apps => 
+        24. hidden => 
+        25. Music => 
+        26. Name Position => 
+        27. Optional => 
+        28. Photos => 
+        29. Remote Style => 
+        30. Scale => 
+        31. Settings => 
+        32. Search => 
+        33. top => 
+        34. Visible Device Name =>
     validations:
       required: true
   - type: markdown
