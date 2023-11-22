@@ -1,0 +1,37 @@
+name: Feature Request
+description: "Suggest an idea for this project"
+title: "[Feature Request]: "
+labels: ["enhancement"]
+assignees:
+  - PRProd
+body:
+  - type: markdown
+    attributes:
+      value: "Thank you for taking the time to contribute to this project!<br><br>"
+  - type: textarea
+    id: relatedtoaproblem
+    attributes:
+      label: "Is your feature request related to a problem?"
+      description: "If yes, please describe"
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: <br>
+  - type: textarea
+    id: featuredescription
+    attributes:
+      label: "Feature Request"
+      description: "Please do your best to describe the new feature, giving details and examples wherever you can"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: <br>
+  - type: textarea
+    id: additionalInfo
+    attributes:
+      label: Additional Comments (optional)
+      placeholder: 
+    validations:
+      required: false
