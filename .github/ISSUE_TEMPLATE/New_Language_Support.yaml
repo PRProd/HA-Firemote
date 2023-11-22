@@ -37,15 +37,15 @@ body:
       description: 'To the best of your ability, Please write the best translation for each of the items listed here'
       render: text
       value: |
-         1. App Launch Button => 
-         2. App Launcher Relative Scale =>
-         3. Apple Computers => 
-         4. Apple Music => 
-         5. Apple Photos => 
-         6. Associated => 
-         7. bottom => 
-         8. Compatibility Mode => 
-         9. Computers => 
+        01. App Launch Button => 
+        02. App Launcher Relative Scale =>
+        03. Apple Computers => 
+        04. Apple Music => 
+        05. Apple Photos => 
+        06. Associated => 
+        07. bottom => 
+        08. Compatibility Mode => 
+        09. Computers => 
         10. Device Family => 
         11. Device Model => 
         12. Device Name Text Color => 
