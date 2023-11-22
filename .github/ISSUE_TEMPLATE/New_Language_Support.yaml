@@ -24,6 +24,7 @@ body:
     attributes:
       label: Apple TV source_list
       placeholder: 
+      render: text
     validations:
       required: false
   - type: markdown
