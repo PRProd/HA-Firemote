@@ -1,0 +1,70 @@
+name: Xiaomi Device Support Request
+description: Request Support for a currently unsupported Xiaomi Device
+title: "[Xiaomi Device Support]: "
+labels: ["New Device Support", "enhancement"]
+assignees:
+  - PRProd
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to contribute to this project with your requests!  This form is to request official support for any **Xiaomi** device that is not yet supported.
+  - type: markdown
+    attributes:
+      value: <br>
+  - type: input
+    id: xiaomidevicename
+    attributes:
+      label: Device Name
+      description: The official name of the Xiaomi device you own that is not yet supported.  
+      placeholder: ex. Mi Box S
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "<br><br>Help: [How do I test different compatability mode event numbers?](https://github.com/PRProd/HA-Firemote#why-dont-any-of-the-buttons-on-the-firemote-work-at-all)"
+  - type: dropdown
+    id: bestEventNumber
+    attributes:
+      label: Which compatibility mode event number works BEST with your device?
+      multiple: false
+      options:
+        - event0
+        - event1
+        - event2
+        - event3
+        - event4
+        - event5
+        - event6
+        - event7
+        - event8
+        - event9
+        - event10
+        - event11
+        - event12
+        - event13
+        - Strong (slower)
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: <br>
+  - type: textarea
+    id: inputDump
+    attributes:
+      label: Device ADB Input Interrogation Response
+      description: 'Follow the instructions in this link https://github.com/PRProd/HA-Firemote/wiki/Getting-Android-Device-Attributes#getting-device-input-details to gather the required device information.'
+      placeholder: 
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: <br>
+  - type: textarea
+    id: additionalInfo
+    attributes:
+      label: Additional Comments (optional)
+      description: Do all of your buttons seem to work except for a few?  Which ones?  Do other event numbers also work?
+      placeholder: 
+    validations:
+      required: false
