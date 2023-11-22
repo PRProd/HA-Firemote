@@ -35,11 +35,12 @@ body:
     attributes:
       label: Translation Chart
       description: 'To the best of your ability, Please write the best translation for each of the items listed here'
+      render: text
       value: |
         App Launch Button: 
         Apple Computers:
         Apple Music:
-        Apple Photos":
+        Apple Photos:
         Associated:
         bottom:
         Compatibility Mode:
@@ -67,7 +68,6 @@ body:
         Settings:
         Search:
         Visible Device Name:
-      render: text
     validations:
       required: true
   - type: markdown
