@@ -176,7 +176,7 @@ Options:
 <br>
 
 ## App Launcher Buttons
-Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  [Click here](https://github.com/PRProd/HA-Firemote/wiki/Firemote-App-Launchers) to view the chart of **over 200** options
+Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  There are currently **over 200** [options available](https://github.com/PRProd/HA-Firemote/wiki/Firemote-App-Launchers), and the list just keeps growing.
 
 <br>
 <br>
@@ -314,25 +314,30 @@ Due to the way the Apple TV Home Assistant integration is built, an Apple TV sty
    * Is the correct Android device selected?
    * Is the correct Device Family selected?
    * Is the correct Device type selected?
-   * If you are using it, is the correct matching Android TV Remote Entity selected?
+   * If you are using one, is the correct matching Android TV Remote Entity selected?
    * Is Compatibility Mode set to Default?
  * If the Default Compatibility Mode is not working on your device, and you've checked every other step, slowly choose "event0", "event1", etc. and test your remote buttons under each mode.  One of these will work.
 <br>
 
-### Why isn't my Amazon Fire Device supported?
+### I own a device that isn't a part of any of the existing device families, can it be added?
+Yes!  In fact, there is a poll in the discussion group called [Vote for what gets added next](https://github.com/PRProd/HA-Firemote/discussions/41) where the community can help decide which new device family will gain Firemote support next.  If your device isn't on the ballot, no problem!  Just vote for "Other" and write the name of your device in the discussion thread below.
+<br>
+<br>
+
+### Why isn't the model of my Amazon Fire Device supported?
 There are over 40 kinds of Amazon Fire devices, so it will take a while to gain properly tested support for all of them.  If Firemote doesn't support your Amazon Fire device yet, you can still use Firemote!  Simply choose a supported device that is similar to the one that you have (preferably a remote that looks the same as your physical remote), then you can test different compatibility modes to find out which one works the best.<br>
 
-For extra credit, you could submit a request to have your device added!  It's simple!  Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, click 'New Issue' and then click the "Get Started" button next to the "Device Support Request" option.  Your help is VERY appreciated!
+The **BEST** option for everyone is if you would submit a request to have your device added!  It's simple!  Just open a new [Amazon Fire TV Device Support Request](https://github.com/PRProd/HA-Firemote/issues/new?assignees=PRProd&labels=New+Device+Support%2Cenhancement&projects=&template=device_support_request.yaml&title=%5BAmazon+Fire+TV+Device+Support%5D%3A+), fill out the quick and easy form, and you're done!
 <br>
 <br>
 
 ### Why do only some of the Firemote buttons for the Apps that came with my Apple TV work properly, while others don't?
-Apple TV app shortcuts work simply by passing the name of the app to the apple tv remote entity.  Firemote is built and tested against an environment that uses English as the primary language.  In some scenarios, built-in Apple TV apps use language app specific names, which is why asking it to open the English version of that app's name does not work.  In order to overcome this, I request that you click the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at the top of this page so we can work together and make all of these buttons work in your native language.
+Apple TV app shortcuts work simply by passing the name of the app to the apple tv remote entity.  Firemote is built and tested against an environment that uses English as the primary language.  In some scenarios, built-in Apple TV apps use language app specific names, which is why asking it to open the English version of that app's name does not work.  In order to overcome this, I request that you open a [new language support request](https://github.com/PRProd/HA-Firemote/issues/new?assignees=PRProd&labels=Region+Issue%2Cenhancement&projects=&template=New_Language_Support.yaml&title=%5BNew+Language+Support%5D%3A+) so we can work together and make all of these buttons work as intended.
 <br>
 <br>
 
 ### I want a shortcut button for an app I use frequently, but it's not on the list.  Can it be added?
-Absolutely!  Simply ask!  Here's how: Click the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at the top of this page, click 'New Issue' and then click the "Get Started" button next to the "App Shortcut Request" option.  Your request is important to you and likely important to others as well!  If the app is easily downloaded through your device's official store (not sideloaded), your request will be granted ASAP.
+Absolutely!  Simply ask!  Here's how: From the [Issues](https://github.com/PRProd/HA-Firemote/issues) menu, simply start a new [App Shortcut Request](https://github.com/PRProd/HA-Firemote/issues/new?assignees=PRProd&labels=New+App+Shortcut%2Cenhancement&projects=&template=App_Shortcut_Request.yaml&title=%5BNew+App+Shortcut%5D%3A+).  If you absolutely cannot wait, you can also [build your own launcher button](https://github.com/PRProd/HA-Firemote#launcher-button-customizations) using YAML.
 <br>
 <br>
 
@@ -342,6 +347,7 @@ Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at th
 <br>
 
 ### How can I contribute?
+ - Did you install Firemote through HACS?  If you did, and it was easy, visit the [HACS Github Page](https://github.com/hacs/default) and give their project a star!  There should be thousands, but for some reason they don't have many.  Give them some love!
  - Take a look at the current [discussions board](https://github.com/PRProd/HA-Firemote/discussions) to see if anything is tagged with "Help Wanted".
  - <a href="https://www.buymeacoffee.com/PRProd" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
  - Since it is personally expensive for me to purchase, evaluate, and develop integrations for all of your requests, I've set up an [Amazon Wish List (US)](https://www.amazon.com/hz/wishlist/ls/2UDS10RPJ6F5K?ref_=wl_share) and an [Amazon Wish List (DE)](https://www.amazon.de/hz/wishlist/ls/HFABU3R70GWE?ref_=wl_share) for any of you who are feeling incredibly generous and want to send me something that I don't already own.
