@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.1.2b1';
+const HAFiremoteVersion = 'v3.1.2b2';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -259,25 +259,25 @@ const devices = {
 
     "noCategory": {
 
-      "shield-tv-2017": {
+      "shield-tv-pro-2019": {
         "supported": true,
-        "friendlyName": "SHIELD TV (2015 or 2017)",
-        "defaultRemoteStyle" : "NS1",
-      },
-      "shield-tv-pro-2017": {
-        "supported": true,
-        "friendlyName": "SHIELD TV Pro (2015 or 2017)",
-        "defaultRemoteStyle" : "NS1",
+        "friendlyName": "SHIELD TV Pro (2019)",
+        "defaultRemoteStyle" : "NS2",
       },
       "shield-tv-2019": {
         "supported": true,
         "friendlyName": "SHIELD TV (2019)",
         "defaultRemoteStyle" : "NS2",
       },
-      "shield-tv-pro-2019": {
+      "shield-tv-pro-2017": {
         "supported": true,
-        "friendlyName": "SHIELD TV Pro (2019)",
-        "defaultRemoteStyle" : "NS2",
+        "friendlyName": "SHIELD TV Pro (2015 or 2017)",
+        "defaultRemoteStyle" : "NS1",
+      },
+      "shield-tv-2017": {
+        "supported": true,
+        "friendlyName": "SHIELD TV (2015 or 2017)",
+        "defaultRemoteStyle" : "NS1",
       },
 
     },
@@ -1848,6 +1848,17 @@ const fastappchoices = {
       "xiaomi": {
           "adbLaunchCommand": "adb shell am start -n org.jellyfin.androidtv/org.jellyfin.androidtv.ui.startup.StartupActivity",
       },
+   },
+
+
+  "joyn": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="741" viewBox="0 0 1621 741" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M279 71v450.5C279 620 201.8 700 106.5 700H50V581h53c29.3 0 53-28.4 53-63.5v-167V189H50V71h229zm251.8-11c-119.6 0-216.5 97-216.5 216.5S411.2 493 530.8 493s216.5-97 216.5-216.5S650.4 60 530.8 60zm0 313c-51.4 0-93-43.2-93-96.5s41.6-96.5 93-96.5 93 43.2 93 96.5-41.6 96.5-93 96.5zm620.7-302v451.5c0 77.8-51.8 143.8-124 167.8-18.8 6.3-39 9.7-60 9.7-20.6 0-40.5-3.3-59-9.3-72.7-23.7-125-90-125-168.2h125c0 33 26.6 59.5 59.5 59.5s59.5-26.6 59.5-59.5v-74a145 145 0 0 1-28.7 23c-21.4 13-46.5 20.4-73.3 20.4-3 0-5.7-.1-8.5-.2l-8.5-.6c-45.5-4-79.5-25.6-100.5-57-16-23.7-24.4-53-24.4-84.7V71h125v137 105.4c0 14 5 27 13 37 11 13.6 27.7 22.4 46.5 22.4 18.7 0 35.4-8.7 46.3-22.2a59 59 0 0 0 13.2-37.3v-63V71h124zM1570 197v284h-124V332v-92a60 60 0 1 0-120 0v51.6V481h-124V72h124v30.4A145 145 0 0 1 1428 61c22.8 0 43 4 60.8 11 52 20.8 81.2 69 81.2 125z" fill="#fff"/></svg>',
+      "friendlyName": "Joyn",
+      "className": "joynButton",
+      "appName": "de.prosiebensat1digital.seventv",
+      "androidName": "de.prosiebensat1digital.seventv",
+      "adbLaunchCommand": "adb shell am start -n de.prosiebensat1digital.seventv/de.prosiebensat1digital.seventv.MainActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],
    },
 
 
@@ -4636,6 +4647,39 @@ const rosettaStone = {
       "Search": "Søg",
       "Visible Device Name": "Synligt enhedsnavn",
   },
+  "de": {
+      "App Launch Button": "Anwendungsstartknopf",
+      "App Launcher Relative Scale": "Relativer Maßstab des Anwendungslaunchers",
+      "Apple Computers": "Apple Computer",
+      "Apple Music": "Apple Musik",
+      "Apple Photos": "Apple Bilder",
+      "Associated": "Assoziiert",
+      "bottom": "unten",
+      "Compatibility Mode": "Kompatibilitätsmodus",
+      "Default for": "Vorgabe für",
+      "Device Family": "Gerätegruppe",
+      "Device Model": "Gerätemodell",
+      "Device Name Text Color": "Textfarbe des Gerätenamens",
+      "Function: Control Center": "Funktion: Kontrollzentrum",
+      "Function: Find My Remote": "Funktion: Finde meine Fernbedienung",
+      "Function: Mute": "Funktion: Stummschalten",
+      "Function: Next": "Funktion: Weiter",
+      "Function: Previous": "Funktion: Zurück",
+      "Function: Reboot": "Funktion: Neustarten",
+      "Function: Search": "Funktion: Suchen",
+      "Function: Settings": "Funktion: Einstellungen",
+      "Function: Skip Backward": "Funktion: Zurückspulen",
+      "Function: Skip Forward": "Funktion: Vorspulen",
+      "Function: Switch Apps": "Funktion: Apps wechseln",
+      "hidden": "versteckt",
+      "Name Position": "Position des Namens",
+      "Remote Style": "Aussehen der Fernbedienung",
+      "Scale": "Größe",
+      "Settings": "Einstellungen",
+      "Search": "Suche",
+      "top": "oben",
+      "Visible Device Name": "Sichtbarer Gerätename",
+  },
   "nl": {
       "App Launch Button": "Knop Voor Het Starten van apps",
       "Apple Music": "Apple Muziek",
@@ -6404,6 +6448,10 @@ class FiremoteCard extends LitElement {
           }
           .jellyfinButton svg {
             margin-top: calc(var(--sz) * -0.1rem);
+          }
+
+          .joynButton {
+            background: #000;
           }
 
           .justWatchStreamingGuideButton {
@@ -9501,12 +9549,17 @@ class FiremoteCardEditor extends LitElement {
   // This function is called when the input element of the editor loses focus or is changed
   configChanged(ev) {
 
+    // If the Device Family changes, we need to blank the device type value
+    if (ev.type == 'change' && ev.target.id == 'device_family') {
+      this._config.device_type = null;
+    }
+
     const _config = Object.assign({}, this._config);
     _config[ev.target.name.toString()] = ev.target.value;
     this._config = _config;
 
-    // A config-changed event will tell lovelace we have made changed to the configuration
-    // this make sure the changes are saved correctly later and will update the preview
+    // A config-changed event will tell lovelace we have made a change to the configuration
+    // this will make sure the changes are saved correctly later and will update the preview
     const event = new CustomEvent("config-changed", {
       detail: { config: _config },
       bubbles: true,
@@ -9725,7 +9778,8 @@ class FiremoteCardEditor extends LitElement {
 
 
   getCompatibilityModeDropdown(optionValue, deviceFriendlyName){
-    if(this._config.device_family == 'apple-tv') { return; }
+    if(['apple-tv', 'chromecast', 'nvidia-shield'].includes(this._config.device_family)) { return; }
+    if(['xiaomi-tv-stick-4k', 'fire_tv_stick_4k_max_second_gen', 'fire_tv_stick_4k_second_gen'].includes(this._config.device_type)) { return; }
     var heading = this.translateToUsrLang('Compatibility Mode');
     return html`
         ${heading}:<br>
@@ -9734,7 +9788,7 @@ class FiremoteCardEditor extends LitElement {
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
-          <option value="default">Default for ${deviceFriendlyName}</option>
+          <option value="default">${this.translateToUsrLang('Default for')} ${deviceFriendlyName}</option>
           <option value="strong">Strong (Slower)</option>
           <option value="event0">event0</option>
           <option value="event1">event1</option>
@@ -9825,7 +9879,7 @@ class FiremoteCardEditor extends LitElement {
       }
       appLauncherRelativeScaleSlide = html `
         <br>
-        <label for="relativefader">App Launcher Relative Scale:&nbsp;
+        <label for="relativefader">${this.translateToUsrLang('App Launcher Relative Scale')}:&nbsp;
           <input type="range" min="-25" max="75" .value=${this._config.app_launcher_relative_size} id="app_launcher_relative_size" name="app_launcher_relative_size" @change=${this.configChanged} style="width: 40ch;">
         </label>
         <br>`;
@@ -9842,7 +9896,17 @@ class FiremoteCardEditor extends LitElement {
     handlehdmi(this._config, getDeviceAttribute('hdmiInputs'));
     handlecustomlaunchers(this._config);
 
-    return html`
+    if(this._config.device_type == null) { 
+      return html`
+        ${this.translateToUsrLang('Device Family')}: <br>
+        ${this.getDeviceFamiliesDropdown(this._config.device_family)}
+        <br>
+
+        ${devicemap.get(this._config.device_family).meta.friendlyName} ${this.translateToUsrLang('Device Model')}:<br>
+        ${this.getDeviceTypeDropdown(this._config.device_type)}`;
+    }
+    else {
+      return html`
         ${this.translateToUsrLang('Device Family')}: <br>
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
         <br>
@@ -9872,7 +9936,7 @@ class FiremoteCardEditor extends LitElement {
           @focusout=${this.configChanged}
           @change=${this.configChanged}
         >
-          <option value="">Default for ${getDeviceAttribute('friendlyName')}</option>
+          <option value="">${this.translateToUsrLang('Default for')} ${getDeviceAttribute('friendlyName')}</option>
           <option value="AF1">Amazon Fire Style 1</option>
           <option value="AF2">Amazon Fire Style 2</option>
           <option value="AF3">Amazon Fire Style 3</option>
@@ -9917,6 +9981,7 @@ class FiremoteCardEditor extends LitElement {
         <br>
         <label for="visible_name_text_color">${this.translateToUsrLang('Device Name Text Color')}:<br><input type="color" name="visible_name_text_color" id="visible_name_text_color" .value=${this._config.visible_name_text_color || '#000000'} @change=${this.configChanged}></label>
     `;
+   }
   }
 }
 
