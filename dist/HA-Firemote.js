@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.1.2b2';
+const HAFiremoteVersion = 'v3.1.2';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -4656,10 +4656,11 @@ const rosettaStone = {
       "Associated": "Assoziiert",
       "bottom": "unten",
       "Compatibility Mode": "Kompatibilitätsmodus",
-      "Default for": "Vorgabe für",
+      "Default for": "Standard für",
       "Device Family": "Gerätegruppe",
       "Device Model": "Gerätemodell",
       "Device Name Text Color": "Textfarbe des Gerätenamens",
+      "Entity": "Entität",
       "Function: Control Center": "Funktion: Kontrollzentrum",
       "Function: Find My Remote": "Funktion: Finde meine Fernbedienung",
       "Function: Mute": "Funktion: Stummschalten",
@@ -9646,11 +9647,11 @@ class FiremoteCardEditor extends LitElement {
     this.getMediaPlayerEntitiesByPlatform('apple_tv');
     if(this._config.device_family == 'apple-tv') {
       mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('apple_tv');
-      heading = 'Apple TV Media Player Entity';
+      heading = 'Apple TV Media Player '+ this.translateToUsrLang('Entity');
     }
     else {
       mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
-      heading = 'Android Debug Bridge Entity';
+      heading = 'Android Debug Bridge '+ this.translateToUsrLang('Entity');
     }
     var blankEntity = '';
     if(this._config.entity == '' || !(mediaPlayerEntities).includes(optionValue)) {
@@ -9687,7 +9688,7 @@ class FiremoteCardEditor extends LitElement {
         }
         remoteEntities = this.getRemoteEntitiesByPlatform('apple_tv');
         return html`
-              ${this.translateToUsrLang('Associated')} Apple TV Remote Entity:<br>
+              ${this.translateToUsrLang('Associated')} Apple TV Remote ${this.translateToUsrLang('Entity')}:<br>
               <select name="apple_tv_remote_entity" id="apple_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
@@ -9710,7 +9711,7 @@ class FiremoteCardEditor extends LitElement {
         }
         remoteEntities = this.getEntitiesByPlatform('androidtv_remote');
         return html`
-              ${this.translateToUsrLang('Associated')} Android TV Remote Entity: (optional)<br>
+              ${this.translateToUsrLang('Associated')} Android TV Remote ${this.translateToUsrLang('Entity')}: (optional)<br>
               <select name="android_tv_remote_entity" id="android_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
