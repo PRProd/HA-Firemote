@@ -56,8 +56,8 @@ Which Chromecast device do I own?
      - Set up the Home Assistant [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv) and connect it to your device.  This will create a "Media Player" entity, and a "Remote" entity automatically.
 1. Click on HACS and select Frontend
 1. In the lower right-hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
-1. Search for, and click on "Firemote Card" then click the "DOWNLOAD" button in the lower right-hand corner
-1. You will be prompted to reload your browser.  Click the RELOAD button to continue
+1. Search for, and click on "Firemote Card" then click the **DOWNLOAD** button in the lower right-hand corner
+1. You will be prompted to reload your browser.  Click the **RELOAD** button to continue
 
 ## OR Install Manually
 1. For non-Apple TV users, [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon, Shield, Xiaomi, Chromecast, or Android TV device
@@ -75,7 +75,7 @@ Which Chromecast device do I own?
 
 ## How to use
 1. On any dashboard, click the +ADD CARD button
-1. Search by cards for "Firemote Card" and click on it
+1. Search by cards for "Firemote Card" and click on it - [help: It's not showing up](https://github.com/PRProd/HA-Firemote/wiki/Force-a-Refresh)
 1. Under the **Device Family** dropdown, choose "Amazon Fire", "Apple TV",  "Chromecast", "NVIDIA Shield", or "Xiaomi"
    - Amazon, Shield, Xiaomi, Chromecast, or Android TV users:
      - Under **Device Model**, select the device model that you own. (Help: Which [Amazon Fire](https://developer.amazon.com/docs/fire-tv/device-specifications.html) or [NVIDIA Shield](https://www.nvidia.com/en-us/shield/)  device do I own?)
@@ -297,6 +297,9 @@ Valid button names are as follows:
 <br>
 
 ## FAQ
+### I installed the Firemote Card, but I can't find it to add in my dashboard
+This tends to happen when your Home Assistant UI needs a refresh.  The best way to do this is through [force clearing your Home Assistant cache](https://github.com/PRProd/HA-Firemote/wiki/Force-a-Refresh) and trying again.
+
 ###  Why won't the volume, mute, and/or power buttons work from my Firemote card?
 In many cases, your remote control sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  These IR commands cannot be sent in a traditional Home Assistant setup.
 <br>
