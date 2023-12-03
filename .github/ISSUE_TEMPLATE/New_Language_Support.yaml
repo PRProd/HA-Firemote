@@ -50,7 +50,7 @@ body:
         11. Device Family => 
         12. Device Model => 
         13. Device Name Text Color => 
-        14. Entity: => 
+        14. Entity => 
         15. Function: Control Center => 
         16. Function: Find My Remote => 
         17. Function: Mute => 
@@ -65,7 +65,7 @@ body:
         26. hidden => 
         27. Music => 
         28. Name Position => 
-        29. Optional => 
+        29. optional => 
         30. Photos => 
         31. Remote Style => 
         32. Scale => 
