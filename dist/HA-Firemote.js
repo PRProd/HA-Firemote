@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.1.2';
+const HAFiremoteVersion = 'v3.1.3';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -133,13 +133,6 @@ const devices = {
         "defaultRemoteStyle": "AF1",
         "hdmiInputs": 0,
       },
-      "fire_stick_second_gen_2015": {
-        "supported": false,
-        "friendlyName": "Fire TV Stick (2nd Gen - 2015)",
-        "defaultEventListenerBinPath": "",
-        "defaultRemoteStyle": "",
-        "hdmiInputs": 0,
-      },
       "fire_stick_first_gen": {
         "supported": true,
         "friendlyName": "Fire TV Stick (1st gen - 2014)",
@@ -154,7 +147,20 @@ const devices = {
         "defaultRemoteStyle": "AF1",
         "hdmiInputs": 0,
       },
-
+      "fire_tv_second_gen_2015": {
+        "supported": true,
+        "friendlyName": "Fire TV (2nd Gen - 2015)",
+        "defaultEventListenerBinPath": "/dev/input/event3",
+        "defaultRemoteStyle": "AF1",
+        "hdmiInputs": 0,
+      },
+      "fire_tv_first_gen_2014": {
+        "supported": false,
+        "friendlyName": "Fire TV (1st Gen - 2014)",
+        "defaultEventListenerBinPath": "/dev/input/event3",
+        "defaultRemoteStyle": "AF1",
+        "hdmiInputs": 0,
+      },
     },
   },
 
@@ -282,6 +288,78 @@ const devices = {
 
     },
   },
+
+
+  "roku": {
+
+    "meta": {
+      "friendlyName": "Roku",
+      "supported": false,
+    },
+
+    "Streaming Players": {
+
+      "roku-streambar-pro": {
+        "supported": false,
+        "friendlyName": "Roku Streambar Pro",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+      "roku-streambar": {
+        "supported": false,
+        "friendlyName": "Roku Streambar",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+      "roku-ultra-2020": {
+        "supported": true,
+        "friendlyName": "Roku Ultra (2020)",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+      "roku-streaming-stick-4k": {
+        "supported": false,
+        "friendlyName": "Roku Streaming Stick 4K",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+      "roku-express-4k-plus": {
+        "supported": false,
+        "friendlyName": "Roku Express 4K+",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+      "roku-express": {
+        "supported": false,
+        "friendlyName": "Roku Express",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+    },
+
+    "TV": {
+
+      "roku-plus-series-4k-qled-tv": {
+        "supported": false,
+        "friendlyName": "Plus Series 4K QLED",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+      "roku-select-series-4k": {
+        "supported": false,
+        "friendlyName": "Select Series 4K",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+      "roku-select-series-hd": {
+        "supported": false,
+        "friendlyName": "Select Series HD",
+        "defaultRemoteStyle" : "RVRP",
+      },
+
+    },
+  },
+
 
 
   "xiaomi": {
@@ -741,6 +819,26 @@ const fastappchoices = {
       "androidName": "com.esaba.bookmarker1",
       "adbLaunchCommand": "adb shell am start -n com.esaba.bookmarker1/.MainActivity",
       "deviceFamily": ["amazon-fire"],},
+
+
+  "cctv-viewer": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="750" height="750" viewBox="0 0 750 750" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M98 0v102.5h277.5V0" fill="#e8e7e6"/><path d="M650.5 103V0H373v102.5" fill="#d7d7d5"/><path d="M138.5 131h236l233-.5v-28h-469" fill="#545351"/><path d="M178.5 215v220s130 130 190 135c50 5 185-105 185-105l5-260-380-2.5" fill="#3b3a3a"/><path d="M364.3 292c-24 2-50.8 17-62 34.7-5.7 7.7-10 18-12 23.6-5.4 15.5-5 43.6.6 58.4 8 21 23 37.6 43.3 48a61 61 0 0 0 8.7 3.9c.5 0 1.6.3 2.3.7a110 110 0 0 0 43.2 3.3c1.4-.4 4.4-1.2 6.8-1.7a90 90 0 0 0 51.6-36.6c2.8-4.2 8-15.2 10-21 4-13 4.2-42 0-53.3-14.8-41-49.5-63.5-92.3-60" fill="#191a1d"/><path d="M607 127.5l-233 .5c-127 0-235.4-.5-235.4-.5V406c1 154.6 156 211.6 231 212 77-.5 237-58.5 238.2-211M395.4 223.7c62 13.3 95.7 51.2 105.5 67 32.4 49.4 26.6 116.2 11.6 151.2-15 30-30 55-70 75-55 20-85 15-136.8-3.4-55.3-27-90.6-85.7-87-144.5a138 138 0 0 1 15.8-60.8c30-61 94.8-95 160.8-84.6M344 336.3c-8.2 4.3-11.8 15.7-7.7 24.5 8.2 17.3 34 12.7 36-6.3.2-7.5-.8-13.5-9.3-18.5-4.5-2.5-15-2-19 .3m65.3 65.8c-6.6 2-8.8 9.5-4.3 14.6 6 7 15.8 3.2 15.8-6 0-6.2-5.7-10.5-11.5-8.7" fill="#646360"/></svg>',
+      "friendlyName": 'CCTV Viewer',
+      "className": "cctvViewerButton",
+      "appName": "CCTV Viewer",
+      "androidName": "com.",
+      "deviceFamily": ["apple-tv"],},
+
+
+  "cgates-tv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2431" height="613" viewBox="0 0 2431 613" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M958.2 124.3c-4.3 3.2-5.4 10.7-6 38.8l-1 35-18.4 1.6c-20 1.8-24.3 5.4-24.3 20.6 0 21 2.3 23.8 20.3 23.8 24.4 0 24-1 24 72.3 0 100.6 15 125.4 76 125 43-.2 54.3-10 43-37.5-5-12.3-4.4-12-23.6-7.6-37.5 8.6-43.8-1.8-46.6-78-2.8-78.2-4.8-74.3 38.3-74.3 37 0 39.7-1.7 39.6-22.8-.1-18.6-2.5-20-40.8-21l-34.8-1-2-19.6a301 301 0 0 1-1-36.3c.7-12.2-.4-17.5-3.8-19.7-7-4.4-32.8-3.8-39 .8M131.3 201a126 126 0 0 0-11.6 230.6c44 23 111.5 12 146.5-24 26-26.7 25.2-36.8-3.8-44.4-17.4-4.6-18.6-4.2-28.2 9.5-32.6 46.7-115 30-130.7-26.4C80 261.3 183 200 234.8 268c9 11.8 15.8 13.3 33.7 7.3 17.6-5.8 20.2-9.7 14.2-21.3-25.7-49.7-98-75-151.3-53m277-1.4C308 228 296.3 377.2 391 423.5c37 18 92 13.2 118.4-10.6 15-13.6 18.7-11.6 18.7 9.8 0 71.5-74.3 106-127.7 59-16.2-14.3-20.5-15-39.5-6.4-16.7 7.6-16.8 11.3-.6 29.7 55.3 62.8 170 48.5 206.5-25.7l10.4-21.2 1-124c1-140 2-134.4-22.6-134.4-23 .1-27.5 2.5-27.5 14.6 0 13.3-3.4 13.4-19 1-24.3-19.6-65-26-100.6-15.7m297-1.7c-72.3 21-108.7 100-79.8 173 28.5 71.8 123 96.7 179.6 47 12-10.5 13.3-9.7 15 8.2 1 9.6 36.2 16.7 44 9 3-3 4.7-228.5 2-231.3-3-3-30-5-38.4-3-6.7 1.7-8 4-8 13 0 15.6-5 16.5-19 3.8-21-19-66.2-28.4-95-19.8m485.8 1.7c-115.8 33-114.2 210.2 2 239.8 56.2 14.2 114.2-5 142-46.8 9.5-14.3 8.7-15.7-14.5-23.2l-17-5.5-14.8 14.2c-40.7 39.4-105.7 30-128.8-18.7-10.6-22.4-13.7-21.6 89.7-23.3 106.4-1.8 100 .2 97.7-31.7-6-79.4-77.7-127.4-156.4-104.8m259-1.6c-59.8 16.5-81.7 66.4-45.5 103.7 13.5 13.8 21.7 17.5 76.8 34.5 54.7 17 64 25.3 52.8 47.2-15.7 30.4-80.5 25-104.7-8.7-10.6-14.7-17-15.6-40.6-5.8-14.4 6-14.6 10.4-1.3 27.8 63.5 83.3 215 50.4 197.4-43-4.8-26-23.8-38-87.4-56.3-56-16-68.2-26-57.3-46.4 12-22.2 89-17.3 89 5.7 0 7.4 12.2 9.4 28.4 4.6 61.6-18.3-44.5-81-107.6-63.4m-973 46.2c64.4 17.3 69.6 109 7.8 138.2-68.6 32.4-137.8-42-99-106.5 19-31.6 50.7-42.6 91.2-31.7m300 5.2c49.4 23.3 56.7 96 13.3 132.4-54.5 46-133 .4-125.5-72.7 5.8-56.6 59-85 112.2-59.7m481.2-5.6c16.6 7.5 31.8 23 36.4 37 7 20.8 7.6 20.5-68.2 20.5-77.5 0-77.2.1-65.6-23.8 16.3-33.5 62.5-49.5 97.4-33.6m529-193.8v111l67.6.4c-.6-.4 3 399.8 3 399.8H1973l-.1-400.2h69V50.3m15.8-.1l78.7 511h166.3l77-511h-113.8L2222 419c-1 8.5-1.5 11.2-2.8 11.2-1.4 0-1.7-2-5.3-36.5l-37.6-343.4"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="693" height="822" viewBox="0 0 693 822" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M399 51.4c-1.6 1.2-2 4-2.3 14.4l-.3 13-6.8.6c-7.5.6-9 2-9 7.6 0 7.8.8 8.8 7.5 8.8 9 0 9-.4 9 27 0 37.3 5.6 46.5 28.2 46.4 16-.1 20.2-3.8 16-14-2-4.6-1.7-4.5-8.8-3-14 3.3-16.2-.6-17.3-29-1-29-1.8-27.6 14.2-27.6 13.7 0 14.8-.6 14.7-8.4 0-7-1-7.4-15-8l-13-.4-.7-7.2a104 104 0 0 1-.4-13.5c.2-4.5-.2-6.5-1.4-7.3a22 22 0 0 0-14.5.3M92 79.8c-38.2 15.7-40.8 66.6-4.3 85.6 16.3 8.6 41.3 4.5 54.3-9 9.7-10 9.4-13.7-1.4-16.5-6.5-1.7-7-1.6-10.4 3.5-12 17.3-42.7 11.2-48.5-9.8-8.8-31.5 29.4-54.2 48.7-29 3.3 4.4 5.8 5 12.5 2.7 6.5-2 7.5-3.6 5.2-8a47 47 0 0 0-56.1-19.7m102.8-.5c-37.3 10.6-41.6 66-6.5 83a44 44 0 0 0 44-3.9c5.5-5 7-4.3 7 3.6 0 26.6-27.6 39.3-47.4 22-6-5.3-7.6-5.6-14.6-2.4-6.2 3-6.3 4.2-.3 11 20.5 23.3 63 18 76.7-9.5l3.8-7.8.4-46c.4-52 .7-50-8.4-49.8-8.5 0-10.2 1-10.2 5.4 0 5-1.2 5-7 .3-9-7.3-24.2-9.6-37.4-5.8m110.3-.7c-27 8-40.4 37.2-29.7 64.3 10.6 26.7 45.7 36 66.7 17.5 4.4-4 5-3.6 5.6 3 .3 3.6 13.4 6.3 16.3 3.3a1227 1227 0 0 0 .7-85.8c-1.2-1-11-2-14.3-1-2.5.6-3 1.5-3 4.8 0 5.8-1.8 6-7 1.4-7.8-7-24.6-10.5-35.3-7.4m180.2.7c-43 12.2-42.3 78 .8 89 21 5.3 42.4-1.7 52.7-17.3 3.5-5.3 3.2-5.8-5.4-8.6l-6.3-2-5.5 5.3c-15 14.6-39.2 11-47.8-7-4-8.3-5-8 33.3-8.7 39.5-.7 37.2.1 36.3-11.7-2.3-29.5-28.8-47.3-58-39m96-.6c-22 6-30.3 24.6-16.8 38.5 5 5 8 6.5 28.5 12.8 20.3 6.2 23.8 9.4 19.6 17.5-6 11.2-30 9.3-39-3.3-4-5.4-6.3-5.8-15-2-5.3 2.2-5.4 4-.4 10.3 23.5 31 79.7 18.7 73.2-16-1.8-9.6-8.8-14.2-32.4-21-20.8-6-25.3-9.7-21.3-17.2 4.4-8.3 33-6.4 33 2 0 2.8 4.6 3.5 10.6 1.7 22.8-6.8-16.5-30-40-23.5m-361 17c24 6.5 26 40.5 3 51.3-25.4 12-51-15.6-36.7-39.5 7-11.7 18.8-15.8 33.8-11.8m111.4 2c18.3 8.6 21 35.6 5 49-20.2 17-49.4.1-46.6-27 2.2-21 22-31.5 41.7-22m178.5-2c6.2 2.8 11.8 8.5 13.5 13.7 2.6 7.7 3 7.6-25.3 7.6-28.8 0-28.6 0-24.3-9 6-12.4 23.2-18.3 36-12.4M50 259v111l67.6.4c-.6-.4 3 399.8 3 399.8H235V370h69V259.3m15.8-.1l78.7 511h166.3l77-511H528L484.4 628c-1 8.5-1.5 11.2-2.8 11.2-1.4 0-1.7-2-5.3-36.5l-37.6-343.4" stroke="none" fill="#fff"/></svg>',
+      "friendlyName": 'Cgates TV',
+      "className": "cgatesTvButton",
+      "appName": "lt.cgates.app",
+      "androidName": "lt.cgates.app",
+      "adbLaunchCommand": "adb shell am start -n lt.cgates.app/com.smartivus.tvbox.MainActivityTv",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
 
 
   "channel-four": {
@@ -4681,6 +4779,41 @@ const rosettaStone = {
       "top": "oben",
       "Visible Device Name": "Sichtbarer Gerätename",
   },
+  "lt": {
+      "App Launch Button": "Programos Paleidimo Mygtukas",
+      "App Launcher Relative Scale": "Programos Paleidėjo Realiatyvi Skalė",
+      "Apple Computers": "Apple Kompiuteriai",
+      "Apple Music": "Apple Muzika",
+      "Apple Photos": "Apple Nuotraukos",
+      "Associated": "Susiję",
+      "bottom": "Apačia",
+      "Compatibility Mode": "Suderinamumo Režimas",
+      "Default for": "Numatytasis",
+      "Device Family": "Įrenginių Šeima",
+      "Device Model": "Įrenginio Modelis",
+      "Device Name Text Color": "Įrenginio Pavadinimo Teksto Spalva",
+      "Entity": "Esybė",
+      "Function: Control Center": "Funkcija: Valdymo Centras",
+      "Function: Find My Remote": "Funkcija: Surask Mano Nuotolinio Valdymo Pultą",
+      "Function: Mute": "Funkcija: Nutildyti",
+      "Function: Next": "Funkcija: Kitas",
+      "Function: Previous": "Funkcija: Ankstesnis",
+      "Function: Reboot": "Funkcija: Perkrauti",
+      "Function: Search": "Funkcija: Paieška",
+      "Function: Settings": "Funkcija: Nustatymai",
+      "Function: Skip Backward": "Funkcija: Peršokti į Priekį",
+      "Function: Skip Forward": "Funkcija: Peršokti Atgal",
+      "Function: Switch Apps": "Funkcija: Perjungti Programas",
+      "hidden": "paslėpta",
+      "Name Position": "Vardo Pozicija",
+      "optional": "Pasirinktinai",
+      "Remote Style": "Nuotolinio Pultelio Stilius",
+      "Scale": "Skalė",
+      "Settings": "Nustatymai",
+      "Search": "Paieška",
+      "top": "Viršus",
+      "Visible Device Name": "Matomas Įrenginio Pavadinimas",
+  },
   "nl": {
       "App Launch Button": "Knop Voor Het Starten van apps",
       "Apple Music": "Apple Muziek",
@@ -5341,6 +5474,10 @@ class FiremoteCard extends LitElement {
 
           .apple-remote-body #power-button > ha-icon {
             color: rgb(33, 33, 33);
+          }
+
+          .roku-remote-body #power-button > ha-icon {
+            color: #ff0000;
           }
 
           .XM2 #power-button > ha-icon {
@@ -6138,6 +6275,14 @@ class FiremoteCard extends LitElement {
 
           .bookmarker1Button {
             background: rgb(109 109 109);
+          }
+
+          .cctvViewerButton {
+            background: radial-gradient(circle, rgba(149,220,233,1) 40%, rgba(44,76,82,1) 100%);
+          }
+
+          .cgatesTvButton {
+            background: #25b14b;
           }
 
           .channelFourButton {
@@ -8389,6 +8534,76 @@ class FiremoteCard extends LitElement {
     `;
     }
 
+
+    // Render Roku Voice Remote Pro
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'RVRP' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="roku-remote-body RVRP">
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <div> </div>
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div> </div>
+          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+          </div>
+
+          <button class="remote-button${patchWallStatusClass}" id="patchwall-button" @click=${this.buttonClicked}>
+            <div class="mdiSubstituteIconWrapper">
+              <svg class="mdiSubstitueIcon" xmlns="http://www.w3.org/2000/svg" width="850" height="850" viewBox="0 0 850 850" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M81.6 57.8C73.5 57.6 66 67.6 66 75l-.5 391.5c0 9.5 11 19.5 18.8 20.7-.3-.2 444.2.3 444.2.3 11-1.3 22.5-10 22.5-17.5l.5-395c0-9-4-18-19-18 .5-.4-447 .3-451.5.5m572.5-.5c-13.3 0-25 9-25 20v292c0 12 8 16 16 16h124c9 0 15-4 15-16V77c-1-10-8-20-20-20h-111m-.8 408c-23.2.2-20.7 2.7-20.7 55.2 0 55 2.5 50-25 50H473.5c-20 0-27.5 5-27.5 20v190c.5 12 12.5 20 38.6 19.7-1 .3 259 .3 259 .3 32.5 0 40-5 40-20v-297c0-13-5-18-22.5-18.5l-109.3.3M84 569.2c-14 0-18 6-18 18.5v192.5c5 30-7.5 20 270 20 20 0 30.5-7 30.5-19v-194c0-11-11-18-31-18h-258" stroke="none"/></svg>
+            </div>
+          </button>
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-left"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:checkbox-blank-circle-outline"></ha-icon>
+          </button>
+
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["XM1"])}
+
+          <div> </div>
+          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            +
+          </button>
+          <div> </div>
+
+          <div> </div>
+          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            &#x2013;
+          </button>
+          <div> </div>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${renderXiaomiLogo()}
+          ${drawFiremoteVersionNumber(this, this._config)}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
     // Render Xiaomi Remote 1
     if ( getDeviceAttribute('defaultRemoteStyle') == 'XM1' ) {
     return html`
@@ -9023,7 +9238,7 @@ class FiremoteCard extends LitElement {
     if(clicked.target.id == 'power-button') {
       const state = this.hass.states[this._config.entity];
       const stateStr = state ? state.state : 'off';
-      if(this._config.device_family == 'apple-tv') {
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
         if(stateStr != 'off' && stateStr != 'unavailable' && stateStr != 'standby') {
           this.hass.callService("media_player", "turn_off", { entity_id: this._config.entity});
         }
@@ -9072,9 +9287,11 @@ class FiremoteCard extends LitElement {
 
     // Up Button
     if(clicked.target.id == 'up-button') {
-      if(this._config.device_family == 'apple-tv') {
-          this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-          return;
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
+        var t = this._config.device_family+"_remote_entity";
+        var confname = t.replace(/\-/, "_");
+        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
       }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_UP' });
@@ -9090,9 +9307,11 @@ class FiremoteCard extends LitElement {
 
     // Left Button
     if(clicked.target.id == 'left-button') {
-      if(this._config.device_family == 'apple-tv') {
-          this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'left', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-          return;
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
+        var t = this._config.device_family+"_remote_entity";
+        var confname = t.replace(/\-/, "_");
+        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'left', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
       }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_LEFT' });
@@ -9108,8 +9327,10 @@ class FiremoteCard extends LitElement {
 
     // Center Button
     if(clicked.target.id == 'center-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'select', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
+        var t = this._config.device_family+"_remote_entity";
+        var confname = t.replace(/\-/, "_");
+        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'select', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
       if(hasATVAssociation) {
@@ -9134,8 +9355,10 @@ class FiremoteCard extends LitElement {
 
     // Right Button
     if(clicked.target.id == 'right-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'right', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
+        var t = this._config.device_family+"_remote_entity";
+        var confname = t.replace(/\-/, "_");
+        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'right', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
       if(hasATVAssociation) {
@@ -9152,9 +9375,11 @@ class FiremoteCard extends LitElement {
 
     // Down Button
     if(clicked.target.id == 'down-button') {
-      if(this._config.device_family == 'apple-tv') {
-          this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-          return;
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
+        var t = this._config.device_family+"_remote_entity";
+        var confname = t.replace(/\-/, "_");
+        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
       }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_DOWN' });
@@ -9194,6 +9419,10 @@ class FiremoteCard extends LitElement {
         this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'menu', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
+      if(this._config.device_family == 'roku') {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'back', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
+      }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_BACK' });
       }
@@ -9207,6 +9436,10 @@ class FiremoteCard extends LitElement {
     if(clicked.target.id == 'home-button') {
       if(this._config.device_family == 'apple-tv') {
         this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'top_menu', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
+      }
+      if(this._config.device_family == 'roku') {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'home', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
       if(hasATVAssociation) {
@@ -9298,8 +9531,10 @@ class FiremoteCard extends LitElement {
 
     // Volume Up Button
     if(clicked.target.id == 'volume-up-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'volume_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
+        var t = this._config.device_family+"_remote_entity";
+        var confname = t.replace(/\-/, "_");
+        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'volume_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
       if(hasATVAssociation) {
@@ -9330,8 +9565,10 @@ class FiremoteCard extends LitElement {
 
     // Volume Down Button
     if(clicked.target.id == 'volume-down-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'volume_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
+        var t = this._config.device_family+"_remote_entity";
+        var confname = t.replace(/\-/, "_");
+        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'volume_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
       if(hasATVAssociation) {
@@ -9711,7 +9948,7 @@ class FiremoteCardEditor extends LitElement {
         }
         remoteEntities = this.getEntitiesByPlatform('androidtv_remote');
         return html`
-              ${this.translateToUsrLang('Associated')} Android TV Remote ${this.translateToUsrLang('Entity')}: (optional)<br>
+              ${this.translateToUsrLang('Associated')} Android TV Remote ${this.translateToUsrLang('Entity')}: (${this.translateToUsrLang('optional')})<br>
               <select name="android_tv_remote_entity" id="android_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
@@ -9950,6 +10187,7 @@ class FiremoteCardEditor extends LitElement {
           <option value="CC1">Chromecast</option>
           <option value="NS1">NVIDIA Shield Style 1</option>
           <option value="NS2">NVIDIA Shield Style 2</option>
+          <option value="RVRP" disabled>Roku Voice Remote Pro</option>
           <option value="XM1">Xiomi Mi Style 1</option>
           <option value="XM2">Xiomi Mi Style 2</option>
           <option value="AL1">App Launcher 1</option>
