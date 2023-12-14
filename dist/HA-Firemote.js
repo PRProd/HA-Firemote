@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.1.5';
+const HAFiremoteVersion = 'v3.2.0b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -287,7 +287,7 @@ const devices = {
 
     "meta": {
       "friendlyName": "Roku",
-      "supported": false,
+      "supported": true,
     },
 
     "Streaming Players": {
@@ -11232,10 +11232,10 @@ class FiremoteCardEditor extends LitElement {
           <option value="CC1">Chromecast</option>
           <option value="NS1">NVIDIA Shield Style 1</option>
           <option value="NS2">NVIDIA Shield Style 2</option>
-          <option value="RVRP" disabled>Roku Voice Remote Pro</option>
-          <option value="RVR" disabled>Roku Voice Remote</option>
-          <option value="RSR" disabled>Roku Simple Remote</option>
-          <option value="RWR" disabled>Westinghouse Roku TV Remote</option>
+          <option value="RVRP">Roku Voice Remote Pro</option>
+          <option value="RVR">Roku Voice Remote</option>
+          <option value="RSR">Roku Simple Remote</option>
+          <option value="RWR">Westinghouse Roku TV Remote</option>
           <option value="XM1">Xiomi Mi Style 1</option>
           <option value="XM2">Xiomi Mi Style 2</option>
           <option value="AL1">App Launcher 1</option>
