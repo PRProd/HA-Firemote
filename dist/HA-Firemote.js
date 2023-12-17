@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.0b1';
+const HAFiremoteVersion = 'v3.1.6';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -17,6 +17,17 @@ const fireEvent = (node, type, detail, options) => {
   return event;
 }
 
+/////// ----- TEST FUNCTION FOR ROKU INTEGRATION BYPASS ----- //////
+//async function jsonCall(url, payload) {
+//  const response = await fetch(url, {
+//    method: "POST",
+//    headers: {
+//      "Accept": "application/json",
+//      "Content-Type": "application/json",
+//    },
+//  })
+//  return;
+//}
 
 const devices = {
   "amazon-fire": {
@@ -287,7 +298,7 @@ const devices = {
 
     "meta": {
       "friendlyName": "Roku",
-      "supported": true,
+      "supported": false,
     },
 
     "Streaming Players": {
@@ -9473,6 +9484,7 @@ class FiremoteCard extends LitElement {
 
     // Render Roku Westinghouse Remoste
     if ( getDeviceAttribute('defaultRemoteStyle') == 'RWR' ) {
+    //console.log(this.hass);
     return html`
       <ha-card>
       ${cssVars}
@@ -10684,6 +10696,7 @@ class FiremoteCard extends LitElement {
     // Voice Button
     if(clicked.target.id == 'voice-button') {
         unsupportedButton();
+        //jsonCall("http://192.168.107.214:8060/keypress/Lit_a", {});
     }
 
     // Sleep Button
@@ -10759,7 +10772,6 @@ class FiremoteCard extends LitElement {
       }
       return;
     }
-
 
   }
 }
@@ -10901,12 +10913,11 @@ class FiremoteCardEditor extends LitElement {
   getMediaPlayerEntityDropdown(optionValue){
     var mediaPlayerEntities = [];
     var heading = '';
-    this.getMediaPlayerEntitiesByPlatform('apple_tv');
     if(this._config.device_family == 'apple-tv') {
       mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('apple_tv');
       heading = 'Apple TV Media Player '+ this.translateToUsrLang('Entity');
     }
-    if(this._config.device_family == 'roku') {
+    else if(this._config.device_family == 'roku') {
       mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('roku');
       heading = 'Roku Media Player '+ this.translateToUsrLang('Entity');
     }
@@ -11232,10 +11243,10 @@ class FiremoteCardEditor extends LitElement {
           <option value="CC1">Chromecast</option>
           <option value="NS1">NVIDIA Shield Style 1</option>
           <option value="NS2">NVIDIA Shield Style 2</option>
-          <option value="RVRP">Roku Voice Remote Pro</option>
-          <option value="RVR">Roku Voice Remote</option>
-          <option value="RSR">Roku Simple Remote</option>
-          <option value="RWR">Westinghouse Roku TV Remote</option>
+          <option value="RVRP" disabled>Roku Voice Remote Pro</option>
+          <option value="RVR" disabled>Roku Voice Remote</option>
+          <option value="RSR" disabled>Roku Simple Remote</option>
+          <option value="RWR" disabled>Westinghouse Roku TV Remote</option>
           <option value="XM1">Xiomi Mi Style 1</option>
           <option value="XM2">Xiomi Mi Style 2</option>
           <option value="AL1">App Launcher 1</option>
