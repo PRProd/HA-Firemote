@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.1.6';
+const HAFiremoteVersion = 'v3.2.0b2';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -17,17 +17,6 @@ const fireEvent = (node, type, detail, options) => {
   return event;
 }
 
-/////// ----- TEST FUNCTION FOR ROKU INTEGRATION BYPASS ----- //////
-//async function jsonCall(url, payload) {
-//  const response = await fetch(url, {
-//    method: "POST",
-//    headers: {
-//      "Accept": "application/json",
-//      "Content-Type": "application/json",
-//    },
-//  })
-//  return;
-//}
 
 const devices = {
   "amazon-fire": {
@@ -298,7 +287,7 @@ const devices = {
 
     "meta": {
       "friendlyName": "Roku",
-      "supported": false,
+      "supported": true,
     },
 
     "Streaming Players": {
@@ -10696,7 +10685,6 @@ class FiremoteCard extends LitElement {
     // Voice Button
     if(clicked.target.id == 'voice-button') {
         unsupportedButton();
-        //jsonCall("http://192.168.107.214:8060/keypress/Lit_a", {});
     }
 
     // Sleep Button
@@ -10807,14 +10795,14 @@ class FiremoteCardEditor extends LitElement {
   // This function is called when the input element of the editor loses focus or is changed
   configChanged(ev) {
 
+    const _config = Object.assign({}, this._config);
+    _config[ev.target.name.toString()] = ev.target.value;
+    this._config = _config;
+
     // If the Device Family changes, we need to blank the device type value
     if (ev.type == 'change' && ev.target.id == 'device_family') {
       this._config.device_type = null;
     }
-
-    const _config = Object.assign({}, this._config);
-    _config[ev.target.name.toString()] = ev.target.value;
-    this._config = _config;
 
     // A config-changed event will tell lovelace we have made a change to the configuration
     // this will make sure the changes are saved correctly later and will update the preview
@@ -11190,7 +11178,7 @@ class FiremoteCardEditor extends LitElement {
     // Rebuild AppMap - allow hdmi inputs where appropriate & add configured custom launchers from YAML
     refreshAppMap(this._config, getDeviceAttribute('hdmiInputs'), getDeviceAttribute('avInputs'), getDeviceAttribute('tuner'));
 
-    if(this._config.device_type == null) { 
+    if(this._config.device_type == null || this._config.device_type == '') { 
       return html`
         ${this.translateToUsrLang('Device Family')}: <br>
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
@@ -11243,10 +11231,10 @@ class FiremoteCardEditor extends LitElement {
           <option value="CC1">Chromecast</option>
           <option value="NS1">NVIDIA Shield Style 1</option>
           <option value="NS2">NVIDIA Shield Style 2</option>
-          <option value="RVRP" disabled>Roku Voice Remote Pro</option>
-          <option value="RVR" disabled>Roku Voice Remote</option>
-          <option value="RSR" disabled>Roku Simple Remote</option>
-          <option value="RWR" disabled>Westinghouse Roku TV Remote</option>
+          <option value="RVRP">Roku Voice Remote Pro</option>
+          <option value="RVR">Roku Voice Remote</option>
+          <option value="RSR">Roku Simple Remote</option>
+          <option value="RWR">Westinghouse Roku TV Remote</option>
           <option value="XM1">Xiomi Mi Style 1</option>
           <option value="XM2">Xiomi Mi Style 2</option>
           <option value="AL1">App Launcher 1</option>
