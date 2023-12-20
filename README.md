@@ -299,6 +299,7 @@ Valid button names are as follows:
 ## FAQ
 ### I installed the Firemote Card, but I can't find it to add in my dashboard
 This tends to happen when your Home Assistant UI needs a refresh.  The best way to do this is through [force clearing your Home Assistant cache](https://github.com/PRProd/HA-Firemote/wiki/Force-a-Refresh) and trying again.
+<br><br>
 
 ###  Why won't the volume, mute, and/or power buttons work from my Firemote card?
 In many cases, your remote control sends commands for volume, mute, and power to your TV or receiver using the IR emitter on the front of the physical remote control.  These IR commands cannot be sent in a traditional Home Assistant setup.
@@ -351,6 +352,7 @@ Click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button at th
 
 ### How can I contribute?
  - Did you install Firemote through HACS?  If you did, and it was easy, visit the [HACS Github Page](https://github.com/hacs/default) and give their project a star!  There should be thousands, but for some reason they don't have many.  Give them some love!
+ - Do you speak a language other than English that is not [already supported](https://github.com/PRProd/HA-Firemote/wiki/#which-languages-are-currently-supported)?  You can help out the community by filling out a [new language support request](https://github.com/PRProd/HA-Firemote/issues/new?assignees=PRProd&labels=Region+Issue%2Cenhancement&projects=&template=New_Language_Support.yaml&title=%5BNew+Language+Support%5D%3A+).
  - Take a look at the current [discussions board](https://github.com/PRProd/HA-Firemote/discussions) to see if anything is tagged with "Help Wanted".
  - <a href="https://www.buymeacoffee.com/PRProd" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
  - Since it is personally expensive for me to purchase, evaluate, and develop integrations for all of your requests, I've set up an [Amazon Wish List (US)](https://www.amazon.com/hz/wishlist/ls/2UDS10RPJ6F5K?ref_=wl_share) and an [Amazon Wish List (DE)](https://www.amazon.de/hz/wishlist/ls/HFABU3R70GWE?ref_=wl_share) for any of you who are feeling incredibly generous and want to send me something that I don't already own.
