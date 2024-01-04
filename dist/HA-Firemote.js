@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.0b2';
+const HAFiremoteVersion = 'v3.2.0b3';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -2211,6 +2211,16 @@ const fastappchoices = {
   },
 
 
+  "kinopub": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="793" height="793" viewBox="0 0 793 793" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M0 396C0 176.62 176.62 0 396 0s396 176.62 396 396-176.62 396-396 396S0 615.38 0 396z"/><path d="M33 396C33 194.9 194.9 33 396 33s363 161.9 363 363-161.9 363-363 363S33 597.1 33 396z" fill="#1c202b"/><path d="M231 396c0-91.41 73.59-165 165-165s165 73.59 165 165-73.59 165-165 165-165-73.59-165-165zm-49.5-181.5c0-18.28 14.72-33 33-33s33 14.72 33 33-14.72 33-33 33-33-14.72-33-33z"/><path d="M231 396h165L231 726z"/><path d="M346.5 396a49.4 49.4 0 1 1 99 0 49.4 49.4 0 1 1-99 0z" fill="#000"/></svg>',
+      "friendlyName": "Kinopub",
+      "className": "kinopubbutton",
+      "appName": "com.kinopub",
+      "androidName": "com.kinopub",
+      "adbLaunchCommand": "adb shell am start -n com.kinopub/com.kinopub.activity.LaunchActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
   "КиноПоиск": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="439" height="61" viewBox="0 0 439 61" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="CQK2" cx="0%" cy="0%" r="927%" fx="0%" fy="0%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="ItjC" cx="-158%" cy="0%" r="1068%" fx="-158%" fy="0%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="WAJR" cx="-285%" cy="0%" r="1078%" fx="-285%" fy="0%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="vV41" cx="-340%" cy="2%" r="984%" fx="-340%" fy="2%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="od4I" cx="-530%" cy="0%" r="1073%" fx="-530%" fy="0%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="oSOI" cx="-554%" cy="2%" r="984%" fx="-554%" fy="2%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="ZaHI" cx="-770%" cy="0%" r="1068%" fx="-770%" fy="0%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="NE8u" cx="-818%" cy="2%" r="1010%" fx="-818%" fy="2%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient><radialGradient id="oV2T" cx="-1019%" cy="0%" r="1073%" fx="-1019%" fy="0%"><stop offset="50%" stop-color="#f50"/><stop offset="100%" stop-color="#bdf700"/></radialGradient></defs><g stroke="none" fill-rule="nonzero"><path d="M11.6 1.2V19l12-17.7h14L17.3 22 54.5 1.2v13.2L21 27l33.4-3v12.6L21 33.2l33.4 12.6V59L17.3 38.2 37.6 59h-14l-12-17.8V59H0V1.2h11.6z" fill="url(#CQK2)"/><path d="M62.7 1.2h13.6l-2 37.4 17-37.4h11V59H88.7l2-37.4-17 37.4h-11V1.2z" fill="url(#ItjC)"/><path d="M110.6 1.2h13.6v22.3h11.6V1.2h13.6V59h-13.6V32.6h-11.6V59h-13.6V1.2z" fill="url(#WAJR)"/><path d="M155.6 30c0-16.5 7.6-30 23-30 15.2 0 22.8 13.5 22.8 30s-7.6 30-22.8 30c-15.3 0-23-13.6-23-30zm23 21.5c5.3 0 8.5-9.5 8.5-21.5 0-12-3.2-21.4-8.5-21.4C173 8.6 170 18 170 30c0 12 3 21.5 8.5 21.5z" fill="url(#vV41)"/><path d="M207.6 1.2h39.2V59h-13.6V10.3h-12V59h-13.6V1.2h0z" fill="url(#od4I)"/><path d="M253 30c0-16.5 7.6-30 23-30 15.2 0 22.8 13.5 22.8 30S291 60 276 60c-15.3 0-23-13.6-23-30zm23 21.5c5.3 0 8.5-9.5 8.5-21.5 0-12-3.2-21.4-8.5-21.4-5.4 0-8.5 9.5-8.5 21.4 0 12 3 21.5 8.5 21.5z" fill="url(#oSOI)"/><path d="M305 1.2h13.6l-2 37.4 17-37.4h11V59H331l2-37.4L316 59h-11V1.2z" fill="url(#ZaHI)"/><path d="M381 38.5l13 2-.4 2c-2.2 10.7-9 17.6-20 17.6C358 60 351 46.5 351 30s7-30 22.4-30c10.7 0 17.5 7 20 17l.4 1.7-13.2 3c-1-8-3.4-13-7-13-5.4 0-8 9.5-8 21.4 0 12 2.6 21.5 8 21.5 4 0 6.6-5.4 7.6-13z" fill="url(#NE8u)"/><path d="M399.4 1.2H413v26l11.2-26h14l-16 28L438.6 59h-15.3L413 33v26h-13.6V1.2h0z" fill="url(#oV2T)"/></g></svg>',
       "friendlyName": "КиноПоиск",
@@ -3143,11 +3153,11 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="plex-logo" x="0" y="0" xml:space="preserve" viewbox="0 0 1000 460.897" width="1000" height="460.897"><style type="text/css" id="style2">.st0{fill:#fff}</style><path class="st0" d="M164.19 82.432c-39.866 0-65.541 11.487-87.163 38.514v-29.73H0v366.216s1.351.676 5.405 1.352c5.406 1.351 33.784 7.432 54.73-10.135 18.243-15.54 22.297-33.784 22.297-54.054v-52.703c22.298 23.649 47.298 33.784 82.433 33.784 75.676 0 133.784-61.487 133.784-143.244 0-88.513-56.081-150-134.46-150zm-14.866 223.65c-42.567 0-76.351-35.136-76.351-77.704 0-41.892 39.865-75.675 76.351-75.675 43.244 0 76.352 33.108 76.352 76.351s-33.784 77.027-76.352 77.027z" id="path4" style="fill:#fff;stroke-width:6.75675678"/><path class="st0" d="M408.108 223.649c0 31.756 3.378 70.27 34.46 112.162.675.675 2.027 2.702 2.027 2.702C431.757 360.135 416.216 375 395.27 375c-16.216 0-32.432-8.784-45.946-23.649-14.189-16.216-20.946-37.162-20.946-59.46V0h79.054z" id="path6" style="fill:#fff;stroke-width:6.75675678"/><path id="polygon8" style="fill:#ebaf00" transform="scale(6.75676)" d="m117.9 33.9-13.8-20.4h14.2L132 33.9l-13.7 20.3h-14.2z"/><path class="st0" id="polygon10" style="fill:#fff" transform="scale(6.75676)" d="M135.7 31.6 148 13.5h-14.2l-5.1 7.5z"/><path class="st0" d="m869.595 316.216 16.216 22.298C901.35 362.838 921.62 375 945.27 375c25-.676 42.567-22.297 49.324-30.405 0 0-12.163-10.811-27.703-29.054-20.946-24.325-48.649-68.92-49.324-70.946z" id="path12" style="fill:#fff;stroke-width:6.75675678"/><path style="fill:#fff;stroke-width:6.75675678" id="path16" d="M632.432 287.162c-16.216 14.865-27.027 22.973-49.324 22.973-39.865 0-62.838-28.378-66.216-59.46h211.486c1.352-4.053 2.027-9.459 2.027-18.243 0-85.81-62.837-150-145.27-150-78.378 0-142.567 65.541-142.567 147.298 0 81.08 64.189 145.27 144.594 145.27 56.081 0 104.73-31.757 131.081-87.838zm-46.621-139.865c35.135 0 61.486 22.973 67.567 53.379H519.595c6.756-31.757 31.756-53.379 66.216-53.379z" class="st0"/></svg>',
       "friendlyName": "plex",
       "className": "plexButton",
-
       "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "roku", "xiaomi"],
       "amazon-fire": {
           "appName": "Plex",
           "androidName": "com.plexapp.android",
+          "adbLaunchCommand": "adb shell am start -n com.plexapp.android/com.plexapp.plex.activities.SplashActivity",
       },
       "apple-tv": {
           "appName": "Plex",
@@ -3724,6 +3734,7 @@ const fastappchoices = {
       "className": "smartTubeNextButton",
       "appName": "com.teamsmart.videomanager.tv",
       "androidName": "com.teamsmart.videomanager.tv",
+      "adbLaunchCommand": "adb shell am start -n com.teamsmart.videomanager.tv/com.liskovsoft.smartyoutubetv2.tv.ui.main.SplashActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
 
 
@@ -4556,6 +4567,19 @@ const fastappchoices = {
       "xiaomi": {
           "appName": "nl.rtl.videoland.v2",
           "androidName": "nl.rtl.videoland.v2",
+      },
+   },
+
+
+  "vivo-play": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1002" height="427" viewBox="0 0 1002 427" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M547.4 41.4c-5 .1-12 .1-13 7l-2 288c0 5 1.5 5 4.5 5h39c4 0 4.5-1.5 4.5-6L580 50c-.6-7-2-8-9.7-8.2M312 55c-6.6.2-6.8 1.7-6.8 9.2l.2 270.3c0 3.5 3.5 4 6 4H346c4.5 0 6-1.5 6-4l.7-100c98.3.4 153.3-2 163.3-74.6 0-85-45-105-95-105m-5 42c48 .5 55 28 55 48.5 0 22-7 49.5-55 49.5l-63.4-1V96.6m338.8 32C625 130 606.5 159 604 163c-8.4 13 14 36 25.6 31.4C670 172 681 169 698.5 170c32.5 5 30 29 30 29v1c0 20-67.4 20.7-67.5 21-70 9-75 99-37 116 37 18 65 10 95.6-11.3l7.2-7c.2 13.3 1 16 4.5 18.4 2.7 3 41.8 4.7 41.7-3l.3-133c.2-38.4-29.8-71-81.8-72.3M781 132c-7 1-10 4.6-6.4 15.8.4 1.3 72.4 174.3 72.2 181 2.2 9.3-12.4 48-29.4 48h-.1c-18 .2-18 .3-18 21.4-.2 12 2.8 21 19.8 22H833c8-.3 17.2-.1 27.2-7a41 41 0 0 0 11.7-15.9L975.4 144a11 11 0 0 0-.7-8.2c-2.5-3.6-9-4.4-16.5-4.4 0 0-20.7-.7-23.6 1.5-1 1.7-53.6 140.3-53.6 140.3-4.5 10.5-9 8.5-12-1l-55.6-140c-1.8-.5-29.2-.8-32.4-.3m-54 125.3c-1 27.8.2 49.8-70.8 47.8h-.1c-20-5-17-26-14-35 6-21 58.7-20.8 84-23.7.6.1.7 1.7 1 11m-534.5-166c0 10.8-3.8 27.7-15.7 39.7a62 62 0 0 1-10.8 8.5c-5.6 3.7-9.6 6.2-7.4 12.2 2.3 6 9.2 4.2 15.7 2.7l43.8-10.4a21 21 0 0 1 24.3 15.7c0 .1 3.3 13.8 3.3 14a21 21 0 0 1-14.5 25.1c-.5.2-45.4 11-45.5 11-8.5 2.2-13.5 6.4-13.5 14.6 0 3.7 2 7.7 4.8 11l49 61c6.7 9 5 21.7-3.7 28.7l-11 9a21 21 0 0 1-28.8-2.3c-.4-.3-30.7-37.6-34-41.6-3.2-4-7.3-10-13-10s-9.7 6-13 10c-3.2 4-33.5 41.3-34 41.6a21 21 0 0 1-28.8 2.3c-.1-.1-11-9-11-9-8.7-7-10.4-19.7-3.7-28.7.2-.5 49-61 49-61 2.6-3.3 4.8-7.3 4.8-11 0-8.2-5-12.4-13.5-14.6-.1 0-45-10.8-45.5-11a21 21 0 0 1-14.5-25.1c0-.1 3.3-13.8 3.3-14A21 21 0 0 1 53 143.9c.5 0 41.6 10 43.7 10.4 6.6 1.5 13.5 3.3 15.7-2.7 2.3-6-1.7-8.5-7.3-12.2-3-1.8-6.6-4.4-10.8-8.5-12-12-15.7-29-15.7-39.7A57 57 0 0 1 135.7 35a57 57 0 0 1 56.9 56.2"/></svg>',
+      "friendlyName": "Vivo Play",
+      "className": "vivoPlayButton",
+      "deviceFamily": ["amazon-fire"],
+      "amazon-fire": {
+          "appName": "com.tid.enjoy.firetv",
+          "androidName": "com.tid.enjoy.firetv",
+          "adbLaunchCommand": "adb shell am start -n com.tid.enjoy.firetv/com.telefonica.video.stv.launcher.LauncherActivity",
       },
    },
 
@@ -6013,7 +6037,7 @@ class FiremoteCard extends LitElement {
             margin-top: calc(var(--sz) * 0.57rem);
             row-gap: calc(var(--sz) * 0.9rem);
             justify-items: center;
-            justify-content: space-evenly;
+            /*justify-content: space-evenly;*/
           }
 
           .XM2 .afappsgrid {
@@ -6676,6 +6700,7 @@ class FiremoteCard extends LitElement {
             filter: brightness(90%);
             transform: scale(.95);
             box-shadow: none;
+            transform-origin: center bottom;
           }
 
           .chromecast-remote-body .srcButton:active {
@@ -7383,6 +7408,10 @@ class FiremoteCard extends LitElement {
             height: calc(var(--sz) * 2.1rem);
           }
 
+          .kinopubbutton {
+            background: #202632;
+          }
+
           .kinopoiskButton {
             background: #000;
           }
@@ -7957,6 +7986,10 @@ class FiremoteCard extends LitElement {
             font-size: calc(var(--sz) * 0.75rem);
             font-weight: bold;
             color: #fff;
+          }
+
+          .vivoPlayButton {
+            background: linear-gradient(135deg, rgba(120,0,157,1) 32%, rgba(213,34,142,1) 75%, rgba(255,151,0,1) 91%);
           }
 
           .vlcButton {
@@ -10599,8 +10632,7 @@ class FiremoteCard extends LitElement {
     // Mute Button
     if(clicked.target.id == 'mute-button') {
       if(this._config.device_family == 'apple-tv') {
-        //this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'mute', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
+        unsupportedButton();
       }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_MUTE' });
@@ -10772,7 +10804,7 @@ window.customCards.push({
   type: "firemote-card",
   name: "Firemote Card",
   preview: true,
-  description: "Remote control card for Amazon FireTV, NVIDIA Shield, and Xiaomi devices"
+  description: "Remote control card for Amazon FireTV, Apple TV, Chromecast, NVIDIA Shield, Roku, and Xiaomi devices"
 });
 
 
