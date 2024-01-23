@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.0b4';
+const HAFiremoteVersion = 'v3.2.0b6';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -357,10 +357,18 @@ const devices = {
 
     "TV": {
 
+      "roku-generic-hisense": {
+        "supported": true,
+        "friendlyName": "Hisense",
+        "defaultRemoteStyle" : "RHR",
+        "hdmiInputs": 4,
+        "avInputs": 1,
+        "tuner": true,
+      },
       "roku-generic-tcl": {
         "supported": true,
         "friendlyName": "TCL",
-        "defaultRemoteStyle" : "RVRP",
+        "defaultRemoteStyle" : "RTR",
         "hdmiInputs": 4,
         "avInputs": 1,
         "tuner": true,
@@ -373,15 +381,6 @@ const devices = {
         "avInputs": 1,
         "tuner": true,
       },
-      "roku-generic-hisense": {
-        "supported": true,
-        "friendlyName": "Hisense",
-        "defaultRemoteStyle" : "RVRP",
-        "hdmiInputs": 4,
-        "avInputs": 1,
-        "tuner": true,
-      },
-
     },
   },
 
@@ -856,6 +855,42 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire"],},
 
 
+  "cbs-sports": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="811" height="105" viewBox="0 0 811 105" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M98 52c0 12-4 23-13 33-10 9-20 13-33 13s-24-4-33-13C10 75 5 64 5 52c0-13 5-24 14-33S39 5 52 5s23 5 33 14c9 9 13 20 13 33h0zm-3 0c-3-8-9-15-17-20s-17-8-26-8c-10 0-19 3-27 8S11 44 8 52c3 8 9 14 17 19 8 6 17 8 27 8 9 0 18-2 26-8 8-5 14-11 17-19zm-19 0c0 6-2 12-7 17s-10 7-17 7-13-2-18-7-7-11-7-17c0-7 2-13 7-18s11-7 18-7 12 2 17 7 7 11 7 18zm31 0c0-24 19-44 45-44 24 0 36 17 36 17l-12 12s-9-12-24-12-27 12-27 27 12 27 27 27c16 0 24-12 24-12l12 12s-12 17-36 17c-26 0-45-20-45-44zm88-43h36c17 0 27 11 27 23 0 13-12 17-12 17s16 4 16 21c0 13-11 24-29 24h-38V9zm34 33c6 0 10-4 10-8 0-5-4-9-10-9h-16v17h16 0zm3 36c7 0 11-4 11-10s-4-10-11-10h-19v20h19 0zm32 4l12-12s7 9 20 9c10 0 14-4 14-9 0-15-42-8-42-38 0-13 11-24 30-24s29 11 29 11l-12 12s-6-7-16-7c-9 0-13 4-13 8 0 15 43 8 43 38 0 14-13 26-32 26-22 0-33-14-33-14h0zm90 0l12-12s8 9 20 9c10 0 14-4 14-9 0-15-42-8-42-38 0-13 11-24 31-24 18 0 28 11 28 11l-12 12s-6-7-16-7c-9 0-12 4-12 8 0 15 42 8 42 38 0 14-12 26-32 26-22 0-33-14-33-14zm73-73h36c18 0 30 13 30 29s-12 28-30 28h-18v28h-18V9h0zm35 40c7 0 12-5 12-11 0-7-5-12-12-12h-17v23h17zm37 3c0-24 20-44 46-44s45 20 45 44-19 44-45 44-46-20-46-44zm73 0c0-15-12-27-27-27s-27 12-27 27 12 27 27 27 27-12 27-27h0zm28-43h37c18 0 30 12 30 29 0 19-15 24-15 24l18 32h-20l-15-28h-17v28h-18V9zm37 40c6 0 11-5 11-11 0-7-5-12-11-12h-19v23h19zm60-23h-24V9h66v17h-24v68h-18V26h0zm44 56l12-12s7 9 19 9c10 0 14-4 14-9 0-15-42-8-42-38 0-13 12-24 31-24s28 11 28 11l-12 12s-6-7-15-7c-10 0-13 4-13 8 0 15 42 8 42 38 0 14-12 26-32 26-22 0-32-14-32-14h0z" stroke="none" fill="#fff" fill-rule="nonzero"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="694" viewBox="0 0 800 694" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M175 669h-26V538h57c14-1 28 6 36 17 4 6 7 12 8 19 2 13-1 27-9 37-4 5-10 9-16 11-5 2-10 4-15 4-11 1-22 0-33 0v43h-2zm2-69h30c3-1 6-2 9-4 4-4 6-11 5-17 0-8-7-14-15-14-10-1-20-1-29 0v35zm345 69c-8-14-15-29-23-43h-27v43h-28V538c20 0 50-2 68 1 17 2 31 14 35 31 3 13 1 26-6 37-4 5-9 10-15 14l27 48h-31zm-50-69c11 0 22 0 33-1 3 0 5-1 7-3 6-4 8-11 7-17-1-8-8-14-15-15-11-1-21 0-32 0v36zm129 69V564h-38v-26h104v26h-39v105zm-268 3c-14-2-27-8-38-18-7-5-12-11-16-19-5-12-8-25-7-38l3-14c3-8 7-16 13-23 4-5 9-9 15-13 7-5 14-8 22-10 14-3 28-3 41 2 9 3 17 7 24 13s13 14 17 22c9 16 10 35 3 52-1 4-3 8-5 12-8 13-20 23-34 29-12 5-25 6-38 5m0-27c12 2 23 0 33-6 5-3 9-7 12-11 9-13 10-30 2-44-2-4-6-9-10-13-18-15-46-12-60 7-4 4-6 9-8 14-2 14-2 26 7 37 6 8 15 13 24 16h0zm380 26c-14-3-26-9-35-19 6-7 12-13 18-19 8 8 18 13 28 14 9 0 20-1 24-11 2-4 1-10-3-13-10-7-23-9-35-14-4-1-8-3-11-6-7-4-13-11-15-19-1-6-1-13 0-20 2-11 15-21 25-25 14-5 30-5 44 0 5 2 10 4 14 7 3 2 6 5 9 7l-20 19c-9-10-23-14-36-9-4 1-7 5-8 10 0 6 4 11 10 12 10 5 21 8 32 12 4 2 9 5 12 8 13 9 15 27 10 40-3 11-14 19-24 23-12 5-26 6-39 3m-654 0c-15-2-28-9-39-19l20-19c6 8 15 12 25 14 8 1 15-1 22-4 1-2 2-4 3-5 3-6 1-12-3-15-8-6-24-10-33-13-19-7-32-23-27-44 3-11 11-21 22-26 20-8 43-6 61 6 2 1 4 3 6 5l2 2c-6 6-12 13-19 19-11-11-25-16-39-8-3 2-5 6-4 10 0 5 3 9 8 11 10 5 23 8 33 12 9 4 16 10 21 19 4 8 4 18 1 27-2 6-5 11-9 16-4 4-10 7-15 9-12 4-24 5-36 3m318-214c-39-4-77-18-109-41-7-4-13-9-19-15-17-16-32-35-45-55-35-58-41-129-16-192 25-61 74-108 135-132 10-4 20-7 31-8 65-9 114-4 169 32 14 10 27 21 39 34 20 18 36 41 46 66 5 15 9 31 12 47 5 29 5 58-2 86-4 30-16 59-34 83-26 36-62 64-104 81-33 13-68 17-103 14m-11-92c31 4 63 3 94-5 66-19 120-64 150-126-6-17-15-32-27-45-31-39-74-68-123-82-41-12-85-11-126 1-30 9-58 23-82 42-27 23-49 51-64 83 7 15 15 29 26 42 13 17 29 33 46 47 31 23 67 38 106 44v-1z"/><path d="M373 349c-14-2-27-7-39-15-13-10-24-21-33-35-26-37-28-87-5-126 18-30 47-50 82-57 28-5 57-1 82 14a210.67 210.67 0 0 1 38 35c27 39 29 90 3 130-18 29-47 49-80 55-16 3-32 3-48-1"/></svg>',
+      "friendlyName": 'CBS Sports',
+      "className": "cbsSportsButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "roku", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.handmark.sportcaster",
+          "androidName": "com.handmark.sportcaster",
+          "adbLaunchCommand": "adb shell am start -n com.handmark.sportcaster/com.handmark.sportcaster.ui.homepage.HomePageActivity",
+      },
+      "apple-tv": {
+          "appName": "CBS Sports",
+      },
+      "chromecast": {
+          "appName": "com.handmark.sportscaster.androidtv",
+          "androidName": "com.handmark.sportscaster.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.handmark.sportscaster.androidtv/com.handmark.sportcaster.ui.homepage.HomePageActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.handmark.sportscaster.androidtv",
+          "androidName": "com.handmark.sportscaster.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.handmark.sportscaster.androidtv/com.handmark.sportcaster.ui.homepage.HomePageActivity",
+      },
+      "roku": {
+          "appName": 'CBS Sports Stream & Watch Live',
+          "app-id": 17112,
+      },
+      "xiaomi": {
+          "appName": "com.handmark.sportscaster.androidtv",
+          "androidName": "com.handmark.sportscaster.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.handmark.sportscaster.androidtv/com.handmark.sportcaster.ui.homepage.HomePageActivity",
+      },
+ },
+
+
   "cctv-viewer": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="750" height="750" viewBox="0 0 750 750" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M98 0v102.5h277.5V0" fill="#e8e7e6"/><path d="M650.5 103V0H373v102.5" fill="#d7d7d5"/><path d="M138.5 131h236l233-.5v-28h-469" fill="#545351"/><path d="M178.5 215v220s130 130 190 135c50 5 185-105 185-105l5-260-380-2.5" fill="#3b3a3a"/><path d="M364.3 292c-24 2-50.8 17-62 34.7-5.7 7.7-10 18-12 23.6-5.4 15.5-5 43.6.6 58.4 8 21 23 37.6 43.3 48a61 61 0 0 0 8.7 3.9c.5 0 1.6.3 2.3.7a110 110 0 0 0 43.2 3.3c1.4-.4 4.4-1.2 6.8-1.7a90 90 0 0 0 51.6-36.6c2.8-4.2 8-15.2 10-21 4-13 4.2-42 0-53.3-14.8-41-49.5-63.5-92.3-60" fill="#191a1d"/><path d="M607 127.5l-233 .5c-127 0-235.4-.5-235.4-.5V406c1 154.6 156 211.6 231 212 77-.5 237-58.5 238.2-211M395.4 223.7c62 13.3 95.7 51.2 105.5 67 32.4 49.4 26.6 116.2 11.6 151.2-15 30-30 55-70 75-55 20-85 15-136.8-3.4-55.3-27-90.6-85.7-87-144.5a138 138 0 0 1 15.8-60.8c30-61 94.8-95 160.8-84.6M344 336.3c-8.2 4.3-11.8 15.7-7.7 24.5 8.2 17.3 34 12.7 36-6.3.2-7.5-.8-13.5-9.3-18.5-4.5-2.5-15-2-19 .3m65.3 65.8c-6.6 2-8.8 9.5-4.3 14.6 6 7 15.8 3.2 15.8-6 0-6.2-5.7-10.5-11.5-8.7" fill="#646360"/></svg>',
       "friendlyName": 'CCTV Viewer',
@@ -1252,7 +1287,7 @@ const fastappchoices = {
       "deviceFamily": ["xiaomi"],
       "xiaomi": {
           "appName": "Disney+",
-          "androidName": "com.disney.disneyplus",
+          "androidName": "com.disneyplus.mea",
           "adbLaunchCommand": "adb shell am start -n com.disneyplus.mea/com.hotstar.MainActivity",
       },
   },
@@ -2919,6 +2954,17 @@ const fastappchoices = {
           "appName": "Odido TV",
       },
    },
+
+
+  "optimum-tv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1003" height="184" viewBox="0 0 1003 184" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M330 6c-20 4-25 30-9 41 23 16 50-15 30-35-6-6-14-8-21-6m537 13c-3 1-3 1-3 20v17l-1 1c-1 1-2 1-7 1h-7v14h15c1 80 1 71 5 76 6 5 6 5 35 5v-14s0-1-9-1-11 0-13-3l1-63h21V58h-11c-9 0-9 0-10-1l-2-1V39c0-22 1-20-7-20h-7m-625 9c-2 0-3 2-3 15 0 15 1 15-5 15s-6-1-6 17c0 17 0 16 6 16 6 1 5-1 6 23 0 19 0 22 1 24 4 14 18 19 43 16 10-1 9 0 9-17s0-16-7-16c-8-1-8-1-8-16 0-14-1-13 7-13 10-1 9 1 9-17s0-17-8-17c-9 0-8 1-8-15-1-14-1-14-3-15-1-1-31-1-33 0M51 55c-19 3-35 14-41 27-16 38 9 75 50 74 40-2 63-43 43-77-10-16-33-27-52-24m123 0c-4 1-9 3-13 5-5 3-5 3-6 1-2-3-1-3-19-3h-19v119h38c0-30 0-31 5-27 15 11 38 7 52-8 19-20 16-62-5-78-9-7-24-11-33-9m246 2c-2 1-5 2-9 4-7 4-8 4-8 0 0 0 0-1-1-2l-1-1h-17-16l-2 1-1 1v46c0 44 0 45 1 46 2 1 35 1 36 0s1-3 1-29l1-28 1-1c5-6 13-5 16 1 1 1 1 4 1 28 1 26 1 28 2 29s34 1 35 0 1-1 2-29V96l1-2c4-5 13-5 16 0l1 2v28c1 26 1 27 2 28 2 1 34 1 35 0 2-2 2-58 1-67-3-27-39-38-60-19-3 3-4 3-8 0-7-8-18-11-29-9m268 0c-4 1-9 3-13 5-3 2-4 2-5-1s-1-3-19-3c-16 0-17 0-18 1s-1 91 0 93c2 1 34 1 36 0l1-1v-26c0-28 0-30 2-32 4-4 10-4 14-1 3 3 3 2 3 32 0 26 0 27 1 28 2 1 35 1 36 0s1-3 1-29V95l2-1c5-6 13-5 16 1 1 1 1 4 1 29 0 27 0 27 1 28s3 1 18 1h17l1-2c1-1 1-5 1-35l-1-35-1-4c-7-22-40-28-58-11-4 4-4 4-8 0-8-8-17-11-28-9m-382 2l-1 1v14c0 18-1 17 5 17 6 1 6-2 6 31 0 28 0 29 1 30s35 1 36 0 1-3 1-47V60l-1-1c-2-2-45-2-47 0m223 0c-1 0-1 0-1 32 0 27 0 30 1 33 12 42 85 39 92-4 1-8 1-59 0-61l-1-1h-17c-16 0-17 0-18 1l-1 1v26l-1 26-1 2c-3 5-10 6-14 2-2-3-2-2-2-30l-1-26-1-1c-1-1-33-2-35 0m379 0l33 93h20l34-87c2-6 2-7-7-7h-7l-1 2c-20 54-22 57-25 68s-2 13-17-32l-14-38c-14 0-15 1-16 1M64 91c14 7 11 27-4 30-19 3-26-24-8-31 3-1 10 0 12 1m113 0c12 6 12 23 1 29-16 8-31-12-19-25 4-5 12-7 18-4" fill="#fff"/><path d="M810 108c-18 3-26 27-12 40 22 20 54-11 32-33-6-6-12-8-20-7" fill="#fe6d00"/></svg>',
+      "friendlyName": 'Optimum TV',
+      "className": "optimumTVButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "Optimum TV",
+      },
+ },
 
 
   "optus-sport": {
@@ -5245,7 +5291,8 @@ const fastappchoices = {
 };
 var appmap = new Map(Object.entries(fastappchoices));
 
-const appButtonMax = { "AF4": 6, "AF5": 6, "AF6": 6, "AR1": 10, "AR2": 8, "AR3": 8, "CC1": 6, "NS2": 6, "RVRP": 8, "RWR": 8, "RVR": 10, "RSR": 10, 
+const appButtonMax = { "AF4":  6, "AF5": 6,  "AF6": 6, "AR1": 10, "AR2":  8, "AR3": 8, "CC1": 6, "NS2": 6,
+                       "RVRP": 8, "RHR": 10, "RTR": 6, "RWR": 10, "RVR": 10, "RSR": 10,
                        "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
 
@@ -5317,6 +5364,45 @@ const rosettaStone = {
       "Search": "Suche",
       "top": "oben",
       "Visible Device Name": "Sichtbarer Gerätename",
+  },
+  "he": {
+      "App Launch Button": "לחצן הפעלת אפליקציה",
+      "App Launcher Relative Scale": "קנה מידה יחסי של לחצן הפעלת אפליקציה",
+      "Apple Computers": "מחשבי אפל",
+      "Apple Music": "אפל מיוזיק",
+      "Apple Photos": "אפל תמונות",
+      "Associated": "משויך",
+      "bottom": "למטה",
+      "Compatibility Mode": "מצב תאימות",
+      "Default for": "ברירת מחדל עבור",
+      "Device Family": "משפחת מכשיר",
+      "Device Model": "דגם מכשיר",
+      "Device Name Text Color": "צבע טקסט של שם המכשיר",
+      "Entity": "ישות",
+      "Function: Channel +": "+ פונקציה: ערוץ",
+      "Function: Channel -": "- פונקציה: ערוץ",
+      "Function: Control Center": "פונקציה: מרכז בקרה",
+      "Function: Find My Remote": "מצא את השלט",
+      "Function: Mute": "פונקציה: השתק",
+      "Function: Next": "פונקציה: הבא",
+      "Function: Previous": "פונקציה: הקודם",
+      "Function: Reboot": "פונקציה: איתחול",
+      "Function: Search": "פונקציה: חיפוש",
+      "Function: Settings": "פונקציה: הגדרות",
+      "Function: Skip Backward": "פונקציה: דלג אחורה",
+      "Function: Skip Forward": "פונקציה: דלג קדימה",
+      "Function: Switch Apps": "פונקציה: החלף אפליקציה",
+      "Function: Volume +": "+ פונקציה: ווליום",
+      "Function: Volume -": "- פונקציה: ווליום",
+      "hidden": "מוסתר",
+      "Name Position": "מיקום השם",
+      "optional": "אופציונלי",
+      "Remote Style": "מראה השלט",
+      "Scale": "קנה מידה",
+      "Settings": "הגדרות",
+      "Search": "חיפוש",
+      "top": "למעלה",
+      "Visible Device Name": "שם מכשיר גלוי",
   },
   "lt": {
       "App Launch Button": "Programos Paleidimo Mygtukas",
@@ -5536,12 +5622,12 @@ function handleAVInputs(config, avInputs = 0) {
 }
 
 function handleTunerInputs(config, tunerInput) {
-    if (tunerInput && tunerInput == 'true' && config.device_family == "roku") {
+    if (config.device_family == "roku" && tunerInput == 'true') {
         appmap.set("tuner_input", {"button": "TV Tuner", "friendlyName": "TV Tuner", "remoteCommand": '{"command": "input_tuner", "num_repeats": 1, "hold_secs": 0}'});
     }
 }
 
-function refreshAppMap(config, inputs = 0, avInputs = 0, tuner = false){
+function refreshAppMap(config, inputs = 0, avInputs = 0, tuner = true){
     resetAppMap();
     handlehdmi(config, inputs);
     handlecustomlaunchers(config);
@@ -5626,6 +5712,7 @@ class FiremoteCard extends LitElement {
             border: 0;
             outline: 0;
             isolation: isolate;
+            direction: ltr;
           }
 
           .hidden {
@@ -5683,6 +5770,9 @@ class FiremoteCard extends LitElement {
             padding: calc(var(--sz) * 0.35rem);
             padding-bottom: calc(var(--sz) * 1.12rem);
             min-height: calc(var(--sz) * 44rem);
+          }
+
+          .roku-remote-body:has(div.rokuTag) {
             margin-bottom: calc(var(--sz) * 2rem);
           }
 
@@ -5718,7 +5808,14 @@ class FiremoteCard extends LitElement {
             margin-bottom: calc(var(--sz) * 1rem);
           }
 
-          .roku-remote-body.RWR > div.powerRow {
+          .roku-remote-body.RTR {
+              border-radius: calc(var(--sz) * 6rem);
+              padding: calc(var(--sz) * 1rem);
+          }
+
+          .roku-remote-body.RWR > div.powerRow,
+          .roku-remote-body.RTR > div.powerRow,
+          .roku-remote-body.RHR > div.powerRow {
             margin-bottom: calc(var(--sz) * 1.25rem);
           }
 
@@ -5762,6 +5859,11 @@ class FiremoteCard extends LitElement {
             overflow: hidden;
           }
 
+          .roku-remote-body.RTR > div.rokuDPadContainer {
+            padding: calc(var(--sz) * 0.75rem);
+            border-radius: 100%;
+          }
+
           .rokuDPadContainer > button {
             background: #662d91;
             color: rgb(198, 198, 198);
@@ -5792,6 +5894,7 @@ class FiremoteCard extends LitElement {
           .roku-remote-body #up-button {
             transform-origin: bottom center;
             border-radius: calc(var(--sz) * 1rem) calc(var(--sz) * 1rem) 0 0;
+            position: relative;
           }
 
           .roku-remote-body #left-button {
@@ -5813,9 +5916,68 @@ class FiremoteCard extends LitElement {
             box-shadow: 0px 5px 2px 0px #0000001a;
           }
 
+          .roku-remote-body #center-button {
+            z-index: 3;
+          }
+
+          .roku-remote-body #up-button::before {
+            content: '';
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            bottom: 0;
+            left: calc(var(--sz) * -1.95rem);
+            border-radius: 100%;
+            height: calc(var(--sz) * 2rem);
+            width: calc(var(--sz) * 2rem);
+            background: transparent;
+            box-shadow: calc(var(--sz) * 1rem) calc(var(--sz) * 1rem) 0 rgb(102, 45, 145);
+          }
+
+          .roku-remote-body #up-button::after {
+            content: '';
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            bottom: 0;
+            right: calc(var(--sz) * -1.95rem);
+            border-radius: 100%;
+            height: calc(var(--sz) * 2rem);
+            width: calc(var(--sz) * 2rem);
+            background: transparent;
+            box-shadow: calc(var(--sz) * -1rem) calc(var(--sz) * 1rem) 0 rgb(102, 45, 145);
+          }
+
+          .roku-remote-body #down-button::before {
+            content: '';
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            left: calc(var(--sz) * -1.95rem);
+            border-radius: 100%;
+            height: calc(var(--sz) * 2rem);
+            width: calc(var(--sz) * 2rem);
+            background: transparent;
+            box-shadow: calc(var(--sz) * 1rem) calc(var(--sz) * -1rem) 0 rgb(102, 45, 145);
+          }
+
+          .roku-remote-body #down-button::after {
+            content: '';
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            right: calc(var(--sz) * -1.95rem);
+            border-radius: 100%;
+            height: calc(var(--sz) * 2rem);
+            width: calc(var(--sz) * 2rem);
+            background: transparent;
+            box-shadow: calc(var(--sz) * -1rem) calc(var(--sz) * -1rem) 0 rgb(102, 45, 145);
+          }
+
           .rokuDPadContainer > button:not(#center-button):active {
             box-shadow: unset;
-            filter: brightness(0.96);
             transform: scale(0.98);
           }
 
@@ -5858,7 +6020,8 @@ class FiremoteCard extends LitElement {
             grid-template-columns: 25% 38% 25%;
           }
 
-          .roku-remote-body.RSR > div.replayVoiceOptionsRow {
+          .roku-remote-body.RSR > div.replayVoiceOptionsRow,
+          .roku-remote-body.RTR > div.replayVoiceOptionsRow {
             grid-template-columns: 47% 47%;
           }
 
@@ -5876,7 +6039,9 @@ class FiremoteCard extends LitElement {
             grid-template-columns: 22% 48% 22%;
           }
 
-          .roku-remote-body.RVR > div.scrubRow, .roku-remote-body.RSR > div.scrubRow, .roku-remote-body.RWR > div.scrubRow {
+          .roku-remote-body.RVR > div.scrubRow, 
+          .roku-remote-body.RSR > div.scrubRow, 
+          .roku-remote-body.RWR > div.scrubRow {
             margin-bottom: calc(var(--sz) * 0.75rem);
           }
 
@@ -5905,12 +6070,53 @@ class FiremoteCard extends LitElement {
             align-content: center;
           }
 
+          .roku-remote-body.RHR .appLauncherAppsContainer {
+            padding: calc(var(--sz) * 1rem) 0 calc(var(--sz) * 4rem) 0;
+          }
+
+          .roku-remote-body.RWR .appLauncherAppsContainer {
+            padding-bottom: calc(var(--sz) * 6rem);
+          }
+
           .roku-remote-body .appLauncherAppsContainer > button {
             height: calc(var(--sz) * 1.8rem);
             width: calc(var(--sz) * 5.1426rem);
             border-radius: calc(var(--sz) * 0.7rem);
             box-sizing: border-box;
             align-items: center;
+          }
+
+          .roku-remote-body .appLauncherVerticalAppsContainer {
+            display: grid;
+            margin-top: calc(var(--sz) * 1.25rem);
+            gap: calc(var(--sz) * 1rem);
+          }
+
+          .rokuBrandLogo {
+            padding: calc(var(--sz) * 1rem) 0;
+          }
+
+          .RHR .rokuBrandLogo,
+          .RWR .rokuBrandLogo {
+            position: absolute;
+            bottom: calc(var(--sz) * 2rem);
+          }
+
+          .RTR .rokuBrandLogo {
+            padding: calc(var(--sz) * 1rem) 0 calc(var(--sz) * 2.25rem) 0;
+          }
+
+          .rokuBrandLogo svg {
+            height: calc(var(--sz) * 1.15rem);
+            max-width: calc(var(--sz) * 11.287rem);
+          }
+
+          .RHR .rokuBrandLogo svg {
+            height: calc(var(--sz) * 0.8rem);
+          }
+
+          .RWR .rokuBrandLogo svg {
+            height: calc(var(--sz) * 3.1rem);
           }
 
           .roku-remote-body .rokuTag {
@@ -6085,7 +6291,6 @@ class FiremoteCard extends LitElement {
             margin-top: calc(var(--sz) * 0.57rem);
             row-gap: calc(var(--sz) * 0.9rem);
             justify-items: center;
-            /*justify-content: space-evenly;*/
           }
 
           .XM2 .afappsgrid {
@@ -6941,6 +7146,18 @@ class FiremoteCard extends LitElement {
             display: block;
           }
 
+          .roku-remote-body.RTR .deviceNameBottom {
+             margin-bottom: calc(var(--sz) * 0.1rem);
+             margin-top: calc(var(--sz) * -1.25rem);
+          }
+
+          .roku-remote-body.RWR .deviceNameBottom,
+          .roku-remote-body.RHR .deviceNameBottom {
+            position: absolute;
+            width: calc(var(--sz) * 11.45rem);
+            bottom: calc(var(--sz) * 3.5rem);
+          }
+
           .firemoteVersionNumber {
             text-shadow: 0px 1px 0px #1e1e1e, 0px -1px 0px #000;
             color: #4e4e4e;
@@ -7113,6 +7330,10 @@ class FiremoteCard extends LitElement {
 
           .bookmarker1Button {
             background: rgb(109 109 109);
+          }
+
+          .cbsSportsButton {
+            background: #004ace;
           }
 
           .cctvViewerButton {
@@ -7631,6 +7852,10 @@ class FiremoteCard extends LitElement {
 
           .odidoButton {
             background: #000;
+          }
+
+          .optimumTVButton {
+            background: #002865;
           }
 
           .optusSportButton {
@@ -8317,6 +8542,24 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(229 58 58 / 31%);
           }
 
+          .roku-remote-body.RTR #power-button {
+            background: #810000;
+          }
+
+          .roku-remote-body.RTR #power-button > ha-icon {
+            color: #c6c6c6;
+          }
+
+          .roku-remote-body.RTR #power-button.litbutton {
+            background: rgb(159, 0, 0);
+            border: 0.0714rem solid rgb(139, 62, 62);
+            box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(229 164 164 / 31%);
+          }
+
+          .roku-remote-body.RTR #power-button.litbutton > ha-icon {
+            color: #fff !important;
+          }
+
           .roku-remote-body #home-button.litbutton, .roku-remote-body #playpause-button.litbutton {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.0714rem) rgb(255 255 255 / 20%);
           }
@@ -8511,6 +8754,7 @@ class FiremoteCard extends LitElement {
     if(this._config.device_family == 'apple-tv') {
       AppLaunchButtonFilterCssValue = 'grayscale(0%) brightness(100%)';
     }
+    var guiEditorDirection = this.hass.config.language == 'he' ? 'rtl' : 'ltr';
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
     var backgroundInherit = '';
     if (this._config.use_theme_background == true) { backgroundInherit = 'background: var(--ha-card-background,var(--card-background-color,#fff))!important; border: inherit !important; border-radius: inherit !important;';}
@@ -8614,6 +8858,9 @@ class FiremoteCard extends LitElement {
         if(cols == 2) {
           spanclass = "two-col-span nsappsgrid";
         }
+        if(cols == 1) {
+          spanclass = "appLauncherVerticalAppsContainer";
+        }
         if(cols == 'fill') {
           spanclass = "appLauncherAppsContainer";
         }
@@ -8657,6 +8904,18 @@ class FiremoteCard extends LitElement {
             appLaunchButtons.set("confBtn2", config.app_launch_2 || 'disney-plus');
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'apple-tv');
             appLaunchButtons.set("confBtn4", config.app_launch_4 || 'paramount-plus');
+        }
+        else if(['RTR'].includes(displayedRemote)) {
+            appLaunchButtons.set("confBtn1", config.app_launch_1 || 'netflix');
+            appLaunchButtons.set("confBtn2", config.app_launch_2 || 'disney-plus');
+            appLaunchButtons.set("confBtn3", config.app_launch_3 || 'hulu');
+            appLaunchButtons.set("confBtn4", config.app_launch_4 || 'roku-channel');
+        }
+        else if(['RHR'].includes(displayedRemote)) {
+            appLaunchButtons.set("confBtn1", config.app_launch_1 || 'netflix');
+            appLaunchButtons.set("confBtn2", config.app_launch_2 || 'hulu');
+            appLaunchButtons.set("confBtn3", config.app_launch_3 || 'roku-channel');
+            appLaunchButtons.set("confBtn4", config.app_launch_4 || 'disney-plus');
         }
         else if(['RVRP', 'RWR', 'roku'].includes(displayedRemote)) {
             appLaunchButtons.set("confBtn1", config.app_launch_1 || 'netflix');
@@ -9506,12 +9765,12 @@ class FiremoteCard extends LitElement {
       var middleButton = html `<button class="remote-button" id="voice-button" @click=${remote.buttonClicked}>
                                 <ha-icon icon="mdi:microphone"></ha-icon>
                               </button>`;
-      if (style=='RWR') {
+      if (style=='RHR'|| style=='RWR') {
         var middleButton = html `<button class="remote-button" id="sleep-button" @click=${remote.buttonClicked}>
                                 <ha-icon icon="mdi:moon-waxing-crescent"></ha-icon>
                               </button>`;
       }
-      if (style=='RSR') { middleButton = '' };
+      if (style=='RSR' || style=='RTR') { middleButton = '' };
       return html`
           <div class="replayVoiceOptionsRow">
             <button class="remote-button" id="replay-button" @click=${remote.buttonClicked}>
@@ -9544,6 +9803,29 @@ class FiremoteCard extends LitElement {
             <svg xmlns="http://www.w3.org/2000/svg" width="954" height="298" viewBox="0 0 954 298" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#adadad" fill-rule="nonzero"><path d="M259.3 291.2h-88l-70-97H77.7v97H0V0h111.2c64 0 116.5 43.6 116.5 97.3 0 32.7-20 62-50.6 79.8l82.2 114.2M150 97.2c.1-13-5-25.3-14-34.5-9-9-21.5-14.3-34.4-14.4h-24v97.4h24c26.7-.1 48.3-21.8 48.4-48.5z"/><path d="M466.4 177a119 119 0 0 1-203.3 85.2c-34.2-34-44.6-85.3-26.2-130A119 119 0 0 1 431.3 93a119 119 0 0 1 35.1 84.1M347 114.7c-20.6 0-38 28-38 62.4 0 34.5 17.4 62.4 38 62.4 21 0 38.4-28 38.4-62.4S368 114.7 347 114.7zm301.6-51.5l-89.4 89.5V63h-77.7v228h77.7v-92.5l93.4 92.5h97.6L631.6 172.3 730 74v135.5c0 45 27 86.3 95 86.3a108 108 0 0 0 76.3-34.8l35 30h16.5V63h-77.5v147.6c-8.7 15.3-21 25-39.7 25-19.2 0-28-11.4-28-47.6V63z"/></svg></div>`;
       }
 
+    // Render Roku Hisense Remote
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'RHR' ) {
+    return html`
+      <ha-card>
+      ${cssVars}
+      <div class="roku-remote-body RHR">
+          ${drawDeviceName(this, this._config, 'top')}
+          ${renderRokuPowerRow(this, 'RHR')}
+          ${renderRokuBackHomeRow(this)}
+          ${renderRokuDPad(this)}
+          ${renderRokuReplayOptionsRow(this, "RHR")}
+          ${renderRokuScrubRow(this)}
+          ${drawAppLaunchButtons(this, this._config, 'fill', appButtonMax["RHR"])}
+          <div class="rokuBrandLogo">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1736" height="144" viewBox="0 0 1736 144" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g fill="#b9b9b9" stroke="none"><path d="M1226 85c0 23-14 44-35 53-22 9-47 4-63-12-17-16-22-41-13-62 9-22 30-36 53-36 16 0 31 6 41 17 11 10 17 25 17 40m-58-30c-10 0-18 14-18 30 0 17 8 30 18 30s19-13 19-30c0-16-9-30-19-30zm145-25l-43 43V30h-37v110h37V95l45 45h47l-57-57 47-48v65c0 22 13 42 46 42 16 0 30-9 37-17l17 15h8V30h-38v71c-4 7-10 12-19 12s-13-5-13-23V30z" fill-rule="nonzero"/><path d="M1484 32h41v106h32V32h41V3l54 136h29l54-137h-35l-33 90-34-90h-149M917 71c0-11 9-20 20-20s20 9 20 20-9 20-20 20-20-9-20-20z"/><g fill-rule="nonzero"><path d="M1126 140h-43l-33-47h-12v47h-37V0h53c31 0 57 21 57 47 0 16-10 30-25 38l40 55m-53-93c0-6-2-12-7-17-4-4-10-7-16-7h-12v47h12c13 0 23-10 23-23zM158 1l-11 137h-43l5-61H48l-5 61H0L11 1h31c4 0 11 0 11 9l-3 39h61l4-48zm545 78c19 8 39 17 36 35-3 21-33 25-58 25-2 0-4-1-6-1-33-1-50-3-50-3l1-22s24 4 46 5c12 0 21-1 21-5 1-4-6-6-19-11l-11-5c-14-6-37-14-36-33s24-25 37-27c8-1 16-1 28-1 25 0 46 5 46 5l-2 21s-22-5-45-5c-14 0-19 1-20 4-1 4 7 7 17 12l15 6M210 1c7 0 9 3 9 9 0 2-2 17-2 17h-42l2-26h33m7 37l-8 100h-42l8-100z"/><path d="M574 72c0-14-10-14-14-14-11 0-25 2-25 2l-5 78h-39l6-96s31-4 55-5h9c10 0 17 1 18 1 15 1 36 3 34 33l-4 67h-40l5-66"/><use xlink:href="#oug9"/><use xlink:href="#oug9" x="-395"/><path d="M307 79l-15-7c-10-4-18-7-17-11 1-3 6-4 20-4 23 0 45 5 45 5l2-21s-21-5-46-5c-12 0-20 0-28 1-13 2-36 8-37 27s22 28 36 33l11 5c13 5 20 7 19 11 0 4-9 5-21 5-22-1-46-5-46-5l-1 22s17 2 50 3h6c25 0 55-3 58-24 3-19-17-27-36-35"/></g></g><defs ><path id="oug9" d="M874 96c8-48-34-58-44-59-4-1-8-1-12-1-45 0-67 28-69 51-2 21 6 52 72 52 24 0 39-3 46-5 1-5 2-14 3-21-3 1-23 5-44 5h-2c-30-1-36-15-36-22v-1zm-84-19c2-11 10-22 27-22 25 1 23 22 23 22z"/></defs></svg>
+          </div>
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${drawFiremoteVersionNumber(this, this._config)}
+      </div>
+      </ha-card>
+    `;
+    }
+
     // Render Roku Simple Remote
     if ( getDeviceAttribute('defaultRemoteStyle') == 'RSR' ) {
     return html`
@@ -9564,21 +9846,45 @@ class FiremoteCard extends LitElement {
     `;
     }
 
-    // Render Roku Westinghouse Remoste
+    // Render Roku TCL Remote
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'RTR' ) {
+    return html`
+      <ha-card>
+      ${cssVars}
+      <div class="roku-remote-body RTR">
+          ${drawDeviceName(this, this._config, 'top')}
+          ${renderRokuPowerRow(this, 'RTR')}
+          ${renderRokuBackHomeRow(this)}
+          ${renderRokuDPad(this)}
+          ${renderRokuReplayOptionsRow(this, "RTR")}
+          ${renderRokuScrubRow(this)}
+          ${drawAppLaunchButtons(this, this._config, 1, appButtonMax["RTR"])}
+          <div class="rokuBrandLogo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1324" height="145" viewBox="0 0 1324 145" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#b9b9b9" fill-rule="evenodd"><path d="M0 45h52v93h47V45h52V7H0v38zm242 66c-10 0-18-3-25-9-7-7-12-16-12-29v-2c0-13 5-23 12-29 7-7 15-10 25-10 26 0 31 15 33 25h41c-1-20-10-34-24-43-13-9-28-14-49-14-25 0-43 6-58 18-15 13-23 33-23 53v1c0 22 7 39 22 53 14 13 35 19 58 18 21 0 39-4 51-14 13-10 22-24 23-43h-41c-1 8-6 25-33 25m144-9V7h-45v131h118v-36h-73z" fill-rule="nonzero"/><path d="M1072 32h41v106h32V32h41V3l54 136h29l54-137h-35l-33 90-34-90h-149"/><g fill-rule="nonzero"><path d="M714 140h-43l-33-47h-12v47h-37V0h53c31 0 57 21 57 47 0 16-10 30-25 38l40 55m-53-93c0-6-2-12-7-17-4-4-10-7-16-7h-12v47h12c13 0 23-10 23-23z"/><path d="M814 85c0 23-14 44-35 53-22 9-47 4-63-12-17-16-22-41-13-62 9-22 30-36 53-36 16 0 31 6 41 17 11 10 17 25 17 40m-58-30c-10 0-18 14-18 30 0 17 8 30 18 30s19-13 19-30c0-16-9-30-19-30zm145-25l-43 43V30h-37v110h37V95l45 45h47l-57-57 47-48v65c0 22 13 42 46 42 16 0 30-9 37-17l17 15h8V30h-38v71c-4 7-10 12-19 12s-13-5-13-23V30z"/></g><path d="M505 71c0-11 9-20 20-20s20 9 20 20-9 20-20 20-20-9-20-20z"/></svg>
+          </div>
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${drawFiremoteVersionNumber(this, this._config)}
+      </div>
+      </ha-card>
+    `;
+    }
+
+    // Render Roku Westinghouse Remote
     if ( getDeviceAttribute('defaultRemoteStyle') == 'RWR' ) {
-    //console.log(this.hass);
     return html`
       <ha-card>
       ${cssVars}
       <div class="roku-remote-body RWR">
           ${drawDeviceName(this, this._config, 'top')}
-          ${renderRokuPowerRow(this, 'RVRP')}
+          ${renderRokuPowerRow(this, 'RWR')}
           ${renderRokuBackHomeRow(this)}
           ${renderRokuDPad(this)}
           ${renderRokuReplayOptionsRow(this, "RWR")}
           ${renderRokuScrubRow(this)}
           ${drawAppLaunchButtons(this, this._config, 'fill', appButtonMax["RWR"])}
-          <div style="display: grid; text-align: center;">Westinghouse<br>&bull;<br>Roku TV</div>
+          <div class="rokuBrandLogo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="996" height="448" viewBox="0 0 996 448" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#b9b9b9" fill-rule="evenodd"><path d="M643 320h47v122h37V320h46v-33l62 156h33l62-157h-40l-38 103-39-103H643"/><g fill-rule="nonzero"><path d="M233 443h-49l-38-54h-14v54H90V283h61c35 0 65 24 65 54 0 18-12 34-29 43l46 63m-61-106c0-7-2-14-8-20-4-4-11-8-18-8h-14v54h14c15 0 26-11 26-26z"/><path d="M347 380c0 27-16 51-40 61-25 10-54 4-72-14-20-18-25-47-15-71 10-25 34-41 61-41 17 0 34 7 47 19 12 12 19 29 19 46m-66-34c-12 0-21 16-21 34 0 20 9 35 21 35 11 0 21-15 21-35 0-18-10-34-21-34zm166-29l-50 49v-49h-42v126h42v-51l52 51h54l-66-65 54-55v74c0 26 15 48 53 48 18 0 34-10 42-19l20 17h9V317h-44v82c-4 8-11 13-21 13-11 0-15-5-15-26v-69z"/></g><path d="M484 247c0-13 10-23 23-23s23 10 23 23-10 23-23 23-23-10-23-23z"/><path d="M374 1c6-2 13 0 16 5 3 6 1 13-4 16-7 4-16 2-19-5-3-6 1-14 7-16zM0 2h25c4 32 9 63 14 95L56 2h26l17 95 15-95h24l-25 151H89L69 48 50 153H26L0 2zm582 151V2h23v43c3-5 7-9 13-11s13-2 19 0c7 3 12 9 15 15 2 5 2 9 2 14v90h-22V68c0-5-1-10-4-13-4-4-10-3-15-2-5 2-8 8-8 13v87h-23zM317 14h20c1 7 0 14 1 21h17v20h-17v68c0 4 1 8 2 12 1 6 4 13 9 18h-24c-2-3-4-6-5-10-2-5-4-10-3-15-1-24 0-49 0-73h-52c-5 0-10 2-13 6-2 5-2 11 2 15 2 3 5 6 9 8 7 4 14 7 21 11 6 3 11 8 14 13 3 7 3 14 3 21-1 7-5 14-11 19-8 6-19 7-28 7-14-1-26-9-32-21-3-7-4-14-4-21h22c0 6 1 12 5 17s11 7 18 5c4-2 7-7 7-12s-4-9-9-12l-22-13c-5-4-10-8-14-13-4-7-5-15-4-23s6-16 13-20c7-5 16-7 25-7h50V14zm235 34c-1-7 3-14 10-15s14 5 14 12c-1 7-7 12-14 11-3-1-5-2-7-4 2 7 3 14 3 22s0 16-2 24c-1 6-4 12-9 17-5 4-12 6-19 7s-15 0-22-3v16h35c6 0 12 0 18 3 5 2 8 6 10 10 3 6 4 13 3 19s-4 12-9 16c-6 5-14 6-21 6h-31c-7-1-14-1-18-6-5-5-4-12-4-19 2-6 9-10 15-10-6-1-11-4-14-9-2-6-2-13 2-19 3-4 8-7 13-8-5-3-10-8-12-13-3-8-4-17-4-25s0-17 2-25c2-6 5-11 9-14 5-4 12-6 18-6 8-1 15-1 22 2 5 2 9 6 12 11m-32 5a10.85 10.85 0 0 0-8 8c-3 6-2 14-2 21 0 6 0 12 3 17 4 7 15 8 19 2 3-4 4-9 5-13 1-7 1-14 0-20-1-5-2-9-5-12-3-4-8-4-12-3m-14 100v18h36c3 0 6 0 9-1 5-3 6-11 1-14-3-2-7-3-10-3h-36zM168 34c12-2 24-1 34 6 9 7 12 19 13 30v27h-51v20c0 4 1 9 5 13 3 3 8 4 12 4 4-1 7-3 9-6 2-5 2-11 2-16h23c0 6 0 12-2 19-2 9-8 17-17 21s-21 4-31 2c-9-2-17-10-20-19-6-16-5-34-5-52 0-11 0-24 6-34 4-9 13-14 22-15m-2 24c-3 6-3 13-3 20h29c0-7 0-15-4-21-4-8-18-7-22 1zm274-24c7-2 14-2 20 2 9 4 14 13 15 22 1 5 1 10 1 16v79h-22V71c0-6-2-12-7-16-4-3-10-2-14 1s-6 9-6 15v82h-22V35h21v10c3-5 8-9 14-11zm257 0c11-2 24 0 32 9 7 6 10 16 10 25v53c0 7-1 14-5 20-3 5-8 9-13 11-8 3-15 4-23 3s-15-4-21-10c-5-5-8-13-8-21V72c0-8 1-16 5-23 5-9 14-14 23-15m3 20c-5 1-8 5-9 10-2 7-1 14-1 21v32c0 5 1 11 6 15 4 3 11 3 16 0s6-9 6-15V71c0-5-1-10-4-14-4-4-9-4-14-3zm141-3c5-11 17-17 28-18 9-1 19 2 26 8 8 8 12 19 12 30h-22c0-6-2-13-7-16-6-4-16-1-18 6-1 3-1 6 1 9s5 6 9 8c7 4 13 8 20 12 6 4 12 9 15 16 3 5 4 12 4 18 0 8-3 16-9 22-7 7-17 9-27 9-9 1-18-2-25-9-9-8-13-21-13-34h21c0 6 2 12 6 16 3 5 9 7 15 6s10-7 9-13c-1-5-5-9-9-12-8-5-16-9-23-14-4-2-6-4-9-7-8-10-9-26-4-37zm97-14c7-3 16-4 23-4 8 0 16 3 22 8 8 8 11 19 12 30v26h-51v21c1 4 2 9 5 12s8 4 12 4c4-1 7-3 9-6 2-5 2-11 2-16h23c0 6 0 12-1 17-2 8-6 14-12 19s-15 7-23 7c-10 0-21-2-28-10-4-5-7-12-8-18-4-17-3-35-3-53 0-8 1-17 5-25 3-5 8-9 13-12m8 21c-3 6-3 13-3 20h29c0-7 0-15-4-21-4-8-18-7-22 1zM368 36h22v117h-22V36zm385-1h22v83c0 4 0 9 3 13 3 3 7 4 12 4 4-1 8-4 9-8 3-6 3-13 3-19V35h21v118h-21v-10c-3 4-7 7-11 9-7 3-15 4-21 2s-10-6-12-11c-4-8-5-17-5-25V35z" fill-rule="nonzero"/></svg>
+          </div>
           ${drawDeviceName(this, this._config, 'bottom')}
           ${drawFiremoteVersionNumber(this, this._config)}
       </div>
@@ -10996,14 +11302,15 @@ class FiremoteCardEditor extends LitElement {
     if(this._config.device_family == 'apple-tv') {
       mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('apple_tv');
       heading = 'Apple TV Media Player '+ this.translateToUsrLang('Entity');
+      heading = this.hass.config.language == 'he' ? this.translateToUsrLang('Entity') + ' Apple TV Media Player' : 'Apple TV Media Player '+ this.translateToUsrLang('Entity');
     }
     else if(this._config.device_family == 'roku') {
       mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('roku');
-      heading = 'Roku Media Player '+ this.translateToUsrLang('Entity');
+      heading = this.hass.config.language == 'he' ? this.translateToUsrLang('Entity') + ' Roku Media Player' : 'Roku Media Player '+ this.translateToUsrLang('Entity');
     }
     else {
       mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
-      heading = 'Android Debug Bridge '+ this.translateToUsrLang('Entity');
+      heading = this.hass.config.language == 'he' ? this.translateToUsrLang('Entity') + ' Android Debug Bridge' : 'Android Debug Bridge '+ this.translateToUsrLang('Entity');
     }
     var blankEntity = '';
     if(this._config.entity == '' || !(mediaPlayerEntities).includes(optionValue)) {
@@ -11035,12 +11342,14 @@ class FiremoteCardEditor extends LitElement {
     var remoteEntities = [];
     var appleTVRemoteEntities = this.getRemoteEntitiesByPlatform('apple_tv');
     if(this._config.device_family == 'apple-tv') {
+        var dropdownLabel = this.translateToUsrLang('Associated') + ' Apple TV Remote ' + this.translateToUsrLang('Entity') + ':';
+        dropdownLabel = this.hass.config.language == 'he' ?  'ישות משויכת ל-' + 'Apple TV Remote ' : dropdownLabel;
         if(this._config.apple_tv_remote_entity == '' || typeof this._config.apple_tv_remote_entity == 'undefined') {
             blankRemoteEntity = html `<option value="" selected> - - - - </option> `;
         }
         remoteEntities = this.getRemoteEntitiesByPlatform('apple_tv');
         return html`
-              ${this.translateToUsrLang('Associated')} Apple TV Remote ${this.translateToUsrLang('Entity')}:<br>
+              ${dropdownLabel}:<br>
               <select name="apple_tv_remote_entity" id="apple_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
@@ -11058,12 +11367,14 @@ class FiremoteCardEditor extends LitElement {
             <br>`
     }
     if(this._config.device_family == 'roku') {
+        var dropdownLabel = this.translateToUsrLang('Associated') + ' Roku Remote ' + this.translateToUsrLang('Entity');
+        dropdownLabel = this.hass.config.language == 'he' ?  'ישות משויכת ל-' + 'Roku Remote ' : dropdownLabel;
         if(this._config.roku_remote_entity == '' || typeof this._config.roku_remote_entity == 'undefined') {
             blankRemoteEntity = html `<option value="" selected> - - - - </option> `;
         }
         remoteEntities = this.getRemoteEntitiesByPlatform('roku');
         return html`
-              ${this.translateToUsrLang('Associated')} Roku Remote ${this.translateToUsrLang('Entity')}:<br>
+              ${dropdownLabel}:<br>
               <select name="roku_remote_entity" id="roku_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
@@ -11081,12 +11392,14 @@ class FiremoteCardEditor extends LitElement {
             <br>`
     }
     else {
+        var dropdownLabel = this.translateToUsrLang('Associated') + ' Android TV Remote ' + this.translateToUsrLang('Entity') + ': (' + this.translateToUsrLang('optional') + ')';
+        dropdownLabel = this.hass.config.language == 'he' ?  'ישות משויכת ל-' + 'Android TV Remote ' : dropdownLabel;
         if(this._config.androidTVRemoteEntity == '' || typeof this._config.androidTVRemoteEntity == 'undefined') {
             blankRemoteEntity = html `<option value="" selected> - - - - </option> `;
         }
         remoteEntities = this.getEntitiesByPlatform('androidtv_remote');
         return html`
-              ${this.translateToUsrLang('Associated')} Android TV Remote ${this.translateToUsrLang('Entity')}: (${this.translateToUsrLang('optional')})<br>
+              ${dropdownLabel}<br>
               <select name="android_tv_remote_entity" id="android_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
                 @focusout=${this.configChanged}
                 @change=${this.configChanged} >
@@ -11270,22 +11583,28 @@ class FiremoteCardEditor extends LitElement {
     // Rebuild AppMap - allow hdmi inputs where appropriate & add configured custom launchers from YAML
     refreshAppMap(this._config, getDeviceAttribute('hdmiInputs'), getDeviceAttribute('avInputs'), getDeviceAttribute('tuner'));
 
+    var deviceModelSelectorLabel = devicemap.get(this._config.device_family).meta.friendlyName + ' ' + this.translateToUsrLang('Device Model');
+    if (this.hass.config.language == 'he') {
+      deviceModelSelectorLabel =  this.translateToUsrLang('Device Model') + ' ' + devicemap.get(this._config.device_family).meta.friendlyName;
+    }
+
     if(this._config.device_type == null || this._config.device_type == '') { 
       return html`
         ${this.translateToUsrLang('Device Family')}: <br>
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
         <br>
 
-        ${devicemap.get(this._config.device_family).meta.friendlyName} ${this.translateToUsrLang('Device Model')}:<br>
+        ${deviceModelSelectorLabel}:<br>
         ${this.getDeviceTypeDropdown(this._config.device_type)}`;
     }
     else {
+
       return html`
         ${this.translateToUsrLang('Device Family')}: <br>
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
         <br>
 
-        ${devicemap.get(this._config.device_family).meta.friendlyName} ${this.translateToUsrLang('Device Model')}:<br>
+        ${deviceModelSelectorLabel}:<br>
         ${this.getDeviceTypeDropdown(this._config.device_type)}
         <br>
 
@@ -11326,6 +11645,8 @@ class FiremoteCardEditor extends LitElement {
           <option value="RVRP">Roku Voice Remote Pro</option>
           <option value="RVR">Roku Voice Remote</option>
           <option value="RSR">Roku Simple Remote</option>
+          <option value="RHR">Hisense Roku TV Remote</option>
+          <option value="RTR">TCL Roku TV Remote</option>
           <option value="RWR">Westinghouse Roku TV Remote</option>
           <option value="XM1">Xiomi Mi Style 1</option>
           <option value="XM2">Xiomi Mi Style 2</option>
