@@ -29,6 +29,7 @@ body:
        - Apple TV
        - Chromecast
        - NVIDIA Shield
+       - Roku
        - Xiaomi
       multiple: true
       description: The kind of device you own.  You can choose one or more from this list.
