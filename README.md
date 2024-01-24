@@ -50,13 +50,15 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 <br>
 
 ## Download and Setup via Home Assistant UI & HACS
-1. For non-Apple TV users, [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon, Shield, Xiaomi, Chromecast, or Android TV device
+1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon, Shield, Xiaomi, Chromecast, or Android TV device (does not apply to Apple TV or Roku users)
 1. Connect your device to Home Assistant:
    - Amazon, Shield, Xiaomi, Chromecast, or Android TV users:
      - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**always required in every setup**)
      - Optionally, for non Amazon Fire devices only, you may additionally choose to set up the Home Assistant [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) and connect it to your device. (optional)
    - Apple TV Users
      - Set up the Home Assistant [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv) and connect it to your device.  This will create a "Media Player" entity, and a "Remote" entity automatically.
+   - Roku Users
+     - Set up the Home Assistant [Roku Integration](https://www.home-assistant.io/integrations/roku) and connect it to your device.  This will create a "Media Player" entity, a "Remote" entity, and multiple others as well.
 1. Click on HACS and select Frontend
 1. In the lower right-hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
 1. Search for, and click on "Firemote Card" then click the **DOWNLOAD** button in the lower right-hand corner
@@ -70,6 +72,8 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
      - Optionally, for non Amazon Fire devices only, you may additionally choose to set up the Home Assistant [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) and connect it to your device. (optional)
    - Apple TV Users
      - Set up the Home Assistant [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv) and connect it to your device.  This will create a "Media Player" entity, and a "Remote" entity automatically.
+   - Roku Users
+     - Set up the Home Assistant [Roku Integration](https://www.home-assistant.io/integrations/roku) and connect it to your device.  This will create a "Media Player" entity, a "Remote" entity, and multiple others as well.
 1. Download the contents of the [dist/](https://github.com/PRProd/HA-Firemote/blob/main/dist/) directory, and place it in your Home Assistant /config/www directory
 1. [Register the HA-Firemote.js file that you just installed as a new resource](https://developers.home-assistant.io/docs/frontend/custom-ui/registering-resources/)
 
@@ -79,7 +83,7 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 ## How to use
 1. On any dashboard, click the +ADD CARD button
 1. Search by cards for "Firemote Card" and click on it - [help: It's not showing up](https://github.com/PRProd/HA-Firemote/wiki/Force-a-Refresh)
-1. Under the **Device Family** dropdown, choose "Amazon Fire", "Apple TV",  "Chromecast", "NVIDIA Shield", or "Xiaomi"
+1. Under the **Device Family** dropdown, choose "Amazon Fire", "Apple TV",  "Chromecast", "NVIDIA Shield", "Roku", or "Xiaomi"
    - Amazon, Shield, Xiaomi, Chromecast, or Android TV users:
      - Under **Device Model**, select the device model that you own. (Help: Which [Amazon Fire](https://developer.amazon.com/docs/fire-tv/device-specifications.html) or [NVIDIA Shield](https://www.nvidia.com/en-us/shield/)  device do I own?)
      - Under the Android Debug Bridge Entity dropdown, a list of your Android Debug Bridge integration entities will appear.  Select the one you wish to control.
@@ -88,6 +92,10 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
      - Under **Apple TV Device Model**, select the device model that you own
      - Under **Apple TV Media Player Entity**, select the Apple TV Media Player entity you wish to control
      - Under **Apple TV Remote Entity**, select the Apple TV remote entity that is associated with the Apple TV Media Player Entity you chose in the previous step
+   - Roku Users
+     - Under **Roku Device Model**, select the device model that you own
+     - Under **Roku Media Player Entity**, select the Roku Media Player entity you wish to control
+     - Under **Associated Roku Remote Entity**, select the Roku remote entity that is associated with the Roku Media Player Entity you chose in the previous step
 1. Make any other optional changes to your card, then click "SAVE"  Other options include changing the app launch buttons to apps that you use most often, or changing the style of your remote control to look like something completely different from what shipped with your device.  You can even add names and adjust the size of your Firemote card too!
 
 ![Config](https://github.com/PRProd/HA-Firemote/assets/25486599/9a4f061c-9584-44df-92f8-07d5e8346c6b)
