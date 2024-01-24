@@ -21,6 +21,11 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 
 <br>
 <br>
+
+## Introduction
+**Firemote** is a custom [Home Assistant](https://www.home-assistant.io/) card that is capable of controlling your media devices directly from any Home Assistant dashboard. The Firemote dashboard remotes are designed to look just like your physical remote controls, but they also contain TONS of customization options to choose from!
+
+<br>
 <br>
 
 ## Prerequisites
