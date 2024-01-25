@@ -58,7 +58,7 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon, Shield, Xiaomi, Chromecast, or Android TV device (does not apply to Apple TV or Roku users)
 1. Connect your device to Home Assistant:
    - Amazon, Shield, Xiaomi, Chromecast, or Android TV users:
-     - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**always required in every setup**)
+     - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**REQUIRED in every setup** [why?](https://github.com/PRProd/HA-Firemote/wiki#why-do-i-still-need-the-adb-integration-when-there-is-an-android-remote-integration))
      - Optionally, for non Amazon Fire devices only, you may additionally choose to set up the Home Assistant [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) and connect it to your device. (optional)
    - Apple TV Users
      - Set up the Home Assistant [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv) and connect it to your device.  This will create a "Media Player" entity, and a "Remote" entity automatically.
@@ -73,7 +73,7 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 1. For non-Apple TV users, [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon, Shield, Xiaomi, Chromecast, or Android TV device
 1. Connect your device to Home Assistant:
    - Amazon, Shield, Xiaomi, Chromecast, or Android TV users:
-     - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**always required in every setup**)
+     - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**REQUIRED in every setup** [why?](https://github.com/PRProd/HA-Firemote/wiki#why-do-i-still-need-the-adb-integration-when-there-is-an-android-remote-integration))
      - Optionally, for non Amazon Fire devices only, you may additionally choose to set up the Home Assistant [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) and connect it to your device. (optional)
    - Apple TV Users
      - Set up the Home Assistant [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv) and connect it to your device.  This will create a "Media Player" entity, and a "Remote" entity automatically.
@@ -315,6 +315,11 @@ Valid button names are as follows:
 <br>
 
 ## FAQ
+
+Additional FAQs can be found [here](https://github.com/PRProd/HA-Firemote/wiki#faq) in the [Firemote Wiki](https://github.com/PRProd/HA-Firemote/wiki)
+<br>
+<br>
+
 ### I installed the Firemote Card, but I can't find it to add in my dashboard
 This tends to happen when your Home Assistant UI needs a refresh.  The best way to do this is through [force clearing your Home Assistant cache](https://github.com/PRProd/HA-Firemote/wiki/Force-a-Refresh) and trying again.
 <br><br>
