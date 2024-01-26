@@ -52,7 +52,7 @@ body:
     id: detailedAppInfo
     attributes:
       label: Application Details
-      placeholder: 
+      placeholder: Choose the appropriate link from the list above, follow the directions, and paste the results into this field
     validations:
       required: true
   - type: markdown
