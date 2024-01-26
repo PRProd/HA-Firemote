@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.0';
+const HAFiremoteVersion = 'v3.2.1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -2855,11 +2855,32 @@ const fastappchoices = {
   "nordvpn": {
       "button": '<svg viewbox="0 0 512 111.16" width="512" height="111.16" xmlns="http://www.w3.org/2000/svg"><path d="M499.86 37.684c0-3.322 2.692-6.07 6.07-6.07s6.071 2.748 6.071 6.07c0 3.379-2.691 6.07-6.07 6.07s-6.071-2.748-6.071-6.07zm1.145 0c0 2.749 2.177 4.983 4.926 4.983 2.691 0 4.925-2.234 4.925-4.983 0-2.749-2.234-4.983-4.925-4.983-2.75 0-4.926 2.234-4.926 4.983zm4.01 3.436h-1.432v-6.93h2.749c1.374 0 2.462.688 2.462 2.177 0 1.03-.573 1.66-1.317 2.004l1.432 2.75h-1.546l-1.26-2.52h-1.089zm1.202-5.555h-1.203v1.718h1.203c.516 0 1.088-.23 1.088-.86 0-.686-.572-.858-1.088-.858zm-290.53 49.94-24.74-37.17v37.17h-11.054V31.613h12.771l23.366 35.164V31.613h11.053v53.892zm36.653-37.57c-11.168 0-20.159 8.304-20.159 19.3 0 11.11 8.877 19.128 20.045 19.128 11.111 0 20.102-8.247 20.102-19.358-.057-10.996-8.934-19.071-19.987-19.071zm-.114 28.52c-5.04 0-9.106-3.836-9.106-9.449 0-5.498 4.009-9.335 8.991-9.335 5.04 0 9.106 3.837 9.106 9.335.057 5.613-3.952 9.45-8.991 9.45zm47.878-27.718v10.538c-1.432-.286-2.979-.286-3.437-.286-5.154 0-8.762 3.608-8.762 10.423v16.093h-10.538V48.737h10.194v5.383h.114c2.005-4.18 5.728-5.784 9.507-5.784.86 0 2.177.171 2.921.4zm30.754-17.124v21.362h-.115c-3.78-4.467-8.877-4.868-10.996-4.868-10.538 0-17.639 9.679-17.639 19.014 0 9.908 6.815 19.128 17.468 19.128 2.463 0 7.96-.344 11.454-5.384h.115v4.697h10.423v-53.95zm-8.82 44.843c-5.04 0-9.106-3.837-9.106-9.45 0-5.498 4.066-9.278 9.106-9.278s9.106 3.78 9.106 9.278c-.057 5.613-4.066 9.45-9.106 9.45zm42.323 9.049-19.53-53.892h12.085l13.974 40.949 14.03-40.95h11.856l-19.587 53.893zm57.042-53.892h-20.045v53.892h11.168V66.49h8.419c11.282 0 19.7-5.727 19.7-17.64 0-11.396-8.475-17.237-19.242-17.237zm-.916 24.512h-7.961V42.15h7.903c4.64 0 8.992 1.775 8.992 7.044 0 4.983-4.525 6.93-8.934 6.93zm61.566 29.38-24.798-37.17v37.17h-10.996V31.613h12.77l23.367 35.164V31.613h11.053v53.892z" fill="#2c3038"/><path d="M13.287 111.11C4.926 99.599 0 85.395 0 69.99 0 31.332 31.27.005 69.87.005c38.6 0 69.87 31.327 69.87 70.042 0 15.349-4.925 29.552-13.287 41.12L92.892 56.531l-3.264 5.498 3.264 15.234-23.08-39.517-14.203 24.111 3.322 15.406-12.084-20.675z" fill="#4580ff"/></svg>',
       "friendlyName": "Nord VPN",
-      "appName": "com.nordvpn.android",
       "className": "nordVPNButton",
-      "androidName": "com.nordvpn.android",
-      "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"], 
+      "amazon-fire": {
+          "appName": "com.nordvpn.android",
+          "androidName": "com.nordvpn.android",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+      },
+      "apple-tv": {
+          "appName": "NordVPN",
+      },
+      "chromecast": {
+          "appName": "com.nordvpn.android",
+          "androidName": "com.nordvpn.android",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.nordvpn.android",
+          "androidName": "com.nordvpn.android",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "com.nordvpn.android",
+          "androidName": "com.nordvpn.android",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+      },
+   },
 
 
   "nostv": {
@@ -3365,6 +3386,41 @@ const fastappchoices = {
       "appName": "Qmusic-BE",
       "deviceFamily": ["apple-tv"],
   },
+
+
+  "radio-paradise": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="550" height="400" viewBox="0 0 550 400" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M230 174c-9 5-9 13 0 24 3 3 11 13 12 15 1 1 2 3 3 5 3 5 8 17 9 20 0 1 1 2 1 3 2 5 3 10 3 14 1 2 1 4 1 4s1 3 1 6v7 2 7c0 4-1 7-1 7 0 1 0 2-1 4 0 4-1 8-2 11 0 1-1 3-1 3-1 3-4 11-4 13-1 1-1 2-1 2 0 2-13 21-20 28-8 10-9 15-3 22l3 3h4c7 0 10-3 19-13l8-11c0-1 1-2 2-3 3-5 11-20 11-21 0-2 1-3 1-2s8 17 9 17c0 0 1 2 1 3 2 3 7 11 9 13 7 9 17 18 17 16 0 0 0 1 1 1 6 2 14-5 14-12 0-4-2-8-8-14-7-8-20-29-20-33 0-1 0-1-1-2v-1c-1-3-1-4-2-5v-1c0-1-1-4-2-6 0-1-1-2-1-3v-3c-1-1-2-32-1-39 1-1 1-4 1-5s1-3 1-3c0-1 1-2 1-2v-2c0-1 1-3 2-5 2-6 3-10 4-10 0 0 1-2 2-5 3-5 8-14 11-18 6-6 7-8 9-10 11-10-1-28-14-20-4 3-17 18-17 20 0 1 0 1-1 1 0 0-2 3-6 10-1 1-2 3-2 4-1 2-2 3-2 3s-2 3-4 7c-1 3-1 3-4-2-4-9-10-20-12-22l-1-1c0-1 0-1-1-1 0-1-1-2-2-4-10-14-19-19-26-16m-28 24c-5 2-7 6-7 11s1 6 8 14c22 22 20 42 19 61 1 19-13 34-21 43-7 7-6 17 0 22h0c8 4 14-1 18-6 8-8 15-18 18-25 10-16 10-38 10-41 0-5-2-25-4-33-3-7-8-20-16-30-10-14-19-20-25-16m137 0c-4 2-11 9-17 17-1 1-2 2-2 3-3 3-9 15-11 22-1 2-2 4-2 5s-1 4-1 6-1 3-1 3-1 2-1 3v4c-1 1-1 23 0 25v3c0 1 1 3 1 4s1 2 1 3c0 2 0 3 2 8 2 7 7 19 9 21 1 1 1 1 1 2l1 1c1 1 1 2 1 2 0 2 14 16 17 18 11 5 22-4 16-15-1-3-2-4-6-9-9-10-15-20-17-30 0-1-1-2-1-2v-1-2c-2-5-2-25 0-31v-3s1-1 1-2c2-8 8-21 15-27 6-7 8-9 8-10 1 0 3-6 2-9 0-2-3-7-4-7l-1-1c-3-2-7-3-11-1m-167 25h-1c0-1-3 2-4 4-1 4-2 6-1 7v3c1 1 3 4 6 7 6 7 11 13 12 16 0 1 0 2 1 4 1 4 1 16-1 21-2 7-5 11-11 17-3 3-7 8-7 8 1 0 0 1 0 2-1 2-1 3 0 4v2c1 4 7 8 10 8 2 0 5 0 8-2 3-1 14-12 14-14 0 0 0-1 1-1s8-13 8-15v-1c1 0 1-1 1-2s1-3 1-4c1-5 1-20 1-23-1-1-1-3-1-4-1-8-8-21-16-30-3-3-9-7-9-7h-1c-1-2-10-2-11 0m193 0c-11 8-22 24-24 38-1 4-2 19-1 19 1 1 1 2 1 3v4c0 1 1 2 1 4 2 5 6 14 6 14 1 0 1 0 1 1s5 8 10 13c9 8 16 10 22 4s5-12-3-20c-6-5-8-9-10-13-8-16-4-34 10-45 3-3 7-9 7-11s-2-6-2-6l-1-1c0-1-3-4-4-5-3-1-10 0-13 1m-221 27c-25 5-31 45 2 47 4 1 10 1 12 0 8-3 12-9 14-17 4-12-5-26-16-29-4-1-7-2-12-1m250 0c-9 3-15 10-17 19-1 9 1 18 7 22 8 6 14 7 21 7 24-3 31-41 3-47-2-2-9-3-14-1m141 21v1-2" fill="#f3b33c"/><path d="M263 3c-6 1-15 1-20 2-67 6-96 37-123 76-7 11-11 23-15 31-1 1-2 4-2 5-3 7-8 22-9 31-1 3-1 4-3 15v8c0 5 0 5-1 5-7 2-17 13-20 20-2 7-2 10-1 32l11 126c4 10 15 18 27 21 16 4 37-8 42-25 1-5 2-9 1-24-1-5-1-13-2-18 0-11 0-11-6-12-20-6-22-34-3-43 5-2 6-3 5-8v-9c-2-35-3-39-10-49-7-9-15-13-27-15h-3l1-6c0-7 2-17 4-26 3-10 4-12 4-9 2 7 11 13 19 12 10-1 15-6 19-20 2-8 3-10 7-18 12-25 35-41 73-50 17-4 24-5 43-5 9 0 22 1 32 3 22 3 43 11 56 19 6 4 7 5 9 7 10 8 17 17 23 29 3 5 4 7 7 17 4 11 9 16 20 16 7 0 17-7 17-11 0-3 3 5 5 12 2 9 3 15 4 24v6h-2c-8 1-9 2-15 5-13 6-19 18-20 35 0 6-1 19-2 31-1 8 0 8 4 11 16 9 15 32-3 41l-5 2v7c-1 24-2 31-2 33-1 13 7 28 19 35 21 12 48-2 54-27 0-2 1-12 3-39l6-94c2-14-10-33-22-37-1-1-1-1-2-5-1-11-1-16-3-22 0-2 0-4-1-5-1-5-5-19-6-21-2-6-3-8-3-8-33-68-67-91-132-107-14-3-38-5-52-4M40 216c-4 3-12 12-16 20-10 21-7 70 4 93 8 15 29 21 39 10 6-6 6-9 5-31-1-11-2-21-3-40-2-42-5-46-9-49-5-4-14-5-20-3m457 0c-5 3-9 6-11 11-7 102-7 106-1 112 9 8 23 7 34-3 8-8 15-36 15-62s-5-41-18-55c-5-4-13-5-19-3" fill="#646464"/></svg>',
+      "friendlyName": "Radio Paradise",
+      "className": "radioParadiseButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "roku", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.earthflare.anddroid.radioparadisewidget",
+          "androidName": "com.earthflare.anddroid.radioparadisewidget",
+          "adbLaunchCommand": "adb shell am start -n com.earthflare.anddroid.radioparadisewidget/com.cratorsoft.act.ActRPHD_",
+      },
+      "apple-tv": {
+          "appName": "Radio Paradise Mk2",
+      },
+      "chromecast": {
+          "appName": "com.earthflare.android.radioparadisewidget.gpv2",
+          "androidName": "com.earthflare.android.radioparadisewidget.gpv2",
+          "adbLaunchCommand": "adb shell am start -n com.earthflare.android.radioparadisewidget.gpv2/com.cratorsoft.act.ActRPHD_",
+      },
+      "nvidia-shield": {
+          "appName": "com.earthflare.android.radioparadisewidget.gpv2",
+          "androidName": "com.earthflare.android.radioparadisewidget.gpv2",
+          "adbLaunchCommand": "adb shell am start -n com.earthflare.android.radioparadisewidget.gpv2/com.cratorsoft.act.ActRPHD_",
+      },
+      "roku": {
+          "appName": 'Radio Paradise',
+          "app-id": 1619,
+      },
+      "xiaomi": {
+          "appName": "com.earthflare.android.radioparadisewidget.gpv2",
+          "androidName": "com.earthflare.android.radioparadisewidget.gpv2",
+          "adbLaunchCommand": "adb shell am start -n com.earthflare.android.radioparadisewidget.gpv2/com.cratorsoft.act.ActRPHD_",
+      },
+   },
 
 
   "raiplay": {
@@ -4851,6 +4907,17 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
 
 
+  "wireguard": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="990" height="299" viewBox="0 0 990 299" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M342 192l-28-87h11l21 67 22-67h10l22 67 22-67h10l-28 87h-8l-23-70-23 70h-8zm88 0v-67h11v67zm36-29v29h-11v-67h47q10 0 16 5 6 5 6 14c0 4-2 9-5 12q-4 5-12 6l19 30h-12l-19-29h-29zm0-10h36q5 0 8-3 3-2 3-6 0-5-3-7-3-2-8-2h-36v18zm68 39v-67h63v10h-53v16h35v10h-35v21h56v10h-66zm140-24v-12h-23v-10h34v26q-6 11-16 17-10 5-23 5-20 0-33-13-12-12-12-32 0-20 12-33 13-13 33-13 12 0 22 5c6 4 12 9 16 15l-9 7c-3-5-7-10-12-12-5-3-11-5-17-5q-15 0-25 10-9 10-9 26 0 15 9 25 10 10 25 10 9 0 16-4 7-4 12-12zm23-43h11v43q0 10 4 13 5 4 18 4 14 0 19-4 4-3 4-13v-43h11v46q0 12-8 18-8 5-26 5-18 0-25-5-8-6-8-18v-46zm65 67l34-67h7l34 67h-11l-9-17h-35l-9 17zm24-26h27l-13-26zm63-3v29h-10v-67h46q10 0 16 5 6 5 6 14c0 4-2 9-5 12q-4 5-12 6l19 30h-11l-20-29h-29zm0-10h36q5 0 8-3 3-2 3-6 0-5-3-7-3-2-8-2h-36v18zm98-28q17 0 27 9 10 10 10 25 0 15-10 24-10 9-27 9h-30v-67h30zm0 9h-19v48h19q12 0 19-6 7-6 7-18 0-10-7-17-7-7-19-7zm-655 10S299 5 146 5C10 5 6 139 6 139s-20 153 143 153c156 0 143-148 143-148zM103 96c29-18 65-7 79 19 3 5 3 13 1 18-5 19-19 29-37 33 5-5 9-10 11-17 1-7 0-15-5-20-6-10-18-13-29-9-12 4-18 14-17 27 1 12 10 20 27 23l-6 3c-8 4-15 10-20 17-1 2-3 3-5 1-34-21-36-73 1-95zM77 224c-5 1-10 3-16 5 3-18 24-35 43-33-6 7-9 15-9 24-6 2-12 2-18 4zM193 45h16 4c-1 2-2 4-4 6-2 1-4 3-7 0h-3-16c-5 0-9 0-14 1-1 0-2 3-2 4 1 3 3 5 5 7 7 6 15 11 22 17 8 6 14 12 19 20 5 11 5 23 3 35-4 19-14 35-30 47-6 5-14 8-22 11-6 3-13 6-19 9-12 5-19 18-17 31 2 12 13 22 25 24 14 3 30-7 33-22 4-16-5-31-22-36l-3-1c4-2 8-3 12-5q10-6 19-11c2-1 2-1 4 0 12 9 19 23 21 38 3 26-9 49-32 61-35 19-79-2-86-42-7-33 17-63 45-69 12-3 24-8 32-17 6-7 9-12 10-14 1-4 2-9 2-14 0-4-1-8-3-12-3-7-14-17-17-20l-27-21h-4-13c3-2 9-5 12-7-8-6-18-4-27-6 2-4 12-10 18-10 0-4-1-7-2-10 0-1-1-3-3-4-3-1-6-3-10-5 3-2 7-3 11-3s7 0 11 1c6 1 11 0 17-4-4-2-8-3-12-5l-12-6c11 2 20 6 31 4q0-1 0-1l-24-6c14-1 27-1 40 5 4 2 7 3 11 5 1 1 2 3 4 4 1 1 2 3 3 4 5 2 11 3 17 2v-1c5 1 12 8 12 13h-28c-1 0-2 1-3 1 1 0 2 1 3 2zm-12-14s-1 0-1 1l1 1c0 1 1 1 1 1h2l3-2-3-2c-1-1-2 0-3 1z" stroke="none" fill="#fff" fill-rule="nonzero"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="790" height="790" viewBox="0 0 790 790" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M778 383S795 10 386 10C23 10 12 368 12 368s-53 410 382 410c418 0 384-395 384-395zM271 253c77-48 175-19 212 52 7 13 8 34 3 48-15 49-51 76-100 87 14-12 26-26 30-46 3-18-1-38-12-53-18-25-50-35-79-24-30 11-47 39-44 73 3 32 27 52 72 60-7 4-12 6-17 9-21 11-39 27-53 46-4 6-7 6-14 2-91-55-97-194 2-254zm-68 342c-14 3-28 9-43 14 7-50 65-95 113-90-14 20-22 43-24 67-16 3-31 5-46 9zm310-479h43c3 1 7 1 11 2l-11 14c-5 4-11 9-19 2-1-2-6-1-9-2h-43c-12 1-24 2-37 4-2 1-5 8-4 11 2 7 6 14 11 18 20 16 41 30 61 45 19 15 37 32 48 55 15 29 15 61 9 92-10 52-37 95-80 127-17 12-38 20-58 29-17 8-35 15-52 22-32 15-49 49-44 84 4 33 33 60 66 65 39 7 79-18 89-58 11-45-14-85-59-97-2-1-4-1-9-2 13-6 23-9 33-15 17-9 33-19 50-29 5-3 7-3 11 0 32 27 50 61 56 102 8 68-24 131-85 163-95 50-210-7-231-111-18-90 45-171 122-187 32-7 62-20 86-45 15-17 22-31 24-37 5-12 7-24 7-37 0-11-3-22-7-32-8-18-39-47-46-53l-72-56c-2-2-5-2-11-1-8 0-27 1-35-1 7-5 25-12 32-18-23-16-49-10-74-15 6-10 34-26 50-28-1-9-3-18-5-26-1-4-5-7-8-9-9-5-17-10-27-14 9-6 19-9 29-9 10-1 19 0 29 2 17 4 31 2 45-10-11-4-22-8-32-13-11-5-21-10-31-16 28 4 54 14 82 11l1-4-65-15c38-4 74-4 108 12 10 5 20 9 29 14 4 3 7 8 11 12 3 3 5 7 9 9 13 7 28 7 44 7v-5c15 5 33 22 33 35h-75c-3 0-5 2-8 3 3 2 5 5 8 5zm-32-38c-1 1-2 2-2 3 0 2 0 3 1 4s2 2 4 2c1 1 3 0 4 0 3-2 5-3 8-4-3-2-4-4-6-6-4-2-6-1-9 1z"/></svg>',
+      "friendlyName": "WireGuard",
+      "className": "wireGuardButton",
+      "appName": "com.wireguard.android",
+      "androidName": "com.wireguard.android",
+      "adbLaunchCommand": "adb shell am start -n com.wireguard.android/com.wireguard.android.activity.TvMainActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
+
+
   "wow": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="629" height="181" viewBox="0 0 629 181" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="RFBb" x1="0.00%" y1="50.05%" x2="99.98%" y2="50.05%"><stop offset="0%" stop-color="#0c2426"/><stop offset="18%" stop-color="#0b2d2f"/><stop offset="48%" stop-color="#084447"/><stop offset="86%" stop-color="#02696f"/><stop offset="100%" stop-color="#00797f"/></linearGradient></defs><path d="M53.8 175.3c17 0 24.8-9.5 31.4-22.8l30-60 15.2 54.7c6 21.2 13.8 28 28.8 28 15 0 24.5-5 33-25.3l22.6-55.5c1.2 52 38.5 85.5 89.3 85.5 51 0 85.5-33.2 92.6-75.4l8 44.2c3.4 18.4 12 26.5 26.7 26.5 14.8 0 23.4-6 30.7-19.4l34.4-63.3 13.5 56.7c4.2 17.2 11.8 26 27 26 15.3 0 22.6-6 29.3-19l58-113c2.5-4.6 3.7-9.7 3.7-15 0-13.2-10.3-23.5-25.5-23.5-15.3 0-22.6 7.3-28.5 20.3l-27.5 59-14.8-58c-3.2-13-10.5-21.3-25-21.3-9.3 0-18.7 2.7-27.3 19l-31.4 60.6L437 26.5c-2.5-15.2-13.3-21.8-26-21.8-7-.3-14 2.3-18.8 7.3-5 5-7.7 11.7-7.5 18.7a49 49 0 0 0 .7 8.6l1 5C373.3 19.6 346.5 0 310 0c-25 0-53.5 9.6-71.2 33l.3-6c-.3-12.8-8.6-22.3-24-22.3-15.2 0-22 6.6-27.5 20.3l-24 63.2-16-61.7c-3.4-12.7-10-21.8-24.5-21.8-14.5 0-21.7 4.6-29 20.8l-27.5 63-13.8-62C49.4 11.3 38.6 4.7 25.6 4.7S-.7 15.2 0 30.7c0 2.2.4 4.5 1 6.6l24.3 108c3.7 15.7 9.6 30 28.5 30zm212.4-83.7c0-23.6 17.7-42.2 39.8-42.2s39.8 16.7 39.8 41-16.5 40.2-39.8 40.2-39.8-17-39.8-39z" stroke="none" fill="url(#RFBb)" fill-rule="nonzero"/></svg>',
       "friendlyName": "WOW",
@@ -5621,7 +5688,7 @@ function handleAVInputs(config, avInputs = 0) {
 }
 
 function handleTunerInputs(config, tunerInput) {
-    if (config.device_family == "roku" && tunerInput == 'true') {
+    if (config.device_family == "roku" && (tunerInput == true || tunerInput == 'true')) {
         appmap.set("tuner_input", {"button": "TV Tuner", "friendlyName": "TV Tuner", "remoteCommand": '{"command": "input_tuner", "num_repeats": 1, "hold_secs": 0}'});
     }
 }
@@ -7966,6 +8033,10 @@ class FiremoteCard extends LitElement {
             background: #fff;
           }
 
+          .radioParadiseButton {
+            background: #000;
+          }
+
           .raiPlayButton {
             background: #fff;
           }
@@ -8318,6 +8389,10 @@ class FiremoteCard extends LitElement {
 
           .weydButton {
             background: #2d2e2e;
+          }
+
+          .wireGuardButton {
+            background: #88171a;
           }
 
           .wowButton {
