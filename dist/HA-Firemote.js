@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.1';
+const HAFiremoteVersion = 'v3.2.2b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -28,11 +28,25 @@ const devices = {
 
     "Smart TV": {
 
+      "fire_tv_4_series": {
+        "supported": true,
+        "friendlyName": "Fire TV (4 Series - 2021)",
+        "defaultEventListenerBinPath": "/dev/input/event0",
+        "defaultRemoteStyle": "AF5",
+        "hdmiInputs": 4,
+      },
       "fire_tv_hisense_u6_4k_uhd_2022": {
         "supported": false,
         "friendlyName": "Hisense U6 4K UHD - Fire TV (2022)",
         "defaultEventListenerBinPath": "/dev/input/event0",
         "defaultRemoteStyle": "AF5",
+        "hdmiInputs": 4,
+      },
+      "fire_tv_jvc-4k-2021": {
+        "supported": true,
+        "friendlyName": "JVC 4K - Fire TV with Freeview Play (2021)",
+        "defaultEventListenerBinPath": "/dev/input/event0",
+        "defaultRemoteStyle": "AFJTV",
         "hdmiInputs": 4,
       },
       "fire_tv_toshiba_v35": {
@@ -42,14 +56,6 @@ const devices = {
         "defaultRemoteStyle": "AF5",
         "hdmiInputs": 4,
       },
-      "fire_tv_4_series": {
-        "supported": true,
-        "friendlyName": "Fire TV (4 Series - 2021)",
-        "defaultEventListenerBinPath": "/dev/input/event0",
-        "defaultRemoteStyle": "AF5",
-        "hdmiInputs": 4,
-      },
-
     },
 
     "Fire TV Cube": {
@@ -1732,6 +1738,19 @@ const fastappchoices = {
           "appName": "Freevee",
           "androidName": "com.imdbtv.livingroom",
           "adbLaunchCommand": "adb shell am start -n com.imdbtv.livingroom/com.amazon.ignition.MainActivity",
+      },
+   },
+
+
+  "freeview-play": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="714" height="172" viewBox="0 0 714 172" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="pWHn" x1="50.00%" y1="-85.61%" x2="50.00%" y2="14.26%"><stop offset="0%" stop-color="#53565a"/><stop offset="100%" stop-color="#75787b"/></linearGradient><linearGradient id="MVKJ" x1="50.00%" y1="-87.43%" x2="50.00%" y2="12.44%"><stop offset="0%" stop-color="#53565a"/><stop offset="100%" stop-color="#75787b"/></linearGradient><linearGradient id="wzP9" x1="50.00%" y1="-88.45%" x2="50.00%" y2="11.55%"><stop offset="0%" stop-color="#53565a"/><stop offset="100%" stop-color="#75787b"/></linearGradient><linearGradient id="pOm0" x1="50.00%" y1="-38.46%" x2="50.00%" y2="61.54%"><stop offset="0%" stop-color="#53565a"/><stop offset="100%" stop-color="#75787b"/></linearGradient><radialGradient id="IQcf" cx="104%" cy="41%" r="108%" fx="104%" fy="41%"><stop offset="54.16%" stop-color="#fc1e00"/><stop offset="85.44%" stop-color="#fd7b01"/><stop offset="100%" stop-color="#fda101"/></radialGradient><linearGradient id="ypuD" x1="11%" y1="0%" x2="89%" y2="100%"><stop offset="0%" stop-color="#fda101" stop-opacity="0"/><stop offset="19.36%" stop-color="#fb9e02" stop-opacity=".194"/><stop offset="35.67%" stop-color="#f79305" stop-opacity=".357"/><stop offset="50.870000000000005%" stop-color="#ef820b" stop-opacity=".509"/><stop offset="65.4%" stop-color="#e36912" stop-opacity=".654"/><stop offset="79.46%" stop-color="#d4491c" stop-opacity=".795"/><stop offset="92.97%" stop-color="#c32328" stop-opacity=".93"/><stop offset="100%" stop-color="#b80c2f"/></linearGradient><linearGradient id="i0dF" x1="100%" y1="44%" x2="0%" y2="56%"><stop offset="20%" stop-color="#fc1e00" stop-opacity="0"/><stop offset="39.08%" stop-color="#fc4500" stop-opacity=".272"/><stop offset="73.77%" stop-color="#fd8701" stop-opacity=".767"/><stop offset="90.10000000000001%" stop-color="#fda101"/></linearGradient><filter id="KvsN" x="-10%" y="-18%" width="149%" height="142%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="25" dy="2" result="Jly1"/><feFlood flood-color="#000" flood-opacity=".475"/><feComposite in2="Jly1" operator="in" result="vh7l"/><feMerge><feMergeNode in="vh7l"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="s1Kr" x1="53.30%" y1="89.60%" x2="62.07%" y2="119.24%"><stop offset="12%" stop-color="#b80c2f" stop-opacity="0"/><stop offset="23.200000000000003%" stop-color="#9c0d29" stop-opacity=".178"/><stop offset="47.29%" stop-color="#65101c" stop-opacity=".56"/><stop offset="65.27%" stop-color="#431114" stop-opacity=".846"/><stop offset="75%" stop-color="#361211"/></linearGradient><radialGradient id="GGSu" r="60%"><stop offset="8.962452%" stop-color="#c5143d"/><stop offset="91.01%" stop-color="#cf1540" stop-opacity="0"/></radialGradient><radialGradient id="pm7G" cx="14%" cy="-3%" r="55%" fx="14%" fy="-3%"><stop offset="6.13497%" stop-color="#f819a5"/><stop offset="20.08%" stop-color="#f8199d" stop-opacity=".852"/><stop offset="41.22%" stop-color="#f71988" stop-opacity=".626"/><stop offset="66.94%" stop-color="#f51966" stop-opacity=".352"/><stop offset="96.02%" stop-color="#f21937" stop-opacity=".042"/><stop offset="100%" stop-color="#f21930" stop-opacity="0"/></radialGradient><linearGradient id="rdhH" x1="100%" y1="50%" x2="0%" y2="50%"><stop offset="0%" stop-color="#fda003"/><stop offset="100%" stop-color="#f42202"/></linearGradient><path id="nHca" d="M255 109c0-5-1-9-2-13-5-9-14-14-24-14-13 0-26 11-26 28 0 16 10 29 27 29 8 0 15-3 19-7 2-2 3-4 3-5 0-3-2-5-4-5s-3 1-5 2c-4 3-8 5-13 5-9 0-16-6-16-15h36c4 0 5-2 5-5zm-26-17c9 0 14 6 16 13h-31c2-7 6-13 15-13z"/><path id="MxKu" d="M8 38c-5-5-8-10-8-17 0-5 2-11 6-15s10-6 17-6h92c6 0 12 2 16 6s6 10 6 15c0 6-2 12-6 16s-10 6-16 6H71c9 10 27 27 33 34 5 6 8 11 8 17s-2 11-6 15-10 7-16 7H43v30c0 7-3 12-7 16-3 4-9 7-15 7-5 0-10-3-14-7-4-3-6-9-6-16V95c0-7 2-12 5-16 4-4 10-6 17-6h18L8 38z"/></defs><g transform="translate(1 1)"><svg width="712" height="170" viewBox="0 0 712 170"><g stroke="none"><g fill-rule="nonzero"><g fill="url(#pWHn)"><use xlink:href="#nHca"/><path d="M310 109c0-5-1-9-2-13-5-9-14-14-24-14-13 0-26 11-26 28 0 16 10 29 27 29 8 0 15-3 19-7 2-2 3-4 3-5 0-3-2-5-4-5s-3 1-5 2c-4 3-8 5-13 5-9 0-16-6-16-15h36c4 0 5-2 5-5zm-26-17c9 0 14 6 16 13h-31c1-7 6-13 15-13z"/><use xlink:href="#nHca" x="177"/></g><g fill="url(#MVKJ)"><path d="M375 87v46c0 3-2 5-5 5-2 0-5-2-5-5V87c0-3 2-5 5-5 2 0 5 2 5 5z"/><path d="M341 133c-1 3-3 5-6 5-2 0-4-1-5-5-2-3-18-40-19-42s-1-3-1-4c0-3 3-5 5-5 3 0 4 2 5 4 2 4 4 9 6 13 5 10 8 18 10 24 2-6 5-14 9-24 1-3 5-11 6-14 1-2 2-3 5-3 2 0 5 2 5 5 0 1-1 2-1 3-1 2-17 40-19 43z"/></g><path d="M186 102v30c0 3-2 5-5 5-2 0-5-1-5-5v-30c0-7 2-11 5-15 4-3 9-5 16-5h3c2 0 3 1 4 1 1 1 2 3 2 4 0 2-2 5-5 5h-4c-4 0-7 1-9 3-1 1-2 4-2 7z" fill="url(#wzP9)"/><path d="M181 68c0 2-1 5-5 5h-22c-4 0-7 1-8 3-2 1-3 4-3 8v10h23c3 0 5 2 5 5 0 2-2 5-5 5h-23v28c0 3-3 5-5 5-3 0-6-1-6-5V83c0-7 2-11 5-15 4-4 9-6 17-6h22c3 0 5 3 5 6z" fill="url(#pOm0)"/><path d="M478 100c2 6 4 15 6 21 2-6 4-15 7-20l5-15c0-2 2-4 5-4 2 0 5 2 5 5 0 1 0 2-1 4-3 6-13 37-16 42-1 3-3 5-5 5-3 0-5-2-6-5s-2-6-3-11c-3-8-5-14-6-20-2 6-4 15-6 20s-2 7-4 11c-1 3-3 5-5 5-3 0-5-2-6-5-1-5-13-37-15-42-1-2-1-3-1-4 0-3 3-5 5-5 3 0 4 1 5 4 2 6 3 9 5 14 2 6 5 13 7 21 1-6 4-14 6-21 1-4 2-6 3-9s3-5 6-5 4 2 6 5c2 5 2 6 3 9z" fill="url(#MVKJ)"/><use xlink:href="#MxKu" fill="url(#IQcf)"/><path d="M1 146c0 7 2 13 6 17 4 3 9 6 15 6s11-3 15-6c4-4 6-10 6-17v-30H1v30h0z" fill="url(#ypuD)" opacity=".59"/><path d="M22 0C16 0 10 2 6 6s-6 9-6 16v21h42 41L41 0H22z" fill="url(#i0dF)" opacity=".8" filter="url(#KvsN)" transform="translate(1 73)"/><path d="M42 72l42 44h6c6 0 12-3 16-7s6-10 6-15c0-7-3-11-8-17-6-7-24-25-33-34H13l29 29z" fill="url(#s1Kr)" opacity=".45"/><use xlink:href="#MxKu" fill="url(#GGSu)"/><path d="M131 6c-4-4-10-6-16-6H23C16 0 10 2 6 6S0 16 0 21c0 7 3 12 8 17l33 35 43 43h5c7 0 13-3 17-7s6-9 6-15-3-11-8-17c-6-7-24-24-33-34h44c6 0 12-2 16-6s6-10 6-15c0-6-2-12-6-16z" fill="url(#pm7G)"/></g><g fill="url(#rdhH)"><path d="M517 60c-2 0-3 1-3 3v75c0 1 0 2 4 2 3 0 3-1 3-2v-29h21c20 0 24-17 24-25s-7-24-23-24m1 7c14 1 14 16 14 17 2 11-8 18-14 18 1 0-23 0-23 0V67h23m67 11c-23-1-28 24-28 25v11c1 6 4 12 4 12 4 8 12 14 24 14 7 0 17-3 21-9 0 0 1 0 1 1v5c0 1 2 2 3 2 2 0 4-1 4-2V80c0-1-1-2-3-2-3 0-4 1-4 2v6c-5-6-11-8-22-8m37 0c-3 0-3 2-3 4l23 56c-6 17-6 18-7 19 0 3 1 3 2 3 1 1 2 1 3 0 1 0 2-3 3-3l31-76c0-1-1-3-3-3s-3 1-4 2l-20 48-21-47c-1-2-2-3-4-3m-37 7c10 0 22 3 22 24-1 18-12 23-22 23-12 0-20-11-20-23 0-15 9-24 20-24"/><path d="M578 68v64c0 7 0 8-3 8-4 0-4 0-4-8V68c0-7 0-7 4-7 3 0 3 0 3 7z" fill-rule="nonzero"/></g></g></svg></g></svg>',
+      "friendlyName": "Freeview Play",
+      "className": "freeviewPlayButton",
+      "deviceFamily": ["amazon-fire"],
+      "amazon-fire": {
+          "appName": "uk.co.freeview.firetv.explore",
+          "androidName": "uk.co.freeview.firetv.explore",
+          "adbLaunchCommand": "adb shell am start -n uk.co.freeview.firetv.explore/uk.co.freeview.firetv.explore.hbbtv.HbbTvActivity",
       },
    },
 
@@ -4016,6 +4035,19 @@ const fastappchoices = {
    },
 
 
+  "stbemu-pro": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="575" viewBox="0 0 900 575" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="JWXX" x1="0%" y1="72%" x2="100%" y2="28%"><stop offset="0%" stop-color="#212121"/><stop offset="28%" stop-color="#9c9c9c"/><stop offset="66%"/></linearGradient><radialGradient id="gn24" cx="50%" cy="50%" r="83%" fx="49.1%" fy="100.0%"><stop offset="17%" stop-color="#bababa"/><stop offset="63%" stop-color="#1f1f1f"/></radialGradient><filter id="Obcz" x="-21%" y="-21%" width="157%" height="143%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="5"/><feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="DzW7"/><feFlood flood-color="#000" flood-opacity="1"/><feComposite in2="DzW7" operator="in" result="G1a3"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="G1a3"/></feMerge></filter><radialGradient id="s2fj" cx="50%" cy="50%" r="87%" fx="4.8%" fy="48.6%"><stop offset="16%" stop-color="#c1d1e1"/><stop offset="51%" stop-color="#48aced"/><stop offset="69%" stop-color="#48aced"/><stop offset="100%" stop-color="#f7f7f8"/></radialGradient><radialGradient id="EIJV" cx="50%" cy="50%" r="94%" fx="43.9%" fy="0.0%"><stop offset="11%" stop-color="#939393"/><stop offset="84%" stop-color="#313131"/></radialGradient></defs><g stroke-width="3"><rect x="7" y="10" width="885" height="555" fill="url(#JWXX)" rx="15" stroke="#616161" stroke-opacity=".5"/><rect x="40" y="40" width="820" height="465" rx="3" stroke-opacity=".5" fill="url(#gn24)"/></g><g stroke="none"><circle cx="18" cy="18" filter="url(#Obcz)" fill="url(#s2fj)" r="18" transform="matrix(0 1 -1 0 468 516)"/><rect x="42" y="45" width="815" height="455" fill="url(#EIJV)" rx="3"/></g></svg>',
+      "friendlyName": "StbEmu Pro",
+      "className": "stbEmuProButton",
+      "deviceFamily": [],
+      "nvidia-shield": {
+          "appName": " ",
+          "androidName": " ",
+          "adbLaunchCommand": "adb shell am start -n ",
+      },
+   },
+
+
   "steam-link": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 427.1 92.82"><defs><style>.cls-1{fill:#ffffff;}</style></defs><path class="cls-1" d="M45.45,1.61A45.6,45.6,0,0,0,0,43.56L24.44,53.67a12.82,12.82,0,0,1,7.27-2.25l.72,0L43.3,35.69v-.23a17.2,17.2,0,1,1,17.2,17.2h-.39L44.6,63.72c0,.2,0,.41,0,.61a12.91,12.91,0,0,1-25.57,2.54L1.57,59.65a45.6,45.6,0,1,0,43.88-58Z"/><path class="cls-1" d="M28.58,70.81,23,68.5a9.69,9.69,0,1,0,5.3-13.25l5.79,2.39a7.13,7.13,0,1,1-5.49,13.17Z"/><path class="cls-1" d="M72,35.46A11.47,11.47,0,1,0,60.5,46.92,11.48,11.48,0,0,0,72,35.46Zm-20,0a8.61,8.61,0,1,1,8.6,8.61A8.61,8.61,0,0,1,51.91,35.44Z"/><path class="cls-1" d="M322,60.75v3.12H302.21V30.54h3.51V60.75Z"/><path class="cls-1" d="M331,63.87V30.54h3.52V63.87Z"/><path class="cls-1" d="M371.44,63.87,351.51,36.73V63.87H348V30.54h3.11l19.82,27.14V30.54h3.53V63.87Z"/><path class="cls-1" d="M392.86,48.76l-2.57,2.72V63.87h-3.55V30.54h3.55V47.21L405.6,30.54h4.45L395.32,46.16l15.84,17.71h-4.69Z"/><path class="cls-1" d="M139,33.24l-3,5.21a14.78,14.78,0,0,0-8.08-2.56c-3.08,0-5,1.28-5,3.57,0,2.78,3.39,3.43,8.43,5.24,5.42,1.91,8.54,4.17,8.54,9.13,0,6.8-5.34,10.61-13,10.61a23.53,23.53,0,0,1-11.73-3.08l2.17-5.77A20.46,20.46,0,0,0,126.49,58c4,0,6-1.5,6-3.71,0-2.52-2.94-3.29-7.68-4.85-5.4-1.81-9.14-4.17-9.14-9.67,0-6.2,5-9.76,12.1-9.76A19,19,0,0,1,139,33.24Z"/><path class="cls-1" d="M162.62,36.53V63.87h-7V36.53H145.51v-6h27.21v6Z"/><path class="cls-1" d="M186.93,36.51V44h13.35v6H186.93v7.82h15.49v6H180V30.54h22.47v6Z"/><path class="cls-1" d="M218,57.4l-2.21,6.47h-7.31L221,30.54h7l12.85,33.33h-7.57L231,57.4Zm6.45-18.91L219.9,51.84h9.19Z"/><path class="cls-1" d="M276.16,43.43,267,62.9H263.1l-9-19.3V63.87h-6.68V30.54h6.66L265.32,54.6l10.8-24.06h6.72V63.87h-6.68Z"/><path class="cls-1" d="M417.34,31.29V37h-.85V31.29h-2.1v-.74h5.05v.74Z"/><path class="cls-1" d="M427.1,37h-.83V32.22l-2.18,4.66h-.47l-2.17-4.66V37h-.83v-6.4h.85l2.42,5.24,2.35-5.24h.86Z"/></svg>',
       "friendlyName": "Steam Link",
@@ -5357,8 +5389,8 @@ const fastappchoices = {
 };
 var appmap = new Map(Object.entries(fastappchoices));
 
-const appButtonMax = { "AF4":  6, "AF5": 6,  "AF6": 6, "AR1": 10, "AR2":  8, "AR3": 8, "CC1": 6, "NS2": 6,
-                       "RVRP": 8, "RHR": 10, "RTR": 6, "RWR": 10, "RVR": 10, "RSR": 10,
+const appButtonMax = { "AF4":  6, "AF5": 6,  "AF6": 6, "AFJTV": 6, "AR1": 10, "AR2":  8, "AR3": 8, "CC1": 6, "NS2": 6,
+                       "RVRP": 8, "RHR": 10, "RTR": 6, "RWR": 10,  "RVR": 10, "RSR": 10,
                        "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
 
@@ -7090,6 +7122,17 @@ class FiremoteCard extends LitElement {
             border-left: 0;
           }
 
+          .digit-pad-button {
+            font-size: calc(var(--sz) * 1rem);
+            font-weight: 600;
+            height: calc(var(--sz) * 2rem);
+            border-radius: calc(var(--sz) * 1em);
+          }
+
+          .digit-pad-button:active {
+            font-size: calc(var(--sz) * 0.9rem);
+          }
+
           .deviceNameTop {
             white-space: nowrap;
             font-size: calc(var(--sz) * 1rem);
@@ -7104,7 +7147,8 @@ class FiremoteCard extends LitElement {
             justify-items: center;
           }
 
-          .AF6 .deviceNameTop {
+          .AF6 .deviceNameTop,
+          .AFJTV .deviceNameTop{
             grid-column: 1 / 4;
             display: block;
             text-align: center;
@@ -7269,6 +7313,49 @@ class FiremoteCard extends LitElement {
             max-height: 100%;
             overflow: hidden;
             z-index: 2;
+          }
+
+          .AFJTV #tv-button {
+            font-size: calc(var(--sz) * 0.8rem);
+            font-weight: 600;
+          }
+
+          .colorButtons {
+            display: flex;
+            justify-content: space-around;
+            margin: calc(var(--sz) * 0.5rem) 0 calc(var(--sz) * 4.5rem) 0;;
+          }
+
+          .AFJTV div.colorButtons button {
+            border-radius: 100%;
+            overflow: hidden;
+            height: calc(var(--sz) * 2.3rem);
+            width: calc(var(--sz) * 2.3rem);
+          }
+
+          .AFJTV div.colorButtons button svg{
+            height: calc(var(--sz) * 1.1rem);
+            width: calc(var(--sz) * 1.1rem);
+            filter: brightness(0.8) saturate(0.8);
+            pointer-events: none;
+          }
+
+          .AFJTV div.colorButtons button:active svg{
+            filter: none;
+            transform: scale(0.85)
+          }
+
+          .AFJTV .jvcbrandlogo {
+             height: 0;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             margin-top: calc(var(--sz) * -2rem);
+          }
+
+          .AFJTV .jvcbrandlogo svg {
+            width: calc(var(--sz) * 5rem);
+            height: auto;
           }
 
           .abciviewButton{
@@ -7598,6 +7685,10 @@ class FiremoteCard extends LitElement {
           }
           .shield-remote-body .freeveeButton svg {
             width: calc(var(--sz) * 4.8rem);
+          }
+
+          .freeviewPlayButton{
+            background: #fff;
           }
 
           .fuboButton {
@@ -8148,6 +8239,10 @@ class FiremoteCard extends LitElement {
           }
 
           .startupShowButton {
+            background: #fff;
+          }
+
+          .stbEmuProButton {
             background: #fff;
           }
 
@@ -8997,6 +9092,12 @@ class FiremoteCard extends LitElement {
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'apple-tv');
             appLaunchButtons.set("confBtn4", config.app_launch_4 || 'hulu');
         }
+        else if(['AFJTV'].includes(displayedRemote)) {
+            appLaunchButtons.set("confBtn1", config.app_launch_1 || 'prime-video');
+            appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
+            appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
+            appLaunchButtons.set("confBtn4", config.app_launch_4 || 'freeview-play');
+        }
 
 
         // Return button HTML
@@ -9646,6 +9747,124 @@ class FiremoteCard extends LitElement {
     `;
     }
 
+    // Render Amazon Fire Remote Style AFJTV
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AFJTV' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="remote-body AFJTV">
+
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <div class="notch"> </div>
+          <div></div>
+
+          <div> </div>
+          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <div> </div>
+
+          <div class="dpadContainer">
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+            </div>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
+          </button>
+          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:home-outline"></ha-icon>
+          </button>
+          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+
+          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            +
+          </button>
+          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+            GUIDE
+          </button>
+          <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu-up"></ha-icon>
+          </button>
+
+          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            &#x2013;
+          </button>
+          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:volume-mute"></ha-icon>
+          </button>
+          <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:menu-down"></ha-icon>
+          </button>
+
+          <button class="remote-button digit-pad-button" id="num1-button" @click=${this.buttonClicked}>1</button>
+          <button class="remote-button digit-pad-button" id="num2-button" @click=${this.buttonClicked}>2</button>
+          <button class="remote-button digit-pad-button" id="num3-button" @click=${this.buttonClicked}>3</button>
+
+          <button class="remote-button digit-pad-button" id="num4-button" @click=${this.buttonClicked}>4</button>
+          <button class="remote-button digit-pad-button" id="num5-button" @click=${this.buttonClicked}>5</button>
+          <button class="remote-button digit-pad-button" id="num6-button" @click=${this.buttonClicked}>6</button>
+
+          <button class="remote-button digit-pad-button" id="num7-button" @click=${this.buttonClicked}>7</button>
+          <button class="remote-button digit-pad-button" id="num8-button" @click=${this.buttonClicked}>8</button>
+          <button class="remote-button digit-pad-button" id="num9-button" @click=${this.buttonClicked}>9</button>
+
+          <button class="remote-button digit-pad-button" id="subtitle-button" @click=${this.buttonClicked}>SUBT</button>
+          <button class="remote-button digit-pad-button" id="num0-button" @click=${this.buttonClicked}>0</button>
+          <button class="remote-button digit-pad-button" id="live-button" @click=${this.buttonClicked}>LIVE</button>
+
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["AFJTV"])}
+
+          <div class="three-col-span colorButtons">
+              <button class="remote-button" id="red-button" @click=${this.buttonClicked}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="red" stroke="none" r="280"/></svg>
+              </button>
+              <button class="remote-button" id="green-button" @click=${this.buttonClicked}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="green" stroke="none" r="280"/></svg>
+              </button>
+              <button class="remote-button" id="yellow-button" @click=${this.buttonClicked}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="yellow" stroke="none" r="280"/></svg>
+              </button>
+              <button class="remote-button" id="blue-button" @click=${this.buttonClicked}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="#1e90ff" stroke="none" r="280"/></svg>
+              </button>
+          </div>
+
+          <div class="three-col-span jvcbrandlogo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="936" height="372" viewBox="0 0 936 372" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#adadad" fill-rule="nonzero"><path d="M421 368h101L638 3h-91l-76 237L396 3h-92zm514-81v-61h-87v61H741V83h107v61h87V67h0c0-8-1-16-2-24-3-21-21-38-42-42-7-1-15-1-22-1H721c-8 0-15 0-22 1-21 4-39 21-42 42-1 8-2 16-2 24v236c0 8 1 16 2 24 3 22 21 38 42 42 7 1 14 1 22 1h148c7 0 15 0 22-1 21-4 39-20 42-42 1-8 2-16 2-24h0zM0 288v-70h86v70h108V3h86v301c0 8-1 15-2 23-3 22-21 39-42 42-7 1-15 1-22 1H66c-8 0-15 0-22-1-21-3-39-20-42-42-1-8-2-15-2-23h0zm0 0"/></svg>
+          </div>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${drawFiremoteVersionNumber(this, this._config)}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
 
 
     // Render NVIDIA Shield Remote Style NS1
@@ -10759,7 +10978,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'CENTER' });
       }
       else {
-        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35') {
+        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
           this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 28 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 28 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
         }
         else if(deviceType == 'mi-box-s') {
@@ -10966,7 +11185,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'FAST_FORWARD' });
       }
       else {
-        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35') {
+        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
           this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 159 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 159 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
         }
         else {
@@ -11133,8 +11352,174 @@ class FiremoteCard extends LitElement {
     }
 
     // 1 Button
+    if(clicked.target.id == 'num1-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 8'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 2 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 2 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 2 Button
+    if(clicked.target.id == 'num2-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 9'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 3 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 3 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 3 Button
+    if(clicked.target.id == 'num3-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 10'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 4 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 4 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 4 Button
+    if(clicked.target.id == 'num4-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 11'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 5 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 5 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 5 Button
+    if(clicked.target.id == 'num5-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 12'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 6 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 6 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 6 Button
+    if(clicked.target.id == 'num6-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 13'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 7 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 7 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 7 Button
+    if(clicked.target.id == 'num7-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 14'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 8 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 8 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 8 Button
+    if(clicked.target.id == 'num8-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 15'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 9 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 9 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 9 Button
+    if(clicked.target.id == 'num9-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 16'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 10 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 10 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // 0 Button
+    if(clicked.target.id == 'num0-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 7'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 11 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 11 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // SUBT Button
+    if(clicked.target.id == 'subtitle-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else if(compatibility_mode == 'strong') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 175'});
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 469 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 469 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+      }
+      return;
+    }
+
+    // LIVE Button
+    if(clicked.target.id == 'live-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 223'});
+        return;
+      }
+    }
+
+
+    // Programmable 1 Button
     if(clicked.target.id == 'programmable-one-button') {
-      if(this._config.device_family == 'roku') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
         unsupportedButton();
       }
       else {
@@ -11143,15 +11528,59 @@ class FiremoteCard extends LitElement {
       }
     }
 
-    // 2 Button
+    // Programmable 2 Button
     if(clicked.target.id == 'programmable-two-button') {
-      if(this._config.device_family == 'roku') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
         unsupportedButton();
       }
       else {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent BUTTON_2'});
         return;
       }
+    }
+
+    // Red Button
+    if(clicked.target.id == 'red-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 183'});
+      }
+      return;
+    }
+
+    // Green Button
+    if(clicked.target.id == 'green-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 184'});
+      }
+      return;
+    }
+
+    // Yellow Button
+    if(clicked.target.id == 'yellow-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 185'});
+      }
+      return;
+    }
+
+    // Blue Button
+    if(clicked.target.id == 'blue-button') {
+      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
+        unsupportedButton();
+      }
+      else {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 186'});
+      }
+      return;
     }
 
     // Voice Button
@@ -11710,6 +12139,7 @@ class FiremoteCardEditor extends LitElement {
           <option value="AF4">Amazon Fire Style 4</option>
           <option value="AF5">Amazon Fire Style 5</option>
           <option value="AF6">Amazon Fire Style 6</option>
+          <option value="AFJTV">Amazon Fire JVC TV</option>
           <option value="AR1">Apple TV Remote Style 1</option>
           <option value="AR2">Apple TV Remote Style 2</option>
           <option value="AR3">Apple TV Remote Style 3</option>
