@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.2b2';
+const HAFiremoteVersion = 'v3.2.2b3';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -1750,6 +1750,7 @@ const fastappchoices = {
       "amazon-fire": {
           "appName": "uk.co.freeview.firetv.explore",
           "androidName": "uk.co.freeview.firetv.explore",
+          "adbLaunchCommand": "adb shell sendevent /dev/input/event4 1 747 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 1 747 0 && sendevent /dev/input/event4 0 0 0",
       },
    },
 
@@ -11529,9 +11530,15 @@ class FiremoteCard extends LitElement {
         unsupportedButton();
       }
       else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 358 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 358 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        return;
+        if(deviceType == 'fire_tv_jvc-4k-2021') {
+          var tempbinpath = '/dev/input/event4'
+          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+tempbinpath+' 1 358 1 && sendevent '+tempbinpath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 358 0 && sendevent '+tempbinpath+' 0 0 0' });
+        }
+        else {
+          unsupportedButton();
+        }
       }
+      return;
     }
 
     // Programmable 1 Button
