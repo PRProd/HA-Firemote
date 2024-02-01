@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.2b4';
+const HAFiremoteVersion = 'v3.2.2';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -4495,6 +4495,17 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
 
 
+  "tivimax-premium": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="440" viewBox="0 0 900 440" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M56 222c-34-2-34-29-34-34v-61H12c-2 0-4 0-5-1-1-2-2-3-2-6v-13l19-4 7-29c1-3 3-5 8-5h18v34h29v24H57v59c0 2 1 5 2 6 1 2 3 3 6 3 5 0 7-3 9-3 1 0 2 1 3 1l13 19c-16 10-27 10-34 10zm52-118h36v117h-36V104zm40-32c0 12-11 20-22 20-12 0-21-9-21-20 0-13 9-21 21-21 13 0 22 7 22 21zm139 32l-46 117h-32l-46-117h29c3 0 5 1 7 2s3 2 3 4l24 78 24-78c0-2 1-3 3-4s4-2 6-2h28zm106 117h-35V104h22c2 0 4 0 5 1 2 1 3 3 4 5l2 6 6-6c2-1 4-3 7-4 2-1 5-2 8-3s6-1 9-1c7 0 13 2 18 6 5 3 8 8 11 14 2-3 4-7 7-9 3-3 6-5 9-6 3-2 7-3 11-4 3-1 7-1 11-1 6 0 12 1 18 3 5 2 9 5 13 9 3 4 6 8 8 14 2 5 3 12 3 19v74h-36v-74c0-13-5-19-15-19-5 0-9 2-12 5-4 3-5 8-5 14v74h-36v-74c0-7-1-12-4-15-2-2-6-4-11-4-4 0-7 1-10 3-2 1-5 3-8 5v85zm256 0h-16c-4 0-6-1-8-2s-3-2-4-5l-3-7c-3 3-6 5-8 7-3 2-6 3-9 5l-9 3c-4 0-7 1-11 1-6 0-11-1-15-3-5-1-8-3-11-6-3-2-6-6-8-10-1-4-2-9-2-14 0-4 1-8 3-13 2-4 6-8 11-12 6-3 13-6 22-9 8-2 20-3 33-4v-5c0-7-1-11-4-15-3-3-7-4-12-4-4 0-8 0-11 1-2 1-5 2-7 3l-6 3c-2 1-4 2-7 2-2 0-4-1-6-2s-3-3-4-4l-7-11c8-7 16-11 24-14 9-3 18-5 28-5 8 0 14 1 20 3 5 3 10 6 14 10s7 9 10 15c2 5 3 12 3 18v74zm-57-22c4 0 8 0 12-2 3-2 7-4 10-8v-16c-7 0-13 1-17 2-5 1-8 2-11 3s-5 3-6 5-1 3-1 5c0 4 1 7 3 9s6 2 10 2zm143-59l-59 61c-1 1-3 0-3-2V77c0-2 2-4 3-3 62 66 62 63 59 66h0z" fill="#1684ac"/><path d="M849 264l-157-38c-1 0-2-1-2-2s0-2 1-3l63-60c2-2 3-2 5 0l93 97c3 4 1 7-3 6zm3-247c-101 105-95 101-98 98l-63-61c-1 0-1-1-1-2 1-1 1-2 2-2l157-39c4-1 6 3 3 6z" fill="#333"/><path d="M894 37v201c0 3-6 4-9 1-113-107-108-101-105-104l105-99c3-3 9-2 9 1z" fill="#1684ac"/><path d="M124 301h636c8 0 15 6 15 15v112h0-641c-6 0-10-5-10-10V301h0zm80 94v-15h28c10 0 16-3 20-8a24.56 24.56 0 0 0 5-15c0-6-2-12-7-16-4-4-9-6-18-6h-40c-3 0-4 1-4 3v57h16zm29-30h-29v-13c0-1 1-1 1-1h28c3 0 5 1 6 2 1 2 2 3 2 5s-1 3-1 4c-2 2-4 3-7 3zm47 30v-21h28c5 0 7 1 7 5v12 4h17v-5-12c0-7-2-11-6-13 4-3 5-8 5-13 0-4-1-8-4-12-4-3-9-5-16-5h-43c-3 0-4 1-4 3v57h16zm29-35h-29v-9c0-1 1-1 1-1h28c2 0 3 0 4 1s2 3 2 4-1 2-2 3-2 2-4 2zm94 35v-15h-46c-1 0-1-1-1-2v-7h47v-12h-47v-7c0-1 0-1 1-1h46v-16h-55c-6 0-9 2-9 8v44c0 6 3 8 9 8h55zm55 2c4 0 8-2 10-6l18-38c1-1 1-1 2-1 0 0 1 1 1 2v41h16v-44c0-7-2-11-6-14-3-2-6-4-11-4-7 0-12 5-15 12l-14 29c0 1-1 2-1 2-1 0-1-1-2-2l-14-29c-3-7-7-12-15-12-4 0-8 2-11 4-3 3-5 7-5 14v44h15v-41c0-1 1-2 2-2 0 0 1 0 1 1l18 38c2 4 6 6 11 6zm72-2v-60h-16v60h16zm57 0c16 0 22-5 22-19v-41h-17v39c0 4-2 6-6 6h-25c-4 0-6-2-6-6v-39h-16v41c0 14 6 19 21 19h27zm77 2c4 0 8-2 10-6l19-38c0-1 0-1 1-1s1 1 1 2v41h16v-44c0-7-2-11-6-14-2-2-6-4-10-4-8 0-13 5-16 12l-14 29c0 1 0 2-1 2s-1-1-2-2l-13-29c-4-7-8-12-16-12-4 0-8 2-10 4-4 3-6 7-6 14v44h16v-41c0-1 0-2 1-2 0 0 1 0 1 1l19 38c2 4 6 6 10 6z" fill="#333"/><path d="M302 103h36v117h-36V103zm40-32c0 12-11 20-22 20-12 0-21-9-21-20 0-13 9-21 21-21 13 0 22 7 22 21z" fill="#1684ac"/></svg>',
+      "friendlyName": "TiviMax IPTV Player (Premium)",
+      "className": "tiviMaxPremiumButton",
+      "deviceFamily": ["apple-tv"], 
+      "apple-tv": {
+          "appName": "TiviMax",
+      },
+  },
+
+
   "tnt": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" height="999.84" width="1000" viewBox="0 0 1000 999.839"><path d="M1000 499.85c0 276.09-223.89 499.99-500.01 499.99C223.84 999.84 0 775.95 0 499.85c0-26.081 1.984-51.683 5.858-76.659h106.77v295.43h101.29v-295.43h113.47v295.43h96.763v-220.24h2.077l128.85 192.9c12.82 20.344 24.63 27.346 49.26 27.346h66.515v-295.44h113.84v295.43h99.625v-295.43h109.78c3.88 24.98 5.9 50.58 5.9 76.66zM323.88 350.64h98.016c24.677 0 36.992 6.941 49.308 27.306l101.22 157.65h3.504v-184.96h401.19c-63.47-203.18-253.13-350.64-477.27-350.64-224.12 0-413.83 147.46-477.3 350.64h301.33" fill="#fff"/></svg>',
       "friendlyName": "TNT",
@@ -5299,7 +5310,7 @@ const fastappchoices = {
 
   "function-channel-up": {
       "button": "<ha-icon icon=\"mdi:chevron-up\"></ha-icon>",
-      "friendlyName": "Function: Channel Up",
+      "friendlyName": "Function: Channel +",
       "className": "functionChannelUpButton",
       "deviceFamily": ["roku",], 
       "roku": {
@@ -5309,7 +5320,7 @@ const fastappchoices = {
 
   "function-channel-down": {
       "button": "<ha-icon icon=\"mdi:chevron-down\"></ha-icon>",
-      "friendlyName": "Function: Channel Down",
+      "friendlyName": "Function: Channel -",
       "className": "functionChannelDownButton",
       "deviceFamily": ["roku",], 
       "roku": {
@@ -5614,6 +5625,45 @@ const rosettaStone = {
       "Search": "Zoek",
       "top": "bovenkant",
       "Visible Device Name": "Zichtbare apparaatnaam",
+  },
+  "pl": {
+      "App Launch Button": "Przycisk uruchamiania aplikacji",
+      "App Launcher Relative Scale": "Względna Skala przycisków uruchamiania aplikacji",
+      "Apple Computers": "Komputery Apple",
+      "Apple Music": "Apple Music",
+      "Apple Photos": "Apple Photos",
+      "Associated": "Skojarzona",
+      "bottom": "dół",
+      "Compatibility Mode": "Tryb zgodności",
+      "Default for": "Standardowe dla",
+      "Device Family": "Rodzina urządzeń",
+      "Device Model": "Model Urządzenia",
+      "Device Name Text Color": "Nazwa urządzenia Kolor tekstu",
+      "Entity": "Encja",
+      "Function: Channel +": "Funkcja: kanał +",
+      "Function: Channel -": "Funkcja: kanał -",
+      "Function: Control Center": "Funkcja: centrum Sterowania",
+      "Function: Find My Remote": "Funkcja: Znajdź mojego pilot",
+      "Function: Mute": "Funkcja: Wycisz",
+      "Function: Next": "Funkcja: następne",
+      "Function: Previous": "Funkcja: poprzednie",
+      "Function: Reboot": "Funkcja: Ponowny rozruch",
+      "Function: Search": "Funkcja: Szukaj",
+      "Function: Settings": "Funkcja: Ustawienia",
+      "Function: Skip Backward": "Funkcja: przeskocz Do tyłu",
+      "Function: Skip Forward": "Funkcja: przeskocz Do przodu",
+      "Function: Switch Apps": "Funkcja: Przełącz aplikacje",
+      "Function: Volume +": "Funkcja: Głośność +",
+      "Function: Volume -": "Funkcja: Głośność -",
+      "hidden": "ukryty",
+      "Name Position": "Pozycja imienia",
+      "optional": "opcjonalnie",
+      "Remote Style": "Styl pilota",
+      "Scale": "Skala",
+      "Settings": "Ustawienia",
+      "Search": "Szukaj",
+      "top": "góra",
+      "Visible Device Name": "Widoczna nazwa Urządzenia",
   },
   "pt": {
       "App Launch Button": "Botão de Inicialização Da Aplicação",
@@ -8407,6 +8457,10 @@ class FiremoteCard extends LitElement {
           }
           .chromecast-remote-body .tiviMateButton {
             font-size: calc(var(--sz) * 0.85rem);
+          }
+
+          .tiviMaxPremiumButton {
+            background: #fff;
           }
 
           .tntButton {
