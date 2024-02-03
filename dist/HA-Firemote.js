@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.2';
+const HAFiremoteVersion = 'v3.2.3b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -6584,6 +6584,11 @@ class FiremoteCard extends LitElement {
             border: inset #000 calc(var(--sz) * 0.2rem);
           }
 
+          .ALControlsContainer .row.noframes {
+            background: none;
+            border: 0;
+          }
+
           .right-pocket-controls > .row {
             column-gap: calc(var(--sz) * 0.5rem);
             line-height: calc(var(--sz) * .4rem);
@@ -9031,7 +9036,14 @@ class FiremoteCard extends LitElement {
     var guiEditorDirection = this.hass.config.language == 'he' ? 'rtl' : 'ltr';
     const devicenamecolor = this._config.visible_name_text_color || '#000000';
     var backgroundInherit = '';
-    if (this._config.use_theme_background == true) { backgroundInherit = 'background: var(--ha-card-background,var(--card-background-color,#fff))!important; border: inherit !important; border-radius: inherit !important;';}
+    if (this._config.use_theme_background == true) {
+        backgroundInherit = 'background: var(--ha-card-background,var(--card-background-color,#fff))!important; border: inherit !important; border-radius: inherit !important;';
+    }
+    if (this._config.useCustomSkin===true) {
+        var skin = '#4682b4';
+        if(this._config.skin) { skin = this._config.skin; }
+        backgroundInherit = 'background: '+skin+' !important;';
+    }
     const cssVars = html `<style>
                             :host {
                               --sz: ${scale};
@@ -10767,7 +10779,13 @@ class FiremoteCard extends LitElement {
       if (configuredAppLaunchButtons==0){
         noAppsClass = 'noApps';
       }
-    
+
+      // conditionally hide the button frame sections and their backgrounds
+      var rowClass = "row";
+      if(this._config.hide_button_group_frame == true) {
+        rowClass="row noframes";
+      }
+
       return html`
       <ha-card>
         ${cssVars}
@@ -10778,7 +10796,7 @@ class FiremoteCard extends LitElement {
           <div class="ALControlsContainer ${noAppsClass}">
 
             <div class="left-pocket-controls">
-              <div class="row">
+              <div class="${rowClass}">
                 <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
                   <ha-icon icon="mdi:power"></ha-icon>
                 </button>
@@ -10789,7 +10807,7 @@ class FiremoteCard extends LitElement {
                   <ha-icon icon="mdi:home-outline"></ha-icon>
                 </button>
               </div>
-              <div class="row">
+              <div class="${rowClass}">
                 <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
                   <ha-icon icon="${lpb4icon}"></ha-icon>
                 </button>
@@ -10815,7 +10833,7 @@ class FiremoteCard extends LitElement {
             </div>
 
             <div class="right-pocket-controls">
-              <div class="row">
+              <div class="${rowClass}">
                 <div class="volumeContainer">
                   <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
                     +
@@ -11822,9 +11840,20 @@ class FiremoteCardEditor extends LitElement {
     _config[ev.target.name.toString()] = ev.target.value;
     this._config = _config;
 
-    // If the Device Family changes, we need to blank the device type value
-    if (ev.type == 'change' && ev.target.id == 'device_family') {
-      this._config.device_type = null;
+    if (ev.type == 'change') {
+      // If the Device Family changes, we need to blank the device type value, or
+      // if a boolean style checkbox value changes, special handling is required
+      switch(ev.target.id) {
+        case 'device_family':
+          this._config.device_type = null;
+          break;
+        case 'hideFramesCheckbox':
+          this._config.hide_button_group_frame = ev.target.checked;
+          break;
+        case 'useCustomSkinCheckbox':
+          this._config.useCustomSkin = ev.target.checked;
+          break;
+      }
     }
 
     // A config-changed event will tell lovelace we have made a change to the configuration
@@ -12176,6 +12205,31 @@ class FiremoteCardEditor extends LitElement {
     }
   }
 
+  getALConfigOptions(remoteStyle){
+    if(remoteStyle && remoteStyle=="AL1"){
+      return html `
+        <label for="useCustomSkinCheckbox">
+          <input type="checkbox" id="useCustomSkinCheckbox" name="useCustomSkin" ?checked=${this._config.useCustomSkin===true} @change=${this.configChanged}>&nbsp;
+          ${this.translateToUsrLang('Custom Remote Skin')}:&nbsp;&nbsp;<input type="color" name="skin" id="skin" .value=${this._config.skin || '#4682b4'} @change=${this.configChanged}>
+        </label>
+        <br><br><hr><br>
+      `;
+    }
+    if(remoteStyle && remoteStyle=="AL2"){
+      return html `
+        <label for="hideFramesCheckbox">
+          <input type="checkbox" id="hideFramesCheckbox" name="hide_button_group_frame" ?checked=${this._config.hide_button_group_frame===true} @change=${this.configChanged}>&nbsp;
+          Hide frames around button groups
+        </label>
+        <br><br>
+        <label for="useCustomSkinCheckbox">
+          <input type="checkbox" id="useCustomSkinCheckbox" name="useCustomSkin" ?checked=${this._config.useCustomSkin===true} @change=${this.configChanged}>&nbsp;
+          ${this.translateToUsrLang('Custom Remote Skin')}:&nbsp;&nbsp;<input type="color" name="skin" id="skin" .value=${this._config.skin || '#4682b4'} @change=${this.configChanged}>
+        </label>
+        <br><br><hr><br>
+      `;
+    }
+  }
 
   render() {
     if (!this.hass || !this._config) {
@@ -12280,18 +12334,15 @@ class FiremoteCardEditor extends LitElement {
           <option value="AL2">App Launcher 2</option>
         </select>
         <br>
-
         <br>
-
         ${this.getCompatibilityModeDropdown(this._config.compatibility_mode, getDeviceAttribute('friendlyName'))}
         <br>
-
         ${this.getAppChoiceOptionMenus(getDeviceAttribute("defaultRemoteStyle"))}
         <br>
-
         <hr>
-
         <br>
+        ${this.getALConfigOptions(getDeviceAttribute("defaultRemoteStyle"))}
+
         <label for="visible_name_text">${this.translateToUsrLang('Visible Device Name')}:<br>
           <input type="text" maxlength="15" .value=${ this._config.visible_name_text || ''} id="visible_name_text" name="visible_name_text" @change=${this.configChanged} @focusout=${this.configChanged} @keyup=${this.configChanged} style="padding: .6em; font-size: 1em; width: 10rem;">
         </label>
