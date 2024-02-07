@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.3b1';
+const HAFiremoteVersion = 'v3.2.3';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -655,8 +655,14 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="361" height="361" viewBox="0 0 361 361" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M254 55c-1 0-8 1-9 2L138 78h0c-3 1-5 2-7 3-2 2-3 4-3 7-1 1-1 2-1 4v134c0 3 0 6-2 9-2 2-5 3-8 4-2 0-5 0-7 1-9 2-14 3-20 5-5 2-8 4-11 7-6 7-9 15-8 23 1 7 4 13 9 18 4 3 8 5 13 6s11 1 19-1c5-1 9-2 13-4 4-3 7-6 10-9 2-4 4-8 5-13 1-4 1-8 1-13V143c0-6 2-8 7-9l93-19c6-1 9 1 9 7v79c0 3-1 6-3 9-2 2-4 3-7 4-3 0-5 1-7 1-9 2-15 3-20 5s-9 5-12 8c-6 6-8 14-8 22 1 7 4 13 9 18 4 3 8 6 13 7 6 1 11 0 20-1 4-1 8-3 12-5s8-5 10-9c3-4 4-8 5-12 1-5 1-9 1-14V65c0-7-3-10-9-10z" stroke="none"/></svg>',
       "friendlyName": 'Apple Music',
       "className": "appleTvMusicButton",
-      "appName": "Music",
-      "deviceFamily": ["apple-tv"],
+      "deviceFamily": ["apple-tv", "roku"],
+      "apple-tv": {
+          "appName": "Music",
+      },
+      "roku": {
+          "appName": 'Apple Music',
+          "app-id": 637193,
+      },
   },
 
 
@@ -1297,6 +1303,42 @@ const fastappchoices = {
           "adbLaunchCommand": "adb shell am start -n com.disneyplus.mea/com.hotstar.MainActivity",
       },
   },
+
+
+  "dog-tv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2705" height="611" viewBox="0 0 2705 611" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M791 480V120h154c120 0 180 72 180 175 0 106-62 185-185 185H791zm106-94h42c50 0 75-37 75-89 0-51-24-83-73-83h-44v172zm252-86c0-112 80-190 191-190 113 0 192 78 192 190 0 114-79 190-192 190-111 0-191-76-191-190zm272 1c0-51-30-91-81-91-50 0-80 40-80 91 0 52 31 89 80 89 51 0 81-37 81-89h0zm305-40h204v45c0 119-63 184-176 184-119 0-198-80-198-188 0-106 70-192 209-192 57 0 101 16 129 34v96c-25-15-66-31-116-31-79 0-109 41-109 98 0 51 34 86 88 86 42 0 65-18 71-51h-118l16-81z"/><path d="M2257 219h-99v261h-106V219h-99v-99h303l1 99zm281-99h116l-124 360h-127l-126-360h114l74 239 73-239z" fill="#f9a973"/><path d="M696 301c0-143-110-251-335-251H50v509h108c-6-10-10-20-13-31-1-3-1-8 3-9 3 5 7 11 10 17-5-24-10-50 1-71 1 9 2 17 5 25 5-22 12-47 31-57-1 15-3 30-7 45 5-24 24-45 48-53-10 20-19 41-25 62-5 18-9 37-6 56 1 6 3 11 5 16h42c35-42 83-93 83-93l125-34s35 22 67 97c118-45 169-134 169-228z"/><path d="M552 164c-21-12-42-23-65-32-2-1-6-3-9-2-2 1-4 3-6 4-21 20-40 42-59 64l-17-2 29-18c-29-5-68 21-68 21l17-34c-31 14-52 31-67 48-6 2-11 5-17 9-2-3-4-5-6-8-3-3-5-5-9-6-5-2-11 1-16 4-30 19-58 40-84 62-2 2-4 4-4 6-2 3-1 7 0 10 7 23 16 46 27 68 4 9 8 18 17 22 2 1 4 2 7 1 3 0 5-2 8-4 14-15 23-33 25-53l6 9c7 42 34 89 76 107l96-9c52-42 40-120 31-157-6-14-11-26-17-35l9 15c23-9 51-10 67-29l-9-9c20 0 38-7 53-19 3-2 5-5 6-8 0-2 0-4-1-7-4-8-12-14-20-18z" fill="#f58021"/><path d="M453 255c1-1 2-1 3-2l-9-15s3 6 6 17zM321 440l141-34 6 31-140 35z"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="861" height="809" viewBox="0 0 861 809" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M10 793V631h69c54 0 82 32 82 79 0 48-28 83-84 83H10zm48-42h19c22 0 34-17 34-40s-11-37-33-37H58v77zm114-39c0-51 36-86 86-86 51 0 87 35 87 86s-36 85-87 85c-50 0-86-34-86-85zm122 0c0-23-13-41-36-41-22 0-36 18-36 41 0 24 14 40 36 40 23 0 36-17 36-40h0zm137-18h93v20c0 54-29 83-80 83-54 0-89-36-89-84s32-87 94-87c26 0 46 7 58 15v44c-11-7-29-14-52-14-35 0-49 18-49 44 0 23 15 39 40 39 19 0 29-8 31-24h-53l7-36z"/><path d="M671 676h-45v117h-47V676h-45v-45h137v45zm127-45h52l-56 162h-57l-57-162h52l33 108 33-108z" fill="#f9a973"/><path d="M769 261c0-143-110-251-335-251H123v509h108c-6-10-10-20-13-31-1-3-1-8 3-9 3 5 7 11 10 17-5-24-10-50 1-71 1 9 2 17 5 25 5-22 12-47 31-57-1 15-3 30-7 45 5-24 24-45 48-53-10 20-19 41-25 62-5 18-9 37-6 56 1 6 3 11 5 16h42c35-42 83-93 83-93l125-34s35 22 67 97c118-45 169-134 169-228z"/><path d="M625 124c-21-12-42-23-65-32-2-1-6-3-9-2-2 1-4 3-6 4-21 20-40 42-59 64l-17-2 29-18c-29-5-68 21-68 21l17-34c-31 14-52 31-67 48-6 2-11 5-17 9-2-3-4-5-6-8-3-3-5-5-9-6-5-2-11 1-16 4-30 19-58 40-84 62-2 2-4 4-4 6-2 3-1 7 0 10 7 23 16 46 27 68 4 9 8 18 17 22 2 1 4 2 7 1 3 0 5-2 8-4 14-15 23-33 25-53l6 9c7 42 34 89 76 107l96-9c52-42 40-120 31-157-6-14-11-26-17-35l9 15c23-9 51-10 67-29l-9-9c20 0 38-7 53-19 3-2 5-5 6-8 0-2 0-4-1-7-4-8-12-14-20-18z" fill="#f58021"/><path d="M526 215c1-1 2-1 3-2l-9-15s3 6 6 17zM395 400l141-34 6 31-140 35z"/></svg>',
+      "friendlyName": "DogTV",
+      "className": "dogTVButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "roku", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.ptvmedia.dogtv",
+          "androidName": "com.ptvmedia.dogtv",
+          "adbLaunchCommand": "adb shell am start -n com.ptvmedia.dogtv/tv.accedo.one.app.bootstrap.BootstrapActivity",
+      },
+      "apple-tv": {
+          "appName": "DOGTV",
+      },
+      "chromecast": {
+          "appName": "com.latto.tv.dogtv",
+          "androidName": "com.latto.tv.dogtv",
+          "adbLaunchCommand": "adb shell am start -n com.latto.tv.dogtv/tv.accedo.one.app.bootstrap.BootstrapActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.latto.tv.dogtv",
+          "androidName": "com.latto.tv.dogtv",
+          "adbLaunchCommand": "adb shell am start -n com.latto.tv.dogtv/tv.accedo.one.app.bootstrap.BootstrapActivity",
+      },
+      "roku": {
+          "appName": 'DOGTV',
+          "app-id": 18127,
+      },
+      "xiaomi": {
+          "appName": "com.latto.tv.dogtv",
+          "androidName": "com.latto.tv.dogtv",
+          "adbLaunchCommand": "adb shell am start -n com.latto.tv.dogtv/tv.accedo.one.app.bootstrap.BootstrapActivity",
+      },
+   },
 
 
   "downloader": {
@@ -3935,6 +3977,34 @@ const fastappchoices = {
    },
 
 
+  "spacedesk-display": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="590" height="644" viewBox="0 0 590 644" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M548 12c-9 2-32 5-50 8-102 16-92 14-96 20l-2 4-1 29c0 38-3 35 27 31 89-11 92-11 98-9s11 6 13 12l2 4 1 95c0 106 0 98 5 99 14 3 28-1 32-7l2-3V156l-2-140c-4-7-7-7-29-4m-55 27c7 5 6 17-2 23s-18 0-18-10c0-11 12-19 20-13m-53 77c-37 5-87 10-111 13-51 5-51 6-52 17-2 10 0 74 1 76 2 2 5 2 42-1l113-7c36-2 46 0 50 8 6 13 2 26 3 125 1 118 0 114 4 116 1 0 7 1 13 1 14 1 17 0 21-5l2-3V286 116l-2-2c-4-7 1-7-84 2m-40 28c9 5 8 21-1 26-14 6-25-11-15-23 4-5 11-6 16-3m36 84c-10 0-58 3-165 9-11 1-32 2-46 3l-99 5c-11 1-39 3-61 4-51 3-52 3-54 12-1 6-1 284 0 287 3 8 6 9 28 12l112 15 79 11 152 20c89 12 90 10 91 2V422 239c-1-10-12-13-37-11m-49 30c3 1 3 1 4 10 5 26 24 47 47 52 13 3 13 3 13 15 0 11-1 12-9 11-29-2-58-26-68-58-5-17-6-29-1-30 1-1 2-1 3-1 4-1 9-1 11 1m-47 2c1 2 2 3 2 6 0 1 1 6 1 10 6 52 45 94 95 102 13 2 13 2 13 14 0 11-1 12-12 11-53-7-97-48-112-104-4-14-6-33-4-37 1-4 14-5 17-2m-46 2c2 2 2 2 3 19 8 79 66 143 140 154 14 2 14 2 14 13 0 13-1 14-21 11-84-15-147-91-153-184-1-12 1-14 10-14 5 0 6 0 7 1m-133 50s0-1 58 84l48 72c1 4-1 5-18 4-18-2-20-1-20 3 0 2 5 18 11 36 11 34 11 35 9 37s-24 0-28-2c-2-2-3-4-14-38-14-45-10-40-32-42-15-1-17-2-18-6-1-2-1-23-1-75 1-78 3-75 5-73m-34 270c-4 2-3 16 1 21s5 5 40 10c17 3 42 7 56 9 36 5 67 10 71 11 9 1 14-4 14-15 1-13 6-12-51-20l-84-11c-41-6-45-6-47-5" stroke="none" fill="#fff"/></svg>',
+      "friendlyName": "spacedesk Display",
+      "className": "spacedeskDisplayButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "ph.spacedesk.beta",
+          "androidName": "ph.spacedesk.beta",
+          "adbLaunchCommand": "adb shell am start -n ph.spacedesk.beta/ph.spacedesk.httpwww.spacedesk.SAActivityConnect",
+      },
+      "chromecast": {
+          "appName": "ph.spacedesk.beta",
+          "androidName": "ph.spacedesk.beta",
+          "adbLaunchCommand": "adb shell am start -n ph.spacedesk.beta/ph.spacedesk.httpwww.spacedesk.SAActivityConnect",
+      },
+      "nvidia-shield": {
+          "appName": "ph.spacedesk.beta",
+          "androidName": "ph.spacedesk.beta",
+          "adbLaunchCommand": "adb shell am start -n ph.spacedesk.beta/ph.spacedesk.httpwww.spacedesk.SAActivityConnect",
+      },
+      "xiaomi": {
+          "appName": "ph.spacedesk.beta",
+          "androidName": "ph.spacedesk.beta",
+          "adbLaunchCommand": "adb shell am start -n ph.spacedesk.beta/ph.spacedesk.httpwww.spacedesk.SAActivityConnect",
+      },
+   },
+
+
   "sparkle-tv": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="649" height="688" viewBox="0 0 649 688" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="YvGb" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="0%" stop-color="#a2a0b5"/><stop offset="100%" stop-color="#c0b9c3"/></linearGradient><radialGradient id="KRvr" cx="50%" cy="50%" r="94%" fx="91.7%" fy="28.6%"><stop offset="16%" stop-color="#baa0a1"/><stop offset="98%" stop-color="#c563a0"/></radialGradient><linearGradient id="WNI3" x1="0%" y1="56%" x2="100%" y2="44%"><stop offset="0%" stop-color="#797992"/><stop offset="100%" stop-color="#a4a2b7"/></linearGradient><linearGradient id="yah5" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="24%" stop-color="#e1dee2"/><stop offset="76%" stop-color="#aeaab9"/></linearGradient></defs><g stroke="none"><path d="M635.5002 342.25L203.5 150v385z" fill="#b5b5d8"/><path d="M203.5 535l-.0733-184.9999L405 445zm0-185l.0001-200 201.4687 89.6565z" fill="#b0aec2"/><path d="M203.5 10l432.0004 332.2501-432-192.2501z" fill="url(#YvGb)"/><path d="M203.5 350V10L10 190.0001z" fill="url(#KRvr)"/><path d="M11.5 505.477L203.5 350v327z" fill="#7a7a97"/><g fill="#8b8baa"><path d="M10 580l193.5-45L10.0001 340z" fill-opacity=".96"/><path d="M10 340V105.0001L203.5 150z" fill-opacity=".96"/></g><path d="M10 580.0001L203.5 535v142z" fill="#4d4d5e" fill-opacity=".96"/><path d="M203.5 535l432-192.75L203.5 677z" fill="url(#WNI3)"/><path d="M203.5 535V150L10 340z" fill="#dadae0" fill-opacity=".88"/><path d="M10 105l193.5 45V10z" fill="#707084" fill-opacity=".97"/></g><path d="M203.5021 150.0001l-.002 385.0001 432.0007-192.7501z" fill="url(#yah5)" fill-opacity=".6" stroke="#fff" stroke-opacity="0" stroke-width="3"/></svg>',
       "friendlyName": "Sparkle TV",
@@ -5782,6 +5852,11 @@ function handlehdmi(config, inputs = 0) {
 
 
 function handlecustomlaunchers(config) {
+    // Experimental - Only one of them works through the roku api for some reason ///
+    if (config.device_family == "roku") {
+        appmap.set("roku-secret-screen", {"button": "Secret", "friendlyName": "Function: Secret Screen 1"});
+    }
+
     let customlaunchers = config.custom_launchers;
     if(typeof customlaunchers == 'undefined' || customlaunchers == null) {
       return;
@@ -5821,6 +5896,7 @@ function handleTunerInputs(config, tunerInput) {
         //appmap.set("roku-tv-channel", {"button": "Channel", "friendlyName": "Function: Input TV Channel"});
     }
 }
+
 
 function refreshAppMap(config, inputs = 0, avInputs = 0, tuner = true){
     resetAppMap();
@@ -6682,6 +6758,11 @@ class FiremoteCard extends LitElement {
           .XM2 #power-button, .XM2 #keyboard-button, .AL2 #power-button, .AL2 #keyboard-button {
             height: calc(var(--sz) * 3.572rem);
             width: calc(var(--sz) * 3.572rem);
+          }
+
+          .roku-remote-body #keyboard-button {
+            height: calc(var(--sz) * 2.25rem);
+            width: 100%;
           }
 
           .AL2 #power-button {
@@ -7697,6 +7778,10 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz) * 4.8rem);
           }
 
+          .dogTVButton {
+            background: #f58021;
+          }
+
           .downloaderButton {
             background: #f37623;
           }
@@ -8324,6 +8409,10 @@ class FiremoteCard extends LitElement {
 
           .snappierIPTVButton {
             background: #000;
+          }
+
+          .spacedeskDisplayButton {
+            background: #2b9433;
           }
 
           .sparkleTVButton {
@@ -10172,8 +10261,8 @@ class FiremoteCard extends LitElement {
     }
 
     function renderRokuReplayOptionsRow(remote, style) {
-      var middleButton = html `<button class="remote-button" id="voice-button" @click=${remote.buttonClicked}>
-                                <ha-icon icon="mdi:microphone"></ha-icon>
+      var middleButton = html `<button class="remote-button" id="keyboard-button" @click=${remote.buttonClicked}>
+                                <ha-icon icon="mdi:keyboard-outline"></ha-icon>
                               </button>`;
       if (style=='RHR'|| style=='RWR') {
         var middleButton = html `<button class="remote-button" id="sleep-button" @click=${remote.buttonClicked}>
@@ -11036,12 +11125,16 @@ class FiremoteCard extends LitElement {
       return;
     }
 
-
     // Keyboard button
     if(clicked.target.id == 'keyboard-button') {
       var text = prompt("Enter text to send");
       if (text && text != '') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'input text "'+text+'"' });
+        if(['roku'].includes(this._config.device_family)) {
+          this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'Lit_'+text, num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        }
+        else {
+          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'input text "'+text+'"' });
+        }
       }
       return;
     };
@@ -11758,6 +11851,18 @@ class FiremoteCard extends LitElement {
       return;
     };
 
+    // Roku Function: Secret Screen
+    if(clicked.target.id == 'roku-secret-screen-button') {
+      if(this._config.device_family == 'roku') {
+        var command = ['home', 'home', 'home', 'home', 'home', 'forward', 'forward', 'forward', 'reverse', 'reverse'];
+        for (let index = 0, len = command.length; index < len; ++index) {
+          setTimeout(() => 
+            this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: command[index], num_repeats: 1, delay_secs: 0, hold_secs: 0}),
+            index*50);
+        }
+      }
+      return;
+    }
 
     // App launch button (existing in JSON map)
     const clickedAppButtonID = clicked.target.id;
