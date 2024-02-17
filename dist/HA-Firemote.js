@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.3';
+const HAFiremoteVersion = 'v3.2.4';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -1407,6 +1407,7 @@ const fastappchoices = {
 
   "drtv": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="901" height="901" viewBox="0 0 901 901" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M50 25v800h800V25z" fill="#ff001e"/><path d="M50 585h800v240H50z" fill="#000"/><path d="M369.3 643.7H198c-.6-.1-1.2.2-1.7.6a2 2 0 0 0-.6 1.7v115.3c-.1.6.2 1.2.6 1.7.5.4 1 .6 1.7.6h171.2c50.3 0 75.7-16.7 75.7-60.3 0-43.3-25.4-59.6-75.7-59.6zM325 741.5h-53.7c-1.5 0-1.8-.6-1.8-1.8v-72c0-1.2.3-2 1.8-2H325c32 0 44.6 9 44.6 38 0 28.7-12.7 38-44.6 38zm390 17.2l-49.5-35c-1.3-1-2-1.4-2-2 0-.7.4-1 1.5-1 25 0 44.5-11.7 44.5-37.6 0-25.8-16.7-39.6-47.5-39.6H474.4c-.6-.1-1.3.2-1.7.6a2 2 0 0 0-.6 1.7V761c-.1.6.2 1.2.6 1.7.4.4 1 .6 1.7.6h69c.6 0 1.2-.2 1.7-.6.4-.5.6-1 .6-1.7v-27c0-1.3.4-1.8 1.8-1.8h39.7c2 0 2.8.2 4 1.2l34.5 28.6c1.3 1.2 3 1.8 5 1.7h85.8q1.8 0 1.8-1.4c.1-1.2-2-2.6-3.3-3.5zm-107.6-48h-59.8c-1.3 0-1.8-.4-1.8-1.8v-41.3c0-1.4.5-2 1.8-2h60c20 0 28.5 5.5 28.5 22 0 16.8-8.5 23-28.5 23zM402 374.7l122-70.3c1.5-1 2.4-2.6 2.4-4.3 0-1.8-1-3.4-2.4-4.3l-122-70.3c-1.6-1-3.4-1-5 0-1.6.8-2.5 2.5-2.5 4.2v140.8c0 1.7 1 3.4 2.5 4.2 1.5 1 3.4 1 5 0zm44.6 117.7a192 192 0 0 1-176.8-117.1l44.8-19a143 143 0 0 0 132 87.4c79 0 143.4-64.3 143.4-143.3S525.7 157 446.6 157a143 143 0 0 0-132.1 87.6l-44.8-19c30-71.2 99.7-117.4 177-117.3a192 192 0 0 1 192 192c0 105.8-86.2 192-192 192z"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="950" height="950" viewBox="0 0 950 950" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M75 75v800h800V75z" fill="#ff001e"/><path d="M75 635h800v240H75z" fill="#000"/><path d="M394 694H223s-1 0-1 1c-1 0-1 1-1 1v116s0 1 1 1c0 1 1 1 1 1h171c51 0 76-17 76-60 0-44-25-60-76-60zm-44 98h-53c-2 0-2-1-2-2v-72c0-1 0-2 2-2h53c32 0 45 9 45 38s-13 38-45 38zm390 17l-50-35c-1-1-2-1-2-2s1-1 2-1c25 0 44-12 44-37 0-26-16-40-47-40H499s-1 0-1 1c-1 0-1 1-1 1v116s0 1 1 1c0 1 1 1 1 1h69c1 0 2 0 2-1l1-1v-28c0-1 0-2 1-2h40c2 0 3 1 4 2l35 28c1 1 3 2 5 2h85q2 0 2-2c0-1-2-2-3-3zm-108-48h-59c-2 0-2 0-2-2v-41c0-2 0-2 2-2h59c20 0 29 6 29 22 0 17-9 23-29 23zM427 425l122-70c2-1 3-3 3-5 0-1-1-3-3-4l-122-70c-1-1-3-1-5 0-1 1-2 2-2 4v141c0 1 1 3 2 4 2 1 4 1 5 0zm45 117c-77 0-147-46-177-117l45-19c22 53 74 87 132 87 79 0 143-64 143-143s-64-143-143-143c-58 0-110 34-132 87l-45-19c30-71 100-117 177-117 106 0 192 86 192 192s-86 192-192 192z"/></svg>',
       "friendlyName": "DRTV",
       "className": "drtvButton",
       "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "roku", "xiaomi"],
@@ -2047,6 +2048,35 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire"], },
 
 
+  "implayer-tv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2711" height="646" viewBox="0 0 2711 646" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="YDXk" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="0%" stop-color="#c2c1c1"/><stop offset="53%" stop-color="#fff"/></linearGradient></defs><g stroke="none"><circle cx="367" cy="322" fill="#000" r="317"/><path d="M302 336c0 1-2 1-5 1-9 2-20 12-23 23 0 2-2 6-3 9-1 4-1 7-2 23 0 22 0 24 10 24 7 0 7 0 7 14 0 15 2 14-21 14l-19-1-3-2c-7-5-7-5-8-57v-45c0-1-29-1-29-1v99 97 3c0 17 20 26 35 26 21-1 189-115 190-116 4-2 2-3-6-3-6-1-7-1-10-3-6-5-6-2-6-49-1-44-1-43-5-50-5-6-20-7-27-2-1 1-2 1-3 1-3 0-13 14-14 22-1 2-2 4-2 5-2 1-2 4-2 37 0 26 0 37-1 38-2 2-31 1-33-1-1-1-1-8-1-47 1-56 1-56-12-58-7-1-6-1-7-1" fill="#ea052c"/></g><g stroke="#fff"><path d="M362 78s-4 2-6 6c-3 7-1 10 3 14 3 3 6 30 6 33 3 49 5 59 5 59 0-1 2 20-9 21-3 1-6 1-15 8-3 2-4 2-7 0l-75-48c-37-22-59-21-58 19h0v59 60s8 1 28 1c19 0 26 0 28 1 3 2 7 8 8 12 0 6 1 6 8-1 6-6 13-10 16-12 6-4 32-4 34-2 4 1 16 10 20 17s4 7 13-3c5-5 9-8 10-8s3-1 4-2c7-5 30-7 40-4 7 2 20 10 24 26 3 14 3 21 3 45 0 29 0 35 2 36l9 1c26 1 72-44 74-55 5-12-2-22-12-28l-91-59c-4-2-5-6-4-18 1-9-2-19-8-28-3-4-2-6 10-14 97-83 95-84 103-84 13-1 17-14 7-21-9-5-20 0-19 11v4l-4 5-90 76c-12 12-16 13-24 9-2-1-6-2-8-3-7-1-8-4-8-24l-5-60c-1 0-2-26 0-29 7-7 7-16-2-20-3-1-6-2-10 0" fill="url(#YDXk)" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="6"/><path d="M235 255v32h33v-32z" fill="#000" stroke-width="5"/></g><g stroke="none"><path d="M1575 128c-2 1-4 3-5 5l-2 4v159c0 177 0 162 6 165 5 3 35 2 41-1 7-3 6 10 6-165V138l-2-4c-3-7-6-8-24-8-15 0-17 0-20 2m760 115c-18-1-37 0-44 2-15 4-76 27-83 94-3 56 12 86 46 111 33 20 49 20 70 21 17 0 31-1 40-5 19-9 38-23 46-32 7-5-14-24-24-33-5-3-10-3-18 2-8 7-23 14-43 15-40-1-53-25-53-30 0-11-5-10 80-10 63 2 73-18 74-41-1-52-59-93-91-94m-565 1c-60 1-105 61-100 115 0 56 45 108 95 112 28 1 52-3 60-9 7-3 10-7 13-8 2 0 8 2 9 4 6 19 56 14 54-2 2-3 4-153 3-187-1-23-2-23-30-23-23 0-24 0-29 7-4 8-9 10-13 5-3-2-8-7-14-11-3-3-22-3-48-3m800 1c-8 1-8 1-18 10-10 10-10 10-16 0-5-9-5-9-27-9-21 0-23 0-25 6s-1 202 1 205c3 5 6 6 24 6 29 0 27 4 27-56 1-26 1-54 1-61l1-14v-3c3-24 19-30 34-30 18 0 30 10 34 30 3 14 8 17 31 16 21 0 24-2 23-17 0-28-18-51-20-55-7-10-15-22-28-27-12-3-29-3-42-1m-631 1c-7 2-7 18 0 27l85 188 2 4-39 90c-14 29-13 30 19 30 18-1 19-1 25-7 151-315 163-329 145-332-5-1-39-1-41 0-8 4-14 11-17 21l-52 107c-4 15-15 18-19 6-59-123-56-134-69-134h-39m403 54c21 8 35 24 28 32l-2 3h-44c-50 0-48 0-50-6-3-9 13-24 34-31 4-1 29 0 34 2m-554-2c46 3 66 59 48 87-21 35-64 40-93 11-4-4-10-12-14-34-1-8 3-27 7-33 11-18 32-31 51-30h1" fill="#d8052d"/><path d="M1305 126c-5 1-8 3-9 6-2 3-3 252-2 301l1 21 3 3c4 4 7 4 26 4 31 0 30 1 30-40 0-68 1-70 30-70 110-2 133-72 133-112h0c0-85-58-110-103-113-10-3-102-2-109 0m-428 4c0 4 0-3 0 163 0 161 0 167 8 167 1 1 37 1 39 0 8 1 10-5 10-82l1-72c3-5 10-2 16 5l98 141c9 14 14 15 21 5l106-143c7-11 12-12 16-6 2 2 2 4 2 73 0 74 0 73 4 76 3 4 6 4 22 4 19 0 21 0 23-6s1-318-1-321c-3-6-7-3-23 21l-149 208c-7 8-15 8-21-1L883 128c-2-2-4-2-6 2m-80 0c-15 0-24 13-23 23 0 15 12 25 23 25 12 0 24-11 24-23 0-13-7-25-23-25m618 48c22 9 39 27 42 46 1 13 0 33-3 41-12 27-33 38-77 40-25 1-23 7-23-65 0-61 0-60 5-63 4-2 49-2 56 1m-636 70c-7 4-8 9-7 106 0 96 0 103 5 106 5 2 31 2 36 0 7-3 7-9 7-109 0-93 0-98-8-102-5-3-28-3-33-1" fill="#e0e0e0"/></g></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="636" height="636" viewBox="0 0 636 636" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="O91X" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="0%" stop-color="#c2c1c1"/><stop offset="53%" stop-color="#fff"/></linearGradient></defs><g stroke="none"><circle cx="317" cy="317" fill="#000" r="317"/><path d="M252 331c0 1-2 1-5 1-9 2-20 12-23 23 0 2-2 6-3 9-1 4-1 7-2 23 0 22 0 24 10 24 7 0 7 0 7 14 0 15 2 14-21 14l-19-1-3-2c-7-5-7-5-8-57v-45c0-1-29-1-29-1v99 97 3c0 17 20 26 35 26 21-1 189-115 190-116 4-2 2-3-6-3-6-1-7-1-10-3-6-5-6-2-6-49-1-44-1-43-5-50-5-6-20-7-27-2-1 1-2 1-3 1-3 0-13 14-14 22-1 2-2 4-2 5-2 1-2 4-2 37 0 26 0 37-1 38-2 2-31 1-33-1-1-1-1-8-1-47 1-56 1-56-12-58-7-1-6-1-7-1" fill="#ea052c"/></g><g stroke="#fff"><path d="M312 73s-4 2-6 6c-3 7-1 10 3 14 3 3 6 30 6 33 3 49 5 59 5 59 0-1 2 20-9 21-3 1-6 1-15 8-3 2-4 2-7 0l-75-48c-37-22-59-21-58 19h0v59 60s8 1 28 1c19 0 26 0 28 1 3 2 7 8 8 12 0 6 1 6 8-1 6-6 13-10 16-12 6-4 32-4 34-2 4 1 16 10 20 17s4 7 13-3c5-5 9-8 10-8s3-1 4-2c7-5 30-7 40-4 7 2 20 10 24 26 3 14 3 21 3 45 0 29 0 35 2 36l9 1c26 1 72-44 74-55 5-12-2-22-12-28l-91-59c-4-2-5-6-4-18 1-9-2-19-8-28-3-4-2-6 10-14 97-83 95-84 103-84 13-1 17-14 7-21-9-5-20 0-19 11v4l-4 5-90 76c-12 12-16 13-24 9-2-1-6-2-8-3-7-1-8-4-8-24l-5-60c-1 0-2-26 0-29 7-7 7-16-2-20-3-1-6-2-10 0" stroke-linejoin="miter" stroke-linecap="butt" fill="url(#O91X)" stroke-width="6"/><path d="M185 250v32h33v-32z" fill="#000" stroke-width="5"/></g></svg>',
+      "friendlyName": "iMPlayer",
+      "className": "iMPlayerButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.myiptvonline.implayer",
+          "androidName": "com.myiptvonline.implayer",
+          "adbLaunchCommand": "adb shell am start -n com.myiptvonline.implayer/com.myiptvonline.implayer.a",
+      },
+      "chromecast": {
+          "appName": "com.myiptvonline.implayer",
+          "androidName": "com.myiptvonline.implayer",
+          "adbLaunchCommand": "adb shell am start -n com.myiptvonline.implayer/com.myiptvonline.implayer.a",
+      },
+      "nvidia-shield": {
+          "appName": "com.myiptvonline.implayer",
+          "androidName": "com.myiptvonline.implayer",
+          "adbLaunchCommand": "adb shell am start -n com.myiptvonline.implayer/com.myiptvonline.implayer.a",
+      },
+      "xiaomi": {
+          "appName": "com.myiptvonline.implayer",
+          "androidName": "com.myiptvonline.implayer",
+          "adbLaunchCommand": "adb shell am start -n com.myiptvonline.implayer/com.myiptvonline.implayer.a",
+      },
+   },
+
+
   "infuse": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1056" height="816" viewBox="0 0 1056 816" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="n4oM" x1="50%" y1="100%" x2="50%" y2="0%"><stop offset="47%" stop-color="#ff6701"/><stop offset="94%" stop-color="#e80900"/></linearGradient><linearGradient id="qN8r" x1="0%" y1="44%" x2="100%" y2="56%"><stop offset="67%" stop-color="#ff6701"/><stop offset="85%" stop-color="#e80900"/></linearGradient><linearGradient id="BAD9" x1="0%" y1="44%" x2="100%" y2="56%"><stop offset="59%" stop-color="#fe9900"/><stop offset="99%" stop-color="#ff6701"/></linearGradient></defs><g stroke="none"><path d="M265 248.4c-.5 0-.1 249.7 1.3 255.8 16.7 73.4 122 73.7 140.7.7l1.5-322c-20-15-97-39-139 43" fill="url(#n4oM)"/><path d="M394.2 45c-65.4 6.8-117.6 56.2-128 121.2-1 5.8-1.2 15.3-1.3 43 0 48.6-.1 46 1.6 36.7 10.7-55.5 68.8-88 121.7-68 78.8 31.8 304.4 215.6 305.3 215.8 1.2.3 3.5 4 3 3 113-104.5-17.8-189.7-18-190l-218.2-152a157 157 0 0 0-66.1-9.6m316.2 188" fill="url(#qN8r)"/><path d="M708.5 233a109 109 0 0 1 .6 150.9L350.3 648.2A72 72 0 0 0 406 764.4c19 0 29.3-4 50.5-19.4l261-188.2 37.8-27.2c42.2-27.8 63-52 75-87.4a151 151 0 0 0-.5-92.3c-10.6-30.4-27-51.3-57.5-73.5L702 225.8c-.3 0 2.6 3.2 6.4 7" fill="url(#BAD9)"/></g></svg>',
       "friendlyName": "Infuse",
@@ -2298,7 +2328,7 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 264.6" xml:space="preserve"><path d="M273.788 264.623H0l7.498-61.339h273.788l-7.498 61.339z"/><path d="M1323.2 57h-63.9l-77.7 557.8c-9 76.6-44.2 167-165 156.1l-8.6 63c179.6 11 224-119.6 231.7-181L1323.2 57zm-157.1 570.7L1245.5 57h-63.8l-81.6 586.1c-4.7 30.7-41.1 57.9-72.9 50l-8.8 63.6c102.2 9.1 138-63.9 147.7-129zm400-584.9c-151.9 0-205.7 121.6-213.4 182.5l-23.9 175.3c-7.4 54.3 17.8 173.9 167.7 173.9 112.2 0 197.6-73.3 212.4-182.5l23-165.7c10.1-67.6-17.6-183.5-165.8-183.5zM534.5 394l23.8-171.7c15-89.5 106.9-128.2 174.2-106.8l8.2-58.2c-168.2-24.4-234.6 89.2-242.2 165l-23.7 169.5c-7.1 52.4 15 188.7 195.9 167.5l8.6-62.4c-69.1 22.6-154.4-19.1-144.8-102.9zM950 57.3l-47.1 334.2c-7.1 52.4 15 188.7 196 167.5l8.7-62.4c-69.3 23.1-154.7-18.6-145-102.5l47.3-336.9-59.9.1zm-633 500h68.9L267.2 300.7l-44.4 54.7L317 557.3zm-39.9-268.4 125.4 268.4h69.2L321.8 234.5l-44.7 54.4zM114.9 557.3h63.6l28.8-205.1L563.5-81.6h-83l-334 409.1-31.6 229.8zm11.8-638.9L37.8 557.3h63.5l89.4-638.9h-64zM895.8 57.1h-64.2l-69.2 500.1h63.1c.1 0 70.3-500.1 70.3-500.1zm-77.3 0h-64.1l-69.2 500.1h63.1l70.2-500.1zm826 347c-1.5 10-22.7 113.9-142.9 113.9-95.8 0-114.8-84.5-110.7-122.1 1.6-14.6 24.2-179.2 27-192.9 4.1-19.6 37.8-102.4 133.8-102.4 125 0 120 110.8 117.9 128.6-1.4 11.7-23.6 165.3-25.1 174.9zM1552 114.6c-87.4 0-117 76.9-120.7 92.1-3.2 13.2-25.6 178.8-26.6 193.4-2.2 31 13.1 103.8 99.3 103.8 85 0 122.4-65 127.9-102.6 1.3-9.3 23.4-161 24.7-172.9s8.1-113.8-104.6-113.8zm-527.8-57.3-47.8 336.5c-4.6 44.7 23 90.4 86.6 95 15.9 1 31.8-1.6 46.5-7.7l8.8-63.8c-16.2 12.1-38.2 21.8-57.8 12-11-5.7-19.1-15.8-22.2-27.8-1.5-8.6-1.3-17.5.7-26 1.6-11.4 3.3-22.8 5-34.1l15-104.6 15.7-110.5 9.3-65.9.5-3.5-60.3.4zM609.7 389.2c.3-5.8 1-11.5 2-17.2l4.6-33.5 10.8-76.2 3.4-24.5c12.6-56.2 72.6-66.2 91.1-41.7l9.1-65.6c-14.1-4.2-28.8-6.1-43.5-5.8-47.9 0-106.7 40.5-114.4 96.4l-23.9 172.3c-4.6 44.7 22.9 90.4 86.5 95 15.9 1 31.8-1.6 46.5-7.7l8.6-63.5c-13.3 10-30 18.2-47.2 15.3-11.5-2-21.5-8.9-27.7-18.8a40.5 40.5 0 0 1-5.9-24.5zm900.9 53.1c-32.6 0-45.7-28.9-42.9-51.2l22.3-160.6c5-29.4 33.8-55.3 62.1-55.3h.8c23.6 0 42.9 19.4 42.9 42.9 0 2.7-.3 5.4-.8 8l-22.4 161.2c-3.8 28.6-33.4 55-62 55zM462.8-81.6h-82.1L245 84l23.1-165.6H204l-53.2 380.5 312-380.5z" style="fill:#15e36d" transform="translate(0 23.537) scale(.28838)"/><path d="M141.2 696.5c-7.6-8.7-18.4-14-30-14.6-9.7 0-19.3 4.2-19.3 14.6 0 19.3 55.9 14.6 55.9 53.7 0 39-35.4 53.2-60.6 53.2-18.3 0-35.6-8.2-47.3-22.2l19.7-24.8c8 10.7 20.2 17.4 33.6 18.5 12.2 0 21-6.3 21-16.8 0-20-55.8-14.2-55.8-52.4 0-34.3 25.6-51.5 57.8-51.5 16.2-.5 31.7 6.2 42.5 18.2l-17.5 24.1zm772.8 0c-7.6-8.7-18.4-14-30-14.6-9.6 0-19.3 4.2-19.3 14.6 0 19.3 55.9 14.6 55.9 53.7 0 39-35.4 53.2-60.5 53.2-18.3 0-35.6-8.2-47.3-22.2l19.7-24.7c8 10.7 20.2 17.4 33.5 18.5 12.1 0 21-6.3 21-16.8 0-20-55.7-14.2-55.7-52.4 0-34.3 25.5-51.5 57.9-51.5 16.2-.5 31.7 6.2 42.5 18.2l-17.7 24zM403.3 803.3c-36.7 0-63.1-22.4-63.1-60 0-50.5 35.8-89.3 86.7-89.3 36.9 0 63.1 22.5 63.1 60.3.1 50.3-35.8 89-86.7 89zm392.6-147-4.2 27.2h-35.8L737 800.8h-32.9l18.6-117.4H687l4.4-27.2h104.5v.1zm-548.9 91h-17l-8 53.6h-32.9L212 656.3h50c23.6 0 44.4 9.4 44.4 36.2-.4 36.2-24.7 55.1-59.4 54.8zm365.2-6.2 26 59.7h-38.3l-20.5-55h-10l-8.6 55h-32.9l22.8-144.5h50c23.7 0 46.1 8.6 46.1 35.8.3 22.1-13.7 41.8-34.6 49zm-189.8-57.8c-29.1 0-48.2 26.6-48.2 54 0 21 12.8 35.6 34 35.6 29.4 0 48.4-26.6 48.4-54 0-21.2-12.8-35.8-34.1-35.8l-.1.2zm-169.7-.8h-12.6l-6 38.3h12.5c14.7 0 25.6-7.3 25.6-23 .1-12.1-9.1-15.2-19.3-15.2l-.2-.1zm339.3.1h-12.8l-5.6 36.7h12.8c14.2 0 26.6-5.9 26.6-22-.1-12.3-11-14.7-21-14.7z" style="fill:#fff" transform="translate(0 23.537) scale(.28838)"/></svg>',
       "friendlyName": "Kayo (AU)",
       "className": "kayoButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
           "appName": "au.com.kayosports.tv",
           "androidName": "au.com.kayosports.tv",
@@ -2306,6 +2336,11 @@ const fastappchoices = {
       },
       "apple-tv": {
           "appName": "Kayo",
+      },
+      "chromecast": {
+          "appName": "au.com.kayosports.tv",
+          "androidName": "au.com.kayosports.tv",
+          "adbLaunchCommand": "adb shell am start -n au.com.kayosports.tv/au.com.foxsports.martian.tv.main.MainActivity",
       },
       "nvidia-shield": {
           "appName": "au.com.kayosports.tv",
@@ -6480,10 +6515,12 @@ class FiremoteCard extends LitElement {
 
           .apple-remote-body.AR2 > div > button:nth-of-type(odd), .apple-remote-body.AR3 > button:nth-of-type(odd) {
             justify-self: self-end;
+            transform-origin: center center;
           }
 
           .apple-remote-body.AR2 > div > button:nth-of-type(even), .apple-remote-body.AR3 > button:nth-of-type(even) {
             justify-self: self-start;
+            transform-origin: center center;
           }
 
           .remote-body {
@@ -6889,7 +6926,8 @@ class FiremoteCard extends LitElement {
             overflow: hidden;
           }
 
-          .XM2 .dpadContainer {
+          .XM2 .dpadContainer,
+          .XM.dpadContainer {
             align-items: center;
             justify-items: center;
             position: relative;
@@ -6941,9 +6979,10 @@ class FiremoteCard extends LitElement {
             box-shadow: none;
           }
 
-          .chromecast-remote-body .directionButtonContainer {
+          .chromecast-remote-body .directionButtonContainer,
+          .CC .directionButtonContainer {
             border: calc(var(--sz) * 0.0714rem) solid #9d9d9d;
-            box-shadow: #b1b1b1 0 0 calc(var(--sz) * 0.4rem)  calc(var(--sz) * 0.02rem);
+            box-shadow: rgb(0 0 0 / 29%) 0 0 calc(var(--sz) * 0.4rem) calc(var(--sz) * 0.02rem);
           }
 
           .dpadbutton{
@@ -6953,6 +6992,7 @@ class FiremoteCard extends LitElement {
             height: calc(var(--sz) * 5.5714rem);
             background: #141414;
             color: white;
+            font-size: calc(var(--sz) * 1rem);
             outline: solid #2e2e2e calc(var(--sz) * 0.0714rem);
           }
 
@@ -6962,17 +7002,28 @@ class FiremoteCard extends LitElement {
             outline: none;
           }
 
-          .XM2 .dpadbutton {
+          .XM2 .dpadbutton,
+          .XM .dpadbutton {
             background: rgb(28 28 28);
-            outline: solid #000 calc(var(--sz) * 0.0714rem);
+            border: solid rgb(15 15 15) calc(var(--sz) * 0.03rem);
+            outline: none;
+            box-sizing: border-box;
           }
 
-          .chromecast-remote-body .dpadbutton {
+          .XM2 .dpadbutton:active,
+          .XM .dpadbutton:active {
+            background: rgb(24 24 24);
+            border: solid #000 calc(var(--sz) * 0.15rem);
+          }
+
+          .chromecast-remote-body .dpadbutton,
+          .CC .dpadbutton {
             background: #fff;
             outline: solid #c5c5c5 calc(var(--sz) * 0.0714rem);
           }
 
-          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(1)::after {
+          .AR3 .dpadbutton:nth-child(1)::after,
+          .AR1 .dpadbutton:nth-child(1)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -6982,7 +7033,8 @@ class FiremoteCard extends LitElement {
             padding-bottom: calc(var(--sz) * 1.2rem);
           }
 
-          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(2)::after {
+          .AR3 .dpadbutton:nth-child(2)::after,
+          .AR1 .dpadbutton:nth-child(2)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -6992,7 +7044,8 @@ class FiremoteCard extends LitElement {
             padding-bottom: calc(var(--sz) * 1.2rem);
           }
 
-          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(3)::after {
+          .AR3 .dpadbutton:nth-child(3)::after,
+          .AR1 .dpadbutton:nth-child(3)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -7002,7 +7055,8 @@ class FiremoteCard extends LitElement {
             padding-top: calc(var(--sz) * 1.2rem);
           }
 
-          .apple-remote-body:not(.AR2) .dpadbutton:nth-child(4)::after {
+          .AR3 .dpadbutton:nth-child(4)::after,
+          .AR1 .dpadbutton:nth-child(4)::after {
             content: "•";
             text-align: center;
             display: block;
@@ -7016,7 +7070,8 @@ class FiremoteCard extends LitElement {
             background: #282828;
           }
 
-          .chromecast-remote-body .dpadbutton:active {
+          .chromecast-remote-body .dpadbutton:active,
+          .CC .dpadbutton:active {
             background: #efefef;
           }
 
@@ -7036,16 +7091,19 @@ class FiremoteCard extends LitElement {
             background: radial-gradient(circle, rgba(28,28,28,1) 0%, rgba(37,37,37,1) 100%);
           }
 
-          .XM2 .centerbutton {
+          .XM2 .centerbutton,
+          .XM .centerbutton {
             background: rgb(28, 28, 28);
-            border: solid black calc(var(--sz) * 0.25rem);
-            width: calc(var(--sz) * 4.7rem);
-            height: calc(var(--sz) * 4.7rem);
+            border: solid black calc(var(--sz) * 0.2rem);
+            width: calc(var(--sz) * 5rem);
+            height: calc(var(--sz) * 5rem);
             margin: 0px;
             position: absolute;
+            box-sizing: border-box;
           }
 
-          .chromecast-remote-body .centerbutton {
+          .chromecast-remote-body .centerbutton,
+          .CC .centerbutton {
             background: radial-gradient(circle, rgb(231 231 231) 0%, rgb(255, 255, 255) 80%);
             box-shadow: inset rgb(0 0 0 / 10%) 0 calc(var(--sz) * 0.15rem) calc(var(--sz) * 0.4rem);
             border: solid #dddddd calc(var(--sz) * 0.0714rem);
@@ -7057,7 +7115,8 @@ class FiremoteCard extends LitElement {
             padding: 0;
           }
 
-          .apple-remote-body .centerbutton {
+          .apple-remote-body .centerbutton,
+          .AR3 .centerbutton {
             background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(48,48,48,1) 100%);
             width: calc(var(--sz) * 6rem);
             height: calc(var(--sz) * 6rem);
@@ -7068,7 +7127,7 @@ class FiremoteCard extends LitElement {
             outline: solid #2e2e2e calc(var(--sz) * 0.0714rem);
           }
 
-          .apple-remote-body.AR1 .centerbutton {
+          .AR1 .centerbutton {
             background: linear-gradient(180deg, rgb(147, 148, 150) 0%, rgb(207, 211, 213) 100%);
           }
 
@@ -7096,14 +7155,79 @@ class FiremoteCard extends LitElement {
             transform: scale(95%);
           }
 
-          .chromecast-remote-body .centerbutton:active {
+          .chromecast-remote-body .centerbutton:active,
+          .CC .centerbutton:active {
             transform: none;
             box-shadow: inset rgb(0 0 0 / 19%) 0 calc(var(--sz) * 0.25rem) calc(var(--sz) * 0.4375rem) calc(var(--sz) * 0.125rem);
           }
 
-          .apple-remote-body .centerbutton:active {
+
+          .apple-remote-body .centerbutton:active,
+          .AR3 .centerbutton:active {
             transform: none;
             border: calc(var(--sz) * 0.2rem) solid black;
+          }
+
+          .AR3 .centerbutton:active {
+            background: linear-gradient(180deg, rgba(0,0,0,1) 15%, rgba(48,48,48,1) 100%);
+          }
+
+          .XM1 .centerbutton:active,
+          .XM2 .centerbutton:active,
+          .XM .centerbutton:active {
+            transform: none;
+            border: solid #090909 calc(var(--sz) * 0.24rem);
+            background: rgb(26 26 26);
+          }
+
+          .minimal.dpadContainer {
+            align-items: center;
+            justify-items: center;
+            position: relative;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            gap: calc(var(--sz) * 1.25rem);
+            transform: scale(var(--sz));
+            /*transform: scale(clamp(.1, var(--sz), .8));*/
+          }
+
+          .minimal .directionButtonContainer {
+            border-radius: 30%;
+            border: none;
+            box-shadow: none;
+          }
+
+          .minimal .dpadbutton {
+            background: transparent;
+            outline: none;
+            display: grid;
+            height: 100%;
+            width: 100%;
+            transform-origin: center center;
+            align-self: start;
+            justify-items: center;
+            justify-content: center;
+            align-content: center;
+          }
+
+          .minimal .dpadbutton:active {
+            transform: scale(0.8);
+          }
+
+          .minimal .dpadbutton > svg {
+            display: inline-block;
+            transform: scale(calc(var(--sz) * .55));
+          }
+
+          .minimal .centerbutton {
+            border: calc(var(--sz) * 0.175rem) solid rgb(179 179 179);
+            background: transparent;
+            border-radius: 25%;
+            width: calc(var(--sz) * 3rem);
+            height: calc(var(--sz) * 3rem);
+            margin: 0;
+            position: unset;
           }
 
           .remote-button:active {
@@ -7935,6 +8059,10 @@ class FiremoteCard extends LitElement {
 
           .igniteTVShawButton {
             background: #fff;
+          }
+
+          .iMPlayerButton {
+            background: #000;
           }
 
           .infuseButton {
@@ -8968,7 +9096,7 @@ class FiremoteCard extends LitElement {
           }
 
           .chromecast-remote-body .appActive::before {
-            inset: -0.25rem;
+            inset: calc(var(--sz) * -0.25rem);
             filter: contrast(3);
           }
 
@@ -10656,7 +10784,7 @@ class FiremoteCard extends LitElement {
       <div class="apple-remote-body AR1">
           ${drawDeviceName(this, this._config, 'top')}
 
-          <div class="dpadContainer">
+          <div class="dpadContainer AR1Dpad">
             <button class="centerbutton" id="center-button" @click=${this.buttonClicked}></button>
             <div class="directionButtonContainer">
               <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
@@ -10875,6 +11003,66 @@ class FiremoteCard extends LitElement {
         rowClass="row noframes";
       }
 
+      // allow the dpad style to change for AL2 remotes
+      function getDpad(caller, style='amazon-fire') {
+        var dpadClass = '';
+        switch(style) {
+          case 'apple-tv-black':
+            dpadClass = 'AR3 ';
+            break;
+          case 'apple-tv-silver':
+            dpadClass = 'AR1 ';
+            break;
+          case 'chromecast':
+            dpadClass = 'CC ';
+            break;
+          case 'xiaomi':
+            dpadClass = 'XM ';
+            break;
+          case 'minimal':
+            dpadClass = "minimal ";
+            break;
+        }
+        if(style=='minimal'){
+          return html`
+            <div class="dpadwrapper">
+              <div class="${dpadClass}dpadContainer">
+                  <div> </div>
+                  <button class="dpadbutton" id="up-button" @click=${caller.buttonClicked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="57" height="19" viewBox="0 0 57 19" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M3 15Q23 3 28 3q5 0 25 12" stroke-width="6"/></svg>
+                  </button>
+                  <div> </div>
+                  <button class="dpadbutton" id="left-button" @click=${caller.buttonClicked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="57" viewBox="0 0 19 57" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M15 53Q3 33 3 28q0-5 12-25" stroke-width="6"/></svg>
+                  </button>
+                  <button class="centerbutton" id="center-button" @click=${caller.buttonClicked}> </button>
+                  <button class="dpadbutton" id="right-button" @click=${caller.buttonClicked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="57" viewBox="0 0 19 57" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M3 3q12 20 12 25 0 5-12 25" stroke-width="6"/></svg>
+                  </button>
+                  <div> </div>
+                  <button class="dpadbutton" id="down-button" @click=${caller.buttonClicked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="57" height="19" viewBox="0 0 57 19" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M53 3Q33 15 28 15 23 15 3 3" stroke-width="6"/></svg>
+                  </button>
+                  <div> </div>
+              </div>
+            </div>
+          `;
+        }
+        else {
+          return html`
+              <div class="${dpadClass}dpadContainer">
+                <button class="centerbutton" id="center-button" @click=${caller.buttonClicked}> </button>
+                <div class="directionButtonContainer">
+                  <button class="dpadbutton" id="up-button" @click=${caller.buttonClicked}></button>
+                  <button class="dpadbutton" id="right-button" @click=${caller.buttonClicked}></button>
+                  <button class="dpadbutton" id="left-button" @click=${caller.buttonClicked}></button>
+                  <button class="dpadbutton" id="down-button" @click=${caller.buttonClicked}></button>
+                </div>
+              </div>
+          `;
+        }
+      }
+
       return html`
       <ha-card>
         ${cssVars}
@@ -10910,15 +11098,7 @@ class FiremoteCard extends LitElement {
             </div>
 
             <div class="center-pocket-controls">
-              <div class="dpadContainer">
-                <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
-                <div class="directionButtonContainer">
-                  <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-                  <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-                  <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-                  <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
-                </div>
-              </div>
+              ${getDpad(this, this._config.dpad_style)}
             </div>
 
             <div class="right-pocket-controls">
@@ -12331,6 +12511,20 @@ class FiremoteCardEditor extends LitElement {
           <input type="checkbox" id="useCustomSkinCheckbox" name="useCustomSkin" ?checked=${this._config.useCustomSkin===true} @change=${this.configChanged}>&nbsp;
           ${this.translateToUsrLang('Custom Remote Skin')}:&nbsp;&nbsp;<input type="color" name="skin" id="skin" .value=${this._config.skin || '#4682b4'} @change=${this.configChanged}>
         </label>
+        <br><br>
+          DPad Style:
+          <select name="dpad_style" id="dpad_style}" style="padding: .6em; font-size: 1em;"
+          .value=${this._config.dpad_style || ''}
+          @focusout=${this.configChanged}
+          @change=${this.configChanged}
+        >
+          <option value="amazon-fire">Amazon Fire</option>
+          <option value="apple-tv-black">Apple TV Black</option>
+          <option value="apple-tv-silver">Apple TV Silver</option>
+          <option value="chromecast">Chromecast</option>
+          <option value="xiaomi">Xiaomi</option>
+          <option value="minimal" disabled>Minimal</option>
+        </select>
         <br><br><hr><br>
       `;
     }
