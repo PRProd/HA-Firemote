@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.4';
+const HAFiremoteVersion = 'v3.2.5';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -2659,9 +2659,27 @@ const fastappchoices = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="88" viewBox="0 0 400 88" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M117.8 43.2l-.3 44.3H400V0H117.8v43.2M88 10.7c-1.6.8-2.5 3.8-2.7 10.3l-.2 5.3-1.2 2c-6.3 10.8-11.3 8-14-7.7-.5-3-1-3.7-3.3-3.7-2.5 0-3 .7-3.4 4.3-.7 7.6-2.4 12.7-5.2 15.6-1.7 1.7-3 2.4-3 1.7a46 46 0 0 0-3.8-14.6c-3.7-3.5-7.6 2.6-10.3 16.4l-.6 3-1-3.6c-3.5-13.5-6-18-10.2-18C27.2 21.8 25 25 23 32l-1.3 3.6c-.1.3-.7-1-1.4-3C16.4 22 10.6 16 7.3 19 3.8 22.7 0 43 0 59c0 9.3.5 10.4 4.3 9.3 2-.6 2-1 2-8.6a100 100 0 0 1 3-27.3l1.4-5.6L12 29c2.4 5 4 10 4.8 16.7.5 3.5 1.5 14.4 1.5 16 0 1.4 1.3 2 3.3 2 2.8-.3 3-.5 3-7.3a73 73 0 0 1 2.2-16.3 43 43 0 0 1 3.5-9.7 99 99 0 0 1 3.4 11.8c3.4 13 4.3 15 7.3 15 3 0 4-2.6 6.3-15.2 1-6.4 1-6.4 2.2.1C52 56 53 58.7 56 58.5c3.4-.3 3.7-1.2 2-6.2l-2-8.3c0-.2.3-.3.7-.3 3 0 7-3.3 9.2-7.6l1.3-2.8 1 1.3c4 6.4 11.4 7 17 1.8 1-1 1.8-1.5 2-1.2 0 .2.3 1.5.6 2.8a31 31 0 0 0 .7 2.9c.1.2-1.3 1.5-3 3C68.2 58 64 70.5 74.6 75.6c13.8 6.5 25-10.8 21-32.4a78 78 0 0 1 5.7-4.7l9.2-8.2c.3-1-1.2-2.2-3.2-2.4l-1.6-.2-4.4 3.6-7 5.4a145 145 0 0 1-2-8.2c-.1-1 0-2 .8-4.4 1.6-5 1.7-9 .2-12-.8-1.6-3-2.3-5-1.5m84 2.5c4.3 1.2 10.2 4.2 10 5l-1 6-1.2 6c-.2.7-.2.7-1.8-.5-10.3-7.4-25-4.2-28.4 6.4-4.8 14.2 8.4 24.3 23.6 18 1.2-.5 2.3-1 2.4-.8a101 101 0 0 1-2.6 14c-3.3 3-18.7 3-25.3-.2-17-8-19.8-33.4-5.2-47.4a33 33 0 0 1 29.7-6.6M368 34V55h17.5v13.6H352V41c0-26 .1-27.5.6-27.6.3-.1 4-.2 8-.2l7.4-.1v21M220.6 15.8c.2.3.5 1.3.7 2.2l2 9.5L232 68c0 .1-3 .1-7 .1h-7l-1-4.6-1.2-4.5h-18.3l-2.2 4.6-2.2 4.7h-8a68 68 0 0 1-8.1-.3c.1-.1 6-12 13.2-26.5l13-26.2h8.7c8 0 8.7.1 9 .6m108 .8l10 26.4 9.3 25.2c-.2.2-3.5.3-7.5.2l-7.2-.1-1.7-4.4-1.7-4.5-9.5-.1-9.4-.1-1.8 4.5-1.8 4.4-7 .1H293A2204 2204 0 0 1 313 16c.3-.8.3-.8 7.7-.8h7.5l.5 1.4m-61.4 13.7l8.7 14.4c.1-.1 1-6.3 2-13.8l2-14.4.2-1h15l-.2.7c-.1.4-1.7 11.8-3.7 25.2L287.6 67l-.3 1h-7l-7 .1-1.4-2.6-17-29c-.1.3-1.2 7-2.3 15l-2 15.5-.2 1h-7c-6.3 0-7-.1-7-.6 0-.6 7-49.8 7-51l.2-1 7.8.1 7.8.1 8.5 14.6m-61 9l-3.5 8h5.6c5.2 0 5.6 0 5.4-.6-.1-.3-.8-3.7-1.7-7.7l-2-7.6c-.1 0-1.8 3.6-3.7 8m113-4l-4.4 13c.1.1 2.6.1 5.6.1l5.4-.1-2.7-8.3-2.7-8.2-1.2 3.4M90 54c-.7 13.6-9.3 23.5-13.7 15.7-2.2-3.8.1-8.2 8.8-17l4.5-4.6.3 1a33 33 0 0 1 .1 4.9" stroke="none" fill="#000"/></svg>',
       "friendlyName": 'my CANAL',
       "className": "myCanalButton",
-      "appName": "com.canal.android.canal",
-      "androidName": "com.canal.android.canal",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.canal.android.canal",
+          "androidName": "com.canal.android.canal",
+      },
+      "apple-tv": {
+          "appName": "myCANAL",
+      },
+      "chromecast": {
+          "appName": "com.canal.android.canal",
+          "androidName": "com.canal.android.canal",
+      },
+      "nvidia-shield": {
+          "appName": "com.canal.android.canal",
+          "androidName": "com.canal.android.canal",
+      },
+      "xiaomi": {
+          "appName": "com.canal.android.canal",
+          "androidName": "com.canal.android.canal",
+      },
+   },
 
 
   "my-family-cinema": {
@@ -3751,6 +3769,37 @@ const fastappchoices = {
           "appName": "cz.seznam.seznam",
           "androidName": "cz.seznam.seznam",
           "adbLaunchCommand": "adb shell am start -n cz.seznam.seznam/cz.seznam.seznam.MainActivity",
+      },
+   },
+
+
+  "shahid": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="300" viewBox="0 0 1100 300" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g stroke="none" fill="#fff" fill-rule="nonzero"><use xlink:href="#pKVh"/><use xlink:href="#pKVh" x="129"/><use xlink:href="#pKVh" x="259"/><path d="M664 201V7h-65v259h389v26h65v-91zm-501-22v22H46v65h505V138c0-55-45-99-99-99-30 0-61 15-77 40-78-2-115 60-91 122h-56v-30c0-19-3-33-11-48-26-52-84-73-153-49v60c30-10 99-28 99 45zm202-41c18 0 32 14 32 31v32h-32c-17 0-32-14-32-32 0-17 15-31 32-31zm91 63v-32c0-25-9-48-24-65 6-3 13-5 20-5 22 0 39 17 39 39v63h-35zm0 0"/></g><defs ><path id="pKVh" d="M713 104c0 23 18 41 40 41 23 0 41-18 41-41 0-22-18-40-41-40-22 0-40 18-40 40zm0 0"/></defs></svg>',
+      "friendlyName": "Shahid",
+      "className": "shahidButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "net.mbc.shahidTV",
+          "androidName": "net.mbc.shahidTV",
+          "adbLaunchCommand": "adb shell am start -n net.mbc.shahidTV/net.mbc.shahidTV.MainActivity",
+      },
+      "apple-tv": {
+          "appName": "Shahid",
+      },
+      "chromecast": {
+          "appName": "net.mbc.shahidTV",
+          "androidName": "net.mbc.shahidTV",
+          "adbLaunchCommand": "adb shell am start -n net.mbc.shahidTV/net.mbc.shahidTV.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "net.mbc.shahidTV",
+          "androidName": "net.mbc.shahidTV",
+          "adbLaunchCommand": "adb shell am start -n net.mbc.shahidTV/net.mbc.shahidTV.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "net.mbc.shahidTV",
+          "androidName": "net.mbc.shahidTV",
+          "adbLaunchCommand": "adb shell am start -n net.mbc.shahidTV/net.mbc.shahidTV.MainActivity",
       },
    },
 
@@ -5079,6 +5128,38 @@ const fastappchoices = {
           "androidName": "de.exaring.waipu",
       },
 },
+
+
+  "watch-it": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2900" height="580" viewBox="0 0 2900 580" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="UMFD" cx="50%" cy="50%" r="114%" fx="100.0%" fy="0.0%"><stop offset="42%" stop-color="#bd7000"/><stop offset="94%" stop-color="#cdb488"/></radialGradient></defs><g stroke="none"><path d="M953 19c-6 0-27 1-68 1-61 0-64-2-94 17-14 11-91 68-93 69-23 20-28 21-33 19s-8-7-7-21c2-13 8-50 12-70-4-6-9-4-9-4 0-1-220 202-218 206l80 115c113 178 127 204 146 207 31-1 18 19 152-207C984 74 982 70 985 56c3-9 0-37-32-37" fill="#dba324"/><path d="M474 275L655 27l15 6-1 8-137 322z" fill="url(#UMFD)" fill-opacity=".68"/><path d="M48 18c-20 0-32 13-32 27 0 59 288 493 288 495 19 26 45 26 63-1L671 35c2-11-7-14-14-14-7-1-146-1-152-1-9 1-16 2-19 5-128 104-130 102-140 100-11-4-10-13-9-21l12-60c5-15 0-24-12-24H194" fill="#dba324"/><path d="M2079 157c-105 2-135 97-135 157v5c8 83 68 120 132 120 56 0 78 0 84-9l-1-93c0-2-23-1-24 0-28 27-36 32-70 35-31-3-41-48-39-70l1-5c-3-48 37-68 57-68h0c50-5 35 35 53 33 5 0 22 1 22 0 2-1 2-99 0-101 0 1-17-3-77-4m-981 4l74 278c2 1 88 1 91 0 39-114 42-115 42-116l43 116h90c0 1 74-279 74-279l-91 1-38 123h-4l-40-124h-73l-50 124h-4l-32-124-82-1m470 1l-95 278 91 1 12-41h83c0-1 11 41 12 41h90c0-1-99-279-99-279h-94m175 0v72h51l1 206 92 1V232c0-1 52-1 52-1v-71h-196m448 0c-1 0-1 278-1 278l91 1 1-103h37 36v50l1 53 91-1 1-278-93-1v104h-73l-1-103m293 0v279h81V160h-81m114 0v72h51c0-1 1 207 2 207l91 1 1-208h46v-73c0-1-191 1-191 1M1618 293h8c0-1 6 31 6 31l-25 1 6-32" fill="#fff"/></g></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="580" viewBox="0 0 1000 580" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="Fzfo" cx="50%" cy="50%" r="114%" fx="100.0%" fy="0.0%"><stop offset="42%" stop-color="#bd7000"/><stop offset="94%" stop-color="#cdb488"/></radialGradient></defs><g stroke="none"><path d="M952 19c-6 0-27 1-68 1-61 0-64-2-94 17-14 11-91 68-93 69-23 20-28 21-33 19s-8-7-7-21c2-13 8-50 12-70-4-6-9-4-9-4 0-1-220 202-218 206l80 115c113 178 127 204 146 207 31-1 18 19 152-207C983 74 981 70 984 56c3-9 0-37-32-37" fill="#dba324"/><path d="M473 275L654 27l15 6-1 8-137 322z" fill="url(#Fzfo)" fill-opacity=".68"/><path d="M46 18c-20 0-32 13-32 27 0 59 288 493 288 495 19 26 45 26 63-1L669 35c2-11-7-14-14-14-7-1-146-1-152-1-9 1-16 2-19 5-128 104-130 102-140 100-11-4-10-13-9-21l12-60c5-15 0-24-12-24H192" fill="#dba324"/></g></svg>',
+      "friendlyName": "WATCH IT",
+      "className": "watchItButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.watchit.vod",
+          "androidName": "com.watchit.vod",
+          "adbLaunchCommand": "adb shell am start -n com.watchit.vod/.refactor.splash.ui.SplashActivity",
+      },
+      "apple-tv": {
+          "appName": "WATCH IT",
+      },
+      "chromecast": {
+          "appName": "com.watchit.vod",
+          "androidName": "com.watchit.vod",
+          "adbLaunchCommand": "adb shell am start -n com.watchit.vod/.refactor.splash.ui.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.watchit.vod",
+          "androidName": "com.watchit.vod",
+          "adbLaunchCommand": "adb shell am start -n com.watchit.vod/.refactor.splash.ui.SplashActivity",
+      },
+      "xiaomi": {
+          "appName": "com.watchit.vod",
+          "androidName": "com.watchit.vod",
+          "adbLaunchCommand": "adb shell am start -n com.watchit.vod/.refactor.splash.ui.SplashActivity",
+      },
+   },
 
 
   "watched": {
@@ -7183,13 +7264,12 @@ class FiremoteCard extends LitElement {
           .minimal.dpadContainer {
             align-items: center;
             justify-items: center;
-            position: relative;
             display: grid;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: auto auto auto;
-            gap: calc(var(--sz) * 1.25rem);
-            transform: scale(var(--sz));
-            /*transform: scale(clamp(.1, var(--sz), .8));*/
+            grid-template-columns: auto calc(var(--sz) * 5rem) auto;
+            grid-template-rows: auto calc(var(--sz) * 5rem) auto;
+            margin: calc(var(--sz) * 1rem);
+            height: calc(var(--sz) * 10.3rem);
+            aspect-ratio: 1/1;
           }
 
           .minimal .directionButtonContainer {
@@ -7228,6 +7308,22 @@ class FiremoteCard extends LitElement {
             height: calc(var(--sz) * 3rem);
             margin: 0;
             position: unset;
+          }
+
+          .minimal.dpadContainer #up-button {
+             align-content: flex-start;
+          }
+
+          .minimal.dpadContainer #right-button {
+             justify-content: flex-end;
+          }
+
+          .minimal.dpadContainer #down-button {
+             align-content: flex-end;
+          }
+
+          .minimal.dpadContainer #left-button {
+             justify-content: flex-start;
           }
 
           .remote-button:active {
@@ -8489,6 +8585,10 @@ class FiremoteCard extends LitElement {
             background: #fff;
           }
 
+          .shahidButton {
+            background: linear-gradient(45deg, rgba(3,210,97,1) 0%, rgba(2,163,238,1) 100%);
+          }
+
           .shopHQButton {
             color: yellow;
             background: #2e2e2e;
@@ -8803,6 +8903,10 @@ class FiremoteCard extends LitElement {
             color: #fff;
             font-weight: bold;
             background: linear-gradient(to right,#30182d 0,#0f2c4c 100%);
+          }
+
+          .watchItButton {
+            background: #000;
           }
 
           .watchedButton {
@@ -11025,7 +11129,7 @@ class FiremoteCard extends LitElement {
         }
         if(style=='minimal'){
           return html`
-            <div class="dpadwrapper">
+
               <div class="${dpadClass}dpadContainer">
                   <div> </div>
                   <button class="dpadbutton" id="up-button" @click=${caller.buttonClicked}>
@@ -11045,7 +11149,7 @@ class FiremoteCard extends LitElement {
                   </button>
                   <div> </div>
               </div>
-            </div>
+
           `;
         }
         else {
@@ -12523,7 +12627,7 @@ class FiremoteCardEditor extends LitElement {
           <option value="apple-tv-silver">Apple TV Silver</option>
           <option value="chromecast">Chromecast</option>
           <option value="xiaomi">Xiaomi</option>
-          <option value="minimal" disabled>Minimal</option>
+          <option value="minimal">Minimal</option>
         </select>
         <br><br><hr><br>
       `;
