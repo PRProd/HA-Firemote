@@ -1,5 +1,5 @@
 import {LitElement, html, css, unsafeHTML} from './lit/lit-all.min.js';
-const HAFiremoteVersion = 'v3.2.6';
+const HAFiremoteVersion = 'v3.2.7';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -783,11 +783,17 @@ const fastappchoices = {
   "bell-fibe-tv": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="layer" x="0px" y="0px" viewBox="-153 153 597 245" xml:space="preserve"><g><path d="M-109.6,207.8v51.8h92.5v19.7h-92.5v113.5h-21.7l-0.3-183.3c0-4.7,0.7-9.7,1-12.7c4-20.4,19.4-35.7,41.4-38.1 c2-0.3,8.7-1,13-1h72.8v19.7h-75.5C-98.6,177.4-109.6,185.8-109.6,207.8" style="fill:#00518D;"/><path d="M39,200.8c-9.7,0-14.3-5-14.3-14.7c0-9.7,4.7-14.3,14.3-14.3s14,4.7,14,14.3C53,195.8,48.6,200.8,39,200.8 M27.9,232.5h21.7v160.3H27.9V232.5z" style="fill:#00518D;"/><path d="M124.1,384.1c-7-3.3-10.3-0.3-10.3,5.3v3.3H93.1V155h20.7v101.5c13.7-18.7,34.7-27.7,58.8-27.7 c46.4,0,75.8,33.4,75.8,81.5c0,47.4-31.1,84.5-78.8,84.5C149.8,394.8,138.1,390.8,124.1,384.1 M113.8,308v49.7 c13.7,9.7,31.7,18.7,54.1,18.7c39.4,0,58.4-29.7,58.4-66.1c0-34.1-17.7-62.1-55.1-62.1C138.8,248.2,113.8,272.2,113.8,308" style="fill:#00518D;"/><path class="st0" d="M352.2,376.7c21.4,0,38.7-6.7,55.1-18.7l10,16c-18.7,14.3-39.7,21.7-66.8,21.7c-51.8,0-81.5-35.4-81.5-83.8 c0-47.1,32.1-83.8,77.8-83.8c43.4,0,72.1,29.1,74.5,71.8c0,0,1,12.7,1,15.4H291.4C292.4,351.4,313.8,376.7,352.2,376.7 M292.1,296.9h106.5c-3.7-29.4-20.7-50.4-51.8-50.4C317.1,246.5,296.4,269.2,292.1,296.9" style="fill:#00518D;"/></g></svg>',
       "friendlyName": 'Bell Fibe TV (Canada)',
-      "appName": "ca.bell.tv.firetv",
       "className": "bellFibeTVButton",
-      "androidName": "ca.bell.tv.firetv",
-      "adbLaunchCommand": "adb shell am start -n ca.bell.tv.firetv/ca.bell.fiberemote.tv.MainTvActivity",
-      "deviceFamily": ["amazon-fire"],},
+      "deviceFamily": ["amazon-fire", "apple-tv"],
+      "amazon-fire": {
+          "appName": "ca.bell.tv.firetv",
+          "androidName": "ca.bell.tv.firetv",
+          "adbLaunchCommand": "adb shell am start -n ca.bell.tv.firetv/ca.bell.fiberemote.tv.MainTvActivity",
+      },
+      "apple-tv": {
+          "appName": "Télé Fibe",
+      },
+},
 
 
   "bgtime-tv": {
@@ -1517,6 +1523,33 @@ const fastappchoices = {
       "deviceFamily": [ "chromecast", "nvidia-shield", "xiaomi"], },
 
 
+  "err-jupiter": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="200" viewBox="0 0 1000 200" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g fill="#fff" stroke="none"><path d="M335 58s-1 11-1 23c0 28 0 34-2 37-3 7-10 10-17 10-11 0-17-4-19-15l-1-3h-13-14v2c0 5 2 14 5 19 7 14 20 20 41 20 23 0 36-7 43-24 3-8 3-6 3-40V57h-13c-9 0-12 0-12 1m46 28c0 31 0 30 2 37 7 20 21 28 49 28 26 0 39-6 47-22 5-9 5-9 5-43V57h-12-13v20c0 32 0 37-4 43-8 10-32 12-42 2-6-6-6-9-7-45V57h-12-13v29m126 18v46h13 13v-15-14h15c32 0 38-1 46-6 20-12 18-45-2-54-7-3-6-2-47-3h-38v46m119-45c-1 0-1 21-1 46v45h13 14v-46-46h-13c-10 0-13 0-13 1m42 10v11h17 18v35 35h13 14v-35-35h17 17V69 58h-48-48v11m114 35v46h43 43v-10-11h-30-30v-7-8h29 28v-11-10h-28-29v-7-7h29 29l1-11V58h-43-42v46m105 0v46h13 13v-16-15h18c30 1 31 1 32 19v10l1 2h12c14 0 15 0 14-1 0-2-1-8-1-16 0-11-1-14-5-19-2-3-10-8-12-8-1 0 0 0 3-2 18-9 19-33 1-42-8-4-6-3-50-4h-39v46m65-25c10 3 13 12 4 17l-2 1-20 1h-21V88v-9h18 21m-375 2c6 5 5 14-2 17l-2 1h-20-20v-9-10h21 21l2 1"/><path id="TbnD" d="M193 8s-5 1-10 1c-45 4-98 12-134 20-4 1-8 2-9 2h-1v16 16l1-1c1 0 3 0 4-1 6-2 35-8 58-12 29-5 70-9 81-9 8 0 7-1 9 18 3 27 3 60 0 87-2 15-2 15-15 14-71-8-131-18-134-23-2-3-3-17-4-29v-8H23 8v7c0 25 5 49 10 54 9 8 77 21 142 27 45 5 49 5 55-3 9-13 13-80 8-136-3-30-6-35-16-39-3-1-13-1-14-1m-80 71v20c-1 0-1 7-1 20v21l1-1c1-1 15-8 31-17 42-24 39-22 38-23-1 0-62-36-68-38l-1-1v19"/></g></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="750" viewBox="0 0 800 750" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M109 541s-1 11-1 23c0 28 0 34-2 37-3 7-10 10-17 10-11 0-17-4-19-15l-1-3H56 42v2c0 5 2 14 5 19 7 14 20 20 41 20 23 0 36-7 43-24 3-8 3-6 3-40v-30h-13c-9 0-12 0-12 1m46 28c0 31 0 30 2 37 7 20 21 28 49 28 26 0 39-6 47-22 5-9 5-9 5-43v-29h-12-13v20c0 32 0 37-4 43-8 10-32 12-42 2-6-6-6-9-7-45v-20h-12-13v29m126 18v46h13 13v-15-14h15c32 0 38-1 46-6 20-12 18-45-2-54-7-3-6-2-47-3h-38v46m119-45c-1 0-1 21-1 46v45h13 14v-46-46h-13c-10 0-13 0-13 1m42 10v11h17 18v35 35h13 14v-35-35h17 17v-11-11h-48-48v11m114 35v46h43 43v-10-11h-30-30v-7-8h29 28v-11-10h-28-29v-7-7h29 29l1-11v-10h-43-42v46m105 0v46h13 13v-16-15h18c30 1 31 1 32 19v10l1 2h12c14 0 15 0 14-1 0-2-1-8-1-16 0-11-1-14-5-19-2-3-10-8-12-8-1 0 0 0 3-2 18-9 19-33 1-42-8-4-6-3-50-4h-39v46m65-25c10 3 13 12 4 17l-2 1-20 1h-21v-10-9h18 21m-375 2c6 5 5 14-2 17l-2 1h-20-20v-9-10h21 21l2 1M552 85c-114 10-222 26-298 44l-18 4h-2l-1 32v33l3-1c2 0 6-1 9-2 11-4 72-17 119-25 60-10 144-20 167-20 15 0 15 0 19 37 5 58 5 125-1 181-4 31-4 31-30 29-146-16-271-38-277-48-3-6-7-34-8-61v-16h-32-32v14c0 53 9 102 21 112 19 17 158 43 293 57 92 9 101 9 113-8 19-27 27-164 16-280-6-60-11-73-33-79-5-2-12-4-28-3M387 232l-2 124 2-1c140-78 144-80 142-82-1-1-129-74-140-79l-2-2"/></svg>',
+      "friendlyName": "ERR Jupiter",
+      "className": "errJupiterButton",
+      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "xiaomi"], 
+      "apple-tv": {
+          "appName": "Jupiter",
+      },
+      "chromecast": {
+          "appName": "ee.err.jupiter",
+          "androidName": "ee.err.jupiter",
+          "adbLaunchCommand": "adb shell am start -n ee.err.jupiter/com.example.jupiter.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "ee.err.jupiter",
+          "androidName": "ee.err.jupiter",
+          "adbLaunchCommand": "adb shell am start -n ee.err.jupiter/com.example.jupiter.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "ee.err.jupiter",
+          "androidName": "ee.err.jupiter",
+          "adbLaunchCommand": "adb shell am start -n ee.err.jupiter/com.example.jupiter.MainActivity",
+      },
+   },
+
+
   "ertflix": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="180.02" height="39.998" viewBox="0 0 180.02 39.998"><g transform="translate(18.061 2.811)"><g transform="translate(-18.06 -2.81)"><path d="M236.324,284.081H222.192a.594.594,0,0,0-.594.594V312.8a.594.594,0,0,0,.594.594h14.132a.594.594,0,0,0,.594-.594v-2.2a.594.594,0,0,0-.594-.594H226.3a.594.594,0,0,1-.594-.594v-7a.594.594,0,0,1,.594-.594h8.216a.594.594,0,0,0,.594-.594v-2.222a.594.594,0,0,0-.594-.594H226.3a.594.594,0,0,1-.594-.594v-9.719a.594.594,0,0,1,.594-.594h10.027a.594.594,0,0,0,.594-.594v-2.222A.594.594,0,0,0,236.324,284.081Z" transform="translate(-221.598 -284.03)" fill="#37a1da"/><path d="M697.842,284.081H681.086a.515.515,0,0,0-.516.516v2.38a.516.516,0,0,0,.516.516h5.81a.516.516,0,0,1,.516.516v24.869a.516.516,0,0,0,.516.515h3.093a.515.515,0,0,0,.516-.515V288.007a.515.515,0,0,1,.515-.516h5.791a.516.516,0,0,0,.516-.516V284.6A.516.516,0,0,0,697.842,284.081Z" transform="translate(-624.652 -284.03)" fill="#37a1da"/><path d="M471.28,301.256a.758.758,0,0,1,.394-.95,7.1,7.1,0,0,0,1.2-.712,5.705,5.705,0,0,0,1.368-1.436,6.557,6.557,0,0,0,.857-1.946,9.761,9.761,0,0,0,.3-2.534V292a9.783,9.783,0,0,0-.53-3.324,6.6,6.6,0,0,0-1.561-2.5,6.8,6.8,0,0,0-2.553-1.561,10.421,10.421,0,0,0-3.488-.539h-8.126a.758.758,0,0,0-.758.758v27.8a.758.758,0,0,0,.758.758h2.59a.758.758,0,0,0,.758-.758v-9.99a.758.758,0,0,1,.758-.758h3.466a.758.758,0,0,1,.715.506l3.691,10.492a.758.758,0,0,0,.715.506h2.882a.757.757,0,0,0,.71-1.022Zm-.215-5.728a3.956,3.956,0,0,1-.771,1.58,3.521,3.521,0,0,1-1.4,1.012,5.562,5.562,0,0,1-2.129.357h-3.5a.758.758,0,0,1-.758-.758V288.23a.758.758,0,0,1,.758-.758h3.444a5.412,5.412,0,0,1,2.062.356,3.774,3.774,0,0,1,1.426.993,4.071,4.071,0,0,1,.829,1.522,6.676,6.676,0,0,1,.27,1.946v1.195A8.433,8.433,0,0,1,471.065,295.528Z" transform="translate(-429.536 -284.03)" fill="#37a1da"/><path d="M1208.439,309.267h-9.994a.264.264,0,0,1-.264-.264V284.345a.264.264,0,0,0-.264-.264h-3.6a.264.264,0,0,0-.264.264v28.783a.264.264,0,0,0,.264.264h14.118a.264.264,0,0,0,.264-.264v-3.6A.264.264,0,0,0,1208.439,309.267Z" transform="translate(-1075.578 -284.03)" fill="#ea1d57"/><rect width="4.124" height="29.297" rx="1.856" transform="translate(144.521 0.065)" fill="#ea1d57"/><path d="M1555.638,312.961l-7.179-14.469a.3.3,0,0,1,0-.262l6.61-13.72a.3.3,0,0,0-.269-.428h-3.9a.3.3,0,0,0-.272.175l-4.676,10.32a.3.3,0,0,1-.545,0l-4.6-10.317a.3.3,0,0,0-.273-.177h-3.917a.3.3,0,0,0-.269.428l6.591,13.663a.3.3,0,0,1,0,.262l-7.144,14.528a.3.3,0,0,0,.268.43h3.917a.3.3,0,0,0,.271-.173l5.2-11.192a.3.3,0,0,1,.542,0l5.2,11.192a.3.3,0,0,0,.271.173h3.915A.3.3,0,0,0,1555.638,312.961Z" transform="translate(-1375.65 -284.03)" fill="#ea1d57"/><path d="M981.406,283.666H968.248a.729.729,0,0,0-.729.729v25.47a.729.729,0,0,0,.729.729h2.665a.729.729,0,0,0,.729-.729V287.806a.729.729,0,0,1,.729-.729h9.033a.729.729,0,0,0,.729-.729V284.4A.729.729,0,0,0,981.406,283.666Z" transform="translate(-876.64 -283.666)" fill="#ea1d57"/><circle cx="2.964" cy="2.964" r="2.964" transform="translate(80.806 12.125)" fill="#ea1d57"/><circle cx="2.964" cy="2.964" r="2.964" transform="translate(98.61 12.125)" fill="#ea1d57"/><g transform="translate(79.337 28.815)"><path d="M898.913,520.353a1.87,1.87,0,0,0-2.483.893,11.094,11.094,0,0,1-20.094,0,1.864,1.864,0,0,0-3.372,1.589,14.823,14.823,0,0,0,26.84,0,1.862,1.862,0,0,0-.891-2.479Z" transform="translate(-872.787 -520.175)" fill="#ea1d57"/></g></g></g></svg>',
       "friendlyName": "ERTFLIX",
@@ -1895,6 +1928,30 @@ const fastappchoices = {
           "appName": "com.globo.globotv",
           "androidName": "com.globo.globotv",
           "adbLaunchCommand": "adb shell am start -a android.intent.action.MAIN -n com.globo.globotv/.maintv.MainActivity",
+      },
+   },
+
+
+  "go3-estonia": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1978" height="402" viewBox="0 0 1978 402" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="vptA" x1="72%" y1="100%" x2="28%" y2="0%"><stop offset="64%" stop-color="red"/><stop offset="100%" stop-color="#c1272d"/></linearGradient><path id="DQgR" d="M933 220c-4-14-15-34-49-45-19-6-44-9-74-9h-85v69h85c6 0 13 0 18 1 19 1 21 10 5 20-4 2-9 5-16 9l-92 49v79l126-67c26-15 47-29 60-44 25-25 26-47 22-62z"/></defs><g fill-rule="nonzero" stroke="none"><use xlink:href="#DQgR" fill="url(#vptA)"/><use xlink:href="#DQgR" y="-158" fill="red"/><path d="M341 188v39c0 89-45 173-162 173S0 313 0 200C0 86 63 0 180 0c81 0 134 41 150 108h-51c-13-39-43-64-99-64-91 0-131 73-131 156 0 82 39 156 130 156 81 0 112-55 112-117v-7H172v-44h169zm308 69c0 81-49 144-134 144s-134-63-134-144c0-80 49-143 134-143s134 63 134 143zm-46 0c0-53-28-103-88-103s-88 50-88 103c0 54 28 104 88 104s88-50 88-104z" fill="#fff"/></g><path d="M1925 72c-1 1-3 2-3 2l-1 2v21c0 23 0 24 3 25 2 0 47 1 49 0 3-1 3-2 3-24 0-21 0-23-2-25-2-1-45-1-49-1m-863 7c0 1-1 2-2 3l-1 1v134c0 148 0 136 3 137 1 0 39 1 101 1 109 0 103 0 104-3s1-44 0-47c-2-3 4-3-75-3l-72-1-1-1-2-2v-27c0-30 0-30 3-32 1-1 4-1 54-1 56 0 54 0 56-3 1-2 2-40 0-43-1-4 2-4-56-4-59 0-55 0-57-4 0-2 0-48 1-50s0-2 72-2c78-1 72 0 73-4 1-2 1-10 1-24-1-23-1-24-4-25-2-1-196 0-198 0m711 21c-1 0-3 1-3 2-2 1-1-1-1 28 0 28 1 25-18 26-20 0-18-2-18 23s-1 23 18 23c13 0 15 0 16 3 1 2 1 5 1 51 1 58 1 59 6 70 9 21 29 29 77 29 23 0 21 2 21-22 1-26 2-24-17-24-22 0-29-3-32-15-1-6-1-86 0-89 2-3 2-3 24-3 28 0 26 2 25-24 0-24 3-22-25-22h-21l-2-2c-2-2-2-3-2-28 0-24 0-24-3-26-2-1-42-1-46 0m-383 50c-59 5-94 48-90 114 4 70 61 108 135 91 24-6 44-22 54-44 7-16 7-16-24-16-27 1-25 0-29 5s-9 9-16 11l-6 2h-12-12l-6-2c-17-6-27-19-30-41 0-3 1-6 2-8 1 0 4-1 68-1 74 0 69 0 71-3s0-29-2-40c-12-46-51-72-103-68m218 0c-1 0-4 0-7 1-33 3-58 20-65 45l-2 7v10 10l2 7c8 26 30 39 77 43 27 3 36 7 40 16 4 12-6 23-22 26-23 3-44-4-49-17-3-8-2-8-31-7-26 0-25 0-23 11 4 27 28 48 61 54 60 11 109-10 118-50 8-39-16-67-66-74-5-1-10-2-11-2s-5-1-10-2c-17-2-23-4-28-8-9-10-3-22 13-26 17-4 36 1 42 12 3 5 2 5 27 5 28 0 29 0 27-8-5-28-30-48-63-52-6-1-26-2-30-1m319 6c-6 2-6-7-6 101v94l2 2 1 1h24c26 1 25 1 26-3 1-3 1-189 0-191-1-4-1-4-24-4h-23m-516 36c12 2 21 10 26 22 5 11 6 11-41 10-43 0-41 1-38-8 6-13 18-23 31-25 4 0 19 0 22 1" fill="#fff" stroke="none"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="700" viewBox="0 0 1000 700" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="ScqI" x1="72%" y1="100%" x2="28%" y2="0%"><stop offset="64%" stop-color="red"/><stop offset="100%" stop-color="#c1272d"/></linearGradient><path id="AfWj" d="M965 245c-4-14-15-34-49-45-19-6-44-9-74-9h-85v69h85c6 0 13 0 18 1 19 1 21 10 5 20-4 2-9 5-16 9l-92 49v79l126-67c26-15 47-29 60-44 25-25 26-47 22-62z"/></defs><g stroke="none"><g fill-rule="nonzero"><use xlink:href="#AfWj" fill="url(#ScqI)"/><use xlink:href="#AfWj" y="-158" fill="red"/><path d="M373 213v39c0 89-45 173-162 173S32 338 32 225C32 111 95 25 212 25c81 0 134 41 150 108h-51c-13-39-43-64-99-64-91 0-131 73-131 156 0 82 39 156 130 156 81 0 112-55 112-117v-7H204v-44h169zm308 69c0 81-49 144-134 144s-134-63-134-144c0-80 49-143 134-143s134 63 134 143zm-46 0c0-53-28-103-88-103s-88 50-88 103c0 54 28 104 88 104s88-50 88-104z" fill="#fff"/></g><path d="M726 506c-1 0-2 1-2 1l-1 1v13c0 13 0 13 2 14 1 0 27 1 29 0 1-1 1-1 1-14 1-12 0-13-1-14s-26-1-28-1m-504 4c0 1-1 1-1 2h-1v79c0 86 0 79 2 80h59c63 0 60 0 60-2 1-1 1-25 0-27s3-2-44-2h-41l-1-1-1-1v-16c0-17 0-17 2-18 0-1 2-1 31-1 33 0 32 0 33-2 1-1 1-23 0-25s1-2-33-2c-34-1-32 0-33-2v-30c1-1 0-1 43-1 45 0 42 0 42-3 0 0 1-5 0-13 0-14 0-14-1-15H222m415 12c-1 0-2 1-2 1-1 1-1 0-1 17 0 16 1 15-10 15s-10-1-10 14c0 14-1 13 10 13 8 0 9 0 10 2v29c0 34 0 35 3 41 6 13 17 17 45 17 14 0 13 1 13-13 0-15 1-14-10-14-13 0-17-1-19-8-1-4-1-51 0-52 1-2 1-2 14-2 17 0 15 1 15-14 0-14 1-13-15-13h-12l-1-1c-1-1-1-2-1-16 0-15 0-14-2-15-1-1-25-1-27-1m-224 30c-34 2-55 28-52 66 2 41 35 63 79 53 14-3 25-12 31-26 4-9 4-9-14-9-16 1-15 0-17 3s-5 5-9 6l-3 2h-7-8l-3-2c-10-3-16-11-18-24 0-1 1-3 1-4 1 0 3 0 40-1 43 0 41 0 42-1 1-2 0-17-2-24-7-26-30-42-60-39m128-1c-1 1-3 1-5 1-19 2-33 12-37 26l-2 4v6 6l2 4c4 15 17 23 44 26 16 1 22 3 24 9 2 7-4 13-13 15-13 2-25-2-28-10-2-4-2-4-19-4-15 0-14 0-13 6 2 16 16 28 36 32 34 6 63-6 68-29s-9-40-38-44c-3 0-6-1-6-1-1 0-4 0-6-1-10-1-14-2-17-5-5-5-2-12 8-15 10-2 21 1 24 7 2 3 1 3 16 3 17 0 17 0 16-5-3-16-18-28-37-30-4 0-15-1-17-1m186 4c-4 1-4-4-4 59l1 55v1l1 1h14c15 0 15 0 16-2V557c-1-2-1-2-15-2h-13m-301 21c6 1 12 6 15 13 3 6 3 6-24 6-25 0-24 0-22-5 3-7 10-13 18-14 2-1 11 0 13 0" fill="#fff"/></g></svg>',
+      "friendlyName": "Go3 Estonia",
+      "className": "go3EstoniaButton",
+      "deviceFamily": ["chromecast", "nvidia-shield", "xiaomi"], 
+      "chromecast": {
+          "appName": "tv.go3.android.tv",
+          "androidName": "tv.go3.android.tv",
+          "adbLaunchCommand": "adb shell am start -n tv.go3.android.tv/pl.atende.mobile.tv.ui.gui.main.activity.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "tv.go3.android.tv",
+          "androidName": "tv.go3.android.tv",
+          "adbLaunchCommand": "adb shell am start -n tv.go3.android.tv/pl.atende.mobile.tv.ui.gui.main.activity.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "tv.go3.android.tv",
+          "androidName": "tv.go3.android.tv",
+          "adbLaunchCommand": "adb shell am start -n tv.go3.android.tv/pl.atende.mobile.tv.ui.gui.main.activity.MainActivity",
       },
    },
 
@@ -4624,6 +4681,17 @@ const fastappchoices = {
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
 
 
+  "telia-tv-estonia": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="750" height="225" viewBox="0 0 750 225" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M318 84h-31v87h-20V84h-31V67h82v17zm59 55h-55c2 11 10 18 20 18 8 0 14-3 18-9l14 9c-7 10-19 16-32 16-20 0-38-16-38-40 0-23 18-39 37-39 26 0 39 21 36 45zm-54-14h36c-2-10-8-16-18-16-9 0-16 6-18 16zm93 47h-8c-13 0-19-6-19-19V67h18v84c0 6 4 7 9 7v14h0zm10-96c0-6 5-11 11-11s11 5 11 11c0 5-5 10-11 10s-11-5-11-10zm2 95V97h18v74h-18zm95-52v53h-18v-9c-5 8-15 11-22 11-16 0-26-11-26-23 0-15 16-26 36-26 4 0 8 0 12 1v-5c0-7-4-11-13-11-8 0-15 4-19 9l-13-10c7-8 19-14 32-14 20 0 31 9 31 24zm-18 24v-3c-3-1-6-2-10-2-14 0-20 6-20 12s4 9 11 9c9 0 19-5 19-16zm136-75h-77v11h32v92h13V79h32V68zm51 88l-31-88h-14l38 103h14l39-103h-13l-33 88zM149 13C88 13 13 53 13 104c0 41 54 110 94 110 41 0 98-64 98-152 0-37-27-49-56-49zm22 112l-86 50c-9 5-20-1-20-11V64c0-10 11-16 20-11l86 50c9 5 9 17 0 22z"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="750" height="750" viewBox="0 0 750 750" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M480 14c-102 6-230 51-313 110C73 192 26 270 30 352c7 133 162 335 290 376 79 26 167-13 249-109 75-87 134-226 144-338 5-53 6-119 0-144C690 45 615 6 480 14M285 156l313 179c27 17 32 54 10 75L276 602h-12c-20 0-34-9-42-26l-4-7 1-382c5-29 38-45 66-31" stroke="none" fill="#fff"/></svg>',
+      "friendlyName": "Telia TV Estonia",
+      "className": "teliaTvEstoniaButton",
+      "appName": "ee.telia.teliatv",
+      "androidName": "ee.telia.teliatv",
+      "adbLaunchCommand": "adb shell am start -n ee.telia.teliatv/ee.telia.teliatv.activity.MainActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
   "ten-play": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1001" height="400" viewBox="0 0 1001 400" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="Glrk" x1="166.75" y1="2003.95" x2="759.06" y2="2444.16" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#06b0fe"/><stop offset=".25" stop-color="#0283fa"/><stop offset=".5" stop-color="#0164f6"/><stop offset=".75" stop-color="#0052f4"/><stop offset="1" stop-color="#0047f3"/></linearGradient><radialGradient id="qtB1" gradientTransform="matrix(-3.0820956,29.204525,-18.116408,-1.9118328,3736.0222,-3237.6302)" cx="90.61" cy="147.49" fx="90.61" fy="147.49" r="31.77" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset=".88" stop-color="#999"/><stop offset="1" stop-color="#fff"/></radialGradient></defs><g transform="translate(.5 .5)"><svg width="1000" height="398.19" viewBox="0 0 1000 398.19"><g transform="translate(-657 -1058.11)" stroke="none"><path d="M820.85 2234.37c0 204.43-165.72 370.16-370.16 370.16-204.43 0-370.16-165.72-370.16-370.16 0-204.43 165.72-370.16 370.16-370.16 204.43 0 370.16 165.72 370.16 370.16z" transform="matrix(.5379 0 0 .5379 613.6825 55.4159)" fill="url(#Glrk)"/><path d="M897.64 1163.3c-39.04 0-69.01 23.46-82.09 49.33l-36.83 3.22-22.06 55v76.92h58.89v-45.55c10.97 22.05 39.63 49.37 81.85 49.37 54.15 0 93.84-43.9 93.84-93.15 0-58.63-46.81-95.14-93.6-95.14zm.31 58.9c18.82 0 34.68 15.56 34.68 35.14 0 17.97-14.04 35.31-34.65 35.31-20.49 0-35.22-16.81-35.22-35.25 0-17.45 13.44-35.2 35.19-35.2z" fill="#fff"/><path d="M787.45-22.17v141.45L1245.41-8.5l-1.09-679.27z" fill="url(#qtB1)" transform="matrix(.1289 0 0 .1289 655.1563 1255.4802)"/><path d="M721.93 1261.45v-59.03c13.32 0 34.73-9.85 34.73-35.6h58.89c0 53.42-42.13 94.63-93.62 94.63z" fill="#fff"/><path d="M1137.34 1371.15c2.89 0 5.02-2.37 5.02-5.06v-49.32c6.28 3.92 12.99 7.43 25.33 7.43 30.14 0 53.83-24.43 53.83-67.86 0-42.31-25.31-66.87-54.38-66.87-11.93 0-18.51 3.07-24.94 7.19 0-3.09-.96-5.1-3.95-5.1h-33.99c-1.66 0-3.64 1.29-3.64 3.79v170.73c0 2.89 1.57 5.06 4.74 5.06h31.97zm19.17-81.29c-10.71 0-14.15-6.26-14.15-16.08v-34.15c0-10.67 5.66-15.61 14.07-15.61 13.24 0 23.28 12.1 23.28 31.97 0 23.2-11.22 33.87-23.2 33.87zm188.67-99.76c-33.34 0-60.91 24.43-60.91 67.86 0 42.31 25.31 66.87 54.38 66.87 11.93 0 18.51-3.07 24.94-7.19 0 3.09.96 5.1 3.95 5.1h33.99c1.66 0 3.64-1.29 3.64-3.79v-79.31c0-25.78-17.35-49.07-59.99-49.53zm4.1 34.34c10.71 0 14.15 6.26 14.15 16.09v34.15c0 10.67-5.66 15.61-14.07 15.61-13.24 0-23.28-12.1-23.28-31.97 0-23.2 11.22-33.87 23.2-33.87zm-111.95-81.29c-2.89 0-5.02 2.37-5.02 5.06v169.43c0 3.09 1.12 5.1 4.11 5.1h33.99c1.66 0 3.64-1.29 3.64-3.79v-170.73c0-2.89-1.57-5.06-4.74-5.06zm232.28 125.46l17.78-71.77c.52-2.24 1.71-4.36 5.45-4.36h35.41c4.37 0 4.07 3.41 2.53 7.59l-40.05 126.96c-10.96 29.78-26.41 44.64-65.52 44.64h-9.24c-3.44 0-4.73-1.84-4.73-4.73v-24.62c0-3.3 1.91-5.18 5.18-5.18h4.9c20.59 0 22.71-4.22 25.71-13.6l-3.52-10.92-35.89-113.87c-1.19-4-1.49-6.27 1.74-6.27h36.68c3.04 0 4.22 2.37 5.29 6.25z" fill="#262626"/><path d="M1553.84 1192c2.43-.33 5.79 1.02 9.21 3.19l88.11 54.57c7.35 3.9 8.19 10.27 0 15.12l-88.58 54.8c-7.76 4.62-12.76 4.04-12.76-4.61v-116.34c0-4.49 1.58-6.41 4.02-6.73z" fill="#06b4ff"/></g></svg></g></svg>',
       "friendlyName": "10play",
@@ -5805,6 +5873,45 @@ const rosettaStone = {
       "Search": "Suche",
       "top": "oben",
       "Visible Device Name": "Sichtbarer Gerätename",
+  },
+  "es": {
+      "App Launch Button": "Botón de Aplicación",
+      "App Launcher Relative Scale": "Escala Relativa del Lanzador de Aplicaciones",
+      "Associated": "Asociado",
+      "bottom": "parte inferior",
+      "Compatibility Mode": "Modo de Compatibilidad",
+      "Custom Remote Skin": "Piel Personalizada del Control Remoto",
+      "Default for": "Predeterminado para",
+      "Device Family": "Familia de Dispositivos",
+      "Device Model": "Modelo de Dispositivo",
+      "Device Name Text Color": "Color del Texto del Nombre del Dispositivo",
+      "DPad Style": "Estilo de DPad",
+      "Entity": "Entidad",
+      "Function: Channel +": "Función: Canal +",
+      "Function: Channel -": "Función: Canal -",
+      "Function: Control Center": "Función: Centro de Control",
+      "Function: Find My Remote": "Función: Encontrar Mi Control Remoto",
+      "Function: Mute": "Función: Silenciar",
+      "Function: Next": "Función: Siguiente",
+      "Function: Previous": "Función: Anterior",
+      "Function: Reboot": "Función: Reiniciar",
+      "Function: Search": "Función: Buscar",
+      "Function: Settings": "Función: Ajustes",
+      "Function: Skip Backward": "Función: Saltar hacia atrás",
+      "Function: Skip Forward": "Función: Saltar hacia adelante",
+      "Function: Switch Apps": "Función: Cambiar de Aplicación",
+      "Function: Volume +": "Función: Volumen +",
+      "Function: Volume -": "Función: Volumen -",
+      "hidden": "oculto",
+      "Hide frames around button groups": "Ocultar Marcos alrededor de los Grupos de Botones",
+      "Name Position": "Posición del Nombre",
+      "optional": "opcional",
+      "Remote Style": "Estilo del Control Remoto",
+      "Scale": "Escala",
+      "Settings": "Ajustes",
+      "Search": "Búsqueda",
+      "top": "parte superior",
+      "Visible Device Name": "Nombre del Dispositivo Visible",
   },
   "he": {
       "App Launch Button": "לחצן הפעלת אפליקציה",
@@ -8132,6 +8239,10 @@ class FiremoteCard extends LitElement {
             background: #fff
           }
 
+          .errJupiterButton {
+            background: #1141e9;
+          }
+
           .ertflixButton {
             background: #07141c;
           }
@@ -8207,6 +8318,10 @@ class FiremoteCard extends LitElement {
           }
 
           .globoPlayButton {
+            background: #000;
+          }
+
+          .go3EstoniaButton {
             background: #000;
           }
 
@@ -8858,6 +8973,10 @@ class FiremoteCard extends LitElement {
 
           .telenetTvButton {
             background: #332822;
+          }
+
+          .teliaTvEstoniaButton {
+            background: #990ae3;
           }
 
           .tenPlayButton {
@@ -12724,7 +12843,7 @@ class FiremoteCardEditor extends LitElement {
       return html `
         <label for="hideFramesCheckbox">
           <input type="checkbox" id="hideFramesCheckbox" name="hide_button_group_frame" ?checked=${this._config.hide_button_group_frame===true} @change=${this.configChanged}>&nbsp;
-          Hide frames around button groups
+          ${this.translateToUsrLang('Hide frames around button groups')}
         </label>
         <br><br>
         <label for="useCustomSkinCheckbox">
@@ -12732,7 +12851,7 @@ class FiremoteCardEditor extends LitElement {
           ${this.translateToUsrLang('Custom Remote Skin')}:&nbsp;&nbsp;<input type="color" name="skin" id="skin" .value=${this._config.skin || '#4682b4'} @change=${this.configChanged}>
         </label>
         <br><br>
-          DPad Style:
+          ${this.translateToUsrLang('DPad Style')}:
           <select name="dpad_style" id="dpad_style}" style="padding: .6em; font-size: 1em;"
           .value=${this._config.dpad_style || ''}
           @focusout=${this.configChanged}
