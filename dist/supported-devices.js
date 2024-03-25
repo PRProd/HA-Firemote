@@ -283,6 +283,11 @@ const devices = {
         "friendlyName": "onn. 4K Streaming Box",
         "defaultRemoteStyle" : "ON1",
       },
+      "onn-full-hd-streaming-stick": {
+        "supported": true,
+        "friendlyName": "onn. Full HD Streaming Stick",
+        "defaultRemoteStyle" : "ON1",
+      },
     },
 
   },

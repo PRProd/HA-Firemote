@@ -3,7 +3,7 @@ import {launcherData, launcherCSS} from './launcher-buttons.js';
 import {rosettaStone} from './language-translations.js';
 import {devices} from './supported-devices.js';
 
-const HAFiremoteVersion = 'v3.3.0b2';
+const HAFiremoteVersion = 'v3.3.0';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -5050,7 +5050,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'channel_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
-      if (deviceType == 'fire_tv_stick_4k_second_gen' || deviceType == 'fire_tv_stick_4k_max_second_gen' || deviceType == 'onn-4k-streaming-box') {
+      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
       }
       else {
@@ -5093,7 +5093,7 @@ class FiremoteCard extends LitElement {
       else if (deviceType == 'mi-box-s') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.google.android.tv/com.android.tv.MainActivity' });
       }
-      else if (deviceType == 'onn-4k-streaming-box') {
+      else if (deviceType == 'onn-4k-streaming-box' || deviceType == 'onn-full-hd-streaming-stick') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_GUIDE'});
       }
       else {
@@ -5108,7 +5108,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'channel_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
-      if (deviceType == 'fire_tv_stick_4k_second_gen' || deviceType == 'fire_tv_stick_4k_max_second_gen' || deviceType == 'onn-4k-streaming-box') {
+      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
       }
       else {
@@ -5139,7 +5139,7 @@ class FiremoteCard extends LitElement {
 
     // Settings Button
     if(clicked.target.id == 'settings-button') {
-      if(deviceType == 'onn-4k-streaming-box') {
+      if(deviceType == 'onn-4k-streaming-box' || deviceType == 'onn-full-hd-streaming-stick') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 83' });
       }
       else if(compatibility_mode == 'strong'  || eventListenerBinPath == 'undefined' || deviceType == 'fire_tv_cube_third_gen') {
