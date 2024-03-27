@@ -3,7 +3,7 @@ import {launcherData, launcherCSS} from './launcher-buttons.js';
 import {rosettaStone} from './language-translations.js';
 import {devices} from './supported-devices.js';
 
-const HAFiremoteVersion = 'v3.3.0';
+const HAFiremoteVersion = 'v3.3.1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -2176,7 +2176,7 @@ class FiremoteCard extends LitElement {
 
           ${unsafeCSS(launcherCSS)}
 
-          .functionAppSwitchButton, .functionFindRemoteButton, .functionMuteButton, .functionRebootButton,
+          .functionFindRemoteButton, .functionMuteButton, .functionRebootButton,
           .functionSystemUpdateButton, .functionKeyboardButton, .functionMenuButton, .functionSettingsButton {
             color: #ff0000;
             font-weight: bold;
@@ -2185,11 +2185,15 @@ class FiremoteCard extends LitElement {
             display: block;
           }
 
+          .functionAppSwitchButton {
+            background: #000;
+          }
+
           .ON1 .functionRebootButton {
             background: #fff;
           }
 
-          .ON1 .functionAppSwitchButton, .ON1 .functionSearchGoogleTVButton, .ON1 .functionCaptionsButton, .ON1 .functionpairingButton {
+          .ON1 .functionSearchGoogleTVButton, .ON1 .functionCaptionsButton, .ON1 .functionpairingButton {
             background: #fff;
             color: #000;
           }
@@ -2213,7 +2217,7 @@ class FiremoteCard extends LitElement {
             display: inherit;
           }
 
-          .functionAppSwitchButton > ha-icon, .functionFindRemoteButton > ha-icon, .functionMuteButton > ha-icon, .functionRebootButton > ha-icon, .functionSettingsButton > ha-icon {
+          .functionFindRemoteButton > ha-icon, .functionMuteButton > ha-icon, .functionRebootButton > ha-icon, .functionSettingsButton > ha-icon {
             display: none;
           }
 
@@ -2227,7 +2231,7 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%) !important;
           }
 
-          .shield-remote-body .functionAppSwitchButton, .shield-remote-body .functionFindRemoteButton, .shield-remote-body .functionMuteButton, .shield-remote-body .functionSystemUpdateButton,
+          .shield-remote-body .functionFindRemoteButton, .shield-remote-body .functionMuteButton, .shield-remote-body .functionSystemUpdateButton,
           .shield-remote-body .functionMuteButton, .shield-remote-body .functionRebootButton, .shield-remote-body .functionSettingsButton, .shield-remote-body .functionCaptionsButton {
             color: rgb(153, 231, 0);
             border: solid calc(var(--sz) * 0.1rem) #456800;
@@ -2264,22 +2268,8 @@ class FiremoteCard extends LitElement {
             background: #fff;
           }
 
-          .functionAppSwitchButton {
-            font-size: calc(var(--sz) * .75rem);
-          }
           .apple-remote-body .functionAppSwitchButton {
             background: rgb(33, 33, 33);
-            color: rgb(198, 198, 198);
-            font-size: calc(var(--sz) * .9rem);
-            text-wrap: wrap;
-          }
-          .shield-remote-body .functionAppSwitchButton {
-            font-size: calc(var(--sz) * 0.86rem);
-            --mdc-icon-size: calc(var(--sz) * 1.5rem);
-          }
-          .chromecast-remote-body .functionAppSwitchButton {
-            font-size: calc(var(--sz) * 0.55rem);
-            background: #fff;
           }
 
           .functionSettingsButton {
