@@ -29,6 +29,7 @@ body:
        - Apple TV
        - Chromecast
        - NVIDIA Shield
+       - onn.
        - Roku
        - Xiaomi
       multiple: true
