@@ -32,24 +32,16 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 * A functioning version of [Home Assistant](https://www.home-assistant.io/)
 * [HACS](https://peyanski.com/how-to-install-home-assistant-community-store-hacs/) (not required, but it makes things easier)
 * A supported device
-  * Amazon Fire Smart TV
-  * Amazon Fire Stick
-  * Amazon Fire Cube
+  * [Amazon Fire Smart TV, Fire Stick, or Fire Cube](../../wiki/Existing-Amazon-Devices---Support-Chart)
   * Apple TV
-  * NVIDIA Shield
-  * onn. Media Player
-  * NVIDIA Shield Pro
-  * Roku Media Player
-  * Roku TV
-  * Xiaomi Mi Box S
   * Chromecast
+  * NVIDIA Shield
+  * [onn. Media Player](https://github.com/PRProd/HA-Firemote/wiki/onn.-Device-Support-Chart)
+  * [Roku TV, and Media Player](https://github.com/PRProd/HA-Firemote/wiki/Roku-Device-Support-Chart)
+  * Xiaomi Mi Box S
   * Other Android-based non-fire devices might work as well, but with limited (and unsupported) functionality
 
-[Which Amazon Fire devices are supported?](../../wiki/Existing-Amazon-Devices---Support-Chart)<br>
 [Which Amazon Fire device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)<br>
-[Which onn. Devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/onn.-Device-Support-Chart)<br>
-[Which Roku Devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Roku-Device-Support-Chart)<br>
-[Which NVIDIA Shield devices are supported?](../../wiki/Existing-NVIDIA-Shield-Devices-Support-Chart)<br>
 [Which NVIDIA Shield device do I own?](https://www.nvidia.com/en-us/shield/)<br>
 
 <br>
@@ -57,7 +49,8 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 <br>
 
 ## Download and Setup via Home Assistant UI & HACS
-1. [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon, Shield, Xiaomi, Chromecast, or Android TV device (does not apply to Apple TV or Roku users)
+1. Turn on ADB/USB debugging on your Amazon, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
+    - (does not apply to Apple TV or Roku users)
 1. Connect your device to Home Assistant:
    - Amazon, Chromecast, Shield, onn., Xiaomi, or Android TV users:
      - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**REQUIRED in every setup** [why?](https://github.com/PRProd/HA-Firemote/wiki#why-do-i-still-need-the-adb-integration-when-there-is-an-android-remote-integration))
@@ -72,7 +65,8 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 1. You will be prompted to reload your browser.  Click the **RELOAD** button to continue
 
 ## OR Install Manually
-1. For non-Apple TV users, [Turn on ADB Debugging](https://www.youtube.com/watch?v=40iVXrTWcPU) on your Amazon, Shield, Xiaomi, Chromecast, or Android TV device
+1. Turn on ADB/USB debugging on your Amazon, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
+    - (does not apply to Apple TV or Roku users)
 1. Connect your device to Home Assistant:
    - Amazon, Chromecast, Shield, onn., Xiaomi, or Android TV users:
      - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**REQUIRED in every setup** [why?](https://github.com/PRProd/HA-Firemote/wiki#why-do-i-still-need-the-adb-integration-when-there-is-an-android-remote-integration))
