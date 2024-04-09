@@ -7,7 +7,7 @@ assignees:
 body:
   - type: markdown
     attributes:
-      value: "Thank you for taking the time to contribute to this project!<br><br>"
+      value: "Thank you for taking the time to contribute to this project!<br><br>If your request is to add a new device to the Firemote card, please [click here](https://github.com/PRProd/HA-Firemote/discussions/41) instead.<br><br>"
   - type: textarea
     id: relatedtoaproblem
     attributes:
