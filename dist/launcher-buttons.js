@@ -2181,6 +2181,20 @@ const launcherData = {
    },
 
 
+  "JioCinema": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="3700" height="900" viewBox="0 0 3700 900" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M58 449C58 233 232 59 448 59s390 174 390 390-174 390-390 390S58 665 58 449z" fill="#bf3383" stroke="#bf3383" stroke-width="25"/><g stroke="none"><path d="M647 239c8 5 14 12 15 21 8 50 8 57 0 66l-405 63 400 2 6 2c6 4 10 10 12 16v215l-2 6c-6 15-16 25-30 29l-6 2c-356 1-358 1-364-1-18-4-30-16-36-34-1-3-2-13-2-122V385l-9-57c-3-19 2-29 13-34 3-2 39-8 45-8 3 0 4-4-11 44l-8 22c-2 9-3 11-1 11l65-9 28-77c1-1 63-10 64-9s-6 24-19 61c-5 16-5 16 5 14l59-10 3-11c23-70 21-66 28-67 27-4 58-7 59-7 0 1-1 8-5 20-15 42-18 54-17 55l67-8c1 0 2-3 14-38 13-44 11-40 16-40 7 0 12 0 16 2M426 464c-7 4-6 0-6 61 0 58 0 57 4 62 8 6 11 5 38-17 12-10 28-22 33-26 17-13 19-21 9-30-3-2-42-32-57-44-11-9-14-10-21-6"/><path d="M1350 246c-48 11-43 83 6 86 23 1 41-10 46-31 8-33-19-62-52-55m823 0c-51 8-46 83 5 86 54 2 65-74 12-86-8-1-9-1-17 0m-249 10c-113 11-167 92-153 233 10 113 87 173 200 158 70-10 116-55 121-119 1-14 3-13-39-13-40 0-38-1-41 13-9 34-33 51-73 51-59 0-90-44-90-129 0-81 28-123 85-124 41-2 66 15 77 49 5 16 2 15 42 15 42 0 40 1 39-13-6-76-81-130-168-121m-750 8c-3 4-3 0-4 139l-2 141c-8 27-19 35-48 35-30 0-44-13-48-43-1-11 0-11-37-11-30 0-31 0-34 2l-3 3 1 12c4 70 55 112 130 107 64-4 99-30 113-86 5-24 6-32 6-170V267l-3-3c-4-3-67-4-71 0m396 82c-88 9-138 81-124 181 10 71 56 115 128 121 69 7 129-29 149-89 12-37 12-97-1-130-23-58-82-90-152-83m847 0c-25 3-43 11-62 29l-6 6v-12c-1-19 1-18-34-18-28 0-29 0-31 2l-3 3v141 141l3 3c4 3 62 3 66-1 2-2 2-4 2-91l1-89 3-10c9-27 29-41 59-41 26 0 42 9 50 28 6 15 6 20 6 114v87l3 2c4 4 61 4 65 1l3-3v-86c1-118 0-130-13-156-18-37-61-56-112-50m293-1c-65 6-113 49-123 111-17 108 33 183 127 192 66 7 124-25 139-77 6-20 5-20-32-20-34 0-32 0-38 9-10 18-24 25-54 25-39 0-67-22-70-57l-1-8h99 100l2-3c6-7 2-65-6-90-17-55-74-87-143-82m324 1c-20 2-36 10-52 26l-8 8v-11c0-11-1-12-3-15l-3-3h-28-29l-2 2c-4 5-4 284 0 287 3 3 61 4 65 1 2-1 2-4 3-92 1-106 1-107 13-123 19-25 62-22 75 5 7 13 7 18 7 117v89l3 3 3 3h30c30 0 31 0 33-3 2-2 2-6 3-94 0-100 0-97 7-111 15-33 65-35 80-5 7 13 7 14 8 115 0 91 0 93 2 95 4 4 62 4 66 1l3-3v-98c0-119-1-127-15-152-30-54-117-58-159-8-9 10-8 10-13 2-14-26-53-41-89-36m438 0c-42 4-74 21-90 49-10 15-14 37-10 43l3 2 27 1c34 0 36 0 38-9 4-16 21-24 51-23 35 2 45 12 47 44l1 13h-45c-62 0-78 2-100 14-41 21-53 84-24 129 31 49 122 55 169 11 6-6 5-6 7 7 2 17 0 16 34 16h27l3-3c3-3 3-4 2-12-1-3-2-41-2-101l-1-97-3-11c-10-35-28-54-63-66-18-6-49-10-71-7m-2142 5c-5 2-5 0-5 147l2 142c2 3 59 4 64 2s5 2 5-145c0-155 1-144-8-146-5-1-55-1-58 0m821 0c-5 2-5 0-5 147l2 142c4 4 62 4 66 0 2-3 4-280 1-285-2-4-55-7-64-4m-539 62c22 8 38 24 45 48 5 18 3 63-4 81-22 57-106 57-129 1-9-25-9-73 1-95 15-31 53-47 87-35m1132-3c28 6 42 21 45 47l1 7h-66-66v-4c0-33 44-58 86-50m794 124c-2 35-38 57-82 50-40-7-40-54-1-60 4-1 24-1 45-1h39l-1 11" fill="#fff"/></g></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M60 449C60 233 234 59 450 59s390 174 390 390-174 390-390 390S60 665 60 449z" stroke="#bf3383" fill="#bf3383" stroke-width="25"/><path d="M649 239c8 5 14 12 15 21 8 50 8 57 0 66l-405 63 400 2 6 2c6 4 10 10 12 16v215l-2 6c-6 15-16 25-30 29l-6 2c-356 1-358 1-364-1-18-4-30-16-36-34-1-3-2-13-2-122V385l-9-57c-3-19 2-29 13-34 3-2 39-8 45-8 3 0 4-4-11 44l-8 22c-2 9-3 11-1 11l65-9 28-77c1-1 63-10 64-9s-6 24-19 61c-5 16-5 16 5 14l59-10 3-11c23-70 21-66 28-67 27-4 58-7 59-7 0 1-1 8-5 20-15 42-18 54-17 55l67-8c1 0 2-3 14-38 13-44 11-40 16-40 7 0 12 0 16 2M428 464c-7 4-6 0-6 61 0 58 0 57 4 62 8 6 11 5 38-17 12-10 28-22 33-26 17-13 19-21 9-30-3-2-42-32-57-44-11-9-14-10-21-6" stroke="none"/></svg>',
+      "friendlyName": "JioCinema",
+      "className": "jioCinemaButton",
+      "deviceFamily": ["amazon-fire"],
+      "amazon-fire": {
+          "appName": "Jio Cinema",
+          "androidName": "com.jio.media.stb.ondemand",
+          "adbLaunchcommand": "adb shell am start -n com.jio.media.stb.ondemand/com.v18.voot.ui.JVHomeActivity",
+      },
+  },
+
+
   "joyn": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="741" viewBox="0 0 1621 741" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M279 71v450.5C279 620 201.8 700 106.5 700H50V581h53c29.3 0 53-28.4 53-63.5v-167V189H50V71h229zm251.8-11c-119.6 0-216.5 97-216.5 216.5S411.2 493 530.8 493s216.5-97 216.5-216.5S650.4 60 530.8 60zm0 313c-51.4 0-93-43.2-93-96.5s41.6-96.5 93-96.5 93 43.2 93 96.5-41.6 96.5-93 96.5zm620.7-302v451.5c0 77.8-51.8 143.8-124 167.8-18.8 6.3-39 9.7-60 9.7-20.6 0-40.5-3.3-59-9.3-72.7-23.7-125-90-125-168.2h125c0 33 26.6 59.5 59.5 59.5s59.5-26.6 59.5-59.5v-74a145 145 0 0 1-28.7 23c-21.4 13-46.5 20.4-73.3 20.4-3 0-5.7-.1-8.5-.2l-8.5-.6c-45.5-4-79.5-25.6-100.5-57-16-23.7-24.4-53-24.4-84.7V71h125v137 105.4c0 14 5 27 13 37 11 13.6 27.7 22.4 46.5 22.4 18.7 0 35.4-8.7 46.3-22.2a59 59 0 0 0 13.2-37.3v-63V71h124zM1570 197v284h-124V332v-92a60 60 0 1 0-120 0v51.6V481h-124V72h124v30.4A145 145 0 0 1 1428 61c22.8 0 43 4 60.8 11 52 20.8 81.2 69 81.2 125z" fill="#fff"/></svg>',
       "friendlyName": "Joyn",
@@ -2275,6 +2289,17 @@ const launcherData = {
           "appName": "au.com.kayosports.tv",
           "androidName": "au.com.kayosports.tv",
           "adbLaunchCommand": "adb shell am start -n au.com.kayosports.tv/au.com.foxsports.martian.tv.main.MainActivity",
+      },
+  },
+
+
+  "kexp-tv-stream": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="752" height="811" viewBox="0 0 752 811" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#31251c" fill-rule="evenodd"><path d="M193 656l25 95h-39l-22-95v46 49h-38V554h38v102l22-102h36zm155 60v35h-84V554h84v34h-42v43h28v38h-28v47zM118 113h100v402H118zm414 41h100v361H532zM394 65h100v450H394zM256 221h100v294H256zm211 427l28 103h-38l-13-61-16 61h-36l31-97-29-100h38l13 65 15-65h37zm127 29h-15v74h-38V554h53c20 0 37 12 37 39v44c0 28-17 40-37 40zm1-82c0-6-2-9-7-9h-9v62h9c5 0 7-2 7-9z"/></svg>',
+      "friendlyName": "KEXP TV Stream",
+      "className": "KEXPTVStreamButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "K E X P",
       },
   },
 
@@ -3520,12 +3545,30 @@ const launcherData = {
 
 
   "private-internet-access": {
-      "button": "PIA",
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="700" height="775" viewBox="0 0 700 775" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient x1="50%" y1="99.881295%" x2="50%" y2="8.74460432%" id="C8Ai"><stop stop-color="#4bb749" offset="0%"/><stop stop-color="#79b481" offset="100%"/></linearGradient><radialGradient cx="51%" cy="55%" fx="51.1418853%" fy="55.2282158%" r="46.8918043%" id="Hhif"><stop offset="0%"/><stop stop-color="#030303" offset="19.01%"/><stop stop-color="#0c0c0c" offset="32.36%"/><stop stop-color="#1c1c1c" offset="43.97%"/><stop stop-color="#323232" offset="54.61%"/><stop stop-color="#4e4e4e" offset="64.56%"/><stop stop-color="#717171" offset="74.02%"/><stop stop-color="#9a9a9a" offset="83.09%"/><stop stop-color="#c9c9c9" offset="91.61%"/><stop stop-color="#fefefe" offset="99.85%"/><stop stop-color="#fff" offset="100%"/></radialGradient><linearGradient x1="-48.6516854%" y1="-66.5329176%" x2="56.5617978%" y2="57.7449137%" id="i9FL"><stop stop-color="#23ff16" offset="0%"/><stop stop-color="#189a33" offset="100%"/></linearGradient><linearGradient x1="174.299229%" y1="-115.995781%" x2="24.2992292%" y2="84.3839662%" id="hEPA"><stop stop-color="#23ff16" offset="0%"/><stop stop-color="#189a33" offset="100%"/></linearGradient></defs><g stroke="none" fill-rule="nonzero"><path d="M619 287h0-30v-27c0-131-107-238-239-238-133 0-240 107-240 238v27H80c-31 0-56 25-56 56v218c0 15 1 26 7 33 6 8 15 11 30 11h48l7 115v1c0 3 1 10 4 17 4 7 12 13 25 13h121l63-67h47l61 69h2 46 61 0c9 0 18 0 25-5 8-5 12-14 14-30 3-23 4-86 5-113h48c15 0 24-2 30-8 6-7 7-17 7-31V343c0-31-25-56-56-56z" fill="#349334"/><path d="M669 566c0 15-2 23-5 26-4 4-11 6-25 6h-55v4c-1 25-2 92-6 116-2 15-6 22-10 25-5 3-12 3-21 3h-1-105l-61-69h-53l-63 67H146c-11 0-16-4-18-9-3-5-4-11-4-13v-1h0l-7-123H62c-14 0-21-3-25-7-4-5-5-15-5-29V343c0-26 22-48 49-48h37v-34c0-128 104-231 232-231a232.17 232.17 0 0 1 233 231v34h37c27 0 49 22 49 48v223h0z" fill="#4bb749"/><g fill="#118011"><path d="M124 591h451v15H124z"/><path d="M117 596V314h8v282zm459 0V314h8v282z"/></g><path d="M185 374c0-16 72-29 162-29 89 0 161 13 161 29 0 17-72 30-161 30-90 0-162-13-162-30z" fill="url(#C8Ai)"/><path d="M497 299v-43c0-81-66-147-148-147-81 0-147 66-147 147v43h295z"/><path d="M287 254h131v16H287z" fill="url(#Hhif)"/><path d="M274 189c0-15 12-27 27-27s27 12 27 27-12 27-27 27-27-12-27-27zm96 0c0-15 12-27 27-27s27 12 27 27-12 27-27 27-27-12-27-27z" fill="#000"/><path d="M297 463h98v73h-98zm15-7c4-16 18-27 34-27s30 11 35 27h11c-4-22-23-38-46-38s-41 16-46 38h12z"/><path d="M645 611h8v-8c-5 1-9 1-15 1h-48c-1 13-1 36-2 58h8c0-20 1-39 2-51h47z" fill="#118011"/><path d="M653 616v-4h-7-48c-1 12-1 31-2 50h11c25 0 46-20 46-46z" fill="url(#i9FL)"/><path d="M109 604H62c-8 0-14 0-19-2v10h10 48l3 50h9l-4-58z" fill="#118011"/><path d="M53 613c-4 0-7-1-10-1v4c0 26 20 46 46 46h14l-3-50-47 1z" fill="url(#hEPA)"/></g></svg>',
       "friendlyName": "Private Internet Access",
       "className": "privateInternetAccessButton",
-      "appName": "com.privateinternetaccess.android",
-      "androidName": "com.privateinternetaccess.android",
-      "deviceFamily": ["chromecast", "nvidia-shield", "onn", "xiaomi"], },
+      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "onn", "xiaomi"], 
+      "apple-tv": {
+          "appName": "PIA VPN",
+      },
+      "chromecast": {
+          "appName": "com.privateinternetaccess.android",
+          "androidName": "com.privateinternetaccess.android",
+      },
+      "nvidia-shield": {
+          "appName": "com.privateinternetaccess.android",
+          "androidName": "com.privateinternetaccess.android",
+      },
+      "onn": {
+          "appName": "com.privateinternetaccess.android",
+          "androidName": "com.privateinternetaccess.android",
+      },
+      "xiaomi": {
+          "appName": "com.privateinternetaccess.android",
+          "androidName": "com.privateinternetaccess.android",
+      },
+   },
 
 
   "proximus-pickx": {
@@ -3628,6 +3671,46 @@ const launcherData = {
           "appName": "it.rainet.androidtv",
           "androidName": "it.rainet.androidtv",
           "adbLaunchCommand": "adb shell am start -n it.rainet.androidtv/.ui.MainLeanbackActivity",
+      },
+   },
+
+
+  "red-bull-tv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2500" height="1046" viewBox="394 329 480 201"><path fill="#0a3064" d="m741 464 1-3-1 3m-147 16a13 13 0 0 0-3-2l3 2m148-20h1v-3c-6 20-20 35-29 43a22 22 0 0 0 4-3l-3 3a53 53 0 0 1 3-2l-7 7c8-7 22-20 30-40v-1a59 59 0 0 0 1-4m-144 22a123 123 0 0 0-4-2l4 2"/><path fill="#e4e5e6" d="M741 465v-1 1"/><path fill="#ccc" d="M815 349h-76v14h31v85h19v-85h31v-14h-5z"/><path fill="#fad50a" d="M741 465v-1 1m-79-56-2 1 6-2h1l-5 1m-50 39a459 459 0 0 0-8 4l8-4m42-46a1 1 0 0 1-1 0h1m21-5h-1 1m3 0h-1l10-2-3 1-1 1h-5m-69-39c-13 4-28 12-41 24-4 4-8 7-14 10l-2 5a89 89 0 0 0-2 7l9-5 29-16c-1 3-2 5-6 8l-3 2-12 7-14 8-1 1c-2 1-3 0-3-1v-1l-1 3c-2 8-2 15-2 20 0 17 3 27 3 27l1 1 2 7c2 1 2 4 3 6l2-1-1 1 3 1 1 4 1-1c5 2 5 2 8-1l3-2c-3 3-3 3-2 5l36-24 45-28c-11 4-21 11-32 15l-10 6-1-2h-4v1h-4v-2h1l1-2 2-1 3-2h1l1-1-1-1h-1l-1 1-2 1-4 3h-1l-3 1h-1l-1 1-1 1h-3v-1h-2a14 14 0 0 0-2 1l-3 1h-2v-1l1-1 1-1 2-2a78 78 0 0 0 3-3h1v-1h1l1-1v-1c1 0 1 0 0 0l-2 1-4 1a6 6 0 0 1-1 0h-2l1-1 1-1v-1a54 54 0 0 0 3-2h1l1-1 3-2 5-2 1-1h1l3-2 2-1h1v-1h2l1-1h1l1-1v-1l-2 1-2 1h-2a2 2 0 0 0-1 0l-1 1-2 1-3 1-3 2-3 1h-2v1h-1l-4 1-1 1h-2l-2-1a167 167 0 0 1 9-6 167 167 0 0 1 10-5 232 232 0 0 1 35-16 295 295 0 0 1 13-4l12-4a247 247 0 0 1 12-3 210 210 0 0 1 11-3h6l1-1h1-1 5l2 1h-1 4l1 1h-1l-1 1h-1l-3 1-5 1s-1 0 0 0h9l-19 4-9 1 1-2c-3 0-22 6-23 10h1l4 1a81 81 0 0 0 8 0l6-1 5-1 5-2h2l-2 1-3 1 2 1h2v1l-1 1-1 1h5l2-1h1a9 9 0 0 1 1 0l2-1h6l2-1h11c1 1 0 2-1 2a33 33 0 0 1-5 3h-4l-2 1h-7l-1 1h-6v1h-2l-5 2h-1l-2 1-2 1-2 1h-1a5 5 0 0 1-2 1h-1l-2 1h-1l-2 1-1 1-1 1-1 1a1 1 0 0 1 0 1h3a5 5 0 0 0 1-1h2l2-1h1c11-2 21-8 33-8 0 0 20-1 33 5 4 2 24 13 13 45l1-3 4-16v-1a99 99 0 0 0-4-43c-1-1 3-10-16-29-8-8-20-9-29-14h3c-8-5-17-4-25-7l4-1a48 48 0 0 1-1-1c13-2 22 1 28 4a50 50 0 0 1-3-2l6 4v-1c-13-9-31-22-86 1l-5-2-4 3"/><path fill="#f2940a" d="m573 359 2-2-2 2m155 8zm-33 2-4-2h-2a1 1 0 0 1 1 0l5 2m53 51c-1-12-2-14-4-23l-2-5c-3-9-8-16-11-22l-3-4-15-15 2 2a90 90 0 0 0-12-9 99 99 0 0 0-88-9s-10 3-19 7h-1l-1 1-1 1h-1a52 52 0 0 0-3 2l-1 1-2 1a280 280 0 0 0-4 3l-6 6c7-7 26-18 57-21l-8 3c-16 4-40 9-51 20a1 1 0 0 1-1 0l-5 6-7 10-2 3v2h1l-2 9 3-3-2 6-1 3 1 1 5-3-3 1 6-2-5 6 5-3v1l11-5 4-2c-5 2-5 3-6 4l9-4c11-5 18-7 40-12h-1c32-6 32-6 53-5l-35-1c-28 3-39 7-43 9l-10 3c7-5 38-16 46-17-1 0-25 3-39 10l-17 7 11-10-9 1c22-27 139-35 159 20-1-2-12-18-33-27l-6-3h1c-3-2-16-6-22-5 20 5 50 19 49 27-8-3-14-10-22-13 9 5 24 14 27 22h-1a27 27 0 0 1-3-2c-2-2-13-10-20-13-10-4-21-5-31-8 11 4 23 6 34 12 13 7 22 19 22 20 17 22 11 46 8 54l-2 6 2-6c3-7 3-8 5-18v-20m-116-46-8 1 8-1m36-41a130 130 0 0 0-13 0h-1a77 77 0 0 1 14 0m-92 24a3 3 0 0 1-1 0h1m152 9"/><linearGradient id="a" x1="-1999.4" x2="-1902.8" y1="317" y2="317" gradientTransform="translate(3425 22) scale(1.4141)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1985c3"/><stop offset=".4" stop-color="#1983c1"/><stop offset=".6" stop-color="#197eba"/><stop offset=".7" stop-color="#1a73af"/><stop offset=".8" stop-color="#1a659e"/><stop offset=".9" stop-color="#1b5288"/><stop offset=".9" stop-color="#1c3b6d"/><stop offset="1" stop-color="#1c3566"/><stop offset="1" stop-color="#1c3566"/></linearGradient><path fill="url(#a)" d="m716 429 1-1-6 13-1 3c-4 5-10 6-13 10h-3c0-2 4-5 1-6 3-6 7-11 12-16l1 1c3 0 8-3 8-4m-31 19c-16 13-2 10-1 10l3-2c-15 16-58 35-90 22-8-4-14-6 2 4h-1c7 3 16 8 12 8h-1l1 1 11 4s-1 3 9 4c11 1 21 0 31-3a88 88 0 0 1-66 18l2 1 14 3v1c4 2 8 0 9 0l17-2c-3 2-7 1-11 3l1 1c18-2 35-4 80-40a9 9 0 0 1 2-2v1l-31 26c-7 6-16 6-22 13v1-1l4 1-10 4v1c8-1 23-3 34-10a162 162 0 0 0 58-63v1c1 1 1 1-1 6l3-7c3-23-13-32-16-33l-6-2v-1a74 74 0 0 0-10-2c-7 16-16 25-26 34"/><defs><path id="b" d="m716 429 1-1-6 13-1 3c-4 5-10 6-13 10h-3c0-2 4-5 1-6 3-6 7-11 12-16l1 1c3 0 8-3 8-4m-31 19c-16 13-2 10-1 10l3-2c-15 16-58 35-90 22-8-4-14-6 2 4h-1c7 3 16 8 12 8h-1l1 1 11 4s-1 3 9 4c11 1 21 0 31-3a88 88 0 0 1-66 18l2 1 14 3v1c4 2 8 0 9 0l17-2c-3 2-7 1-11 3l1 1c18-2 35-4 80-40a9 9 0 0 1 2-2v1l-31 26c-7 6-16 6-22 13v1-1l4 1-10 4v1c8-1 23-3 34-10a162 162 0 0 0 58-63v1c1 1 1 1-1 6l3-7c3-23-13-32-16-33l-6-2v-1a74 74 0 0 0-10-2c-7 16-16 25-26 34"/></defs><clipPath id="d"><use xlink:href="#b" overflow="visible"/></clipPath><linearGradient id="c" x1="-2005.8" x2="-1898.9" y1="321.7" y2="312.3" gradientTransform="translate(3425 22) scale(1.4141)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1985c3"/><stop offset=".4" stop-color="#1983c1"/><stop offset=".6" stop-color="#197eba"/><stop offset=".7" stop-color="#1a73af"/><stop offset=".8" stop-color="#1a659e"/><stop offset=".9" stop-color="#1b5288"/><stop offset=".9" stop-color="#1c3b6d"/><stop offset="1" stop-color="#1c3566"/><stop offset="1" stop-color="#1c3566"/></linearGradient><path fill="url(#c)" d="m573 415 172-15 11 125-172 15-11-125z" clip-path="url(#d)"/><path fill="#0a3064" d="M736 425c-4 15-8 23-15 33-4 6-11 7-16 12l-3 1c0-3 4-7 1-8 6-12 18-20 22-33l-4 6 6-18h-1l-2 2c-8 21-19 32-32 44-20 16-3 11-3 11l4-2c-23 26-101 55-137 5l1 1c9 14 9 14 28 26l-9-5s8 11 33 14c27 3 35 1 43-1l13-2c-20 6-20 6-42 7l-13-1-12-2 15 6c-1 0-5 1-23-7 0 0 21 10 33 11 39 4 67-15 95-33l1 1-4 4c7-5 10-13 17-18a106 106 0 0 1-64 46l-4 2 5-1-13 3c41-7 71-30 85-65l3-13c1-13-3-21-8-26"/><path fill="#fff" d="M637 478c-3-2-4-4-5-6l-2-2v-1l-2-3a13 13 0 0 0-1-2l-1-1-1-1-1-1c-5-12-6-19-7-31-1-6-5-11-11-19l-3-3-2-3-5-6-6-5-7-5-10-8c-4-3-9-5-14-5-6 0-9 2-11 3a61 61 0 0 1-20 10l-4 1c-4 1-7 4-9 6l-1 1-2 1-2 2h-5l-2 1c-5 0-8 2-11 4l-3 3-1 1-3 3-10 3h-6l-6 3-8 4a212 212 0 0 0-4 3l-4 3c-5 3-9 6-14 6s-8-3-9-7c0-4 2-8 6-11l2-2 4-3 5-6c3-3 4-7 3-12s-5-8-11-10l-6-1h-1l-2-1h-1c-4-1-11-6-12-7l-1-1v1c-1 2-2 3-3 10s5 16 15 17a1 1 0 0 1 1 1 1 1 0 0 1 0 2c-11 8-13 12-14 22 0 6 2 11 6 16 4 4 10 7 18 7l6-1h1l1 1c0 7 2 12 3 15v2l-2 1-10 1c-2 0-3 2-5 5l-1 3v2a9 9 0 0 1-1 1l-2 2-1 1a2 2 0 0 1-1-1l-5-4c-4 0-9 3-11 8l-2 1-5 4-1 3v1l-1 2a8 8 0 0 1 0 2l-1 1v5l2 2 3 1 5 1h1v-1h3l3 1h4l1 1c4-1 6-2 7-4l1-2 1-1 1-2a1 1 0 0 1 2-1l2 1h3c4 0 7-2 10-5h1l1-1 2-2 3-1h1a123 123 0 0 1 12 1l6-1 5-3 2-1a49 49 0 0 0 2-1l3-3 3-5 1-2a2084 2084 0 0 0 2-4 1 1 0 0 1 1-1h7l3-1h18a48 48 0 0 0 4 0 22 22 0 0 0 6-1h1a79 79 0 0 0 2 2l1 2a1 1 0 0 1-1 1h-1l-4 2a1 1 0 0 1-1 0 4 4 0 0 0-1 0 5 5 0 0 0-1 0h-9l-4 1-2 3c0 3 4 10 7 13l4 1h1l1 1c3 5 7 8 12 8 4 0 15-4 22-7h1l2-1h1l5-1 4-6a1 1 0 0 1 2-1 1 1 0 0 1 1 1l1 2c1 2 3 4 7 4l7-2h1l6-2h6a22 22 0 0 0 2 0l5-1 5-2v-1h2a27 27 0 0 0 18 7h1l5-2v-3a1 1 0 0 1 0-1h1l4-2 1-3v-1l-5-3m-64-11c-1 1-3 1-4 4-3-1-3-5-4-6l10-2-2 4"/><g fill="#db0a40"><path d="M635 480c-5-2-7-8-10-12l-4-5c-4-9-7-19-8-30l-3-9c-4-7-10-14-16-21l-1-1-20-17-8-4c-4-1-10-1-14 1l-13 7c-6 3-14 3-19 8-4 3-6 8-11 7-6 0-11 2-15 5-3 3-7 7-12 8-4 2-9 1-13 3-7 1-12 7-18 11-6 3-12 7-19 7-4-1-9-4-10-8-2-6 0-11 4-15 4-5 11-8 14-14 2-3 2-8-1-11-4-4-10-4-16-6l-10-5-2 6c1 5 5 10 10 12l9 1 2 2-1 2-13 13c-5 4-5 12-3 18 3 7 9 11 16 12l13-2 1 1 1 11 3 9-1 3-7 4h-7l-1 1-4 9c-2 3-6 5-9 7l-3 4-4 2c-2 2-3 6-4 10 4 0 8 2 12 0 3-1 3-5 6-8 2-2 4 0 7 0 3 1 5-2 8-3l5-5h14c3 1 6 1 9-1l8-4c3-1 4-4 5-7l3-6-3-2-3 5c-6 9-11 9-23 9-10 0-18 3-24 10h-1c-1-1 0-3 1-4 5-8 14-10 23-10 5 0 10-1 14-3 5-3 8-6 10-11l3-16 2-1 1 1c0 6-2 12 0 17 4 5 11 2 17 2h16c2 0 4 1 6-1l1-3v-4h2l2 7 11 8c3 2 6 6 6 10 0 2-2 4-3 5l-10 2c-4-2-5-7-8-10-2-2-4-2-6-2l-7 1-1 2 5 8c2 1 5-1 6 1l5 7c2 2 5 3 8 1l18-7h2c2 0 5 0 7-2l4-8c2-1 1-4 1-7-3-3-5-7-6-11l-5-1-2 1 7 13v4l-4 7h-2c1-3 3-6 2-9l-6-12-2-5 1-1c3-1 7-1 9-3 3-5 3-9 4-15l1-1 2 1c1 6-1 12-4 16v2c3 1 7 0 9-1l10-1h1l-4 8c-3 3-6 5-6 9 0 2 2 0 3 0l1 1-3 4v7l5 2c3 0 7-1 10-3h12c4-1 7-3 10-6l4 2c5 5 11 7 17 7h1v-2l-4-2c-3-1-6-4-7-7l-4-8-3-4h1c4 1 7 5 9 9 3 5 8 8 14 7v-1l-3-2m-66-59v1h-1v-1a53 53 0 0 0-4-11l-1-1v-4h2c2 1 3 2 3 4l2 7-1 5m32 56h-6v-1c0-2 3-5 5-5h2v1l1 1-2 4m10-23v1l-1 1h-1l-1-1v-3l-1-3a113 113 0 0 1-1-1 264 264 0 0 1-4-3l-2 1-1 2-1 1h-1a4 4 0 0 1 0-2v-2l1-1 1-2v-1l1-1v-1c1-2 2-2 3-1 2 0 2 1 3 2v1h1l1 2c2 3 4 6 4 9a10 10 0 0 1-1 2"/><path d="M412 490c3-2 5-4 6-7l-2-2h-2l-5 4-1 3 1 2a4 4 0 0 0 3 0m-8 0c-2 1-3 2-3 4-1 2 0 5-2 7v1l5 2 3-10v-1l-3-3m127-9c2 2 1 5 3 6 3 1 5 0 7-2 1-1 0-2-1-3-1-2 0-5-3-5l-8 1c-1 2 1 2 2 3"/></g><path fill="#ccc" d="M874 363c-3-12-14-13-17-13h-3c-1 1 1 2 2 3 10 6 2 24-8 40l-23 30c-2 3-3 2-3-2v-50h-17v70c0 4 4 7 7 7h6c5 0 8-3 10-5l40-61c2-2 8-11 6-19"/></svg>',
+      "friendlyName": "Red Bull TV",
+      "className": "redBullTvButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "onn", "roku", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.redbull.rbtv",
+          "androidName": "com.redbull.rbtv",
+          "adbLaunchCommand": "adb shell am start -n com.redbull.rbtv/com.redbull.launch.SplashActivity",
+      },
+      "apple-tv": {
+          "appName": "Red Bull TV",
+      },
+      "chromecast": {
+          "appName": "com.nousguide.android.rbtv",
+          "androidName": "com.nousguide.android.rbtv",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.rbtv/com.redbull.launch.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.nousguide.android.rbtv",
+          "androidName": "com.nousguide.android.rbtv",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.rbtv/com.redbull.launch.SplashActivity",
+      },
+      "onn": {
+          "appName": "com.nousguide.android.rbtv",
+          "androidName": "com.nousguide.android.rbtv",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.rbtv/com.redbull.launch.SplashActivity",
+      },
+      "roku": {
+          "appName": 'Red Bull TV',
+          "app-id": 51320,
+      },
+      "xiaomi": {
+          "appName": "com.nousguide.android.rbtv",
+          "androidName": "com.nousguide.android.rbtv",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.rbtv/com.redbull.launch.SplashActivity",
       },
    },
 
@@ -4208,6 +4291,20 @@ const launcherData = {
       "deviceFamily": ["apple-tv"],
       "apple-tv": {
           "appName": "Snappier IPTV",
+      },
+   },
+
+
+  "sony-liv": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="410" height="275" viewBox="0 0 410 275" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="IRLw" cx="50%" cy="50%" r="89%" fx="61.8%" fy="57.1%"><stop offset="28%" stop-color="#fda30f"/><stop offset="59%" stop-color="#ffe758"/></radialGradient><linearGradient id="d29U" x1="39%" y1="0%" x2="61%" y2="100%"><stop offset="0%" stop-color="#ffe758" stop-opacity=".25"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient><linearGradient id="vjBm" x1="17%" y1="0%" x2="83%" y2="100%"><stop offset="0%" stop-color="#d16e00"/><stop offset="49%" stop-color="#ffe758"/></linearGradient><linearGradient id="hpsy" x1="0%" y1="67%" x2="100%" y2="33%"><stop offset="17%" stop-color="#d16e00"/><stop offset="82%" stop-color="#ffe758"/></linearGradient><linearGradient id="oabs" x1="33%" y1="0%" x2="67%" y2="100%"><stop offset="0%" stop-color="#fafafa"/><stop offset="38%" stop-color="#fda30f"/></linearGradient><linearGradient id="nxrd" x1="100%" y1="89%" x2="0%" y2="11%"><stop offset="0%" stop-color="#d16e00" stop-opacity=".64"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient></defs><g stroke-linejoin="miter"><path d="M 381 61 C 359 107 337 154 316 200 C 307 222 303 230 299 238 C 289 254 262 258 241 245 C 235 241 231 236 228 229 C 215 200 201 171 187 142 C 185 139 185 135 185 131 C 186 129 187 128 189 127 C 214 124 242 135 251 151 C 257 162 263 173 269 185 C 279 161 290 137 301 114 C 326 61 331 50 336 40 C 345 24 372 16 398 20 C 400 20 398 23 398 24 L 381 61" fill="url(#IRLw)" opacity=".965" stroke="url(#d29U)" stroke-linecap="butt" stroke-width="3"/><g fill="#fda30f"><path d="M 106 112 C 122 112 137 112 152 113 C 158 113 158 114 158 117 C 158 162 158 206 158 250 C 158 254 156 254 154 254 C 137 254 121 254 104 254 C 102 254 102 253 102 251 C 101 206 101 161 102 116 C 102 112 102 112 106 112 Z" opacity=".985" stroke="url(#vjBm)" stroke-width="4"/><path d="M 106 70 C 106 70 154 70 154 70 C 158 70 159 72 159 74 C 159 74 159 94 159 95 C 159 99 158 99 154 99 C 153 99 106 99 106 99 C 102 99 102 97 102 95 C 102 95 102 75 102 74 C 102 70 103 70 106 70 Z" opacity=".953" stroke="url(#hpsy)" stroke-width="3"/></g><path d="M 21 27 C 38 27 55 27 71 28 C 73 28 74 28 74 30 C 75 104 74 177 74 251 C 74 253 73 254 71 253 C 54 254 38 254 21 253 C 19 253 18 252 18 250 C 17 177 17 104 18 31 C 17 29 18 27 21 27 Z" fill="url(#oabs)" opacity=".989" stroke="url(#nxrd)" stroke-width="4"/></g></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="850" height="850" viewBox="0 0 850 850" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="a1t1" cx="50%" cy="50%" r="83%" fx="40.4%" fy="100.0%"><stop offset="40%" stop-color="red"/><stop offset="57%" stop-color="#ff8600"/><stop offset="95%" stop-color="#d9ff00" stop-opacity=".01"/></radialGradient><radialGradient id="Jgsx" cx="50%" cy="50%" r="58%" fx="0.9%" fy="31.4%"><stop offset="20%" stop-color="#00c6ff"/><stop offset="64%" stop-color="#001dbd"/><stop offset="100%" stop-color="#001dbd" stop-opacity="0"/></radialGradient><radialGradient id="UJJo" cx="50%" cy="50%" r="63%" fx="66.2%" fy="40.0%"><stop offset="48%" stop-color="#eb42be"/><stop offset="84%" stop-color="#f0b" stop-opacity=".03"/></radialGradient><radialGradient id="TDmW" cx="50%" cy="50%" r="74%" fx="2.2%" fy="100.0%"><stop offset="49%"/><stop offset="78%" stop-color="#404040" stop-opacity="0"/></radialGradient><radialGradient id="VHtZ" cx="50%" cy="50%" r="58%" fx="29.8%" fy="34.3%"><stop offset="7%"/><stop offset="81%" stop-color="#404040" stop-opacity="0"/></radialGradient><linearGradient id="k4oa" x1="78%" y1="0%" x2="22%" y2="100%"><stop offset="49%"/><stop offset="63%" stop-opacity=".61"/></linearGradient><linearGradient id="y05n" x1="39%" y1="0%" x2="61%" y2="100%"><stop offset="0%" stop-color="#ffe758" stop-opacity=".25"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient><radialGradient id="gU42" cx="50%" cy="50%" r="89%" fx="61.8%" fy="57.1%"><stop offset="28%" stop-color="#fda30f"/><stop offset="59%" stop-color="#ffe758"/></radialGradient><linearGradient id="Ly5r" x1="17%" y1="0%" x2="83%" y2="100%"><stop offset="0%" stop-color="#d16e00"/><stop offset="49%" stop-color="#ffe758"/></linearGradient><linearGradient id="EXRV" x1="0%" y1="67%" x2="100%" y2="33%"><stop offset="17%" stop-color="#d16e00"/><stop offset="82%" stop-color="#ffe758"/></linearGradient><linearGradient id="vJGx" x1="100%" y1="89%" x2="0%" y2="11%"><stop offset="0%" stop-color="#d16e00" stop-opacity=".64"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient><linearGradient id="YEPz" x1="33%" y1="0%" x2="67%" y2="100%"><stop offset="0%" stop-color="#fafafa"/><stop offset="38%" stop-color="#fda30f"/></linearGradient></defs><g stroke="none"><rect x="57" y="57" width="735" height="735" rx="60"/><rect fill="url(#a1t1)" height="305" rx="60" width="380" x="410" y="485"/><rect fill="url(#Jgsx)" height="690" rx="5" width="350" x="60" y="95"/><rect fill="url(#UJJo)" height="355" rx="5" width="560" x="210" y="315"/><rect fill="url(#TDmW)" height="383" rx="60" width="730" x="60" y="410"/><ellipse cx="281" cy="113" fill="url(#VHtZ)" rx="281" ry="113" transform="matrix(.866025 -.5 .5 .866025 9.146862 660.639129)"/><path d="M109 54l631 1c32 4 50 22 54 54v631c-4 32-22 50-54 55H109c-32-5-50-23-54-55V109c4-32 22-50 54-55zM63 276c9 35 30 62 60 82 31 19 63 33 98 41 39 10 78 17 118 22l174 20c54 6 107 18 159 36 31 11 58 28 81 50 17 18 28 40 33 64 1 51 1 102 0 153-5 23-19 37-42 42H105c-23-5-37-19-42-42V276z" opacity=".982" fill="url(#k4oa)"/></g><g stroke-linejoin="miter"><path d="M 595 552 C 573 598 551 645 530 691 C 521 713 517 721 513 729 C 503 745 476 749 455 736 C 449 732 445 727 442 720 C 429 691 415 662 401 633 C 399 630 399 626 399 622 C 400 620 401 619 403 618 C 428 615 456 626 465 642 C 471 653 477 664 483 676 C 493 652 504 628 515 605 C 540 552 545 541 550 531 C 559 515 586 507 612 511 C 614 511 612 514 612 515 L 595 552" opacity=".965" stroke-linecap="butt" stroke-width="3" stroke="url(#y05n)" fill="url(#gU42)"/><g fill="#fda30f"><path d="M 321 602 C 337 602 352 602 367 603 C 373 603 373 604 373 607 C 373 652 373 696 373 740 C 373 744 371 744 369 744 C 352 744 336 744 319 744 C 317 744 317 743 317 741 C 316 696 316 651 317 606 C 317 602 317 602 321 602 Z" opacity=".985" stroke="url(#Ly5r)" stroke-width="4"/><path d="M 320 560 C 320 560 368 560 368 560 C 372 560 373 562 373 564 C 373 564 373 584 373 585 C 373 589 372 589 368 589 C 367 589 320 589 320 589 C 316 589 316 587 316 585 C 316 585 316 565 316 564 C 316 560 317 560 320 560 Z" opacity=".953" stroke="url(#EXRV)" stroke-width="3"/></g><path d="M 236 518 C 253 518 270 518 286 519 C 288 519 289 519 289 521 C 290 595 289 668 289 742 C 289 744 288 745 286 744 C 269 745 253 745 236 744 C 234 744 233 743 233 741 C 232 668 232 595 233 522 C 232 520 233 518 236 518 Z" opacity=".989" stroke="url(#vJGx)" fill="url(#YEPz)" stroke-width="4"/></g><path d="M569 168v11h10c5 0 8 3 10 4 1 2 31 36 32 37s1 1 1 2v17 2c-1 1-2 2-3 2h-3-10v11h59v-11h-12-2c-2 0-2-1-3-2v-2-17-2l33-37c3-4 5-4 8-4h11v-11h-48v11h7c1 0 2 0 2 1v2s-20 24-21 24l-20-24c-2-2-1-3 1-3h7v-11zm-144 0v11h9c7 0 8 3 8 7v50c0 3 0 7-5 7h-11v11h49v-11h-12c-5 0-5-2-5-7v-43l68 61h17l-1-69c1-5 1-6 6-6h11v-11h-51v11h12c5 0 5 2 6 6v36l-59-53zm-223-5c-10 0-23 2-33 7-9 4-17 11-17 22 0 6 2 12 6 16 3 3 8 7 19 9 5 1 16 3 27 4 11 2 22 3 27 4 3 1 9 2 9 8 0 7-6 9-7 9-1 1-9 4-22 4-9 0-18-1-26-4-5-2-10-4-15-10-2-3-3-6-3-10h-12v34h13v-5s0-1 1-1c1-1 1-1 2 0 6 3 13 5 20 6 7 2 11 3 20 3s18-1 27-4c6-2 12-5 16-8 6-4 9-11 9-18 0-6-2-13-7-17-2-3-5-5-9-6-3-2-7-3-10-4-7-2-23-4-30-5-8 0-22-2-27-3-2-1-5-2-5-6 0-3 1-5 4-7 5-3 15-5 25-5s20 2 29 5c2 1 4 3 6 4 4 3 6 7 7 12h11v-30h-12v4c0 1-1 2-3 1-6-3-21-9-40-9zm145 0c-19 0-39 7-50 17-9 8-14 19-14 31s5 24 14 32c12 11 30 17 50 17s39-6 51-17c9-9 14-20 14-32s-5-23-14-31c-13-12-30-17-51-17zm0 13c11 0 21 3 28 10 6 6 9 15 9 25s-3 19-9 25c-7 7-17 11-28 11-10 0-20-4-27-11-6-6-10-15-10-25s4-19 10-25c7-7 17-10 27-10z" stroke="none" fill-rule="nonzero"/></svg>',
+      "friendlyName": "Sony LIV",
+      "className": "sonyLivButton",
+      "deviceFamily": ["amazon-fire"],
+      "amazon-fire": {
+          "appName": "SonyLIV",
+          "androidName": "com.sonyliv",
+          "adbLaunchCommand": "adb shell am start -n com.sonyliv/.ui.splash.SplashActivity",
       },
    },
 
@@ -4809,6 +4906,17 @@ const launcherData = {
       "androidName": "be.telenet.tv",
       "adbLaunchCommand": "adb shell am start -n be.telenet.tv/com.libertyglobal.horizonx.MainActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+
+
+  "telia-play": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="750" height="750" viewBox="0 0 750 750" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M480 14c-102 6-230 51-313 110C73 192 26 270 30 352c7 133 162 335 290 376 79 26 167-13 249-109 75-87 134-226 144-338 5-53 6-119 0-144C690 45 615 6 480 14M285 156l313 179c27 17 32 54 10 75L276 602h-12c-20 0-34-9-42-26l-4-7 1-382c5-29 38-45 66-31" stroke="none" fill="#a800ec"/></svg>',
+      "friendlyName": "Telia Play",
+      "className": "teliaPlayButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "Telia Play",
+      },
+  },
 
 
   "telia-tv-estonia": {
@@ -6569,6 +6677,10 @@ const launcherCSS = `
             margin-top: calc(var(--sz) * -0.1rem);
           }
 
+          .jioCinemaButton {
+            background: #000;
+          }
+
           .joynButton {
             background: #000;
           }
@@ -6585,6 +6697,10 @@ const launcherCSS = `
           }
           .shield-remote-body .kayoButton svg {
             height: calc(var(--sz) * 2.1rem);
+          }
+
+          .KEXPTVStreamButton {
+            background: #feac31;
           }
 
           .kinopubbutton {
@@ -6860,9 +6976,9 @@ const launcherCSS = `
 
           .privateInternetAccessButton {
             font-size: calc(var(--sz) * 1.2rem);
-            color: #fff;
+            color: #56b14d;
             font-weight: bold;
-            background: #56b14d;
+            background: #fff;
           }
 
           .proximusPickxButton {
@@ -6883,6 +6999,10 @@ const launcherCSS = `
 
           .raiPlayButton {
             background: #fff;
+          }
+
+          .redBullTvButton {
+            background: #002649;
           }
 
           .redPlayButton {
@@ -6980,6 +7100,10 @@ const launcherCSS = `
           }
 
           .snappierIPTVButton {
+            background: #000;
+          }
+
+          .sonyLivButton {
             background: #000;
           }
 
@@ -7092,6 +7216,10 @@ const launcherCSS = `
 
           .telenetTvButton {
             background: #332822;
+          }
+
+          .teliaPlayButton {
+            background: #230031;
           }
 
           .teliaTvEstoniaButton {
