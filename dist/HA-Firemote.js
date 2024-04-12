@@ -3,7 +3,7 @@ import {launcherData, launcherCSS} from './launcher-buttons.js';
 import {rosettaStone} from './language-translations.js';
 import {devices} from './supported-devices.js';
 
-const HAFiremoteVersion = 'v3.3.2';
+const HAFiremoteVersion = 'v3.3.3b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -5670,15 +5670,18 @@ class FiremoteCardEditor extends LitElement {
     if(this._config.device_family == 'apple-tv') {
       mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('apple_tv');
       heading = 'Apple TV Media Player '+ this.translateToUsrLang('Entity');
-      heading = this.hass.config.language == 'he' ? this.translateToUsrLang('Entity') + ' Apple TV Media Player' : 'Apple TV Media Player '+ this.translateToUsrLang('Entity');
+      heading = this.hass.config.language == 'he' || this.hass.config.language == 'fr' ? 
+        this.translateToUsrLang('Entity') + ' Apple TV Media Player' : 'Apple TV Media Player '+ this.translateToUsrLang('Entity');
     }
     else if(this._config.device_family == 'roku') {
       mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('roku');
-      heading = this.hass.config.language == 'he' ? this.translateToUsrLang('Entity') + ' Roku Media Player' : 'Roku Media Player '+ this.translateToUsrLang('Entity');
+      heading = this.hass.config.language == 'he' || this.hass.config.language == 'fr' ?
+        this.translateToUsrLang('Entity') + ' Roku Media Player' : 'Roku Media Player '+ this.translateToUsrLang('Entity');
     }
     else {
       mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
-      heading = this.hass.config.language == 'he' ? this.translateToUsrLang('Entity') + ' Android Debug Bridge' : 'Android Debug Bridge '+ this.translateToUsrLang('Entity');
+      heading = this.hass.config.language == 'he' || this.hass.config.language == 'fr' ? 
+        this.translateToUsrLang('Entity') + ' Android Debug Bridge' : 'Android Debug Bridge '+ this.translateToUsrLang('Entity');
     }
     var blankEntity = '';
     if(this._config.entity == '' || !(mediaPlayerEntities).includes(optionValue)) {
@@ -5762,6 +5765,7 @@ class FiremoteCardEditor extends LitElement {
     else {
         var dropdownLabel = this.translateToUsrLang('Associated') + ' Android TV Remote ' + this.translateToUsrLang('Entity') + ': (' + this.translateToUsrLang('optional') + ')';
         dropdownLabel = this.hass.config.language == 'he' ?  'ישות משויכת ל-' + 'Android TV Remote ' : dropdownLabel;
+        dropdownLabel = this.hass.config.language == 'fr' ?  'Entité Android TV Remote Associé (optionnel)' : dropdownLabel;
         if(this._config.androidTVRemoteEntity == '' || typeof this._config.androidTVRemoteEntity == 'undefined') {
             blankRemoteEntity = html `<option value="" selected> - - - - </option> `;
         }
