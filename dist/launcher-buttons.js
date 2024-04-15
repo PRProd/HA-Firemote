@@ -1000,6 +1000,19 @@ const launcherData = {
   },
 
 
+  "disney-plus-hotstar": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="350" viewBox="0 0 1100 350" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="x1TX" gradientUnits="userSpaceOnUse" cx="943" cy="280" r="760.124" fx="942.524" fy="279.896" gradientTransform="matrix(0.13535408,0,0,0.13535408,-193.5542,47.32222)"><stop offset=".007" stop-color="#021192"/><stop offset=".03" stop-color="#021096"/><stop offset=".057" stop-color="#010cb4"/><stop offset=".084" stop-color="#0008ce"/><stop offset=".111" stop-color="#0006d7"/><stop offset=".138" stop-color="#0004e1"/><stop offset=".165" stop-color="#0001fa"/><stop offset=".191" stop-color="#0000fe"/><stop offset=".216" stop-color="#0f1eff"/><stop offset="1" stop-color="#0ff" stop-opacity="0"/></radialGradient></defs><g transform="translate(50 13)"><svg width="1000" height="289" viewBox="0 0 264.583 76.397"><g stroke="none"><path d="M240 42c3 0 5 1 7 3h0v-3h4v20h-4v-3h0c-1 2-4 4-7 4-6 0-10-4-10-10s5-11 10-11zm-59 0c5 0 11 4 11 11 0 5-5 10-11 10s-10-5-10-10c0-6 5-10 11-10zm30 0c3 0 6 2 6 6h-4c0-1-1-2-3-2-1 0-2 1-2 2 0 2 2 2 4 3 3 1 5 3 5 6 0 4-3 6-7 6s-7-2-7-7h4c0 2 1 4 3 4s3-1 3-3c0-1-1-2-3-3-5-2-6-4-6-6 0-3 3-6 6-6zm-62-6c2 0 4 2 4 4v5h0c1-2 3-3 6-3 5 0 8 3 8 8v12h-4V52c0-4-2-6-5-6s-5 2-5 6v11h-4zm50 0v7h3v3h-2v16c-2 0-4-2-4-4V46h-2v-3h2v-7h4zm26 0v7h3v3h-3v16c-2 0-4-2-4-4V46h-2v-3h2v-7h4zm39 6v4c-3 0-5 2-5 5v7c0 2-2 4-4 4V43h3v2h0c1-1 2-2 5-2zm-83 3c-4 0-8 4-7 9 1 3 4 5 7 5 4 0 7-3 7-7s-3-7-7-7zm59 0c-4 0-7 4-7 8 0 3 3 6 7 6s7-3 7-7-3-7-7-7zM99 50c-2 0-7 1-7 1l-1 2h4s1 0 1 1v1l-1 1h-6l-1 3s0 1 0 0c1 0 6-1 6-1 1 0 1 1 1 2s-5 4-8 4c0 0-2 0-3-2s0-6 0-6-1-2 0-2h1l1-3s-1 0-2-1-1-1 0-2c1 0 6-1 11-1 0 0 1 0 3 2 0 0 1 1 0 1zM84 60c-1 1-2 3-4 2s-4-6-4-6l-1-2v2c0 2 0 7-1 7-1 1-2 0-2 0 0-1-1-3 0-6 0-3 1-7 2-8s2 0 2 0 1 1 3 5v1l2 3v-1s0-4-2-10v-1c0-1 1 0 1 0s3 1 4 6 0 9 0 10zM70 48s0 1-2 1c0 0-11 1-12 2v1c1 0 3 0 4 1 1 0 6 0 7 2 0 0 1 1 1 3s0 3-1 4-8 4-13-1c0 0-2-3 1-4 0 0 2-1 8 0l2 1c0 1-1 1-3 1s-3-1-3-1-2-1-3 0-1 1 0 2c2 1 8 1 10-2 0 0 1-1 0-2s-5-1-6-1-6 0-7-1c0 0-1-1 0-3s6-3 9-4c0 0 6 0 8 1v1zM52 63c-1 1-2 0-3 0 0-1-1-3-1-7s0-8 1-9 1 0 2 0c0 0 1 1 1 2v7 6zm2-19c-2 1-4 1-5 0l-1 1c-1 0-1-1-1-1v-2c-1-1-1-3-1-4s3-6 9-6c0 0 3 0 4 2h0s3 0 3 3-4 6-7 8zm-6-6c-1 1-1 2 0 2 1-1 2-3 4-4-2 0-3 1-4 2zm9-2c-2 0-5 3-7 5 2 0 7 0 8-4 0 0 1-2-2-2zm57 22c-1 2-5 7-10 6-2 4-3 8-4 13 0 0 0 1-1 1s-2-2-3-4c0-3 1-7 3-13-1-1-1-3-1-5 0 0 1-4 5-9h1v2c0 1-2 4-2 4s-1 2-1 4c2-4 8-11 11-9 1 1 2 3 2 4 0 2 0 3-1 5zm-1-6s0-1-2 0c-1 1-3 4-5 7 2 0 4-1 4-2 1-1 3-3 3-6zm-66 2c0 3-2 9-10 12-6 2-11 1-14 0v2s-2 1-3 0c0-1-1-2-1-3-7-3-10-8-10-8s-2-2 0-4c1-2 6-4 11-4 0-4 1-6 1-8 1-1 1 0 2 1s1 4 1 7c3 0 4 0 8 1s7 3 7 5-2 3-3 3-2-1-2-1c-1 0 0-1 1-1l1-1c0-1-6-2-11-2v11c4 1 6 1 6 1s13 0 14-9c0-9-13-17-24-20-10-3-16-1-17-1s0 0 0 0h2c1 0 0 1 0 1-2 1-4 0-4-1s0-2 1-3 2-1 2-1c13-4 28 4 28 4 14 7 17 16 17 19zM9 54c-1 1 0 2 0 2 3 3 6 5 9 6v-9c-5 0-8 1-9 2zm131-2v2s0 1-1 1h-9v1 7s0 1-1 1h-2v-1-7-1h-8s-1 0-1-1v-2s0-1 1-1h8c0-3-1-6-1-9h2s1 0 1 1c1 3 1 6 1 9h9s1 0 1 1z" fill="#fff"/><path d="M-64 84c-5-10-12-20-22-26-10-7-21-11-33-11-20 0-38 10-49 26v1l2 1h1c5-7 12-14 20-18s17-7 27-7c11 0 22 3 31 10 9 6 16 15 20 25 0 0 0 1 1 1h2 1v-1zm-103-9h0zm99 10z" fill="url(#x1TX)" transform="translate(193 -47)"/></g></svg></g></svg>',
+      "friendlyName": "Disney + hotstar",
+      "className": "disneyPlusHotstarButton",
+      "deviceFamily": ["amazon-fire"],
+      "amazon-fire": {
+          "appName": "Disney+ Hotstar",
+          "androidName": "in.startv.hotstar",
+          "adbLaunchCommand": "adb shell am start -n in.startv.hotstar/com.hotstar.MainActivity",
+      },
+  },
+
+
   "disney-plus-middle-east": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 436 151" width="436" height="151" xml:space="preserve"><g><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#fff;fill-rule:nonzero;opacity:1" transform="matrix(.42 0 0 .42 0 -87.004)" d="M735.8 365.7c-14.4 3.3-52.3 5.2-52.3 5.2l-4.8 15s18.9-1.6 32.7-.2c0 0 4.5-.5 5 5.1.2 5.2-.4 10.8-.4 10.8s-.3 3.4-5.1 4.2c-5.2.9-40.8 2.2-40.8 2.2l-5.8 19.5s-2.1 4.5 2.7 3.2c4.5-1.2 41.8-8.2 46.7-7.2 5.2 1.3 11 8.2 9.3 14.6-2 7.8-39.2 31.6-61.9 29.9 0 0-11.9.8-22-15.3-9.4-15.3 3.6-44.4 3.6-44.4s-5.9-13.6-1.6-18.1c0 0 2.6-2.3 10-2.9l9.1-18.9s-10.4.7-16.6-6.9c-5.8-7.3-6.2-10.6-1.8-12.6 4.7-2.3 48-10.2 77.8-9.2 0 0 10.4-1 19.3 17-.1 0 4.3 7.3-3.1 9zm-112.1 72.6c-3.8 9-13.9 18.6-26.4 12.6-12.4-6-32.1-46.3-32.1-46.3s-7.5-15-8.9-14.7c0 0-1.6-2.9-2.6 13.5s.2 48.3-6.3 53.3c-6.2 5-13.7 3-17.6-2.9-3.5-5.8-5-19.6-3.1-43.8 2.3-24.2 7.9-50 15.1-58.1 7.2-8 13-2.2 15.2-.1 0 0 9.6 8.7 25.5 34.3l2.8 4.7s14.4 24.2 15.9 24.1c0 0 1.2 1.1 2.2.3 1.5-.4.9-8.2.9-8.2s-3-26.3-16.1-70.9c0 0-2-5.6-.6-10.8 1.3-5.3 6.6-2.8 6.6-2.8s20.4 10.2 30.2 43.4c9.7 33.5 3.1 63.4-.7 72.4zM523.5 353c-1.7 3.4-2.7 8.3-11.3 9.6 0 0-82.3 5.6-86.2 11.4 0 0-2.9 3.4 1.6 4.4 4.5.9 23.1 3.4 32.1 3.9 9.6.1 42 .4 53.6 14.9 0 0 6.9 6.9 6.6 22.5-.3 16-3.1 21.6-9.3 27.4-6.5 5.4-62.3 30.4-98.3-8 0 0-16.6-18.5 5.7-32.5 0 0 16.1-9.7 57 1.7 0 0 12.4 4.5 11.8 9-.7 4.8-10.2 9.9-24 9.6-13.4-.4-23.2-6.8-21.3-5.8 1.8.7-14.4-7.8-19.4-2-5 5.3-3.8 8.6 1.1 11.9 12.5 7.1 60.8 4.6 75.2-11.4 0 0 5.7-6.5-3-11.8-8.7-5-33.6-8-43.3-8.5-9.3-.5-43.9.1-48.9-9.1 0 0-5-6.2.5-23.8 5.8-18.4 46.1-25.5 63.5-27.1 0 0 47.9-1.7 56.7 8.1-.1 0 1.1 2.3-.4 5.6zm-136 107.9c-5.8 4.3-18.1 2.4-21.6-2.4-3.5-4.3-4.7-21.4-4-48.2.7-27.1 1.3-60.7 7.1-66 6.2-5.4 10-.7 12.4 3 2.6 3.6 5.7 7.6 6.4 16.1.6 8.5 2.6 53.1 2.6 53.1s2.6 40.2-2.9 44.4zM400 317.1c-16.9 5.6-28.5 3.7-38.3-.5-4.3 7.5-6.8 9.8-10.1 10.3-4.8.5-9.1-7.2-9.9-9.7-.8-1.9-3.1-5.1-.3-12.7-9.6-8.6-10.3-20.2-8.7-28 2.4-9 18.6-43.2 67.9-47.2 0 0 24.1-1.8 28.2 11.1h.7s23.4.1 22.9 20.9c-.3 20.9-26 46.9-52.4 55.8zm-46-46.3c-5 8-5.2 12.8-2.9 16.1 5.7-8.7 16.1-22.4 31.4-32.8-11.8 1-21.7 6.1-28.5 16.7zm68.1-13.4c-15.5 2.3-39.5 23.1-50.9 40.1 17.5 3.2 48.4 2 62.1-25.9-.1 0 6.5-17.3-11.2-14.2zm420.8 161.1c-9.3 16.2-35.4 50-70.2 42.1-11.5 27.9-21.1 56-26.6 98.2 0 0-1.2 8.2-8 5.3-6.7-2.4-17.9-13.6-20.1-29.1-2.4-20.4 6.7-54.9 25.2-94.4-5.4-8.8-9.1-21.4-5.9-39.3 0 0 4.7-33.2 38-63.2 0 0 4-3.5 6.3-2.4 2.6 1.1 1.4 11.9-.7 17.1-2.1 5.2-17 31-17 31s-9.3 17.4-6.7 31.1c17.5-26.9 57.3-81.2 82-64.1 8.3 5.9 12.1 18.8 12.1 32.7-.1 12.3-3 25.3-8.4 35zm-7.2-42.6s-1.4-10.7-11.8 1.1c-9 9.9-25.2 28.6-38.3 53.9 13.7-1.5 26.9-9 30.9-12.8 6.5-5.8 21.6-21.4 19.2-42.2zm-485.5 13.6c-1.9 24.2-11.2 64.9-77.1 85-43.5 13.1-84.6 6.8-107 1.1-.5 8.9-1.5 12.7-2.9 14.2-1.9 1.9-16.1 10.1-23.9-1.5-3.5-5.5-5.3-15.5-6.3-24.4-50.4-23.2-73.6-56.6-74.5-58.1-1.1-1.1-12.6-13.1-1.1-27.8 10.8-13.3 46.1-26.6 77.9-32 1.1-27.2 4.3-47.7 8.1-57.1 4.6-10.9 10.4-1.1 15.4 6.3 4.2 5.5 6.7 29.2 6.9 48.1 20.8-1 33.1.5 56.3 4.7 30.2 5.5 50.4 20.9 48.6 38.4-1.3 17.2-17.1 24.3-23.1 24.8-6.3.5-16.1-4-16.1-4-6.7-3.2-.5-6 7.6-9.5 8.8-4.3 6.8-8.7 6.8-8.7-3.3-9.6-42.5-16.3-81.5-16.3-.2 21.5.9 57.2 1.4 78 27.3 5.2 47.7 4.2 47.7 4.2s99.6-2.8 102.6-66.4c3.1-63.7-99.3-124.8-175-144.2-75.6-19.8-118.4-6-122.1-4.1-4 2-.3 2.6-.3 2.6s4.1.6 11.2 3c7.5 2.4 1.7 6.3 1.7 6.3-12.9 4.1-27.4 1.5-30.2-4.4-2.8-5.9 1.9-11.2 7.3-18.8 5.4-8 11.3-7.7 11.3-7.7 93.5-32.4 207.4 26.2 207.4 26.2C334 301.5 352.2 364.9 350.2 389.5zM68 386.2c-10.6 5.2-3.3 12.7-3.3 12.7 19.9 21.4 44.4 34.8 67.7 43.1 2.7-36.9 2.3-49.9 2.6-68.5-36.4 2.5-57.4 8.3-67 12.7z"/><path style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#fff;fill-rule:nonzero;opacity:1" transform="matrix(.42 0 0 .42 0 -87)" d="M1040.9 378.6v13.2c0 2.9-2.3 5.2-5.2 5.2h-62.9c0 3.3.1 6.2.1 8.9 0 19.5-.8 35.4-2.7 53.3-.3 2.7-2.5 4.7-5.1 4.7h-13.6c-1.4 0-2.7-.6-3.6-1.6-.9-1-1.4-2.4-1.2-3.8 1.9-17.8 2.8-33.5 2.8-52.6 0-2.8 0-5.7-.1-8.9h-62.2c-2.9 0-5.2-2.3-5.2-5.2v-13.2c0-2.9 2.3-5.2 5.2-5.2h61.3c-1.3-21.5-3.9-42.2-8.1-63.2-.2-1.3.1-2.6.9-3.6s2-1.6 3.3-1.6h14.7c2.3 0 4.2 1.6 4.7 3.9 4.1 21.7 6.7 42.8 8 64.5h63.7c2.8 0 5.2 2.4 5.2 5.2z"/></g></svg>',
       "friendlyName": "Disney + Middle East",
@@ -4363,6 +4376,23 @@ const launcherData = {
    },
 
 
+  "somafm": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1005" height="286" viewBox="0 0 1005 286" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#ed1f24" fill-rule="nonzero"><path d="M123 92h52c8 0 15 2 21 7s9 10 9 14-1 6-3 8-5 4-8 4-6-2-9-5c-3-4-6-5-10-5h-51c-5 0-7 2-7 6 0 3 1 5 5 6l60 27c6 3 11 7 15 13s6 13 6 20c0 10-4 18-11 25s-14 10-23 10h-46c-8 0-15-2-22-7s-10-10-10-14c0-3 1-6 3-8s5-3 9-3c3 0 6 1 9 4 3 4 8 5 14 5h42c4 0 6-1 9-4 2-2 3-5 3-8 0-5-3-9-7-11l-61-28c-6-2-10-6-14-11-3-5-4-10-4-15 0-8 3-15 8-21 6-6 13-9 21-9m193 13c-10-9-19-13-30-13h-26c-11 0-21 4-30 13s-14 18-14 28v48c0 10 5 19 14 28 10 9 19 13 30 13h26c11 0 20-4 30-13s14-18 14-28v-48c0-10-4-20-14-28m-73 20l8-7c3-2 7-3 12-3h23c4 0 7 1 10 3l7 6c3 3 5 6 5 10v46c0 4-2 7-5 9l-6 6c-3 3-7 4-11 4h-26c-3 0-6 0-8-2l-8-7c-3-3-5-6-5-10v-46c0-4 1-7 4-9m107 86V103c0-3 1-5 3-8 3-2 5-3 8-3 6 0 10 3 12 9 6-6 13-9 21-9 9 0 16 4 22 12 7-8 15-12 24-12 6 0 13 2 18 7s8 12 8 19l3 93c0 3-1 5-3 8-2 2-5 3-8 3s-6-1-8-3c-2-3-4-5-4-8l-2-89c-1-4-2-7-5-7-1 0-3 1-5 2l-13 11v83c0 3-1 6-3 8-3 2-5 3-8 3-4 0-6-1-8-3-3-2-4-5-4-8v-90c0-4-1-6-5-6-1 0-3 1-4 2l-16 14v80c0 3-1 5-4 8-2 2-4 3-7 3-4 0-6-1-9-3-2-3-3-5-3-8m144-60c-7 6-10 14-10 24v13c0 9 3 17 10 24s15 10 24 10h39l19-11c0 3 1 5 3 8 2 2 5 3 8 3s6-1 8-3c3-2 4-5 4-8l-3-85c0-10-4-18-10-24-7-7-15-10-24-10h-43c-4 0-6 1-9 3-2 3-3 5-3 8s1 6 3 8c3 3 5 4 9 4h43c3 0 5 1 8 3 2 2 3 5 3 8v16c-4-1-8-1-10-1h-45c-9 0-17 3-24 10m56 48h-32c-3 0-5-2-8-4-2-2-3-5-3-8v-12c0-3 1-6 3-8 3-2 5-3 8-3h45c3 0 6 1 8 3s3 5 3 8l1 9zm177-84v96c0 3-1 6-4 8-2 2-5 3-8 3s-6-1-8-3-3-5-3-8v-96h-12c-3 0-6-1-8-4-2-2-3-5-3-8s1-5 3-8c2-2 5-3 8-3h12v-9c0-11 4-21 12-29 8-7 18-11 30-11h26c3 0 6 1 8 3 3 3 4 5 4 9 0 3-2 5-4 8-2 2-5 3-8 3h-26c-6 0-10 2-14 5-3 3-5 7-5 12v9h23c3 0 5 1 8 3 2 2 3 5 3 8s-1 6-3 8c-3 3-5 4-8 4zm50 96V103c0-3 1-5 3-8 3-2 5-3 9-3 5 0 9 3 11 9 6-6 13-9 21-9 9 0 16 4 22 12 7-8 15-12 24-12 6 0 13 2 18 7s8 12 8 19l3 93c0 3-1 5-3 8-2 2-5 3-8 3s-6-1-8-3c-2-3-4-5-4-8l-2-89c-1-4-2-7-5-7-1 0-3 1-5 2l-13 11v83c0 3-1 6-3 8-3 2-5 3-8 3-4 0-6-1-8-3-3-2-4-5-4-8v-90c0-4-1-6-5-6-1 0-3 1-4 2l-16 14v80c0 3-1 5-4 8-2 2-4 3-7 3-4 0-6-1-9-3-2-3-3-5-3-8"/></svg>',
+      "friendlyName": "SomaFM",
+      "className": "somaFMButton",
+      "deviceFamily": ["amazon-fire", "roku"],
+      "amazon-fire": {
+          "appName": "com.somafm.tv",
+          "androidName": "com.somafm.tv",
+          "adbLaunchCommand": "adb shell am start -n com.somafm.tv/tv.somafm.com.somafm.ui.tv.TvBrowseActivity",
+      },
+      "roku": {
+          "appName": 'SomaFM',
+          "app-id": 2941,
+      },
+   },
+
+
   "sony-liv": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="410" height="275" viewBox="0 0 410 275" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="IRLw" cx="50%" cy="50%" r="89%" fx="61.8%" fy="57.1%"><stop offset="28%" stop-color="#fda30f"/><stop offset="59%" stop-color="#ffe758"/></radialGradient><linearGradient id="d29U" x1="39%" y1="0%" x2="61%" y2="100%"><stop offset="0%" stop-color="#ffe758" stop-opacity=".25"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient><linearGradient id="vjBm" x1="17%" y1="0%" x2="83%" y2="100%"><stop offset="0%" stop-color="#d16e00"/><stop offset="49%" stop-color="#ffe758"/></linearGradient><linearGradient id="hpsy" x1="0%" y1="67%" x2="100%" y2="33%"><stop offset="17%" stop-color="#d16e00"/><stop offset="82%" stop-color="#ffe758"/></linearGradient><linearGradient id="oabs" x1="33%" y1="0%" x2="67%" y2="100%"><stop offset="0%" stop-color="#fafafa"/><stop offset="38%" stop-color="#fda30f"/></linearGradient><linearGradient id="nxrd" x1="100%" y1="89%" x2="0%" y2="11%"><stop offset="0%" stop-color="#d16e00" stop-opacity=".64"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient></defs><g stroke-linejoin="miter"><path d="M 381 61 C 359 107 337 154 316 200 C 307 222 303 230 299 238 C 289 254 262 258 241 245 C 235 241 231 236 228 229 C 215 200 201 171 187 142 C 185 139 185 135 185 131 C 186 129 187 128 189 127 C 214 124 242 135 251 151 C 257 162 263 173 269 185 C 279 161 290 137 301 114 C 326 61 331 50 336 40 C 345 24 372 16 398 20 C 400 20 398 23 398 24 L 381 61" fill="url(#IRLw)" opacity=".965" stroke="url(#d29U)" stroke-linecap="butt" stroke-width="3"/><g fill="#fda30f"><path d="M 106 112 C 122 112 137 112 152 113 C 158 113 158 114 158 117 C 158 162 158 206 158 250 C 158 254 156 254 154 254 C 137 254 121 254 104 254 C 102 254 102 253 102 251 C 101 206 101 161 102 116 C 102 112 102 112 106 112 Z" opacity=".985" stroke="url(#vjBm)" stroke-width="4"/><path d="M 106 70 C 106 70 154 70 154 70 C 158 70 159 72 159 74 C 159 74 159 94 159 95 C 159 99 158 99 154 99 C 153 99 106 99 106 99 C 102 99 102 97 102 95 C 102 95 102 75 102 74 C 102 70 103 70 106 70 Z" opacity=".953" stroke="url(#hpsy)" stroke-width="3"/></g><path d="M 21 27 C 38 27 55 27 71 28 C 73 28 74 28 74 30 C 75 104 74 177 74 251 C 74 253 73 254 71 253 C 54 254 38 254 21 253 C 19 253 18 252 18 250 C 17 177 17 104 18 31 C 17 29 18 27 21 27 Z" fill="url(#oabs)" opacity=".989" stroke="url(#nxrd)" stroke-width="4"/></g></svg>',
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="850" height="850" viewBox="0 0 850 850" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="a1t1" cx="50%" cy="50%" r="83%" fx="40.4%" fy="100.0%"><stop offset="40%" stop-color="red"/><stop offset="57%" stop-color="#ff8600"/><stop offset="95%" stop-color="#d9ff00" stop-opacity=".01"/></radialGradient><radialGradient id="Jgsx" cx="50%" cy="50%" r="58%" fx="0.9%" fy="31.4%"><stop offset="20%" stop-color="#00c6ff"/><stop offset="64%" stop-color="#001dbd"/><stop offset="100%" stop-color="#001dbd" stop-opacity="0"/></radialGradient><radialGradient id="UJJo" cx="50%" cy="50%" r="63%" fx="66.2%" fy="40.0%"><stop offset="48%" stop-color="#eb42be"/><stop offset="84%" stop-color="#f0b" stop-opacity=".03"/></radialGradient><radialGradient id="TDmW" cx="50%" cy="50%" r="74%" fx="2.2%" fy="100.0%"><stop offset="49%"/><stop offset="78%" stop-color="#404040" stop-opacity="0"/></radialGradient><radialGradient id="VHtZ" cx="50%" cy="50%" r="58%" fx="29.8%" fy="34.3%"><stop offset="7%"/><stop offset="81%" stop-color="#404040" stop-opacity="0"/></radialGradient><linearGradient id="k4oa" x1="78%" y1="0%" x2="22%" y2="100%"><stop offset="49%"/><stop offset="63%" stop-opacity=".61"/></linearGradient><linearGradient id="y05n" x1="39%" y1="0%" x2="61%" y2="100%"><stop offset="0%" stop-color="#ffe758" stop-opacity=".25"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient><radialGradient id="gU42" cx="50%" cy="50%" r="89%" fx="61.8%" fy="57.1%"><stop offset="28%" stop-color="#fda30f"/><stop offset="59%" stop-color="#ffe758"/></radialGradient><linearGradient id="Ly5r" x1="17%" y1="0%" x2="83%" y2="100%"><stop offset="0%" stop-color="#d16e00"/><stop offset="49%" stop-color="#ffe758"/></linearGradient><linearGradient id="EXRV" x1="0%" y1="67%" x2="100%" y2="33%"><stop offset="17%" stop-color="#d16e00"/><stop offset="82%" stop-color="#ffe758"/></linearGradient><linearGradient id="vJGx" x1="100%" y1="89%" x2="0%" y2="11%"><stop offset="0%" stop-color="#d16e00" stop-opacity=".64"/><stop offset="35%" stop-color="#ffe758" stop-opacity=".93"/></linearGradient><linearGradient id="YEPz" x1="33%" y1="0%" x2="67%" y2="100%"><stop offset="0%" stop-color="#fafafa"/><stop offset="38%" stop-color="#fda30f"/></linearGradient></defs><g stroke="none"><rect x="57" y="57" width="735" height="735" rx="60"/><rect fill="url(#a1t1)" height="305" rx="60" width="380" x="410" y="485"/><rect fill="url(#Jgsx)" height="690" rx="5" width="350" x="60" y="95"/><rect fill="url(#UJJo)" height="355" rx="5" width="560" x="210" y="315"/><rect fill="url(#TDmW)" height="383" rx="60" width="730" x="60" y="410"/><ellipse cx="281" cy="113" fill="url(#VHtZ)" rx="281" ry="113" transform="matrix(.866025 -.5 .5 .866025 9.146862 660.639129)"/><path d="M109 54l631 1c32 4 50 22 54 54v631c-4 32-22 50-54 55H109c-32-5-50-23-54-55V109c4-32 22-50 54-55zM63 276c9 35 30 62 60 82 31 19 63 33 98 41 39 10 78 17 118 22l174 20c54 6 107 18 159 36 31 11 58 28 81 50 17 18 28 40 33 64 1 51 1 102 0 153-5 23-19 37-42 42H105c-23-5-37-19-42-42V276z" opacity=".982" fill="url(#k4oa)"/></g><g stroke-linejoin="miter"><path d="M 595 552 C 573 598 551 645 530 691 C 521 713 517 721 513 729 C 503 745 476 749 455 736 C 449 732 445 727 442 720 C 429 691 415 662 401 633 C 399 630 399 626 399 622 C 400 620 401 619 403 618 C 428 615 456 626 465 642 C 471 653 477 664 483 676 C 493 652 504 628 515 605 C 540 552 545 541 550 531 C 559 515 586 507 612 511 C 614 511 612 514 612 515 L 595 552" opacity=".965" stroke-linecap="butt" stroke-width="3" stroke="url(#y05n)" fill="url(#gU42)"/><g fill="#fda30f"><path d="M 321 602 C 337 602 352 602 367 603 C 373 603 373 604 373 607 C 373 652 373 696 373 740 C 373 744 371 744 369 744 C 352 744 336 744 319 744 C 317 744 317 743 317 741 C 316 696 316 651 317 606 C 317 602 317 602 321 602 Z" opacity=".985" stroke="url(#Ly5r)" stroke-width="4"/><path d="M 320 560 C 320 560 368 560 368 560 C 372 560 373 562 373 564 C 373 564 373 584 373 585 C 373 589 372 589 368 589 C 367 589 320 589 320 589 C 316 589 316 587 316 585 C 316 585 316 565 316 564 C 316 560 317 560 320 560 Z" opacity=".953" stroke="url(#EXRV)" stroke-width="3"/></g><path d="M 236 518 C 253 518 270 518 286 519 C 288 519 289 519 289 521 C 290 595 289 668 289 742 C 289 744 288 745 286 744 C 269 745 253 745 236 744 C 234 744 233 743 233 741 C 232 668 232 595 233 522 C 232 520 233 518 236 518 Z" opacity=".989" stroke="url(#vJGx)" fill="url(#YEPz)" stroke-width="4"/></g><path d="M569 168v11h10c5 0 8 3 10 4 1 2 31 36 32 37s1 1 1 2v17 2c-1 1-2 2-3 2h-3-10v11h59v-11h-12-2c-2 0-2-1-3-2v-2-17-2l33-37c3-4 5-4 8-4h11v-11h-48v11h7c1 0 2 0 2 1v2s-20 24-21 24l-20-24c-2-2-1-3 1-3h7v-11zm-144 0v11h9c7 0 8 3 8 7v50c0 3 0 7-5 7h-11v11h49v-11h-12c-5 0-5-2-5-7v-43l68 61h17l-1-69c1-5 1-6 6-6h11v-11h-51v11h12c5 0 5 2 6 6v36l-59-53zm-223-5c-10 0-23 2-33 7-9 4-17 11-17 22 0 6 2 12 6 16 3 3 8 7 19 9 5 1 16 3 27 4 11 2 22 3 27 4 3 1 9 2 9 8 0 7-6 9-7 9-1 1-9 4-22 4-9 0-18-1-26-4-5-2-10-4-15-10-2-3-3-6-3-10h-12v34h13v-5s0-1 1-1c1-1 1-1 2 0 6 3 13 5 20 6 7 2 11 3 20 3s18-1 27-4c6-2 12-5 16-8 6-4 9-11 9-18 0-6-2-13-7-17-2-3-5-5-9-6-3-2-7-3-10-4-7-2-23-4-30-5-8 0-22-2-27-3-2-1-5-2-5-6 0-3 1-5 4-7 5-3 15-5 25-5s20 2 29 5c2 1 4 3 6 4 4 3 6 7 7 12h11v-30h-12v4c0 1-1 2-3 1-6-3-21-9-40-9zm145 0c-19 0-39 7-50 17-9 8-14 19-14 31s5 24 14 32c12 11 30 17 50 17s39-6 51-17c9-9 14-20 14-32s-5-23-14-31c-13-12-30-17-51-17zm0 13c11 0 21 3 28 10 6 6 9 15 9 25s-3 19-9 25c-7 7-17 11-28 11-10 0-20-4-27-11-6-6-10-15-10-25s4-19 10-25c7-7 17-10 27-10z" stroke="none" fill-rule="nonzero"/></svg>',
@@ -5260,6 +5290,17 @@ const launcherData = {
    },
 
 
+  "tv2-play-norway": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="455" viewBox="0 0 1100 455" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M192 50c81 0 139 58 139 142v35h-71v-35c0-45-28-73-68-73-41 0-69 28-69 73H52c0-84 58-142 140-142zM52 403h279v-67H138l99-109h-86L52 335zm415-286v218h43v-77h48c15 0 29-3 41-9 11-6 20-14 27-25 6-10 9-23 9-37s-3-26-9-37c-7-10-16-19-27-24-12-6-26-9-41-9zm90 101h-47v-61h47c11 0 19 3 25 9 7 5 10 12 10 21 0 10-3 17-10 23-6 5-14 8-25 8zm99-101v218h40V117zm80 209c9 8 22 12 39 12 27 0 45-12 56-36h2v33h37v-98c0-21-6-37-18-49-11-11-28-17-51-17-21 0-37 5-50 15-12 9-20 22-21 39h39c2-6 5-11 11-14 5-4 12-5 21-5s16 1 21 5c5 3 8 8 8 13 0 6-3 10-9 13-7 3-18 4-35 4-20 0-36 4-47 13-12 8-17 20-17 35 0 16 5 28 14 37zm30-24c-4-3-6-7-6-14 0-6 2-10 7-14 4-3 11-4 20-4 18 0 33-3 43-9l-1 7c-4 14-10 24-18 30s-17 9-27 9c-8 0-14-2-18-5zm114 61v37h47c14 0 24-2 31-7s13-14 18-27l71-192h-44l-39 120h-3l-44-120h-44l70 170-6 19z"/></svg>',
+      "friendlyName": "TV 2 Play (Norway)",
+      "className": "tv2PlayNorwayButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "TV 2 Play",
+      },
+   },
+
+
   "tv4-play": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="902" height="668" viewBox="0 0 902 668" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M443.5 459.5h-47.8V52.3c0-3.3-2-6-5.2-7-3-1-6.3.2-8 3L51.2 538c-1.5 2.2-1.6 5-.3 7.5 1.2 2.4 3.7 4 6.4 4h244.4v55.2c0 3.8 3.4 7.2 7.3 7.2h79.4c4 0 7.3-3.4 7.3-7.2v-55.2h47.8c4.2 0 7.3-3.2 7.3-7.4v-75c0-4-3-7.4-7.3-7.4m-142 .3h-92l92-136zm543.8-109L607 488.7c-1.2.6-2.6.5-3.6-.4s-1.3-2.3-.8-3.5l2.3-5.4a354 354 0 0 0 0-272.5l-2.5-6c-.5-1.2-.1-2.5.8-3.4 1-.8 2.4-1 3.5-.3L845.3 335c6.2 3.6 6.2 12.5 0 16z"/></svg>',
       "friendlyName": "TV4 Play",
@@ -5970,10 +6011,31 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="870" viewBox="0 0 2500 870" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M804 731c10 10 15 23 15 36 0 16-7 29-15 37-15 15-36 31-63 42-23 10-48 15-74 15H194c-54 0-102-22-137-57S0 721 0 667V194C0 140 22 92 57 57S140 0 194 0h473c26 0 51 5 74 15 31 13 52 29 71 50 8 8 15 20 15 36 0 13-5 26-15 36s-23 15-36 15c-14 0-27-5-37-15-13-14-21-21-36-27-12-5-24-8-36-8H194c-25 0-48 11-65 27-16 17-26 39-26 65v473c0 25 10 48 26 65 17 16 40 26 65 26h473c13 0 25-2 36-7s20-11 29-20c10-9 23-15 36-15 14 0 27 6 36 15zm-138-61c-2-37-28-95-91-102H349l260-249c11-11 36-46 18-85-14-30-37-43-79-43H224c2 43 23 94 80 103h185L216 551c-11 11-30 44-15 77 13 30 35 42 75 42h390zm741-234v190c0 71-22 132-71 181-44 44-99 63-160 63-120 0-182-93-182-93 32-32 77-52 121-26 7 5 30 17 61 17 111 0 129-99 129-129-38 24-82 35-130 35h0c-63 0-117-20-163-59h-1c-45-43-68-96-68-158v-63c0-60 23-113 68-156 46-44 101-66 164-66h0c84 0 146 41 174 76 8 9 12 20 12 33 0 14-6 27-15 36-10 10-23 15-37 15s-27-6-36-15c-32-33-62-43-98-43-35 0-65 11-90 36-26 24-38 51-38 85v61c0 36 12 63 37 87 27 24 56 36 91 36s65-12 91-36c14-13 24-28 30-44 5-13 15-40 49-53 29-12 62-10 62-10zm484 10c-34 13-44 40-49 53-6 16-16 31-30 44-26 24-56 36-91 36-34 0-64-12-90-36s-37-51-38-87v-61c1-34 13-61 38-85 25-25 55-37 90-37 36 1 66 11 98 44 9 9 22 15 37 15 14 0 27-6 36-15 10-10 15-23 15-36s-4-24-11-33c-29-35-91-76-175-76h0c-63 0-118 22-164 66-45 43-68 96-68 156v63c1 62 24 115 68 158h1c46 39 101 59 163 59h0c49 0 92-11 130-35 0 30-18 129-129 129-31 0-53-12-61-17-44-26-88-6-121 26 0 0 62 93 182 93 61 0 117-19 161-63 49-49 70-110 70-181V436s-33-2-62 10zm609-51c0-61-23-114-68-157-46-44-101-66-164-66h0c-64 0-119 22-164 66-45 43-68 96-68 156-1 10-1 50 0 63 0 62 23 115 68 158h0c46 39 101 59 164 59h0c62 0 117-20 163-59h1c44-43 67-96 68-158v-62m-232 184c-35 0-65-12-91-36-25-24-37-51-37-87-1-14-1-46 0-61 0-34 12-61 37-85 25-25 55-36 91-36 35 0 65 11 90 36 25 24 37 51 38 85v62c-1 35-12 62-37 86-27 24-57 36-91 36M861 191c-54 0-103 45-103 93v386c54 0 103-45 103-93V191z" stroke="none" fill="#f48c00" fill-rule="nonzero"/></svg>',
       "friendlyName": "Ziggo Go",
       "className": "ziggoGoButton",
-      "appName": "com.ziggo.tv",
-      "androidName": "com.ziggo.tv",
-      "adbLaunchCommand": "adb shell am start -n com.ziggo.tv/com.libertyglobal.horizonx.MainActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.ziggo.tv",
+          "androidName": "com.ziggo.tv",
+          "adbLaunchCommand": "adb shell am start -n com.ziggo.tv/com.libertyglobal.horizonx.MainActivity",
+      },
+      "apple-tv": {
+          "appName" : "Ziggo GO TV",
+      },
+      "chromecast": {
+          "appName": "com.ziggo.tv",
+          "androidName": "com.ziggo.tv",
+          "adbLaunchCommand": "adb shell am start -n com.ziggo.tv/com.libertyglobal.horizonx.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.ziggo.tv",
+          "androidName": "com.ziggo.tv",
+          "adbLaunchCommand": "adb shell am start -n com.ziggo.tv/com.libertyglobal.horizonx.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "com.ziggo.tv",
+          "androidName": "com.ziggo.tv",
+          "adbLaunchCommand": "adb shell am start -n com.ziggo.tv/com.libertyglobal.horizonx.MainActivity",
+      },
+  },
 
 
   "function-app-switch": {
@@ -6506,6 +6568,10 @@ const launcherCSS = `
           }
           .ON1 .disneyPlusButton > svg > g > * {
             fill: #0c2661 !important;
+          }
+
+          .disneyPlusHotstarButton {
+            background: linear-gradient(0deg, rgba(27,91,191,1) 0%, rgba(6,9,43,1) 100%);
           }
 
           .dogTVButton {
@@ -7183,6 +7249,10 @@ const launcherCSS = `
             background: #000;
           }
 
+          .somaFMButton {
+            background: #000;
+          }
+
           .sonyLivButton {
             background: #000;
           }
@@ -7361,6 +7431,10 @@ const launcherCSS = `
 
           .tv2PlayButton {
             background: #000523;
+          }
+
+          .tv2PlayNorwayButton {
+            background: #6f02ff;
           }
 
           .tv4PlayButton {
