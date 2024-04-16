@@ -3,7 +3,7 @@ import {launcherData, launcherCSS} from './launcher-buttons.js';
 import {rosettaStone} from './language-translations.js';
 import {devices} from './supported-devices.js';
 
-const HAFiremoteVersion = 'v3.3.3';
+const HAFiremoteVersion = 'v3.4.0b1';
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -2502,6 +2502,7 @@ class FiremoteCard extends LitElement {
   `;
 
     getState() {
+      if(this._config.device_family === 'none' || this._config.entity === 'none') { return; }
       if(this._config.android_tv_remote_entity == '' || typeof this._config.android_tv_remote_entity == 'undefined' || this._config.device_family == 'amazon-fire' ) {
         return this.hass.states[this._config.entity];
       }
@@ -2511,7 +2512,8 @@ class FiremoteCard extends LitElement {
     }
 
     getOpenAppID() {
-      if(this._config.device_family == 'roku') {
+      if(this._config.device_family === 'none' || this._config.entity === 'none') { return; }
+      else if(this._config.device_family == 'roku') {
         return this.hass.states[this._config.entity].attributes.app_name;
       }
       else if(this._config.android_tv_remote_entity == '' || typeof this._config.android_tv_remote_entity == 'undefined' || this._config.device_family == 'amazon-fire' ) {
@@ -2524,14 +2526,13 @@ class FiremoteCard extends LitElement {
       }
     }
 
-
    render() {
     if (!this.hass || !this._config) {
       return html``;
     }
 
     const stateObj = this.hass.states[this._config.entity];
-    if (!stateObj) {
+    if (!stateObj && this._config.entity != 'none') {
       return html` <ha-card>Unknown entity: ${this._config.entity}</ha-card> `;
     }
     const entityId = this._config.entity;
@@ -4660,9 +4661,6 @@ class FiremoteCard extends LitElement {
       return;
     }
 
-    // provide haptic feedback for button press
-    fireEvent(this, 'haptic', 'light')
-
     // Check for user set Associated Android TV Remote Integration entity
     var hasATVAssociation = true;
     if(atvRemoteEntity == '' || typeof atvRemoteEntity == 'undefined' || deviceFamily == 'amazon-fire' ) {
@@ -4677,6 +4675,15 @@ class FiremoteCard extends LitElement {
     else {
         var eventListenerBinPath = '/dev/input/'+compatibility_mode;
     }
+
+    // Catch-all for none/other configurations where a button hasn't been defined in YAML config
+    if(this._config.entity === 'none') {
+        unsupportedButton();
+        return;
+    }
+
+    // provide haptic feedback for button press
+    fireEvent(this, 'haptic', 'light')
 
     // Power Button
     if(clicked.target.id == 'power-button') {
@@ -5665,6 +5672,11 @@ class FiremoteCardEditor extends LitElement {
 
 
   getMediaPlayerEntityDropdown(optionValue){
+    if(['none'].includes(this._config.device_family)) { 
+      this._config.entity = 'none';
+      this.configChanged;
+      return;
+    }
     var mediaPlayerEntities = [];
     var heading = '';
     if(this._config.device_family == 'apple-tv') {
@@ -5708,12 +5720,12 @@ class FiremoteCardEditor extends LitElement {
 
 
   getAssociatedRemoteEntityDropdown(optionValue){
-    if(this._config.device_family == 'amazon-fire') { return; }
+    if(['amazon-fire', 'none'].includes(this._config.device_family)) { return; }
     var blankRemoteEntity = '';
     var remoteEntities = [];
     var appleTVRemoteEntities = this.getRemoteEntitiesByPlatform('apple_tv');
     if(this._config.device_family == 'apple-tv') {
-        var dropdownLabel = this.translateToUsrLang('Associated') + ' Apple TV Remote ' + this.translateToUsrLang('Entity') + ':';
+        var dropdownLabel = this.translateToUsrLang('Associated') + ' Apple TV Remote ' + this.translateToUsrLang('Entity');
         dropdownLabel = this.hass.config.language == 'he' ?  'ישות משויכת ל-' + 'Apple TV Remote ' : dropdownLabel;
         if(this._config.apple_tv_remote_entity == '' || typeof this._config.apple_tv_remote_entity == 'undefined') {
             blankRemoteEntity = html `<option value="" selected> - - - - </option> `;
@@ -5791,7 +5803,15 @@ class FiremoteCardEditor extends LitElement {
   }
 
 
-  getDeviceTypeDropdown(optionValue){
+  getDeviceTypeDropdown(optionValue, dropdownLabel){
+    if (this._config.device_family === 'none') {
+      this._config.device_type = 'other';
+      this._config.entity = 'none';
+      delete this._config['apple_tv_remote_entity'];
+      delete this._config['android_tv_remote_entity'];
+      this.configChanged;
+      return;
+    }
     var family = this._config.device_family;
     var optionMenu = String();
     Object.entries(devices).forEach(deviceFamily => {
@@ -5826,6 +5846,7 @@ class FiremoteCardEditor extends LitElement {
       }
     })
     return html `
+      ${dropdownLabel}:<br>
       <select name="device_type" id="device_type" style="padding: .6em; font-size: 1em;"
         .value=${this._config.device_type}
         @focusout=${this.configChanged}
@@ -5834,12 +5855,13 @@ class FiremoteCardEditor extends LitElement {
         ${unsafeHTML(optionMenu)}
       </select>
       <br>
+      <br>
     `;
   }
 
 
   getCompatibilityModeDropdown(optionValue, deviceFriendlyName){
-    if(['apple-tv', 'chromecast', 'nvidia-shield', 'onn', 'roku'].includes(this._config.device_family)) { return; }
+    if(['apple-tv', 'chromecast', 'nvidia-shield', 'onn', 'roku', 'none'].includes(this._config.device_family)) { return; }
     if(['xiaomi-tv-stick-4k', 'fire_tv_stick_4k_max_second_gen', 'fire_tv_stick_4k_second_gen'].includes(this._config.device_type)) { return; }
     var heading = this.translateToUsrLang('Compatibility Mode');
     return html`
@@ -5873,6 +5895,7 @@ class FiremoteCardEditor extends LitElement {
 
 
   getAppChoiceOptionMenus(remoteStyle) {
+    if(['none'].includes(this._config.device_family)) { return; }
     var family = this._config.device_family;
     if(appButtonMax[remoteStyle]) {
       var appkeys = [];
@@ -5889,6 +5912,7 @@ class FiremoteCardEditor extends LitElement {
       }
 
       return html `
+        <br>
         ${optionkeys.map((optionnumber) => {
           var blankOption = html `<option value=""> - - - - </option>`;
           if(!(appmap.has(optionvalue))){
@@ -6005,8 +6029,7 @@ class FiremoteCardEditor extends LitElement {
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
         <br>
 
-        ${deviceModelSelectorLabel}:<br>
-        ${this.getDeviceTypeDropdown(this._config.device_type)}`;
+        ${this.getDeviceTypeDropdown(this._config.device_type, deviceModelSelectorLabel)}`;
     }
     else {
 
@@ -6015,10 +6038,7 @@ class FiremoteCardEditor extends LitElement {
         ${this.getDeviceFamiliesDropdown(this._config.device_family)}
         <br>
 
-        ${deviceModelSelectorLabel}:<br>
-        ${this.getDeviceTypeDropdown(this._config.device_type)}
-        <br>
-
+        ${this.getDeviceTypeDropdown(this._config.device_type, deviceModelSelectorLabel)}
 
         ${this.getMediaPlayerEntityDropdown(this._config.entity)}
 
@@ -6069,7 +6089,7 @@ class FiremoteCardEditor extends LitElement {
         <br>
         <br>
         ${this.getCompatibilityModeDropdown(this._config.compatibility_mode, getDeviceAttribute('friendlyName'))}
-        <br>
+
         ${this.getAppChoiceOptionMenus(getDeviceAttribute("defaultRemoteStyle"))}
         <br>
         <hr>

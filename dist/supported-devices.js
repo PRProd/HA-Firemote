@@ -435,6 +435,29 @@ const devices = {
 
   },
 
+
+
+
+  "none": {
+
+    "meta": {
+      "friendlyName": "None / Other",
+      "supported": true,
+    },
+
+
+    "noCategory": {
+
+      "other": {
+        "supported": true,
+        "friendlyName": "None / Other",
+        "defaultRemoteStyle" : "AF5",
+        "hdmiInputs": 0,
+      },
+    },
+
+  },
+
 }
 
 export { devices }; 
