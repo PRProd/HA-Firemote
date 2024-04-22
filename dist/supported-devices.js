@@ -14,6 +14,7 @@ const devices = {
         "defaultEventListenerBinPath": "/dev/input/event0",
         "defaultRemoteStyle": "AF5",
         "hdmiInputs": 4,
+        "tuner": true,
       },
       "fire_tv_hisense_u6_4k_uhd_2022": {
         "supported": false,
@@ -21,6 +22,7 @@ const devices = {
         "defaultEventListenerBinPath": "/dev/input/event0",
         "defaultRemoteStyle": "AF5",
         "hdmiInputs": 4,
+        "tuner": true,
       },
       "fire_tv_jvc-4k-2021": {
         "supported": true,
@@ -28,6 +30,7 @@ const devices = {
         "defaultEventListenerBinPath": "/dev/input/event0",
         "defaultRemoteStyle": "AFJTV",
         "hdmiInputs": 4,
+        "tuner": true,
       },
       "fire_tv_toshiba_v35": {
         "supported": true,
@@ -35,6 +38,7 @@ const devices = {
         "defaultEventListenerBinPath": "/dev/input/event0",
         "defaultRemoteStyle": "AF5",
         "hdmiInputs": 4,
+        "tuner": true,
       },
     },
 
@@ -395,7 +399,6 @@ const devices = {
   },
 
 
-
   "xiaomi": {
 
     "meta": {
@@ -436,15 +439,12 @@ const devices = {
   },
 
 
-
-
   "none": {
 
     "meta": {
       "friendlyName": "None / Other",
       "supported": true,
     },
-
 
     "noCategory": {
 

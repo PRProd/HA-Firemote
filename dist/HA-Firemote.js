@@ -1,9 +1,10 @@
-import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from './launcher-buttons.js';
-import {rosettaStone} from './language-translations.js';
-import {devices} from './supported-devices.js';
+const HAFiremoteVersion = 'v3.4.0';
 
-const HAFiremoteVersion = 'v3.4.0b1';
+import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.0";
+import {rosettaStone} from './language-translations.js?version=v3.4.0';
+import {devices} from './supported-devices.js?version=v3.4.0';
+
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
@@ -135,6 +136,14 @@ function handleTunerInputs(config, tunerInput) {
     if (config.device_family == "roku" && (tunerInput == true || tunerInput == 'true')) {
         appmap.set("tuner_input", {"button": "TV Tuner", "friendlyName": "TV Tuner", "remoteCommand": '{"command": "input_tuner", "num_repeats": 1, "hold_secs": 0}'});
         //appmap.set("roku-tv-channel", {"button": "Channel", "friendlyName": "Function: Input TV Channel"});
+        return;
+    }
+    if (config.device_family == "amazon-fire" && (tunerInput == true || tunerInput == 'true')) {
+        appmap.set("tuner_input", {"button": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="650" height="200" viewBox="0 0 650 200" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g stroke="none" fill="#fff" fill-rule="nonzero"><path d="M24.387 146.275l9.642 11.491c.643.766 2.694 1.655 4.226.37l45.963-38.567h0c1.286 1.532 3.46 1.013 4.226.37l17.619-14.784 9.862.863c.766-.643 2.175-.52 2.175-.52l7.66-6.428.643.766c1.286 1.532 2.694 1.655 4.226.37l19.917-16.712c1.532-1.286 1.655-2.694.37-4.226l-10.285-12.257 17.619-14.784c1.532-1.286 3.187-3.98 2.668-6.155s-2.448-4.473-4.5-5.362c-2.694-1.655-5.635-.493-7.167.793l-17.619 14.784-10.285-12.257c-1.286-1.532-2.694-1.655-4.226-.37L97.205 60.37c-1.532 1.286-1.655 2.694-.37 4.226l1.286 1.532-7.66 6.428-1.532 1.286-.863 9.862-17.619 14.784c-.766.643-1.655 2.694-.37 4.226l.643.766-45.963 38.567c-1.532 1.286-1.655 2.694-.37 4.226zm76.288-44.432l-13.789 11.57-10.285-12.257 13.789-11.57zm-64.744 50.41l-5.785-6.894 44.431-37.282 5.785 6.894zm92.375-57.93l-3.214-3.83 16.087-13.499 3.214 3.83zM117.378 81.3l16.087-13.499 3.857 4.596-16.087 13.499zm-7.713-9.193l16.087-13.499 3.857 4.596-16.087 13.499zm43.445-26.011c.766-.643.766-.643 1.409.123s.643.766-.123 1.409l-17.619 14.784-1.286-1.532zm-34.428 4.086l3.857 4.596-16.087 13.499-3.857-4.596zm-16.703 20.543l19.926 23.747-6.894 5.785-8.453-.74L93.7 84.197l1.382-7.687zM249 141l-9-22h-35l-8 22h-12l33-85h9l33 85h-11zm-26-71l-15 40h29l-14-40z"/><use xlink:href="#oVi3"/><path d="M340 63h10v15h12v9h-12v39q0 4 2 6 2 2 5 2 2 0 6-1v9q-5 1-9 1-7 0-11-4-3-5-3-13V87h-12v-9h12V63zm62 80q-13 0-21-9-8-8-8-22v-2q0-10 4-17 3-8 10-12 6-4 14-4 12 0 19 8 7 8 7 23v5h-43q0 9 5 15 6 6 14 6 5 0 9-2 4-3 7-7l7 5q-8 13-24 13zm-1-57q-7 0-11 5-5 4-6 13h32v-1q-1-8-5-13-3-4-10-4z"/><use xlink:href="#oVi3" x="169"/><use xlink:href="#oVi3" x="235"/><path d="M621 142h-11q-1-2-2-7-7 8-18 8-9 0-15-6-6-5-6-13 0-10 8-15 7-6 21-6h10v-5q0-6-3-9-4-3-10-3-6 0-10 3-4 3-4 7h-11q0-5 4-9 3-5 9-7 6-3 12-3 11 0 18 5 6 6 6 16v29q0 8 2 14v1zm-29-9q5 0 10-2 4-3 6-7v-13h-8q-20 0-20 11 0 6 3 8 4 3 9 3z"/></g><defs ><path id="oVi3" d="M270 78h10l1 8q7-9 19-9 20 0 20 23v42h-11v-42q0-7-3-11-3-3-10-3-5 0-9 3-4 3-6 7v46h-11V78z"/></defs></svg>',
+                                   "friendlyName": "Antenna",
+                                   "androidName": "com.amazon.tv.livetv",
+                                   "adbLaunchCommand": "adb shell input keyevent KEYCODE_TV"}
+                  );
     }
 }
 
@@ -4318,7 +4327,8 @@ class FiremoteCard extends LitElement {
           </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}></button>
+            <button class="centerbutton type-button" id="center-button" @click=${this.buttonClicked}></button>
+            <!-- <button class="centerbutton type-button" id="center-button" @click=${this.buttonClicked} @mousedown=${this.buttonDown} @mouseup=${this.buttonUp} @mouseleave=${this.buttonUp}> </button> -->
             <div class="directionButtonContainer">
               <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
               <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
@@ -4548,6 +4558,20 @@ class FiremoteCard extends LitElement {
     }
 
 
+  }
+
+  // TODO: Testing for button holds 
+  buttonDown(pressedButton) {
+    pressedButton.preventDefault();
+    var pressed = pressedButton.target.id;
+    console.log('I heard a button down for '+pressed);
+  }
+
+
+  buttonUp(releasedButton) {
+    var released = releasedButton.target.id;
+    console.log('I heard a button up for '+released);
+    releasedButton.preventDefault();
   }
 
 
@@ -6109,6 +6133,7 @@ class FiremoteCardEditor extends LitElement {
         </select><br>
         <br>
         <label for="visible_name_text_color">${this.translateToUsrLang('Device Name Text Color')}:<br><input type="color" name="visible_name_text_color" id="visible_name_text_color" .value=${this._config.visible_name_text_color || '#000000'} @change=${this.configChanged}></label>
+
     `;
    }
   }
