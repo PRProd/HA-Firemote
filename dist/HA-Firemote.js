@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v3.4.0';
+const HAFiremoteVersion = 'v3.4.1';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.0";
-import {rosettaStone} from './language-translations.js?version=v3.4.0';
-import {devices} from './supported-devices.js?version=v3.4.0';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.1";
+import {rosettaStone} from './language-translations.js?version=v3.4.1';
+import {devices} from './supported-devices.js?version=v3.4.1';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -4328,7 +4328,6 @@ class FiremoteCard extends LitElement {
 
           <div class="dpadContainer">
             <button class="centerbutton type-button" id="center-button" @click=${this.buttonClicked}></button>
-            <!-- <button class="centerbutton type-button" id="center-button" @click=${this.buttonClicked} @mousedown=${this.buttonDown} @mouseup=${this.buttonUp} @mouseleave=${this.buttonUp}> </button> -->
             <div class="directionButtonContainer">
               <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
               <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
@@ -4559,21 +4558,6 @@ class FiremoteCard extends LitElement {
 
 
   }
-
-  // TODO: Testing for button holds 
-  buttonDown(pressedButton) {
-    pressedButton.preventDefault();
-    var pressed = pressedButton.target.id;
-    console.log('I heard a button down for '+pressed);
-  }
-
-
-  buttonUp(releasedButton) {
-    var released = releasedButton.target.id;
-    console.log('I heard a button up for '+released);
-    releasedButton.preventDefault();
-  }
-
 
 
   // Remote Button Click Handler
@@ -5548,6 +5532,9 @@ class FiremoteCard extends LitElement {
     }
 
   }
+
+
+
 }
 customElements.define('firemote-card', FiremoteCard);
 
