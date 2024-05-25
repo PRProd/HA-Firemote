@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v3.4.3';
+const HAFiremoteVersion = 'v3.4.4';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.3";
-import {rosettaStone} from './language-translations.js?version=v3.4.3';
-import {devices} from './supported-devices.js?version=v3.4.3';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.4";
+import {rosettaStone} from './language-translations.js?version=v3.4.4';
+import {devices} from './supported-devices.js?version=v3.4.4';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -28,8 +28,8 @@ var appmap = new Map(Object.entries(launcherData));
 const translationmap = new Map(Object.entries(rosettaStone));
 
 // Set the max number of app launcher buttons for each remote style
-const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AR1": 10, "AR2":  8, "AR3":  8, "CC1": 6, "NS2": 6,
-                       "ON1":  8, "RVRP": 8, "RHR": 10, "RTR":   6, "RWR": 10, "RVR": 10, "RSR": 10,
+const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AR1": 10, "AR2":  8, "AR3":  8, "CC1":  6, "NS2": 6,
+                       "ON1":  8, "ON2":  8, "RVRP": 8, "RHR":  10, "RTR":  6, "RWR": 10, "RVR": 10, "RSR": 10,
                        "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
 
@@ -1895,7 +1895,7 @@ class FiremoteCard extends LitElement {
           }
 
           /* onn. styles */
-          .remote-body.ON1 {
+          .remote-body.ON1, .remote-body.ON2 {
             align-content: start;
             grid-row-gap: calc(var(--sz)* 1rem);
             background: #ebebea;
@@ -1906,61 +1906,95 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.214rem) rgb(0 0 0 / 10%);
           }
 
-          .ON1 .remote-button {
+          .remote-body.ON2 {
+            background: #252525;
+            border-color: #2f2f2f;
+          }
+
+          .ON1 .remote-button, .ON2 .remote-button {
             background: #fff;
             color: rgb(106, 106, 106);
             border: solid rgb(186 186 186) calc(var(--sz)* 0.0714rem);
             box-shadow: rgb(0 0 0 / 15%) 0px calc(var(--sz)* 0.063rem) calc(var(--sz)* 0.188rem);
           }
 
-          .ON1 .remote-button:active {
+          .ON2 .remote-button {
+            background: #2f2f2f;
+            border: solid rgb(15 15 15) calc(var(--sz)* 0.0714rem);
+          }
+
+          .ON1 .remote-button:active, .ON2 .remote-button:active {
             box-shadow: inset rgb(0 0 0 / 42%) 0px calc(var(--sz)* 0.1rem) calc(var(--sz)* 0.188rem);
             filter: brightness(0.94);
             border: solid rgb(232 232 232) calc(var(--sz)* 0.0714rem);
+          }
+
+          .ON2 .remote-button:active {
+            border: solid rgb(10 10 10) calc(var(--sz)* 0.0714rem);
           }
 
           .remote-body.ON1 .remote-button.litbutton {
             background: #ffffe7;
           }
 
-          .remote-body.ON1 .remote-button.litbutton > ha-icon {
+          .remote-body.ON1 #power-button.litbutton > ha-icon,
+          .remote-body.ON2 .remote-button.litbutton > ha-icon {
             color: #017374 !important;
           }
 
-          .remote-body.ON1 .remote-button:active > ha-icon {
+          .remote-body.ON2 #power-button.litbutton > ha-icon {
+            color: #ebef66 !important;
+          }
+
+          .remote-body.ON1 .remote-button:active > ha-icon,
+          .remote-body.ON2 .remote-button:active > ha-icon {
             transform: scale(calc(var(--sz)* 0.90));
           }
 
-          .remote-body.ON1 .remote-button.dark {
+          .remote-body.ON1 .remote-button.dark,
+          .remote-body.ON2 .remote-button.dark {
             background: linear-gradient(180deg, rgba(69,69,69,1) 26%, rgba(55,55,55,1) 50%, rgba(45,45,45,1) 75%);
+          }
+
+          .remote-body.ON2 .remote-button.light {
+            background: linear-gradient(0deg, #c8c8c8 0%, rgba(255, 255, 255, 1) 100%);
           }
 
           .remote-body.ON1 .remote-button > ha-icon {
             color: rgb(106 106 106);
           }
 
+          .remote-body.ON2 .remote-button > ha-icon {
+            color: rgb(245 245 245);
+          }
+
           .remote-body.ON1 .remote-button.dark > ha-icon {
             color: #ebebea;
           }
 
-          .remote-body.ON1 .remote-button.dark.litbutton {
+          .remote-body.ON2 .remote-button.light > ha-icon {
+            color: #464646;
+          }
+
+          .remote-body.ON1 .remote-button.dark.litbutton,
             background: #004040;
           }
-
-          .remote-body.ON1 .remote-button.dark.litbutton > ha-icon {
-            color: #ffffab !important;
+          .remote-body.ON1 .remote-button.litbutton > ha-icon,
+          .remote-body.ON1 .remote-button.dark.litbutton > ha-icon,
+          .remote-body.ON2 .remote-button.dark.litbutton > ha-icon {
+            color: #ffffab;
           }
 
-          .ON1 .directionButtonContainer {
+          .ON1 .directionButtonContainer, .ON2 .directionButtonContainer {
             box-shadow: rgb(0 0 0 / 73%) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem);
             background: black;
           }
 
-          .ON1 .directionButtonContainer:has(#down-button:active) {
+          .ON1 .directionButtonContainer:has(#down-button:active), .ON2 .directionButtonContainer:has(#down-button:active) {
             box-shadow: none;
           }
 
-          .ON1 .dpadContainer {
+          .ON1 .dpadContainer, .ON2 .dpadContainer {
             align-items: center;
             justify-items: center;
             position: relative;
@@ -1969,7 +2003,8 @@ class FiremoteCard extends LitElement {
             isolation: isolate;
           }
 
-          .ON1 .dpadbutton, .ON1 .dpadbutton:active {
+          .ON1 .dpadbutton, .ON1 .dpadbutton:active,
+          .ON2 .dpadbutton, .ON2 .dpadbutton:active {
             all: unset;
             cursor: pointer;
             width: calc(var(--sz)* 5.5714rem);
@@ -1977,7 +2012,7 @@ class FiremoteCard extends LitElement {
             outline: solid #2e2e2e calc(var(--sz)* 0.0714rem);
           }
 
-          .ON1 .dpadbutton {
+          .ON1 .dpadbutton, .ON2 .dpadbutton {
             background: rgba(55, 55, 55, 1);
             appearance: none;
             -webkit-appearance: none;
@@ -1985,7 +2020,12 @@ class FiremoteCard extends LitElement {
             -webkit-tap-highlight-color: transparent;
           }
 
-          .ON1 .dpadbutton:active {
+          .ON2 .dpadbutton {
+            background: rgb(216 216 216);
+            outline: solid rgb(200 200 200) calc(var(--sz)* 0.0714rem);
+          }
+
+          .ON1 .dpadbutton:active, .ON2 .dpadbutton:active {
             background: rgba(45, 45, 45, 1);
             box-shadow: inset #161616 0 0 calc(var(--sz)* 0.35rem) 0px;
             transform: none;
@@ -1995,7 +2035,13 @@ class FiremoteCard extends LitElement {
             appearance: none;
           }
 
-          .ON1 .centerbutton {
+          .ON2 .dpadbutton:active {
+            background: rgb(200 200 200);
+            box-shadow: none;
+            outline: solid #989898 calc(var(--sz)* 0.0714rem);
+          }
+
+          .ON1 .centerbutton, .ON2 .centerbutton {
             background: linear-gradient(180deg, #c8c8c8 0%, rgba(255, 255, 255, 1) 100%);
             border: solid #2b2b2b calc(var(--sz)* 0.25rem);
             width: calc(var(--sz)* 5.13rem);
@@ -2006,28 +2052,37 @@ class FiremoteCard extends LitElement {
             isolation: isolate;
           }
 
-          .ON1 .centerbutton:active {
+          .ON2 .centerbutton {
+            background: linear-gradient(0deg, rgb(48 48 48) 26%, rgb(39 39 39) 50%, rgb(33 33 33) 75%);
+          }
+
+          .ON1 .centerbutton:active, .ON2 .centerbutton:active {
             transform: none;
             filter: brightness(0.92);
             border: solid #2b2b2b calc(var(--sz)* 0.29rem);
           }
 
-          .ON1 #power-button, .ON1 #input-button {
+          .ON2 .centerbutton:active {
+            filter: brightness(0.8);
+          }
+
+          .ON1 #power-button, .ON1 #input-button,
+          .ON2 #power-button, .ON2 #magic-star-button {
             height: calc(var(--sz)* 2.5rem);
             width: calc(var(--sz)* 2.5rem);
           }
 
-          .ON1 #power-button {
+          .ON1 #power-button, .ON2 #power-button {
             justify-self: left;
           }
 
-          .ON1 .micNLight {
+          .ON1 .micNLight, .ON2 .micNLight {
             display: grid;
             align-content: space-between;
             padding: calc(var(--sz) * 0.25rem) 0;
           }
 
-          .ON1 .activityLight {
+          .ON1 .activityLight, .ON2 .activityLight {
             background: #adff87;
             box-shadow: lime 0 0 calc(var(--sz)* 0.6rem) calc(var(--sz)* 0.05rem);
             border-radius: 100%;
@@ -2036,7 +2091,7 @@ class FiremoteCard extends LitElement {
             opacity: 0;
           }
 
-          .ON1 .micHole {
+          .ON1 .micHole, .ON2 .micHole {
             background: black;
             border-radius: 100%;
             height: calc(var(--sz)* 0.3rem);
@@ -2045,27 +2100,28 @@ class FiremoteCard extends LitElement {
             justify-self: center;
           }
 
-          .ON1 #input-button {
+          .ON1 #input-button, .ON2 #magic-star-button {
             justify-self: right;
           }
 
-          .ON1 #profile-button, .ON1 #settings-button {
+          .ON1 #profile-button, .ON1 #settings-button,
+          .ON2 #profile-button, .ON2 #settings-button {
             align-self: end;
           }
 
-          .ON1 #keyboard-button {
+          .ON1 #keyboard-button, .ON2 #keyboard-button {
             height: calc(var(--sz)* 3.572rem);
             width: calc(var(--sz)* 3.572rem);
             margin-bottom: calc(var(--sz)* 1.1rem);
           }
 
-          .ON1 #home-button {
+          .ON1 #home-button, .ON2 #home-button {
             align-self: end;
             margin-top: calc(var(--sz)* 1.1rem);
             z-index: 10;  /* Required for companion app to prevent accidental push of down button */
           }
 
-          .ON1 .volumeChannelSection {
+          .ON1 .volumeChannelSection, .ON2 .volumeChannelSection {
             grid-column-start: 1;
             grid-column-end: 4;
             display: grid;
@@ -2078,32 +2134,32 @@ class FiremoteCard extends LitElement {
             align-items: center;
           }
 
-          .ON1 #volume-up-button {
+          .ON1 #volume-up-button, .ON2 #volume-up-button {
             grid-area: vol-up;
             margin-bottom: 0;
             border-bottom: 0;
             font-size: calc(var(--sz)* 2rem);
           }
 
-          .ON1 #channel-up-button {
+          .ON1 #channel-up-button, .ON2 #channel-up-button {
             grid-area: ch-up;
             margin-bottom: 0;
             border-bottom: 0;
           }
 
-          .ON1 #mute-button {
+          .ON1 #mute-button, .ON2 #mute-button {
             grid-area: mute;
             height: calc(var(--sz)* 2.6rem);
             width: calc(var(--sz)* 2.6rem);
           }
 
-          .ON1 #volume-down-button {
+          .ON1 #volume-down-button, .ON2 #volume-down-button {
             grid-area: vol-down;
             border-top: 0;
             font-size: calc(var(--sz)* 2rem);
           }
 
-          .ON1 #channel-down-button {
+          .ON1 #channel-down-button, .ON2 #channel-down-button {
             grid-area: ch-down;
             border-top: 0;
           }
@@ -2115,6 +2171,12 @@ class FiremoteCard extends LitElement {
             border-bottom: 0;
           }
 
+          .ON2 #volume-up-button:active, .ON2 #channel-up-button:active {
+            filter: none;
+            background: linear-gradient(0deg, rgb(46 46 46) 0%, rgb(38 38 38) 95%);
+            border-bottom: 0;
+          }
+
           .ON1 #volume-down-button:active, .ON1 #channel-down-button:active {
             filter: none;
             background: linear-gradient(0deg, rgba(240, 240, 240, 1) 0%, rgba(255, 255, 255, 1) 95%);
@@ -2123,7 +2185,14 @@ class FiremoteCard extends LitElement {
             border-top: 0;
           }
 
-          .ON1 .afappsgrid {
+          .ON2 #volume-down-button:active, .ON2 #channel-down-button:active {
+            filter: none;
+            background: linear-gradient(180deg, rgb(46 46 46) 0%, rgb(38 38 38) 95%);
+            box-shadow: none;
+            border-top: 0;
+          }
+
+          .ON1 .afappsgrid, .ON2 .afappsgrid {
             align-content: start;
             margin: calc(var(--sz)* 0.75rem) 0 calc(var(--sz)* 3.75rem) 0;
           }
@@ -2132,13 +2201,21 @@ class FiremoteCard extends LitElement {
             border-color: #ccc;
           }
 
-          .ON1 .srcButton.appActive {
+          .ON2 .srcButton {
+            border-color: #292929;
+          }
+
+          .ON1 .srcButton.appActive, .ON2 .srcButton.appActive {
             box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz)* 0.214rem) calc(var(--sz)* 0.1428rem) 0, white 0 0 calc(var(--sz)* 0.857rem) calc(var(--sz)* 0.429rem);
             border-color: #e6e6e6;
             animation-name: flash_border;
             animation-duration: 2s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
+          }
+
+          .ON2 .srcButton.appActive {
+            box-shadow: rgb(255 255 255 / 0%) 0 calc(var(--sz)* 0.214rem) calc(var(--sz)* 0.1428rem) 0, rgb(255 255 255 / 31%) 0 0 calc(var(--sz)* 0.857rem) calc(var(--sz)* 0.429rem);
           }
 
           @keyframes flash_border {
@@ -2153,16 +2230,16 @@ class FiremoteCard extends LitElement {
             }
           }
 
-          .ON1 .srcButton:active {
+          .ON1 .srcButton:active, .ON2 .srcButton:active {
             box-shadow: inset rgb(0 0 0 / 25%) 0 calc(var(--sz)* 0.214rem) calc(var(--sz)* 0.1428rem) 0;
           }
 
-          .ON1 .deviceNameTop {
+          .ON1 .deviceNameTop, .ON2 .deviceNameTop {
             grid-column: 1 / 4;
             margin: calc(var(--sz)* -1rem) 0;
           }
 
-          .ON1 .deviceNameBottom {
+          .ON1 .deviceNameBottom, .ON2 .deviceNameBottom {
             position: absolute;
             bottom: calc(var(--sz)* 0.75rem);
             margin: 0;
@@ -2181,6 +2258,10 @@ class FiremoteCard extends LitElement {
             max-width: calc(var(--sz)* 5rem);
             max-height: calc(var(--sz)* 2rem);
           }
+
+          .ON2 .onnLogo svg {
+            fill: #949494;
+          }
           /* end onn. styles */
 
           ${unsafeCSS(launcherCSS)}
@@ -2198,11 +2279,12 @@ class FiremoteCard extends LitElement {
             background: #000;
           }
 
-          .ON1 .functionRebootButton {
+          .ON1 .functionRebootButton, .ON2 .functionRebootButton {
             background: #fff;
           }
 
-          .ON1 .functionSearchGoogleTVButton, .ON1 .functionCaptionsButton, .ON1 .functionpairingButton {
+          .ON1 .functionSearchGoogleTVButton, .ON1 .functionCaptionsButton, .ON1 .functionpairingButton,
+          .ON2 .functionSearchGoogleTVButton, .ON2 .functionCaptionsButton, .ON2 .functionpairingButton {
             background: #fff;
             color: #000;
           }
@@ -2230,7 +2312,7 @@ class FiremoteCard extends LitElement {
             display: none;
           }
 
-          .ON1 .functionSystemUpdateButton {
+          .ON1 .functionSystemUpdateButton, .ON2 .functionSystemUpdateButton {
             background: #fff;
             color: #000;
           }
@@ -2238,6 +2320,12 @@ class FiremoteCard extends LitElement {
           .functionAppSwitchButton:active, .functionFindRemoteButton:active, .functionMuteButton:active, .functionRebootButton:active, .functionSettingsButton:active {
             filter: none;
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 255 255 / 20%) !important;
+          }
+
+          .ON1 .functionFindRemoteButton,
+          .ON2 .functionFindRemoteButton {
+            color: yellow;
+            border: solid calc(var(--sz) * 0.1rem) #017374;
           }
 
           .shield-remote-body .functionFindRemoteButton, .shield-remote-body .functionMuteButton, .shield-remote-body .functionSystemUpdateButton,
@@ -2570,7 +2658,7 @@ class FiremoteCard extends LitElement {
     if(this._config.device_family == 'apple-tv') {
       AppLaunchButtonFilterCssValue = 'grayscale(0%) brightness(100%)';
     }
-    else if (this._config.device_family == 'onn' || this._config.defaultRemoteStyle_override == 'ON1') {
+    else if (this._config.device_family == 'onn' || this._config.defaultRemoteStyle_override == 'ON1' || this._config.defaultRemoteStyle_override == 'ON2') {
       AppLaunchButtonFilterCssValue = 'grayscale(25%) brightness(80%)';
     }
     var guiEditorDirection = this.hass.config.language == 'he' ? 'rtl' : 'ltr';
@@ -2755,7 +2843,7 @@ class FiremoteCard extends LitElement {
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
             appLaunchButtons.set("confBtn4", config.app_launch_4 || 'freeview-play');
         }
-        else if(['ON1'].includes(displayedRemote)) {
+        else if(['ON1', 'ON2'].includes(displayedRemote)) {
             appLaunchButtons.set("confBtn1", config.app_launch_1 || 'youtube');
             appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
@@ -3730,6 +3818,94 @@ class FiremoteCard extends LitElement {
           </div>
 
           ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["ON1"])}
+
+          <div class="onnLogo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1667" height="465" viewBox="0 0 1667 465" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#393939" fill-rule="nonzero"><path d="M237 0C106 0 0 104 0 232s106 232 237 232 237-104 237-232S368 0 237 0zm0 325c-50 0-91-42-91-93s41-93 91-93c51 0 92 42 92 93s-41 93-92 93zm711-152v277H801V207v-1-1c-1-37-28-67-62-67h-8c-38 0-70 30-70 68v1 243H514V15h147v36c14-15 31-27 49-36 19-8 39-13 60-13h22c20 0 41 4 60 13 56 26 96 87 96 158zm489 0v277h-147V207v-1-1c-1-37-28-67-62-67h-8c-38 0-70 30-70 68v1 243h-147V15h147v36c14-15 31-27 49-36 19-8 39-13 60-13h22c20 0 41 4 60 13 56 26 96 87 96 158zm44 199c0-50 41-91 93-91 51 0 92 41 92 91s-41 91-92 91c-52 0-93-41-93-91z"/></svg>
+          </div>
+
+          ${drawDeviceName(this, this._config, 'bottom')}
+          ${drawFiremoteVersionNumber(this, this._config)}
+
+      </div>
+
+      </ha-card>
+    `;
+    }
+
+
+    // Render onn. remote style 2
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'ON2' ) {
+    return html`
+      <ha-card>
+
+      ${cssVars}
+
+      <div class="remote-body ON2">
+
+          ${drawDeviceName(this, this._config, 'top')}
+
+          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:power"></ha-icon>
+          </button>
+          <div class="micNLight">
+            <div class="activityLight"> </div>
+            <div class="micHole"> </div>
+          </div>
+          <button class="remote-button" id="magic-star-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:star"></ha-icon>
+          </button>
+
+          <button class="remote-button" id="profile-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:account"></ha-icon>
+          </button>
+          <button class="remote-button keyboard-button light" id="keyboard-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+          </button>
+          <button class="remote-button" id="settings-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:cog"></ha-icon>
+          </button>
+
+          <div class="dpadContainer">
+            <div class="directionButtonContainer">
+              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}> </button>
+              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}> </button>
+              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}> </button>
+              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}> </button>
+            </div>
+            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+          </div>
+
+          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:arrow-left"></ha-icon>
+          </button>
+          <button class="remote-button light${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:home"></ha-icon>
+          </button>
+          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+            <ha-icon icon="mdi:television-classic"></ha-icon>
+          </button>
+
+          <div class="volumeChannelSection">
+            <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:plus"></ha-icon>
+            </button>
+            <div> </div>
+            <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:chevron-up"></ha-icon>
+            </button>
+
+            <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:minus"></ha-icon>
+            </button>
+            <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:volume-mute"></ha-icon>
+            </button>
+            <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+              <ha-icon icon="mdi:chevron-down"></ha-icon>
+            </button>
+          </div>
+
+          ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["ON2"])}
 
           <div class="onnLogo">
             <svg xmlns="http://www.w3.org/2000/svg" width="1667" height="465" viewBox="0 0 1667 465" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#393939" fill-rule="nonzero"><path d="M237 0C106 0 0 104 0 232s106 232 237 232 237-104 237-232S368 0 237 0zm0 325c-50 0-91-42-91-93s41-93 91-93c51 0 92 42 92 93s-41 93-92 93zm711-152v277H801V207v-1-1c-1-37-28-67-62-67h-8c-38 0-70 30-70 68v1 243H514V15h147v36c14-15 31-27 49-36 19-8 39-13 60-13h22c20 0 41 4 60 13 56 26 96 87 96 158zm489 0v277h-147V207v-1-1c-1-37-28-67-62-67h-8c-38 0-70 30-70 68v1 243h-147V15h147v36c14-15 31-27 49-36 19-8 39-13 60-13h22c20 0 41 4 60 13 56 26 96 87 96 158zm44 199c0-50 41-91 93-91 51 0 92 41 92 91s-41 91-92 91c-52 0-93-41-93-91z"/></svg>
@@ -4740,6 +4916,18 @@ class FiremoteCard extends LitElement {
       return;
     };
 
+    // Magic Button / Star Button (Google TV / onn pro)
+    if(clicked.target.id == 'magic-star-button') {
+      if (deviceType == 'onn-streaming-device-4k-pro') {
+        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 313' });
+        return;
+      }
+      else {
+        unsupportedButton();
+        return;
+      }
+    };
+
     // Keyboard button
     if(clicked.target.id == 'keyboard-button') {
       var text = prompt("Enter text to send");
@@ -5055,7 +5243,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'channel_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
-      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
+      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
       }
       else {
@@ -5098,7 +5286,7 @@ class FiremoteCard extends LitElement {
       else if (deviceType == 'mi-box-s') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.google.android.tv/com.android.tv.MainActivity' });
       }
-      else if (deviceType == 'onn-4k-streaming-box' || deviceType == 'onn-full-hd-streaming-stick') {
+      else if (deviceType == 'onn-4k-streaming-box' || deviceType == 'onn-full-hd-streaming-stick' || deviceType == 'onn-streaming-device-4k-pro') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_GUIDE'});
       }
       else {
@@ -5113,7 +5301,7 @@ class FiremoteCard extends LitElement {
         this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'channel_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
         return;
       }
-      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
+      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
       }
       else {
@@ -5144,7 +5332,7 @@ class FiremoteCard extends LitElement {
 
     // Settings Button
     if(clicked.target.id == 'settings-button') {
-      if(deviceType == 'onn-4k-streaming-box' || deviceType == 'onn-full-hd-streaming-stick') {
+      if(['onn-4k-streaming-box', 'onn-full-hd-streaming-stick', 'onn-streaming-device-4k-pro'].includes(deviceType)) {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 83' });
       }
       else if(compatibility_mode == 'strong'  || eventListenerBinPath == 'undefined' || deviceType == 'fire_tv_cube_third_gen') {
@@ -6085,7 +6273,8 @@ class FiremoteCardEditor extends LitElement {
           <option value="CC1">Chromecast</option>
           <option value="NS1">NVIDIA Shield ${this.translateToUsrLang('style')} 1</option>
           <option value="NS2">NVIDIA Shield ${this.translateToUsrLang('style')} 2</option>
-          <option value="ON1">onn.</option>
+          <option value="ON1">onn. ${this.translateToUsrLang('style')} 1</option>
+          <option value="ON2">onn. ${this.translateToUsrLang('style')} 2</option>
           <option value="RVRP">Roku Voice ${this.translateToUsrLang('remote')} Pro</option>
           <option value="RVR">Roku Voice ${this.translateToUsrLang('remote')}</option>
           <option value="RSR">Roku Simple ${this.translateToUsrLang('remote')}</option>

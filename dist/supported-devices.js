@@ -282,6 +282,11 @@ const devices = {
 
     "noCategory": {
 
+      "onn-streaming-device-4k-pro": {
+        "supported": true,
+        "friendlyName": "onn. Streaming Device 4K pro",
+        "defaultRemoteStyle" : "ON2",
+      },
       "onn-4k-streaming-box": {
         "supported": true,
         "friendlyName": "onn. 4K Streaming Box",
