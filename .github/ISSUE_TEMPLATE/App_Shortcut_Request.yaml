@@ -48,12 +48,12 @@ body:
       required: false
   - type: markdown
     attributes:
-      value: "<br>Follow the instructions listed, and paste the results into this **Application Details** box.<br> - [Instructions for Amazon Fire, Chromecast, NVIDIA Shield, and Xiaomi Android devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-fire-tv-chromecast-nvidia-shield-xiaomi-mi-and-other-android-based-devices)<br> - [Instructions for Apple TV Devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-apple-tv-devices)<br> - [Instructions for Roku Devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-roku-devices)"
+      value: "<br>Choose the appropriate link and follow the instructions listed. Paste the results into this **Required Information** box.<br> - [Instructions for Amazon Fire, Chromecast, NVIDIA Shield, and Xiaomi Android devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-fire-tv-chromecast-nvidia-shield-xiaomi-mi-and-other-android-based-devices)<br> - [Instructions for Apple TV Devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-apple-tv-devices)<br> - [Instructions for Roku Devices](https://github.com/PRProd/HA-Firemote/wiki/Providing-Details-for-App-Launcher-Requests#for-roku-devices)"
   - type: textarea
-    id: detailedAppInfo
+    id: requiredInfo
     attributes:
-      label: Application Details
-      placeholder: Choose the appropriate link from the list above, follow the directions, and paste the results into this field
+      label: Required Information
+      placeholder: Choose the appropriate link from the list above, follow the directions, and ONLY paste those results into this field
     validations:
       required: true
   - type: markdown
