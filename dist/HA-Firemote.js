@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v3.4.6';
+const HAFiremoteVersion = 'v3.4.7';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.6";
-import {rosettaStone} from './language-translations.js?version=v3.4.6';
-import {devices} from './supported-devices.js?version=v3.4.6';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.7";
+import {rosettaStone} from './language-translations.js?version=v3.4.7';
+import {devices} from './supported-devices.js?version=v3.4.7';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -5126,6 +5126,10 @@ class FiremoteCard extends LitElement {
 
     // Hamburger Button
     if(clicked.target.id == 'hamburger-button') {
+      if(this._config.device_family == 'roku') {
+        unsupportedButton();
+        return;
+      }
       if(deviceType == 'shield-tv-pro-2019' || deviceType == 'shield-tv-2019') {
         this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'am start -a android.settings.SETTINGS' });
       }
@@ -5314,6 +5318,10 @@ class FiremoteCard extends LitElement {
     if(clicked.target.id == 'mute-button') {
       if(this._config.device_family == 'apple-tv') {
         unsupportedButton();
+      }
+      if(this._config.device_family == 'roku') {
+        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'volume_mute', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+        return;
       }
       if(hasATVAssociation) {
         this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_MUTE' });
@@ -5640,6 +5648,10 @@ class FiremoteCard extends LitElement {
 
     // Reboot Button
     if(clicked.target.id == 'reboot-button') {
+      if(this._config.device_family == 'roku') {
+        unsupportedButton();
+        return;
+      }
       if(confirm('Are you sure you want to reboot '+this.hass.states[this._config.entity].attributes.friendly_name) == false) {
         return;
       }
