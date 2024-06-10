@@ -1660,6 +1660,47 @@ const launcherData = {
    },
 
 
+  "fandango-at-home": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="250" viewBox="0 0 1050 250" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M554 144h-9v37h-18-18v-37h-9-14v88h23v-28h18 18v28h23v-88h-13-1zm72-2c-27 0-47 19-47 46s20 45 47 45c28 0 48-18 48-45s-20-46-48-46h0zm26 47c0 6-2 12-6 16l-2 2c-8 7-21 10-34 1-2-1-3-2-5-4-13-21 2-42 22-42 13 0 25 10 26 24v3h-1zm178 24v-15h22 2c4 0 8-4 8-8v-1-11h-32v-14h44v-20h-68v89h0 69v-20h-45zm-40-69h-22 0-11l-21 65-20-65h-11 0-22v89h22v-29-22l17 51h0 29 0l17-52v42c0 4 5 10 9 10h13v-29-23-37zm-424 80l-2-5h-36l-4 13h-24l32-88h28l32 88h-15c-5 0-10-3-11-8h0zm-20-60l-12 36h24l-12-36zm60 68v-68h-24v-20h70v20h-24v68h-22 0zM979 15c-27 0-47 19-47 45 0 27 20 46 47 46s47-19 47-46c0-26-20-45-47-45zm26 47c0 6-3 12-7 16l-1 1c-5 5-11 7-18 7-14 0-26-11-26-26 0-14 12-25 26-25s25 10 26 24v3zm-124-8v20h20v6c-3 3-10 6-16 6-15 0-25-11-25-26 0-14 10-25 25-25 8 0 15 5 18 11l19-10c-6-11-18-21-37-21-27 0-48 17-48 45s21 46 48 46c15 0 26-6 35-14 1 0 1-1 1-1 2-1 2-3 3-6v-1-30h-43zm-66-37h-2a8.96 8.96 0 0 0-9 9v1 38l-36-48h-23v88h23V54l37 51h22V17h-12zm-112 0h-29l-33 88h26l4-13h35l2 7h0c2 3 5 5 9 6h19l-33-88zm-26 55l12-33 11 33h-23zm-81-55h-37v79c0 5 4 9 10 9h27c28 0 48-17 48-44s-20-44-48-44zm0 68h-14V37h14c16 0 24 10 24 24 0 13-9 24-24 24zm-65-68h-1a8.96 8.96 0 0 0-9 9v1 38l-36-48h-23v88h23V54l37 51h22V17h-13zm-111 0h-29l-33 88h26l5-13h34l3 7h0c1 3 4 5 8 6h20l-34-88zm-25 55l11-33 11 33h-22zm-28-35V17h-67v88h24V74h22 2c4-1 7-4 7-8v-1-11h-31V37h43 0z" stroke="none" fill="#fff" fill-rule="nonzero"/><path d="M232 126c-11-2-20-10-23-21s1-22 9-30l-17-62L26 60l17 62v1c10 2 19 10 22 21s-1 22-9 29h0l17 63 175-47-16-63z" stroke-linejoin="miter" fill="none" stroke-width="16.132"/><path d="M152 78l-52 14 11 39 52-14 10 39-52 14 11 39-52 14-13-47c8-10 11-22 8-35-4-12-13-22-24-26L38 67l104-28 10 39z" stroke="none" fill-rule="nonzero" fill="#fff"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="750" viewBox="0 0 1050 750" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M677 217c-17-3-31-16-36-34s1-36 14-48h0L628 34l-284 76 27 101h0c17 4 32 17 36 34 5 18-1 37-14 48h0l27 101 284-76z" stroke-linejoin="miter" fill="none" stroke-width="16.132"/><path d="M583 265l-17-63-84 23-17-64 84-23-17-63-169 45 21 79c18 7 33 22 38 42 6 20 1 41-12 56l21 77 85-23-17-63zM478 599h-12v51h-25-25v-51h-13-19v122h32v-40h25 25v40h32V599h-19-1zm99-2c-37 0-65 26-65 63s28 63 65 63c38 0 65-26 65-63s-27-63-65-63zm36 65c0 9-4 16-9 22-1 1-2 1-2 2-12 11-30 14-48 2-2-1-4-3-6-6-18-28 2-58 29-58 20 0 35 15 36 34v4zm245 32v-20h31 3c5-1 10-6 10-11v-2-15h-44v-20h61v-27h-94v122h1 93v-27zm-55-95h-30 0-16l-28 90-28-90h-15 0-30v122h30v-40-30l23 70h1 39 1l23-70v57c0 6 7 13 12 13h18v-40-31zM219 709l-2-7h-49l-6 19h-33l44-122h39l44 122h-21c-7 0-13-5-16-12zm-26-83l-17 50h33zm81 95v-95h-33v-27h97v27h-33v95h-31zm685-299c-37 0-65 26-65 62 0 37 28 63 65 63s65-26 65-63c0-36-28-62-65-62zm35 65c0 8-3 16-9 21-1 1-1 2-2 2-6 6-15 10-24 10-20 0-36-16-36-36 0-19 16-35 36-35 19 0 34 15 35 33zm-170-12v28h27v9c-4 4-14 7-22 7-20 0-34-15-34-35 0-19 14-34 34-34 11 0 21 7 25 15l26-14c-8-15-24-29-51-29-37 0-66 24-66 62 0 39 29 63 66 63 20 0 36-8 49-19 0-1 0-1 1-1 2-2 3-5 3-8v-2-42zm-91-51h-2c-7 1-13 6-13 13v1 52l-49-66h-32v121h31v-70l51 70h31V424zm-154 0h-39l-46 121h35l6-18h48l3 9v1c2 4 7 7 12 8h27zm-35 76l15-45 16 45zm-111-76h-51v108c0 7 6 13 13 13h38c38 0 65-23 65-61 0-37-27-60-65-60zm0 94h-20v-67h20c22 0 33 15 33 33s-12 34-33 34zm-90-94h-1c-7 0-12 6-13 13v1 52l-49-66h-32v121h31v-70l51 70h31V424zm-152 0h-40l-46 121h36l6-18h48l3 9v1c2 4 7 7 12 8h26zm-35 76l15-45 16 45zm-39-49v-27H24v121h33v-43h30 3c6 0 10-5 10-11v-1-15H57v-24h60z" stroke="none" fill-rule="nonzero" fill="#fff"/></svg>',
+      "friendlyName": "Fandango at Home",
+      "className": "fandangoAtHomeButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "onn", "roku", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.fandango.vudu.firetv",
+          "androidName": "com.fandango.vudu.firetv",
+          "adbLaunchCommand": "adb shell am start -n com.fandango.vudu.firetv/air.com.vudu.air.DownloaderTablet.SplashActivity",
+      },
+      "apple-tv": {
+          "appName": "Fandango at Home",
+      },
+      "chromecast": {
+          "appName": "air.com.vudu.air.DownloaderTablet",
+          "androidName": "air.com.vudu.air.DownloaderTablet",
+          "adbLaunchCommand": "adb shell am start -n air.com.vudu.air.DownloaderTablet/.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "air.com.vudu.air.DownloaderTablet",
+          "androidName": "air.com.vudu.air.DownloaderTablet",
+          "adbLaunchCommand": "adb shell am start -n air.com.vudu.air.DownloaderTablet/.SplashActivity",
+      },
+      "onn": {
+          "appName": "air.com.vudu.air.DownloaderTablet",
+          "androidName": "air.com.vudu.air.DownloaderTablet",
+          "adbLaunchCommand": "adb shell am start -n air.com.vudu.air.DownloaderTablet/.SplashActivity",
+      },
+      "roku": {
+          "appName": 'Fandango at Home',
+          "app-id": 13842,
+      },
+      "xiaomi": {
+          "appName": "air.com.vudu.air.DownloaderTablet",
+          "androidName": "air.com.vudu.air.DownloaderTablet",
+          "adbLaunchCommand": "adb shell am start -n air.com.vudu.air.DownloaderTablet/.SplashActivity",
+      },
+   },
+
+
   "fioptics-plus": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="320" viewBox="0 0 1050 320" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M949 63c-2 1-2 1-5 18l-3 15h-17c-21 0-20-1-21 10-2 9-2 9 19 9h16c-4 19-5 25-5 27-2 9 0 10 11 10 7 0 7 0 9-16 4-18 4-19 4-20v-1h17 17l2-1c1-1 1-2 2-7 2-11 2-11-19-11h-15s0-4 1-8c4-24 4-24 1-25-2-1-12-1-14 0m-806 0c-23 3-41 19-48 42L67 252c-3 9-8 14-17 15-6 1-6 1-9 18-2 15-1 17 10 15 25-4 41-18 49-43l21-110 18-1c22 0 20 1 22-11 1-5 2-10 2-13 1-4 1-5 0-6-1-3 0-3-19-3-14 0-17 0-17-1s4-9 6-11c5-5 9-5 27-5 17 0 16 0 18-10 0-4 1-9 2-12 1-7 1-9-1-11-1-1-31-1-36 0m59 0c-17 7-20 27-6 34 18 9 38-17 24-30-4-4-12-6-18-4m447 0c-17 5-22 27-7 34 2 1 2 1 7 1h6l3-1c15-8 17-27 4-33-3-1-10-2-13-1m-67 14c-26 8-23 5-25 17-5 29-7 37-11 64-5 23-6 33-8 42-4 22-1 34 11 44 8 7 17 9 35 9 11 0 9 2 12-13 3-16 3-16-6-17-14-1-20-8-18-22l11-58h28l1-2c2-1 2-1 5-21 1-7 0-7-16-7h-13v-1c1-4 5-28 5-30 1-6-2-7-11-5m-285 32c-54 4-93 57-78 106 19 60 113 55 141-7 24-54-8-104-63-99m163 0c-13 1-23 4-34 9-3 1-5 3-5 3v-2c1-6 0-6-17-6s-16-1-17 8c-32 178-31 176-29 178l1 1h14 14l1-1c2-1 2-2 3-7l9-51 2 2c36 29 96 14 119-28 28-54-5-111-61-106m274 1c-55 5-92 67-68 114 23 45 95 44 125-1 5-9 4-11-7-19-10-7-10-7-12-7-4 0-6 2-9 7-12 16-34 24-51 17-31-12-22-61 13-75 22-8 41-2 48 16 4 8 7 8 28-3 4-2 5-5 3-11-10-27-36-42-70-38m130-1c-24 3-42 17-47 37-7 25 4 40 38 51 23 8 26 10 22 17-3 6-11 10-22 10-12 0-21-6-23-15-1-5-4-8-8-8-2 0-18 8-21 10s-4 6-2 12c8 22 26 34 54 34 34 0 57-18 57-47 1-20-10-32-39-42-18-5-23-8-23-12 0-11 19-17 31-11 5 2 7 4 9 11 3 7 6 8 18 2 16-8 16-10 11-20-9-20-31-31-55-29m-679 5c-1 1-1 0-6 26l-18 102c-2 11-2 11 17 11 16 0 15 1 17-13l21-113c2-15 3-14-16-14-13 0-14 0-15 1m446 0c-2 1-2 3-6 28l-15 80c-6 34-7 31 13 31 13 0 14 0 15-2l23-122c3-17 4-16-15-16h-14l-1 1m-160 27c23 7 32 33 20 57-20 41-82 36-82-7 1-32 33-58 62-50m-162 1c20 4 29 21 24 44-12 46-79 54-83 10-3-31 29-60 59-54" fill="#fff"/><path d="M953 30c-33 4-65 29-76 61-2 5-1 8 2 10 4 3 8 1 11-6 21-55 95-70 118-24 23 47-36 111-87 95-9-3-15 2-11 9 2 4 12 6 24 7 62 1 110-66 85-118-11-23-37-37-66-34" fill="#4294f7"/></svg>',
       "friendlyName": "Fioptics+",
@@ -2832,7 +2873,7 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start -n tv.accedo.xdk.dtag.production/tv.accedo.xdk.dtag.MainActivity",
       },
       "apple-tv": {
-          "appName": "Magenta TV",
+          "appName": "MagentaTV",
       },
       "nvidia-shield": {
           "appName": "Magenta TV",
@@ -3260,6 +3301,41 @@ const launcherData = {
           "appName": "com.ntathome",
           "androidName": "com.ntathome",
           "adbLaunchCommand": "adb shell am start -n com.ntathome/tv.vhx.tv.home.TvHomeActivity",
+      },
+  },
+
+
+  "nba": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1054" height="615" viewBox="0 0 1054 615" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g fill-rule="nonzero"><path d="M62.7-.5H207a63 63 0 0 1 63.2 63.2v488a63 63 0 0 1-63.2 63.2H62.7A63 63 0 0 1-.5 550.6v-488A63 63 0 0 1 62.7-.5z"/><path d="M171.2 112l.2 2c4.4 2.6 6.6 4.7 11 7.6 11.7 7.4 26 20.5 24.2 65.8 3.4 9.8 5 29 7.8 35.3 6 12 10.2 20 12 31.4 0 0 1.8 17.8 4 19 12 2.8 8.6 4 10.3 6.2 1.8 2.3 9 2.2 9 8.8 2.4 3.2 4.3 6.5 5.6 10v-235c0-27-21.8-48.7-48.6-48.7h-46.4c7.4 2.7 11.7 5.8 14.2 10.8 6 .5 13 13.8 2 33.7 5 3.4 1 8.3-2.3 14-1 1.8-2.2 5-5.5 4.8-4.3 9-9.4 17.5-13.2 18-1 1.4-2 5.3-.2 7a71 71 0 0 1 16 9.2zm43.3 486h-.5c21.3-13 8-37.5 4-52l.8-2.4c1-2-1.2-6.7-1.2-6.7-2.7-2-3.3-14.2-4.7-19.8-2.2-9 4-24.7 4-30 0-5.4-4-12.7-11.4-22-1.8-2-7-47.7-12-59.3-6.6-16-8.6-13.3-16.5-32.4-6-13.4-1.3-33-15-78.8l3-2.8-14.4-50.7c-3.5-11-10-11.6-10-11.6l.4-5.6a725 725 0 0 1 14.3-35.9c.1-.7 18.4-13.3 18.7-11.4l11.7 56 18.5 39.4c-19 4.6-33 21.7-33 42 0 24 19.4 43.5 43.3 43.5a44 44 0 0 0 40.5-27.4v220c0 24.3-17.5 44.4-41 48z" fill="#c80f2e"/><path d="M145 14.5c-15.8 6-18 13-18.6 35-2.7.3-8.2-2.2-6.3 11 0 0 1 9 4.5 7.4-2.8 19.4-.5 24.3-13.4 25.7-2.8.3-6.2.4-10.3.6L99.7 96c-17.6 1.7-26.3.6-37.7 15.6-4.4 5.7-9 13.8-14.8 25.4 0 0-5.2 13-6.8 18.3l-21 49c-1 5-3.4 6.7-.2 14 5 10.7-3 13.5 24.4 12.7v6.3s-7.3 6.3-9 10c-1.5 4-5.8 22.8-5.6 31.8.5 23.4 19.6 43 25.3 66.4l12.7 1.7a405 405 0 0 0 44.3 65.8l.3.3c1.5 4 9.4 9 14 14.2 2.8 2.7 15.5 16.5 32.6 29.7 6.2 4.8 13 9.6 20 13.6-.1-.1 4.2 8.6 6.4 15.7-8.7 7 8.2 20 13.3 41.2.3 3-5 5.7 3 12.8-.5 32-10.3 49 6 58H62a49 49 0 0 1-47.6-48.6v-487c0-26.6 21.3-48 47.6-48.7h83z" fill="#1d4289"/></g><path d="M343 14.3V598h63l-5.7-450L473 598h90.5V14.3H501A5937 5937 0 0 0 516 472.7L440.3 14.3zm547-.3l-62 584h77l10-118h50.5l10 118h76.8l-60-584H890zm50.5 165L960 411.5h-39l19.5-232.7z" fill="#fff"/><path d="M612.3 14.3v583.4H725c18.5 0 81.5-16 81.5-97V384c0-12.2.1-50.7-33.5-73.3 21 0 33.5-40.8 33.5-78v-125c0-48.7-30.3-93.6-91.2-93.5h-103zM682 89H716c15.7 0 21 17.3 21 30.6v136c0 23.3-7.6 25-23.4 25H682V89zm0 255.2H716c15.7 0 21 17.3 21 30.7V496c0 15.8-7.8 27.8-23.4 27.8l-31.7.5V344z" fill="#fff" fill-rule="nonzero"/></svg>',
+      "friendlyName": 'NBA',
+      "className": "nbaOnFireTvButton",
+      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "onn", "roku", "xiaomi"], 
+      "apple-tv": {
+          "appName": "NBA",
+      },
+      "chromecast": {
+          "appName": "com.nbaimd.gametime.nba2011",
+          "androidName": "com.nbaimd.gametime.nba2011",
+          "adbLaunchCommand": "adb shell am start -n com.nbaimd.gametime.nba2011/com.nba.tv.ui.splash.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.nbaimd.gametime.nba2011",
+          "androidName": "com.nbaimd.gametime.nba2011",
+          "adbLaunchCommand": "adb shell am start -n com.nbaimd.gametime.nba2011/com.nba.tv.ui.splash.SplashActivity",
+      },
+      "onn": {
+          "appName": "com.nbaimd.gametime.nba2011",
+          "androidName": "com.nbaimd.gametime.nba2011",
+          "adbLaunchCommand": "adb shell am start -n com.nbaimd.gametime.nba2011/com.nba.tv.ui.splash.SplashActivity",
+      },
+      "roku": {
+          "appName": 'NBA',
+          "app-id": 73249,
+      },
+      "xiaomi": {
+          "appName": "com.nbaimd.gametime.nba2011",
+          "androidName": "com.nbaimd.gametime.nba2011",
+          "adbLaunchCommand": "adb shell am start -n com.nbaimd.gametime.nba2011/com.nba.tv.ui.splash.SplashActivity",
       },
   },
 
@@ -7623,6 +7699,10 @@ const launcherCSS = `
 
           .f1TVButton {
             background: #e10600;
+          }
+
+          .fandangoAtHomeButton {
+            background: #3478C1;
           }
 
           .fiopticsPlusButton {

@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v3.4.7';
+const HAFiremoteVersion = 'v3.4.8';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.7";
-import {rosettaStone} from './language-translations.js?version=v3.4.7';
-import {devices} from './supported-devices.js?version=v3.4.7';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.8";
+import {rosettaStone} from './language-translations.js?version=v3.4.8';
+import {devices} from './supported-devices.js?version=v3.4.8';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -28,9 +28,9 @@ var appmap = new Map(Object.entries(launcherData));
 const translationmap = new Map(Object.entries(rosettaStone));
 
 // Set the max number of app launcher buttons for each remote style
-const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AR1": 10, "AR2":  8, "AR3":  8, "CC1":  6, "NS2": 6,
-                       "ON1":  8, "ON2":  8, "RVRP": 8, "RHR":  10, "RTR":  6, "RWR": 10, "RVR": 10, "RSR": 10,
-                       "XM1": 10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
+const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":   6, "AFJTV": 6, "AR1": 10, "AR2":  8, "AR3":  8, "CC1":  8, "NS2": 6,
+                       "ON1":  8, "ON2":  8, "RVRP": 10, "RHR":  10, "RTR":  8, "RWR": 10, "RVR": 10, "RSR": 10,
+                       "XM1": 10, "XM2": 10, "AL1": appmap.size,     "AL2": appmap.size,};
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
