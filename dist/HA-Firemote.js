@@ -1,13 +1,17 @@
-const HAFiremoteVersion = 'v3.4.12';
+const HAFiremoteVersion = 'v4.0.0b1';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v3.4.12";
-import {rosettaStone} from './language-translations.js?version=v3.4.12';
-import {devices} from './supported-devices.js?version=v3.4.12';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.0b1";
+import {rosettaStone} from './language-translations.js?version=v4.0.0b1';
+import {devices} from './supported-devices.js?version=v4.0.0b1';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
+
+// BETA TODO:
+// AL2 with dpad style Minimal selected does not react when clicking directly on the SVGs, only their container
+
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -95,9 +99,9 @@ function handlehdmi(config, inputs = 0) {
 
 function handlecustomlaunchers(config) {
     // Experimental - Only one of them works through the roku api for some reason ///
-    if (config.device_family == "roku") {
-        appmap.set("roku-secret-screen", {"button": "Secret", "friendlyName": "Function: Secret Screen 1"});
-    }
+//    if (config.device_family == "roku") {
+//        appmap.set("roku-secret-screen", {"button": "Secret", "friendlyName": "Function: Secret Screen 1"});
+//    }
 
     let customlaunchers = config.custom_launchers;
     if(typeof customlaunchers == 'undefined' || customlaunchers == null) {
@@ -2857,7 +2861,7 @@ class FiremoteCard extends LitElement {
             ${ Array.from(appLaunchButtons.keys()).map(key => {
               var val = appLaunchButtons.get(key);
               if(val) {
-                  return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonClicked}>
+                  return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonDown}>
                                  ${unsafeHTML(getAppButtonData(config, val, buttonStyle) || getAppButtonData(config, val, 'button'))}
                                </button>`;
               }
@@ -2869,7 +2873,7 @@ class FiremoteCard extends LitElement {
             <div class="${spanclass}">
             ${ Array.from(appLaunchButtons.keys()).map(key => {
               var val = appLaunchButtons.get(key);
-              return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonClicked}>
+              return html `<button class="srcButton ${getAppButtonData(config, val, 'className')} ${getAppButtonData(config, val, 'active')} ${showHide(val)}" id="${val}-button" @click=${e.buttonDown}>
                              ${unsafeHTML(getAppButtonData(config, val, 'button'))}
                            </button>`;
 
@@ -3035,38 +3039,38 @@ class FiremoteCard extends LitElement {
           <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
 
           <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
 
@@ -3095,43 +3099,43 @@ class FiremoteCard extends LitElement {
           <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
 
           <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
 
           <div> </div>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="tv-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:television-classic"></ha-icon>
           </button>
           <div> </div>
@@ -3160,62 +3164,62 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div class="notch"> </div>
           <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
 
           <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
 
           <div> </div>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
           <div> </div>
 
           <div> </div>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
           <div> </div>
 
           <div> </div>
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
           <div> </div>
@@ -3240,61 +3244,61 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div class="notch"> </div>
           <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
 
           <div> </div>
-          <button class="remote-button keyboard-button teal" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button teal" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
 
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="tv-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:television-classic"></ha-icon>
           </button>
 
 
           <div> </div>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
           <div></div>
@@ -3320,73 +3324,73 @@ class FiremoteCard extends LitElement {
 
       <div class="remote-body">
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div class="notch"> </div>
           <div style="display: inherit;"> ${drawDeviceName(this, this._config, 'top')} </div>
 
           <div> </div>
-          <button class="remote-button keyboard-button teal" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button teal" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
 
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
           <div> </div>
-          <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="channel-up-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-up"></ha-icon>
           </button>
 
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="tv-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:television-classic"></ha-icon>
           </button>
-          <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="channel-down-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-down"></ha-icon>
           </button>
 
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
-          <button class="remote-button" id="settings-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="settings-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:cog"></ha-icon>
           </button>
-          <button class="remote-button" id="app-switch-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="app-switch-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:file-multiple-outline"></ha-icon>
           </button>
 
@@ -3413,77 +3417,77 @@ class FiremoteCard extends LitElement {
 
           ${drawDeviceName(this, this._config, 'top')}
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div class="notch"> </div>
-          <button class="remote-button" id="headset-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="headset-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:headphones"></ha-icon>
           </button>
 
           <div> </div>
-          <button class="remote-button keyboard-button teal" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button teal" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
 
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="tv-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:television-classic"></ha-icon>
           </button>
-          <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="channel-up-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-up"></ha-icon>
           </button>
 
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
-          <button class="remote-button" id="settings-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="settings-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:cog"></ha-icon>
           </button>
-          <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="channel-down-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-down"></ha-icon>
           </button>
 
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
-          <button class="remote-button" id="programmable-one-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="programmable-one-button" @pointerdown=${this.buttonDown}>
             1
           </button>
-          <button class="remote-button" id="programmable-two-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="programmable-two-button" @pointerdown=${this.buttonDown}>
             2
           </button>
 
@@ -3509,97 +3513,97 @@ class FiremoteCard extends LitElement {
 
           ${drawDeviceName(this, this._config, 'top')}
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div class="notch"> </div>
           <div></div>
 
           <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-u-left-top"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
 
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="tv-button" @pointerdown=${this.buttonDown}>
             GUIDE
           </button>
-          <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="channel-up-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-up"></ha-icon>
           </button>
 
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
-          <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="channel-down-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-down"></ha-icon>
           </button>
 
-          <button class="remote-button digit-pad-button" id="num1-button" @click=${this.buttonClicked}>1</button>
-          <button class="remote-button digit-pad-button" id="num2-button" @click=${this.buttonClicked}>2</button>
-          <button class="remote-button digit-pad-button" id="num3-button" @click=${this.buttonClicked}>3</button>
+          <button class="remote-button digit-pad-button" id="num1-button" @pointerdown=${this.buttonDown}>1</button>
+          <button class="remote-button digit-pad-button" id="num2-button" @pointerdown=${this.buttonDown}>2</button>
+          <button class="remote-button digit-pad-button" id="num3-button" @pointerdown=${this.buttonDown}>3</button>
 
-          <button class="remote-button digit-pad-button" id="num4-button" @click=${this.buttonClicked}>4</button>
-          <button class="remote-button digit-pad-button" id="num5-button" @click=${this.buttonClicked}>5</button>
-          <button class="remote-button digit-pad-button" id="num6-button" @click=${this.buttonClicked}>6</button>
+          <button class="remote-button digit-pad-button" id="num4-button" @pointerdown=${this.buttonDown}>4</button>
+          <button class="remote-button digit-pad-button" id="num5-button" @pointerdown=${this.buttonDown}>5</button>
+          <button class="remote-button digit-pad-button" id="num6-button" @pointerdown=${this.buttonDown}>6</button>
 
-          <button class="remote-button digit-pad-button" id="num7-button" @click=${this.buttonClicked}>7</button>
-          <button class="remote-button digit-pad-button" id="num8-button" @click=${this.buttonClicked}>8</button>
-          <button class="remote-button digit-pad-button" id="num9-button" @click=${this.buttonClicked}>9</button>
+          <button class="remote-button digit-pad-button" id="num7-button" @pointerdown=${this.buttonDown}>7</button>
+          <button class="remote-button digit-pad-button" id="num8-button" @pointerdown=${this.buttonDown}>8</button>
+          <button class="remote-button digit-pad-button" id="num9-button" @pointerdown=${this.buttonDown}>9</button>
 
-          <button class="remote-button digit-pad-button" id="subtitle-button" @click=${this.buttonClicked}>SUBT</button>
-          <button class="remote-button digit-pad-button" id="num0-button" @click=${this.buttonClicked}>0</button>
-          <button class="remote-button digit-pad-button" id="live-button" @click=${this.buttonClicked}>LIVE</button>
+          <button class="remote-button digit-pad-button" id="subtitle-button" @pointerdown=${this.buttonDown}>SUBT</button>
+          <button class="remote-button digit-pad-button" id="num0-button" @pointerdown=${this.buttonDown}>0</button>
+          <button class="remote-button digit-pad-button" id="live-button" @pointerdown=${this.buttonDown}>LIVE</button>
 
           ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["AFJTV"])}
 
           <div class="three-col-span colorButtons">
-              <button class="remote-button" id="red-button" @click=${this.buttonClicked}>
+              <button class="remote-button" id="red-button" @pointerdown=${this.buttonDown}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="red" stroke="none" r="280"/></svg>
               </button>
-              <button class="remote-button" id="green-button" @click=${this.buttonClicked}>
+              <button class="remote-button" id="green-button" @pointerdown=${this.buttonDown}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="green" stroke="none" r="280"/></svg>
               </button>
-              <button class="remote-button" id="yellow-button" @click=${this.buttonClicked}>
+              <button class="remote-button" id="yellow-button" @pointerdown=${this.buttonDown}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="yellow" stroke="none" r="280"/></svg>
               </button>
-              <button class="remote-button" id="blue-button" @click=${this.buttonClicked}>
+              <button class="remote-button" id="blue-button" @pointerdown=${this.buttonDown}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="#1e90ff" stroke="none" r="280"/></svg>
               </button>
           </div>
@@ -3632,25 +3636,25 @@ class FiremoteCard extends LitElement {
           <div class="two-col-span"> ${drawDeviceName(this, this._config, 'top')} </div>
 
           <div class="dpadContainer shieldDpad">
-            <button class="centerbutton centerbuttonShield" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton centerbuttonShield" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton dpadbuttonShield" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton dpadbuttonShield" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton dpadbuttonShield" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton dpadbuttonShield" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton dpadbuttonShield" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton dpadbuttonShield" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton dpadbuttonShield" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-left-outline"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:circle-outline"></ha-icon>
           </button>
 
           <div class="two-col-span">
-            <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+            <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:keyboard-outline"></ha-icon>
             </button>
           </div>
@@ -3658,8 +3662,8 @@ class FiremoteCard extends LitElement {
           <div class="ns1-wings">
             <div id="wingL"> </div>
             <div id="ns1spine">
-              <button class="ns1volume" id="volume-up-button" @click=${this.buttonClicked}></button>
-              <button class="ns1volume" id="volume-down-button" @click=${this.buttonClicked}></button>
+              <button class="ns1volume" id="volume-up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="ns1volume" id="volume-down-button" @pointerdown=${this.buttonDown}></button>
             </div>
             <div id="wingR"> </div>
           </div>
@@ -3687,50 +3691,50 @@ class FiremoteCard extends LitElement {
 
           <div class="two-col-span"> ${drawDeviceName(this, this._config, 'top')} </div>
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
-          <button class="remote-button" id="hamburger-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="hamburger-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu"></ha-icon>
           </button>
 
 
           <div class="dpadContainer shieldDpad">
-            <button class="centerbutton centerbuttonShield" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton centerbuttonShield" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton dpadbuttonShield" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton dpadbuttonShield" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton dpadbuttonShield" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton dpadbuttonShield" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton dpadbuttonShield" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton dpadbuttonShield" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton dpadbuttonShield" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton dpadbuttonShield" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:menu-left"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:circle"></ha-icon>
           </button>
 
-          <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:fast-forward"></ha-icon>
           </button>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
 
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="volume-up-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-high"></ha-icon>
           </button>
 
-          <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
           </button>
-          <button class="remote-button" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="volume-down-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-medium"></ha-icon>
           </button>
 
@@ -3756,63 +3760,63 @@ class FiremoteCard extends LitElement {
 
           ${drawDeviceName(this, this._config, 'top')}
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div class="micNLight">
             <div class="activityLight"> </div>
             <div class="micHole"> </div>
           </div>
-          <button class="remote-button" id="input-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="input-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:import"></ha-icon>
           </button>
 
-          <button class="remote-button" id="profile-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="profile-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:account"></ha-icon>
           </button>
-          <button class="remote-button keyboard-button dark" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button dark" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="settings-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="settings-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:cog"></ha-icon>
           </button>
 
           <div class="dpadContainer">
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}> </button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}> </button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}> </button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}> </button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}> </button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}> </button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}> </button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}> </button>
             </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-left"></ha-icon>
           </button>
-          <button class="remote-button dark${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button dark${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home"></ha-icon>
           </button>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="tv-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:television-classic"></ha-icon>
           </button>
 
           <div class="volumeChannelSection">
-            <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:plus"></ha-icon>
             </button>
             <div> </div>
-            <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-top" id="channel-up-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:chevron-up"></ha-icon>
             </button>
 
-            <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:minus"></ha-icon>
             </button>
-            <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+            <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:volume-mute"></ha-icon>
             </button>
-            <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-bottom" id="channel-down-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:chevron-down"></ha-icon>
             </button>
           </div>
@@ -3844,63 +3848,63 @@ class FiremoteCard extends LitElement {
 
           ${drawDeviceName(this, this._config, 'top')}
 
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div class="micNLight">
             <div class="activityLight"> </div>
             <div class="micHole"> </div>
           </div>
-          <button class="remote-button" id="magic-star-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="magic-star-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:star"></ha-icon>
           </button>
 
-          <button class="remote-button" id="profile-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="profile-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:account"></ha-icon>
           </button>
-          <button class="remote-button keyboard-button light" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button light" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
-          <button class="remote-button" id="settings-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="settings-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:cog"></ha-icon>
           </button>
 
           <div class="dpadContainer">
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}> </button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}> </button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}> </button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}> </button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}> </button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}> </button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}> </button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}> </button>
             </div>
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-left"></ha-icon>
           </button>
-          <button class="remote-button light${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button light${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home"></ha-icon>
           </button>
-          <button class="remote-button" id="tv-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="tv-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:television-classic"></ha-icon>
           </button>
 
           <div class="volumeChannelSection">
-            <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:plus"></ha-icon>
             </button>
             <div> </div>
-            <button class="remote-button round-top" id="channel-up-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-top" id="channel-up-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:chevron-up"></ha-icon>
             </button>
 
-            <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:minus"></ha-icon>
             </button>
-            <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+            <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:volume-mute"></ha-icon>
             </button>
-            <button class="remote-button round-bottom" id="channel-down-button" @click=${this.buttonClicked}>
+            <button class="remote-button round-bottom" id="channel-down-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:chevron-down"></ha-icon>
             </button>
           </div>
@@ -3926,7 +3930,7 @@ class FiremoteCard extends LitElement {
         return html`
             <div class="powerRow">
               <div class="micRow"> </div>
-              <button class="remote-button${powerStatusClass}" id="power-button" @click=${remote.buttonClicked}>
+              <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${remote.buttonDown}>
                 <ha-icon icon="mdi:power"></ha-icon>
               </button>
               <div> </div>
@@ -3935,7 +3939,7 @@ class FiremoteCard extends LitElement {
       else {
         return html`
             <div class="powerRow">
-              <button class="remote-button${powerStatusClass}" id="power-button" @click=${remote.buttonClicked}>
+              <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${remote.buttonDown}>
                 <ha-icon icon="mdi:power"></ha-icon>
               </button>
             </div>`;
@@ -3946,23 +3950,23 @@ class FiremoteCard extends LitElement {
       return html`
           <div class="rokuDPadContainer">
               <div> </div>
-              <button id="up-button" @click=${remote.buttonClicked}>
+              <button id="up-button" @pointerdown=${remote.buttonDown}>
                   <ha-icon icon="mdi:chevron-up"></ha-icon>
               </button>
               <div> </div>
-              <button id="left-button" @click=${remote.buttonClicked}>
+              <button id="left-button" @pointerdown=${remote.buttonDown}>
                   <ha-icon icon="mdi:chevron-left"></ha-icon>
               </button>
-              <button id="center-button" @click=${remote.buttonClicked}>
+              <button id="center-button" @pointerdown=${remote.buttonDown}>
                 <div class="okCircle">
                     OK
                 </div>
               </button>
-              <button id="right-button" @click=${remote.buttonClicked}>
+              <button id="right-button" @pointerdown=${remote.buttonDown}>
                   <ha-icon icon="mdi:chevron-right"></ha-icon>
               </button>
               <div> </div>
-              <button id="down-button" @click=${remote.buttonClicked}>
+              <button id="down-button" @pointerdown=${remote.buttonDown}>
                   <ha-icon icon="mdi:chevron-down"></ha-icon>
               </button>
               <div> </div>
@@ -3972,32 +3976,32 @@ class FiremoteCard extends LitElement {
     function renderRokuBackHomeRow(remote) {
       return html`
           <div class="backHomeRow">
-            <button class="remote-button" id="back-button" @click=${remote.buttonClicked}>
+            <button class="remote-button" id="back-button" @pointerdown=${remote.buttonDown}>
               <ha-icon icon="mdi:arrow-left"></ha-icon>
             </button>
-            <button class="remote-button${homeStatusClass}" id="home-button" @click=${remote.buttonClicked}>
+            <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${remote.buttonDown}>
               <ha-icon icon="mdi:home-outline"></ha-icon>
             </button>
           </div>`;
     }
 
     function renderRokuReplayOptionsRow(remote, style) {
-      var middleButton = html `<button class="remote-button" id="keyboard-button" @click=${remote.buttonClicked}>
+      var middleButton = html `<button class="remote-button" id="keyboard-button" @pointerdown=${remote.buttonDown}>
                                 <ha-icon icon="mdi:keyboard-outline"></ha-icon>
                               </button>`;
       if (style=='RHR'|| style=='RWR') {
-        var middleButton = html `<button class="remote-button" id="sleep-button" @click=${remote.buttonClicked}>
+        var middleButton = html `<button class="remote-button" id="sleep-button" @pointerdown=${remote.buttonDown}>
                                 <ha-icon icon="mdi:moon-waxing-crescent"></ha-icon>
                               </button>`;
       }
       if (style=='RSR' || style=='RTR') { middleButton = '' };
       return html`
           <div class="replayVoiceOptionsRow">
-            <button class="remote-button" id="replay-button" @click=${remote.buttonClicked}>
+            <button class="remote-button" id="replay-button" @pointerdown=${remote.buttonDown}>
               <ha-icon icon="mdi:restore"></ha-icon>
             </button>
             ${middleButton}
-            <button class="remote-button" id="options-button" @click=${remote.buttonClicked}>
+            <button class="remote-button" id="options-button" @pointerdown=${remote.buttonDown}>
               <ha-icon icon="mdi:asterisk"></ha-icon>
             </button>
           </div>`;
@@ -4006,13 +4010,13 @@ class FiremoteCard extends LitElement {
     function renderRokuScrubRow(remote) {
       return html`
           <div class="scrubRow">
-            <button class="remote-button" id="rewind-button" @click=${remote.buttonClicked}>
+            <button class="remote-button" id="rewind-button" @pointerdown=${remote.buttonDown}>
               <ha-icon icon="mdi:rewind"></ha-icon>
             </button>
-            <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${remote.buttonClicked}>
+            <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${remote.buttonDown}>
               <ha-icon icon="mdi:play-pause"></ha-icon>
             </button>
-            <button class="remote-button" id="fastforward-button" @click=${remote.buttonClicked}>
+            <button class="remote-button" id="fastforward-button" @pointerdown=${remote.buttonDown}>
               <ha-icon icon="mdi:fast-forward"></ha-icon>
             </button>
           </div>`;
@@ -4148,10 +4152,10 @@ class FiremoteCard extends LitElement {
           ${renderRokuReplayOptionsRow(this)}
           ${renderRokuScrubRow(this)}
           <div class="personalShortcutsRow">
-            <button class="remote-button" id="programmable-one-button" @click=${this.buttonClicked}>
+            <button class="remote-button" id="programmable-one-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:numeric-1"></ha-icon>
             </button>
-            <button class="remote-button" id="programmable-two-button" @click=${this.buttonClicked}>
+            <button class="remote-button" id="programmable-two-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:numeric-2"></ha-icon>
             </button>
           </div>
@@ -4176,49 +4180,49 @@ class FiremoteCard extends LitElement {
           ${drawDeviceName(this, this._config, 'top')}
 
           <div> </div>
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div> </div>
 
           <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
-          <button class="remote-button${patchWallStatusClass}" id="patchwall-button" @click=${this.buttonClicked}>
+          <button class="remote-button${patchWallStatusClass}" id="patchwall-button" @pointerdown=${this.buttonDown}>
             <div class="mdiSubstituteIconWrapper">
               <svg class="mdiSubstitueIcon" xmlns="http://www.w3.org/2000/svg" width="850" height="850" viewBox="0 0 850 850" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M81.6 57.8C73.5 57.6 66 67.6 66 75l-.5 391.5c0 9.5 11 19.5 18.8 20.7-.3-.2 444.2.3 444.2.3 11-1.3 22.5-10 22.5-17.5l.5-395c0-9-4-18-19-18 .5-.4-447 .3-451.5.5m572.5-.5c-13.3 0-25 9-25 20v292c0 12 8 16 16 16h124c9 0 15-4 15-16V77c-1-10-8-20-20-20h-111m-.8 408c-23.2.2-20.7 2.7-20.7 55.2 0 55 2.5 50-25 50H473.5c-20 0-27.5 5-27.5 20v190c.5 12 12.5 20 38.6 19.7-1 .3 259 .3 259 .3 32.5 0 40-5 40-20v-297c0-13-5-18-22.5-18.5l-109.3.3M84 569.2c-14 0-18 6-18 18.5v192.5c5 30-7.5 20 270 20 20 0 30.5-7 30.5-19v-194c0-11-11-18-31-18h-258" stroke="none"/></svg>
             </div>
           </button>
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-left"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:checkbox-blank-circle-outline"></ha-icon>
           </button>
 
           ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["XM1"])}
 
           <div> </div>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
           <div> </div>
 
           <div> </div>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
           <div> </div>
@@ -4245,47 +4249,47 @@ class FiremoteCard extends LitElement {
           ${drawDeviceName(this, this._config, 'top')}
 
           <div> </div>
-          <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+          <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:power"></ha-icon>
           </button>
           <div> </div>
 
           <div> </div>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
           <div> </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
-          <button class="remote-button" id="apps-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="apps-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:apps"></ha-icon>
           </button>
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-left"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:checkbox-blank-circle-outline"></ha-icon>
           </button>
 
           ${drawAppLaunchButtons(this, this._config, 3, appButtonMax["XM2"])}
 
           <div> </div>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
           <div> </div>
 
           <div> </div>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
           <div> </div>
@@ -4312,47 +4316,47 @@ class FiremoteCard extends LitElement {
           ${drawDeviceName(this, this._config, 'top')}
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}> </button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:arrow-left"></ha-icon>
           </button>
-          <button class="remote-button keyboard-button" id="keyboard-button" @click=${this.buttonClicked}>
+          <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:keyboard-outline"></ha-icon>
           </button>
 
 
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:home"></ha-icon>
           </button>
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
 
           ${drawAppLaunchButtons(this, this._config, 2, appButtonMax["CC1"])}
 
           <div class="chromecastBottomIndentedRow">
-            <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+            <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:power"></ha-icon>
             </button>
             <div class="notch"> </div>
-            <button class="remote-button" id="input-button" @click=${this.buttonClicked}>
+            <button class="remote-button" id="input-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:import"></ha-icon>
             </button>
           </div>
 
           <div class="chromecastVolumeRocker">
-            <button class="remote-button" id="volume-down-button" @click=${this.buttonClicked}>
+            <button class="remote-button" id="volume-down-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:volume-minus"></ha-icon>
             </button>
-            <button class="remote-button" id="volume-up-button" @click=${this.buttonClicked}>
+            <button class="remote-button" id="volume-up-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:volume-plus"></ha-icon>
             </button>
           </div>
@@ -4378,20 +4382,20 @@ class FiremoteCard extends LitElement {
           ${drawDeviceName(this, this._config, 'top')}
 
           <div class="dpadContainer AR1Dpad">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}></button>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}></button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             MENU
           </button>
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
 
@@ -4425,47 +4429,47 @@ class FiremoteCard extends LitElement {
           </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton" id="center-button" @click=${this.buttonClicked}>
+            <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:checkbox-blank-circle"></ha-icon>
             </button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}>
                 <ha-icon icon="mdi:arrow-top-left"></ha-icon>
               </button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}>
                 <ha-icon icon="mdi:arrow-top-right"></ha-icon>
               </button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}>
                 <ha-icon icon="mdi:arrow-bottom-left"></ha-icon>
               </button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}>
                 <ha-icon icon="mdi:arrow-bottom-right"></ha-icon>
               </button>
             </div>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             MENU
           </button>
-          <button class="remote-button" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:monitor"></ha-icon>
           </button>
 
         </div>
         <div class="AR2BottomSection">
 
-          <button class="remote-button" id="search-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="search-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:magnify"></ha-icon>
           </button>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
 
 
-          <button class="remote-button" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
 
@@ -4496,42 +4500,42 @@ class FiremoteCard extends LitElement {
             <div></div>
             <div class="notch"></div>
             <div class="right">
-              <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+              <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
                 <ha-icon icon="mdi:power"></ha-icon>
               </button>
             </div>
           </div>
 
           <div class="dpadContainer">
-            <button class="centerbutton type-button" id="center-button" @click=${this.buttonClicked}></button>
+            <button class="centerbutton type-button" id="center-button" @pointerdown=${this.buttonDown}></button>
             <div class="directionButtonContainer">
-              <button class="dpadbutton" id="up-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="right-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="left-button" @click=${this.buttonClicked}></button>
-              <button class="dpadbutton" id="down-button" @click=${this.buttonClicked}></button>
+              <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+              <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
             </div>
           </div>
 
-          <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:chevron-left"></ha-icon>
           </button>
-          <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+          <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:monitor"></ha-icon>
           </button>
 
 
-          <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:play-pause"></ha-icon>
           </button>
-          <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
             +
           </button>
 
 
-          <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+          <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-off"></ha-icon>
           </button>
-          <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+          <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
             &#x2013;
           </button>
 
@@ -4621,19 +4625,19 @@ class FiremoteCard extends LitElement {
 
               <div class="${dpadClass}dpadContainer">
                   <div> </div>
-                  <button class="dpadbutton" id="up-button" @click=${caller.buttonClicked}>
+                  <button class="dpadbutton" id="up-button" @pointerdown=${caller.buttonDown}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="57" height="19" viewBox="0 0 57 19" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M3 15Q23 3 28 3q5 0 25 12" stroke-width="6"/></svg>
                   </button>
                   <div> </div>
-                  <button class="dpadbutton" id="left-button" @click=${caller.buttonClicked}>
+                  <button class="dpadbutton" id="left-button" @pointerdown=${caller.buttonDown}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="57" viewBox="0 0 19 57" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M15 53Q3 33 3 28q0-5 12-25" stroke-width="6"/></svg>
                   </button>
-                  <button class="centerbutton" id="center-button" @click=${caller.buttonClicked}> </button>
-                  <button class="dpadbutton" id="right-button" @click=${caller.buttonClicked}>
+                  <button class="centerbutton" id="center-button" @pointerdown=${caller.buttonDown}> </button>
+                  <button class="dpadbutton" id="right-button" @pointerdown=${caller.buttonDown}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="57" viewBox="0 0 19 57" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M3 3q12 20 12 25 0 5-12 25" stroke-width="6"/></svg>
                   </button>
                   <div> </div>
-                  <button class="dpadbutton" id="down-button" @click=${caller.buttonClicked}>
+                  <button class="dpadbutton" id="down-button" @pointerdown=${caller.buttonDown}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="57" height="19" viewBox="0 0 57 19" stroke="#b3b3b3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="none" d="M53 3Q33 15 28 15 23 15 3 3" stroke-width="6"/></svg>
                   </button>
                   <div> </div>
@@ -4644,12 +4648,12 @@ class FiremoteCard extends LitElement {
         else {
           return html`
               <div class="${dpadClass}dpadContainer">
-                <button class="centerbutton" id="center-button" @click=${caller.buttonClicked}> </button>
+                <button class="centerbutton" id="center-button" @pointerdown=${caller.buttonDown}> </button>
                 <div class="directionButtonContainer">
-                  <button class="dpadbutton" id="up-button" @click=${caller.buttonClicked}></button>
-                  <button class="dpadbutton" id="right-button" @click=${caller.buttonClicked}></button>
-                  <button class="dpadbutton" id="left-button" @click=${caller.buttonClicked}></button>
-                  <button class="dpadbutton" id="down-button" @click=${caller.buttonClicked}></button>
+                  <button class="dpadbutton" id="up-button" @pointerdown=${caller.buttonDown}></button>
+                  <button class="dpadbutton" id="right-button" @pointerdown=${caller.buttonDown}></button>
+                  <button class="dpadbutton" id="left-button" @pointerdown=${caller.buttonDown}></button>
+                  <button class="dpadbutton" id="down-button" @pointerdown=${caller.buttonDown}></button>
                 </div>
               </div>
           `;
@@ -4667,24 +4671,24 @@ class FiremoteCard extends LitElement {
 
             <div class="left-pocket-controls">
               <div class="${rowClass}">
-                <button class="remote-button${powerStatusClass}" id="power-button" @click=${this.buttonClicked}>
+                <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
                   <ha-icon icon="mdi:power"></ha-icon>
                 </button>
-                <button class="remote-button" id="back-button" @click=${this.buttonClicked}>
+                <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
                   <ha-icon icon="mdi:arrow-left"></ha-icon>
                 </button>
-                <button class="remote-button${homeStatusClass}" id="home-button" @click=${this.buttonClicked}>
+                <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
                   <ha-icon icon="mdi:home-outline"></ha-icon>
                 </button>
               </div>
               <div class="${rowClass}">
-                <button class="remote-button" id="rewind-button" @click=${this.buttonClicked}>
+                <button class="remote-button" id="rewind-button" @pointerdown=${this.buttonDown}>
                   <ha-icon icon="${lpb4icon}"></ha-icon>
                 </button>
-                <button class="remote-button${playingStatusClass}" id="playpause-button" @click=${this.buttonClicked}>
+                <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${this.buttonDown}>
                   <ha-icon icon="mdi:play-pause"></ha-icon>
                 </button>
-                <button class="remote-button" id="fastforward-button" @click=${this.buttonClicked}>
+                <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
                   <ha-icon icon="${lpb6icon}"></ha-icon>
                 </button>
               </div>
@@ -4697,28 +4701,28 @@ class FiremoteCard extends LitElement {
             <div class="right-pocket-controls">
               <div class="${rowClass}">
                 <div class="volumeContainer">
-                  <button class="remote-button round-top" id="volume-up-button" @click=${this.buttonClicked}>
+                  <button class="remote-button round-top" id="volume-up-button" @pointerdown=${this.buttonDown}>
                     +
                   </button>
-                  <button class="remote-button round-bottom" id="volume-down-button" @click=${this.buttonClicked}>
+                  <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
                     &#x2013;
                   </button>
                 </div>
                 <div>
-                  <button class="remote-button" id="${rpb2id}" @click=${this.buttonClicked}>
+                  <button class="remote-button" id="${rpb2id}" @pointerdown=${this.buttonDown}>
                     <ha-icon icon="${rpb2icon}"></ha-icon>
                   </button>
                   <br>
-                  <button class="remote-button" id="mute-button" @click=${this.buttonClicked}>
+                  <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
                     <ha-icon icon="mdi:volume-mute"></ha-icon>
                   </button>
                 </div>
                 <div>
-                  <button class="remote-button keyboard-button ${hiddenclass}" id="keyboard-button" @click=${this.buttonClicked}>
+                  <button class="remote-button keyboard-button ${hiddenclass}" id="keyboard-button" @pointerdown=${this.buttonDown}>
                     <ha-icon icon="mdi:keyboard-outline"></ha-icon>
                   </button>
                   <br>
-                  <button class="remote-button ${hiddenclass}" id="hamburger-button" @click=${this.buttonClicked}>
+                  <button class="remote-button ${hiddenclass}" id="hamburger-button" @pointerdown=${this.buttonDown}>
                     <ha-icon icon="mdi:menu"></ha-icon>
                   </button>
                 </div>
@@ -4736,18 +4740,51 @@ class FiremoteCard extends LitElement {
   }
 
 
-  // Remote Button Click Handler
-  buttonClicked(clicked) {
+
+  // Firemote Button Click or Click + Hold Handler
+  buttonDown(clicked) {
+
+    // Inspect user prefs & setup click timer
+    const _config = this._config;
+    const _hass = this.hass;
+    const deviceType = this._config.device_type;
+    const deviceFamily = this._config.device_family;
+    const entity = this._config.entity;
+    const compatibility_mode = this._config.compatibility_mode || 'default';
+    const overrides = this._config.button_overrides;
+    const atvRemoteEntity = this._config.android_tv_remote_entity;
+    const rokuRemoteEntity = this._config.roku_remote_entity;
+    const activityLight = this.renderRoot.querySelector('.activityLight');
+    const start = Date.now();
+    const holdTime = 500;
+    const buttonID = clicked.target.id;
+    var pressedTarget = clicked.target;
+    var timer = null;
 
     // Rebuild AppMap - allow hdmi inputs where appropriate & add configured custom launchers from YAML
     refreshAppMap(this._config, 4, 1, true);
 
-    // Inspect user prefs
-    const deviceType = this._config.device_type;
-    const deviceFamily = this._config.device_family;
-    const compatibility_mode = this._config.compatibility_mode || 'default';
-    const overrides = this._config.button_overrides;
-    const atvRemoteEntity = this._config.android_tv_remote_entity;
+
+    // Function for buttons that need overrides because HA integration support is lacking
+    function unsupportedButton(){
+      alert('"'+buttonID+"\"\n\nUse a button override to program this button\nhttps://github.com/PRProd/HA-Firemote/#button-overrides");
+      return;
+    }
+
+    // Check for user set Associated Android TV Remote Integration entity
+    var hasATVAssociation = true;
+    if(atvRemoteEntity == '' || typeof atvRemoteEntity == 'undefined' || deviceFamily == 'amazon-fire' ) {
+        hasATVAssociation = false;
+    }
+
+    // Choose event listener path for client android device
+    var eventListenerBinPath = '';
+    if(compatibility_mode == 'default' || compatibility_mode == 'strong' || compatibility_mode == '') {
+        eventListenerBinPath = deviceAttributeQuery("defaultEventListenerBinPath", this._config);
+    }
+    else {
+        var eventListenerBinPath = '/dev/input/'+compatibility_mode;
+    }
 
     // Function to handle translations from English to the user's language
     const ha_language = this.hass.config.language;
@@ -4778,21 +4815,44 @@ class FiremoteCard extends LitElement {
         }
     };
 
-    // Flash activity light if it exists
-    const activityLight = this.renderRoot.querySelector('.activityLight');
-    if (activityLight) {
-      activityLight.style.opacity = '1';
-      setTimeout(function() {activityLight.style.opacity = '0'}, 100);
+
+
+    // Check for and handle button overrides before proceeding
+    // No HOLD actions for button overrides are supported
+    if(typeof overrides !== 'undefined' && overrides !== null) {
+        if(typeof overrides[buttonID] !== 'undefined') {
+            const overrideDef = overrides[buttonID];
+            if(overrideDef !== null) {
+              if(typeof overrideDef.script !== 'undefined') {
+                // handle overrides via external script
+                try{ _hass.callService("script", overrideDef.script) }
+                catch { return; }
+                fireEvent(this, 'haptic', 'light'); // haptic feedback on success
+                return;
+              }
+              else if(typeof overrideDef.service !== 'undefined' && typeof overrideDef.target !== 'undefined') {
+                // handle overrides via yaml instructions
+                var ServiceDetails = getCustomServiceArgs(overrideDef);
+                try{ _hass.callService(ServiceDetails[0], ServiceDetails[1], ServiceDetails[2]) }
+                catch { return; }
+                fireEvent(this, 'haptic', 'light'); // haptic feedback on success
+                return;
+              }
+            }
+        }
     }
 
-    // Handle custom launcher buttons
+
+
+    // Handle custom launcher button clicks
+    // No HOLD actions for custom launchers are supported
     var customLauncherIDPfx = new RegExp('customlauncher ')
-    if(customLauncherIDPfx.test(clicked.target.id)){
-        var clickedButtonID = clicked.target.id;
+    if(customLauncherIDPfx.test(buttonID)){
+        var clickedButtonID = buttonID;
         const customLauncherKey = clickedButtonID.substr(0, clickedButtonID.indexOf("-button"));
         if(appmap.has(customLauncherKey)) {
             if(appmap.get(customLauncherKey).script) {
-                try{ this.hass.callService("script", appmap.get(customLauncherKey).script) }
+                try{ _hass.callService("script", appmap.get(customLauncherKey).script) }
                 catch { return; }
                 fireEvent(this, 'haptic', 'light');
                 return;
@@ -4800,11 +4860,11 @@ class FiremoteCard extends LitElement {
             else {
                var launcher = appmap.get(customLauncherKey);
                if(typeof launcher.friendlyName !== 'undefined') {
-                 this._config.custom_launchers.forEach(element => {
-                  var name = launcher.friendlyName.substr(8);
+                 _config.custom_launchers.forEach(element => {
+                   var name = launcher.friendlyName.substr(8);
                    if (name == element.friendly_name) {
                      var ServiceDetails = getCustomServiceArgs(element);
-                     try{ this.hass.callService(ServiceDetails[0], ServiceDetails[1], ServiceDetails[2]) }
+                     try{ _hass.callService(ServiceDetails[0], ServiceDetails[1], ServiceDetails[2]) }
                      catch { return; }
                      fireEvent(this, 'haptic', 'light');
                    }
@@ -4815,882 +4875,10 @@ class FiremoteCard extends LitElement {
         }
     }
 
-    // Check for button override before proceeding
-    if(typeof overrides !== 'undefined' && overrides !== null) {
-        if(typeof overrides[clicked.target.id] !== 'undefined') {
-            const overrideDef = overrides[clicked.target.id];
-            if(overrideDef !== null) {
-              if(typeof overrideDef.script !== 'undefined') {
-                // handle overrides via external script
-                try{ this.hass.callService("script", overrideDef.script) }
-                catch { return; }
-                fireEvent(this, 'haptic', 'light'); // haptic feedback on success
-                return;
-              }
-              else if(typeof overrideDef.service !== 'undefined' && typeof overrideDef.target !== 'undefined') {
-                // handle overrides via yaml instructions
-                var ServiceDetails = getCustomServiceArgs(overrideDef);
-                try{ this.hass.callService(ServiceDetails[0], ServiceDetails[1], ServiceDetails[2]) }
-                catch { return; }
-                fireEvent(this, 'haptic', 'light'); // haptic feedback on success
-                return;
-              }
-            }
-        }
-    }
 
-    // For buttons that need overrides because HA integration support is lacking
-    function unsupportedButton(){
-      alert('"'+clicked.target.id+"\"\n\nUse a button override to program this button\nhttps://github.com/PRProd/HA-Firemote/#button-overrides");
-      return;
-    }
-
-    // Check for user set Associated Android TV Remote Integration entity
-    var hasATVAssociation = true;
-    if(atvRemoteEntity == '' || typeof atvRemoteEntity == 'undefined' || deviceFamily == 'amazon-fire' ) {
-        hasATVAssociation = false;
-    }
-
-    // Choose event listener path for client android device
-    var eventListenerBinPath = '';
-    if(compatibility_mode == 'default' || compatibility_mode == 'strong' || compatibility_mode == '') {
-        eventListenerBinPath = deviceAttributeQuery("defaultEventListenerBinPath", this._config);
-    }
-    else {
-        var eventListenerBinPath = '/dev/input/'+compatibility_mode;
-    }
-
-    // Catch-all for none/other configurations where a button hasn't been defined in YAML config
-    if(this._config.entity === 'none') {
-        unsupportedButton();
-        return;
-    }
-
-    // provide haptic feedback for button press
-    fireEvent(this, 'haptic', 'light')
-
-    // Power Button
-    if(clicked.target.id == 'power-button') {
-      const state = this.hass.states[this._config.entity];
-      const stateStr = state ? state.state : 'off';
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        if(stateStr != 'off' && stateStr != 'unavailable' && stateStr != 'standby') {
-          this.hass.callService("media_player", "turn_off", { entity_id: this._config.entity});
-        }
-        else {
-          this.hass.callService("media_player", "turn_on", { entity_id: this._config.entity});
-        }
-          return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_POWER' });
-      }
-      else if (compatibility_mode == 'strong' && eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("media_player", "toggle", { entity_id: this._config.entity});
-      }
-      else if(deviceType == 'fire_stick_4k'   || deviceType == 'fire_tv_stick_4k_max' ||
-              deviceType == 'fire_tv_3rd_gen' || deviceType =='fire_stick_second_gen' ||
-              deviceType == 'fire_tv_stick_4k_second_gen' ) {
-        if(stateStr != 'off' && stateStr != 'unavailable') {
-          this.hass.callService("media_player", "turn_off", { entity_id: this._config.entity});
-        }
-        else {
-          this.hass.callService("media_player", "turn_on", { entity_id: this._config.entity});
-        }
-      }
-      else if (deviceType == 'fire_tv_cube_third_gen') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 116 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 116 0 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent /dev/input/event2 1 9 1 && sendevent /dev/input/event2 0 0 0 && sendevent /dev/input/event2 1 9 0 && sendevent /dev/input/event2 0 0 0' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'POWER' });
-      }
-      return;
-    }
-
-    // Account Button (Google TV)
-    if(clicked.target.id == 'profile-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_PROFILE_SWITCH' });
-      return;
-    };
-
-    // Magic Button / Star Button (Google TV / onn pro)
-    if(clicked.target.id == 'magic-star-button') {
-      if (deviceType == 'onn-streaming-device-4k-pro') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 313' });
-        return;
-      }
-      else {
-        unsupportedButton();
-        return;
-      }
-    };
-
-    // Keyboard button
-    if(clicked.target.id == 'keyboard-button') {
-      var text = prompt("Enter text to send");
-      if (text && text != '') {
-        if(['roku'].includes(this._config.device_family)) {
-          this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'Lit_'+text, num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        }
-        else {
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'input text "'+text+'"' });
-        }
-      }
-      return;
-    };
-
-    // Up Button
-    if(clicked.target.id == 'up-button') {
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        var t = this._config.device_family+"_remote_entity";
-        var confname = t.replace(/\-/, "_");
-        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_UP' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'UP' });
-      }
-      else {
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 103 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 103 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Left Button
-    if(clicked.target.id == 'left-button') {
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        var t = this._config.device_family+"_remote_entity";
-        var confname = t.replace(/\-/, "_");
-        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'left', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_LEFT' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'LEFT' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 105 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 105 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Center Button
-    if(clicked.target.id == 'center-button') {
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        var t = this._config.device_family+"_remote_entity";
-        var confname = t.replace(/\-/, "_");
-        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'select', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_CENTER' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'CENTER' });
-      }
-      else {
-        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 28 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 28 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        }
-        else if(deviceType == 'mi-box-s') {
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 353 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 353 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        }
-        else {
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 96 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 96 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        }
-      }
-      return;
-    }
-
-    // Right Button
-    if(clicked.target.id == 'right-button') {
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        var t = this._config.device_family+"_remote_entity";
-        var confname = t.replace(/\-/, "_");
-        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'right', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_RIGHT' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RIGHT' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 106 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 106 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Down Button
-    if(clicked.target.id == 'down-button') {
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        var t = this._config.device_family+"_remote_entity";
-        var confname = t.replace(/\-/, "_");
-        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_DPAD_DOWN' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'DOWN' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 108 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 108 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Replay Button
-    if(clicked.target.id == 'replay-button') {
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'replay', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-    }
-
-    // Options Button
-    if(clicked.target.id == 'options-button') {
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'info', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-    }
-
-    // Apps Button
-    if(clicked.target.id == 'apps-button') {
-      if (deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.google.android.tvlauncher/.appsview.AppsViewActivity' });
-      }
-      else if (deviceFamily == 'nvidia-shield') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_APP_SWITCH' });
-      }
-      else if (deviceFamily == 'amazon-fire') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'am start -n com.amazon.venezia/com.amazon.venezia.grid.AppsGridLauncherActivity' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RECENTS' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 757 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 757 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Back Button
-    if(clicked.target.id == 'back-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'menu', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'back', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_BACK' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'BACK' });
-      }
-      return;
-    }
-
-    // Home Button
-    if(clicked.target.id == 'home-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'top_menu', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'home', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_HOME' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'HOME' });
-      }
-      return;
-    }
-
-    // Hamburger Button
-    if(clicked.target.id == 'hamburger-button') {
-      if(this._config.device_family == 'roku') {
-        unsupportedButton();
-        return;
-      }
-      if(deviceType == 'shield-tv-pro-2019' || deviceType == 'shield-tv-2019') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'am start -a android.settings.SETTINGS' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'MENU' });
-      }
-      else if(deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.android.tv.settings/com.android.tv.settings.MainSettings' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 139 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 139 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Rewind Button
-    if(clicked.target.id == 'rewind-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'skip_backward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'reverse', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_REWIND' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'REWIND' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 168 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 168 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Play/Pause Button
-    if(clicked.target.id == 'playpause-button') {
-      if(this._config.device_family == 'apple-tv') {
-        var playpausecommand = 'pause';
-        if(this.hass.states[this._config.entity].state=='paused'){ playpausecommand = 'play'; };
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: playpausecommand, num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'play', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_PLAY_PAUSE' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
-        this.hass.callService("media_player", "media_play_pause", { entity_id: this._config.entity});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 164 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 164 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Fast Forward Button
-    if(clicked.target.id == 'fastforward-button') {
-      if(this._config.device_family == 'apple-tv') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.apple_tv_remote_entity, command: 'skip_forward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'forward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_FAST_FORWARD' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'FAST_FORWARD' });
-      }
-      else {
-        if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 159 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 159 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        }
-        else {
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 208 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 208 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-        }
-      }
-      return;
-    }
-
-    // Volume Up Button
-    if(clicked.target.id == 'volume-up-button') {
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        var t = this._config.device_family+"_remote_entity";
-        var confname = t.replace(/\-/, "_");
-        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'volume_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_UP' });
-      }
-      else if(deviceFamily == 'nvidia-shield') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --show --adj raise' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_UP' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 115 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 115 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Channel Up Button
-    if(clicked.target.id == 'channel-up-button') {
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'channel_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 402 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 402 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Volume Down Button
-    if(clicked.target.id == 'volume-down-button') {
-      if(['apple-tv', 'roku'].includes(this._config.device_family)) {
-        var t = this._config.device_family+"_remote_entity";
-        var confname = t.replace(/\-/, "_");
-        this.hass.callService("remote", "send_command", { entity_id: this._config[confname], command: 'volume_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_DOWN' });
-      }
-      else if(deviceFamily == 'nvidia-shield') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell cmd media_session volume --show --adj lower' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'VOLUME_DOWN' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 114 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 114 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // TV Button
-    if(clicked.target.id == 'tv-button') {
-      if (deviceType == 'fire_tv_cube_third_gen') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 297'});
-      }
-      else if (deviceType == 'fire_tv_stick_4k_second_gen' || deviceType == 'fire_tv_stick_4k_max_second_gen') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 300'});
-      }
-      else if (deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.google.android.tv/com.android.tv.MainActivity' });
-      }
-      else if (deviceType == 'onn-4k-streaming-box' || deviceType == 'onn-full-hd-streaming-stick' || deviceType == 'onn-streaming-device-4k-pro') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_GUIDE'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 362 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 362 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Channel Down Button
-    if(clicked.target.id == 'channel-down-button') {
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'channel_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 403 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 403 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Mute Button
-    if(clicked.target.id == 'mute-button') {
-      if(this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'volume_mute', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-      if(hasATVAssociation) {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_MUTE' });
-      }
-      else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'MUTE' });
-      }
-      else if (deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 164'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 113 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 113 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Settings Button
-    if(clicked.target.id == 'settings-button') {
-      if(['onn-4k-streaming-box', 'onn-full-hd-streaming-stick', 'onn-streaming-device-4k-pro'].includes(deviceType)) {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 83' });
-      }
-      else if(compatibility_mode == 'strong'  || eventListenerBinPath == 'undefined' || deviceType == 'fire_tv_cube_third_gen') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'SETTINGS' });
-      }
-      else if(deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start -n com.android.tv.settings/com.android.tv.settings.MainSettings' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 249 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 249 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // App Switch (recents) Button
-    if(clicked.target.id == 'app-switch-button') {
-      if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RECENTS' });
-      }
-      else if (deviceType == 'fire_tv_stick_4k_second_gen' || deviceType == 'fire_tv_stick_4k_max_second_gen') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 307'});
-      }
-      else if(eventListenerBinPath == 'undefined') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'RECENTS' });
-      }
-      else if (deviceType == 'fire_tv_cube_third_gen') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 304'});
-      }
-      else if (deviceType == 'mi-box-s') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent KEYCODE_APP_SWITCH' });
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 757 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 757 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // Headset Button
-    if(clicked.target.id == 'headset-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent BUTTON_3'});
-      return;
-    }
-
-    // 1 Button
-    if(clicked.target.id == 'num1-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 8'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 2 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 2 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 2 Button
-    if(clicked.target.id == 'num2-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 9'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 3 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 3 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 3 Button
-    if(clicked.target.id == 'num3-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 10'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 4 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 4 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 4 Button
-    if(clicked.target.id == 'num4-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 11'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 5 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 5 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 5 Button
-    if(clicked.target.id == 'num5-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 12'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 6 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 6 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 6 Button
-    if(clicked.target.id == 'num6-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 13'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 7 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 7 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 7 Button
-    if(clicked.target.id == 'num7-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 14'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 8 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 8 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 8 Button
-    if(clicked.target.id == 'num8-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 15'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 9 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 9 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 9 Button
-    if(clicked.target.id == 'num9-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 16'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 10 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 10 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // 0 Button
-    if(clicked.target.id == 'num0-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 7'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 11 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 11 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // SUBT Button
-    if(clicked.target.id == 'subtitle-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else if(compatibility_mode == 'strong') {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 175'});
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+eventListenerBinPath+' 1 469 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 469 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
-      }
-      return;
-    }
-
-    // LIVE Button
-    if(clicked.target.id == 'live-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else {
-        if(deviceType == 'fire_tv_jvc-4k-2021') {
-          var tempbinpath = '/dev/input/event4'
-          this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'sendevent '+tempbinpath+' 1 358 1 && sendevent '+tempbinpath+' 0 0 0 && sendevent '+tempbinpath+' 1 358 0 && sendevent '+tempbinpath+' 0 0 0' });
-        }
-        else {
-          unsupportedButton();
-        }
-      }
-      return;
-    }
-
-    // Programmable 1 Button
-    if(clicked.target.id == 'programmable-one-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent BUTTON_1'});
-        return;
-      }
-    }
-
-    // Programmable 2 Button
-    if(clicked.target.id == 'programmable-two-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent BUTTON_2'});
-        return;
-      }
-    }
-
-    // Red Button
-    if(clicked.target.id == 'red-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 183'});
-      }
-      return;
-    }
-
-    // Green Button
-    if(clicked.target.id == 'green-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 184'});
-      }
-      return;
-    }
-
-    // Yellow Button
-    if(clicked.target.id == 'yellow-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 185'});
-      }
-      return;
-    }
-
-    // Blue Button
-    if(clicked.target.id == 'blue-button') {
-      if(this._config.device_family == 'roku' || this._config.device_family == 'apple-tv') {
-        unsupportedButton();
-      }
-      else {
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 186'});
-      }
-      return;
-    }
-
-    // Voice Button
-    if(clicked.target.id == 'voice-button') {
-        unsupportedButton();
-    }
-
-    // Sleep Button
-    if(clicked.target.id == 'sleep-button') {
-      if(this._config.device_family == 'roku') {
-        this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: 'sleep', num_repeats: 1, delay_secs: 0, hold_secs: 0});
-        return;
-      }
-    }
-
-    // PatchWall Button
-    if(clicked.target.id == 'patchwall-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell am start com.mitv.tvhome.atv'});
-      return;
-    }
-
-    // Input Button
-    if(clicked.target.id == 'input-button') {
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell input keyevent 178'});
-      return;
-    }
-
-    // Reboot Button
-    if(clicked.target.id == 'reboot-button') {
-      if(this._config.device_family == 'roku') {
-        unsupportedButton();
-        return;
-      }
-      if(confirm('Are you sure you want to reboot '+this.hass.states[this._config.entity].attributes.friendly_name) == false) {
-        return;
-      }
-      this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: 'adb shell reboot' });
-    }
-
-    // Search Button (Apple TV Remote style 2)
-    if(clicked.target.id == 'search-button') {
-      this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: "Search"});
-    }
-
-
-    // Roku Function: Jump to channel button
-    if(clicked.target.id == 'roku-tv-channel-button') {
-      if(this._config.device_family == 'roku') {
-        var channelnumber = prompt("Enter TV Channel Number");
-        if (channelnumber && channelnumber != '') {
-          this.hass.callService("media_player", "play_media", { entity_id: this._config.entity, 'media_content_id': channelnumber, 'media_content_type': 'channel'});
-        }
-      }
-      return;
-    };
-
-    // Roku Function: Secret Screen
-    if(clicked.target.id == 'roku-secret-screen-button') {
-      if(this._config.device_family == 'roku') {
-        var command = ['home', 'home', 'home', 'home', 'home', 'forward', 'forward', 'forward', 'reverse', 'reverse'];
-        for (let index = 0, len = command.length; index < len; ++index) {
-          setTimeout(() =>
-            this.hass.callService("remote", "send_command", { entity_id: this._config.roku_remote_entity, command: command[index], num_repeats: 1, delay_secs: 0, hold_secs: 0}),
-            index*50);
-        }
-      }
-      return;
-    }
-
-    // App launch button (existing in JSON map)
-    const clickedAppButtonID = clicked.target.id;
-    const appkey = clickedAppButtonID.substr(0, clickedAppButtonID.indexOf("-button"));
+    // Handle Built-in App launcher buttons (existing in JSON map)
+    // No HOLD actions for app launchers are supported
+    const appkey = buttonID.substr(0, buttonID.indexOf("-button"));
     if(appmap.has(appkey)) {
       var familySpecificAppData = appmap.get(appkey)[deviceFamily];
       if(familySpecificAppData && (familySpecificAppData.adbLaunchCommand || familySpecificAppData.appName || familySpecificAppData.remoteCommand)) {
@@ -5704,36 +4892,1446 @@ class FiremoteCard extends LitElement {
         var remoteCommand = appmap.get(appkey).remoteCommand
       }
       sourceName = translateToUsrLang(sourceName);
-      if (typeof remoteCommand != 'undefined' && ['apple-tv', 'roku'].includes(this._config.device_family)) {
+      fireEvent(this, 'haptic', 'light');
+      if (typeof remoteCommand != 'undefined' && ['apple-tv', 'roku'].includes(deviceFamily)) {
         var data = JSON.parse(remoteCommand);
-        switch (this._config.device_family) {
+        switch (deviceFamily) {
           case 'apple-tv':
-            data['entity_id'] = this._config.apple_tv_remote_entity;
+            data['entity_id'] = _config.apple_tv_remote_entity;
             break;
           case 'roku':
-            data['entity_id'] = this._config.roku_remote_entity;
+            data['entity_id'] = rokuRemoteEntity;
             break;
         }
-        this.hass.callService("remote", "send_command", data);
+        _hass.callService("remote", "send_command", data);
         return;
       }
       if (typeof adbcommand == 'undefined') {
-        this.hass.callService("media_player", "select_source", { entity_id: this._config.entity, source: sourceName});
+        _hass.callService("media_player", "select_source", { entity_id: _config.entity, source: sourceName});
+        return;
       }
       else {
         if(adbcommand == 'adb shell reboot') {
-          if(confirm('Are you sure you want to reboot '+this.hass.states[this._config.entity].attributes.friendly_name) == false) {
+          if(confirm('Are you sure you want to reboot '+_hass.states[_config.entity].attributes.friendly_name) == false) {
             return;
           }
         }
-        this.hass.callService("androidtv", "adb_command", { entity_id: this._config.entity, command: adbcommand });
+        _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: adbcommand });
+        return;
       }
       return;
     }
 
+
+
+
+
+    // detect difference between click or hold actions
+    // then carry out the appropriate actions
+    const userAction = getActionType(this);
+    async function getActionType(that) {
+      let type = new Promise((resolve, reject) => {
+
+        pressedTarget.addEventListener("mouseup", release, true);
+        pressedTarget.addEventListener("mouseout", mouseOutHandler, true);
+        timer = setTimeout(function(){
+          if(start){
+            // it was a hold
+            pressedTarget.removeEventListener("mouseup", release, true);
+            pressedTarget.removeEventListener("mouseout", mouseOutHandler, true);
+            //console.log('I detected a hold on '+buttonID+'!!');
+            resolve("hold");
+          }
+        }, holdTime);
+      
+        // it was a click
+        function release(){
+          clearTimeout(timer);
+          let start = null;
+          pressedTarget.removeEventListener("mouseup", release, true);
+          pressedTarget.removeEventListener("mouseout", mouseOutHandler, true);
+          //console.log('I detected a click on '+buttonID);
+          resolve("click");
+        }
+  
+        // a non-event is cancelled here
+        function mouseOutHandler() {
+          clearTimeout(timer);
+          let start = null;
+          pressedTarget.removeEventListener("mouseup", release, true);
+          pressedTarget.removeEventListener("mouseout", mouseOutHandler, true);
+          //console.log('No action for '+buttonID);
+          resolve(null);
+        }
+      });
+
+      // After determining the button interaction type,
+      // send the appropriate commands
+      let actionType = await type;
+      if(actionType == 'click' || actionType == 'hold') {
+
+        // Flash activity light if it exists
+        if (activityLight) {
+          activityLight.style.opacity = '1';
+          setTimeout(function() {activityLight.style.opacity = '0'}, 100);
+        }
+
+        // provide haptic feedback for button press
+        fireEvent(that, 'haptic', 'light')
+
+
+
+        // Power Button Click
+        if(buttonID == 'power-button' && actionType == 'click') {
+          const state = _hass.states[entity];
+          const stateStr = state ? state.state : 'off';
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            if(stateStr != 'off' && stateStr != 'unavailable' && stateStr != 'standby') {
+              _hass.callService("media_player", "turn_off", { entity_id: entity});
+            }
+            else {
+              _hass.callService("media_player", "turn_on", { entity_id: entity});
+            }
+              return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_POWER' });
+          }
+          else if (compatibility_mode == 'strong' && eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'POWER' });
+          }
+          else if(compatibility_mode == 'strong') {
+            _hass.callService("media_player", "toggle", { entity_id: entity});
+          }
+          else if(deviceType == 'fire_stick_4k'   || deviceType == 'fire_tv_stick_4k_max' ||
+                  deviceType == 'fire_tv_3rd_gen' || deviceType =='fire_stick_second_gen' ||
+                  deviceType == 'fire_tv_stick_4k_second_gen' ) {
+            if(stateStr != 'off' && stateStr != 'unavailable') {
+              _hass.callService("media_player", "turn_off", { entity_id: entity});
+            }
+            else {
+              _hass.callService("media_player", "turn_on", { entity_id: entity});
+            }
+          }
+          else if (deviceType == 'fire_tv_cube_third_gen') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 116 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 116 0 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent /dev/input/event2 1 9 1 && sendevent /dev/input/event2 0 0 0 && sendevent /dev/input/event2 1 9 0 && sendevent /dev/input/event2 0 0 0' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'POWER' });
+          }
+          return;
+        }
+        // Power Button Hold
+        if(buttonID == 'power-button' && actionType == 'hold') {
+          if(['amazon-fire', 'apple-tv', 'chromecast', 'nvidia-shield', 'onn', 'roku'].includes(deviceFamily)) {
+            return;
+          }
+          if(deviceFamily == 'xiaomi'){
+            if(hasATVAssociation) {
+              _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_POWER', num_repeats: 1, delay_secs: 0, hold_secs: 0.75 });
+            }
+            else {
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent --longpress POWER'});
+            }
+            return;
+          }
+        }
+
+
+
+        // Account Button (Google TV) Click
+        if(buttonID == 'profile-button' && actionType == 'click') {
+          _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent KEYCODE_PROFILE_SWITCH' });
+          return;
+        };
+        // Account Button (Google TV) Hold
+        if(buttonID == 'profile-button' && actionType == 'hold') {
+          // no special behaviors found for this yet
+          return;
+        }
+
+
+
+        // Magic Button / Star Button (Google TV / onn pro) Click
+        if(buttonID == 'magic-star-button' && actionType == 'click') {
+          if (deviceType == 'onn-streaming-device-4k-pro') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent 313' });
+            return;
+          }
+          else {
+            unsupportedButton();
+            return;
+          }
+        };
+        // Magic Button / Star Button (Google TV / onn pro) Hold
+        if(buttonID == 'magic-star-button' && actionType == 'hold') {
+          if (deviceType == 'onn-streaming-device-4k-pro') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent --longpress 313' });
+            return;
+          }
+          else {
+            unsupportedButton();
+            return;
+          }
+        };
+
+
+
+        // Keyboard button click
+        if(buttonID == 'keyboard-button' && actionType == 'click') {
+          if(['apple-tv'].includes(deviceFamily)) {
+            unsupportedButton();
+            return;
+          }
+          var text = prompt("Enter text to send");
+          if (text && text != '') {
+            if(['roku'].includes(deviceFamily)) {
+              _hass.callService("remote", "send_command", { entity_id: rokuRemoteEntity, command: 'Lit_'+text, num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            }
+            else {
+              var escapedText = text.replace(/"/g, "\\\"");
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'input text "'+escapedText+'"' });
+            }
+          }
+          return;
+        };
+        // Keyboard button hold
+        if(buttonID == 'keyboard-button' && actionType == 'hold') {
+          // no special behaviors dreamed up for this yet
+          return;
+        }
+
+
+
+        // Up Button click
+        if(buttonID == 'up-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_DPAD_UP' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'UP' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 103 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 103 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Up Button hold
+        if(buttonID == 'up-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+        
+
+
+        // Left Button Click
+        if(buttonID == 'left-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'left', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_DPAD_LEFT' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'LEFT' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 105 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 105 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Left Button Hold
+        if(buttonID == 'left-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+
+
+
+        // Right Button Click
+        if(buttonID == 'right-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'right', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_DPAD_RIGHT' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'RIGHT' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 106 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 106 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Right Button Hold
+        if(buttonID == 'right-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+
+
+
+        // Down Button Click
+        if(buttonID == 'down-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_DPAD_DOWN' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'DOWN' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 108 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 108 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Down Button Hold
+        if(buttonID == 'down-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+
+
+
+        // Center Button Click
+        if(buttonID == 'center-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'select', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_DPAD_CENTER' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'CENTER' });
+          }
+          else {
+            if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 28 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 28 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+            else if(deviceType == 'mi-box-s') {
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 353 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 353 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+            else {
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 96 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 96 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+          }
+          return;
+        }
+        // Center Button Hold
+        if(buttonID == 'center-button' && actionType == 'hold') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            // TODO: This strategy does not work with Roku
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'select', num_repeats: 1, delay_secs: 0, hold_secs: 1});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_DPAD_CENTER', num_repeats: 1, delay_secs: 0, hold_secs: 0.75 });
+            return;
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            // TODO: This strategy does not seem to work with the NVIDIA Shield, onn. or Chromecast (so... not at all)
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent --longpress 23' });
+          }
+          else {
+            if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 28 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sleep 1 && sendevent '+eventListenerBinPath+' 1 28 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+            else if(deviceType == 'mi-box-s') {
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 353 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sleep 1 && sendevent '+eventListenerBinPath+' 1 353 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+            else {
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 96 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sleep 1 && sendevent '+eventListenerBinPath+' 1 96 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+          }
+          return;
+        }
+
+
+
+        // Replay Button Click
+        if(buttonID == 'replay-button' && actionType == 'click') {
+          if(['roku'].includes(deviceFamily)) {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'replay', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          else {
+            unsupportedButton();
+            return;
+          }
+        }
+        // Replay Button Hold
+        if(buttonID == 'replay-button' && actionType == 'hold') {
+          //TODO: Work this out later - it functions like a rewind button on YouTube
+          return;
+        }
+
+
+
+        // Options Button Click
+        if(buttonID == 'options-button' && actionType == 'click') {
+          if(['roku'].includes(deviceFamily)) {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'info', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+        }
+        // Options Button Hold
+        if(buttonID == 'options-button' && actionType == 'hold') {
+          // no special behaviors found for this yet
+          return;
+        }
+
+
+
+        // Apps Button Click
+        if(buttonID == 'apps-button' && actionType == 'click') {
+          if (deviceType == 'mi-box-s') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.google.android.tvlauncher/.appsview.AppsViewActivity' });
+          }
+          else if (deviceFamily == 'nvidia-shield') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_APP_SWITCH' });
+          }
+          else if (deviceFamily == 'amazon-fire') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'am start -n com.amazon.venezia/com.amazon.venezia.grid.AppsGridLauncherActivity' });
+          }
+          else if (deviceFamily == 'onn') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_ALL_APPS' });
+          }
+          else if (deviceFamily == 'roku') {
+            unsupportedButton();
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'RECENTS' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 757 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 757 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Apps Button Hold
+        if(buttonID == 'apps-button' && actionType == 'hold') {
+          // no special behaviors found for this yet
+          return;
+        }
+
+
+
+        // Back Button Click
+        if(buttonID == 'back-button' && actionType == 'click') {
+          if(deviceFamily == 'apple-tv') {
+            _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'menu', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'back', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_BACK' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'BACK' });
+          }
+          return;
+        }
+        // Back Button Hold
+        if(buttonID == 'back-button' && actionType == 'hold') {
+          // no special behaviors found for this with Chromecast, FireTV, onn., NVIDIA Shield, Roku, or Xiaomi mi
+          if(deviceFamily == 'apple-tv') {
+            _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'home', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          return;
+        }
+
+
+
+        // Home Button Click
+        if(buttonID == 'home-button' && actionType == 'click') {
+          if(deviceFamily == 'apple-tv') {
+            _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'top_menu', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'home', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_HOME' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'HOME' });
+          }
+          return;
+        }
+        // Home Button Hold
+        if(buttonID == 'home-button' && actionType == 'hold') {
+          // no special behavior noticed for Roku
+          if(deviceFamily == 'amazon-fire') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent SETTINGS' });
+          }
+          else if(['chromecast', 'onn'].includes(deviceFamily)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 83' });
+          }
+          else if(deviceFamily == 'apple-tv') {
+            _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'home', num_repeats: 1, delay_secs: 0, hold_secs: 1});
+          }
+          else if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_HOME', num_repeats: 1, delay_secs: 0, hold_secs: 0.75});
+          }
+          else if(['nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_ALL_APPS' });
+          }
+          return;
+        }
+
+
+
+        // Hamburger Button Click
+        if(buttonID == 'hamburger-button' && actionType == 'click') {
+          if(['apple-tv', 'roku', 'onn'].includes(deviceFamily)) {
+            unsupportedButton();
+            return;
+          }
+          if(deviceType == 'shield-tv-pro-2019' || deviceType == 'shield-tv-2019') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'am start -a android.settings.SETTINGS' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'MENU' });
+          }
+          else if(['xiaomi'].includes(deviceFamily)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.android.tv.settings/com.android.tv.settings.MainSettings' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 139 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 139 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Hamburger Button Hold
+        if(buttonID == 'hamburger-button' && actionType == 'hold') {
+          // no special behaviors found for this with FireTV, or NVIDIA Shield
+          // the hamburger button for Xiaomi isn't actually real
+          return;
+        }
+
+
+
+        // Rewind Button Click
+        if(buttonID == 'rewind-button' && actionType == 'click') {
+          if(deviceFamily == 'apple-tv') {
+            _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'skip_backward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'reverse', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_REWIND' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'REWIND' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 168 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 168 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Rewind Button Hold
+        if(buttonID == 'rewind-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+
+
+
+        // Play/Pause Button Click
+        if(buttonID == 'playpause-button' && actionType == 'click') {
+          if(deviceFamily == 'apple-tv') {
+            var playpausecommand = 'pause';
+            if(_hass.states[_config.entity].state=='paused'){ playpausecommand = 'play'; };
+            _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: playpausecommand, num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'play', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_PLAY_PAUSE' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
+            _hass.callService("media_player", "media_play_pause", { entity_id: _config.entity});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 164 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 164 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Play/Pause Button Hold
+        if(buttonID == 'playpause-button' && actionType == 'hold') {
+          // Button does not exist for apple tv, chromecast, onn., or xiaomi - so no hold behaviors are emulated
+          // No special behaviors noticed for this with FireTV, NVIDIA Shield, or Roku
+          return;
+        }
+
+
+
+        // Fast Forward Button Click
+        if(buttonID == 'fastforward-button' && actionType == 'click') {
+          if(deviceFamily == 'apple-tv') {
+            _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'skip_forward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'forward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_MEDIA_FAST_FORWARD' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined' || deviceType == 'mi-box-s') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'FAST_FORWARD' });
+          }
+          else {
+            if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 159 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 159 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+            else {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 208 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 208 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+          }
+          return;
+        }
+        // Fast Forward Button Hold
+        if(buttonID == 'fastforward-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+
+
+
+        // Volume Up Button Click
+        if(buttonID == 'volume-up-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'volume_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_UP' });
+          }
+          else if(deviceFamily == 'nvidia-shield') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell cmd media_session volume --show --adj raise' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'VOLUME_UP' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 115 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 115 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Volume Up Button Hold
+        if(buttonID == 'volume-up-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+
+
+
+        // Volume Down Button Click
+        if(buttonID == 'volume-down-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            var t = deviceFamily+"_remote_entity";
+            var confname = t.replace(/\-/, "_");
+            _hass.callService("remote", "send_command", { entity_id: _config[confname], command: 'volume_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_DOWN' });
+          }
+          else if(deviceFamily == 'nvidia-shield') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell cmd media_session volume --show --adj lower' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'VOLUME_DOWN' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 114 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 114 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Volume Down Button Hold
+        if(buttonID == 'volume-down-button' && actionType == 'hold') {
+          //TODO: Work this out later
+          return;
+        }
+
+
+
+        // Mute Button Click
+        if(buttonID == 'mute-button' && actionType == 'click') {
+          if(deviceFamily == 'apple-tv') {
+            unsupportedButton();
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'volume_mute', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_MUTE' });
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'MUTE' });
+          }
+          else if (deviceType == 'mi-box-s') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 164'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 113 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 113 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Mute Button Hold
+        if(buttonID == 'mute-button' && actionType == 'hold') {
+          // Button does not exist for chromecast, NVIDIA Shield, or xiaomi - so no hold behaviors are emulated
+          // No special behaviors noticed for this with Apple TV, FireTV, onn., or Roku
+          return;
+        }
+
+
+
+        // Channel Up Button Click
+        if(buttonID == 'channel-up-button' && actionType == 'click') {
+          if(['apple-tv', 'chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+            unsupportedButton();
+            return;
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 402 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 402 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Channel Up Button Hold
+        if(buttonID == 'channel-up-button' && actionType == 'hold') {
+          // TODO: Work this out later - FireTV will rapidly scroll through channels when held - Roku also scrolls (slower)
+          // No special behaviors noticed for this with onn.
+          // Button does not exist for Apple TV, Chromecast, NVIDIA Shield, or Xiaomi - so no hold behaviors are emulated
+          return;
+        }
+
+
+
+        // Channel Down Button Click
+        if(buttonID == 'channel-down-button' && actionType == 'click') {
+          if(['apple-tv', 'chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+            unsupportedButton();
+            return;
+          }
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 403 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 403 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Channel Down Button Hold
+        if(buttonID == 'channel-down-button' && actionType == 'hold') {
+          // TODO: Work this out later - FireTV will rapidly scroll through channels when held - Roku also scrolls (slower)
+          // No special behaviors noticed for this with onn.
+          // Button does not exist for Apple TV, Chromecast, NVIDIA Shield, or Xiaomi - so no hold behaviors are emulated
+          return;
+        }
+
+
+
+        // TV Button Click
+        if(buttonID == 'tv-button' && actionType == 'click') {
+          if(['apple-tv', 'roku', 'nvidia-shield'].includes(deviceFamily)) {
+            unsupportedButton();
+            return;
+          }
+          if (deviceType == 'fire_tv_cube_third_gen') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 297'});
+          }
+          else if (deviceType == 'fire_tv_stick_4k_second_gen' || deviceType == 'fire_tv_stick_4k_max_second_gen') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 300'});
+          }
+          else if (deviceType == 'mi-box-s') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.google.android.tv/com.android.tv.MainActivity' });
+          }
+          else if (['onn'].includes(deviceFamily)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_GUIDE'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 362 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 362 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // TV Button Button Hold
+        if(buttonID == 'tv-button' && actionType == 'hold') {
+          // no special behaviors found for this
+          return;
+        }
+
+
+
+        // Settings Button Click
+        if(buttonID == 'settings-button' && actionType == 'click') {
+          if(['roku', 'nvidia-shield'].includes(deviceFamily)) {
+            unsupportedButton();
+            return;
+          }
+          if (['onn'].includes(deviceFamily)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 83' });
+          }
+          else if(compatibility_mode == 'strong'  || eventListenerBinPath == 'undefined' || deviceType == 'fire_tv_cube_third_gen') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'SETTINGS' });
+          }
+          else if(deviceType == 'mi-box-s') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.android.tv.settings/com.android.tv.settings.MainSettings' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 249 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 249 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Settings Button Button Hold
+        if(buttonID == 'settings-button' && actionType == 'hold') {
+          // no special behaviors found for this
+          return;
+        }
+
+
+
+        // App Switch (recents) Button
+        if(buttonID == 'app-switch-button' && actionType == 'click') {
+          if(compatibility_mode == 'strong') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'RECENTS' });
+          }
+          else if (deviceType == 'fire_tv_stick_4k_second_gen' || deviceType == 'fire_tv_stick_4k_max_second_gen') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 307'});
+          }
+          else if(eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'RECENTS' });
+          }
+          else if (deviceType == 'fire_tv_cube_third_gen') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 304'});
+          }
+          else if (deviceType == 'mi-box-s') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_APP_SWITCH' });
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 757 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 757 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // App Switch (recents) Button Hold
+        if(buttonID == 'app-switch-button' && actionType == 'hold') {
+          // no special behaviors found for this
+          return;
+        }
+
+
+
+        // Headset Button Click
+        if(buttonID == 'headset-button' && actionType == 'click') {
+          if (['amazon-fire'].includes(deviceFamily)) {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent BUTTON_3'});
+          }
+          else if (['onn'].includes(deviceFamily)) {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_PAIRING'});
+          }
+          else if (['chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.android.tv.settings/com.android.tv.settings.accessories.AddAccessoryActivity'});
+          }
+          else {
+            unsupportedButton();
+            return;
+          }
+          return;
+        }
+        // Headset Button Hold
+        if(buttonID == 'headset-button' && actionType == 'hold') {
+          // no special behaviors found for this
+          return;
+        }
+
+
+
+        // Programmable 1 Button Click
+        if(buttonID == 'programmable-one-button' && actionType == 'click') {
+          if(['amazon-fire'].includes(deviceFamily)) {
+            if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent BUTTON_1'});
+            }
+            else {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 638 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 638 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            }
+            return;
+          }
+          else {
+            unsupportedButton();
+            return;
+          }
+        }
+        // Programmable 1 Button Hold
+        if(buttonID == 'programmable-one-button' && actionType == 'hold') {
+          if(['amazon-fire'].includes(deviceFamily)) {
+            if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+              //TODO: - (spent too much time here already)
+            }
+            else {
+              //_hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 638 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sleep 1 && sendevent '+eventListenerBinPath+' 1 638 0 && sendevent '+eventListenerBinPath+' 0 0 0' }); // TODO: sleep does not work as expected? (spent too much time here already)
+            }
+            return;
+          }
+        }
+
+
+
+        // Programmable 2 Button Click
+        if(buttonID == 'programmable-two-button' && actionType == 'click') {
+          if(['amazon-fire'].includes(deviceFamily)) {
+            if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent BUTTON_2'}); // this is wrong for fire_tv_4_series
+            }
+            else {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 4 4 787071 && sendevent '+eventListenerBinPath+' 1 639 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 4 4 787071 && sendevent '+eventListenerBinPath+' 1 639 0 && sendevent '+eventListenerBinPath+' 0 0 0' }); // wrong w/event0 on ftv 4
+            }
+            return;
+          }
+          else {
+            unsupportedButton();
+            return;
+          }
+        }
+        // Programmable 2 Button Hold
+        if(buttonID == 'programmable-two-button' && actionType == 'hold') {
+          // TODO - (spent too much time here already)
+          return;
+        }
+
+
+
+        // Numeric 1 Button Click
+        if(buttonID == 'num1-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 8'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 2 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 2 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 1 Button Hold
+        if(buttonID == 'num1-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 2 Button Click
+        if(buttonID == 'num2-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 9'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 3 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 3 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 2 Button Hold
+        if(buttonID == 'num2-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 3 Button Click
+        if(buttonID == 'num3-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 10'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 4 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 4 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 3 Button Hold
+        if(buttonID == 'num3-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 4 Button Click
+        if(buttonID == 'num4-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 11'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 5 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 5 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 4 Button Hold
+        if(buttonID == 'num4-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 5 Button Click
+        if(buttonID == 'num5-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 12'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 6 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 6 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 5 Button Hold
+        if(buttonID == 'num5-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 6 Button Click
+        if(buttonID == 'num6-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 13'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 7 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 7 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 6 Button Hold
+        if(buttonID == 'num6-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 7 Button Click
+        if(buttonID == 'num7-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 14'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 8 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 8 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 7 Button Hold
+        if(buttonID == 'num7-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 8 Button Click
+        if(buttonID == 'num8-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 15'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 9 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 9 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 8 Button Hold
+        if(buttonID == 'num8-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 9 Button Click
+        if(buttonID == 'num9-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 16'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 10 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 10 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 9 Button Hold
+        if(buttonID == 'num9-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Numeric 0 Button Click
+        if(buttonID == 'num0-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 7'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 11 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 11 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // Numeric 0 Button Hold
+        if(buttonID == 'num0-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // SUBT Button Click
+        if(buttonID == 'subtitle-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 175'});
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 469 1 && sendevent '+eventListenerBinPath+' 0 0 0 && sendevent '+eventListenerBinPath+' 1 469 0 && sendevent '+eventListenerBinPath+' 0 0 0' });
+          }
+          return;
+        }
+        // SUBT Button Hold
+        if(buttonID == 'subtitle-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // LIVE Button Click
+        if(buttonID == 'live-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else {
+            if(deviceType == 'fire_tv_jvc-4k-2021') {
+              var tempbinpath = '/dev/input/event4'
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+tempbinpath+' 1 358 1 && sendevent '+tempbinpath+' 0 0 0 && sendevent '+tempbinpath+' 1 358 0 && sendevent '+tempbinpath+' 0 0 0' });
+            }
+            else if (['fire_tv_4_series', 'fire_tv_toshiba_v35"'].includes(deviceType)) {
+               _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_TV'});
+            }
+            else {
+              unsupportedButton();
+            }
+          }
+          return;
+        }
+        // LIVE Button Hold
+        if(buttonID == 'live-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Red Button Click
+        if(buttonID == 'red-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 183'});
+          }
+          return;
+        }
+        // Red Button Hold
+        if(buttonID == 'red-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Green Button Click
+        if(buttonID == 'green-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 184'});
+          }
+          return;
+        }
+        // Green Button Hold
+        if(buttonID == 'green-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Yellow Button Click
+        if(buttonID == 'yellow-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 185'});
+          }
+          return;
+        }
+        // Yellow Button Hold
+        if(buttonID == 'yellow-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Blue Button Click
+        if(buttonID == 'blue-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 186'});
+          }
+          return;
+        }
+        // Blue Button Hold
+        if(buttonID == 'blue-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Voice Button Click
+        if(buttonID == 'voice-button' && actionType == 'click') {
+            unsupportedButton();
+            return;
+        }
+        // Voice Button Hold
+        if(buttonID == 'voice-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Sleep Button Click
+        if(buttonID == 'sleep-button' && actionType == 'click') {
+          if(deviceFamily == 'roku') {
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'sleep', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          else {
+            unsupportedButton();
+            return;
+          }
+        }
+        // Sleep Button Hold
+        if(buttonID == 'sleep-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // PatchWall Button Click
+        if(buttonID == 'patchwall-button' && actionType == 'click') {
+          if(['xiaomi'].includes(deviceFamily)) {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start com.mitv.tvhome.atv'});
+          }
+          else {
+            unsupportedButton();
+          }
+          return;
+        }
+        // PatchWall Button Hold
+        if(buttonID == 'patchwall-button' && actionType == 'hold') {
+          // no special behaviors known for this - I'm unable to test in my region
+          return;
+        }
+
+
+
+        // Input Button Click
+        if(buttonID == 'input-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+          }
+          else {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 178'});
+          }
+          return;
+        }
+        // Input Button Hold
+        if(buttonID == 'input-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+
+        // Reboot Button Click
+        if(buttonID == 'reboot-button' && actionType == 'click') {
+          if(['apple-tv', 'roku'].includes(deviceFamily)) {
+            unsupportedButton();
+            return;
+          }
+          if(confirm('Are you sure you want to reboot '+_hass.states[_config.entity].attributes.friendly_name) == false) {
+            return;
+          }
+          _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell reboot' });
+          return;
+        }
+        // Reboot Button Hold
+        if(buttonID == 'reboot-button' && actionType == 'hold') {
+          // no special actions imagined for this yet
+          return;
+        }
+
+
+
+        // Search Button Click (Apple TV Remote style 2)
+        if(buttonID == 'search-button' && actionType == 'click') {
+          if(['apple-tv'].includes(deviceFamily)) {
+            _hass.callService("media_player", "select_source", { entity_id: _config.entity, source: "Search"});
+          }
+          else {
+            unsupportedButton();
+          }
+          return;
+        }
+        // Search Button Hold (Apple TV Remote style 2)
+        if(buttonID == 'search-button' && actionType == 'hold') {
+          // no special behaviors known for this - I do not own this, so I'm unable to test
+          return;
+        }
+
+
+// TODO: Not important, but also not working with the refactor
+//        // Roku Function: Secret Screen Click
+//        if(buttonID == 'roku-secret-screen-button' && actionType == 'click') {
+//          if(['roku'].includes(deviceFamily)) {
+//            var command = ['home', 'home', 'home', 'home', 'home', 'forward', 'forward', 'forward', 'reverse', 'reverse'];
+//            for (let index = 0, len = command.length; index < len; ++index) {
+//              setTimeout(() =>
+//                _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: command[index], num_repeats: 1, delay_secs: 0, hold_secs: 0}),
+//                index*50);
+//            }
+//          }
+//          else {
+//            unsupportedButton();
+//          }
+//          return;
+//        }
+//        // Roku Function: Secret Screen Hold
+//        if(buttonID == 'roku-secret-screen-button' && actionType == 'hold') {
+//          // no special actions imagined for this yet
+//          return;
+//        }
+
+
+
+
+
+      }
+//      else {
+//        // unhandled actiontype
+//        return;
+//      }
+
+//      // uncaught button presses land here
+//      console.log('unhandled '+actionType+' action for '+buttonID);
+//      return;
+
+      // Catch-all for none/other configurations where a button hasn't been defined in YAML config
+      if(this._config.entity === 'none') {
+          unsupportedButton();
+          return;
+      }
+
+
+    }
+
+
   }
-
-
 
 }
 customElements.define('firemote-card', FiremoteCard);
