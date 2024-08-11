@@ -1,17 +1,13 @@
-const HAFiremoteVersion = 'v4.0.0b1';
+const HAFiremoteVersion = 'v4.0.0b2';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.0b1";
-import {rosettaStone} from './language-translations.js?version=v4.0.0b1';
-import {devices} from './supported-devices.js?version=v4.0.0b1';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.0b2";
+import {rosettaStone} from './language-translations.js?version=v4.0.0b2';
+import {devices} from './supported-devices.js?version=v4.0.0b2';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
-
-// BETA TODO:
-// AL2 with dpad style Minimal selected does not react when clicking directly on the SVGs, only their container
-
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -25,6 +21,7 @@ const fireEvent = (node, type, detail, options) => {
   node.dispatchEvent(event);
   return event;
 }
+
 
 // Process the imported data
 const devicemap = new Map(Object.entries(devices));
@@ -173,6 +170,18 @@ class FiremoteCard extends LitElement {
     return {
       hass: {},
       _config: {},
+    };
+  }
+
+  // TODO: This is a part of the beta release
+  // Sets a default card and grid size for masonry and section layout dashboard views
+  getCardSize(){
+    return 15.52
+  }
+  getLayoutOptions() {
+    return {
+      grid_rows: 12.25,
+      grid_columns: 2,
     };
   }
 
@@ -1426,6 +1435,10 @@ class FiremoteCard extends LitElement {
             justify-items: center;
             justify-content: center;
             align-content: center;
+          }
+
+          .minimal .dpadbutton > svg {
+            pointer-events: none;
           }
 
           .minimal .dpadbutton:active {
@@ -6308,21 +6321,21 @@ class FiremoteCard extends LitElement {
 //        }
 
 
-
+      // uncaught button presses land here
+      console.log('unhandled '+actionType+' action for '+buttonID);
+      return;
 
 
       }
-//      else {
-//        // unhandled actiontype
-//        return;
-//      }
+      else {
+        // unhandled actiontype
+        return;
+      }
 
-//      // uncaught button presses land here
-//      console.log('unhandled '+actionType+' action for '+buttonID);
-//      return;
+
 
       // Catch-all for none/other configurations where a button hasn't been defined in YAML config
-      if(this._config.entity === 'none') {
+      if(_config.entity === 'none') {
           unsupportedButton();
           return;
       }
@@ -6461,16 +6474,17 @@ class FiremoteCardEditor extends LitElement {
           @change=${this.configChanged}
       >
         ${familykeys.map((family) => {
+          var familyTranslatedName = this.translateToUsrLang(devicemap.get(family).meta.friendlyName);
           if(devicemap.get(family).meta.supported) {
             if (family == optionvalue) {
-              return html`<option value="${family}" selected>${devicemap.get(family).meta.friendlyName}</option> `
+              return html`<option value="${family}" selected>${familyTranslatedName}</option> `
             }
             else {
-              return html`<option value="${family}">${devicemap.get(family).meta.friendlyName}</option> `
+              return html`<option value="${family}">${familyTranslatedName}</option> `
             }
           }
           else {
-            return html`<option value="${family}" disabled>${devicemap.get(family).meta.friendlyName}</option>`
+            return html`<option value="${family}" disabled>${familyTranslatedName}</option>`
           }
         })}
       </select>
@@ -6681,7 +6695,7 @@ class FiremoteCardEditor extends LitElement {
           @change=${this.configChanged}
         >
           <option value="default">${this.translateToUsrLang('Default for')} ${deviceFriendlyName}</option>
-          <option value="strong">Strong (Slower)</option>
+          <option value="strong">${this.translateToUsrLang('Strong (Slower)')}</option>
           <option value="event0">event0</option>
           <option value="event1">event1</option>
           <option value="event2">event2</option>

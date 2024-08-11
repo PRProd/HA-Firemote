@@ -174,26 +174,26 @@ Options:
 | type                   | string | yes      | custom:firemote-card                                             | Type of the card                       |
 | entity                 | string | yes      | any valid media player entity created in the [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/), [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv) or the [Roku Integration](https://www.home-assistant.io/integrations/roku) or [none](https://github.com/PRProd/HA-Firemote/wiki/entity:-none)| entity_id                              |
 | device_family          | string | yes      | amazon-fire<br>apple-tv<br>chromecast<br>nvidia-shield<br>onn<br>roku<br>xiaomi<br>[none](https://github.com/PRProd/HA-Firemote/wiki/entity:-none) | Manufacturer Family            |
-|android_tv_remote_entity| string | no       | any valid entity created in the [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) | entity_id<br>Ignored in Apple TV and Roku configurations
-| apple_tv_remote_entity | string | yes*     | any valid remote entity created in the [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv)  | entity_id<br>* Required ONLY in Apple TV configurations
+|android_tv_remote_entity| string | no       | any valid entity created in the [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) | entity_id<br>Ignored in Apple TV and Roku configurations |
+| apple_tv_remote_entity | string | yes*     | any valid remote entity created in the [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv)  | entity_id<br>* Required ONLY in Apple TV configurations |
 | device_type            | string | yes      | [appletv-4k-gen3](https://support.apple.com/kb/SP886)<br>[appletv-4k-gen2](https://support.apple.com/kb/SP845)<br>[appletv-4k-gen1](https://support.apple.com/kb/SP769)<br>[appletv-gen4](https://support.apple.com/kb/SP724)<br>[appletv-gen3](https://support.apple.com/kb/SP648)<br>[appletv-gen2](https://support.apple.com/kb/SP598)<br>[appletv-gen1](https://support.apple.com/kb/SP19)<br>chromecast-4k<br>[fire_tv_toshiba_v35](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Toshiba-V35-Series-LED-FHD-HD---Fire-TV-(2021)) <br> [fire_tv_4_series](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Fire-TV-4-Series-(2021)) <br> fire_tv_jvc-4k-2021 <br> [fire_tv_cube_third_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---3rd-Gen-(2022)) <br> [fire_tv_cube_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---2nd-Gen-(2019)) <br> [fire_tv_cube_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---1st-Gen-(2018)) <br> [fire_tv_stick_4k_max_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max-2nd-Gen-(2023)) <br> [fire_tv_stick_4k_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-2nd-Gen-(2023)) <br>[fire_tv_stick_4k_max](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max---1st-Gen-(2021)) <br> [fire_tv_3rd_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---3rd-Gen-(2020)) <br> [fire_tv_stick_lite](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-Lite---1st-Gen-(2020)) <br> [fire_stick_4k](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K---1st-Gen-(2018)) <br> [fire_stick_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---2nd-Gen-(2016---2019)) <br> [fire_stick_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-1st-Gen-(2014)) <br> [fire_tv_second_gen_2015](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-%E2%80%90-2nd-Gen-(2015)) <br> onn-streaming-device-4k-pro <br> [onn-4k-streaming-box](https://github.com/PRProd/HA-Firemote/wiki/onn.-Google-TV-4K-Streaming-Box-(2023)) <br> onn-full-hd-streaming-stick <br> roku-streambar-pro <br> roku-streambar <br> roku-ultra-lt-2023 <br> roku-ultra-lt <br> roku-ultra-2020 <br> roku-streaming-stick-4k <br> roku-express-4k-plus <br> roku-express-4k <br> roku-express <br> roku-premiere <br> roku-generic-hisense <br> roku-generic-tcl <br> roku-generic-westinghouse <br> shield-tv-2017 <br> shield-tv-pro-2017 <br> shield-tv-2019 <br> shield-tv-pro-2019 <br> mi-box-s <br> xiaomi-tv-stick-4k <br> [other](https://github.com/PRProd/HA-Firemote/wiki/entity:-none)| The type of device you are controlling<br>[Which devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) |
 | compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> event9 <br> event10 <br> event11 <br> event12 <br> event13 | Adjust this value only if your buttons are completely unresponsive<br><br>Ignored in Apple TV configurations<br><br>[FAQ Available for additional help](https://github.com/PRProd/HA-Firemote#faq) |
 |defaultRemoteStyle_override | string | no | AF1 <br> AF2 <br> AF3 <br> AF4 <br> AF5 <br> AF6 <br> AFJTV <br> AR1 <br> AR2 <br> AR3 <br> CC1 <br> NS1 <br> NS2 <br> ON1 <br> ON2 <br> RVRP <br> RVR <br> RSR <br> RHR <br> RTR <br> RWR <br> XM1 <br> XM2 <br> AL1 <br> AL2 | Optionally select a style of remote different from the one that shipped with your device |
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>etc... | string | no | [ See App Launch Button Customization section for options](#app-launch-button-customization) | Quick launch apps customization |
-|hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button (truncated to 8 characters to fit)|
+|hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button (truncated to 8 characters to fit) |
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage. The default size is 100 |
 | custom_launchers | object | no | Create your own app launcher buttons        | Details are in the [Launcher Button Customizations](https://github.com/PRProd/HA-Firemote#launcher-button-customizations) of the [README.md](https://github.com/PRProd/HA-Firemote/blob/main/README.md) file |
 | button_overrides | object | no | Button name and HA script name are required.| Details are in the Button Overrides section of the [README.md](https://github.com/PRProd/HA-Firemote#button-overrides) file |
-| visible_name_text       | string | no      | Any text                                                         | Optional device label for your firemote|
-| name_position           | string | no      | hidden<br>bottom<br>top<br>                                      | Position for your optional device label|
+| visible_name_text       | string | no      | Any text                                                         | Optional device label for your firemote |
+| name_position           | string | no      | hidden<br>bottom<br>top<br>                                      | Position for your optional device label |
 | visible_name_text_color | hex color value | no | Any hex color value e.g.: #ffffff                            | Optional text color for the device name label |
-| show_version_number     | bool   | no      | true<br>false                                                    | Optionally display the Firemote Version number on the card|
-| hide_button_highlights  | bool   | no      | true<br>false                                                    | Optionally hide the status higlighting decorations for the power, home, and play/pause buttons|
-| use_theme_background    | bool   | no      | true<br>false                                                    | Optionally hide the AL1 or AL2 remote style's background color to let the HA theme color show|
-| hide_button_group_frame | bool   | no      | true<br>false                                                    | Optionally hide the frames around the button groups when using AL1 or AL2|
-| useCustomSkin           | bool   | no      | true<br>false                                                    | Toggle a custom background skin color on or off when using AL1 or AL2|
-| skin                    | hex color value | no | Any hex color value e.g.: #ffffff                            | background skin color for AL1 or AL2|
-| dpad_style              | string | no      | amazon-fire<br>apple-tv-black<br>apple-tv-silver<br>chromecast<br>xiaomi<br>minimal | Dpad style options for AL1 or AL2|
+| show_version_number     | bool   | no      | true<br>false                                                    | Optionally display the Firemote Version number on the card |
+| hide_button_highlights  | bool   | no      | true<br>false                                                    | Optionally hide the status higlighting decorations for the power, home, and play/pause buttons |
+| use_theme_background    | bool   | no      | true<br>false                                                    | Optionally hide the AL1 or AL2 remote style's background color to let the HA theme color show |
+| hide_button_group_frame | bool   | no      | true<br>false                                                    | Optionally hide the frames around the button groups when using AL1 or AL2 |
+| useCustomSkin           | bool   | no      | true<br>false                                                    | Toggle a custom background skin color on or off when using AL1 or AL2 |
+| skin                    | hex color value | no | Any hex color value e.g.: #ffffff                            | background skin color for AL1 or AL2 |
+| dpad_style              | string | no      | amazon-fire<br>apple-tv-black<br>apple-tv-silver<br>chromecast<br>xiaomi<br>minimal | Dpad style options for AL1 or AL2 |
 
 
 <br>
@@ -201,7 +201,7 @@ Options:
 <br>
 
 ## App Launcher Buttons
-Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, and select the [App Shortcut Request](https://github.com/PRProd/HA-Firemote/issues/new?assignees=PRProd&labels=New+App+Shortcut%2Cenhancement&projects=&template=App_Shortcut_Request.yaml&title=%5BNew+App+Shortcut%5D%3A+) option.  There are currently [**over 275** options available](https://github.com/PRProd/HA-Firemote/wiki/Firemote-App-Launchers), and the list just keeps growing.
+Custom app launch buttons are not limited to the few that came printed on your remote control.  In fact, the possibilities are endless!  If you don't see your favorite app on this list, you can click on the [Issues](https://github.com/PRProd/HA-Firemote/issues) button on the top of this page, and select the [App Shortcut Request](https://github.com/PRProd/HA-Firemote/issues/new?assignees=PRProd&labels=New+App+Shortcut%2Cenhancement&projects=&template=App_Shortcut_Request.yaml&title=%5BNew+App+Shortcut%5D%3A+) option.  There are currently [**over 280** options available](https://github.com/PRProd/HA-Firemote/wiki/Firemote-App-Launchers), and the list just keeps growing.
 
 <br>
 <br>
@@ -286,8 +286,9 @@ button_overrides:
   power-button:
     hidden: true
 ```
+<details>
+  <summary>Valid button names are listed here:</summary>
 
-Valid button names are as follows:
  - app-switch-button
  - apps-button
  - back-button
@@ -339,7 +340,9 @@ Valid button names are as follows:
  - volume-down-button
  - volume-up-button
  - yellow-button
- 
+
+</details>
+
 <br>
 <br>
 <br>
