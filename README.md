@@ -208,7 +208,7 @@ Custom app launch buttons are not limited to the few that came printed on your r
 <br>
 
 ## Launcher Button Customizations
-You are not limited to only using the launcher buttons that come with Firemote.  Through YAML, you can define your own working buttons in one of two ways: defining a script or constructing a service call.
+You are not limited to only using the launcher buttons that come with Firemote.  Through YAML, you can define your own working buttons in one of two ways: defining a script or constructing an action call.
 
 Example:
 ```yaml
@@ -229,7 +229,7 @@ custom_launchers:
     icon: mdi:lamp
     color: red
     background: blue
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.bedroom_lamp
     data:
@@ -252,9 +252,9 @@ YAML usage:
 | color         | css color value | no                        | custom color for your text label or your mdi icon<br>ex: white<br>ex: '#ff0000' |
 | background    | css color value | no                        | custom color for your button's background<br>ex: green<br>ex: '#ffffff'         |
 | script        | string          | yes if calling a script   | The name of your Home Assistant script                                          |
-| service       | string          | yes if not using a script | The name of the Home Assistant service you want to call                         |
-| target        | object          | yes if not using a script | Define the entity for your service to act upon                                  |
-| data          | object          | no                        | optional parameters for your service call                                       |
+| action        | string          | yes if not using a script | The name of the Home Assistant action you want to call                          |
+| target        | object          | yes if not using a script | Define the entity for your action to act upon                                   |
+| data          | object          | no                        | optional parameters for your action call                                        |
 
 
 Once defined, a custom button can be assigned to a Firemote button location through the YAML config itself, or it can be selected through the Visual Editor dropdown
@@ -266,7 +266,7 @@ Once defined, a custom button can be assigned to a Firemote button location thro
 <br>
 
 ## Button Overrides
-Button Overrides can be very useful for customization.  These overrides can be used to call a Home Assistant service directly, run a script, or hide a button on your remote.  These options are accomplished through your Firemote's YAML configuration.
+Button Overrides can be very useful for customization.  These overrides can be used to call a Home Assistant action directly, run a script, or hide a button on your remote.  These options are accomplished through your Firemote's YAML configuration.
 
 Consider this example:
 ```yaml
@@ -276,7 +276,7 @@ button_overrides:
   volume-down-button:
     script: receiver_volume_down_script
   volume-up-button:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.bedroom_lamp
     data:
