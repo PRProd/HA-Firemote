@@ -24,6 +24,14 @@ const devices = {
         "hdmiInputs": 4,
         "tuner": true,
       },
+      "fire_tv_insignia_f20": {
+        "supported": true,
+        "friendlyName": "INSIGNIA TV (F20 Series)",
+        "defaultEventListenerBinPath": "/dev/input/event0",
+        "defaultRemoteStyle": "AF5",
+        "hdmiInputs": 3,
+        "tuner": true,
+      },
       "fire_tv_jvc-4k-2021": {
         "supported": true,
         "friendlyName": "JVC 4K - Fire TV with Freeview Play (2021)",

@@ -1,17 +1,13 @@
-const HAFiremoteVersion = 'v4.0.0b3';
+const HAFiremoteVersion = 'v4.0.0b4';
 
-import {LitElement, html, css, unsafeHTML, unsafeCSS} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.0b3";
-import {rosettaStone} from './language-translations.js?version=v4.0.0b3';
-import {devices} from './supported-devices.js?version=v4.0.0b3';
+import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.0b4";
+import {rosettaStone} from './language-translations.js?version=v4.0.0b4';
+import {devices} from './supported-devices.js?version=v4.0.0b4';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
 console.groupEnd();
-
-// TODO: BETA DEV NOTES:
-// AF1 does not seem to scale properly
-// Handle any service calls that need to be also possible with the word actions
 
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -3251,6 +3247,7 @@ class FiremoteCard extends LitElement {
     }
 
     // Render Amazon Fire Remote Style AF1
+    // TODO: AF1 does not seem to scale properly
     if ( getDeviceAttribute('defaultRemoteStyle') == 'AF1' ) {
     return html`
       <ha-card>
@@ -5025,8 +5022,14 @@ class FiremoteCard extends LitElement {
 
     // Function: Assemble arguments for service calls
     function getCustomServiceArgs(def) {
-        if(typeof def.service !== 'undefined' && typeof def.target !== 'undefined') {
-            const svcarray = def.service.split(".");
+        if((typeof def.action !== 'undefined' || typeof def.service !== 'undefined') && typeof def.target !== 'undefined') {
+            var svcarray;
+            if(typeof def.action !== 'undefined') {
+              svcarray = def.action.split(".");
+            }
+            else {
+              svcarray = def.service.split(".");
+            }
             var data = Object;
             if(typeof def.data !== 'undefined') {
               var extraData = JSON.parse(JSON.stringify(def.data));
@@ -5927,7 +5930,50 @@ class FiremoteCard extends LitElement {
         }
         // Rewind Button Hold
         if(buttonID == 'rewind-button' && actionType == 'hold') {
-          //TODO: Work this out later
+          if(['apple-tv'].includes(deviceFamily)) {
+            // n/a for Apple TV (assuming rewind translates to skip_backward)
+            return;
+          }
+          if(['roku'].includes(deviceFamily)) {
+            // hold does not work with Roku - https://github.com/home-assistant/core/issues/123999 - using a 0.15 sec repeat is an ok-ish substitute for now
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'reverse', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+                    _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'reverse', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 150);
+            function rls() {
+              clearInterval(rpt);
+            }
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_MEDIA_REWIND', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+                    _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_MEDIA_REWIND', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 100);
+            function rls() {
+              clearInterval(rpt);
+            }
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'REWIND' });
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+                    _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'REWIND' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
+          }
+          else {
+            clicked.target.addEventListener("pointerup", rls, true);
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 168 1 && sendevent '+eventListenerBinPath+' 0 0 0' });
+            function rls() {
+              clicked.target.removeEventListener("pointerup", rls, true);
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 168 0 && sendevent '+eventListenerBinPath+' 0 0 0 '});
+            }
+          }
           return;
         }
 
@@ -5993,8 +6039,61 @@ class FiremoteCard extends LitElement {
         }
         // Fast Forward Button Hold
         if(buttonID == 'fastforward-button' && actionType == 'hold') {
-          //TODO: Work this out later
-          return;
+          if(['apple-tv'].includes(deviceFamily)) {
+            // n/a for Apple TV (assuming fast forward translates to skip_forward)
+            return;
+          }
+          if(['roku'].includes(deviceFamily)) {
+            // hold does not work with Roku - https://github.com/home-assistant/core/issues/123999 - using a 0.15 sec repeat is an ok-ish substitute for now
+            _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'forward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+                    _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'forward', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 150);
+            function rls() {
+              clearInterval(rpt);
+            }
+            return;
+          }
+          if(hasATVAssociation) {
+            _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_MEDIA_FAST_FORWARD', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+                    _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'KEYCODE_MEDIA_FAST_FORWARD', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 100);
+            function rls() {
+              clearInterval(rpt);
+            }
+          }
+          else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'FAST_FORWARD' });
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+                    _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'FAST_FORWARD' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
+          }
+          else {
+            if(deviceType == 'fire_tv_4_series' || deviceType == 'fire_tv_toshiba_v35' || deviceType == 'fire_tv_jvc-4k-2021') {
+              clicked.target.addEventListener("pointerup", rls, true);
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 159 1 && sendevent '+eventListenerBinPath+' 0 0 0' });
+              function rls() {
+                clicked.target.removeEventListener("pointerup", rls, true);
+                _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 159 0 && sendevent '+eventListenerBinPath+' 0 0 0 '});
+              }
+            }
+            else {
+              clicked.target.addEventListener("pointerup", rls, true);
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'sendevent '+eventListenerBinPath+' 1 208 1 && sendevent '+eventListenerBinPath+' 0 0 0' });
+              function rls() {
+                clicked.target.removeEventListener("pointerup", rls, true);
+                _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 208 0 && sendevent '+eventListenerBinPath+' 0 0 0 '});
+              }
+            }
+            return;
+          }
         }
 
 
@@ -6023,22 +6122,54 @@ class FiremoteCard extends LitElement {
         }
         // Volume Up Button Hold
         if(buttonID == 'volume-up-button' && actionType == 'hold') {
-          if(['apple-tv', 'roku'].includes(deviceFamily)) {
-            var t = deviceFamily+"_remote_entity";
-            var confname = t.replace(/\-/, "_");
-            //TODO: Work this out later
+          if(['apple-tv'].includes(deviceFamily)) {
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'volume_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
+            return;
+          }
+          if(['roku'].includes(deviceFamily)) {
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'volume_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           if(hasATVAssociation) {
-            //TODO: Work this out later
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_UP' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           else if(deviceFamily == 'nvidia-shield') {
-            //TODO: Work this out later
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell cmd media_session volume --show --adj raise' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-            //TODO: Work this out later
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'VOLUME_UP' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           else {
@@ -6078,22 +6209,54 @@ class FiremoteCard extends LitElement {
         }
         // Volume Down Button Hold
         if(buttonID == 'volume-down-button' && actionType == 'hold') {
-          if(['apple-tv', 'roku'].includes(deviceFamily)) {
-            var t = deviceFamily+"_remote_entity";
-            var confname = t.replace(/\-/, "_");
-            //TODO: Work this out later
+          if(['apple-tv'].includes(deviceFamily)) {
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.apple_tv_remote_entity, command: 'volume_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
+            return;
+          }
+          if(['roku'].includes(deviceFamily)) {
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'volume_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           if(hasATVAssociation) {
-            //TODO: Work this out later
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_DOWN' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           else if(deviceFamily == 'nvidia-shield') {
-            //TODO: Work this out later
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell cmd media_session volume --show --adj lower' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
-            //TODO: Work this out later
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'VOLUME_DOWN' });
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
             return;
           }
           else {
@@ -6161,10 +6324,42 @@ class FiremoteCard extends LitElement {
         }
         // Channel Up Button Hold
         if(buttonID == 'channel-up-button' && actionType == 'hold') {
-          // TODO: Work this out later - FireTV will rapidly scroll through channels when held - Roku also scrolls (slower)
           // No special behaviors noticed for this with onn.
           // Button does not exist for Apple TV, Chromecast, NVIDIA Shield, or Xiaomi - so no hold behaviors are emulated
-          return;
+          if(['onn', 'apple-tv', 'chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+            return;
+          }
+          if(['roku'].includes(deviceFamily)) {
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
+            return;
+          }
+          else {
+            if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen'].includes(deviceType)) {
+              clicked.target.addEventListener("pointerup", rls, true);
+              let rpt = setInterval( function() {
+                _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
+                    }, 250);
+              function rls() {
+                clearInterval(rpt);
+              }
+              return;
+            }
+            else {
+              clicked.target.addEventListener("pointerup", rls, true);
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 402 1 && sendevent '+eventListenerBinPath+' 0 0 0' });
+              function rls() {
+                clicked.target.removeEventListener("pointerup", rls, true);
+                _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 402 0 && sendevent '+eventListenerBinPath+' 0 0 0 '});
+              }
+            }
+            return;
+          }
         }
 
 
@@ -6189,10 +6384,42 @@ class FiremoteCard extends LitElement {
         }
         // Channel Down Button Hold
         if(buttonID == 'channel-down-button' && actionType == 'hold') {
-          // TODO: Work this out later - FireTV will rapidly scroll through channels when held - Roku also scrolls (slower)
           // No special behaviors noticed for this with onn.
           // Button does not exist for Apple TV, Chromecast, NVIDIA Shield, or Xiaomi - so no hold behaviors are emulated
-          return;
+          if(['onn', 'apple-tv', 'chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+            return;
+          }
+          if(['roku'].includes(deviceFamily)) {
+            clicked.target.addEventListener("pointerup", rls, true);
+            let rpt = setInterval( function() {
+              _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+                  }, 250);
+            function rls() {
+              clearInterval(rpt);
+            }
+            return;
+          }
+          else {
+            if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen'].includes(deviceType)) {
+              clicked.target.addEventListener("pointerup", rls, true);
+              let rpt = setInterval( function() {
+                _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
+                    }, 250);
+              function rls() {
+                clearInterval(rpt);
+              }
+              return;
+            }
+            else {
+              clicked.target.addEventListener("pointerup", rls, true);
+              _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 403 1 && sendevent '+eventListenerBinPath+' 0 0 0' });
+              function rls() {
+                clicked.target.removeEventListener("pointerup", rls, true);
+                _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'sendevent '+eventListenerBinPath+' 1 403 0 && sendevent '+eventListenerBinPath+' 0 0 0 '});
+              }
+            }
+            return;
+          }
         }
 
 
@@ -6957,6 +7184,7 @@ class FiremoteCardEditor extends LitElement {
 
 
   getRemoteEntitiesByPlatform(platformName) {
+    //console.log(this.hass.entities);
     var entities = Object.keys(this.hass.entities).filter(
       (eid) => this.hass.entities[eid].platform === platformName
     );
@@ -7107,7 +7335,7 @@ class FiremoteCardEditor extends LitElement {
         if(this._config.androidTVRemoteEntity == '' || typeof this._config.androidTVRemoteEntity == 'undefined') {
             blankRemoteEntity = html `<option value="" selected> - - - - </option> `;
         }
-        remoteEntities = this.getEntitiesByPlatform('androidtv_remote');
+        remoteEntities = this.getRemoteEntitiesByPlatform('androidtv_remote');
         return html`
               ${dropdownLabel}<br>
               <select name="android_tv_remote_entity" id="android_tv_remote_entity" style="padding: .6em; font-size: 1em;" .value=${optionValue}
