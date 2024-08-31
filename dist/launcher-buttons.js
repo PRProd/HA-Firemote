@@ -1,4 +1,24 @@
 const launcherData = {
+  "13news-now-wvec": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1575" height="225" viewBox="0 0 1575 225" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g fill="#fff" stroke="none"><circle cx="276" cy="153" r="43"/><path d="M261 34h16l-72 160h-16zM62 35h32v158H56V86l-14 14-22-23zm59 49l-19-24c20-20 36-26 65-26 33 0 55 20 55 38 0 21-9 33-25 39 13 4 20 14 20 14l-30 65c-31 8-68 1-87-23l20-25c23 23 58 24 66 7 4-15-4-23-47-20V96c43 2 45-7 45-13-1-9-14-31-63 1z"/></g><g fill="#0550ab" stroke="none"><path d="M255 153h6v12h-6zm54-4c-2-2-4-4-6-4-4 0-7 3-7 7s3 7 7 7c2 0 5-2 6-4h6c-1 6-6 10-12 10-7 0-13-6-13-13s6-13 13-13c6 0 11 4 12 10z"/><use href="#nCYX"/><use href="#nCYX" x="28"/><path d="M263 130v23h6v-23z"/></g><path fill="#fff" d="M1324 35h57l19 89 24-89h37l23 91 19-91h57l-47 161h-51l-20-83-20 83h-51zm-169 81c0-46 39-83 87-83 49 0 88 37 88 83s-39 83-88 83c-48 0-87-37-87-83zm50 1c0-22 17-39 38-39s38 17 38 39c0 21-17 38-38 38s-38-17-38-38zM986 35h51l53 75V35h51v161h-48l-56-82v82h-51zm-39 39l17-18c-6-10-30-23-60-23-32 0-57 18-59 43-2 60 99 45 93 79-1 20-52 31-81-1l-16 19c20 17 35 26 70 26 38-2 54-24 54-47 2-65-100-42-93-78 2-14 36-30 75 0zM624 35h28l33 122 34-122h20l34 122 32-122h30l-46 161h-29L729 79l-31 117h-28zm-129 0h108v23h-82v45h81v23h-81v47h82v23H495zM335 196V35h26l84 115 1-115h26v161h-25L362 79v117z" stroke="none"/><defs ><path id="nCYX" d="M235 152c0-7 6-13 13-13s13 6 13 13-6 13-13 13-13-6-13-13zm6 0c0-4 3-7 7-7s7 3 7 7c0 3-3 6-7 6s-7-3-7-6z"/></defs></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="950" height="700" viewBox="0 0 950 700" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g fill="#fff" stroke="none"><circle cx="800" cy="390" r="131"/><path d="M756 26h47L582 517h-47zm-613 4h98v487H124V187l-44 42-67-72zm182 151l-59-74c63-64 112-81 200-81 102 0 170 60 170 118 0 63-30 102-77 118 41 14 60 44 60 44l-93 202c-95 23-208 1-266-73l61-76c72 72 178 73 204 21 12-46-12-71-147-61V216c134 6 140-20 140-39-3-27-43-95-193 4z"/></g><g fill="#0550ab" stroke="none"><path d="M735 391h18v37h-18zm168-14c-3-5-10-9-17-9-11 0-20 9-20 20s9 20 20 20c8 0 14-4 18-10h20c-4 17-20 30-38 30-22 0-40-18-40-40s18-40 40-40c18 0 34 12 38 29z"/><use href="#T0fR"/><use href="#T0fR" x="86"/><path d="M761 320v70h20v-70z"/></g><path d="M758 549h43l15 68 18-68h28l17 69 14-69h43l-35 122h-38l-15-63-16 63h-38zm-127 61c0-34 29-62 66-62s66 28 66 62c0 35-29 63-66 63s-66-28-66-63zm38 1c0-16 12-29 28-29s29 13 29 29-13 29-29 29-28-13-28-29zm-165-62h38l40 57v-57h39v122h-36l-43-62v62h-38zm-29 30l12-13c-4-8-23-18-45-18-24 0-43 14-45 33-1 44 75 34 71 59-2 15-40 23-61-1l-13 15c15 12 27 19 53 19 29-1 41-18 41-35 2-49-76-32-70-59 1-11 27-23 57 0zm-244-30h21l25 93 25-93h16l25 93 24-93h23l-35 122h-22l-23-88-23 88h-21zm-97 0h81v18h-62v34h61v17h-61v35h62v18h-81zM13 671V549h20l63 87v-87h20v122H97l-64-88v88z" fill="#fff" stroke="none"/><defs ><path id="T0fR" d="M675 388c0-21 18-39 39-39 22 0 40 18 40 39 0 22-18 40-40 40-21 0-39-18-39-40zm20 0c0-12 9-21 20-21s20 9 20 21c0 11-9 20-20 20s-20-9-20-20z"/></defs></svg>',
+      "friendlyName": "13News Now - WVEC",
+      "className": "thirteenNewsNowWVECButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "roku"],
+      "amazon-fire": {
+          "appName": "tgna.wvec.ott.firetv",
+          "androidName": "tgna.wvec.ott.firetv",
+          "adbLaunchCommand": "adb shell am start -n tgna.wvec.ott.firetv/crc64d2d3e4bd2d040db8.SplashActivity",
+      },
+      "apple-tv": {
+          "appName": "13News Now - WVEC",
+      },
+      "roku": {
+          "appName": "13News Now - WVEC",
+          "app-id": 63399,
+      },
+   },
+
 
   "abc-iview": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1735.8 430.1" style="enable-background:new 0 0 1735.8 430.1" xml:space="preserve"><style>.abciview0{fill:#00bfbd}</style><g id="Layer_1"><g id="Layer_2_1_"><path d="M63.3 96.6c16.7-.3 36.9 6 50.6 22.8 6.2 6 17.6 34.8 17.6 34.8l68.2 181c8.8 21.7 35.1 23.4 42.9 1.6l21.2-57.1 36.1 95.1c-17.6 32.1-34.6 39.9-54.7 47.3-23.5 7.3-51.6 4.9-71.8-7.6-6.7-4.3-24.3-15.7-36.1-44.6L65.5 169.3v182.6l26.9-77.2 34.5 96.3c-5 22.1-21 40.6-39.6 49.3-20.3 9.6-44.6 6.2-63-5.4C6 401.3.8 385.3 0 356.7l.2-197.6c2.1-32.9 23.1-50.8 41.6-58.8 8.2-2.7 11.8-3.5 21.5-3.7z"/><path d="M377.3 426c-16.7.3-36.9-6-50.6-22.8-6.2-6-17.6-34.8-17.6-34.8l-68.1-181c-8.8-21.8-35.1-23.4-42.9-1.6l-21.2 57.1-36.1-95.1c17.6-32 34.6-39.9 54.7-47.3 23.5-7.3 51.6-4.9 71.8 7.6 6.7 4.3 24.3 15.8 36.1 44.6l71.8 200.5V170.5l-26.8 77.2-34.5-96.3c5-22.2 21-40.6 39.6-49.3 20.3-9.6 44.6-6.2 63 5.4 18.3 13.6 23.5 29.6 24.3 58.1l-.3 197.6c-2.1 32.9-23.1 50.8-41.6 58.8-8.3 3-11.9 3.8-21.6 4z"/></g><g id="Layer_5"><path class="abciview0" d="M1229.9 330c-18.2 22.3-45.9 36.5-77 36.5-54.9 0-99.4-44.5-99.4-99.4s44.5-99.4 99.4-99.4c54.6 0 98.9 44 99.4 98.4h63.8c-.7-89.4-73.3-161.6-162.8-161.6-89.9 0-162.8 72.9-162.8 162.8s72.9 162.8 162.8 162.8c67.7 0 125.8-41.3 150.3-100.2h-73.7v.1z"/><path d="m1250.5 267.5-127.9-76.2v152.3z"/><path class="abciview0" d="M903.5 116.3h71.9v304.3h-71.9zM889.2 116.3h-77.4l-72.1 194.3-72.9-194.3h-78.6l121 304.3h59zM502.5 116.3h71.9v304.3h-71.9z"/><circle class="abciview0" cx="537.5" cy="44.3" r="44.3"/><path class="abciview0" d="m1735.8 116.3-108.6 304.3h-59.4l-56-184.6-55 184.6h-59.6l-108-304.3h77.3l60.8 196 54.2-196h62.3l54 194.7 60-194.7z" id="Layer_4"/></g></g></svg>',
@@ -734,6 +754,39 @@ const launcherData = {
           "appName": "com.britbox.tv",
           "androidName": "com.britbox.tv",
           "adbLaunchCommand": "adb shell am start -n com.britbox.tv/axis.androidtv.sdk.app.MainActivity",
+      },
+ },
+
+
+  "btv-app": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="525" viewBox="0 0 1200 525" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="SEZ7" x1="0%" y1="67%" x2="100%" y2="33%"><stop offset="19%" stop-color="#37ddda"/><stop offset="41%" stop-color="#14e635"/></linearGradient></defs><path d="M1002 217c18-22 46-37 78-37 55 0 100 45 100 100s-45 100-100 100c-32 0-60-15-78-37v112c0 3-3 5-5 5h-13c-3 0-5-2-5-5V188c0-3 2-5 5-5h13c2 0 5 2 5 5zm-2 64c0-44 35-79 79-79 43 0 79 35 79 79s-36 79-79 79c-44 0-79-35-79-79zm-223-64c18-22 46-37 78-37 55 0 100 45 100 100s-45 100-100 100c-32 0-60-15-78-37v112c0 3-3 5-5 5h-13c-3 0-5-2-5-5V188c0-3 2-5 5-5h13c2 0 5 2 5 5zm-2 64c0-44 35-79 79-79 43 0 79 35 79 79s-36 79-79 79c-44 0-79-35-79-79zm-242 84l87-225c1-1 1-4 5-4h19c3 0 3 3 4 4l87 223c1 4 0 11-6 11h-11c-4 0-5-1-7-3l-24-62-105-1-24 59c-2 3-4 7-6 7h-13c-4 0-8-3-6-9zm101-193l-44 113h88zm-277 30l78 167c4 10 24 10 30 0l79-164c4-10 0-22-9-22h-21c-7 0-12 1-15 7l-46 100c-3 8-3 8-6-1l-43-94c-4-9-10-12-17-12h-22c-5 0-12 10-8 19zm-37-19h19c8 0 15 6 15 15v13c0 8-7 15-15 15h-19v137c0 8-7 15-15 15h-16c-9 0-15-7-15-15V226h-19c-8 0-15-7-15-15v-13c0-9 7-15 15-15h19v-55c0-8 6-15 15-15h16c8 0 15 7 15 15zm-262 8c18-15 40-23 65-23 58 0 104 46 104 105 0 58-46 105-104 105-25 0-47-9-65-24v5c0 8-7 15-15 15h-9c-8 0-15-7-15-15V95c0-8 7-15 15-15h9c8 0 15 7 15 15zm97 71l-48-27c-9-3-17 0-17 10v60c0 7 10 15 17 10l48-30c9-7 9-16 0-23zm-90 13c0-30 24-55 55-55 30 0 55 25 55 55s-25 55-55 55c-31 0-55-25-55-55z" stroke="none" fill="url(#SEZ7)"/></svg>',
+      "friendlyName": 'btvApp',
+      "className": "btvAppButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.mm.droid.livetv.btvapp",
+          "androidName": "com.mm.droid.livetv.btvapp",
+          "adbLaunchCommand": "adb shell am start -n com.mm.droid.livetv.btvapp/com.mm.droid.livetv.load.LiveLoadActivity",
+      },
+      "chromecast": {
+          "appName": "com.mm.droid.livetv.btvapp",
+          "androidName": "com.mm.droid.livetv.btvapp",
+          "adbLaunchCommand": "adb shell am start -n com.mm.droid.livetv.btvapp/com.mm.droid.livetv.load.LiveLoadActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.mm.droid.livetv.btvapp",
+          "androidName": "com.mm.droid.livetv.btvapp",
+          "adbLaunchCommand": "adb shell am start -n com.mm.droid.livetv.btvapp/com.mm.droid.livetv.load.LiveLoadActivity",
+      },
+      "onn": {
+          "appName": "com.mm.droid.livetv.btvapp",
+          "androidName": "com.mm.droid.livetv.btvapp",
+          "adbLaunchCommand": "adb shell am start -n com.mm.droid.livetv.btvapp/com.mm.droid.livetv.load.LiveLoadActivity",
+      },
+      "xiaomi": {
+          "appName": "com.mm.droid.livetv.btvapp",
+          "androidName": "com.mm.droid.livetv.btvapp",
+          "adbLaunchCommand": "adb shell am start -n com.mm.droid.livetv.btvapp/com.mm.droid.livetv.load.LiveLoadActivity",
       },
  },
 
@@ -4238,6 +4291,39 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start -n no.nrk.tv/no.nrk.tv.androidtv.AndroidTvMainActivity",
       },
    },
+
+
+  "odeon-vod": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="285" viewBox="0 0 1000 285" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="r4yb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="1%" stop-color="#a28100"/><stop offset="54%" stop-color="#ffe600"/></linearGradient><linearGradient id="HeMd" x1="0%" y1="28%" x2="100%" y2="72%"><stop offset="38%" stop-color="#84dc00"/><stop offset="100%" stop-color="#36b31d"/></linearGradient></defs><g stroke="none"><circle cx="686" cy="134" fill="#000" r="95"/><path fill="url(#r4yb)" d="M641 141c0-26 21-47 47-47s47 21 47 47-21 47-47 47-47-21-47-47zm41 30l41-24c4-4 3-8-4-13l-43-27c-5-4-11-1-12 4v61c0 8 10 5 18-1z"/><path d="M34 49C22 50 11 61 8 72c-1 6-1 139 0 144 2 8 9 16 17 20l4 2h59 59l5-2c8-4 14-11 17-19 1-5 2-134 0-142-2-14-14-25-28-26-6-1-100-1-107 0m169 0c-4 2-4-2-4 67 0 49 0 63 1 64 3 6 19 7 23 2l2-2v-50c0-54-1-52 4-55 1-1 2-1 51-1 54 0 53 0 55 3s2 131 0 133c-2 4 1 4-68 4-51 0-64 0-65 1-4 2-4 21 0 23 1 1 21 1 69 1l69-1 5-2c9-5 15-13 17-23 1-7 1-132 0-139-3-13-14-24-28-25-8-1-128-1-131 0m193 0c-5 1-4-6-5 92 0 94 0 94 3 96l1 2h78c87 0 80 0 81-5s0-16-2-18-5-2-67-2c-70 0-65 0-67-5-2-4-1-44 0-47 3-5-1-5 55-5 52-1 52-1 53-3s1-18 0-20c-1-3-1-3-53-3-55 0-52 1-54-4-2-2-3-45-1-48 3-5-3-5 69-5h64l1-2c4-5 3-22-2-23-3-1-151-1-154 0m440 0c-5 1-5 0-4 37-1 149-1 150 2 151 2 3 19 2 21 0l2-1v-71c0-74 0-71 3-72 3-2 5 0 14 13 2 3 4 7 6 9l80 113c6 10 7 11 20 11 10 0 11 0 12-2l2-1v-91c0-101 1-94-4-96-4-2-17-1-19 1l-2 2v65c-1 69-1 68-3 69-3 1-6-2-13-12L867 53c-2-4-4-5-17-5-7 0-13 0-14 1M140 75c5 3 4-1 4 69s1 66-4 69c-3 1-101 1-104 0-4-3-4 1-4-69 0-68 0-65 3-68 3-2 5-2 55-2 47 0 48 0 50 1" fill="#fff"/><path d="M551 140C551 65 611 5 686 5s135 60 135 135-60 135-135 135-135-60-135-135zm73 0c0-35 28-63 63-63 36 0 64 28 64 63 0 36-28 64-64 64-35 0-63-28-63-64z" fill="url(#HeMd)"/></g><g fill="none"><path d="M713 252v-27h6c18 0 16 26 4 27z" stroke-width="6"/><path d="M638 226l12 26 11-26" stroke-width="7"/></g><path d="M670 238c0-9 7-17 16-17s17 8 17 17c0 10-8 18-17 18s-16-8-16-18zm6 0c0-5 5-10 10-10s10 5 10 10c0 6-5 11-10 11s-10-5-10-11z" fill="#000" stroke="none"/></svg>',
+      "friendlyName": 'ODEON VOD',
+      "className": "odeonVodButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.tv.odeon",
+          "androidName": "com.tv.odeon",
+          "adbLaunchCommand": "adb shell am start -n com.tv.odeon/.ui.splash.SplashScreenActivity",
+      },
+      "chromecast": {
+          "appName": "com.tv.odeon",
+          "androidName": "com.tv.odeon",
+          "adbLaunchCommand": "adb shell am start -n com.tv.odeon/.ui.splash.SplashScreenActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.tv.odeon",
+          "androidName": "com.tv.odeon",
+          "adbLaunchCommand": "adb shell am start -n com.tv.odeon/.ui.splash.SplashScreenActivity",
+      },
+      "onn": {
+          "appName": "com.tv.odeon",
+          "androidName": "com.tv.odeon",
+          "adbLaunchCommand": "adb shell am start -n com.tv.odeon/.ui.splash.SplashScreenActivity",
+      },
+      "xiaomi": {
+          "appName": "com.tv.odeon",
+          "androidName": "com.tv.odeon",
+          "adbLaunchCommand": "adb shell am start -n com.tv.odeon/.ui.splash.SplashScreenActivity",
+      },
+ },
 
 
   "odido": {
@@ -7945,6 +8031,10 @@ const launcherData = {
 };
 
 const launcherCSS = `
+          .thirteenNewsNowWVECButton {
+            background: #0550ab;
+          }
+
           .abciviewButton{
             background: #fff;
           }
@@ -8106,6 +8196,10 @@ const launcherCSS = `
 
           .britboxButton {
             background: #00202b;
+          }
+
+          .btvAppButton {
+            background: #3c3939;
           }
 
           .byuTvButton {
@@ -8753,6 +8847,10 @@ const launcherCSS = `
 
           .nrkTvButton {
             background: #073b84;
+          }
+
+          .odeonVodButton {
+            background: #000;
           }
 
           .odidoButton {
