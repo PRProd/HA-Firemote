@@ -29,8 +29,9 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 **Firemote** is a custom [Home Assistant](https://www.home-assistant.io/) card that is capable of controlling your media devices directly from any Home Assistant dashboard. The Firemote dashboard remotes are designed to look just like your physical remote controls, but they also contain TONS of customization options to choose from!
 
 For a visual introduction, YouTube's [@BeardedTinker](https://www.youtube.com/@BeardedTinker) created a fantastic video about this card!<br>
-https://www.youtube.com/watch?v=hbEHaspKvWs <br>
-Be sure to give him a sub and a like if you enjoy it!
+https://www.youtube.com/watch?v=hbEHaspKvWs - Be sure to give him a sub and a like if you enjoy it!<br>
+
+Short demonstration videos also exist for [Roku Firemote](https://www.youtube.com/watch?v=aZ9F4V9dAfQ) and [Chromecast Firemote](https://www.youtube.com/watch?v=LFnNewwKY8I)
 
 <br>
 <br>
@@ -57,7 +58,8 @@ Be sure to give him a sub and a like if you enjoy it!
 <br>
 
 ## Download and Setup via Home Assistant UI & HACS
-1. Turn on ADB/USB debugging on your Amazon, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
+1. Turn on ADB/USB/Network debugging on your Amazon, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
+    - For NVIDIA Shield users, be sure to turn on **Network debugging** (not shown in the video)
     - (does not apply to Apple TV or Roku users)
 1. Connect your device to Home Assistant:
    - Amazon, Chromecast, Shield, onn., Xiaomi, or Android TV users:
@@ -67,13 +69,13 @@ Be sure to give him a sub and a like if you enjoy it!
      - Set up the Home Assistant [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv) and connect it to your device.  This will create a "Media Player" entity, and a "Remote" entity automatically.
    - Roku Users
      - Set up the Home Assistant [Roku Integration](https://www.home-assistant.io/integrations/roku) and connect it to your device.  This will create a "Media Player" entity, a "Remote" entity, and multiple others as well.
-1. Click on HACS and select Frontend
-1. In the lower right-hand corner, click the "+ EXPLORE & DOWNLOAD REPOSITORIES" button
-1. Search for, and click on "Firemote Card" then click the **DOWNLOAD** button in the lower right-hand corner
+1. Click on the HACS sidebar option, then type "Firemote Card" into the search bar
+1. Use the 3 dots on the right side of the search result to select **Download** or click on the search result then tap the DOWNLOAD button in the lower right.
 1. You will be prompted to reload your browser.  Click the **RELOAD** button to continue
 
 ## OR Install Manually
-1. Turn on ADB/USB debugging on your Amazon, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
+1. Turn on ADB/USB/Network debugging on your Amazon, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
+    - For NVIDIA Shield users, be sure to turn on **Network debugging** (not shown in the video)
     - (does not apply to Apple TV or Roku users)
 1. Connect your device to Home Assistant:
    - Amazon, Chromecast, Shield, onn., Xiaomi, or Android TV users:
