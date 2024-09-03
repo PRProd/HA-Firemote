@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.0.1';
+const HAFiremoteVersion = 'v4.0.2';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.1";
-import {rosettaStone} from './language-translations.js?version=v4.0.1';
-import {devices} from './supported-devices.js?version=v4.0.1';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.2";
+import {rosettaStone} from './language-translations.js?version=v4.0.2';
+import {devices} from './supported-devices.js?version=v4.0.2';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -5057,7 +5057,7 @@ class FiremoteCard extends LitElement {
                 fireEvent(this, 'haptic', 'light'); // haptic feedback on success
                 return;
               }
-              else if(typeof overrideDef.service !== 'undefined' && typeof overrideDef.target !== 'undefined') {
+              else if((typeof overrideDef.service !== 'undefined' || typeof overrideDef.action !== 'undefined') && typeof overrideDef.target !== 'undefined') {
                 // handle overrides via yaml instructions
                 var ServiceDetails = getCustomServiceArgs(overrideDef);
                 try{ _hass.callService(ServiceDetails[0], ServiceDetails[1], ServiceDetails[2]) }
@@ -5068,7 +5068,6 @@ class FiremoteCard extends LitElement {
             }
         }
     }
-
 
 
     // Handle custom launcher button clicks
@@ -5150,7 +5149,11 @@ class FiremoteCard extends LitElement {
     }
 
 
-
+    // Catch-all for none/other configurations where a button hasn't been defined in YAML config
+    if(_config.entity === 'none') {
+        unsupportedButton();
+        return;
+    }
 
 
     // detect difference between click or hold actions
@@ -7059,14 +7062,6 @@ class FiremoteCard extends LitElement {
       else {
         // unhandled actiontype
         return;
-      }
-
-
-
-      // Catch-all for none/other configurations where a button hasn't been defined in YAML config
-      if(_config.entity === 'none') {
-          unsupportedButton();
-          return;
       }
 
 
