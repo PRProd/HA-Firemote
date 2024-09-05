@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.0.2';
+const HAFiremoteVersion = 'v4.0.3';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.2";
-import {rosettaStone} from './language-translations.js?version=v4.0.2';
-import {devices} from './supported-devices.js?version=v4.0.2';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.3";
+import {rosettaStone} from './language-translations.js?version=v4.0.3';
+import {devices} from './supported-devices.js?version=v4.0.3';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -7054,7 +7054,7 @@ class FiremoteCard extends LitElement {
 
 
       // uncaught button presses land here
-      console.log('unhandled '+actionType+' action for '+buttonID);
+      //console.log('unhandled '+actionType+' action for '+buttonID);
       return;
 
 
@@ -7239,7 +7239,7 @@ class FiremoteCardEditor extends LitElement {
         this.translateToUsrLang('Entity') + ' Roku Media Player' : 'Roku Media Player '+ this.translateToUsrLang('Entity');
     }
     else {
-      mediaPlayerEntities = this.getEntitiesByPlatform('androidtv');
+      mediaPlayerEntities = this.getMediaPlayerEntitiesByPlatform('androidtv');
       heading = this.hass.config.language == 'he' || this.hass.config.language == 'fr' ? 
         this.translateToUsrLang('Entity') + ' Android Debug Bridge' : 'Android Debug Bridge '+ this.translateToUsrLang('Entity');
     }
