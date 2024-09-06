@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.0.3';
+const HAFiremoteVersion = 'v4.0.4b1';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.3";
-import {rosettaStone} from './language-translations.js?version=v4.0.3';
-import {devices} from './supported-devices.js?version=v4.0.3';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.4b1";
+import {rosettaStone} from './language-translations.js?version=v4.0.4b1';
+import {devices} from './supported-devices.js?version=v4.0.4b1';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -29,9 +29,9 @@ var appmap = new Map(Object.entries(launcherData));
 const translationmap = new Map(Object.entries(rosettaStone));
 
 // Set the max number of app launcher buttons for each remote style
-const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":   6, "AFJTV": 6, "AR1": 10, "AR2":  8, "AR3":  8, "CC1":  8, "NS2": 6,
-                       "ON1":  8, "ON2":  8, "RVRP": 10, "RHR":  10, "RTR":  8, "RWR": 10, "RVR": 10, "RSR": 10,
-                       "XM1": 10, "XM2": 10, "AL1": appmap.size,     "AL2": appmap.size,};
+const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AR1": 10, "AR2":   8, "AR3":  8, "CC1":  8,
+                       "CC2":  8, "CC3":  8, "NS2":  6, "ON1":   8, "ON2":  8, "RVRP": 10, "RHR": 10, "RTR":  8,
+                       "RWR": 10, "RVR": 10, "RSR": 10, "XM1":  10, "XM2": 10, "AL1": appmap.size, "AL2": appmap.size,};
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
@@ -122,7 +122,7 @@ function handlecustomlaunchers(config) {
        }
        label = '<div class="customLauncherBackground" style="'+style+'"></div><div style="'+style+'" class="customLauncherTxt">'+truncate(label, 10)+'</div>';
        var buttonFace = imagePath || icon || label
-       appmap.set("customlauncher "+friendlyname, {"button": buttonFace, "friendlyName": "Custom: "+friendlyname, "script": launcher.script,});
+       appmap.set("customlauncher "+friendlyname, {"button": buttonFace, "friendlyName": "Custom: "+friendlyname, "script": launcher.script, "data": launcher.data});
        l++;
     })
 }
@@ -239,6 +239,8 @@ class FiremoteCard extends LitElement {
         return calculateMasonryViewHeight(737, scale);
         break;
       case "CC1":
+      case "CC2":
+      case "CC3":
         return calculateMasonryViewHeight(696.66, scale);
         break;
       case "NS1":
@@ -336,6 +338,8 @@ class FiremoteCard extends LitElement {
         }
         break;
       case "CC1":
+      case "CC2":
+      case "CC3":
         return {
           grid_rows: calculateLayoutCellHeight(696.66, scale),
           grid_columns: calculateLayoutCellWidth(203.36, scale),
@@ -891,6 +895,14 @@ class FiremoteCard extends LitElement {
             min-height: calc(var(--sz) * 37rem);
           }
 
+          .chromecast-remote-body.CC2 {
+            background: #cad4d8;
+          }
+
+          .chromecast-remote-body.CC3 {
+            background: #e1d2cc;
+          }
+
           .apple-remote-body {
             background: #b5b5b5;
             background: linear-gradient(0deg, rgba(147,148,150,1) 0%, rgba(207,211,213,1) 100%);
@@ -1198,6 +1210,16 @@ class FiremoteCard extends LitElement {
             box-shadow: rgb(0 0 0 / 5%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.1428rem) 0;
           }
 
+          .chromecast-remote-body.CC2 .remote-button {
+            background: #d5e0e4;
+            border-color: #a6a6a6;
+          }
+
+          .chromecast-remote-body.CC3 .remote-button {
+            background: #efddd6;
+            border-color: #bababa;
+          }
+
           .chromecast-remote-body .srcButton {
             border: solid #bfbfbf calc(var(--sz) * 0.02em);
             height: calc(var(--sz) * 4.2rem);
@@ -1211,6 +1233,21 @@ class FiremoteCard extends LitElement {
 
           .chromecast-remote-body #keyboard-button > ha-icon {
             color: rgb(235, 235, 234);
+          }
+
+          .chromecast-remote-body.CC2 #keyboard-button {
+            background: linear-gradient(0deg, rgba(186,214,198,1) 0%, rgba(222,239,231,1) 90%);
+            border-color: #a6a6a6;
+          }
+
+          .chromecast-remote-body.CC3 #keyboard-button {
+            background: linear-gradient(0deg, rgba(221,158,152,1) 0%, rgba(228,186,180,1) 90%);
+            border-color: #a6a6a6;
+          }
+
+          .chromecast-remote-body.CC2 #keyboard-button > ha-icon,
+          .chromecast-remote-body.CC3 #keyboard-button > ha-icon {
+            color: #fff;
           }
 
           .apple-remote-body .srcButton {
@@ -1450,9 +1487,21 @@ class FiremoteCard extends LitElement {
             border: solid #000 calc(var(--sz) * 0.15rem);
           }
 
-          .chromecast-remote-body .dpadbutton,
+          .chromecast-remote-body.CC1 .dpadbutton,
           .CC .dpadbutton {
             background: #fff;
+            outline: solid #c5c5c5 calc(var(--sz) * 0.0714rem);
+          }
+
+          .chromecast-remote-body.CC2 .dpadbutton,
+          .CC2 .dpadbutton {
+            background: #cad4d8;
+            outline: solid #c5c5c5 calc(var(--sz) * 0.0714rem);
+          }
+
+          .chromecast-remote-body.CC3 .dpadbutton,
+          .CC3 .dpadbutton {
+            background: #e1d2cc;
             outline: solid #c5c5c5 calc(var(--sz) * 0.0714rem);
           }
 
@@ -1509,6 +1558,14 @@ class FiremoteCard extends LitElement {
             background: #efefef;
           }
 
+          .chromecast-remote-body.CC2 .dpadbutton:active {
+            background: #bfcbd0;
+          }
+
+          .chromecast-remote-body.CC3 .dpadbutton:active {
+            background: #dbcac3;
+          }
+
           .dpadbuttonShield {
             width: calc(var(--sz) * 4.101rem);
             height: calc(var(--sz) * 4.101rem);
@@ -1538,7 +1595,7 @@ class FiremoteCard extends LitElement {
 
           .chromecast-remote-body .centerbutton,
           .CC .centerbutton {
-            background: radial-gradient(circle, rgb(231 231 231) 0%, rgb(255, 255, 255) 80%);
+            background: linear-gradient(rgb(226 226 226) 0%, rgb(255, 255, 255) 70%);
             box-shadow: inset rgb(0 0 0 / 10%) 0 calc(var(--sz) * 0.15rem) calc(var(--sz) * 0.4rem);
             border: solid #dddddd calc(var(--sz) * 0.0714rem);
             width: calc(var(--sz) * 4rem);
@@ -1547,6 +1604,16 @@ class FiremoteCard extends LitElement {
             position: absolute;
             margin: 0;
             padding: 0;
+          }
+
+          .chromecast-remote-body.CC2 .centerbutton {
+            background: linear-gradient(0deg, rgb(208 218 225) 5%, rgb(181 194 199) 100%);
+            border: solid #bbc5c9 calc(var(--sz)* 0.0714rem);
+          }
+
+          .chromecast-remote-body.CC3 .centerbutton {
+            background: linear-gradient(0deg, rgba(245,226,219,1) 0%, rgba(196,180,174,1) 100%);
+            border: solid #d9d1d1 calc(var(--sz)* 0.0714rem);
           }
 
           .apple-remote-body .centerbutton,
@@ -2910,7 +2977,7 @@ class FiremoteCard extends LitElement {
                             .AL2 .appLauncherAppsContainer {
                               --sz: calc(${launcherscale} * 2);
                             }
-                            .CC1 {
+                            .CC1, .CC2, .CC3 {
                               --sz: calc(${scale} * 1.2);
                             }
                             .ALControlsContainer{
@@ -3025,7 +3092,7 @@ class FiremoteCard extends LitElement {
         else if(['AR1', 'AR2', 'AR3', 'apple-tv'].includes(displayedRemote)) {
             buttonStyle = 'button-round';
         }
-        else if(['CC1', 'chromecast'].includes(displayedRemote)) {
+        else if(['CC1', 'CC2', 'CC3', 'chromecast'].includes(displayedRemote)) {
             appLaunchButtons.set("confBtn1", config.app_launch_1 || 'youtube');
             appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
             buttonStyle = 'button-round';
@@ -3076,7 +3143,7 @@ class FiremoteCard extends LitElement {
 
 
         // Return button HTML
-        if(['CC1', 'AR1', 'AR2', 'AR3'].includes(config.defaultRemoteStyle_override) || (['apple-tv', 'chromecast'].includes(config.device_family) && !(config.defaultRemoteStyle_override))) {
+        if(['CC1', 'CC2', 'CC3', 'AR1', 'AR2', 'AR3'].includes(config.defaultRemoteStyle_override) || (['apple-tv', 'chromecast'].includes(config.device_family) && !(config.defaultRemoteStyle_override))) {
           return html `
             ${ Array.from(appLaunchButtons.keys()).map(key => {
               var val = appLaunchButtons.get(key);
@@ -4526,14 +4593,14 @@ class FiremoteCard extends LitElement {
     }
 
 
-    // Render Chromecast 1
-    if ( getDeviceAttribute('defaultRemoteStyle') == 'CC1' ) {
+    // Render Chromecast 1, 2, or 3
+    if ( ['CC1', 'CC2', 'CC3'].includes(getDeviceAttribute('defaultRemoteStyle'))) {
     return html`
       <ha-card>
 
       ${cssVars}
 
-      <div class="chromecast-remote-body CC1">
+      <div class="chromecast-remote-body ${getDeviceAttribute('defaultRemoteStyle')}">
           ${drawDeviceName(this, this._config, 'top')}
 
           <div class="dpadContainer">
@@ -4561,7 +4628,7 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
 
-          ${drawAppLaunchButtons(this, this._config, 2, appButtonMax["CC1"])}
+          ${drawAppLaunchButtons(this, this._config, 2, appButtonMax[getDeviceAttribute('defaultRemoteStyle')])}
 
           <div class="chromecastBottomIndentedRow">
             <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
@@ -5078,7 +5145,7 @@ class FiremoteCard extends LitElement {
         const customLauncherKey = clickedButtonID.substr(0, clickedButtonID.indexOf("-button"));
         if(appmap.has(customLauncherKey)) {
             if(appmap.get(customLauncherKey).script) {
-                try{ _hass.callService("script", appmap.get(customLauncherKey).script) }
+                try{ _hass.callService("script", appmap.get(customLauncherKey).script, appmap.get(customLauncherKey).data) }
                 catch { return; }
                 fireEvent(this, 'haptic', 'light');
                 return;
@@ -7619,7 +7686,9 @@ class FiremoteCardEditor extends LitElement {
           <option value="AR1">Apple TV ${this.translateToUsrLang('remote style')} 1</option>
           <option value="AR2">Apple TV ${this.translateToUsrLang('remote style')} 2</option>
           <option value="AR3">Apple TV ${this.translateToUsrLang('remote style')} 3</option>
-          <option value="CC1">Chromecast</option>
+          <option value="CC1">Chromecast (snow)</option>
+          <option value="CC2">Chromecast (sky)</option>
+          <option value="CC3">Chromecast (sunrise)</option>
           <option value="NS1">NVIDIA Shield ${this.translateToUsrLang('style')} 1</option>
           <option value="NS2">NVIDIA Shield ${this.translateToUsrLang('style')} 2</option>
           <option value="ON1">onn. ${this.translateToUsrLang('style')} 1</option>

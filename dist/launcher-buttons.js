@@ -8878,6 +8878,20 @@ const launcherCSS = `
             box-shadow: 0 0 calc(var(--sz) * 0.857rem) calc(var(--sz) * 0.142rem) rgb(255 87 87 / 15%);
             border: solid #480a0a calc(var(--sz) * 0.0714rem);
           }
+          .chromecast-remote-body.CC2 .netflixButton {
+            background: #d5e0e4;
+            filter: none !important;
+          }
+          .chromecast-remote-body.CC3 .netflixButton {
+            background: #efddd6;
+            filter: none !important;
+          }
+          .chromecast-remote-body.CC2 .netflixButton svg {
+            filter: grayscale(1) contrast(.3);
+          }
+          .chromecast-remote-body.CC3 .netflixButton svg {
+            filter: grayscale(1) contrast(.3);
+          }
 
           .newsButton {
             font-weight: bold;
@@ -9579,6 +9593,20 @@ const launcherCSS = `
 
           .youtubeButton {
             background: #fff;
+          }
+          .chromecast-remote-body.CC2 .youtubeButton {
+            background: #d5e0e4;
+            filter: none !important;
+          }
+          .chromecast-remote-body.CC3 .youtubeButton {
+            background: #efddd6;
+            filter: none !important;
+          }
+          .chromecast-remote-body.CC2 .youtubeButton svg {
+            filter: grayscale(1) contrast(.3);
+          }
+          .chromecast-remote-body.CC3 .youtubeButton svg {
+            filter: grayscale(1) contrast(.3);
           }
           .shield-remote-body .youtubeButton svg {
             width: calc(var(--sz) * 5.75rem);
