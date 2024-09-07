@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.0.4b1';
+const HAFiremoteVersion = 'v4.0.4';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.4b1";
-import {rosettaStone} from './language-translations.js?version=v4.0.4b1';
-import {devices} from './supported-devices.js?version=v4.0.4b1';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.4";
+import {rosettaStone} from './language-translations.js?version=v4.0.4';
+import {devices} from './supported-devices.js?version=v4.0.4';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -5119,7 +5119,7 @@ class FiremoteCard extends LitElement {
             if(overrideDef !== null) {
               if(typeof overrideDef.script !== 'undefined') {
                 // handle overrides via external script
-                try{ _hass.callService("script", overrideDef.script) }
+                try{ _hass.callService("script", overrideDef.script, overrideDef.data) }
                 catch { return; }
                 fireEvent(this, 'haptic', 'light'); // haptic feedback on success
                 return;
