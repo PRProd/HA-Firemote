@@ -7509,10 +7509,31 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="629" height="181" viewBox="0 0 629 181" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="RFBb" x1="0.00%" y1="50.05%" x2="99.98%" y2="50.05%"><stop offset="0%" stop-color="#0c2426"/><stop offset="18%" stop-color="#0b2d2f"/><stop offset="48%" stop-color="#084447"/><stop offset="86%" stop-color="#02696f"/><stop offset="100%" stop-color="#00797f"/></linearGradient></defs><path d="M53.8 175.3c17 0 24.8-9.5 31.4-22.8l30-60 15.2 54.7c6 21.2 13.8 28 28.8 28 15 0 24.5-5 33-25.3l22.6-55.5c1.2 52 38.5 85.5 89.3 85.5 51 0 85.5-33.2 92.6-75.4l8 44.2c3.4 18.4 12 26.5 26.7 26.5 14.8 0 23.4-6 30.7-19.4l34.4-63.3 13.5 56.7c4.2 17.2 11.8 26 27 26 15.3 0 22.6-6 29.3-19l58-113c2.5-4.6 3.7-9.7 3.7-15 0-13.2-10.3-23.5-25.5-23.5-15.3 0-22.6 7.3-28.5 20.3l-27.5 59-14.8-58c-3.2-13-10.5-21.3-25-21.3-9.3 0-18.7 2.7-27.3 19l-31.4 60.6L437 26.5c-2.5-15.2-13.3-21.8-26-21.8-7-.3-14 2.3-18.8 7.3-5 5-7.7 11.7-7.5 18.7a49 49 0 0 0 .7 8.6l1 5C373.3 19.6 346.5 0 310 0c-25 0-53.5 9.6-71.2 33l.3-6c-.3-12.8-8.6-22.3-24-22.3-15.2 0-22 6.6-27.5 20.3l-24 63.2-16-61.7c-3.4-12.7-10-21.8-24.5-21.8-14.5 0-21.7 4.6-29 20.8l-27.5 63-13.8-62C49.4 11.3 38.6 4.7 25.6 4.7S-.7 15.2 0 30.7c0 2.2.4 4.5 1 6.6l24.3 108c3.7 15.7 9.6 30 28.5 30zm212.4-83.7c0-23.6 17.7-42.2 39.8-42.2s39.8 16.7 39.8 41-16.5 40.2-39.8 40.2-39.8-17-39.8-39z" stroke="none" fill="url(#RFBb)" fill-rule="nonzero"/></svg>',
       "friendlyName": "WOW",
       "className": "wowButton",
-      "appName": "de.sky.online",
-      "androidName": "de.sky.online",
-      "adbLaunchCommand": "adb shell am start -n de.sky.online/sky.wrapper.tv.GoogleMainActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "amazon-fire": {
+        "appName": "de.sky.online",
+        "androidName": "de.sky.online",
+        "adbLaunchCommand": "adb shell am start -n de.sky.online/sky.wrapper.tv.GoogleMainActivity",
+      },
+      "apple-tv": {
+        "appName": "WOW",
+      },
+      "chromecast": {
+        "appName": "de.sky.online",
+        "androidName": "de.sky.online",
+        "adbLaunchCommand": "adb shell am start -n de.sky.online/sky.wrapper.tv.GoogleMainActivity",
+      },
+      "nvidia-shield": {
+        "appName": "de.sky.online",
+        "androidName": "de.sky.online",
+        "adbLaunchCommand": "adb shell am start -n de.sky.online/sky.wrapper.tv.GoogleMainActivity",
+      },
+      "xiaomi": {
+        "appName": "de.sky.online",
+        "androidName": "de.sky.online",
+        "adbLaunchCommand": "adb shell am start -n de.sky.online/sky.wrapper.tv.GoogleMainActivity",
+      },
+  },
 
 
   "xciptv-player": {
