@@ -247,6 +247,33 @@ const devices = {
   },
 
 
+  "homatics": {
+
+    "meta": {
+      "friendlyName": "Homatics",
+      "supported": false,
+    },
+
+    "noCategory": {
+
+      "dune-hd-box-4-4k-plus": {
+        "supported": false,
+        "friendlyName": "Dune HD Box R 4K Plus",
+        "defaultRemoteStyle": "HO3",
+        "hdmiInputs": 0,
+      },
+      "box-4-4k-plus": {
+        "supported": false,
+        "friendlyName": "Box R 4K Plus",
+        "defaultRemoteStyle": "HO1",
+        "hdmiInputs": 0,
+      },
+
+    }
+
+  },
+
+
   "nvidia-shield": {
 
     "meta": {
