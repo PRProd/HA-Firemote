@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.0.5';
+const HAFiremoteVersion = 'v4.1.0b1';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.0.5";
-import {rosettaStone} from './language-translations.js?version=v4.0.5';
-import {devices} from './supported-devices.js?version=v4.0.5';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.0b1";
+import {rosettaStone} from './language-translations.js?version=v4.1.0b1';
+import {devices} from './supported-devices.js?version=v4.1.0b1';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -32,8 +32,8 @@ const translationmap = new Map(Object.entries(rosettaStone));
 // Set the max number of app launcher buttons for each remote style
 const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AR1": 10, "AR2":   8, "AR3":  8, "CC1":  8,
                        "CC2":  8, "CC3":  8, "NS2":  6, "ON1":   8, "ON2":  8, "RVRP": 10, "RHR": 10, "RTR":  8,
-                       "RWR": 10, "RVR": 10, "RSR": 10, "XM1":  10, "XM2": 10, "HO1":   4, "HO2":  4, "HO3":  4,
-                       "AL1": appmap.size, "AL2": appmap.size,};
+                       "RWR": 10, "RVR": 10, "RSR": 10, "XM1":  10, "XM2": 10, "HO1":   6, "HO2":  8, "HO3":  6,
+                       "HO4":  6, "AL1": appmap.size, "AL2": appmap.size,};
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
@@ -345,6 +345,20 @@ class FiremoteCard extends LitElement {
         return {
           grid_rows: calculateLayoutCellHeight(696.66, scale),
           grid_columns: calculateLayoutCellWidth(203.36, scale),
+        }
+        break;
+      case "HO1":
+      case "HO2":
+        return {
+          grid_rows: calculateLayoutCellHeight(726.39, scale),
+          grid_columns: calculateLayoutCellWidth(193.97, scale),
+        }
+        break;
+      case "HO3":
+      case "HO4":
+        return {
+          grid_rows: calculateLayoutCellHeight(902.83, scale),
+          grid_columns: calculateLayoutCellWidth(193.97, scale),
         }
         break;
       case "NS1":
@@ -2200,35 +2214,58 @@ class FiremoteCard extends LitElement {
             box-shadow: 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.214rem) rgb(0 0 0 / 10%);
           }
 
-          .homatics-remote-body.HO2, .homatics-remote-body.HO3 {
+          .homatics-remote-body.HO2, 
+          .homatics-remote-body.HO4 {
             background: #252525;
             border-color: #2f2f2f;
           }
 
-          .HO1 .remote-button {
+          .HO1 .remote-button,
+          .HO3 .remote-button {
             background: #fff;
             color: rgb(106, 106, 106);
             border: solid rgb(186 186 186) calc(var(--sz)* 0.0714rem);
             box-shadow: rgb(0 0 0 / 15%) 0px calc(var(--sz)* 0.063rem) calc(var(--sz)* 0.188rem);
           }
 
-          .HO2 .remote-button, .HO3 .remote-button {
+          .HO2 .remote-button, 
+          .HO4 .remote-button {
             background: #2f2f2f;
             border: solid rgb(15 15 15) calc(var(--sz)* 0.0714rem);
           }
 
-          .HO1 .remote-button:active {
+          .homatics-remote-body .remote-button:active {
             box-shadow: inset rgb(0 0 0 / 42%) 0px calc(var(--sz)* 0.1rem) calc(var(--sz)* 0.188rem);
             filter: brightness(0.94);
             border: solid rgb(232 232 232) calc(var(--sz)* 0.0714rem);
           }
 
-          .HO2 .remote-button:active, .HO3 .remote-button:active {
+          .HO2 .remote-button:active, 
+          .HO4 .remote-button:active {
             border: solid rgb(10 10 10) calc(var(--sz)* 0.0714rem);
           }
 
-          .HO1 .litbutton > ha-icon {
+          .HO2 .litbutton,
+          .HO4 .litbutton {
+            box-shadow: 0 0 calc(var(--sz)* 0.857rem) calc(var(--sz)* 0.0714rem) rgb(171 253 255 / 15%);
+          }
+
+          .HO1 .litbutton > ha-icon, 
+          .HO3 .litbutton > ha-icon {
             color: #00979b !important;
+          }
+
+          .HO2 .litbutton > ha-icon, 
+          .HO4 .litbutton > ha-icon {
+            color: #abfdff !important
+          }
+
+          .HO1 #home-button.litbutton > ha-icon, .HO3 #home-button.litbutton > ha-icon {
+            color: #03585b !important
+          }
+
+          .HO2 #home-button.litbutton > ha-icon, .HO4 #home-button.litbutton > ha-icon {
+            color: #45989a !important
           }
 
           .homatics-remote-body .micHole {
@@ -2245,15 +2282,12 @@ class FiremoteCard extends LitElement {
             width: calc(var(--sz)* 2.75rem);
           }
 
-          .homatics-remote-body #power-button {
-            justify-self: left;
-          }
-
-          .remote-body.HO1 .remote-button > ha-icon, .remote-body.HO2 .remote-button > ha-icon {
+          .remote-body.HO1 .remote-button > ha-icon, 
+          .remote-body.HO3 .remote-button > ha-icon {
             color: rgb(106 106 106);
           }
 
-          .remote-body.HO3 .remote-button > ha-icon {
+          .remote-body.HO2 .remote-button > ha-icon {
             color: rgb(245 245 245);
           }
 
@@ -2261,11 +2295,21 @@ class FiremoteCard extends LitElement {
             background: linear-gradient(180deg, rgb(168 168 168) 26%, rgb(144 144 144) 50%, rgb(128 128 128) 75%);
           }
 
+          .homatics-remote-body.HO2 .remote-button.dark,
+          .homatics-remote-body.HO4 .remote-button.dark {
+            background: linear-gradient(180deg, rgb(255 255 255) 26%, rgb(221 221 221) 50%, rgb(211 211 211) 75%);
+          }
+
           .homatics-remote-body .remote-button.dark > ha-icon {
             color: #000;
           }
 
-          .remote-body.HO3 .remote-button.light > ha-icon {
+          .homatics-remote-body.HO2 .remote-button.dark > ha-icon,
+          .homatics-remote-body.HO4 .remote-button.dark > ha-icon {
+            color: #4b4b4b;
+          }
+
+          .remote-body.HO2 .remote-button.light > ha-icon {
             color: #464646;
           }
 
@@ -2284,14 +2328,46 @@ class FiremoteCard extends LitElement {
             opacity: 0;
           }
 
-          .homatics-remote-body.HO3 .activityLight {
+          .homatics-remote-body.HO2 .activityLight,
+          .homatics-remote-body.HO4 .activityLight {
             background: #adff87;
             box-shadow: lime 0 0 calc(var(--sz)* 0.6rem) calc(var(--sz)* 0.05rem);
           }
 
-          .homatics-remote-body #input-button {
-            justify-self: right;
+          .homatics-remote-body .digit-pad-button {
+            font-size: calc(var(--sz)* 1rem);
+            font-weight: 600;
+            height: calc(var(--sz)* 2.75rem);
+            width: calc(var(--sz)* 2.75rem);
+            border-radius: 100%;
+            margin-bottom: calc(var(--sz)* -0.6rem);
           }
+
+          .homatics-remote-body .colorButtons {
+            display: flex;
+            justify-content: space-around;
+            margin: calc(var(--sz) * 0.5rem) 0 0 0;
+          }
+
+          .homatics-remote-body div.colorButtons button {
+            border-radius: 100%;
+            overflow: hidden;
+            height: calc(var(--sz) * 2.3rem);
+            width: calc(var(--sz) * 2.3rem);
+          }
+
+          .homatics-remote-body div.colorButtons button svg{
+            height: calc(var(--sz) * 1.1rem);
+            width: calc(var(--sz) * 1.1rem);
+            filter: brightness(0.8) saturate(0.8);
+            pointer-events: none;
+          }
+
+          .homatics-remote-body div.colorButtons button:active svg{
+            filter: none;
+            transform: scale(0.85)
+          }
+
 
           .homatics-remote-body #bookmark-button, .homatics-remote-body #settings-button {
             align-self: end;
@@ -2304,8 +2380,9 @@ class FiremoteCard extends LitElement {
           }
 
           .homatics-remote-body .directionButtonContainer {
-            box-shadow: rgb(0 0 0 / 73%) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem);
-            background: black;
+            box-shadow: rgb(0 0 0 / 15%) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem)
+            background: #cacaca;
+            border: calc(var(--sz)* 0.0714rem) solid #cacaca;
           }
 
           .homatics-remote-body .directionButtonContainer:has(#down-button:active) {
@@ -2319,12 +2396,6 @@ class FiremoteCard extends LitElement {
             margin-top: calc(var(--sz)* -1.5rem);
             margin-bottom: calc(var(--sz)* -1.5rem);
             isolation: isolate;
-          }
-
-          .homatics-remote-body .directionButtonContainer {
-            box-shadow: rgb(0 0 0 / 73%) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem) calc(var(--sz)* 0.025rem);
-            background: #cacaca;
-            border: calc(var(--sz)* 0.0714rem) solid #cacaca;
           }
 
           .homatics-remote-body .dpadbutton, .homatics-remote-body .dpadbutton:active {
@@ -2343,7 +2414,8 @@ class FiremoteCard extends LitElement {
             -webkit-tap-highlight-color: transparent;
           }
 
-          .HO3 .dpadbutton {
+          .HO2 .dpadbutton,
+          .HO4 .dpadbutton {
             background: rgb(216 216 216);
             outline: solid rgb(200 200 200) calc(var(--sz)* 0.0714rem);
           }
@@ -2358,7 +2430,8 @@ class FiremoteCard extends LitElement {
             appearance: none;
           }
 
-          .HO3 .dpadbutton:active {
+          .HO2 .dpadbutton:active,
+          .HO4 .dpadbutton:active {
             background: rgb(200 200 200);
             box-shadow: none;
             outline: solid #989898 calc(var(--sz)* 0.0714rem);
@@ -2375,8 +2448,10 @@ class FiremoteCard extends LitElement {
             isolation: isolate;
           }
 
-          .HO3 .centerbutton {
+          .HO2 .centerbutton,
+          .HO4 .centerbutton {
             background: linear-gradient(0deg, rgb(48 48 48) 26%, rgb(39 39 39) 50%, rgb(33 33 33) 75%);
+            border: solid #252525 calc(var(--sz)* 0.25rem); 
           }
 
           .homatics-remote-body .centerbutton:active {
@@ -2385,8 +2460,10 @@ class FiremoteCard extends LitElement {
             border: solid #b3b3b3 calc(var(--sz)* 0.29rem);
           }
 
-          .HO3 .centerbutton:active {
+          .HO2 .centerbutton:active,
+          .HO4 .centerbutton:active {
             filter: brightness(0.8);
+            border: solid #000 calc(var(--sz)* 0.29rem); 
           }
 
           .homatics-remote-body #home-button {
@@ -2415,20 +2492,45 @@ class FiremoteCard extends LitElement {
             font-size: calc(var(--sz)* 2rem);
           }
 
-          .homatics-remote-body #voltext {
+          .homatics-remote-body #volume-up-button-container ha-icon,
+          .homatics-remote-body #channel-up-button-container ha-icon {
+            margin-top: calc(var(--sz)* -1rem);
+          }
+
+          .homatics-remote-body #voltext,
+          .homatics-remote-body #chtext {
             max-width: calc(var(--sz)* 1.5rem);
-            max-height: calc(var(--sz)* 1rem);;
+            max-height: calc(var(--sz)* 1rem);
             position: absolute;
-            justify-self: center;
-            padding-left: calc(var(--sz)* 1.1rem);
+            padding-left: calc(var(--sz)* 1.0rem);
             pointer-events: none;
+            margin-top: calc(var(--sz)* -0.5rem);
           }
 
           .homatics-remote-body #voltext > * {
             fill: rgb(106 106 106);
           }
 
-          .homatics-remote-body #channel-up-button {
+          .homatics-remote-body.HO2 #voltext > *, 
+          .homatics-remote-body.HO4 #voltext > * {
+            fill: rgb(245, 245, 245);
+          }
+
+          .homatics-remote-body #chtext {
+            max-width: calc(var(--sz)* 1rem);
+            padding-left: calc(var(--sz)* 1.25rem);
+          }
+
+          .homatics-remote-body #chtext > * {
+            fill: rgb(106 106 106);
+          }
+
+          .homatics-remote-body.HO2 #chtext > *, 
+          .homatics-remote-body.HO4 #chtext > * {
+            fill: rgb(245, 245, 245);
+          }
+
+          .homatics-remote-body #channel-up-button-container {
             grid-area: ch-up;
             margin-bottom: 0;
             border-bottom: 0;
@@ -2448,10 +2550,19 @@ class FiremoteCard extends LitElement {
             fill: rgb(106 106 106);
           }
 
+          .HO2 #soundeqtext, .HO4 #soundeqtext {
+            fill: rgb(245, 245, 245);
+          }
+
           .homatics-remote-body #volume-down-button {
             grid-area: vol-down;
             border-top: 0;
             font-size: calc(var(--sz)* 2rem);
+          }
+
+          .homatics-remote-body #volume-down-button ha-icon,
+          .homatics-remote-body #channel-down-button ha-icon {
+            margin-bottom: calc(var(--sz)* -1rem);
           }
 
           .homatics-remote-body #channel-down-button {
@@ -2459,20 +2570,36 @@ class FiremoteCard extends LitElement {
             border-top: 0;
           }
 
-          .homatics-remote-body #volume-up-button:active, .homatics-remote-body #channel-up-button:active {
+          .homatics-remote-body #volume-down-button, 
+          .homatics-remote-body #channel-down-button {
+            box-shadow: rgb(0 0 0 / 15%) 0px calc(var(--sz)* 0.063rem) calc(var(--sz)* 0.1rem);
+          }
+
+          .homatics-remote-body #volume-up-button, 
+          .homatics-remote-body #channel-up-button {
+            box-shadow: none;
+          }
+
+          .homatics-remote-body #volume-up-button:active, 
+          .homatics-remote-body #channel-up-button:active {
             filter: none;
             background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 95%);
             border: solid rgb(186 186 186) calc(var(--sz)* 0.0714rem);
             border-bottom: 0;
           }
 
-          .homatics-remote-body.HO3 #volume-up-button:active, .homatics-remote-body.HO3 #channel-up-button:active {
+          .homatics-remote-body.HO2 #volume-up-button:active, 
+          .homatics-remote-body.HO2 #channel-up-button:active,
+          .homatics-remote-body.HO4 #volume-up-button:active, 
+          .homatics-remote-body.HO4 #channel-up-button:active {
             filter: none;
             background: linear-gradient(0deg, rgb(46 46 46) 0%, rgb(38 38 38) 95%);
+            border: solid rgb(0 0 0) calc(var(--sz)* 0.08rem);
             border-bottom: 0;
           }
 
-          .homatics-remote-body #volume-down-button:active, .homatics-remote-body #channel-down-button:active {
+          .homatics-remote-body #volume-down-button:active, 
+          .homatics-remote-body #channel-down-button:active {
             filter: none;
             background: linear-gradient(0deg, rgba(240, 240, 240, 1) 0%, rgba(255, 255, 255, 1) 95%);
             box-shadow: none;
@@ -2480,11 +2607,19 @@ class FiremoteCard extends LitElement {
             border-top: 0;
           }
 
-          .homatics-remote-body.HO3 #volume-down-button:active, .homatics-remote-body.ho3 #channel-down-button:active {
+          .homatics-remote-body.HO2 #volume-down-button:active, 
+          .homatics-remote-body.HO2 #channel-down-button:active,
+          .homatics-remote-body.HO4 #volume-down-button:active, 
+          .homatics-remote-body.HO4 #channel-down-button:active {
             filter: none;
             background: linear-gradient(180deg, rgb(46 46 46) 0%, rgb(38 38 38) 95%);
             box-shadow: none;
+            border: solid rgb(0 0 0) calc(var(--sz)* 0.08rem);
             border-top: 0;
+          }
+
+          .homatics-remote-body .afappsgrid {
+            margin-bottom: calc(var(--sz)* 7rem);
           }
 
           .homatics-remote-body .srcButton {
@@ -2502,6 +2637,11 @@ class FiremoteCard extends LitElement {
             max-width: calc(var(--sz)* 6.5rem);
             max-height: calc(var(--sz)* 3.2rem);
             stroke: rgb(161 161 161);
+          }
+
+          .HO2 .homaticsLogo svg,
+          .HO4 .homaticsLogo svg {
+            stroke: #000;
           }
           /* end Homatics styles */
 
@@ -3283,7 +3423,7 @@ class FiremoteCard extends LitElement {
     if(this._config.device_family == 'apple-tv') {
       AppLaunchButtonFilterCssValue = 'grayscale(0%) brightness(100%)';
     }
-    else if (['onn', 'homatics'].includes(this._config.device_family) || ['ON1', 'ON2', 'HO1', 'HO2', 'HO3'].includes(this._config.defaultRemoteStyle_override)) {
+    else if (['onn', 'homatics'].includes(this._config.device_family) || ['ON1', 'ON2', 'HO1', 'HO2', 'HO3', 'HO4'].includes(this._config.defaultRemoteStyle_override)) {
       AppLaunchButtonFilterCssValue = 'grayscale(25%) brightness(80%)';
     }
     var guiEditorDirection = this.hass.config.language == 'he' ? 'rtl' : 'ltr';
@@ -3476,11 +3616,11 @@ class FiremoteCard extends LitElement {
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
             appLaunchButtons.set("confBtn4", config.app_launch_4 || 'paramount-plus');
         }
-        else if(['HO1', 'HO2', 'HO3'].includes(displayedRemote)) {
+        else if(['HO1', 'HO2', 'HO3', 'HO4'].includes(displayedRemote)) {
             appLaunchButtons.set("confBtn1", config.app_launch_1 || 'youtube');
             appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'prime-video');
-            appLaunchButtons.set("confBtn4", config.app_launch_4 || 'paramount-plus');
+            appLaunchButtons.set("confBtn4", config.app_launch_4 || 'rocket-launcher-btn');
         }
 
 
@@ -4252,9 +4392,71 @@ class FiremoteCard extends LitElement {
     }
 
 
+    function renderHomaticsExtras(remote, style){
+      if (style == 'HO1' || style == 'HO2') { 
+        return 
+      };
+      return html`
+          <button class="remote-button digit-pad-button" id="num1-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-1"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="num2-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-2"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="num3-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-3"></ha-icon>
+          </button>
 
-    // Render Homatics Remote Style HO1, HO2, HO3
-    if ( ['HO1', 'HO2', 'HO3'].includes(getDeviceAttribute('defaultRemoteStyle'))) {
+          <button class="remote-button digit-pad-button" id="num4-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-4"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="num5-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-5"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="num6-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-6"></ha-icon>
+          </button>
+
+          <button class="remote-button digit-pad-button" id="num7-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-7"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="num8-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-8"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="num9-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-9"></ha-icon>
+          </button>
+
+          <button class="remote-button digit-pad-button" id="subtitle-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:subtitles-outline"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="num0-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:numeric-0"></ha-icon>
+          </button>
+          <button class="remote-button digit-pad-button" id="info-button" @pointerdown=${remote.buttonDown}>
+            <ha-icon icon="mdi:information-slab-circle-outline"></ha-icon>
+          </button>
+
+          <div class="three-col-span colorButtons">
+              <button class="remote-button" id="red-button" @pointerdown=${remote.buttonDown}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="red" stroke="none" r="280"/></svg>
+              </button>
+              <button class="remote-button" id="green-button" @pointerdown=${remote.buttonDown}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="green" stroke="none" r="280"/></svg>
+              </button>
+              <button class="remote-button" id="yellow-button" @pointerdown=${remote.buttonDown}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="yellow" stroke="none" r="280"/></svg>
+              </button>
+              <button class="remote-button" id="blue-button" @pointerdown=${remote.buttonDown}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><circle cx="280" cy="280" fill="#1e90ff" stroke="none" r="280"/></svg>
+              </button>
+          </div>
+      `;
+
+    }
+
+    // Render Homatics Remote Style HO1, HO2, HO3, HO4
+    if ( ['HO1', 'HO2', 'HO3', 'HO4'].includes(getDeviceAttribute('defaultRemoteStyle'))) {
     return html`
       <ha-card>
 
@@ -4274,6 +4476,8 @@ class FiremoteCard extends LitElement {
           <button class="remote-button" id="input-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:import"></ha-icon>
           </button>
+
+          ${renderHomaticsExtras(this, getDeviceAttribute('defaultRemoteStyle'))}
 
           <button class="remote-button" id="bookmark-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:bookmark-outline"></ha-icon>
@@ -4313,10 +4517,12 @@ class FiremoteCard extends LitElement {
               <svg id="voltext" xmlns="http://www.w3.org/2000/svg" width="128" height="52" viewBox="0 0 128.413 51.545" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g fill="#000" stroke="none" fill-rule="nonzero"><path d="M38 1h6L25 50h-7L0 1h8l14 40L38 1z"/><use href="#DwyP"/><path d="M129 43v7H95V1h7v42h27z"/><use href="#DwyP"/></g><defs ><path id="DwyP" d="M90 26q0 10-4 17-6 9-18 9-12 0-17-9-5-7-5-17 0-10 5-17 6-9 17-9 12 0 18 9 4 7 4 17zm-6 0q0-8-3-13-5-8-13-8-8 0-12 8-3 5-3 13 0 7 3 13 4 7 12 7 8 0 12-7 4-6 4-13z"/></defs></svg>
             </div>
             <div> </div>
-            <button class="remote-button round-top" id="channel-up-button" @pointerdown=${this.buttonDown}>
-              <ha-icon icon="mdi:chevron-up"></ha-icon>
-            </button>
-
+            <div id="channel-up-button-container">
+              <button class="remote-button round-top" id="channel-up-button" @pointerdown=${this.buttonDown}>
+                <ha-icon icon="mdi:chevron-up"></ha-icon>
+              </button>
+              <svg id="chtext" xmlns="http://www.w3.org/2000/svg" width="85" height="52" viewBox="0 0 85.475 51.61" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#000" fill-rule="nonzero"><path d="M36 40l4 4q-3 3-7 5-5 3-10 3-13 0-18-9-5-7-5-17Q0 15 5 9q5-9 18-9 5 0 10 2 4 2 7 5l-4 5q-6-7-13-7-9 0-13 8-3 5-3 13 0 8 3 13 4 7 13 7 7 0 13-6zM86 1v49h-7V29H57v21h-7V1h7v21h22V1h7z"/></svg>
+            </div>
             <button class="remote-button round-bottom" id="volume-down-button" @pointerdown=${this.buttonDown}>
               <ha-icon icon="mdi:minus"></ha-icon>
             </button>
@@ -5674,11 +5880,14 @@ class FiremoteCard extends LitElement {
         pressedTarget.addEventListener("mouseup", release, true);
         pressedTarget.addEventListener("pointerup", release, true);
         pressedTarget.addEventListener("mouseout", mouseOutHandler, true);
+        pressedTarget.addEventListener('touchmove', handleTouchMove, {passive: true});
         timer = setTimeout(function(){
           if(start){
             // it was a hold
             pressedTarget.removeEventListener("mouseup", release, true);
+            pressedTarget.removeEventListener("pointerup", release, true);
             pressedTarget.removeEventListener("mouseout", mouseOutHandler, true);
+            pressedTarget.removeEventListener('touchmove', handleTouchMove, {passive: true});
             resolve("hold");
           }
         }, holdTime);
@@ -5690,6 +5899,7 @@ class FiremoteCard extends LitElement {
           pressedTarget.removeEventListener("mouseup", release, true);
           pressedTarget.removeEventListener("pointerup", release, true);
           pressedTarget.removeEventListener("mouseout", mouseOutHandler, true);
+          pressedTarget.removeEventListener('touchmove', handleTouchMove, {passive: true});
           resolve("click");
         }
   
@@ -5700,6 +5910,16 @@ class FiremoteCard extends LitElement {
           pressedTarget.removeEventListener("mouseup", release, true);
           pressedTarget.removeEventListener("pointerup", release, true);
           pressedTarget.removeEventListener("mouseout", mouseOutHandler, true);
+          pressedTarget.removeEventListener('touchmove', handleTouchMove, {passive: true});
+          resolve(null);
+        }
+        function handleTouchMove() {
+          clearTimeout(timer);
+          let start = null;
+          pressedTarget.removeEventListener("mouseup", release, true);
+          pressedTarget.removeEventListener("pointerup", release, true);
+          pressedTarget.removeEventListener("mouseout", mouseOutHandler, true);
+          pressedTarget.removeEventListener('touchmove', handleTouchMove, {passive: true});
           resolve(null);
         }
       });
@@ -6823,6 +7043,10 @@ class FiremoteCard extends LitElement {
             _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
             return;
           }
+          if (['homatics'].includes(deviceFamily)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
+            return;
+          }
           if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
           }
@@ -6834,8 +7058,8 @@ class FiremoteCard extends LitElement {
         // Channel Up Button Hold
         if(buttonID == 'channel-up-button' && actionType == 'hold') {
           // No special behaviors noticed for this with onn.
-          // Button does not exist for Apple TV, Chromecast, NVIDIA Shield, or Xiaomi - so no hold behaviors are emulated
-          if(['onn', 'apple-tv', 'chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+          // Button does not exist for Apple TV, Chromecast, Homatics, NVIDIA Shield, or Xiaomi - so no hold behaviors are emulated
+          if(['onn', 'apple-tv', 'chromecast', 'homatics', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
             return;
           }
           if(['roku'].includes(deviceFamily)) {
@@ -6883,6 +7107,10 @@ class FiremoteCard extends LitElement {
             _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
             return;
           }
+          if (['homatics'].includes(deviceFamily)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
+            return;
+          }
           if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
           }
@@ -6895,7 +7123,7 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'channel-down-button' && actionType == 'hold') {
           // No special behaviors noticed for this with onn.
           // Button does not exist for Apple TV, Chromecast, NVIDIA Shield, or Xiaomi - so no hold behaviors are emulated
-          if(['onn', 'apple-tv', 'chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
+          if(['onn', 'apple-tv', 'chromecast', 'homatics', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
             return;
           }
           if(['roku'].includes(deviceFamily)) {
@@ -6948,7 +7176,7 @@ class FiremoteCard extends LitElement {
           else if (deviceType == 'mi-box-s') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.google.android.tv/com.android.tv.MainActivity' });
           }
-          else if (['onn'].includes(deviceFamily)) {
+          else if (['onn', 'homatics'].includes(deviceFamily)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_GUIDE'});
           }
           else {
@@ -7100,6 +7328,40 @@ class FiremoteCard extends LitElement {
           return;
         }
 
+
+
+        // Info Button Click
+        if(buttonID == 'info-button' && actionType == 'click') {
+          if(!(['homatics'].includes(deviceFamily))) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 165'});
+          }
+          return;
+        }
+        // Info Button Click
+        if(buttonID == 'info-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
+
+
+        // Bookmark Button Click
+        if(buttonID == 'bookmark-button' && actionType == 'click') {
+          if(!(['homatics'].includes(deviceFamily))) {
+            unsupportedButton();
+          }
+          else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_BOOKMARK'});
+          }
+          return;
+        }
+        // Bookmark Button Click
+        if(buttonID == 'bookmark-button' && actionType == 'hold') {
+          // no special behaviors known for this
+          return;
+        }
 
 
         // Numeric 1 Button Click
@@ -7916,7 +8178,7 @@ class FiremoteCardEditor extends LitElement {
 
 
   getCompatibilityModeDropdown(optionValue, deviceFriendlyName){
-    if(['apple-tv', 'chromecast', 'nvidia-shield', 'onn', 'roku', 'none'].includes(this._config.device_family)) { return; }
+    if(['apple-tv', 'chromecast', 'homatics', 'nvidia-shield', 'onn', 'roku', 'none'].includes(this._config.device_family)) { return; }
     if(['xiaomi-tv-stick-4k', 'fire_tv_stick_4k_max_second_gen', 'fire_tv_stick_4k_second_gen'].includes(this._config.device_type)) { return; }
     var heading = this.translateToUsrLang('Compatibility Mode');
     return html`
@@ -8129,9 +8391,10 @@ class FiremoteCardEditor extends LitElement {
           <option value="CC1">Chromecast (snow)</option>
           <option value="CC2">Chromecast (sky)</option>
           <option value="CC3">Chromecast (sunrise)</option>
-          <option value="HO1" disabled>Homatics ${this.translateToUsrLang('style')} 1</option>
-          <option value="HO2" disabled>Homatics ${this.translateToUsrLang('style')} 2</option>
-          <option value="HO3" disabled>Homatics ${this.translateToUsrLang('style')} 3</option>
+          <option value="HO1">Homatics ${this.translateToUsrLang('style')} 1</option>
+          <option value="HO2">Homatics ${this.translateToUsrLang('style')} 2</option>
+          <option value="HO3">Homatics ${this.translateToUsrLang('style')} 3</option>
+          <option value="HO4">Homatics ${this.translateToUsrLang('style')} 4</option>
           <option value="NS1">NVIDIA Shield ${this.translateToUsrLang('style')} 1</option>
           <option value="NS2">NVIDIA Shield ${this.translateToUsrLang('style')} 2</option>
           <option value="ON1">onn. ${this.translateToUsrLang('style')} 1</option>
