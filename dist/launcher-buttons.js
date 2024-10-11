@@ -58,7 +58,7 @@ const launcherData = {
 
   "ace-stream-media": {
       "button": '<svg viewBox="0 0 245 59" width="245" height="59" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#asma)" fill-rule="evenodd" clip-rule="evenodd"><path d="M55.5 2.937C50.676-.052 46-.485 41.754.422c-4.072.866-7.992 3.035-11.318 5.597-.861-.551-1.693-1.103-2.511-1.637-.746 1.626-1.512 3.29-2.296 4.973l-2.416 5.289c2.178-.705 4.388-1.424 6.646-2.15l7.025-2.264-3.231-2.105c2.976-2.135 6.25-3.943 9.757-4.97a22.877 22.877 0 0 1 12.075-.218h.015z" fill="#F15E4B"/><path d="M63.268 29.802c3.745-8.059 3.306-13.344.723-16.611-2.402-3.039-6.643-4.353-11.12-4.592.629-1.416 1.254-2.814 1.857-4.183l-7.413 3.466-7.174 3.36 3.851 3.656 4.305 4.093c.765-1.733 1.514-3.441 2.247-5.124 3.67.52 7.077 1.704 9.47 4.026 2.528 2.47 3.934 6.25 3.263 11.93l-.009-.021z" fill="#8A5DA7"/><path d="M31.294 59.003c9.817-1.831 16.291-6.184 19.961-11.42a20.021 20.021 0 0 0 3.25-7.428c.566-2.673.58-5.435.042-8.115a959.168 959.168 0 0 0 6.816-2.31 1492.244 1492.244 0 0 1-7.341-4.044 2954.423 2954.423 0 0 1-6.451-3.512 5148.106 5148.106 0 0 0-3.708 7.2c-1.28 2.504-2.586 5.064-3.92 7.68 2.25-.774 4.531-1.553 6.847-2.362a22.833 22.833 0 0 1-2.706 12.682c-2.393 4.38-6.477 8.469-12.79 11.626v.003z" fill="#4A8DA0"/><path d="M2.25 47.317c2.53 5.528 6.54 7.914 11.117 8.04 4.821.134 9.998-2.24 14.535-5.634 1.217 1.336 2.468 2.712 3.753 4.127.982-2.874 1.952-5.67 2.887-8.393.92-2.635 1.816-5.208 2.686-7.72-2.947.67-5.834 1.31-8.655 1.949l-8.124 1.84c1.105 1.201 2.236 2.446 3.407 3.723-3.708 2.538-7.608 4.43-11.436 4.942-3.699.505-7.203-.29-10.17-2.889v.015z" fill="#26A75A"/><path d="M5.008 20.868C1.102 26.602-.258 30.885.038 34.016c.315 3.313 2.507 5.364 5.52 6.395-.906 1.712-1.839 3.445-2.78 5.199 2.284-1.034 4.596-2.085 6.936-3.151 2.364-1.06 4.752-2.152 7.174-3.256-.984-1.808-1.923-3.544-2.84-5.216-.873-1.61-1.718-3.164-2.535-4.662-.91 1.699-1.836 3.422-2.778 5.17-2.41-.895-4.264-2.325-5.013-4.598-.712-2.157-.44-5.086 1.28-9.035l.006.006z" fill="#FEC827"/><path d="M29.216 1.955c-6.281 1.817-10.483 4.272-13.29 6.961a17.393 17.393 0 0 0-5.096 8.821l-4.264 1.419a2217.403 2217.403 0 0 0 6.006 6.423c1.48-1.958 2.942-3.884 4.382-5.777 1.415-1.848 2.807-3.682 4.17-5.487-1.691.56-3.366 1.112-5.025 1.655a17.582 17.582 0 0 1 3.851-7.4c2.009-2.31 4.95-4.558 9.266-6.612v-.003z" fill="#F58120"/></g><path d="m111.078 37-7.777-12.918c-.278-.464-.612-.761-1.132-.761-.52 0-.872.297-1.15.76L93.258 37h2.692l6.125-10.357 3.007 5.049h-4.14l-1.113 1.911h6.385L108.238 37h2.84zm13.133 0v-2.357h-7.313c-2.431 0-4.194-1.875-4.194-4.418 0-2.561 1.781-4.361 4.194-4.361h7.313v-2.358h-7.313c-3.768 0-6.552 2.636-6.552 6.608 0 3.916 2.784 6.886 6.552 6.886h7.313zm13.978 0v-2.357h-9.726v-8.78h9.708v-2.357h-12.046V37h12.064zm-.52-5.865v-1.986h-7.479v1.986h7.479zM155.78 37c2.821 0 4.194-1.689 4.194-3.953 0-2.617-1.466-3.898-4.194-3.898h-6.181c-1.039 0-1.689-.613-1.689-1.634 0-1.02.631-1.651 1.708-1.651h9.688v-2.358h-9.688c-2.692 0-4.158 1.615-4.158 3.787 0 2.227 1.578 3.842 4.12 3.842h6.2c1.262 0 1.967.594 1.967 1.744 0 1.059-.705 1.764-1.967 1.764h-10.116V37h10.116zm12.897 0V25.864h5.123v-2.358h-12.603v2.358h5.123V37h2.357zm22.546 0-4.065-4.102c1.745-.668 2.784-2.246 2.784-4.473 0-3.007-1.818-4.919-4.9-4.919h-9.688V37h2.338V25.864h7.35c1.615 0 2.58.853 2.58 2.598 0 1.745-.891 2.71-2.58 2.71h-5.623v2.079h5.048L187.882 37h3.341zm13.288 0v-2.357h-9.726v-8.78h9.707v-2.357h-12.046V37h12.065zm-.52-5.865v-1.986h-7.48v1.986h7.48zM223.439 37l-7.777-12.918c-.279-.464-.613-.761-1.133-.761-.519 0-.872.297-1.15.76L205.62 37h2.692l6.125-10.357 3.006 5.049h-4.139l-1.113 1.911h6.385L220.599 37h2.84zm20.588 0-3.452-12.695c-.186-.65-.557-.966-1.132-.966-.502 0-.91.279-1.133.799l-4.157 9.54-4.158-9.54a1.272 1.272 0 0 0-1.188-.799c-.631 0-1.002.316-1.169.966L224.167 37h2.32l2.58-9.485 3.805 8.78c.241.575.65.89 1.207.89.575 0 .946-.315 1.206-.89l3.823-8.78 2.58 9.485h2.339z" fill="#F2F2F2"/><defs><clipPath id="asma"><path fill="#fff" d="M0 0h66v59H0z"/></clipPath></defs></svg>',
-      "friendlyName": "Ace Stream Media",
+      "friendlyName": "Ace Stream",
       "className": "aceStreamMediaButton",
       "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "amazon-fire": {
@@ -66,9 +66,9 @@ const launcherData = {
           "androidName": "org.acestream.media",
       },
       "chromecast": {
-          "appName": "org.acestream.media.atv",
-          "androidName": "org.acestream.media.atv",
-          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.media.atv/org.videolan.vlc.gui.tv.MainTvActivity",
+          "appName": "org.acestream.node",
+          "androidName": "org.acestream.node",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.node/org.acestream.engine.ui.MainWebViewActivity",
       },
       "homatics": {
           "appName": "org.acestream.node",
@@ -76,9 +76,9 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.node/org.acestream.engine.ui.MainWebViewActivity",
       },
       "nvidia-shield": {
-          "appName": "org.acestream.media.atv",
-          "androidName": "org.acestream.media.atv",
-          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.media.atv/org.videolan.vlc.gui.tv.MainTvActivity",
+          "appName": "org.acestream.node",
+          "androidName": "org.acestream.node",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.node/org.acestream.engine.ui.MainWebViewActivity",
       },
       "onn": {
           "appName": "org.acestream.node",
@@ -86,9 +86,9 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.node/org.acestream.engine.ui.MainWebViewActivity",
       },
       "xiaomi": {
-          "appName": "org.acestream.media.atv",
-          "androidName": "org.acestream.media.atv",
-          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.media.atv/org.videolan.vlc.gui.tv.MainTvActivity",
+          "appName": "org.acestream.node",
+          "androidName": "org.acestream.node",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.VIEW -n org.acestream.node/org.acestream.engine.ui.MainWebViewActivity",
       },
   },
 
@@ -955,9 +955,9 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start -n com.canalplus.canalplus/tv.solocoo.htmlapp.FullscreenActivity",
       },
       "homatics": {
-          "appName": "com.canal.android.canal",
-          "androidName": "com.canal.android.canal",
-          "adbLaunchCommand": "adb shell am start -n com.canal.android.canal/com.canal.ui.tv.TvMainActivity",
+          "appName": "com.canalplus.canalplus",
+          "androidName": "com.canalplus.canalplus",
+          "adbLaunchCommand": "adb shell am start -n com.canalplus.canalplus/tv.solocoo.htmlapp.FullscreenActivity",
       },
       "nvidia-shield": {
           "appName": "com.canalplus.canalplus",
@@ -1313,7 +1313,7 @@ const launcherData = {
       "amazon-fire": {
           "appName": "com.cnn.mobile.fire.tv",
           "androidName": "com.cnn.mobile.fire.tv",
-          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.fire.tv/com.cnnplusrn.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.fire.tv/com.cnn.ctv.MainActivity",
       },
       "apple-tv": {
           "appName": "CNN",
@@ -1321,7 +1321,7 @@ const launcherData = {
       "chromecast": {
           "appName": "com.cnn.mobile.android.tv",
           "androidName": "com.cnn.mobile.android.tv",
-          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.android.tv/com.cnnplusrn.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.android.tv/com.cnn.ctv.MainActivity",
       },
       "homatics": {
           "appName": "com.cnn.mobile.android.tv",
@@ -1331,11 +1331,12 @@ const launcherData = {
       "nvidia-shield": {
           "appName": "com.cnn.mobile.android.tv",
           "androidName": "com.cnn.mobile.android.tv",
-          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.android.tv/com.cnnplusrn.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.android.tv/com.cnn.ctv.MainActivity",
       },
       "onn": {
           "appName": "com.cnn.mobile.android.tv",
           "androidName": "com.cnn.mobile.android.tv",
+          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.android.tv/com.cnn.ctv.MainActivity",
       },
       "roku": {
           "appName": 'CNN',
@@ -1344,7 +1345,7 @@ const launcherData = {
       "xiaomi": {
           "appName": "com.cnn.mobile.android.tv",
           "androidName": "com.cnn.mobile.android.tv",
-          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.android.tv/com.cnnplusrn.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.cnn.mobile.android.tv/com.cnn.ctv.MainActivity",
       },
    },
 
@@ -1467,15 +1468,15 @@ const launcherData = {
       "amazon-fire": {
           "appName": "com.curiosity.curiositystream",
           "androidName": "com.curiosity.curiositystream",
-          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream/com.curiosity.activities.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream/.MainActivity",
       },
       "apple-tv": {
-          "appName": "CuriosityStream",
+          "appName": "Curiosity Stream",
       },
       "chromecast": {
           "appName": "com.curiosity.curiositystream.androidtv",
           "androidName": "com.curiosity.curiositystream.androidtv",
-          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream.androidtv/com.curiosity.activities.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream.androidtv/com.curiosity.curiositystream.MainActivity",
       },
       "homatics": {
           "appName": "com.curiosity.curiositystream.androidtv",
@@ -1485,7 +1486,7 @@ const launcherData = {
       "nvidia-shield": {
           "appName": "com.curiosity.curiositystream.androidtv",
           "androidName": "com.curiosity.curiositystream.androidtv",
-          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream.androidtv/com.curiosity.activities.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream.androidtv/com.curiosity.curiositystream.MainActivity",
       },
       "onn": {
           "appName": "com.curiosity.curiositystream.androidtv",
@@ -1499,7 +1500,7 @@ const launcherData = {
       "xiaomi": {
           "appName": "com.curiosity.curiositystream.androidtv",
           "androidName": "com.curiosity.curiositystream.androidtv",
-          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream.androidtv/com.curiosity.activities.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.curiosity.curiositystream.androidtv/com.curiosity.curiositystream.MainActivity",
       },
   },
 
@@ -1545,11 +1546,31 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1054" height="103" viewBox="0 0 1054 103" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M994.6 1h18.4v59h-18.4z" opacity=".5"/><g fill="#d81c24"><path d="M1013 41.7h-18.4v59h18.4z"/><path d="M994.6 60V41.7h59L1048 60h-53.4z" fill-rule="nonzero"/></g><path d="M1013 41.7V60h-59l6-18.4h53z" opacity=".5" fill-rule="nonzero"/><g fill="#bcbebf"><path d="M70 50.4c0-10.8-4.8-20.3-13.2-26-5.8-4-14.3-6.2-24-6.2l-9 .5v65c0 .5.3.7.7.7a69 69 0 0 0 8 .4c8.7 0 17.3-2.2 23.6-6.6a33 33 0 0 0 14-27.7v-.1zm22.8-.5a48 48 0 0 1-23.4 42.3C59 99 45 102 29 102c-6 0-12.6-.1-17.3-.2L0 101.3v-.6c2-1.2 2-6 2-43v-14l-2-40V2.2c3-.1 7.6-.5 13.5-.6L31 1.2c16.3 0 28.8 2.8 38.4 8C85.8 18 92.8 34 92.8 49.7v.2zm73.8 16.7l-.1-.4L155 38h-.1a385 385 0 0 1-12.1 28.2l-.1.4h24zM136 81.8c-6 13-8.4 18.3-7 19v.8h-25.6v-.8c1.6-.8 4.4-6 22.8-43.5l28-57.4h3.2L185 57.5l22.3 43.4v.8h-27.5v-.8c1.5-.8-1-6-6.7-19h-37zm122.5-24.3c0 37.3 0 42 2 43.4v.8h-25.8v-1c2-1.4 2-6 2-43.2v-14l-2-40.7v-1h25.6v1c-2 1.3-2 6-2 40.7v14zm45-14l-2-40.7v-1H327v1c-2 1.4-2 6-2 40.7v41c0 1 .3 1 1.3 1H350a41 41 0 0 0 6.9-.4c1.6-.2 3.5-.7 4-1.2h1l-.3 18h-60v-1c2-1 2-6 2-43.2v-14zm126 17V64c0 30.6 0 36 2 37v.8h-25.8v-1c2-1 2-6.3 2-36.6v-2.7l-10.3-16.3C374 8.5 371.2 3.6 369.2 2.6v-.8h28v.8c-1.6 1 1.7 6.2 10 19.6l11.7 20h.3C422 37 426.5 30 431 22.6c8.4-13.7 11.8-19.3 10.3-20v-.8h26v.8c-1.7 1-4.5 5.7-28 42.6l-9.7 15.2zM615 103h-3c-27.2-51.6-30.6-59.3-33.3-65.8h-.1c-2.6 6.6-6.3 14.5-34 65.8h-3L521 41 506.7 2V1h26v1c-1.8 1 0 6 8 30.8l7.5 25.6h.5a425 425 0 0 1 12.2-25.7l17-30.5h3L598 33l12 24.8h.3l7-24.3L625 2V1h24.3v1c-1.8 1-3.4 6-14 39L615 103zm93-46.2c0 37.3 0 42 2 43.4v.8h-26v-1c2-1.4 2-6 2-43.2v-14L684 2V1h25.6v1c-2 1.3-2 6-2 40.7v14zm91-25.5c0-9.2-6.8-14.6-17.7-14.6l-5.8.3v30.4c1 .2 2.7.2 4.2.2 4 0 8-1 11-2.6 4-2 8.3-6.4 8.3-13.6v-.1zm-44.2 11.4L753 2v-.8l10.6-.3a303 303 0 0 1 13.7-.3c8.2 0 15.4.6 21.7 2.4 9 2.6 21.4 10 21.4 27 0 12-7 19.5-12.2 23-2.8 2-6 3.7-8.4 4.5v.2L826 90a66 66 0 0 0 9.4 10.1v.8h-21.8c-1.3 0-3.2-.2-4.6-.6l-29.8-39h-4v5c0 27.6.1 33 1.7 33.7v.8h-24v-.8c1.7-.8 1.7-6 1.7-43.4v-14zM911 58.2h-18.8v24.2c0 1.2.2 1.8 1 2.3h24.3c6 0 10-.2 11.2-1.5h.8l-.1 17.8h-60.7v-.8c2-.8 2-6 2-43.4v-14l-2-40.8V1h59.4l-.2 18h-1c-1-1.4-7.5-1.8-16.4-1.8H892v25.2h18.5" fill-rule="nonzero"/><path d="M927.2 42.2h-35.7l.1 16.7H920l7-16.7z" fill-rule="nonzero"/></g></svg>',
       "friendlyName": "Daily Wire",
       "className": "dailyWireButton",
-      "deviceFamily": ["apple-tv", "homatics", "roku"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "roku", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.dailywire.amazon",
+          "androidName": "com.dailywire.amazon",
+          "adbLaunchCommand": "adb shell am start -n com.dailywire.amazon/com.firetv.firetvwrapper.MainActivity",
+      },
       "apple-tv": {
           "appName": "Daily Wire",
       },
+      "chromecast": {
+          "appName": "com.dailywire.androidtv",
+          "androidName": "com.dailywire.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.dailywire.androidtv/com.firetv.firetvwrapper.MainActivity",
+      },
       "homatics": {
+          "appName": "com.dailywire.androidtv",
+          "androidName": "com.dailywire.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.dailywire.androidtv/com.firetv.firetvwrapper.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.dailywire.androidtv",
+          "androidName": "com.dailywire.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.dailywire.androidtv/com.firetv.firetvwrapper.MainActivity",
+      },
+      "onn": {
           "appName": "com.dailywire.androidtv",
           "androidName": "com.dailywire.androidtv",
           "adbLaunchCommand": "adb shell am start -n com.dailywire.androidtv/com.firetv.firetvwrapper.MainActivity",
@@ -1557,6 +1578,11 @@ const launcherData = {
       "roku": {
           "appName": 'DailyWire+',
           "app-id": 600734,
+      },
+      "xiaomi": {
+          "appName": "com.dailywire.androidtv",
+          "androidName": "com.dailywire.androidtv",
+          "adbLaunchCommand": "adb shell am start -n com.dailywire.androidtv/com.firetv.firetvwrapper.MainActivity",
       },
    },
 
@@ -2048,8 +2074,13 @@ const launcherData = {
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="875" height="749" viewBox="0 0 875 749" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M244 26c-50 12-85 51-89 100-2 17-2 151 0 163 4 30 37 43 58 22 11-11 11-6 12-101 0-91 0-88 7-98 15-22 36-22 73 0l412 237c29 17 37 26 38 44 2 22-6 29-60 58-375 199-378 200-405 204-40 6-74-6-93-34-12-18-7-23 26-25 74-3 108-14 141-43 37-34 50-94 29-137-11-22-27-36-52-43-93-25-189 29-220 123-8 25-11 26-40 20-18-5-30-5-36-2-30 15-25 54 9 64 4 2 17 5 28 7 33 7 33 7 43 35 22 63 53 92 108 101 72 8 107-7 183-46 368-192 379-201 379-205 70-51 73-96-1-150C296 26 275 19 244 26m68 410c46 11 28 70-28 86-21 6-83 11-92 6-22-8 11-59 52-80 24-12 51-17 68-12" stroke="none" fill="#fff"/></svg>',
       "friendlyName": "Elisa Elamus",
       "className": "elisaElamusButton",
-      "deviceFamily": ["chromecast", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["chromecast", "homatics", "nvidia-shield", "xiaomi"],
       "chromecast": {
+          "appName": "ee.elisa.smarttvclient",
+          "androidName": "ee.elisa.smarttvclient",
+          "adbLaunchCommand": "adb shell am start -n ee.elisa.smarttvclient/tv.threess.threeready.ui.generic.activity.MainActivity",
+      },
+      "homatics": {
           "appName": "ee.elisa.smarttvclient",
           "androidName": "ee.elisa.smarttvclient",
           "adbLaunchCommand": "adb shell am start -n ee.elisa.smarttvclient/tv.threess.threeready.ui.generic.activity.MainActivity",
@@ -2248,7 +2279,7 @@ const launcherData = {
       "appName": "org.fdroid.fdroid",
       "androidName": "org.fdroid.fdroid",
       "adbLaunchCommand": "adb shell am start -n org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
 
 
   "f1-tv": {
@@ -2627,7 +2658,7 @@ const launcherData = {
       "appName": "France TV",
       "androidName": "fr.francetv.pluzz",
       "adbLaunchCommand": "adb shell am start -n fr.francetv.pluzz/fr.francetv.androidtv.cmp.CmpActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
 
 
   "freecast": {
@@ -2774,7 +2805,7 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 400 94.158" width="400" height="94.158"><path d="M34.877 11.055c-14.406 3.396-18.698 10.26-23.514 37.61-4.025 22.858-3.911 25.413 1.41 31.629 5.295 6.186 3.748 5.96 40.835 5.96h32.646l4.124-2.008c2.473-1.205 5.802-3.71 8.317-6.259l4.193-4.25.87 2.405c1.268 3.506 6.063 7.981 9.985 9.318 2.927.997 7.432 1.138 36.412 1.138h33.072l1.219-7.388c.671-4.064 1.373-7.93 1.56-8.591.321-1.134-1.523-1.203-31.901-1.203-39.631 0-35.615 1.749-32.875-14.316 3.809-22.34 3.933-22.862 5.97-25.143l1.896-2.122 32.258-.191 32.257-.191 1.199-7.026c.659-3.864 1.361-7.734 1.558-8.602l.36-1.576-34.275.202-34.274.202-4.591 2.175c-8.472 4.013-13.959 10.966-15.642 19.818a386.12 386.12 0 0 1-1.113 5.67l-.33 1.547H85.21c-11.711 0-21.292.102-21.292.227s-.614 3.604-1.365 7.732c-.75 4.127-1.368 7.891-1.374 8.364-.008.659 3.278.859 14.167.859h14.178l-.47 3.544c-1.202 9.062-.312 8.827-33.367 8.827-30.167 0-29.57.084-29.57-4.195 0-3.921 5.531-33.018 6.582-34.621 1.774-2.707 2.322-2.754 36.343-3.109l32.959-.343 1.198-6.529c.66-3.592 1.215-7.38 1.234-8.42l.034-1.89-33.505.069c-18.428.038-34.666.343-36.085.677m184.318.15c-7.198 2.041-14.325 7.969-17.403 14.476-1.515 3.201-11.416 54.999-11.414 59.714 0 1.081.861 1.203 8.466 1.203h8.466l2.607-14.949c7.607-43.617 7.345-42.651 11.87-43.787 3.231-.811 4.484 1.085 17.667 26.715 10.669 20.742 13.446 25.611 15.715 27.554 8.339 7.138 22.161 5.568 31.289-3.554 5.879-5.874 6.466-7.781 11.844-38.464 2.641-15.069 4.925-27.939 5.076-28.601.249-1.097-.494-1.203-8.425-1.202l-8.699.001-4.774 27.319c-5.252 30.052-5.847 31.786-10.915 31.786-2.664 0-2.872-.34-16.288-26.497-6.918-13.489-13.276-25.354-14.127-26.366-4.128-4.906-13.804-7.375-20.955-5.348m127.986 7.867c-.836 4.82-2.006 11.469-2.601 14.777l-1.08 6.014h-14.705c-8.088 0-14.706.102-14.706.227s-.614 3.604-1.364 7.732c-.75 4.127-1.369 7.736-1.374 8.02-.006.283 6.581.515 14.637.515h14.648l-2.588 14.262c-1.424 7.843-2.603 14.647-2.621 15.12-.024.643 2.118.859 8.511.859h8.542l.707-3.608c.39-1.985 1.497-8.093 2.462-13.574.965-5.481 1.912-10.662 2.104-11.512.348-1.545.364-1.547 15.112-1.547 8.12 0 14.764-.102 14.764-.227s.614-3.604 1.364-7.732c.75-4.127 1.369-7.736 1.375-8.02.005-.283-6.645-.515-14.78-.515h-14.789l.35-1.547c.743-3.277 4.487-25.628 4.487-26.786 0-1.103-.814-1.221-8.468-1.221h-8.467l-1.52 8.763" fill="#fff" fill-rule="evenodd"/></svg>',
       "friendlyName": "GCN+",
       "className": "gcnPlusButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
           "appName": "com.playsportsnetwork.tourmalet.tv",
           "androidName": "com.playsportsnetwork.tourmalet.tv",
@@ -2784,6 +2815,11 @@ const launcherData = {
           "appName": "gcn",
       },
       "chromecast": {
+          "appName": "com.playsportsnetwork.tourmalet.tv",
+          "androidName": "com.playsportsnetwork.tourmalet.tv",
+          "adbLaunchCommand": "adb shell am start -n com.playsportsnetwork.tourmalet.tv/com.playsportsnetwork.tourmalet.tv.MainActivity",
+      },
+      "homatics": {
           "appName": "com.playsportsnetwork.tourmalet.tv",
           "androidName": "com.playsportsnetwork.tourmalet.tv",
           "adbLaunchCommand": "adb shell am start -n com.playsportsnetwork.tourmalet.tv/com.playsportsnetwork.tourmalet.tv.MainActivity",
@@ -2897,7 +2933,7 @@ const launcherData = {
       "appName": "mt.com.go.iptv.android.devices",
       "androidName": "mt.com.go.iptv.android.devices",
       "adbLaunchCommand": "adb shell am start -n mt.com.go.iptv.android.devices/com.minervanetworks.itvfusion.tv.yourtv.SingleActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
 
 
   "google-play-store": {
@@ -2948,11 +2984,16 @@ const launcherData = {
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M90 16c-37 5-63 30-72 66l-2 5v159l2 174c8 31 33 54 65 61 8 2 72 2 81 0 30-7 53-28 63-56 3-11 4-19 4-39s0-20 18-20 18-1 18 23c0 11 1 19 1 22 6 36 32 63 68 70 8 2 72 2 79 0 38-8 64-38 67-75 1-9 1-305 0-313-3-38-29-67-67-76-7-1-71-1-79 0-32 7-57 30-66 61-2 8-3 13-3 31 0 25 0 23-19 23-17 0-17 1-17-20 0-20-1-28-4-39-10-28-33-49-63-55-5-2-67-3-74-2" fill="#ff235a"/><path d="M405 259c7 0 12-3 12-12v-45c0-1 2-3 4-3h26c1 0 3 2 3 3v80c0 2-2 3-3 3h-26c-2 0-4-1-4-3v-17c-5 16-14 23-28 23h0c-19-1-28-14-28-35v-51c0-1 2-3 3-3h26c2 0 4 2 4 3v45c0 9 5 12 11 12zm-100-17l16-40c1-2 2-3 4-3h26c1 0 2 1 3 2v3l-46 113c-1 2-2 3-4 3h-27c-1 0-2-1-3-2 0-1-1-2 0-3l13-32-32-79c0-1 0-3 1-3 0-1 1-2 2-2h26c2 0 3 1 4 3zm-163-65h-26c-2 0-3 2-3 3v33H82v-33c0-1-2-3-4-3H52c-1 0-3 2-3 3v101c0 2 2 4 3 4h26c2 0 4-2 4-4v-39h31v39c0 2 1 4 3 4h26c2 0 4-2 4-4V180c0-1-2-3-4-3zm103 21h-26c-2 0-3 2-3 4v16c-5-15-15-22-28-22 0 0-20-1-31 23q-5 10-5 22 0 13 5 23c11 24 31 23 31 23 13 0 23-7 28-22v16c0 2 1 4 3 4h26c2 0 4-2 4-4v-79c0-1-1-2-1-3-1 0-2-1-3-1zm-29 46c0 3-1 5-2 7h0c-4 9-13 9-13 9s-9 0-14-9a21.18 21.18 0 0 1 0-19c5-10 14-9 14-9s8-1 13 9h0c1 2 2 4 2 6z" fill-rule="nonzero"/></svg>',
       "friendlyName": "Hayu",
       "className": "hayuButton",
-      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "onn", "xiaomi"],
+      "deviceFamily": ["apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "apple-tv": {
           "appName": "Hayu",
       },
       "chromecast": {
+          "appName": "com.upst.hayu",
+          "androidName": "com.upst.hayu",
+          "adbLaunchCommand": "adb shell am start -n com.upst.hayu/.tv.main.MainActivity",
+      },
+      "homatics": {
           "appName": "com.upst.hayu",
           "androidName": "com.upst.hayu",
           "adbLaunchCommand": "adb shell am start -n com.upst.hayu/.tv.main.MainActivity",
@@ -3262,7 +3303,7 @@ const launcherData = {
       "className": "internetSilkBrowserButton",
       "appName": "com.amazon.cloud9",
       "androidName": "com.amazon.cloud9",
-      "adbLaunchcommand": "adb shell am start -n com.amazon.cloud9/com.amazon.slate.fire_tv.FireTvSlateActivity",
+      "adbLaunchCommand": "adb shell am start -n com.amazon.cloud9/.browsing.BrowserActivity",
       "deviceFamily": ["amazon-fire"],},
 
 
@@ -3281,7 +3322,7 @@ const launcherData = {
       "className": "ipTVExtremeProButton",
       "appName": "com.pecana.iptvextremepro",
       "androidName": "com.pecana.iptvextremepro",
-      "adbLaunchcommand": "adb shell am start -n com.pecana.iptvextremepro/com.pecana.iptvextremepro.MainActivityTv",
+      "adbLaunchCommand": "adb shell am start -n com.pecana.iptvextremepro/.SplashActivity",
       "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],},
 
 
@@ -3292,8 +3333,8 @@ const launcherData = {
       "className": "ipSmartersProButton",
       "appName": "IPTV Smarters Pro",
       "androidName": "com.nst.iptvsmarterstvbox",
-      "adbLaunchCommand": "adb shell am start -n com.nst.iptvsmarterstvbox/com.nst.iptvsmarterstvbox.view.activity.HoneyPlayer",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
+      "adbLaunchCommand": "adb shell am start -n com.nst.iptvsmarterstvbox/.view.activity.SplashActivity",
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"],},
 
 
   "iptvx": {
@@ -3348,7 +3389,7 @@ const launcherData = {
       "amazon-fire": {
           "appName": "com.iqiyi.i18n.tv",
           "androidName": "com.iqiyi.i18n.tv",
-          "adbLaunchcommand": "adb shell am start -a android.intent.action.MAIN -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
+          "adbLaunchCommand": "adb shell am start -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
       },
       "apple-tv": {
           "appName": "iQIYI",
@@ -3356,7 +3397,7 @@ const launcherData = {
       "chromecast": {
           "appName": "com.iqiyi.i18n.tv",
           "androidName": "com.iqiyi.i18n.tv",
-          "adbLaunchcommand": "adb shell am start -a android.intent.action.MAIN -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
+          "adbLaunchCommand": "adb shell am start -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
       },
       "homatics": {
           "appName": "com.iqiyi.i18n.tv",
@@ -3366,12 +3407,12 @@ const launcherData = {
       "nvidia-shield": {
           "appName": "com.iqiyi.i18n.tv",
           "androidName": "com.iqiyi.i18n.tv",
-          "adbLaunchcommand": "adb shell am start -a android.intent.action.MAIN -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
+          "adbLaunchCommand": "adb shell am start -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
       },
       "onn": {
           "appName": "iQIYI",
           "androidName": "com.iqiyi.i18n.tv",
-          "adbLaunchcommand": "adb shell am start -a android.intent.action.MAIN -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
+          "adbLaunchCommand": "adb shell am start -a android.intent.action.MAIN -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
       },
       "roku": {
           "appName": 'iQIYI Video – Dramas & Movies',
@@ -3380,7 +3421,7 @@ const launcherData = {
       "xiaomi": {
           "appName": "com.iqiyi.i18n.tv",
           "androidName": "com.iqiyi.i18n.tv",
-          "adbLaunchcommand": "adb shell am start -a android.intent.action.MAIN -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
+          "adbLaunchCommand": "adb shell am start -n com.iqiyi.i18n.tv/.launch.LaunchActivity",
       },
   },
 
@@ -3389,7 +3430,7 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1133" height="447" viewBox="0 0 1133 447" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M96 141c28 0 45-20 45-46 0-25-17-45-45-45-29 0-46 20-46 45 0 26 17 46 46 46zm981 219l-98-134c-2-3-2-6 0-9l91-132c2-4 4-6 4-12 0-5-3-11-8-16s-10-7-17-7c-3 0-7 2-10 4l-124 96c-3 2-7 2-10 0L781 54c-5-1-12-8-27 3-13 15-6 24-4 28l91 132c2 3 2 6 0 9l-98 134c-3 4-4 7-4 11 0 7 3 12 8 17 4 5 10 8 16 8 4 0 7-2 11-5l132-96c2-2 6-2 8 0l132 96c4 3 7 5 11 5 6 0 12-3 17-8 4-5 7-10 7-17 0-4-1-7-4-11zM709 173c7 2 20 6 25 8 5 1 7 4 7 7s-2 8-5 15c-20 56-48 116-82 167-13 20-27 26-50 26-25 0-36-7-48-25-8-11-15-22-24-37l-5-7c-26 43-71 68-133 68-46 0-88-14-111-35-24 22-63 36-102 36-38 0-78-11-102-35-18-18-28-41-28-81V179c0-5 1-7 7-7h76c5 0 7 2 7 7v112c0 17 4 30 12 38 8 9 21 14 36 14s29-6 38-15c10-11 15-26 15-55V102c0-9 2-15 7-19 7-6 21-9 38-9s31 3 38 9c5 4 7 10 7 19v70h71c6 0 8 2 8 7v43c0 5-2 7-8 7h-40c-12 0-23-2-31-6v45c0 27 6 42 17 54 12 13 31 20 55 20 50 0 77-32 77-67 0-14-4-26-13-40-7-12-9-18-9-25 0-20 37-42 61-42 12 0 18 3 27 18l77 135c21-36 44-93 59-145 2-5 4-7 9-7 2 0 6 1 17 4z" stroke="none" fill="#102c3d"/></svg>',
       "friendlyName": "ITVX",
       "className": "itvxButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "roku"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "roku"],
       "amazon-fire": {
           "appName": "air.ITVMobilePlayer",
           "androidName": "air.ITVMobilePlayer",
@@ -3399,6 +3440,11 @@ const launcherData = {
           "appName": "ITVX",
       },
       "chromecast": {
+          "appName": "air.ITVMobilePlayer",
+          "androidName": "air.ITVMobilePlayer",
+          "adbLaunchCommand": "adb shell am start -n air.ITVMobilePlayer/com.itv.tenft.itvhub.MainActivity",
+      },
+      "homatics": {
           "appName": "air.ITVMobilePlayer",
           "androidName": "air.ITVMobilePlayer",
           "adbLaunchCommand": "adb shell am start -n air.ITVMobilePlayer/com.itv.tenft.itvhub.MainActivity",
@@ -3420,7 +3466,7 @@ const launcherData = {
       "friendlyName": "Israel Station",
       "className": "israelStationButton",
 
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "roku", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "roku", "xiaomi"],
       "amazon-fire": {
           "appName": "israelstation.androidtv",
           "androidName": "israelstation.androidtv",
@@ -3429,6 +3475,11 @@ const launcherData = {
       "chromecast": {
           "appName": "israelstation.androidtv",
           "androidName": "israelstation.androidtv",
+      },
+      "homatics": {
+          "appName": "israelstation.androidtv",
+          "androidName": "israelstation.androidtv",
+          "adbLaunchCommand": "adb shell am start -n israelstation.androidtv/israel14.androidradio.ui.activities.SplashActivity",
       },
       "nvidia-shield": {
           "appName": "israelstation.androidtv",
@@ -3456,7 +3507,7 @@ const launcherData = {
       "chromecast": {
           "appName": "cz.ceskatelevize.ivysilani.tvapp",
           "androidName": "cz.ceskatelevize.ivysilani.tvapp",
-          "adbLaunchcommand": "cz.ceskatelevize.ivysilani.tvapp/cz.ceskatelevize.ivysilani.tvapp.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n cz.ceskatelevize.ivysilani.tvapp/.MainActivity",
       },
       "homatics": {
           "appName": "cz.ceskatelevize.ivysilani.tvapp",
@@ -3466,17 +3517,17 @@ const launcherData = {
       "nvidia-shield": {
           "appName": "cz.ceskatelevize.ivysilani.tvapp",
           "androidName": "cz.ceskatelevize.ivysilani.tvapp",
-          "adbLaunchcommand": "cz.ceskatelevize.ivysilani.tvapp/cz.ceskatelevize.ivysilani.tvapp.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n cz.ceskatelevize.ivysilani.tvapp/.MainActivity",
       },
       "onn": {
           "appName": "cz.ceskatelevize.ivysilani.tvapp",
           "androidName": "cz.ceskatelevize.ivysilani.tvapp",
-          "adbLaunchcommand": "cz.ceskatelevize.ivysilani.tvapp/cz.ceskatelevize.ivysilani.tvapp.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n cz.ceskatelevize.ivysilani.tvapp/.MainActivity",
       },
       "xiaomi": {
           "appName": "cz.ceskatelevize.ivysilani.tvapp",
           "androidName": "cz.ceskatelevize.ivysilani.tvapp",
-          "adbLaunchcommand": "cz.ceskatelevize.ivysilani.tvapp/cz.ceskatelevize.ivysilani.tvapp.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n cz.ceskatelevize.ivysilani.tvapp/.MainActivity",
       },
   },
 
@@ -3545,11 +3596,16 @@ const launcherData = {
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M60 449C60 233 234 59 450 59s390 174 390 390-174 390-390 390S60 665 60 449z" stroke="#bf3383" fill="#bf3383" stroke-width="25"/><path d="M649 239c8 5 14 12 15 21 8 50 8 57 0 66l-405 63 400 2 6 2c6 4 10 10 12 16v215l-2 6c-6 15-16 25-30 29l-6 2c-356 1-358 1-364-1-18-4-30-16-36-34-1-3-2-13-2-122V385l-9-57c-3-19 2-29 13-34 3-2 39-8 45-8 3 0 4-4-11 44l-8 22c-2 9-3 11-1 11l65-9 28-77c1-1 63-10 64-9s-6 24-19 61c-5 16-5 16 5 14l59-10 3-11c23-70 21-66 28-67 27-4 58-7 59-7 0 1-1 8-5 20-15 42-18 54-17 55l67-8c1 0 2-3 14-38 13-44 11-40 16-40 7 0 12 0 16 2M428 464c-7 4-6 0-6 61 0 58 0 57 4 62 8 6 11 5 38-17 12-10 28-22 33-26 17-13 19-21 9-30-3-2-42-32-57-44-11-9-14-10-21-6" stroke="none"/></svg>',
       "friendlyName": "JioCinema",
       "className": "jioCinemaButton",
-      "deviceFamily": ["amazon-fire"],
+      "deviceFamily": ["amazon-fire", "homatics"],
       "amazon-fire": {
           "appName": "Jio Cinema",
           "androidName": "com.jio.media.stb.ondemand",
-          "adbLaunchcommand": "adb shell am start -n com.jio.media.stb.ondemand/com.v18.voot.ui.JVHomeActivity",
+          "adbLaunchCommand": "adb shell am start -n com.jio.media.stb.ondemand/com.v18.voot.ui.JVHomeActivity",
+      },
+      "homatics": {
+          "appName": "Jio Cinema",
+          "androidName": "com.jio.media.stb.ondemand",
+          "adbLaunchCommand": "adb shell am start -n com.jio.media.stb.ondemand/com.v18.voot.ui.JVHomeActivity",
       },
   },
 
@@ -3558,7 +3614,7 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="741" viewBox="0 0 1621 741" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M279 71v450.5C279 620 201.8 700 106.5 700H50V581h53c29.3 0 53-28.4 53-63.5v-167V189H50V71h229zm251.8-11c-119.6 0-216.5 97-216.5 216.5S411.2 493 530.8 493s216.5-97 216.5-216.5S650.4 60 530.8 60zm0 313c-51.4 0-93-43.2-93-96.5s41.6-96.5 93-96.5 93 43.2 93 96.5-41.6 96.5-93 96.5zm620.7-302v451.5c0 77.8-51.8 143.8-124 167.8-18.8 6.3-39 9.7-60 9.7-20.6 0-40.5-3.3-59-9.3-72.7-23.7-125-90-125-168.2h125c0 33 26.6 59.5 59.5 59.5s59.5-26.6 59.5-59.5v-74a145 145 0 0 1-28.7 23c-21.4 13-46.5 20.4-73.3 20.4-3 0-5.7-.1-8.5-.2l-8.5-.6c-45.5-4-79.5-25.6-100.5-57-16-23.7-24.4-53-24.4-84.7V71h125v137 105.4c0 14 5 27 13 37 11 13.6 27.7 22.4 46.5 22.4 18.7 0 35.4-8.7 46.3-22.2a59 59 0 0 0 13.2-37.3v-63V71h124zM1570 197v284h-124V332v-92a60 60 0 1 0-120 0v51.6V481h-124V72h124v30.4A145 145 0 0 1 1428 61c22.8 0 43 4 60.8 11 52 20.8 81.2 69 81.2 125z" fill="#fff"/></svg>',
       "friendlyName": "Joyn",
       "className": "joynButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
           "appName": "de.prosiebensat1digital.seventv",
           "androidName": "de.prosiebensat1digital.seventv",
@@ -3568,6 +3624,11 @@ const launcherData = {
           "appName": "Joyn",
       },
       "chromecast": {
+          "appName": "de.prosiebensat1digital.seventv",
+          "androidName": "de.prosiebensat1digital.seventv",
+          "adbLaunchCommand": "adb shell am start -n de.prosiebensat1digital.seventv/de.prosiebensat1digital.seventv.MainActivity",
+      },
+      "homatics": {
           "appName": "de.prosiebensat1digital.seventv",
           "androidName": "de.prosiebensat1digital.seventv",
           "adbLaunchCommand": "adb shell am start -n de.prosiebensat1digital.seventv/de.prosiebensat1digital.seventv.MainActivity",
@@ -3630,7 +3691,7 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 264.6" xml:space="preserve"><path d="M273.788 264.623H0l7.498-61.339h273.788l-7.498 61.339z"/><path d="M1323.2 57h-63.9l-77.7 557.8c-9 76.6-44.2 167-165 156.1l-8.6 63c179.6 11 224-119.6 231.7-181L1323.2 57zm-157.1 570.7L1245.5 57h-63.8l-81.6 586.1c-4.7 30.7-41.1 57.9-72.9 50l-8.8 63.6c102.2 9.1 138-63.9 147.7-129zm400-584.9c-151.9 0-205.7 121.6-213.4 182.5l-23.9 175.3c-7.4 54.3 17.8 173.9 167.7 173.9 112.2 0 197.6-73.3 212.4-182.5l23-165.7c10.1-67.6-17.6-183.5-165.8-183.5zM534.5 394l23.8-171.7c15-89.5 106.9-128.2 174.2-106.8l8.2-58.2c-168.2-24.4-234.6 89.2-242.2 165l-23.7 169.5c-7.1 52.4 15 188.7 195.9 167.5l8.6-62.4c-69.1 22.6-154.4-19.1-144.8-102.9zM950 57.3l-47.1 334.2c-7.1 52.4 15 188.7 196 167.5l8.7-62.4c-69.3 23.1-154.7-18.6-145-102.5l47.3-336.9-59.9.1zm-633 500h68.9L267.2 300.7l-44.4 54.7L317 557.3zm-39.9-268.4 125.4 268.4h69.2L321.8 234.5l-44.7 54.4zM114.9 557.3h63.6l28.8-205.1L563.5-81.6h-83l-334 409.1-31.6 229.8zm11.8-638.9L37.8 557.3h63.5l89.4-638.9h-64zM895.8 57.1h-64.2l-69.2 500.1h63.1c.1 0 70.3-500.1 70.3-500.1zm-77.3 0h-64.1l-69.2 500.1h63.1l70.2-500.1zm826 347c-1.5 10-22.7 113.9-142.9 113.9-95.8 0-114.8-84.5-110.7-122.1 1.6-14.6 24.2-179.2 27-192.9 4.1-19.6 37.8-102.4 133.8-102.4 125 0 120 110.8 117.9 128.6-1.4 11.7-23.6 165.3-25.1 174.9zM1552 114.6c-87.4 0-117 76.9-120.7 92.1-3.2 13.2-25.6 178.8-26.6 193.4-2.2 31 13.1 103.8 99.3 103.8 85 0 122.4-65 127.9-102.6 1.3-9.3 23.4-161 24.7-172.9s8.1-113.8-104.6-113.8zm-527.8-57.3-47.8 336.5c-4.6 44.7 23 90.4 86.6 95 15.9 1 31.8-1.6 46.5-7.7l8.8-63.8c-16.2 12.1-38.2 21.8-57.8 12-11-5.7-19.1-15.8-22.2-27.8-1.5-8.6-1.3-17.5.7-26 1.6-11.4 3.3-22.8 5-34.1l15-104.6 15.7-110.5 9.3-65.9.5-3.5-60.3.4zM609.7 389.2c.3-5.8 1-11.5 2-17.2l4.6-33.5 10.8-76.2 3.4-24.5c12.6-56.2 72.6-66.2 91.1-41.7l9.1-65.6c-14.1-4.2-28.8-6.1-43.5-5.8-47.9 0-106.7 40.5-114.4 96.4l-23.9 172.3c-4.6 44.7 22.9 90.4 86.5 95 15.9 1 31.8-1.6 46.5-7.7l8.6-63.5c-13.3 10-30 18.2-47.2 15.3-11.5-2-21.5-8.9-27.7-18.8a40.5 40.5 0 0 1-5.9-24.5zm900.9 53.1c-32.6 0-45.7-28.9-42.9-51.2l22.3-160.6c5-29.4 33.8-55.3 62.1-55.3h.8c23.6 0 42.9 19.4 42.9 42.9 0 2.7-.3 5.4-.8 8l-22.4 161.2c-3.8 28.6-33.4 55-62 55zM462.8-81.6h-82.1L245 84l23.1-165.6H204l-53.2 380.5 312-380.5z" style="fill:#15e36d" transform="translate(0 23.537) scale(.28838)"/><path d="M141.2 696.5c-7.6-8.7-18.4-14-30-14.6-9.7 0-19.3 4.2-19.3 14.6 0 19.3 55.9 14.6 55.9 53.7 0 39-35.4 53.2-60.6 53.2-18.3 0-35.6-8.2-47.3-22.2l19.7-24.8c8 10.7 20.2 17.4 33.6 18.5 12.2 0 21-6.3 21-16.8 0-20-55.8-14.2-55.8-52.4 0-34.3 25.6-51.5 57.8-51.5 16.2-.5 31.7 6.2 42.5 18.2l-17.5 24.1zm772.8 0c-7.6-8.7-18.4-14-30-14.6-9.6 0-19.3 4.2-19.3 14.6 0 19.3 55.9 14.6 55.9 53.7 0 39-35.4 53.2-60.5 53.2-18.3 0-35.6-8.2-47.3-22.2l19.7-24.7c8 10.7 20.2 17.4 33.5 18.5 12.1 0 21-6.3 21-16.8 0-20-55.7-14.2-55.7-52.4 0-34.3 25.5-51.5 57.9-51.5 16.2-.5 31.7 6.2 42.5 18.2l-17.7 24zM403.3 803.3c-36.7 0-63.1-22.4-63.1-60 0-50.5 35.8-89.3 86.7-89.3 36.9 0 63.1 22.5 63.1 60.3.1 50.3-35.8 89-86.7 89zm392.6-147-4.2 27.2h-35.8L737 800.8h-32.9l18.6-117.4H687l4.4-27.2h104.5v.1zm-548.9 91h-17l-8 53.6h-32.9L212 656.3h50c23.6 0 44.4 9.4 44.4 36.2-.4 36.2-24.7 55.1-59.4 54.8zm365.2-6.2 26 59.7h-38.3l-20.5-55h-10l-8.6 55h-32.9l22.8-144.5h50c23.7 0 46.1 8.6 46.1 35.8.3 22.1-13.7 41.8-34.6 49zm-189.8-57.8c-29.1 0-48.2 26.6-48.2 54 0 21 12.8 35.6 34 35.6 29.4 0 48.4-26.6 48.4-54 0-21.2-12.8-35.8-34.1-35.8l-.1.2zm-169.7-.8h-12.6l-6 38.3h12.5c14.7 0 25.6-7.3 25.6-23 .1-12.1-9.1-15.2-19.3-15.2l-.2-.1zm339.3.1h-12.8l-5.6 36.7h12.8c14.2 0 26.6-5.9 26.6-22-.1-12.3-11-14.7-21-14.7z" style="fill:#fff" transform="translate(0 23.537) scale(.28838)"/></svg>',
       "friendlyName": "Kayo (AU)",
       "className": "kayoButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
           "appName": "au.com.kayosports.tv",
           "androidName": "au.com.kayosports.tv",
@@ -3640,6 +3701,11 @@ const launcherData = {
           "appName": "Kayo",
       },
       "chromecast": {
+          "appName": "au.com.kayosports.tv",
+          "androidName": "au.com.kayosports.tv",
+          "adbLaunchCommand": "adb shell am start -n au.com.kayosports.tv/au.com.foxsports.martian.tv.main.MainActivity",
+      },
+      "homatics": {
           "appName": "au.com.kayosports.tv",
           "androidName": "au.com.kayosports.tv",
           "adbLaunchCommand": "adb shell am start -n au.com.kayosports.tv/au.com.foxsports.martian.tv.main.MainActivity",
@@ -3675,7 +3741,7 @@ const launcherData = {
       "appName": "com.kinopub",
       "androidName": "com.kinopub",
       "adbLaunchCommand": "adb shell am start -n com.kinopub/com.kinopub.activity.LaunchActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
 
 
   "КиноПоиск": {
@@ -4709,7 +4775,7 @@ const launcherData = {
       "amazon-fire": {
           "appName": "com.nordvpn.android",
           "androidName": "com.nordvpn.android",
-          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.tv.MainActivity",
       },
       "apple-tv": {
           "appName": "NordVPN",
@@ -4717,7 +4783,7 @@ const launcherData = {
       "chromecast": {
           "appName": "com.nordvpn.android",
           "androidName": "com.nordvpn.android",
-          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.tv.MainActivity",
       },
       "homatics": {
           "appName": "com.nordvpn.android",
@@ -4727,16 +4793,17 @@ const launcherData = {
       "nvidia-shield": {
           "appName": "com.nordvpn.android",
           "androidName": "com.nordvpn.android",
-          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.tv.MainActivity",
       },
       "onn": {
           "appName": "com.nordvpn.android",
           "androidName": "com.nordvpn.android",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.tv.MainActivity",
       },
       "xiaomi": {
           "appName": "com.nordvpn.android",
           "androidName": "com.nordvpn.android",
-          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n com.nordvpn.android/.tv.MainActivity",
       },
    },
 
@@ -4993,13 +5060,18 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="550" height="440" viewBox="0 0 550 440" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="#fc7c04" d="M89 34h372v372H89z"/><path d="M142 300h266v54H142z"/></svg>',
       "friendlyName": "Orange TV (FR)",
       "className": "orangeTVButton",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
           "appName": "com.orange.owtv.tv",
           "androidName": "com.orange.owtv.tv",
           "adbLaunchCommand": "adb shell am start -n com.orange.owtv.tv/com.orange.otvp.SplashScreen",
       },
       "chromecast": {
+          "appName": "com.orange.owtv.tv",
+          "androidName": "com.orange.owtv.tv",
+          "adbLaunchCommand": "adb shell am start -n com.orange.owtv.tv/com.orange.otvp.SplashScreen",
+      },
+      "homatics": {
           "appName": "com.orange.owtv.tv",
           "androidName": "com.orange.owtv.tv",
           "adbLaunchCommand": "adb shell am start -n com.orange.owtv.tv/com.orange.otvp.SplashScreen",
@@ -5228,7 +5300,7 @@ const launcherData = {
       "chromecast": {
           "appName": "org.pbskids.video",
           "androidName": "org.pbskids.video",
-          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.splash.ui.SplashScreenActivity",
+          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.ui.root.MainActivity",
       },
       "homatics": {
           "appName": "org.pbskids.video",
@@ -5238,12 +5310,12 @@ const launcherData = {
       "nvidia-shield": {
           "appName": "org.pbskids.video",
           "androidName": "org.pbskids.video",
-          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.splash.ui.SplashScreenActivity",
+          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.ui.root.MainActivity",
       },
       "onn": {
           "appName": "org.pbskids.video",
           "androidName": "org.pbskids.video",
-          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.splash.ui.SplashScreenActivity",
+          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.ui.root.MainActivity",
       },
       "roku": {
           "appName": 'PBS KIDS',
@@ -5252,7 +5324,7 @@ const launcherData = {
       "xiaomi": {
           "appName": "org.pbskids.video",
           "androidName": "org.pbskids.video",
-          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.splash.ui.SplashScreenActivity",
+          "adbLaunchCommand": "adb shell am start -n org.pbskids.video/.ui.root.MainActivity",
       },
    },
 
@@ -5440,7 +5512,7 @@ const launcherData = {
       "appName": "tv.poda.tv",
       "androidName": "tv.poda.tv",
       "adbLaunchCommand": "adb shell am start tv.poda.tv/cz.sledovanitv.androidtv.entry.EntryActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
 
 
   "prime-video" : {
@@ -6047,11 +6119,11 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" height="192.45" viewBox="0 0 21.345 7.869" width="519.615" fill="#ed1c24" fill-rule="evenodd"><path d="M7.393 2.828L5.777.132 1.335 7.737h3.252zM5.56.132H.133l1.584 2.696H3.99zm7.965 5.265h-.195c-.293 0-.423-.135-.423-.439V.364c0-.128-.099-.232-.22-.232h-.304c-.124 0-.228.106-.228.232v4.662c0 .677.367 1.05 1.032 1.05h.321c.119 0 .245-.084.245-.241v-.206c0-.13-.1-.232-.228-.232M17.292 1.8h-.304c-.124 0-.228.106-.228.232v2.125c0 .794-.406 1.231-1.142 1.231s-1.142-.437-1.142-1.231V2.032c0-.126-.105-.232-.228-.232h-.305c-.117 0-.22.108-.22.232v2.229c0 1.103.635 1.816 1.895 1.816s1.895-.713 1.895-1.816V2.032c0-.124-.103-.232-.22-.232m2.676 1.748l-.735-.146c-.522-.106-.592-.308-.592-.492 0-.329.334-.559.812-.559a1.66 1.66 0 0 1 1.038.36c.117.095.248.093.354-.003l.146-.148c.047-.043.073-.102.073-.167s-.031-.137-.082-.182c-.341-.327-.897-.523-1.487-.523-.941 0-1.624.525-1.624 1.248 0 .777.627 1.055 1.152 1.152l.685.129c.515.1.735.278.735.595 0 .299-.308.602-.897.602a1.58 1.58 0 0 1-.73-.179c-.156-.083-.294-.183-.424-.307-.067-.06-.131-.089-.196-.089a.22.22 0 0 0-.151.062l-.159.136a.25.25 0 0 0-.094.187c-.003.09.04.183.123.261.229.221.743.592 1.606.592.526 0 .967-.145 1.275-.419.265-.236.417-.56.417-.889 0-.665-.395-1.053-1.244-1.22M9.347 4.71l1.07-.653c.156-.095.156-.251 0-.346l-1.07-.653c-.156-.095-.284-.022-.284.164v1.325c0 .185.128.259.284.164"/><path d="M7.476 3.885v3.62c0 .126.105.232.228.232H8c.124 0 .228-.106.228-.232v-3.62c0-.79.629-1.43 1.405-1.43s1.405.64 1.405 1.43-.629 1.426-1.405 1.426c-.451 0-.852-.216-1.109-.551v1.006a2.12 2.12 0 0 0 1.109.312c1.192 0 2.158-.979 2.158-2.192s-.966-2.196-2.158-2.196-2.158.983-2.158 2.196z"/></svg>',
       "friendlyName": "7plus",
       "className": "sevenPlusButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "amazon-fire": {
           "appName": "com.swm.live",
           "androidName": "com.swm.live",
-          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
+          "adbLaunchCommand": "adb shell am start -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
       },
       "apple-tv": {
           "appName": "7plus",
@@ -6059,22 +6131,27 @@ const launcherData = {
       "chromecast": {
           "appName": "com.swm.live",
           "androidName": "com.swm.live",
-          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
+          "adbLaunchCommand": "adb shell am start -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
       },
       "homatics": {
           "appName": "com.swm.live",
           "androidName": "com.swm.live",
-          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupActivity",
+          "adbLaunchCommand": "adb shell am start -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
       },
       "nvidia-shield": {
           "appName": "com.swm.live",
           "androidName": "com.swm.live",
-          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
+          "adbLaunchCommand": "adb shell am start -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
+      },
+      "onn": {
+          "appName": "com.swm.live",
+          "androidName": "com.swm.live",
+          "adbLaunchCommand": "adb shell am start -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
       },
       "xiaomi": {
           "appName": "com.swm.live",
           "androidName": "com.swm.live",
-          "adbLaunchCommand": "adb shell am start -c android.intent.category.LEANBACK_LAUNCHER -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
+          "adbLaunchCommand": "adb shell am start -n com.swm.live/au.com.seven.inferno.ui.tv.setup.SetupTvActivity",
       },
    },
 
@@ -6272,9 +6349,9 @@ const launcherData = {
           "appName": "SiriusXM Radio for TV",
       },
       "chromecast": {
-          "appName": "tv.accedo.siriusxm.app",
-          "androidName": "tv.accedo.siriusxm.app",
-          "adbLaunchCommand": "adb shell am start -n tv.accedo.siriusxm.app/com.siriusxm.tvmodule.ui.splash.SplashActivity",
+          "appName": "com.sirius",
+          "androidName": "com.sirius",
+          "adbLaunchCommand": "adb shell am start -n com.sirius/sxmp.app.welcome.WelcomeActivity",
       },
       "homatics": {
           "appName": "com.sirius",
@@ -6282,9 +6359,9 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start -n com.sirius/sxmp.app.welcome.WelcomeActivity",
       },
       "nvidia-shield": {
-          "appName": "tv.accedo.siriusxm.app",
-          "androidName": "tv.accedo.siriusxm.app",
-          "adbLaunchCommand": "adb shell am start -n tv.accedo.siriusxm.app/com.siriusxm.tvmodule.ui.splash.SplashActivity",
+          "appName": "com.sirius",
+          "androidName": "com.sirius",
+          "adbLaunchCommand": "adb shell am start -n com.sirius/sxmp.app.welcome.WelcomeActivity",
       },
       "onn": {
           "appName": "com.sirius",
@@ -6643,13 +6720,18 @@ const launcherData = {
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M270 127zm-24-92l-13 60h0l-18-60h-64l-6 27h10l-12 54h5c9 0 18 0 27 1l12-56h1l17 60c17 3 35 7 52 12h1l20-98h-32zM40 35zm101 27c3-18-6-29-44-29-36 0-55 9-59 28-2 5-1 12 3 16 9 10 51 15 55 20 1 1 1 3 1 4-2 7-11 9-19 9-4 0-8-1-10-3-1-3-2-6-1-11H29c-3 15-3 29 36 31 19-5 38-8 57-9 8-5 13-12 14-20 2-9 0-14-3-17-10-10-50-14-55-20-1-1-1-3-1-4 1-4 6-7 14-7 5 0 8 0 11 2 2 2 3 5 2 10h37z" fill="#fff" fill-rule="nonzero" stroke="none"/><path d="M172 181c21-22 71-3 76-3 3 0 4-4-1-6-50-20-124-25-164-18-5 1-6 5 1 6s25 2 51 8c14 4 24 8 33 13 2 1 3 1 4 0" fill="#00558c" fill-rule="nonzero" stroke="none"/><path d="M252 162l5-20c-79-24-154-23-233 5-4 2-5 8 3 6 12-2 61-8 105-8 35-1 78 7 113 19 5 1 7 0 7-2" fill="#c8102e" fill-rule="nonzero" stroke="none"/></svg>',
       "friendlyName": "Sportsnet+",
       "className": "sportsnetButton",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "onn", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "amazon-fire": {
           "appName": "com.rogers.sportsnet.tv.firetv",
           "androidName": "com.rogers.sportsnet.tv.firetv",
           "adbLaunchCommand": "adb shell am start -n com.rogers.sportsnet.tv.firetv/com.rogers.sportsnet.tv.ui.AppActivity",
       },
       "chromecast": {
+          "appName": "com.rogers.sportsnet.sportsnet",
+          "androidName": "com.rogers.sportsnet.sportsnet",
+          "adbLaunchCommand": "adb shell am start -n com.rogers.sportsnet.sportsnet/com.rogers.sportsnet.tv.ui.AppActivity",
+      },
+      "homatics": {
           "appName": "com.rogers.sportsnet.sportsnet",
           "androidName": "com.rogers.sportsnet.sportsnet",
           "adbLaunchCommand": "adb shell am start -n com.rogers.sportsnet.sportsnet/com.rogers.sportsnet.tv.ui.AppActivity",
@@ -6970,11 +7052,15 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 139 24" width="139" height="24" xml:space="preserve"><g><path d="M18.417 10.288a5.336 5.336 0 0 1 .398-2.059H0v3.918h18.74a5.087 5.087 0 0 1-.323-1.86" fill="#FED71F"/><path d="M18.739 12.143H0v4.007h25.479c-2.433-.727-5.713-1.356-6.74-4.008" fill="#FF0A5A"/><path d="M25.479 16.152H0v3.929h17.868a7.926 7.926 0 0 1-.187-.385l3.185-1.849c.619 1.571 2.059 2.51 4.024 2.51H25.177c1.763 0 3.123-.588 3.123-2.057 0-1.15-1.23-1.671-2.821-2.155" fill="#CC0243"/><path d="M17.868 20.08H0V24h25.124c-3.464-.016-6.005-1.506-7.253-3.914" fill="#F20D3A"/><path d="M18.815 8.229c.894-2.146 3.199-3.45 5.978-3.556H0V8.23h18.815z" fill="#E64400"/><path fill-rule="evenodd" clip-rule="evenodd" d="m37.891 0-3.968 1.176v16.922c0 4.777 2.426 6.467 8.525 5.732v-3.566c-3.018.143-4.557.183-4.557-2.17V8.23h4.557V4.661h-4.557V0zM22.314 10.215c0-1.322 1.249-1.947 2.683-1.947 1.506 0 2.793.662 3.45 2.095l3.343-1.868c-1.293-2.426-3.785-3.823-6.797-3.823-3.748 0-6.724 2.169-6.724 5.624 0 3.857 3.4 4.82 6.212 5.618 1.982.562 3.672 1.04 3.672 2.392 0 1.469-1.36 2.057-3.124 2.057-2.02 0-3.491-.992-4.079-2.646l-3.417 1.979c1.175 2.646 3.821 4.3 7.496 4.3 3.97 0 7.165-1.985 7.165-5.66 0-3.995-3.414-4.944-6.23-5.726-1.974-.55-3.654-1.016-3.654-2.395h.004zM48.715 8.23c1.103-2.497 3.345-3.57 5.66-3.57l.003 4.3c-2.609-.183-5.66 1.182-5.66 5.298V24h-3.97V4.66h3.968v3.57zm15.358-3.564c-5.767.002-9.698 4.228-9.698 9.665 0 5.511 3.932 9.665 9.994 9.665 3.601 0 6.358-1.508 8.047-4.006l-3.27-1.911c-.881 1.293-2.535 2.278-4.743 2.278-2.939 0-5.254-1.469-5.88-4.336H73.15c.085-.547.133-1.1.143-1.653 0-5.29-3.747-9.7-9.22-9.702zM58.49 12.79c.55-2.756 2.57-4.52 5.547-4.52 2.389 0 4.704 1.36 5.256 4.52H58.49zm25.818-8.128c5.405 0 9.696 4.066 9.696 9.544V24h-3.97v-2.367c-1.6 1.394-3.57 2.367-5.726 2.367-5.368 0-9.705-4.228-9.705-9.669 0-5.478 4.337-9.669 9.705-9.669zm-5.734 9.669c0 3.346 2.499 5.809 5.734 5.809 3.236 0 5.735-2.463 5.735-5.809s-2.5-5.809-5.735-5.809c-3.235 0-5.734 2.463-5.734 5.809zm36.024-9.67c-2.209 0-4.168 1.093-5.517 2.299-1.351-1.204-3.295-2.3-5.493-2.3-4.515 0-7.549 2.65-7.549 6.596V24h4.106V11.978c0-1.373.598-3.441 3.449-3.441s3.449 2.067 3.449 3.441V24h4.122V11.978c0-1.373.598-3.441 3.449-3.441s3.449 2.067 3.449 3.441V24h4.077V11.256c0-3.945-3.018-6.595-7.522-6.595h-.02zm23.665 2.647-8.562 12.773h8.929v3.915h-14.33V21.35l8.598-13.121h-8.598V4.662h13.963v2.646z" fill="#fff"/></g></svg>',
       "friendlyName": "streamz (BE)",
       "className": "streamzButton",
-      "deviceFamily": ["apple-tv", "chromecast", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["apple-tv", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
       "apple-tv": {
           "appName": "Streamz",
       },
       "chromecast": {
+          "appName": "be.dpgmedia.streamz",
+          "androidName": "be.dpgmedia.streamz",
+      },
+      "homatics": {
           "appName": "be.dpgmedia.streamz",
           "androidName": "be.dpgmedia.streamz",
       },
@@ -7246,7 +7332,7 @@ const launcherData = {
       "amazon-fire": {
           "appName": "com.tailscale.ipn",
           "androidName": "com.tailscale.ipn",
-          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/com.tailscale.ipn.IPNActivity",
+          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/.MainActivity",
       },
       "apple-tv": {
           "appName": "Tailscale",
@@ -7254,26 +7340,27 @@ const launcherData = {
       "chromecast": {
           "appName": "com.tailscale.ipn",
           "androidName": "com.tailscale.ipn",
-          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/com.tailscale.ipn.IPNActivity",
+          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/.MainActivity",
       },
       "homatics": {
           "appName": "com.tailscale.ipn",
           "androidName": "com.tailscale.ipn",
+          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/.MainActivity",
       },
       "nvidia-shield": {
           "appName": "com.tailscale.ipn",
           "androidName": "com.tailscale.ipn",
-          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/com.tailscale.ipn.IPNActivity",
+          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/.MainActivity",
       },
       "onn": {
           "appName": "com.tailscale.ipn",
           "androidName": "com.tailscale.ipn",
-          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/com.tailscale.ipn.IPNActivity",
+          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/.MainActivity",
       },
       "xiaomi": {
           "appName": "com.tailscale.ipn",
           "androidName": "com.tailscale.ipn",
-          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/com.tailscale.ipn.IPNActivity",
+          "adbLaunchCommand": "adb shell am start -n com.tailscale.ipn/.MainActivity",
       }
   },
 
@@ -7797,11 +7884,31 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="455" viewBox="0 0 1100 455" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M192 50c81 0 139 58 139 142v35h-71v-35c0-45-28-73-68-73-41 0-69 28-69 73H52c0-84 58-142 140-142zM52 403h279v-67H138l99-109h-86L52 335zm415-286v218h43v-77h48c15 0 29-3 41-9 11-6 20-14 27-25 6-10 9-23 9-37s-3-26-9-37c-7-10-16-19-27-24-12-6-26-9-41-9zm90 101h-47v-61h47c11 0 19 3 25 9 7 5 10 12 10 21 0 10-3 17-10 23-6 5-14 8-25 8zm99-101v218h40V117zm80 209c9 8 22 12 39 12 27 0 45-12 56-36h2v33h37v-98c0-21-6-37-18-49-11-11-28-17-51-17-21 0-37 5-50 15-12 9-20 22-21 39h39c2-6 5-11 11-14 5-4 12-5 21-5s16 1 21 5c5 3 8 8 8 13 0 6-3 10-9 13-7 3-18 4-35 4-20 0-36 4-47 13-12 8-17 20-17 35 0 16 5 28 14 37zm30-24c-4-3-6-7-6-14 0-6 2-10 7-14 4-3 11-4 20-4 18 0 33-3 43-9l-1 7c-4 14-10 24-18 30s-17 9-27 9c-8 0-14-2-18-5zm114 61v37h47c14 0 24-2 31-7s13-14 18-27l71-192h-44l-39 120h-3l-44-120h-44l70 170-6 19z"/></svg>',
       "friendlyName": "TV 2 Play (Norway)",
       "className": "tv2PlayNorwayButton",
-      "deviceFamily": ["apple-tv", "homatics"],
+      "deviceFamily": ["apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "apple-tv": {
           "appName": "TV 2 Play",
       },
+      "chromecast": {
+          "appName": "no.tv2.sumo",
+          "androidName": "no.tv2.sumo",
+          "adbLaunchCommand": "adb shell am start -n no.tv2.sumo/no.tv2.android.ui.LauncherBridgeActivity",
+      },
       "homatics": {
+          "appName": "no.tv2.sumo",
+          "androidName": "no.tv2.sumo",
+          "adbLaunchCommand": "adb shell am start -n no.tv2.sumo/no.tv2.android.ui.LauncherBridgeActivity",
+      },
+      "nvidia-shield": {
+          "appName": "no.tv2.sumo",
+          "androidName": "no.tv2.sumo",
+          "adbLaunchCommand": "adb shell am start -n no.tv2.sumo/no.tv2.android.ui.LauncherBridgeActivity",
+      },
+      "onn": {
+          "appName": "no.tv2.sumo",
+          "androidName": "no.tv2.sumo",
+          "adbLaunchCommand": "adb shell am start -n no.tv2.sumo/no.tv2.android.ui.LauncherBridgeActivity",
+      },
+      "xiaomi": {
           "appName": "no.tv2.sumo",
           "androidName": "no.tv2.sumo",
           "adbLaunchCommand": "adb shell am start -n no.tv2.sumo/no.tv2.android.ui.LauncherBridgeActivity",
@@ -7856,7 +7963,7 @@ const launcherData = {
       "appName": "jp.co.tver.tvapp",
       "androidName": "jp.co.tver.tvapp",
       "adbLaunchCommand": "adb shell am start -n jp.co.tver.tvapp/.tver.ui.splash.TVerSplashActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "nvidia-shield", "xiaomi"],},
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"],},
 
 
   "tvexpress-br": {
@@ -7875,7 +7982,7 @@ const launcherData = {
       "className": "tvingButton",
       "appName": "net.cj.em.tving",
       "androidName": "net.cj.em.tving",
-      "deviceFamily": ["chromecast", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["chromecast", "homatics", "nvidia-shield", "xiaomi"], },
 
 
   "tvnz-plus": {
@@ -7999,16 +8106,31 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="345" height="750" viewBox="0 0 345 750" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="ZPuK" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#c3c6cf"/><stop offset="100%" stop-color="#f9f9f9"/></linearGradient><linearGradient id="RHIM" x1="56%" y1="0%" x2="44%" y2="100%"><stop offset="47%" stop-color="#061333"/><stop offset="97%" stop-color="#01419b"/></linearGradient></defs><g fill-rule="nonzero" stroke="none"><path d="M337.505 218.753v469.555c.002 22.367-16.234 41.429-38.318 44.983h0a805.02 805.02 0 0 1-255.869 0h0C21.236 729.737 5 710.679 5 688.313v-469.56" fill="#c3c6cf"/><path d="M0 166.865C0 74.422 74.422 0 166.865 0h0C259.308 0 333.73 74.422 333.73 166.865v46.886c0 92.443-74.422 166.865-166.865 166.865h0C74.422 380.616 0 306.194 0 213.751z" fill="url(#ZPuK)" transform="translate(5 5)"/><path d="M47.616 177.853c0-68.834 55.415-124.249 124.249-124.249h-.002c68.834 0 124.249 55.415 124.249 124.249v34.911c0 68.834-55.415 124.248-124.249 124.248h.002c-68.834 0-124.249-55.414-124.249-124.248z" fill="url(#RHIM)"/></g><circle cx="170.73" cy="420" fill="#2ba7ff" stroke-width=".5" r="10"/><circle cx="173.73" cy="180" fill="#324968" stroke="#677697" stroke-width="6" r="100"/><circle cx="172.23" cy="177.5" stroke="#02429a" fill="#2ba7ff" stroke-width="10" r="52.5"/></svg>',
       "friendlyName": "Unifi Protect",
       "className": "unifiProtectButton",
-      "deviceFamily": ["apple-tv", "homatics", "onn"],
+      "deviceFamily": ["apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "apple-tv": {
           "appName": "Protect",
+      },
+      "chromecast": {
+          "appName": "com.ubnt.unifi.protect",
+          "androidName": "com.ubnt.unifi.protect",
+          "adbLaunchCommand": "adb shell am start -n com.ubnt.unifi.protect/com.ubnt.sections.splash.AuthenticationActivity",
       },
       "homatics": {
           "appName": "com.ubnt.unifi.protect",
           "androidName": "com.ubnt.unifi.protect",
           "adbLaunchCommand": "adb shell am start -n com.ubnt.unifi.protect/com.ubnt.sections.splash.AuthenticationActivity",
       },
+      "nvidia-shield": {
+          "appName": "com.ubnt.unifi.protect",
+          "androidName": "com.ubnt.unifi.protect",
+          "adbLaunchCommand": "adb shell am start -n com.ubnt.unifi.protect/com.ubnt.sections.splash.AuthenticationActivity",
+      },
       "onn": {
+          "appName": "com.ubnt.unifi.protect",
+          "androidName": "com.ubnt.unifi.protect",
+          "adbLaunchCommand": "adb shell am start -n com.ubnt.unifi.protect/com.ubnt.sections.splash.AuthenticationActivity",
+      },
+      "xiaomi": {
           "appName": "com.ubnt.unifi.protect",
           "androidName": "com.ubnt.unifi.protect",
           "adbLaunchCommand": "adb shell am start -n com.ubnt.unifi.protect/com.ubnt.sections.splash.AuthenticationActivity",
@@ -8160,7 +8282,7 @@ const launcherData = {
       "chromecast": {
           "appName": "dce.fivb.volleyballtv",
           "androidName": "dce.fivb.volleyballtv",
-          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/com.dicetv.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/com.applicaster.ui.activities.MainActivity",
       },
       "homatics": {
           "appName": "dce.fivb.volleyballtv",
@@ -8170,17 +8292,17 @@ const launcherData = {
       "nvidia-shield": {
           "appName": "dce.fivb.volleyballtv",
           "androidName": "dce.fivb.volleyballtv",
-          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/com.dicetv.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/com.applicaster.ui.activities.MainActivity",
       },
       "onn": {
           "appName": "dce.fivb.volleyballtv",
           "androidName": "dce.fivb.volleyballtv",
-          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/com.applicaster.ui.activities.MainActivity",
       },
       "xiaomi": {
           "appName": "dce.fivb.volleyballtv",
           "androidName": "dce.fivb.volleyballtv",
-          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/com.dicetv.MainActivity",
+          "adbLaunchCommand": "adb shell am start -n dce.fivb.volleyballtv/com.applicaster.ui.activities.MainActivity",
       },
    },
 
@@ -8284,10 +8406,13 @@ const launcherData = {
       "button": '<svg viewbox="0 0 280 54" width="280" height="54" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="49.976%" y1=".05%" x2="49.976%" y2="99.609%" id="wptvc"><stop stop-color="#A0509A" offset="0%"/><stop stop-color="#2A91FF" offset="100%"/></linearGradient><linearGradient x1="49.888%" y1=".05%" x2="49.888%" y2="100.069%" id="wptvd"><stop stop-color="#009652" offset="0%"/><stop stop-color="#0FF" offset="100%"/></linearGradient><path id="wptva" d="M.373 40h29.95V.376H.373V40z"/></defs><g fill="none" fill-rule="evenodd"><path d="M39.464 17.97a3.547 3.547 0 0 0-3.546-3.547 3.535 3.535 0 0 0-3.397 2.587l-.026.033-4.533 16.31-4.816-15.54-.024-.024a3.505 3.505 0 0 0-3.026-2.454v-.032h-.59v.026a3.51 3.51 0 0 0-3.144 2.634l-.018.022-4.77 15.368-4.69-16.5-.025-.026a3.514 3.514 0 0 0-3.332-2.423A3.526 3.526 0 0 0 0 17.93c0 .261.033.514.087.758l-.003.007.155.483c.016.043.024.09.042.13l7.016 21.907.06.065a4.051 4.051 0 0 0 3.468 2.71v.036h.585v-.022a4.053 4.053 0 0 0 3.667-2.887l.029-.029 4.542-14.646L24.31 41.04l.024.025a4.052 4.052 0 0 0 3.536 2.925v.037h.586v-.022a4.054 4.054 0 0 0 3.616-2.722l.022-.016 7.236-22.33-.01-.026c.084-.3.143-.613.143-.94m42.347-3.469v-.039h-.59v.019a3.314 3.314 0 0 0-3.122 3.303v23.136h.017a3.314 3.314 0 0 0 3.305 3.151 3.313 3.313 0 0 0 3.305-3.151h.022V17.753h-.008a3.309 3.309 0 0 0-2.928-3.251m-.388-5.082a3.455 3.455 0 1 0-.002-6.91 3.455 3.455 0 0 0 .002 6.91m68.037 5.94-.021-.05h-.04a3.295 3.295 0 0 0-1.895-.813v-.03h-.59v.03a3.312 3.312 0 0 0-3.03 3.294l-.001.001V30.69c0 3.96-1.623 7.108-6.396 7.108-4.72.05-6.09-3.2-6.09-7.31v-12.78l-.01-.017a3.31 3.31 0 0 0-3.022-3.215v-.03h-.588v.03a3.313 3.313 0 0 0-3.031 3.295c0 .02.006.038.006.058l-.006.01V32.16c0 4.874 1.727 11.828 10.864 11.88 5.025.05 7.51-2.387 8.679-4.57v1.397c0 .031-.01.06-.01.091a3.127 3.127 0 0 0 6.254 0V17.792c0-.965-.417-1.826-1.072-2.433M64.09 33.38c-1.27 2.538-3.706 4.468-7.41 4.468-5.991 0-8.48-5.027-8.48-8.478v-.051c0-4.315 3.048-8.68 8.428-8.68 4.01 0 6.6 2.284 7.766 4.925a8.655 8.655 0 0 1 .762 3.908c-.102 1.369-.406 2.69-1.066 3.909m7.665 7.293V17.656l-.02-.033a3.315 3.315 0 0 0-3.304-3.158 3.32 3.32 0 0 0-3.32 3.32c0 .024.006.046.008.069l-.014.022v1.495c-1.218-2.235-4.314-4.926-9.39-4.926-7.818 0-14.163 5.99-14.163 14.772 0 7.869 5.229 14.824 14.163 14.824 3.908 0 7.613-1.625 9.39-4.875v1.482c-.001.035-.01.067-.01.102 0 1.74 1.339 3.153 3.04 3.305v.029h.587v-.03a3.322 3.322 0 0 0 3.04-3.304c0-.025-.006-.05-.007-.076" fill="#FEFEFE"/><g transform="translate(91 14.07)"><mask id="wptvb" fill="#fff"><use xlink:href="#wptva"/></mask><path d="M23.672 15.2c0 4.568-3.4 8.578-8.477 8.578a8.513 8.513 0 0 1-6.04-2.488c-1.523-1.522-2.436-3.654-2.436-6.04 0-2.437.912-4.62 2.385-6.143 1.524-1.573 3.605-2.538 6.042-2.538 5.633 0 8.526 4.57 8.526 8.58v.05zM4 39.996a3.307 3.307 0 0 0 3.013-3.289l.011-.014V25.402c1.115 1.776 4.06 4.57 9.491 4.57 8.174 0 13.808-6.65 13.808-14.57C30.323 8.65 26.212.376 16.465.376c-4.62 0-7.868 2.132-9.85 4.925v-1.73c0-.02.007-.039.007-.059A3.124 3.124 0 0 0 3.5.388 3.117 3.117 0 0 0 .39 3.361l-.016.025v33.407l.01.02A3.305 3.305 0 0 0 3.415 40L4 39.997z" fill="#FEFEFE" mask="url(#wptvb)"/></g><path d="M224.814 44.026a3.455 3.455 0 1 0-.002-6.91 3.455 3.455 0 0 0 .002 6.91m20.208-23.422v.002h-3.388v14.493c0 .963.232 1.65.696 2.06.463.41 1.265.615 2.406.615h.509v.002a3.156 3.156 0 0 1 0 6.308h-.022l-.06.002-.058-.001h-.736c-3.031 0-5.367-.696-7.006-2.086-1.641-1.391-2.461-3.691-2.461-6.9V20.606h-3.384v-.002a3.075 3.075 0 0 1 0-6.15h3.384v-4.01h.02a3.357 3.357 0 0 1 6.715.033c0 .036-.002.07-.003.105v3.873h3.388a3.074 3.074 0 1 1 0 6.149m34.071-1.334-9.402 22.3h-.002a4.078 4.078 0 0 1-7.546-.029h-.002l-9.431-22.216a3.487 3.487 0 0 1 6.431-2.695l.04.104.005.01 6.727 17.481 6.719-17.585h.002a3.486 3.486 0 1 1 6.459 2.63" fill="#FEFEFE"/><path d="M197.818 4.94c-1.235-2.133-3.147-3.596-5.367-4.329-.062 0-.062 0-.124-.06h-.062a9.716 9.716 0 0 0-2.964-.49c-1.668 0-3.336.428-4.88 1.284l-17.047 9.72c-1.73.978-3.027 2.384-3.83 3.974v.06c0 .062-.062.062-.062.123a9.91 9.91 0 0 0-.988 4.28v19.745c0 1.651.432 3.302 1.297 4.83 1.236 2.14 3.15 3.607 5.374 4.34.062 0 .062 0 .123.062h.062a9.741 9.741 0 0 0 2.965.489c1.668 0 3.335-.428 4.88-1.284l6.306-3.596c1.236 2.134 3.148 3.597 5.367 4.33.062 0 .062 0 .124.06h.062a9.7 9.7 0 0 0 2.964.49c1.668 0 3.336-.428 4.88-1.284l17.047-9.72c1.73-.978 3.027-2.385 3.83-3.974 0-.061 0-.122.062-.183a9.91 9.91 0 0 0 .988-4.28V9.781c0-1.65-.432-3.3-1.297-4.83-1.235-2.139-3.15-3.606-5.374-4.34-.062 0-.062 0-.123-.06h-.062a9.716 9.716 0 0 0-2.965-.49c-1.668 0-3.335.428-4.88 1.284l-6.306 3.596z" fill="#FFF"/><path d="M36.133 33.807a9.91 9.91 0 0 0 .989-4.28V9.781c0-1.65-.433-3.3-1.298-4.83-1.235-2.139-3.15-3.606-5.373-4.34-.062 0-.062 0-.124-.06h-.062a9.716 9.716 0 0 0-2.964-.49c-1.668 0-3.336.428-4.88 1.284l-17.047 9.72c-1.73.978-3.027 2.384-3.83 3.974v.06c0 .062-.062.062-.062.123a9.91 9.91 0 0 0-.988 4.28v19.745c0 1.651.432 3.302 1.297 4.83 1.236 2.14 3.15 3.607 5.374 4.34.062 0 .062 0 .123.062h.062a9.741 9.741 0 0 0 2.965.489c1.668 0 3.335-.428 4.88-1.284l17.047-9.72c1.73-.978 3.027-2.385 3.83-3.974 0-.061.061-.122.061-.183z" fill="url(#wptvc)" style="mix-blend-mode:multiply" transform="translate(162)"/><path d="M56.825 29.527V9.781c0-1.65-.432-3.3-1.297-4.83-1.235-2.139-3.15-3.606-5.374-4.34-.062 0-.062 0-.123-.06-.989-.306-2.039-.49-3.027-.49-1.668 0-3.335.428-4.88 1.284l-17.047 9.72c-1.73.978-3.026 2.384-3.83 3.974 0 .122-.061.122-.061.183a9.91 9.91 0 0 0-.988 4.28v19.745c0 1.651.432 3.302 1.297 4.83 1.235 2.14 3.15 3.607 5.373 4.34.062 0 .062 0 .124.062.988.305 2.038.489 3.026.489 1.668 0 3.336-.428 4.88-1.284l17.047-9.72c1.73-.978 3.027-2.385 3.83-3.974 0-.061 0-.122.062-.183a9.91 9.91 0 0 0 .988-4.28z" fill="url(#wptvd)" style="mix-blend-mode:multiply" transform="translate(162)"/></g></svg>',
       "friendlyName": "Waipu TV (DE)",
       "className": "waipuTVButton",
-      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "xiaomi"],
       "amazon-fire": {
           "appName": "Waipu TV",
           "androidName": "de.exaring.waipu.firetv.live",
+      },
+      "apple-tv": {
+          "appName": "waipu.tv",
       },
       "chromecast": {
           "appName": "de.exaring.waipu",
@@ -8470,13 +8595,18 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="290" height="45" viewBox="0 0 290 45" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M35.8.1c-4 1.3-6.3 4.8-6.3 9.5v1.8h-1.3H27l-1.5 2.1-1.4 2.1h2.8l2.7.1v19.2h5V15.7h6v-4.3h-6V9.7c0-3.5 2.2-5.7 5.3-5.1 1 .1 1 .1 1-.6.1-.4.3-1.4.5-2.2s.3-1.5.2-1.6c-.2-.2-5-.3-5.8-.1M97 2.9l-2 1-.1 3.8-.1 3.7h-5v4.3h5v6c0 10.9 1.7 13.6 8.8 13.6 3.7 0 3.7 0 3-2.6l-.5-2h-1.8c-4 .1-4.6-1-4.6-9.1v-5.9h3.2c1.8 0 3.3-.1 3.3-.2l-1-2.1-1-2h-4.6V6.7c0-3.7-.1-4.8-.4-4.8-.1.1-1.2.5-2.4 1m70-.4l-1.3.5v8.4h-5.5v3h5.4l.1 7.7c.1 8.1.2 8.5 1.4 10.4 1.3 2 4 3.1 7.4 2.9 2.3-.2 2.3-.1 2-1.9l-.1-1.4-1.6.2c-5 .6-6-.8-6-10.7v-7.2h7.8v-3H169V6.7c0-5.3.1-5-2-4.2M64.8 11c-1.6.1-4.3 1.2-4.8 1.8s-.7.4-.7-.5v-.9h-5v23.5h5V18.8l1-1.1c2.8-2.7 7.3-2.8 9.3-.2 1.2 1.6 1.4 2.7 1.4 9.5 0 8 0 7.9 3.3 7.9H76v-7.4l-.3-8.8c-1-5.5-5.2-8.4-11-7.7m83.4 0c-4 .5-6.7 3.6-6.4 7.4.2 2.8 2 4.2 7 5.6 5.2 1.6 6.5 2.6 6.2 4.9-.5 3.7-6.2 4.6-10.7 1.6-1.6-1-1.5-1-2.4.3l-1 1.2.6.6c2.5 2.7 9.2 3.6 13 1.9 4.6-2.3 5.3-8.5 1.2-11.1a28 28 0 0 0-6.7-2.5c-3.3-1-4.4-2.2-4-4 .8-2.9 5.3-3.9 9-2l1.8.7c.3-.4 1.4-2.2 1.4-2.4 0-1.2-6-2.6-9-2.2m42.5 0a10 10 0 0 0-4.8 2.2l-1 .8v-2.6h-3v23.5h3V27c0-7.4 0-7.9.5-8.8 1.3-2.5 4-4.3 6.7-4.3h1.5l.3-1.4.2-1.5a10 10 0 0 0-3.5 0m14 0c-9.3 1.1-13 14.6-5.7 21.3 4.5 4.4 12.3 4.2 16.8-.4l1.2-1.3-.7-.6c-1-.8-2-.8-3.2.2-5.7 4.7-14.7.9-14.7-6.1v-.7h19l-.2-1.9c-.3-4.4-2.7-8.1-6.2-9.7-1.2-.5-1.8-.7-4.2-1l-2.2.2m26-.1c-14.7 2.1-13.2 24.6 1.6 24.5 3 0 5.5-.9 7.3-2.7l1-.9v3.1h3V11.4h-3v2.8l-1-.7c-2.3-2-6-3-9-2.6m28.5 0c-2 .3-3.3.9-4.8 2l-1.3 1v-2.5h-3v23.5h3v-8c0-9.1-.1-8.7 2-10.7 4-3.7 9.7-2.8 12 1.9.5 1.1.6 1.5.7 8.6.1 8.4.1 8.2 2 8.2h1.3l-.1-8.1c0-7.8 0-8.1.5-8.8 3.7-5.2 10.7-5.5 13.3-.4.8 1.6 1 3.5 1 10.2 0 7.2 0 7.1 2 7.1h1v-8.3l-.6-9.7c-2.6-6.6-12-8.1-17.2-2.9l-1.4 1.4-.5-.5c-.2-.3-.4-.7-.4-.8-.1-1.6-6.2-3.7-9.4-3.2M.8 11.6a449 449 0 0 0 7.8 10.8c.1.2-1 2.1-4.2 6.2L0 34.8c0 .1 1 .1 2.4.1 3.2 0 3.3-.1 6.6-4.5l3-3.7 6.3 8.7c7.3 10.1 6.7 9.6 10.4 9.5l2.6-.1-8-11.1-8-11 4-5.6 4.2-5.5-2.5-.1c-3.3-.1-3.6 0-6.2 3.6L12 18.4c-.2.2-.7-.4-2.5-2.9-2.8-4-3-4.1-6.3-4.1l-2.5.2M44 23.2v11.7h5V11.4h-5v11.8m37.3 0v11.7h5V11.4h-5v11.8m31.2-2.2l4.5 9.6-4 7.1-3.8 7.1 2 .1c3.7.1 2.6 1.7 12.8-17.4l8.6-15.9-2-.1c-3.3-.1-3-.3-7 7.1L120 25a55 55 0 0 1-3-6c-3.5-7.7-3.3-7.4-6.5-7.5l-2.5-.1 4.5 9.6m97.5-6.3c2 1.2 3.4 3 4 5l.2 1h-7.7c-6 0-7.7-.1-7.7-.3 0-1.7 3-5.3 5-6.1 1.7-.6 4.8-.4 6.2.4m26.4.1c.8.4 2 1.4 3 2.2l1.5 1.4-.1 4.4v4.5l-.8 1.2c-5.6 7.5-16.6 3.3-16-6.1.4-6.5 7-10.4 12.6-7.6" stroke="none"/></svg>',
       "friendlyName": "Xfinity Stream",
       "className": "xfinityStreamButton",
-      "deviceFamily": ["amazon-fire", "apple-tv", "nvidia-shield", "roku"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "homatics", "nvidia-shield", "roku"],
       "amazon-fire": {
           "appName": "com.xfinity.cloudtvr.tenfoot",
           "androidName": "com.xfinity.cloudtvr.tenfoot",
       },
       "apple-tv": {
           "appName": "Stream",
+      },
+      "homatics": {
+          "appName": "com.xfinity.cloudtvr.tenfoot",
+          "androidName": "com.xfinity.cloudtvr.tenfoot",
+          "adbLaunchCommand": "adb shell am start -n com.xfinity.cloudtvr.tenfoot/com.xfinity.common.view.LaunchActivity",
       },
       "nvidia-shield": {
           "appName": "com.xfinity.cloudtvr.tenfoot",

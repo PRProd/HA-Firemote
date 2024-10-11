@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.1.0b2';
+const HAFiremoteVersion = 'v4.1.0b3';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.0b2";
-import {rosettaStone} from './language-translations.js?version=v4.1.0b2';
-import {devices} from './supported-devices.js?version=v4.1.0b2';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.0b3";
+import {rosettaStone} from './language-translations.js?version=v4.1.0b3';
+import {devices} from './supported-devices.js?version=v4.1.0b3';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -2260,6 +2260,14 @@ class FiremoteCard extends LitElement {
             color: #abfdff !important
           }
 
+          .homatics-remote-body .deviceNameTop {
+            grid-column: 1 / 4;
+            margin: unset;
+            height: unset;
+            display: block;
+            margin-bottom: calc(var(--sz) * -1rem);
+          }
+
           .HO1 #home-button.litbutton > ha-icon, .HO3 #home-button.litbutton > ha-icon {
             color: #03585b !important
           }
@@ -2643,6 +2651,43 @@ class FiremoteCard extends LitElement {
           .HO4 .homaticsLogo svg {
             stroke: #000;
           }
+
+          .homatics-remote-body .deviceNameBottom {
+            position: absolute;
+            bottom: calc(var(--sz)* 3.5rem);
+            width: calc(var(--sz)* 12.286rem);
+            text-align: center;
+          }
+
+          .homatics-remote-body .srcButton {
+            border-color: rgb(255 255 255 / 0%);
+          }
+
+          .homatics-remote-body .srcButton.appActive {
+            box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz)* 0.214rem) calc(var(--sz)* 0.1428rem) 0, white 0 0 calc(var(--sz)* 0.857rem) calc(var(--sz)* 0.429rem);
+            border-color: #e6e6e6;
+            animation-name: homatics_flash_border;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
+
+          .HO2 .srcButton.appActive, .HO4 .srcButton.appActive {
+            box-shadow: rgb(255 255 255 / 0%) 0 calc(var(--sz)* 0.214rem) calc(var(--sz)* 0.1428rem) 0, rgb(255 255 255 / 31%) 0 0 calc(var(--sz)* 0.857rem) calc(var(--sz)* 0.429rem);
+          }
+
+          @keyframes homatics_flash_border {
+            0% {
+              border-color: rgb(0 0 0 / 16%);
+            }
+            50% {
+              border-color: #fff;
+            }
+            100% {
+              border-color: rgb(0 0 0 / 16%);
+            }
+          }
+
           /* end Homatics styles */
 
 
