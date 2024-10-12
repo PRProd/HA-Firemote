@@ -5375,7 +5375,7 @@ const launcherData = {
 
 
   "philo": {
-      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1083" height="567" viewBox="0 0 1083 567" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M908.5 185c-51 0-92.5 40.4-92.5 90 0 49.8 41.4 90 92.5 90s92.5-40.3 92.5-90-41.4-90-92.5-90m123.3 90c0 66.3-55.2 120-123.3 120s-123.3-53.8-123.3-120 55.2-120 123.3-120 123.3 53.8 123.3 120M651 72.4a19 19 0 0 1-19 18.7 19 19 0 0 1-19.2-18.7A19 19 0 0 1 632 53.6a19 19 0 0 1 19.1 18.8M341.7 50c-1.5 0-2.7 1.2-2.7 2.6v1 325.6c0 8.3 7 14.5 15.3 14.5 8.5 0 15.5-6 15.5-13.6l-.2-115.4c.2-45 38.8-79.3 85-79.3s69.2 33.3 69.4 78.4v113.8c-.1.3 0 .5 0 .7a16 16 0 0 0 15.2 16c8.5 0 15.6-6.6 15.6-14V259c0-81.5-54-104-100.2-104-34.7 0-65.5 13.5-84.8 39.8V87.3c0-17.8-10.4-35.5-28-37.2zm274.7 330h0c0 7.5 7 15 15.5 15s15.3-7.4 15.3-15h0V194c0-17.8-10.4-35.5-28-37.2h-.1c-1.5 0-2.7 1.2-2.7 2.6z"/><path d="M709 380h0c0 7.5 7 15 15.5 15s15.3-7.5 15.3-15V87c0-17.8-10.4-35.5-28-37.2h-.1c-1.5 0-2.7 1.2-2.7 2.6zM80.8 477.8c0 17.8-10.4 35.5-28 37.2h-.1c-1.5 0-2.7-1.2-2.7-2.6V275c0-67.6 54-120 123.3-120 69.6 0 123.3 52.5 123.3 120s-54 120-123.3 120c-49.4 0-56.8-25.2-51.8-41h.1c.4-1.3 1.7-2.2 3-2.2.7 0 1.4.2 2 .6l.4.3c12 8 22.3 13 46.2 13a93 93 0 0 0 92.5-90.7c0-45-38.5-90-92.2-90-54.2 0-92.8 45-92.8 90z"/></svg>',
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="475" viewBox="0 0 1000 475" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#ebeae9" fill-rule="nonzero"><path d="M159 113c-30-1-57 8-79 25-7-14-22-25-43-25H13a8.96 8.96 0 0 0-9 9v32a8.96 8.96 0 0 0 9 9s8-1 12 4c5 4 5 9 5 16v250a8.96 8.96 0 0 0 9 9h37a8.96 8.96 0 0 0 9-9V323c18 12 39 18 62 19 70 4 126-51 124-120-2-55-51-106-112-109h0zm57 120c-2 31-28 57-60 59-41 3-75-30-72-69 3-32 29-57 61-60 41-3 74 30 71 70h0zm509 54c-4-4-4-7-4-15V47a8.96 8.96 0 0 0-9-9h-38a8.96 8.96 0 0 0-9 9v247c0 26 16 48 49 48h23a8.96 8.96 0 0 0 9-9v-29c0-5-1-11-9-12 0 0-8-1-12-5h0zM574 114h-24a8.96 8.96 0 0 0-9 9v31a8.96 8.96 0 0 0 9 9s8 0 12 5c5 4 5 8 5 15v149a8.96 8.96 0 0 0 9 9h37a8.96 8.96 0 0 0 9-9V162c0-27-16-48-48-48h0zm421 109c-3-59-52-106-112-109-69-3-126 53-123 121 3 58 52 105 111 108 70 4 127-52 124-120h0zm-53 11c-2 31-28 56-60 58-40 3-73-29-70-69 2-31 28-56 60-58 40-4 73 29 70 69zM577 92c22 4 40-14 37-35-2-13-13-23-26-26-22-3-40 15-37 36 3 13 13 23 26 25h0zm-122 28c-11-4-23-7-36-7-43-1-67 20-67 20V47a8.96 8.96 0 0 0-9-9h-38a8.96 8.96 0 0 0-9 9v286c0 4 4 8 9 8h38c5 0 9-4 9-8V213c0-16 8-31 22-40 45-26 91 5 91 46v114c0 4 4 8 9 8h38c5 0 9-4 9-8V224c0-49-23-87-66-104h0z"/></svg>',
       "friendlyName": 'Philo',
       "className": "philoButton",
       "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "roku", "xiaomi"],
@@ -5524,7 +5524,7 @@ const launcherData = {
           "appName": "Prime Video (FireTV)",
           "androidName": "com.amazon.avod",
           "androidName2": "com.amazon.firebat",
-          "adbLaunchCommand": "adb shell am start com.amazon.firebat/.deeplink.DeepLinkRoutingActivity",
+          "adbLaunchCommand": "adb shell am start com.amazon.firebat/com.amazon.firebatcore.deeplink.DeepLinkRoutingActivity",
       },
       "apple-tv": {
           "appName": "Prime Video",
@@ -10177,7 +10177,7 @@ const launcherCSS = `
           }
 
           .philoButton {
-            background: #0c93f2;
+            background: #000;
           }
 
           .plexButton {
