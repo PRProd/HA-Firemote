@@ -16,6 +16,9 @@ Need More Information?  Check out this project's [Wiki](https://github.com/PRPro
 | ![Chromecast Remote](https://github.com/PRProd/HA-Firemote/assets/25486599/36a14224-b46f-4d4c-97ec-b1217e99b272) | ![Xiaomi Mi Remote 2](https://github.com/PRProd/HA-Firemote/assets/25486599/b4c89e40-e80c-4909-9e42-8d77e4e551d2) | ![onn 2](https://github.com/PRProd/HA-Firemote/assets/25486599/eeaf1ffd-0ada-4fa3-b8d3-ae11d6314bff) | ![onn](https://github.com/PRProd/HA-Firemote/assets/25486599/fd2c13a2-d5a6-4173-b324-68bf67c8545d) |
 | ------------- | ------------- | ------------- | ------------- |
 
+| ![Homatics Remote HO1](https://github.com/user-attachments/assets/73b09836-2cf9-4747-974b-e8ed5f288e91) | ![Homatics Remote HO2](https://github.com/user-attachments/assets/67efb80a-22b9-4b40-a87f-984c1e4da084) | ![Homatics Remote HO3](https://github.com/user-attachments/assets/c48b125c-2d35-4887-97c6-c8c29d8d974d) | ![Homatics Remote HO4](https://github.com/user-attachments/assets/5a29c1e4-0cad-4bd9-a859-b6328cd48159) |
+| ------------- | ------------- | ------------- | ------------- |
+
 | ![Roku Voice Remote Pro](https://github.com/PRProd/HA-Firemote/assets/25486599/cfa82897-1a9c-4361-b9ce-59219fd94ca6) | ![Roku Voice Remote](https://github.com/PRProd/HA-Firemote/assets/25486599/0035d56c-59a7-4c81-8cd4-9cd1a1d10d14) | ![Roku Simple Remote](https://github.com/PRProd/HA-Firemote/assets/25486599/3f0b2def-9ef7-4af5-ab55-d7bda0a195b3) | ![Hisense Roku TV Remote](https://github.com/PRProd/HA-Firemote/assets/25486599/c9e526e2-9acf-4406-ae2d-1a1e8231ef2b) | ![TCL Roku TV Remote](https://github.com/PRProd/HA-Firemote/assets/25486599/1a33a82f-7abc-414a-ac96-1dc63dc73c62) | ![Westinghouse Roku TV Remote](https://github.com/PRProd/HA-Firemote/assets/25486599/4c8748dc-1881-4e33-9d55-d594143ddfeb) |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 
@@ -43,11 +46,11 @@ Short demonstration videos also exist for [Roku Firemote](https://www.youtube.co
   * [Amazon Fire Smart TV, Fire Stick, or Fire Cube](../../wiki/Existing-Amazon-Devices---Support-Chart)
   * Apple TV
   * Chromecast
+  * Homatics
   * NVIDIA Shield
   * [onn. Media Player](https://github.com/PRProd/HA-Firemote/wiki/onn.-Device-Support-Chart)
   * [Roku TV, and Media Player](https://github.com/PRProd/HA-Firemote/wiki/Roku-Device-Support-Chart)
   * Xiaomi Mi Box S
-  * Other Android-based non-fire devices might work as well, but with limited (and unsupported) functionality
   * [Any device (advanced)](https://github.com/PRProd/HA-Firemote/wiki/entity:-none)
 
 [Which Amazon Fire device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html)<br>
@@ -74,11 +77,11 @@ Short demonstration videos also exist for [Roku Firemote](https://www.youtube.co
 1. You will be prompted to reload your browser.  Click the **RELOAD** button to continue
 
 ## OR Install Manually
-1. Turn on ADB/USB/Network debugging on your Amazon, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
+1. Turn on ADB/USB/Network debugging on your Amazon, Homatics, onn., Shield, Xiaomi, Chromecast, or Android TV device - [Video Tutorial](https://www.youtube.com/watch?v=XL7neKn1d-Y)
     - For NVIDIA Shield users, be sure to turn on **Network debugging** (not shown in the video)
     - (does not apply to Apple TV or Roku users)
 1. Connect your device to Home Assistant:
-   - Amazon, Chromecast, Shield, onn., Xiaomi, or Android TV users:
+   - Amazon, Chromecast, Homatics, Shield, onn., Xiaomi, or Android TV users:
      - Set up the Home Assistant [Android Debug Bridge Integration](https://www.home-assistant.io/integrations/androidtv/) and connect it to your device (**REQUIRED in every setup** [why?](https://github.com/PRProd/HA-Firemote/wiki#why-do-i-still-need-the-adb-integration-when-there-is-an-android-remote-integration))
      - Optionally, for non Amazon Fire devices only, you may additionally choose to set up the Home Assistant [Android TV Remote Integration](https://www.home-assistant.io/integrations/androidtv_remote/) and connect it to your device. (optional)
    - Apple TV Users
@@ -94,7 +97,7 @@ Short demonstration videos also exist for [Roku Firemote](https://www.youtube.co
 ## How to use
 1. On any dashboard, click the +ADD CARD button
 1. Search by cards for "Firemote Card" and click on it - [help: It's not showing up](https://github.com/PRProd/HA-Firemote/wiki/Force-a-Refresh)
-1. Under the **Device Family** dropdown, choose "Amazon Fire", "Apple TV",  "Chromecast", "NVIDIA Shield", "onn.", "Roku", or "Xiaomi"
+1. Under the **Device Family** dropdown, choose "Amazon Fire", "Apple TV",  "Chromecast", "Homatics", "NVIDIA Shield", "onn.", "Roku", "Xiaomi", or "[none/other](https://github.com/PRProd/HA-Firemote/wiki/entity:-none)"
    - Amazon, Chromecast, Shield, onn., Xiaomi, or Android TV users:
      - Under **Device Model**, select the device model that you own. (Help: Which [Amazon Fire](https://developer.amazon.com/docs/fire-tv/device-specifications.html) or [NVIDIA Shield](https://www.nvidia.com/en-us/shield/)  device do I own?)
      - Under the Android Debug Bridge Entity dropdown, a list of your Android Debug Bridge integration entities will appear.  Select the one you wish to control.
@@ -180,7 +183,7 @@ Options:
 | apple_tv_remote_entity | string | yes*     | any valid remote entity created in the [Apple TV Integration](https://www.home-assistant.io/integrations/apple_tv)  | entity_id<br>* Required ONLY in Apple TV configurations |
 | device_type            | string | yes      | [appletv-4k-gen3](https://support.apple.com/kb/SP886)<br>[appletv-4k-gen2](https://support.apple.com/kb/SP845)<br>[appletv-4k-gen1](https://support.apple.com/kb/SP769)<br>[appletv-gen4](https://support.apple.com/kb/SP724)<br>[appletv-gen3](https://support.apple.com/kb/SP648)<br>[appletv-gen2](https://support.apple.com/kb/SP598)<br>[appletv-gen1](https://support.apple.com/kb/SP19)<br>chromecast-4k<br>[fire_tv_toshiba_v35](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Toshiba-V35-Series-LED-FHD-HD---Fire-TV-(2021)) <br> [fire_tv_4_series](https://github.com/PRProd/HA-Firemote/wiki/Smart-TV---Fire-TV-4-Series-(2021)) <br> fire_tv_jvc-4k-2021 <br> fire_tv_insignia_f20 <br> [fire_tv_cube_third_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---3rd-Gen-(2022)) <br> [fire_tv_cube_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---2nd-Gen-(2019)) <br> [fire_tv_cube_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Cube---1st-Gen-(2018)) <br> [fire_tv_stick_4k_max_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max-2nd-Gen-(2023)) <br> [fire_tv_stick_4k_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-2nd-Gen-(2023)) <br>[fire_tv_stick_4k_max](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K-Max---1st-Gen-(2021)) <br> [fire_tv_3rd_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---3rd-Gen-(2020)) <br> [fire_tv_stick_lite](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-Lite---1st-Gen-(2020)) <br> [fire_stick_4k](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-4K---1st-Gen-(2018)) <br> [fire_stick_second_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick---2nd-Gen-(2016---2019)) <br> [fire_stick_first_gen](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-Stick-1st-Gen-(2014)) <br> [fire_tv_second_gen_2015](https://github.com/PRProd/HA-Firemote/wiki/Fire-TV-%E2%80%90-2nd-Gen-(2015)) <br> onn-streaming-device-4k-pro <br> [onn-4k-streaming-box](https://github.com/PRProd/HA-Firemote/wiki/onn.-Google-TV-4K-Streaming-Box-(2023)) <br> onn-full-hd-streaming-stick <br> roku-streambar-pro <br> roku-streambar <br> roku-ultra-lt-2023 <br> roku-ultra-lt <br> roku-ultra-2020 <br> roku-streaming-stick-4k <br> roku-express-4k-plus <br> roku-express-4k <br> roku-express <br> roku-premiere <br> roku-generic-hisense <br> roku-generic-tcl <br> roku-generic-westinghouse <br> shield-tv-2017 <br> shield-tv-pro-2017 <br> shield-tv-2019 <br> shield-tv-pro-2019 <br> mi-box-s <br> xiaomi-tv-stick-4k <br> [other](https://github.com/PRProd/HA-Firemote/wiki/entity:-none)| The type of device you are controlling<br>[Which devices are supported?](https://github.com/PRProd/HA-Firemote/wiki/Existing-Amazon-Devices---Support-Chart)<br>[Which device do I own?](https://developer.amazon.com/docs/fire-tv/device-specifications.html) |
 | compatibility_mode | string | no | default <br> strong <br> event0 <br> event1 <br> event2 <br> event3 <br> event4 <br> event5 <br> event6 <br> event7 <br> event8 <br> event9 <br> event10 <br> event11 <br> event12 <br> event13 | Adjust this value only if your buttons are completely unresponsive<br><br>Ignored in Apple TV configurations<br><br>[FAQ Available for additional help](https://github.com/PRProd/HA-Firemote#faq) |
-|defaultRemoteStyle_override | string | no | AF1 <br> AF2 <br> AF3 <br> AF4 <br> AF5 <br> AF6 <br> AFJTV <br> AR1 <br> AR2 <br> AR3 <br> CC1 <br> CC2 <br> CC3 <br> NS1 <br> NS2 <br> ON1 <br> ON2 <br> RVRP <br> RVR <br> RSR <br> RHR <br> RTR <br> RWR <br> XM1 <br> XM2 <br> AL1 <br> AL2 | Optionally select a style of remote different from the one that shipped with your device |
+|defaultRemoteStyle_override | string | no | AF1 <br> AF2 <br> AF3 <br> AF4 <br> AF5 <br> AF6 <br> AFJTV <br> AR1 <br> AR2 <br> AR3 <br> CC1 <br> CC2 <br> CC3 <br> HO1 <br> HO2 <br> HO3 <br> HO4 <br> NS1 <br> NS2 <br> ON1 <br> ON2 <br> RVRP <br> RVR <br> RSR <br> RHR <br> RTR <br> RWR <br> XM1 <br> XM2 <br> AL1 <br> AL2 | Optionally select a style of remote different from the one that shipped with your device |
 | app_launch_1<br>app_launch_2<br>app_launch_3<br>app_launch_4<br>app_launch_5<br>etc... | string | no | [ See App Launch Button Customization section for options](#app-launch-button-customization) | Quick launch apps customization |
 |hdmi_1<br>hdmi_2<br>hdmi_3</br>hdmi_4| string | no | Personalized name for this HDMI input | The name entered here will appear on the button (truncated to 8 characters to fit) |
 | scale       | integer| no       | Any positive number                                           | Change the size of this card by percentage. The default size is 100 |
