@@ -1229,6 +1229,45 @@ const launcherData = {
    },
 
 
+  "clipious": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="775" height="775" viewBox="0 0 775 775" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="TolS" x1="0%" y1="61%" x2="100%" y2="39%"><stop offset="29%" stop-color="#9c1ef5"/><stop offset="62%" stop-color="#770dc9"/><stop offset="94%" stop-color="#9c1ef5"/></linearGradient></defs><path d="M 155 155 L 155 620 L 620 388 Z" stroke-width="60" stroke="url(#TolS)" fill="none"/></svg>',
+      "friendlyName": 'Clipious',
+      "className": "clipiousButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.github.lamarios.clipious",
+          "androidName": "com.github.lamarios.clipious",
+          "adbLaunchCommand": "adb shell am start -n com.github.lamarios.clipious/.MainActivity",
+      },
+      "chromecast": {
+          "appName": "com.github.lamarios.clipious",
+          "androidName": "com.github.lamarios.clipious",
+          "adbLaunchCommand": "adb shell am start -n com.github.lamarios.clipious/.MainActivity",
+      },
+      "homatics": {
+          "appName": "com.github.lamarios.clipious",
+          "androidName": "com.github.lamarios.clipious",
+          "adbLaunchCommand": "adb shell am start -n com.github.lamarios.clipious/.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.github.lamarios.clipious",
+          "androidName": "com.github.lamarios.clipious",
+          "adbLaunchCommand": "adb shell am start -n com.github.lamarios.clipious/.MainActivity",
+      },
+      "onn": {
+          "appName": "com.github.lamarios.clipious",
+          "androidName": "com.github.lamarios.clipious",
+          "adbLaunchCommand": "adb shell am start -n com.github.lamarios.clipious/.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "com.github.lamarios.clipious",
+          "androidName": "com.github.lamarios.clipious",
+          "adbLaunchCommand": "adb shell am start -n com.github.lamarios.clipious/.MainActivity",
+      },
+   },
+
+
+
   "cloudstream": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="850" height="420" viewBox="0 0 850 420" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M412 12c-38 5-75 22-105 49-13 12-14 12-32 8-89-17-168 46-177 140-2 21-1 19-17 23-91 22-94 145-5 172 20 3 679 3 698-2 100-27 78-170-26-170-22 0-21 0-27-15-14-41-49-70-94-80-12-3-14-5-22-20C569 44 492 3 412 12" fill="#2009c0"/><path d="M401 23c-32 6-65 22-88 43-16 15-17 15-39 11-85-18-169 49-169 135 0 19-2 22-20 26C3 255-8 365 69 395c67 22 255-18 260-28C531-7 462 35 459 20c-8-2-50 1-58 3" fill="#4183dd"/><path d="M458 23c-10 185-120 355-341 377-42 0-29 3 21 3l407-4 6-2c9-4 21-20 38-50 30-50 47-113 49-173 1-26 1-26-15-30-14-4-16-6-23-20-34-72-97-94-142-104" fill="#2249db"/></svg>',
       "friendlyName": 'Cloudstream',
@@ -6534,7 +6573,7 @@ const launcherData = {
       "appName": "com.teamsmart.videomanager.tv",
       "androidName": "com.teamsmart.videomanager.tv",
       "adbLaunchCommand": "adb shell am start -n com.teamsmart.videomanager.tv/com.liskovsoft.smartyoutubetv2.tv.ui.main.SplashActivity",
-      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"], },
 
 
   "smart-tube-next-beta": {
@@ -6545,7 +6584,7 @@ const launcherData = {
       "appName": "com.liskovsoft.smarttubetv.beta",
       "androidName": "com.liskovsoft.smarttubetv.beta",
       "adbLaunchCommand": "adb shell am start com.liskovsoft.smarttubetv.beta",
-      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"], },
 
 
   "smart-tv-client-for-twitch": {
@@ -9463,6 +9502,10 @@ const launcherCSS = `
 
           .claroTvPlusButton {
             background: #000;
+          }
+
+          .clipiousButton {
+            background: #171c3a;
           }
 
           .cloudstreamButton {
