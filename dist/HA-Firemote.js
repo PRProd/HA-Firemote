@@ -3716,6 +3716,24 @@ class FiremoteCard extends LitElement {
       }
     }
 
+    //Draw Optional MediaControl buttons on CC
+    function drawMediaControlButtons(e, config, showMediaControls)
+    {
+      if (config.showMediaControls=='true') {
+        return html`
+          <button class="remote-button" id="rewind-button" @pointerdown=${e.buttonDown}>
+            <ha-icon icon="mdi:rewind"></ha-icon>
+          </button>
+          <button class="remote-button${playingStatusClass}" id="playpause-button" @pointerdown=${e.buttonDown}>
+            <ha-icon icon="mdi:play-pause"></ha-icon>
+          </button>
+          <button class="remote-button" id="fastforward-button" @pointerdown=${e.buttonDown}>
+            <ha-icon icon="mdi:fast-forward"></ha-icon>
+          </button>
+          `;
+        }
+        return;
+    }
 
     // Reused SVG Logos
     function renderfiretvlogo() {
@@ -5315,6 +5333,9 @@ class FiremoteCard extends LitElement {
           <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
+
+          ${drawMediaControlButtons(this, this._config, "false")}
+
 
           ${drawAppLaunchButtons(this, this._config, 2, appButtonMax[getDeviceAttribute('defaultRemoteStyle')])}
 
@@ -8348,6 +8369,32 @@ class FiremoteCardEditor extends LitElement {
       `;
     }
   }
+  getChromecastMediaControls(remoteStyle) {
+    if (['CC1', 'CC2', 'CC3'].includes(remoteStyle)) {
+        // return html`
+        //     <br>
+        //     <label for="showMediaControlsCheckbox">
+        //         <input
+        //             type="checkbox"
+        //             id="showMediaControlsCheckbox"
+        //             name="showMediaControls"
+        //             .checked=${Boolean(this._config?.showMediaControls||false)}
+        //             @change=${this.configChanged}
+        //         >&nbsp; ${this.translateToUsrLang('Show Media Controls')}
+        //     </label>
+        //     <br>
+        // `;
+        // TODO Try to use a checkbox instead of select dropdown.
+        return html `
+        ${(this.translateToUsrLang('Show Media Controls'))}:<br>
+        <select name="showMediaControls" id="show_media_controls" .value=${this._config.showMediaControls || "false"} @focusout=${this.configChanged} @change=${this.configChanged}  style="padding: .6em; font-size: 1em;">
+          <option value="false" selected>${this.translateToUsrLang('No')}</option>
+          <option value="true">${this.translateToUsrLang('Yes')}</option>
+        </select><br></br>
+        `;
+    }
+    return nothing;
+  }
 
   render() {
     if (!this.hass || !this._config) {
@@ -8455,6 +8502,9 @@ class FiremoteCardEditor extends LitElement {
           <option value="AL1">${this.translateToUsrLang('App Launcher')} 1</option>
           <option value="AL2">${this.translateToUsrLang('App Launcher')} 2</option>
         </select>
+        <br>
+        <br>
+        ${this.getChromecastMediaControls(this._config.defaultRemoteStyle_override)}
         <br>
         <br>
         ${this.getCompatibilityModeDropdown(this._config.compatibility_mode, getDeviceAttribute('friendlyName'))}
