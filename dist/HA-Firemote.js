@@ -3717,9 +3717,9 @@ class FiremoteCard extends LitElement {
     }
 
     //Draw Optional MediaControl buttons on CC
-    function drawMediaControlButtons(e, config, showMediaControls)
+    function drawMediaControlButtons(e, config)
     {
-      if (config.showMediaControls=='true') {
+      if (config.show_media_controls==true) {
         return html`
           <button class="remote-button" id="rewind-button" @pointerdown=${e.buttonDown}>
             <ha-icon icon="mdi:rewind"></ha-icon>
@@ -5334,7 +5334,7 @@ class FiremoteCard extends LitElement {
             <ha-icon icon="mdi:volume-mute"></ha-icon>
           </button>
 
-          ${drawMediaControlButtons(this, this._config, "false")}
+          ${drawMediaControlButtons(this, this._config)}
 
 
           ${drawAppLaunchButtons(this, this._config, 2, appButtonMax[getDeviceAttribute('defaultRemoteStyle')])}
@@ -7955,6 +7955,9 @@ class FiremoteCardEditor extends LitElement {
         case 'useCustomSkinCheckbox':
           this._config.useCustomSkin = ev.target.checked;
           break;
+        case "showMediaControlsCheckbox":
+          this._config.show_media_controls = ev.target.checked;
+          break;
       }
     }
 
@@ -8371,26 +8374,18 @@ class FiremoteCardEditor extends LitElement {
   }
   getChromecastMediaControls(remoteStyle) {
     if (['CC1', 'CC2', 'CC3'].includes(remoteStyle)) {
-        // return html`
-        //     <br>
-        //     <label for="showMediaControlsCheckbox">
-        //         <input
-        //             type="checkbox"
-        //             id="showMediaControlsCheckbox"
-        //             name="showMediaControls"
-        //             .checked=${Boolean(this._config?.showMediaControls||false)}
-        //             @change=${this.configChanged}
-        //         >&nbsp; ${this.translateToUsrLang('Show Media Controls')}
-        //     </label>
-        //     <br>
-        // `;
-        // TODO Try to use a checkbox instead of select dropdown.
-        return html `
-        ${(this.translateToUsrLang('Show Media Controls'))}:<br>
-        <select name="showMediaControls" id="show_media_controls" .value=${this._config.showMediaControls || "false"} @focusout=${this.configChanged} @change=${this.configChanged}  style="padding: .6em; font-size: 1em;">
-          <option value="false" selected>${this.translateToUsrLang('No')}</option>
-          <option value="true">${this.translateToUsrLang('Yes')}</option>
-        </select><br></br>
+        return html`
+          <br />
+          <label for="showMediaControlsCheckbox">
+            <input
+              type="checkbox"
+              id="showMediaControlsCheckbox"
+              name="show_media_controls"
+              ?checked=${this._config.show_media_controls === true}
+              @change=${this.configChanged}
+            />&nbsp; ${this.translateToUsrLang("Show Media Controls")}
+          </label>
+          <br />
         `;
     }
     return nothing;
