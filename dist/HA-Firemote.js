@@ -3717,8 +3717,7 @@ class FiremoteCard extends LitElement {
     }
 
     //Draw Optional MediaControl buttons on CC
-    function drawMediaControlButtons(e, config)
-    {
+    function drawMediaControlButtons(e, config) {
       if (config.show_media_controls==true) {
         return html`
           <button class="remote-button" id="rewind-button" @pointerdown=${e.buttonDown}>
@@ -8388,7 +8387,6 @@ class FiremoteCardEditor extends LitElement {
           <br />
         `;
     }
-    return nothing;
   }
 
   render() {
@@ -8499,9 +8497,8 @@ class FiremoteCardEditor extends LitElement {
         </select>
         <br>
         <br>
-        ${this.getChromecastMediaControls(this._config.defaultRemoteStyle_override)}
-        <br>
-        <br>
+        ${this.getChromecastMediaControls(getDeviceAttribute("defaultRemoteStyle"))}
+
         ${this.getCompatibilityModeDropdown(this._config.compatibility_mode, getDeviceAttribute('friendlyName'))}
 
         ${this.getAppChoiceOptionMenus(getDeviceAttribute("defaultRemoteStyle"))}
