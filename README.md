@@ -197,6 +197,7 @@ Options:
 | use_theme_background    | bool   | no      | true<br>false                                                    | Optionally hide the AL1 or AL2 remote style's background color to let the HA theme color show |
 | hide_button_group_frame | bool   | no      | true<br>false                                                    | Optionally hide the frames around the button groups when using AL1 or AL2 |
 | useCustomSkin           | bool   | no      | true<br>false                                                    | Toggle a custom background skin color on or off when using AL1 or AL2 |
+| show_media_controls     | bool   | no      | true<br>false                                                    | Show additional media control buttons for Chromecast style remotes CC1, CC2, or CC3 |
 | skin                    | hex color value | no | Any hex color value e.g.: #ffffff                            | background skin color for AL1 or AL2 |
 | dpad_style              | string | no      | amazon-fire<br>apple-tv-black<br>apple-tv-silver<br>chromecast<br>xiaomi<br>minimal | Dpad style options for AL1 or AL2 |
 

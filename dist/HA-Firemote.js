@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.1.2';
+const HAFiremoteVersion = 'v4.1.3';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.2";
-import {rosettaStone} from './language-translations.js?version=v4.1.2';
-import {devices} from './supported-devices.js?version=v4.1.2';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.3";
+import {rosettaStone} from './language-translations.js?version=v4.1.3';
+import {devices} from './supported-devices.js?version=v4.1.3';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -8371,21 +8371,15 @@ class FiremoteCardEditor extends LitElement {
       `;
     }
   }
+
   getChromecastMediaControls(remoteStyle) {
     if (['CC1', 'CC2', 'CC3'].includes(remoteStyle)) {
         return html`
-          <br />
           <label for="showMediaControlsCheckbox">
-            <input
-              type="checkbox"
-              id="showMediaControlsCheckbox"
-              name="show_media_controls"
-              ?checked=${this._config.show_media_controls === true}
-              @change=${this.configChanged}
-            />&nbsp; ${this.translateToUsrLang("Show Media Controls")}
+            <input type="checkbox" id="showMediaControlsCheckbox" name="show_media_controls"
+              ?checked=${this._config.show_media_controls === true} @change=${this.configChanged}>&nbsp; ${this.translateToUsrLang("Show Media Controls")}
           </label>
-          <br />
-        `;
+          <br>`;
     }
   }
 
