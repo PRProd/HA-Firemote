@@ -44,7 +44,7 @@ body:
     id: appstoreLink
     attributes:
       label: App Store Link and/or URL to .apk file if sideloaded
-      description: Optionally provide a link to the Google Play or Apple store where this app can be downloaded.  If this is a sideloaded app, please include a full URL for where the .apk can be found
+      description: "Optionally provide a link to the Google Play Store, Apple App Store, or [Roku Channel Store](https://channelstore.roku.com/) where this app can be downloaded.  If this is a sideloaded app, please include a full URL for where the .apk can be found"
     validations:
       required: false
   - type: markdown
