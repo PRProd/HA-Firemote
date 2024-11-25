@@ -2844,6 +2844,44 @@ const launcherData = {
    },
 
 
+  "foxtel-au": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="350" viewBox="0 0 1100 350" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M1000 12h53v314h-53V12zM874 112c-62 0-110 50-110 111 0 60 48 108 110 108 36 0 67-13 87-41l-35-31c-12 15-27 24-52 24-27 0-50-17-58-43h155c1-7 2-13 2-20 0-58-39-108-99-108h0zm-57 87c8-24 28-42 57-42 28 0 46 20 49 42H817zM702 45h-52v281h52V163h51v-46h-51V45zm-76 72h-62l-49 63-47-63h-63l77 100-84 109h63l52-70 52 70h63l-83-108 81-101zm-326-5c-60 0-111 49-111 109 0 61 51 110 111 110 61 0 111-49 111-110 0-60-50-109-111-109zm0 172c-34 0-60-28-60-63s26-62 60-62 61 27 61 62-27 63-61 63zM131 94c0-24 8-36 31-36h29V12h-33c-46 0-79 21-79 83v22H42v46h37v163h52V163h51v-46h-51V94h0 0z"/></svg>',
+      "friendlyName": "foxtel (AU)",
+      "className": "foxtelAUButton",
+      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "au.com.foxtel.atv",
+          "androidName": "au.com.foxtel.atv",
+          "adbLaunchCommand": "adb shell am start -n au.com.foxtel.atv/foxtel.play.droid.SplashView",
+      },
+      "chromecast": {
+          "appName": "au.com.foxtel.atv",
+          "androidName": "au.com.foxtel.atv",
+          "adbLaunchCommand": "adb shell am start -n au.com.foxtel.atv/foxtel.play.droid.SplashView",
+      },
+      "homatics": {
+          "appName": "au.com.foxtel.atv",
+          "androidName": "au.com.foxtel.atv",
+          "adbLaunchCommand": "adb shell am start -n au.com.foxtel.atv/foxtel.play.droid.SplashView",
+      },
+      "nvidia-shield": {
+          "appName": "au.com.foxtel.atv",
+          "androidName": "au.com.foxtel.atv",
+          "adbLaunchCommand": "adb shell am start -n au.com.foxtel.atv/foxtel.play.droid.SplashView",
+      },
+      "onn": {
+          "appName": "au.com.foxtel.atv",
+          "androidName": "au.com.foxtel.atv",
+          "adbLaunchCommand": "adb shell am start -n au.com.foxtel.atv/foxtel.play.droid.SplashView",
+      },
+      "xiaomi": {
+          "appName": "au.com.foxtel.atv",
+          "androidName": "au.com.foxtel.atv",
+          "adbLaunchCommand": "adb shell am start -n au.com.foxtel.atv/foxtel.play.droid.SplashView",
+      },
+   },
+
+
   "france-tv": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="532" height="93" viewBox="0 0 532 93" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><radialGradient id="PcGc" cx="-19%" cy="60%" r="146%" fx="-19%" fy="60%"><stop stop-color="#64c8d7" offset="0%"/><stop offset="28.000000000000004%" stop-color="#60c4d6"/><stop offset="56.99999999999999%" stop-color="#53b9d2"/><stop offset="86%" stop-color="#3fa7cc"/><stop offset="100%" stop-color="#329bc8"/></radialGradient><radialGradient id="gnG9" cx="50%" cy="50%" r="143%" fx="50%" fy="50%"><stop stop-color="#ff503c" offset="0%"/><stop offset="46%" stop-color="#ff5447"/><stop offset="100%" stop-color="#ff5a5a"/></radialGradient><radialGradient id="S1Dt" cx="-26%" cy="60%" r="127%" fx="-26%" fy="60%"><stop offset="60%" stop-color="#ffaa46"/><stop offset="75%" stop-color="#fdab48"/><stop offset="81%" stop-color="#f6b04f"/><stop offset="86%" stop-color="#e9b85b"/><stop offset="90%" stop-color="#d8c36c"/><stop offset="93%" stop-color="#c1d182"/><stop offset="96%" stop-color="#a4e39d"/><stop offset="99%" stop-color="#83f8bd"/><stop offset="100%" stop-color="#78ffc8"/></radialGradient><radialGradient id="YG5P" cx="46325%" cy="12595%" r="5848%" fx="46325%" fy="12595%"><stop stop-color="#ff503c" offset="0%"/><stop offset="46%" stop-color="#ff5447"/><stop offset="100%" stop-color="#ff5a5a"/></radialGradient></defs><g stroke="none"><path d="M43.3 14.4c1.6 0 3.2.2 4.8.6l2.5-14c-3-.8-6.4-1-9.6-1-8.2 0-14.6 3-19 7-4.2 4.2-6.5 10-6.5 19.8v2.5H0V43h15.6v47H32V43h18.7V29.4H32v-2c0-5.6 1-8 2.2-9.6 2-2.4 5.2-3.5 9.2-3.5h0zM160.7 90H145v-5c-4.7 4-10.7 6.2-16.8 6.2-4.4 0-8.6-1-12.6-2.7a31 31 0 0 1-10.3-7.6c-5-6-7.8-13.5-7.8-21.2 0-18 13.3-31.7 29.8-31.7 6.4-.1 12.7 2 17.7 6v-4.8h15.7V90zm-16.3-39.4c-1.7-2.3-4-4.2-6.6-5.5s-5.5-2-8.4-2c-9.5 0-15.6 8-15.6 16.7 0 9.5 7 16.5 16 16.5a18 18 0 0 0 8.2-2c2.6-1.3 4.7-3.2 6.4-5.5V50.6h0zM174 29.4V90H190V50.6c1.8-2.2 4-4 6.6-5.4 2.5-1.3 5.3-2 8.2-2 3.3-.1 6.6 1 9 3.4 2.3 2.3 3.6 5.4 3.6 11.4v32H234V59c0-10.3-2.3-16.5-6.3-21.2-2.5-3-5.8-5.5-9.4-7.2s-7.6-2.6-11.6-2.6c-6.2 0-12.3 2.2-17 6.2v-5H174h0zm164.8 62a33 33 0 0 0 24.9-10.9l-9.2-9.3c-3 3.2-8.4 7-15.3 7-8.6 0-15.5-5.8-16.4-14.3h42c.3-1.6.4-3 .4-4.7 0-16.8-12-31-28.7-31-18 0-29.5 14.8-29.5 31.7 0 19 13.7 31.5 31.8 31.5h0zm5.8-47a12 12 0 0 1 3.9 7.6h-25c.8-5.5 6.3-10.6 13-10.6a12 12 0 0 1 8.1 3zm-68.8 47a32 32 0 0 0 27.5-13.7l-12.5-9.3a17 17 0 0 1-6.2 5.7c-2.6 1.4-5.4 2.2-8.3 2.3-10 0-16.7-7-16.7-16.5-.1-3.3.8-6.5 2.6-9.3 1.8-2.7 4.4-5 7.4-6 2-1 4.2-1.3 6.3-1.3 2.8.1 5.5.7 8 2s4.5 3 6 5.3l11.6-10a32 32 0 0 0-11.4-9 33 33 0 0 0-14.2-3.2c-18.5 0-32.6 14.2-32.6 31.7s13.8 31.5 32.5 31.5h0zM95 43.8c-2-.5-4-.7-6-.7-7 0-12.7 5.2-14.7 8.8v38H58V29.4h15.7v6C77.4 31 84 28 91.4 28a34 34 0 0 1 5.5.5l-2 15.2h0z" fill="#fff"/><g fill-rule="nonzero"><path d="M530.4 29.4h-17l-16.6 37-16.7-37h-30.5v-17h-16.3v17h-15.6V43h15.6v21.3c0 8.6 1.4 14 4.5 18 4.2 5.5 11.3 8.8 21 8.8 3.4 0 6.8-.4 10.2-1.3l-2.5-13.7a38 38 0 0 1-6.7.6c-4 0-6.6-1-8.2-3-1.4-1.6-2-4-2-7.6V43h20l21.5 47h11.3l28-60.6h0z" fill="url(#PcGc)"/><path d="M397 76.2c9 0 16.5-7.4 16.5-16.5 0-9.2-7.4-16.6-16.5-16.6-9.2 0-16.6 7.4-16.6 16.6 0 9 7.4 16.5 16.6 16.5z" fill="url(#gnG9)"/><path d="M480.2 29.4h-30.5v-17h-16.3v17h-15.6V43h15.6v21.3c0 8.6 1.4 14 4.5 18 4.2 5.5 11.3 8.8 21 8.8 3.4 0 6.8-.4 10.2-1.3l-2.5-13.7a38 38 0 0 1-6.7.6c-4 0-6.6-1-8.2-3-1.4-1.6-2-4-2-7.6V43h20l21.5 47h1.2c2.4-7.7 4-15.6 4.4-23.6l-16.6-37h0z" fill="url(#S1Dt)"/><path d="M433.4 29.4h-15.6v13.8h15.6v21.2c0 8.6 1.4 14 4.5 18l.4.5c4.7-8.4 6.8-18 6-27.6-1-9.5-4.6-18.6-10.8-26h0z" fill="url(#YG5P)"/></g></g></svg>',
       "friendlyName": "france.tv",
@@ -3574,6 +3612,18 @@ const launcherData = {
       "deviceFamily": ["apple-tv"],
       "apple-tv": {
           "appName": "IPCams",
+      },
+  },
+
+
+  "ip-camera-viewer-pro": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="975" height="450" viewBox="0 0 975 450" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path fill="#000" d="M6 221q478-420 963 0-480 425-963 0zm285 1c0-108 88-196 196-196 109 0 197 88 197 196 0 109-88 196-197 196-108 0-196-87-196-196z" stroke="none"/><path d="M566 222c5 50 2 141-33 193M409 218c-5-33-1-144 34-192" fill="none" stroke-width="7"/><path d="M449 151h82l38 70-38 70h-85l-40-72z" fill="#000" stroke="none"/><path d="M450 154c21-18 126-78 188-70m-108 70c43 19 126 74 148 127m-150 8c-46 28-118 76-190 70m108-71c-87-41-126-83-153-127" fill="none" stroke-width="7"/></svg>',
+      "friendlyName": "IP Camera Viewer - Pro",
+      "className": "ipCameraViewerProButton",
+      "deviceFamily": ["roku"],
+      "roku": {
+          "appName": 'IP Camera Viewer - Pro',
+          "app-id": 143683,
       },
   },
 
@@ -5218,6 +5268,19 @@ const launcherData = {
   },
 
 
+//  "now-tv-alt": {
+//      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="78" height="24" viewBox="0 0 78 24" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M34.295 17.698c-3.156 0-5.714-2.564-5.714-5.727s2.558-5.726 5.714-5.726 5.714 2.564 5.714 5.726-2.558 5.727-5.714 5.727M75.883.879c-1.834-.925-4.078-.17-4.995 1.688l-3.951 7.964L64.379 3h-.005C63.866 1.537 62.483.487 60.858.487c-1.296 0-2.438.667-3.105 1.679l-.006-.001-5.104 7.84-.905-6.352c-.312-2.044-2.21-3.438-4.237-3.125s-3.422 2.201-3.111 4.235l.159 1.065C42.461 2.337 38.65 0 34.295 0c-4.394 0-8.234 2.379-10.308 5.921l.227-1.116c.398-1.951-.858-3.855-2.805-4.254a3.6 3.6 0 0 0-4.245 2.812l-1.547 7.593-5.689-8.825C9.284 1.143 8.174.49 6.913.49c-1.727 0-3.17 1.222-3.521 2.854L.074 19.62c-.397 1.951.835 3.848 2.785 4.262a3.87 3.87 0 0 0 .744.078c1.669.011 3.171-1.163 3.522-2.897l1.547-7.594 5.583 8.686.194.291a3.6 3.6 0 0 0 2.928 1.514c1.774 0 3.249-1.293 3.545-2.994l1.523-7.476c.744 5.894 5.766 10.453 11.85 10.453 5.604 0 10.306-3.868 11.595-9.084l.848 5.712c.239 1.88 1.778 3.368 3.706 3.368 1.387 0 2.519-.794 3.238-1.897l6.12-9.399 2.939 8.653c.527 1.543 1.886 2.643 3.56 2.643 1.554 0 2.776-.935 3.445-2.323l7.8-15.734c.921-1.845.172-4.077-1.663-5.003" stroke="none" fill-rule="nonzero"/></svg>',
+//      "friendlyName": "NOW (alt)",
+//      "className": "nowTVButton",
+//      "deviceFamily": ["amazon-fire"],
+//      "amazon-fire": {
+//          "appName": "NOW",
+//          "androidName": "com.bskyb.nowtv.beta",
+//          "adbLaunchCommand": "adb shell am start -n com.bskyb.nowtv.beta/sky.wrapper.tv.GoogleMainActivity",
+//      },
+//  },
+
+
   "npo": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="265" height="178" viewBox="0 0 265 178" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M172 100.2l-72 72c-7.2 7.2-15.6 7.2-22.8 0l-72-72c-7.2-7.2-7.2-15.5 0-22.8l72-72c7.2-7.3 15.5-7.3 22.8 0l72 72" fill="#e5e5e5"/><path d="M69.6 57.2L64.3 52c-2.2-2.2-4.2-2-6.7.3L53 56.8c-2.4 2.4-2.5 4.5-.3 6.7l5.3 5.3c2.2 2.2 4.2 2 6.7-.3l4.6-4.6c2.4-2.5 2.4-4.6.3-6.7m5.7-5.6c5.4 5.4 5.5 12-.6 18L70 74.2c-1.6 1.6-3 2.4-4 2.7l4 4c2 2 1.8 4.3.2 5.8-1.6 1.6-3.8 1.8-6-.2L47 69c-5.4-5.4-5.5-12 .6-18l4.3-4.3c6-6 12.6-6 18-.6l5.4 5.4zM97 29.8l-5.3-5.3c-2.2-2.2-4.2-2-6.7.3l-4.6 4.6C78 31.8 77.8 34 80 36l5.2 5.3c2.2 2.2 4.2 2 6.7-.3l4.6-4.6C99 34 99 32 97 29.8m5.8-5.5c5.4 5.4 5.5 12-.6 18l-4.3 4.3c-6 6-12.6 6-18 .5l-5.5-5.4c-5.4-5.4-5.5-12 .6-18l4.3-4.3c6-6 12.6-6 18-.6l5.5 5.5zm-49 61.3c2 2 1.7 4.3.2 6-1.6 1.6-3.8 1.8-5.8-.2L36.5 79.8c-2.2-2.2-4.2-2-6.7.3l-4.6 4.6c-2.4 2.4-2.5 4.5-.3 6.7L36.4 103c2 2 1.8 4.3.2 5.8s-3.8 1.8-6-.2L19 97c-5.4-5.4-5.5-12 .6-18l4.3-4.3c6-6 12.6-6 18-.6l11.6 11.6z" fill="#fc6c00"/><path d="M92.8 77.4c-7.2 7.2-7.2 15.5 0 22.8l72 72c7.2 7.2 15.5 7.2 22.8 0l72-72c7.2-7.2 7.2-15.5 0-22.8l-72-72c-7.2-7.2-15.6-7.2-22.8 0l-72 72z" fill="#fd6b00"/><path d="M117 101.8l.3-.8c.5-1 1-1.7 2-1.7.3 0 .7.1 1.3.3 2.4.8 4.6 1.3 6.7 1.3 3.7 0 5.6-1 5.6-3 0-.4-.1-.8-.3-1l-.6-.8c-.2-.2-.6-.4-1-.6s-1-.3-1.3-.4-1-.2-1.7-.4l-3.4-.8c-.8-.2-1.8-.6-2.8-1-1-.5-2-1-2.4-1.5a7 7 0 0 1-1.4-2.1c-.4-1-.6-2-.6-3 0-2.7 1-5 3-6.4 2-1.5 5-2.3 8.8-2.3 2.8 0 5.4.4 7.6 1.3 1 .4 1.6 1 1.6 2 0 .3-.1.7-.3 1.2l-.3.7c-.5 1-1 1.7-2 1.7-.3 0-.7-.1-1.3-.3-2-.7-3.8-1-5.6-1-3.5 0-5.2 1-5.2 2.8 0 1 .3 1.5 1 2s2 .8 4 1.3l3.4 1c.8.2 1.7.6 2.8 1 1 .5 2 1 2.4 1.5a7 7 0 0 1 1.4 2.1c.4 1 .6 2 .6 3 0 2.8-1 5-3 6.4-2 1.5-5 2.3-9 2.3-3.6 0-6.5-.5-8.8-1.4-1-.4-1.6-1-1.6-2l.3-1.2zm30-6.2v-12h-2c-.8 0-1.4-.2-1.8-.6s-.6-1-.6-1.8v-.7c0-.8.2-1.4.6-1.8s1-.6 1.8-.6h2v-4.5c0-.8.2-1.4.6-1.8s1-.6 1.8-.6h1.7c.8 0 1.4.2 1.8.6s.6 1 .6 1.8v4.5h6.8c.8 0 1.4.2 1.8.6s.6 1 .6 1.8v.8c0 .8-.2 1.4-.6 1.8s-1 .6-1.8.6h-6.8V95c0 2.2.4 3.7 1.2 4.5s2 1.2 3.8 1.2c.4 0 1 0 1.5-.1.4-.1.8-.1 1-.1 1 0 1.4.5 1.6 1.4l.2 1 .2 1c0 1-.6 1.7-1.8 2-1.4.3-2.6.4-3.7.4-7 0-10.5-3.6-10.5-10.7zm42.4-5.2L171 79c-1.2-.8-2.8.1-2.8 1.6v22.8c0 1.4 1.6 2.3 2.8 1.6l18.3-11.4c1.2-.8 1.2-2.5 0-3.2zm4.7 13V82c0-1.6.8-2.6 2.3-3 2.8-.8 5.7-1.2 8.6-1.2a42 42 0 0 1 3.9.2c1.4.2 2 1 2 2 0 .3 0 .7-.1 1l-.1.5c-.2.8-.4 1.4-.7 1.7s-.7.5-1.4.5c-.2 0-.7 0-1.5-.1s-1.5-.1-2-.1c-1.8 0-3.3.2-4.4.5v19.4c0 .8-.2 1.4-.6 1.8s-1 .6-1.8.6h-1.7c-.8 0-1.4-.2-1.8-.6-.5-.4-.7-1-.7-1.8zm25.3-7.8v-12h-2c-.8 0-1.4-.2-1.8-.6s-.6-1-.6-1.8v-.7c0-.8.2-1.4.6-1.8s1-.6 1.8-.6h2v-4.5c0-.8.2-1.4.6-1.8s1-.6 1.8-.6h1.7c.8 0 1.4.2 1.8.6s.6 1 .6 1.8v4.5h6.8c.8 0 1.4.2 1.8.6s.6 1 .6 1.8v.8c0 .8-.2 1.4-.6 1.8s-1 .6-1.8.6H226V95c0 2.2.4 3.7 1.2 4.5s2 1.2 3.8 1.2c.4 0 1 0 1.5-.1.4-.1.8-.1 1-.1 1 0 1.4.5 1.6 1.4l.2 1 .2 1c0 1-.6 1.7-1.8 2-1.4.3-2.6.4-3.7.4-7 0-10.6-3.6-10.6-10.7z"/></svg>',
       "friendlyName": "NPO (NL)",
@@ -5313,6 +5376,17 @@ const launcherData = {
       "deviceFamily": ["apple-tv"],
       "apple-tv": {
           "appName": "Odido TV",
+      },
+   },
+
+
+  "okoo": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="795" height="795" viewBox="0 0 795 795" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g fill="#fff" stroke="none"><ellipse cx="257" cy="309" rx="95" ry="109"/><path d="M352 170l62-12 8 87 148-66 21 44-121 57 144 55-22 53-160-61 4 80-56 17z"/><ellipse cx="108" cy="94" rx="108" ry="94" transform="matrix(.965926 -.258819 .258819 .965926 174.351021 464.155429)"/></g><use href="#FTD1" fill="#000" stroke="none"/><ellipse cx="108" cy="94" rx="108" ry="94" fill="#fff" stroke="none" transform="matrix(.965926 -.258819 .258819 .965926 395.351021 421.155429)"/><use href="#FTD1" x="136" y="-26" fill="#000" stroke="none"/><path fill="none" d="M395 607q25 34 64 17" stroke="#fff" stroke-width="13"/><defs ><path id="FTD1" d="M327 528c0-11 8-19 19-19 10 0 19 8 19 19 0 10-9 18-19 18-11 0-19-8-19-18zm7-7c0-4 3-6 7-6 3 0 6 2 6 6s-3 7-6 7c-4 0-7-3-7-7z"/></defs></svg>',
+      "friendlyName": "Okoo dessins animés et vidéos",
+      "className": "okooButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "Okoo",
       },
    },
 
@@ -9030,6 +9104,48 @@ const launcherData = {
       "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"],},
 
 
+  "windscribe-vpn": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="975" height="300" viewBox="0 0 975 300" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M305 150l-3 9-37 89c-2 6-6 10-12 13l-90 36c-5 3-12 3-17 0l-89-37c-5-2-10-6-12-12q-19-45-37-90c-3-5-3-12 0-17l37-89c2-6 6-10 12-12l89-37c6-3 12-3 18 0l89 37c5 2 10 6 12 12l37 89 3 9zM155 277c2 0 3 0 5-1l81-33c3-1 5-4 7-7q16-40 33-81c1-3 1-6 0-10-12-26-23-53-33-80-1-3-4-6-7-7q-41-17-81-33c-3-2-7-2-10 0q-40 16-80 33c-3 1-6 4-7 7q-17 40-33 80c-2 3-2 7 0 11q16 40 33 80c1 3 3 6 7 7l80 33 5 2zm247-103v-59h15v74h-16c-3-1-6-3-9-6-6-6-12-13-18-20l-8 9c-4 4-7 8-10 11-4 4-8 6-13 6h-12v-74h14v58h1l28-30zm176-59V94h14v96c-11 0-23-1-34-2-18-4-30-21-28-40s18-33 37-33h11zm0 60v-45h-14c-11 1-19 10-19 21-1 11 6 20 17 23 5 0 10 1 16 1zm248 14V94h14v21h15c19 2 33 19 33 38s-15 35-34 36c-10 1-19 0-28 0zm14-60v46h12c11-1 20-9 21-20 2-11-5-21-16-24-5-1-11-2-16-2zm123 6l-37 40c13 6 26-3 29-20h13c3 13-8 30-23 34-18 5-37-4-44-21-7-18 0-37 16-46 17-8 36-2 46 13zm-20 0c-8-5-18-3-25 3-7 7-8 18-2 27zm-471-20v4c4-1 8-3 12-4 17-2 33 9 36 25v4c1 15 0 29 0 43v2h-14v-5-38c0-7-5-13-12-16-6-2-14 0-18 6-2 3-4 7-4 12v41h-14v-74zm130 65l9-10c5 4 12 6 18 6 3 0 6-2 7-6 0-3-1-6-4-7-6-4-12-7-18-10-6-4-9-10-9-16-1-7 3-13 9-16 1-1 2-2 4-2 12-6 27-3 36 7l-10 9c-3-1-6-3-9-4-2-1-4-2-7-1-3-1-6 2-7 5-1 4 1 7 4 8 5 3 10 5 15 8 3 2 6 4 8 7 3 4 5 9 4 14 0 4-3 9-7 12-13 9-32 7-43-4zm108-12l10 9c-10 14-33 16-47 4-8-7-13-16-14-26s2-20 9-28l1-1c7-7 16-11 25-11s18 4 25 10l-10 10c-5-5-13-7-20-5-5 1-9 4-12 8-7 9-6 21 2 30 9 8 19 8 31 0zm37 22h-14v-74h14v4c19-6 30-5 40 6l-11 9-2-2c-4-2-8-3-13-3-4 1-8 3-11 7-2 3-3 6-3 10v43zm-303-1h-14v-74h14zm367 0h-14v-74h14zM430 94h14v14h-14zm367 0h14v14h-14zM86 91h23v96l46-50 46 50V91h23v119h-25c-5-1-10-4-14-9l-27-30-3-3c-10 11-20 22-29 33-5 6-13 9-21 9H86z"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="325" height="325" viewBox="0 0 325 325" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M312 162l-3 9-37 89c-2 6-6 10-12 13l-90 36c-5 3-12 3-17 0l-89-37c-5-2-10-6-12-12q-19-45-37-90c-3-5-3-12 0-17l37-89c2-6 6-10 12-12l89-37c6-3 12-3 18 0l89 37c5 2 10 6 12 12l37 89 3 9zM162 289c2 0 3 0 5-1l81-33c3-1 5-4 7-7q16-40 33-81c1-3 1-6 0-10-12-26-23-53-33-80-1-3-4-6-7-7q-41-17-81-33c-3-2-7-2-10 0q-40 16-80 33c-3 1-6 4-7 7q-17 40-33 80c-2 3-2 7 0 11q16 40 33 80c1 3 3 6 7 7l80 33 5 2zM93 103h23v96l46-50 46 50v-96h23v119h-25c-5-1-10-4-14-9l-27-30-3-3c-10 11-20 22-29 33-5 6-13 9-21 9H93z"/></svg>',
+      "friendlyName": "Windscribe VPN",
+      "className": "windscribeButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.windscribe.vpn",
+          "androidName": "com.windscribe.vpn",
+          "adbLaunchCommand": "adb shell am start -n com.windscribe.vpn/com.windscribe.tv.splash.SplashActivity",
+      },
+      "apple-tv": {
+          "appName" : "Windscribe",
+      },
+      "chromecast": {
+          "appName": "com.windscribe.vpn",
+          "androidName": "com.windscribe.vpn",
+          "adbLaunchCommand": "adb shell am start -n com.windscribe.vpn/com.windscribe.tv.splash.SplashActivity",
+      },
+      "homatics": {
+          "appName": "com.windscribe.vpn",
+          "androidName": "com.windscribe.vpn",
+          "adbLaunchCommand": "adb shell am start -n com.windscribe.vpn/com.windscribe.tv.splash.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.windscribe.vpn",
+          "androidName": "com.windscribe.vpn",
+          "adbLaunchCommand": "adb shell am start -n com.windscribe.vpn/com.windscribe.tv.splash.SplashActivity",
+      },
+      "onn": {
+          "appName": "com.windscribe.vpn",
+          "androidName": "com.windscribe.vpn",
+          "adbLaunchCommand": "adb shell am start -n com.windscribe.vpn/com.windscribe.tv.splash.SplashActivity",
+      },
+      "xiaomi": {
+          "appName": "com.windscribe.vpn",
+          "androidName": "com.windscribe.vpn",
+          "adbLaunchCommand": "adb shell am start -n com.windscribe.vpn/com.windscribe.tv.splash.SplashActivity",
+      },
+  },
+
+
   "wireguard": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="990" height="299" viewBox="0 0 990 299" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M342 192l-28-87h11l21 67 22-67h10l22 67 22-67h10l-28 87h-8l-23-70-23 70h-8zm88 0v-67h11v67zm36-29v29h-11v-67h47q10 0 16 5 6 5 6 14c0 4-2 9-5 12q-4 5-12 6l19 30h-12l-19-29h-29zm0-10h36q5 0 8-3 3-2 3-6 0-5-3-7-3-2-8-2h-36v18zm68 39v-67h63v10h-53v16h35v10h-35v21h56v10h-66zm140-24v-12h-23v-10h34v26q-6 11-16 17-10 5-23 5-20 0-33-13-12-12-12-32 0-20 12-33 13-13 33-13 12 0 22 5c6 4 12 9 16 15l-9 7c-3-5-7-10-12-12-5-3-11-5-17-5q-15 0-25 10-9 10-9 26 0 15 9 25 10 10 25 10 9 0 16-4 7-4 12-12zm23-43h11v43q0 10 4 13 5 4 18 4 14 0 19-4 4-3 4-13v-43h11v46q0 12-8 18-8 5-26 5-18 0-25-5-8-6-8-18v-46zm65 67l34-67h7l34 67h-11l-9-17h-35l-9 17zm24-26h27l-13-26zm63-3v29h-10v-67h46q10 0 16 5 6 5 6 14c0 4-2 9-5 12q-4 5-12 6l19 30h-11l-20-29h-29zm0-10h36q5 0 8-3 3-2 3-6 0-5-3-7-3-2-8-2h-36v18zm98-28q17 0 27 9 10 10 10 25 0 15-10 24-10 9-27 9h-30v-67h30zm0 9h-19v48h19q12 0 19-6 7-6 7-18 0-10-7-17-7-7-19-7zm-655 10S299 5 146 5C10 5 6 139 6 139s-20 153 143 153c156 0 143-148 143-148zM103 96c29-18 65-7 79 19 3 5 3 13 1 18-5 19-19 29-37 33 5-5 9-10 11-17 1-7 0-15-5-20-6-10-18-13-29-9-12 4-18 14-17 27 1 12 10 20 27 23l-6 3c-8 4-15 10-20 17-1 2-3 3-5 1-34-21-36-73 1-95zM77 224c-5 1-10 3-16 5 3-18 24-35 43-33-6 7-9 15-9 24-6 2-12 2-18 4zM193 45h16 4c-1 2-2 4-4 6-2 1-4 3-7 0h-3-16c-5 0-9 0-14 1-1 0-2 3-2 4 1 3 3 5 5 7 7 6 15 11 22 17 8 6 14 12 19 20 5 11 5 23 3 35-4 19-14 35-30 47-6 5-14 8-22 11-6 3-13 6-19 9-12 5-19 18-17 31 2 12 13 22 25 24 14 3 30-7 33-22 4-16-5-31-22-36l-3-1c4-2 8-3 12-5q10-6 19-11c2-1 2-1 4 0 12 9 19 23 21 38 3 26-9 49-32 61-35 19-79-2-86-42-7-33 17-63 45-69 12-3 24-8 32-17 6-7 9-12 10-14 1-4 2-9 2-14 0-4-1-8-3-12-3-7-14-17-17-20l-27-21h-4-13c3-2 9-5 12-7-8-6-18-4-27-6 2-4 12-10 18-10 0-4-1-7-2-10 0-1-1-3-3-4-3-1-6-3-10-5 3-2 7-3 11-3s7 0 11 1c6 1 11 0 17-4-4-2-8-3-12-5l-12-6c11 2 20 6 31 4q0-1 0-1l-24-6c14-1 27-1 40 5 4 2 7 3 11 5 1 1 2 3 4 4 1 1 2 3 3 4 5 2 11 3 17 2v-1c5 1 12 8 12 13h-28c-1 0-2 1-3 1 1 0 2 1 3 2zm-12-14s-1 0-1 1l1 1c0 1 1 1 1 1h2l3-2-3-2c-1-1-2 0-3 1z" stroke="none" fill="#fff" fill-rule="nonzero"/></svg>',
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="790" height="790" viewBox="0 0 790 790" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M778 383S795 10 386 10C23 10 12 368 12 368s-53 410 382 410c418 0 384-395 384-395zM271 253c77-48 175-19 212 52 7 13 8 34 3 48-15 49-51 76-100 87 14-12 26-26 30-46 3-18-1-38-12-53-18-25-50-35-79-24-30 11-47 39-44 73 3 32 27 52 72 60-7 4-12 6-17 9-21 11-39 27-53 46-4 6-7 6-14 2-91-55-97-194 2-254zm-68 342c-14 3-28 9-43 14 7-50 65-95 113-90-14 20-22 43-24 67-16 3-31 5-46 9zm310-479h43c3 1 7 1 11 2l-11 14c-5 4-11 9-19 2-1-2-6-1-9-2h-43c-12 1-24 2-37 4-2 1-5 8-4 11 2 7 6 14 11 18 20 16 41 30 61 45 19 15 37 32 48 55 15 29 15 61 9 92-10 52-37 95-80 127-17 12-38 20-58 29-17 8-35 15-52 22-32 15-49 49-44 84 4 33 33 60 66 65 39 7 79-18 89-58 11-45-14-85-59-97-2-1-4-1-9-2 13-6 23-9 33-15 17-9 33-19 50-29 5-3 7-3 11 0 32 27 50 61 56 102 8 68-24 131-85 163-95 50-210-7-231-111-18-90 45-171 122-187 32-7 62-20 86-45 15-17 22-31 24-37 5-12 7-24 7-37 0-11-3-22-7-32-8-18-39-47-46-53l-72-56c-2-2-5-2-11-1-8 0-27 1-35-1 7-5 25-12 32-18-23-16-49-10-74-15 6-10 34-26 50-28-1-9-3-18-5-26-1-4-5-7-8-9-9-5-17-10-27-14 9-6 19-9 29-9 10-1 19 0 29 2 17 4 31 2 45-10-11-4-22-8-32-13-11-5-21-10-31-16 28 4 54 14 82 11l1-4-65-15c38-4 74-4 108 12 10 5 20 9 29 14 4 3 7 8 11 12 3 3 5 7 9 9 13 7 28 7 44 7v-5c15 5 33 22 33 35h-75c-3 0-5 2-8 3 3 2 5 5 8 5zm-32-38c-1 1-2 2-2 3 0 2 0 3 1 4s2 2 4 2c1 1 3 0 4 0 3-2 5-3 8-4-3-2-4-4-6-6-4-2-6-1-9 1z"/></svg>',
@@ -10259,6 +10375,10 @@ const launcherCSS = `
             background: #000;
           }
 
+          .foxtelAUButton {
+            background: #f2320a;
+          }
+
           .franceTVButton {
             background: #172128;
           }
@@ -10384,6 +10504,10 @@ const launcherCSS = `
 
           .ipCameraViewerIPCamsButton {
             background: linear-gradient(0deg, rgba(60,131,102,1) 0%, rgba(79,167,131,1) 100%);
+          }
+
+          .ipCameraViewerProButton {
+            background: #fff;
           }
 
           .ipSmartersProButton {
@@ -10696,6 +10820,10 @@ const launcherCSS = `
 
           .odidoButton {
             background: #000;
+          }
+
+          .okooButton {
+            background: #8c08ff;
           }
 
           .optimumTVButton {
@@ -11324,6 +11452,10 @@ const launcherCSS = `
 
           .weydButton {
             background: #2d2e2e;
+          }
+
+          .windscribeButton {
+            background: #04367d;
           }
 
           .wireGuardButton {

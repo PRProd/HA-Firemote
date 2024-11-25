@@ -48,6 +48,14 @@ const devices = {
         "hdmiInputs": 4,
         "tuner": true,
       },
+      "fire_tv_xiaomi_f202922": {
+        "supported": false,
+        "friendlyName": "Xiaomi F2 4K ‐ Fire TV (2022)",
+        "defaultEventListenerBinPath": "/dev/input/event0",
+        "defaultRemoteStyle": "AFXF2",
+        "hdmiInputs": 4,
+        "tuner": true,
+      },
     },
 
     "Fire TV Cube": {

@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.1.3';
+const HAFiremoteVersion = 'v4.1.4';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.3";
-import {rosettaStone} from './language-translations.js?version=v4.1.3';
-import {devices} from './supported-devices.js?version=v4.1.3';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.4";
+import {rosettaStone} from './language-translations.js?version=v4.1.4';
+import {devices} from './supported-devices.js?version=v4.1.4';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
@@ -30,10 +30,10 @@ const translationmap = new Map(Object.entries(rosettaStone));
 
 
 // Set the max number of app launcher buttons for each remote style
-const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AR1": 10, "AR2":   8, "AR3":  8, "CC1":  8,
-                       "CC2":  8, "CC3":  8, "NS2":  6, "ON1":   8, "ON2":  8, "RVRP": 10, "RHR": 10, "RTR":  8,
-                       "RWR": 10, "RVR": 10, "RSR": 10, "XM1":  10, "XM2": 10, "HO1":   6, "HO2":  8, "HO3":  6,
-                       "HO4":  6, "AL1": appmap.size, "AL2": appmap.size,};
+const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AFXF2": 6, "AR1": 10, "AR2":   8, "AR3":  8,
+                       "CC1":  8, "CC2":  8, "CC3":  8, "NS2":   6, "ON1":   8, "ON2":  8, "RVRP": 10, "RHR": 10,
+                       "RTR":  8, "RWR": 10, "RVR": 10, "RSR":  10, "XM1":  10, "XM2": 10, "HO1":   6, "HO2":  8,
+                       "HO3":  6, "HO4":  6, "AL1": appmap.size,  "AL2": appmap.size,};
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
@@ -229,6 +229,7 @@ class FiremoteCard extends LitElement {
         return calculateMasonryViewHeight(750.45, scale);
         break;
       case "AFJTV":
+      case "AFXF2":
         return calculateMasonryViewHeight(873.02, scale);
         break;
       case "AR1":
@@ -316,6 +317,7 @@ class FiremoteCard extends LitElement {
         }
         break;
       case "AFJTV":
+      case "AFXF2":
         return {
           grid_rows: calculateLayoutCellHeight(873.02, scale),
           grid_columns: calculateLayoutCellWidth(193.97, scale),
@@ -1992,7 +1994,8 @@ class FiremoteCard extends LitElement {
           }
 
           .AF6 .deviceNameTop,
-          .AFJTV .deviceNameTop{
+          .AFJTV .deviceNameTop,
+          .AFXF2 .deviceNameTop{
             grid-column: 1 / 4;
             display: block;
             text-align: center;
@@ -2159,7 +2162,8 @@ class FiremoteCard extends LitElement {
             z-index: 2;
           }
 
-          .AFJTV #tv-button {
+          .AFJTV #tv-button,
+          .AFXF2 #tv-button{
             font-size: calc(var(--sz) * 0.8rem);
             font-weight: 600;
           }
@@ -2170,21 +2174,24 @@ class FiremoteCard extends LitElement {
             margin: calc(var(--sz) * 0.5rem) 0 calc(var(--sz) * 4.5rem) 0;;
           }
 
-          .AFJTV div.colorButtons button {
+          .AFJTV div.colorButtons button,
+          .AFXF2 div.colorButtons button{
             border-radius: 100%;
             overflow: hidden;
             height: calc(var(--sz) * 2.3rem);
             width: calc(var(--sz) * 2.3rem);
           }
 
-          .AFJTV div.colorButtons button svg{
+          .AFJTV div.colorButtons button svg,
+          .AFXF2 div.colorButtons button svg {
             height: calc(var(--sz) * 1.1rem);
             width: calc(var(--sz) * 1.1rem);
             filter: brightness(0.8) saturate(0.8);
             pointer-events: none;
           }
 
-          .AFJTV div.colorButtons button:active svg{
+          .AFJTV div.colorButtons button:active svg,
+          .AFXF2 div.colorButtons button:active svg{
             filter: none;
             transform: scale(0.85)
           }
@@ -2199,6 +2206,19 @@ class FiremoteCard extends LitElement {
 
           .AFJTV .jvcbrandlogo svg {
             width: calc(var(--sz) * 5rem);
+            height: auto;
+          }
+
+          .AFXF2 .xf2brandlogo {
+             height: 0;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             margin-top: calc(var(--sz) * -1.5rem);
+          }
+
+          .AFXF2 .xf2brandlogo svg {
+            width: calc(var(--sz) * 7rem);
             height: auto;
           }
 
@@ -3649,7 +3669,7 @@ class FiremoteCard extends LitElement {
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'apple-tv');
             appLaunchButtons.set("confBtn4", config.app_launch_4 || 'hulu');
         }
-        else if(['AFJTV'].includes(displayedRemote)) {
+        else if(['AFJTV', 'AFXF2'].includes(displayedRemote)) {
             appLaunchButtons.set("confBtn1", config.app_launch_1 || 'prime-video');
             appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
             appLaunchButtons.set("confBtn3", config.app_launch_3 || 'disney-plus');
@@ -4334,14 +4354,29 @@ class FiremoteCard extends LitElement {
     `;
     }
 
-    // Render Amazon Fire Remote Style AFJTV
-    if ( getDeviceAttribute('defaultRemoteStyle') == 'AFJTV' ) {
+    // Render Amazon Fire Remote Style AFJTV or AFXF2
+    function renderBrandLogo(style) {
+      if (style == 'AFJTV') {
+        return html`
+                <div class="three-col-span jvcbrandlogo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="936" height="372" viewBox="0 0 936 372" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#adadad" fill-rule="nonzero"><path d="M421 368h101L638 3h-91l-76 237L396 3h-92zm514-81v-61h-87v61H741V83h107v61h87V67h0c0-8-1-16-2-24-3-21-21-38-42-42-7-1-15-1-22-1H721c-8 0-15 0-22 1-21 4-39 21-42 42-1 8-2 16-2 24v236c0 8 1 16 2 24 3 22 21 38 42 42 7 1 14 1 22 1h148c7 0 15 0 22-1 21-4 39-20 42-42 1-8 2-16 2-24h0zM0 288v-70h86v70h108V3h86v301c0 8-1 15-2 23-3 22-21 39-42 42-7 1-15 1-22 1H66c-8 0-15 0-22-1-21-3-39-20-42-42-1-8-2-15-2-23h0zm0 0"/></svg>
+          </div>`;
+      }
+      if (style == 'AFXF2') {
+        return html`
+          <div class="three-col-span xf2brandlogo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="969" height="577" viewBox="0 0 969 577" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M541 1c-19 0-38 3-50 14-13 12-17 30-17 53 0 22 4 39 16 51s32 15 51 15 39-2 51-14 17-30 17-52c0-23-5-40-17-52S560 1 541 1zm29 98c-6 8-19 9-29 9s-22-1-29-9c-7-7-7-18-7-31 0-14 0-24 7-32s18-9 29-9c12 0 23 1 29 9 7 8 8 18 8 32 0 13-1 24-8 31zM275 3h-27c-1 0-2 1-2 1s-1 1-1 2v124l1 1c0 1 1 1 2 1h27c1 0 2-1 2-2V6c0-2-1-3-2-3zM160 67l49-60V5c0-1-1-2-2-2h-35l-2 2-32 42-31-42c0-1-1-2-2-2H70c-1 0-1 1-2 2v2l49 61-49 61v2c1 0 1 1 2 1h35c1 0 2-1 2-1l33-43 31 43s1 1 2 1h34c1 0 2-1 2-1v-2zm663-54C812 3 794 1 780 1c-19 0-31 4-38 8h-5c-7-4-19-8-39-8-14 0-32 1-43 11-9 7-11 17-11 38v80l1 1 1 1h28l1-1c1 0 1-1 1-1V64c0-12-1-24 2-29 2-3 5-7 20-7 17 0 22 1 24 9 1 2 1 5 1 7v86l1 1s1 1 2 1h27l1-1c1 0 1-1 1-1V44c0-2 0-5 1-7 3-8 7-9 25-9 14 0 18 4 19 7 3 5 3 17 3 29v66 1c1 1 1 1 2 1h27c1 0 2-1 2-2V55c0-22-1-33-11-42zm-390 7C420 3 397-2 374-1c-16 1-31 3-45 8-3 1-2 3-3 5v21c0 2 3 3 5 2 12-4 25-7 38-9 14-1 33 0 38 8 2 4 2 10 3 16-12-1-23-2-35-1-10 0-29 1-40 7-9 5-15 9-17 17-3 7-3 14-3 22 2 15 7 22 14 27 11 8 25 12 54 12 38-1 48-13 53-22 9-15 7-39 7-53 0-6-1-26-10-39zm-25 79c-4 7-17 9-24 9-14 0-25 0-31-3-5-3-8-8-8-13-1-5-1-8 2-10 5-7 18-8 31-9 11 0 22 1 32 2 0 10 0 20-2 24zM907 3h-28l-1 1c-1 0-1 1-1 2v124s0 1 1 1c0 1 1 1 1 1h28s1 0 1-1l1-1V6c0-1-1-2-1-2l-1-1z" stroke="none" fill="#000" fill-rule="nonzero"/><path fill="none" d="M4 210h960" stroke-width="9"/><path d="M667 497c6 7-6 38-12 52-1 4 2 6 6 2 24-20 31-63 26-69s-48-12-74 7c-4 2-4 6 1 6 15-2 47-6 53 2m-19 21c-45 34-112 52-169 52-80 0-152-30-206-79-4-4-1-9 4-6 59 34 132 55 207 55 51 0 106-11 158-32 7-4 14 5 6 10m45-70c-1 1-3 0-4 0-1-1-2-3-3-5l-38-97c-1-1-1-2-2-2v-3c0-2 1-3 3-3h13c2 0 4 1 5 1 0 1 1 2 2 5l30 85 30-85c1-3 2-4 3-5 1 0 3-1 4-1h12c2 0 4 1 4 3 0 1-1 2-1 3 0 0-1 1-1 2l-38 97c-1 2-2 4-3 5-2 0-3 1-5 0zm-80 2c-21 0-31-10-31-31v-64h-16c-3 0-4-1-4-4v-6c0-1 0-2 1-3 0 0 2-1 4-1l15-2 3-27c1-3 2-4 5-4h9c3 0 4 1 4 4v26h29c2 0 4 2 4 5v8c0 3-2 4-4 4h-29v63c0 5 1 9 4 11 2 3 6 4 12 4 3 0 6-1 10-1 3-1 4-1 5-1s2 0 2 1c1 0 1 2 1 3v6c0 1 0 3-1 4s-2 2-4 2c-6 2-13 3-19 3m-104-66c0-1 1-3 1-6a32.21 32.21 0 0 0-7-20c-4-4-10-6-18-6-9 0-16 2-21 8-5 5-8 13-9 24zm-21 68c-17 0-31-5-40-15s-14-24-14-43 5-33 14-43 22-16 38-16c14 0 25 4 32 12s11 19 11 33c0 5 0 9-1 14 0 2-1 3-1 4h-4-68c0 13 4 22 9 28 6 6 15 9 28 9 4 0 8 0 12-1 5-1 10-2 15-4h3c1-1 1-1 2-1 2 0 3 2 3 4v6c0 2-1 3-1 4-1 1-2 2-4 3-5 2-10 3-15 4-6 1-12 2-19 2m-120-3c-3 0-4-2-4-5V343c0-3 1-4 4-4h10c1 0 2 0 3 1 1 0 2 1 2 3l1 12c4-4 8-8 11-10 7-5 15-7 23-7h5c3 0 4 2 4 4v12c0 2-1 4-4 4-1 0-2-1-4-1h-4c-11 0-21 4-30 11v76c0 3-1 5-4 5zm-49 0c-3 0-5-2-5-5V343c0-3 2-4 5-4h12c3 0 5 1 5 4v101c0 3-2 5-5 5zm6-130c-4 0-7-1-10-3-2-3-4-6-3-10 0-4 1-7 3-9 3-3 6-4 10-4s8 1 10 4c2 2 3 5 3 9 1 4-1 7-3 10-3 2-6 3-10 3m-80 130c-3 0-5-2-5-5v-88h-16c-3 0-4-2-4-5v-5c0-2 0-3 1-3 1-1 2-2 4-2l15-2v-18c0-24 12-36 35-36 6 0 11 1 18 2 1 1 2 1 3 2s1 3 1 5v6c0 2-1 4-3 4s-4-1-6-1-5-1-8-1c-7 0-11 2-14 4-3 3-4 7-4 13v20h29c3 0 5 1 5 4v8c0 3-2 5-5 5h-29v88c0 3-2 5-4 5z" stroke="none" fill="#000" fill-rule="nonzero"/></svg>
+          </div>`;
+      }
+    }
+
+    if ( getDeviceAttribute('defaultRemoteStyle') == 'AFJTV' ||  getDeviceAttribute('defaultRemoteStyle') == 'AFXF2') {
     return html`
       <ha-card>
 
       ${cssVars}
 
-      <div class="remote-body AFJTV">
+      <div class="remote-body ${getDeviceAttribute('defaultRemoteStyle')}">
 
           ${drawDeviceName(this, this._config, 'top')}
 
@@ -4440,9 +4475,7 @@ class FiremoteCard extends LitElement {
               </button>
           </div>
 
-          <div class="three-col-span jvcbrandlogo">
-              <svg xmlns="http://www.w3.org/2000/svg" width="936" height="372" viewBox="0 0 936 372" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#adadad" fill-rule="nonzero"><path d="M421 368h101L638 3h-91l-76 237L396 3h-92zm514-81v-61h-87v61H741V83h107v61h87V67h0c0-8-1-16-2-24-3-21-21-38-42-42-7-1-15-1-22-1H721c-8 0-15 0-22 1-21 4-39 21-42 42-1 8-2 16-2 24v236c0 8 1 16 2 24 3 22 21 38 42 42 7 1 14 1 22 1h148c7 0 15 0 22-1 21-4 39-20 42-42 1-8 2-16 2-24h0zM0 288v-70h86v70h108V3h86v301c0 8-1 15-2 23-3 22-21 39-42 42-7 1-15 1-22 1H66c-8 0-15 0-22-1-21-3-39-20-42-42-1-8-2-15-2-23h0zm0 0"/></svg>
-          </div>
+          ${renderBrandLogo(getDeviceAttribute('defaultRemoteStyle'))}
 
           ${drawDeviceName(this, this._config, 'bottom')}
           ${drawFiremoteVersionNumber(this, this._config)}
@@ -8464,6 +8497,7 @@ class FiremoteCardEditor extends LitElement {
           <option value="AF5">Amazon Fire ${this.translateToUsrLang('style')} 5</option>
           <option value="AF6">Amazon Fire ${this.translateToUsrLang('style')} 6</option>
           <option value="AFJTV">Amazon Fire JVC TV</option>
+          <option value="AFXF2">Amazon Fire Xiaomi F2</option>
           <option value="AR1">Apple TV ${this.translateToUsrLang('remote style')} 1</option>
           <option value="AR2">Apple TV ${this.translateToUsrLang('remote style')} 2</option>
           <option value="AR3">Apple TV ${this.translateToUsrLang('remote style')} 3</option>
