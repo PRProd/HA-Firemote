@@ -237,6 +237,12 @@ const devices = {
 
     "noCategory": {
 
+      "chromecast-streamer": {
+        "supported": true,
+        "friendlyName": "Google TV Streamer",
+        "defaultRemoteStyle": "CC4",
+        "hdmiInputs": 0,
+      },
       "chromecast-4k": {
         "supported": true,
         "friendlyName": "Chromecast 4K",

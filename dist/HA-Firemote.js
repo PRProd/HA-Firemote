@@ -30,10 +30,16 @@ const translationmap = new Map(Object.entries(rosettaStone));
 
 
 // Set the max number of app launcher buttons for each remote style
-const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AFXF2": 6, "AR1": 10, "AR2":   8, "AR3":  8,
-                       "CC1":  8, "CC2":  8, "CC3":  8, "NS2":   6, "ON1":   8, "ON2":  8, "RVRP": 10, "RHR": 10,
-                       "RTR":  8, "RWR": 10, "RVR": 10, "RSR":  10, "XM1":  10, "XM2": 10, "HO1":   6, "HO2":  8,
-                       "HO3":  6, "HO4":  6, "AL1": appmap.size,  "AL2": appmap.size,};
+const appButtonMax = { "AF4":  6, "AF5":  6, "AF6":  6, "AFJTV": 6, "AFXF2": 6, 
+  "AL1": appmap.size, "AL2": appmap.size,
+  "AR1": 10, "AR2": 8, "AR3": 8, 
+  "CC1": 8, "CC2": 8, "CC3": 8, "CC4": 8, 
+  "HO1": 6, "HO2": 8, "HO3": 6, "HO4": 6,
+  "NS2": 6, 
+  "ON1": 8, "ON2": 8,
+  "RVRP": 10, "RHR": 10, "RTR": 8, "RWR": 10, "RVR": 10, "RSR": 10,
+  "XM1": 10, "XM2": 10,
+ };
 
 
 function deviceAttributeQuery(deviceAttribute, configvar){
@@ -244,6 +250,7 @@ class FiremoteCard extends LitElement {
       case "CC1":
       case "CC2":
       case "CC3":
+      case "CC4":
         return calculateMasonryViewHeight(696.66, scale);
         break;
       case "NS1":
@@ -344,6 +351,7 @@ class FiremoteCard extends LitElement {
       case "CC1":
       case "CC2":
       case "CC3":
+      case "CC4":
         return {
           grid_rows: calculateLayoutCellHeight(696.66, scale),
           grid_columns: calculateLayoutCellWidth(203.36, scale),
@@ -1269,6 +1277,54 @@ class FiremoteCard extends LitElement {
             color: #fff;
           }
 
+          .chromecast-overflow-container {
+            max-height: calc(var(--sz) * 4.2rem);
+            max-width: calc(var(--sz) * 4.2rem);
+          }
+
+          .chromecast-overflow-container > .overlow-down {
+            border-radius: 100% 100% 0% 0%;
+            height: calc(var(--sz) * 4.2rem + var(--sz) * 0.3rem);
+            border-bottom-style: none;
+          }
+
+          .chromecast-overflow-container > .overlow-up {
+            border-radius: 0% 0% 100% 100%;
+            height: calc(var(--sz) * 4.2rem + var(--sz) * 0.3rem);
+            border-top-style: none;
+            margin-top: calc(var(--sz) * -0.3rem);
+          }
+
+          .chromecast-overflow-container > .overlow-left {
+            border-radius: 0% 100% 100% 0%;
+            width: calc(var(--sz) * 4.2rem + var(--sz) * 1.2rem);
+            border-left-style: none;
+            margin-left: calc(var(--sz) * -1.2rem);
+          }
+
+          .chromecast-overflow-container > .overlow-right {
+            border-radius: 100% 0% 0% 100%;
+            width: calc(var(--sz) * 4.2rem + var(--sz) * 1.2rem);
+            border-right-style: none;
+          }
+          
+          /*.chromecast-remote-body.CC4 #volume-up-button {
+            border-radius: 100% 100% 0% 0%;
+            height: calc(var(--sz) * 4.2rem + var(--sz) * 0.3rem);
+            border-bottom-style: none;
+          }
+
+          .chromecast-remote-body.CC4 #volume-down-button {
+            border-radius: 0% 0% 100% 100%;
+            height: calc(var(--sz) * 4.2rem + var(--sz) * 0.3rem);
+            border-top-style: none;
+            margin-top: calc(var(--sz) * -0.3rem);
+          }*/
+
+          .chromecast-remote-body.CC4 #magic-star-button > ha-icon {
+            transform: scale(calc(var(--sz)* 0.75));
+          }
+
           .apple-remote-body .srcButton {
             border: solid #bfbfbf calc(var(--sz) * 0.02em);
             height: calc(var(--sz) * 4.75rem);
@@ -1507,6 +1563,7 @@ class FiremoteCard extends LitElement {
           }
 
           .chromecast-remote-body.CC1 .dpadbutton,
+          .chromecast-remote-body.CC4 .dpadbutton,
           .CC .dpadbutton {
             background: #fff;
             outline: solid #c5c5c5 calc(var(--sz) * 0.0714rem);
@@ -3516,7 +3573,7 @@ class FiremoteCard extends LitElement {
                             .AL2 .appLauncherAppsContainer {
                               --sz: calc(${launcherscale} * 2);
                             }
-                            .CC1, .CC2, .CC3 {
+                            .CC1, .CC2, .CC3, .CC4 {
                               --sz: calc(${scale} * 1.2);
                             }
                             .ALControlsContainer{
@@ -3633,7 +3690,7 @@ class FiremoteCard extends LitElement {
         else if(['AR1', 'AR2', 'AR3', 'apple-tv'].includes(displayedRemote)) {
             buttonStyle = 'button-round';
         }
-        else if(['CC1', 'CC2', 'CC3', 'chromecast'].includes(displayedRemote)) {
+        else if(['CC1', 'CC2', 'CC3', 'CC4', 'chromecast'].includes(displayedRemote)) {
             appLaunchButtons.set("confBtn1", config.app_launch_1 || 'youtube');
             appLaunchButtons.set("confBtn2", config.app_launch_2 || 'netflix');
             buttonStyle = 'button-round';
@@ -3690,7 +3747,7 @@ class FiremoteCard extends LitElement {
 
 
         // Return button HTML
-        if(['CC1', 'CC2', 'CC3', 'AR1', 'AR2', 'AR3'].includes(config.defaultRemoteStyle_override) || (['apple-tv', 'chromecast'].includes(config.device_family) && !(config.defaultRemoteStyle_override))) {
+        if(['CC1', 'CC2', 'CC3', 'CC4', 'AR1', 'AR2', 'AR3'].includes(config.defaultRemoteStyle_override) || (['apple-tv', 'chromecast'].includes(config.device_family) && !(config.defaultRemoteStyle_override))) {
           return html `
             ${ Array.from(appLaunchButtons.keys()).map(key => {
               var val = appLaunchButtons.get(key);
@@ -5368,7 +5425,6 @@ class FiremoteCard extends LitElement {
 
           ${drawMediaControlButtons(this, this._config)}
 
-
           ${drawAppLaunchButtons(this, this._config, 2, appButtonMax[getDeviceAttribute('defaultRemoteStyle')])}
 
           <div class="chromecastBottomIndentedRow">
@@ -5399,6 +5455,77 @@ class FiremoteCard extends LitElement {
     `;
     }
 
+
+
+    // Render Chromecast 4 (Google Streamer)
+      if ( ['CC4'].includes(getDeviceAttribute('defaultRemoteStyle'))) {
+        return html`
+          <ha-card>
+    
+          ${cssVars}
+    
+          <div class="chromecast-remote-body ${getDeviceAttribute('defaultRemoteStyle')}">
+              ${drawDeviceName(this, this._config, 'top')}
+    
+              <div class="dpadContainer">
+                <button class="centerbutton" id="center-button" @pointerdown=${this.buttonDown}> </button>
+                <div class="directionButtonContainer">
+                  <button class="dpadbutton" id="up-button" @pointerdown=${this.buttonDown}></button>
+                  <button class="dpadbutton" id="right-button" @pointerdown=${this.buttonDown}></button>
+                  <button class="dpadbutton" id="left-button" @pointerdown=${this.buttonDown}></button>
+                  <button class="dpadbutton" id="down-button" @pointerdown=${this.buttonDown}></button>
+                </div>
+              </div>
+    
+              <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
+                <ha-icon icon="mdi:arrow-left"></ha-icon>
+              </button>
+              <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
+                <ha-icon icon="mdi:home"></ha-icon>
+              </button>
+
+              <button class="remote-button keyboard-button" id="keyboard-button" @pointerdown=${this.buttonDown}>
+                <ha-icon icon="mdi:keyboard-outline"></ha-icon>
+              </button>
+
+              <div class="chromecast-overflow-container">
+                <button class="remote-button overlow-down" id="volume-up-button" @pointerdown=${this.buttonDown}>
+                  <ha-icon icon="mdi:plus"></ha-icon>
+                </button>
+              </div>
+    
+              <button class="remote-button" id="mute-button" @pointerdown=${this.buttonDown}>
+                <ha-icon icon="mdi:volume-mute"></ha-icon>
+              </button>
+    
+              <div class="chromecast-overflow-container">
+                <button class="remote-button overlow-up" id="volume-down-button" @pointerdown=${this.buttonDown}>
+                  <ha-icon icon="mdi:minus"></ha-icon>
+                </button>
+              </div>
+              
+              ${drawMediaControlButtons(this, this._config)}
+    
+              ${drawAppLaunchButtons(this, this._config, 2, appButtonMax[getDeviceAttribute('defaultRemoteStyle')])}
+    
+              <div class="chromecastBottomIndentedRow">
+                <button class="remote-button${powerStatusClass}" id="power-button" @pointerdown=${this.buttonDown}>
+                  <ha-icon icon="mdi:power"></ha-icon>
+                </button>
+                <div class="notch"> </div>
+                <button class="remote-button" id="magic-star-button" @pointerdown=${this.buttonDown}>
+                  <ha-icon icon="mdi:star"></ha-icon>
+                </button>
+              </div>
+    
+              ${drawDeviceName(this, this._config, 'bottom')}
+              ${drawFiremoteVersionNumber(this, this._config)}
+    
+          </div>
+    
+          </ha-card>
+        `;
+      }
 
     // Render Apple TV Remote - Style 1
     if ( getDeviceAttribute('defaultRemoteStyle') == 'AR1' ) {
@@ -6109,10 +6236,9 @@ class FiremoteCard extends LitElement {
         }
 
 
-
         // Magic Button / Star Button (Google TV / onn pro) Click
         if(buttonID == 'magic-star-button' && actionType == 'click') {
-          if (deviceType == 'onn-streaming-device-4k-pro') {
+          if (['chromecast-streamer', 'onn-streaming-device-4k-pro'].includes(deviceType)) {
             _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent 313' });
             return;
           }
@@ -6123,7 +6249,7 @@ class FiremoteCard extends LitElement {
         };
         // Magic Button / Star Button (Google TV / onn pro) Hold
         if(buttonID == 'magic-star-button' && actionType == 'hold') {
-          if (deviceType == 'onn-streaming-device-4k-pro') {
+          if (['chromecast-streamer', 'onn-streaming-device-4k-pro'].includes(deviceType)) {
             _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent --longpress 313' });
             return;
           }
@@ -6687,7 +6813,7 @@ class FiremoteCard extends LitElement {
           // no special behavior noticed for Roku
           if(deviceFamily == 'amazon-fire') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent SETTINGS' });
-          }
+          } // TODO: check if home button hold works
           else if(['chromecast', 'onn'].includes(deviceFamily)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 83' });
           }
@@ -8406,7 +8532,7 @@ class FiremoteCardEditor extends LitElement {
   }
 
   getChromecastMediaControls(remoteStyle) {
-    if (['CC1', 'CC2', 'CC3'].includes(remoteStyle)) {
+    if (['CC1', 'CC2', 'CC3', 'CC4'].includes(remoteStyle)) {
         return html`
           <label for="showMediaControlsCheckbox">
             <input type="checkbox" id="showMediaControlsCheckbox" name="show_media_controls"
@@ -8504,6 +8630,7 @@ class FiremoteCardEditor extends LitElement {
           <option value="CC1">Chromecast (snow)</option>
           <option value="CC2">Chromecast (sky)</option>
           <option value="CC3">Chromecast (sunrise)</option>
+          <option value="CC4">Google TV Streamer</option>
           <option value="HO1">Homatics ${this.translateToUsrLang('style')} 1</option>
           <option value="HO2">Homatics ${this.translateToUsrLang('style')} 2</option>
           <option value="HO3">Homatics ${this.translateToUsrLang('style')} 3</option>
