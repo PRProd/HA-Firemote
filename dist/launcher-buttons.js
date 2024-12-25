@@ -2105,7 +2105,7 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start -n com.collegehumor.chdropout/tv.vhx.tv.home.TvHomeActivity",
       },
       "roku": {
-          "appName": 'DROPOUT',
+          "appName": 'Dropout',
           "app-id": 253232,
       },
       "xiaomi": {
