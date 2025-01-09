@@ -1,9 +1,9 @@
-const HAFiremoteVersion = 'v4.1.7';
+const HAFiremoteVersion = 'v4.1.8';
 
 import {LitElement, html, css, unsafeHTML, unsafeCSS, styleMap} from './lit/lit-all.min.js';
-import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.7";
-import {rosettaStone} from './language-translations.js?version=v4.1.7';
-import {devices} from './supported-devices.js?version=v4.1.7';
+import {launcherData, launcherCSS} from "./launcher-buttons.js?version=v4.1.8";
+import {rosettaStone} from './language-translations.js?version=v4.1.8';
+import {devices} from './supported-devices.js?version=v4.1.8';
 
 console.groupCollapsed("%c 🔥 FIREMOTE-CARD 🔥 %c "+HAFiremoteVersion+" installed ", "color: orange; font-weight: bold; background: black", "color: green; font-weight: bold;"),
 console.log("Readme:", "https://github.com/PRProd/HA-Firemote"),
