@@ -1945,6 +1945,9 @@ const launcherData = {
           "androidName": 'com.directv.dtvlatam',
           "adbLaunchCommand": "adb shell am start -n com.directv.dtvlatam/com.directvgo.feature.tv.splash.SplashActivity"
       },
+      "apple-tv": {
+          "appName": "DGO",
+      },
       "chromecast": {
           "appName": 'com.directv.dtvlatam',
           "androidName": 'com.directv.dtvlatam',
