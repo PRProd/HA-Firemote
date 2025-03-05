@@ -4745,10 +4745,10 @@ class FiremoteCard extends LitElement {
 
 
           <button class="remote-button" id="back-button" @pointerdown=${this.buttonDown}>
-            <ha-icon icon="mdi:menu-left"></ha-icon>
+            <ha-icon icon="mdi:menu-left" style="transform: scale(1.5, 0.9);"></ha-icon>
           </button>
           <button class="remote-button${homeStatusClass}" id="home-button" @pointerdown=${this.buttonDown}>
-            <ha-icon icon="mdi:circle"></ha-icon>
+            <ha-icon icon="mdi:circle" style="margin-left: 2px;"></ha-icon>
           </button>
 
           <button class="remote-button" id="fastforward-button" @pointerdown=${this.buttonDown}>
