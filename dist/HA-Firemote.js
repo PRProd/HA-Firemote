@@ -1591,7 +1591,9 @@ class FiremoteCard extends LitElement {
             outline: none;
           }
 
-          .dpadbuttonShield:hover,
+          .dpadbuttonShield:hover {
+            background: rgb(30, 30, 30);
+          }
           .dpadbuttonShield:active {
             background: rgb(25, 25, 25);
           }
