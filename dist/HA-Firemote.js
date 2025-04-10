@@ -1495,15 +1495,18 @@ class FiremoteCard extends LitElement {
           .XM2 .dpadbutton,
           .XM .dpadbutton {
             background: rgb(28 28 28);
-            border: solid rgb(15 15 15) calc(var(--sz) * 0.03rem);
             outline: none;
             box-sizing: border-box;
+          }
+
+          .XM2 .dpadbutton:hover,
+          .XM .dpadbutton:hover {
+            background: rgb(34, 34, 34);
           }
 
           .XM2 .dpadbutton:active,
           .XM .dpadbutton:active {
             background: rgb(24 24 24);
-            border: solid #000 calc(var(--sz) * 0.15rem);
           }
 
           .chromecast-remote-body.CC1 .dpadbutton,
