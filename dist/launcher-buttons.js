@@ -7054,6 +7054,18 @@ const launcherData = {
       },
   },
 
+  "screenmirror": {
+      "button": '<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M2 20.01L2.01 19.9989" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path d="M15 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4H4C2.89543 4 2 4.89543 2 6V7" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path d="M2 16C4 16.5 5.5 18 6 20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path d="M2 12C6 12.5 9.5 16 10 20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00195 7.63027C5.00195 7.2989 5.27058 7.03027 5.60195 7.03027H18.4059C18.7372 7.03027 19.0059 7.2989 19.0059 7.63027V16.462C19.0059 16.7934 18.7372 17.062 18.4059 17.062H13.4413C13.2029 17.062 12.9876 16.9226 12.8854 16.7072C12.4625 15.815 11.2633 13.4465 9.81567 12C8.39582 10.5813 6.24338 9.55638 5.37987 9.17985C5.15312 9.08097 5.00195 8.85869 5.00195 8.61131V7.63027Z" fill="#000" style=""/> </svg>',
+      "button-round": '<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M2 20.01L2.01 19.9989" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path d="M15 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4H4C2.89543 4 2 4.89543 2 6V7" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path d="M2 16C4 16.5 5.5 18 6 20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path d="M2 12C6 12.5 9.5 16 10 20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style=""/> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00195 7.63027C5.00195 7.2989 5.27058 7.03027 5.60195 7.03027H18.4059C18.7372 7.03027 19.0059 7.2989 19.0059 7.63027V16.462C19.0059 16.7934 18.7372 17.062 18.4059 17.062H13.4413C13.2029 17.062 12.9876 16.9226 12.8854 16.7072C12.4625 15.815 11.2633 13.4465 9.81567 12C8.39582 10.5813 6.24338 9.55638 5.37987 9.17985C5.15312 9.08097 5.00195 8.85869 5.00195 8.61131V7.63027Z" fill="#000" style=""/> </svg>',
+      "friendlyName": "Screen Mirror",
+      "className": "screenMirrorButton",
+      "deviceFamily": ["amazon-fire"],
+      "amazon-fire": {
+          "appName": "com.amazon.cast.sink",
+          "androidName": "com.amazon.cast.sink",
+          "adbLaunchCommand": "adb shell am start -n com.amazon.cast.sink/.DisplayMirroringSinkActivity",
+      },
+  },
 
   "seasons4u": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1915" height="795" viewBox="0 0 1915 795" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="ZGA2" x1="100%" y1="50%" x2="0%" y2="50%"><stop offset="50%" stop-color="#ffc61b"/><stop offset="50%" stop-color="#fee187"/></linearGradient><linearGradient id="lOI7" x1="100%" y1="50%" x2="0%" y2="50%"><stop offset="50%" stop-color="#eaa22f"/><stop offset="50%" stop-color="#ffc61b"/></linearGradient><linearGradient id="sUy8" x1="100%" y1="50%" x2="0%" y2="50%"><stop offset="50%" stop-color="#c92f00"/><stop offset="50%" stop-color="#ff5419"/></linearGradient></defs><g stroke="none"><circle cx="1518" cy="398" fill="#263a7a" r="398"/><path d="M1562 792c183-20 327-163 350-344l-225-225-347 347z" fill="#121149"/><rect fill="url(#ZGA2)" height="350" rx="10" width="350" x="1340" y="225"/><path fill="url(#lOI7)" d="M1340 220h350v98h-350z"/><path fill="#ff5419" d="M1388 190h35v70h-35z"/><path fill="#c92f00" d="M1602 190h35v70h-35z"/></g><path d="M 1443 440 L 1478 475 L 1586 367" fill="none" stroke="url(#sUy8)" stroke-width="30"/><path d="M142 629q-44 0-81-12-36-12-61-31l29-49q22 18 49 30 27 11 64 11 43 0 69-18 25-18 25-49 0-17-7-31-7-14-28-27-21-13-62-28-43-17-69-34-26-17-38-40-11-22-11-52 0-30 17-55 17-24 49-39 32-15 78-15 38 0 68 8 30 7 58 21l-21 49q-20-12-48-20-28-8-58-8-40 0-63 15-23 16-23 41 0 16 7 28 6 12 26 24 20 11 59 26 48 17 75 37 28 19 39 42 12 22 12 51 0 40-20 68-20 28-54 42-35 15-80 15zm404-8v-90H365v-44l126-294 48 20-115 268h122V361h54v120h51v50h-51v90h-54zm346 8q-73 0-115-44-42-44-42-125V197h57v254q0 61 25 94 25 33 75 33 51 0 77-32 25-32 25-95V197h56v261q0 53-20 92-19 38-55 58-35 21-83 21z" stroke="none" fill="#fff" fill-rule="nonzero"/></svg>',
@@ -11826,6 +11838,10 @@ const launcherCSS = `
           }
 
           .screenCloudButton {
+            background: #fff;
+          }
+
+          .screenMirrorButton {
             background: #fff;
           }
 
