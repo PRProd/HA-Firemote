@@ -227,6 +227,25 @@ const devices = {
 
   },
 
+  "bravia": {
+
+    "meta": {
+      "friendlyName": "Bravia",
+      "supported": true,
+    },
+
+    "noCategory": {
+
+      "bravia-tv": {
+        "supported": true,
+        "friendlyName": "Bravia TV",
+        "defaultRemoteStyle": "CC1",
+        "hdmiInputs": 4,
+      },
+
+    }
+
+  },
 
   "chromecast": {
 
