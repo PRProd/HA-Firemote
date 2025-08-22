@@ -5945,6 +5945,10 @@ class FiremoteCard extends LitElement {
         _hass.callService("remote", "send_command", data);
         return;
       }
+      if (typeof adbcommand == 'undefined'  && ['bravia'].includes(deviceFamily)) {
+        _hass.callService("media_player", "play_media", { entity_id: _config.entity, media_content_type: "app", media_content_id: sourceName});
+        return;
+      }
       if (typeof adbcommand == 'undefined') {
         _hass.callService("media_player", "select_source", { entity_id: _config.entity, source: sourceName});
         return;
