@@ -5999,6 +5999,43 @@ const launcherData = {
    },
 
 
+  "orf-on": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="280" viewBox="0 0 1000 280" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M615 260V20H55v240zM242 140c0 39-32 69-71 69-40 0-71-30-71-69s31-69 71-69c39 0 71 30 71 69zm138 20l33 47h-41l-26-39h-24v39h-33V73h68c30 0 49 21 49 47 0 18-10 33-26 40zm190-55h-76v25h62v32h-62v45h-32V73h108v32zm-196 15c0-8-5-15-19-15h-33v31h33c14 0 19-7 19-16zm-166 20c0-21-17-37-38-37-20 0-37 17-37 38 0 20 17 37 38 37 20-1 37-17 37-38zm731 70V68h-20v106L851 68h-17v142h19V103l69 107zm-158-16q16-20 16-55 0-35-16-55-17-19-45-19-28 0-45 19-17 20-17 55 0 35 17 55 17 19 45 19 28 0 45-19zm-5-55q0 28-11 42c-7 9-18 14-29 14-12 0-22-5-29-14q-11-14-11-42 0-28 11-42c7-8 17-13 29-13 11 0 22 5 29 13q11 14 11 42z"/></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="650" height="510" viewBox="0 0 650 510" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M605 280V40H45v240zM232 160c0 39-32 69-71 69-40 0-71-30-71-69s31-69 71-69c39 0 71 30 71 69zm138 20l33 47h-41l-26-39h-24v39h-33V93h68c30 0 49 21 49 47 0 18-10 33-26 40zm190-55h-76v25h62v32h-62v45h-32V93h108v32zm-196 15c0-8-5-15-19-15h-33v31h33c14 0 19-7 19-16zm-166 20c0-21-17-37-38-37-20 0-37 17-37 38 0 20 17 37 38 37 20-1 37-17 37-38zm257 310V328h-20v106l-68-106h-17v142h19V363l69 107zm-158-16q16-20 16-55 0-35-16-55-17-19-45-19-28 0-45 19-17 20-17 55 0 35 17 55 17 19 45 19 28 0 45-19zm-5-55q0 28-11 42c-7 9-18 14-29 14-12 0-22-5-29-14q-11-14-11-42 0-28 11-42c7-8 17-13 29-13 11 0 22 5 29 13q11 14 11 42z"/></svg>',
+      "friendlyName": "ORF ON",
+      "className": "orfOnButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "homatics", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.nousguide.android.tvthek.fire",
+          "androidName": "com.nousguide.android.tvthek.fire",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.tvthek.fire/com.nousguide.android.orftvthek.MainActivity",
+      },
+      "apple-tv": {
+          "appName": "ORF ON",
+      },
+      "homatics": {
+          "appName": "com.nousguide.android.orftvthek",
+          "androidName": "com.nousguide.android.orftvthek",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.orftvthek/.MainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.nousguide.android.orftvthek",
+          "androidName": "com.nousguide.android.orftvthek",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.orftvthek/.MainActivity",
+      },
+      "onn": {
+          "appName": "com.nousguide.android.orftvthek",
+          "androidName": "com.nousguide.android.orftvthek",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.orftvthek/.MainActivity",
+      },
+      "xiaomi": {
+          "appName": "com.nousguide.android.orftvthek",
+          "androidName": "com.nousguide.android.orftvthek",
+          "adbLaunchCommand": "adb shell am start -n com.nousguide.android.orftvthek/.MainActivity",
+      },
+   },
+
+
   "pandora": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 277.2 57"><path d="M186.4 17.4c6.1 0 11.1 5 11.1 11.1s-5 11.1-11.1 11.1-11.1-5-11.1-11.1c0-6.2 5-11.1 11.1-11.1m0-7.4c-10.2 0-18.5 8.3-18.5 18.5S176.2 47 186.4 47s18.5-8.3 18.5-18.5c0-10.3-8.3-18.5-18.5-18.5M71.6 11.1v3c-3.2-2.6-7.3-4.2-11.7-4.2-10.2 0-18.5 8.3-18.5 18.5s8.3 18.5 18.5 18.5c4.4 0 8.5-1.6 11.7-4.2v3h6.8V11.1h-6.8zM60.3 40c-6.4 0-11.5-5.2-11.5-11.5C48.8 22.1 54 17 60.3 17c6.4 0 11.5 5.2 11.5 11.5S66.6 40 60.3 40M260.1 11.1v3c-3.2-2.6-7.3-4.2-11.7-4.2-10.2 0-18.5 8.3-18.5 18.5s8.3 18.5 18.5 18.5c4.4 0 8.5-1.6 11.7-4.2v3h6.8V11.1h-6.8zM248.9 40c-6.4 0-11.5-5.2-11.5-11.5 0-6.4 5.2-11.5 11.5-11.5 6.4 0 11.5 5.2 11.5 11.5S255.2 40 248.9 40M217.1 13.3c-4 2.5-7.4 7-7.4 15v17.5h7.4V28.3c0-11.5 11.9-10.9 11.9-10.9V10c-.1 0-6.5-.2-11.9 3.3M113.6 13.7c-3.1-2.3-6.9-3.7-11.1-3.7-4.2 0-8 1.4-11.1 3.7-4.5 3.4-7.4 8.8-7.4 14.8v17.4h7.4V28.5c0-6.1 5-11.1 11.1-11.1s11.1 5 11.1 11.1V45.9h7.4V28.5c0-6.1-2.9-11.5-7.4-14.8M159.5 0c-1.9 0-3.4 1.5-3.4 3.4v10.7c-3.2-2.6-7.3-4.2-11.7-4.2-10.2 0-18.5 8.3-18.5 18.5s8.3 18.5 18.5 18.5c4.4 0 8.5-1.6 11.7-4.2v3h6.8V0h-3.4zm-14.7 40c-6.4 0-11.5-5.2-11.5-11.5 0-6.4 5.2-11.5 11.5-11.5 6.4 0 11.5 5.2 11.5 11.5.1 6.3-5.1 11.5-11.5 11.5M18.5 10c-4.4 0-8.5 1.6-11.7 4.2v-3H0V57h3.4c1.9 0 3.4-1.5 3.4-3.4V42.8C10 45.4 14.1 47 18.5 47 28.8 47 37 38.7 37 28.5 37 18.2 28.8 10 18.5 10m-.4 30c-6.4 0-11.5-5.2-11.5-11.5 0-6.4 5.2-11.5 11.5-11.5s11.5 5.2 11.5 11.5S24.5 40 18.1 40M273.8 11.1c-1.9 0-3.4-1.5-3.4-3.4s1.5-3.4 3.4-3.4 3.4 1.5 3.4 3.4-1.5 3.4-3.4 3.4m0-6.4c-1.7 0-3 1.3-3 3 0 1.6 1.3 3 3 3s3-1.4 3-3c0-1.7-1.4-3-3-3m.9 5-1-1.5h-.7v1.5h-.5V5.8h1.6c.7 0 1.2.5 1.2 1.2 0 .9-.8 1.2-1 1.2l1 1.6h-.6zm-.6-3.5H273v1.5h1.1c.3 0 .7-.3.7-.7 0-.5-.4-.8-.7-.8" style="fill:#fff;"/></svg>',
       "friendlyName": "Pandora",
@@ -11695,6 +11732,10 @@ const launcherCSS = `
 
           .oqeeButton {
             background: #161616;
+          }
+
+          .orfOnButton {
+            background: #1a1c20;
           }
 
           .pandoraButton {
