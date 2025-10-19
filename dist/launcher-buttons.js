@@ -4562,6 +4562,17 @@ const launcherData = {
       "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"], },
 
 
+  "legacy-tablo": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="450" height="450" viewBox="0 0 450 450" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><rect x="24" y="24" width="401" height="401" fill="#2c8cc4" rx="90"/><rect x="87" y="87" width="275" height="275" rx="25"/><path d="M152 293V158c0-20 23-30 39-25l114 66c24 12 19 41 3 51l-114 65c-15 10-42-3-42-22z" fill="#ec6c1c"/></svg>',
+      "friendlyName": 'Legacy Tablo',
+      "className": "legacyTabloButton",
+      "deviceFamily": ["apple-tv"],
+      "apple-tv": {
+          "appName": "Tablo",
+      },
+   },
+
+
   "live-channels": {
       "button": 'Live Channels',
       "friendlyName": "Live Channels",
@@ -11492,6 +11503,10 @@ const launcherCSS = `
 
           .lazymediaDeluxeButton {
             background: #1d821d;
+          }
+
+          .legacyTabloButton {
+            background: #fff;
           }
 
           .liveChannelsButton {
