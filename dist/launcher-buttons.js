@@ -6511,6 +6511,43 @@ const launcherData = {
    },
 
 
+ "proton-vpn": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="975" height="190" viewBox="0 0 975 190" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="B8wO" x1="90.43%" y1="94.08%" x2="26.08%" y2="-28.44%"><stop offset="6.60125%" stop-color="#8effee"/><stop offset="44.99%" stop-color="#c9c7ff"/><stop offset="100%" stop-color="#7341ff"/></linearGradient><linearGradient id="WBZO" x1="130.68%" y1="-178.47%" x2="6.31%" y2="120.59%"><stop offset="47.99%" stop-color="#6d4aff"/><stop offset="99.44%" stop-color="#00f0c3"/></linearGradient><path id="xPU2" d="M395 110c0-19 14-34 35-34 20 0 34 15 34 34s-14 34-34 34c-21 0-35-15-35-34zm52 0c0-11-7-19-17-19s-18 8-18 19 8 19 18 19 17-8 17-19z"/></defs><g stroke="none"><path d="M838 46h-45v98h18v-24c0-3 1-5 3-7 1-1 4-2 6-2h18c9 0 17-4 23-10s10-14 10-23c0-4-1-8-3-12-1-4-4-7-7-10s-6-6-10-8c-4-1-8-2-13-2zm14 32c0 2 0 4-1 6s-2 4-3 5c-2 1-3 3-5 3-2 1-4 1-6 1h-26V63h26c2 0 4 0 6 1s4 2 5 3c1 2 2 4 3 5 1 2 1 4 1 6zm-122 65l-36-98h20l24 70c1 3 2 5 2 8h0c1-3 1-5 2-8l24-70h21l-37 98zm147 0V45h16l46 61c2 2 3 4 4 7h1c-1-3-1-6-1-9V45h19v98h-16l-46-61c-2-2-4-4-5-6h0v8 59h-18z" fill="#6d4aff" class="V0xz" fill-rule="nonzero"/><g fill="#1b1340" class="V0xz" fill-rule="nonzero"><path d="M275 117v25h18v-24c0-3 1-5 2-6 2-2 4-3 6-3h19c8 0 16-3 22-9s9-15 9-23c0-9-3-17-9-23s-14-9-22-9h-45v32h18V62h25c4 0 8 1 11 4s4 7 4 11-1 8-4 10c-3 3-7 5-11 5h-18c-4 0-7 1-10 2s-5 3-8 5c-2 2-4 5-5 8s-2 6-2 10zm79 26v-39c0-16 9-28 27-28 3 0 6 0 9 1v16h-5c-9 0-13 4-13 13v37z"/><use href="#xPU2"/><use href="#xPU2" x="125"/><path d="M599 143v-37c0-18 11-30 30-30 20 0 31 12 31 30v37h-18v-36c0-10-4-16-13-16-8 0-12 6-12 16v36zm-84-52h-19v24c0 9 3 13 12 13h6v14c-4 1-7 1-11 1-14 0-24-8-24-25V91h-12V77h3c1 0 2 0 3-1 1 0 2-1 3-2 1 0 2-1 2-2 1-1 1-3 1-4V55h17v22h19v14z"/></g><path d="M78 165c7 13 26 14 34 1l78-118c8-12 0-29-15-30L23 0C6-2-5 15 3 30z" fill="url(#B8wO)" transform="translate(12 7)"/><path d="M94 160l7-11 52-79c5-7 0-16-8-17L15 38l67 121c3 4 9 5 12 1z" fill="url(#WBZO)" class="V0xz" fill-rule="nonzero"/></g></svg>',
+      "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="775" height="600" viewBox="0 0 775 600" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="KZnn" x1="90.43%" y1="94.08%" x2="26.08%" y2="-28.44%"><stop offset="6.60125%" stop-color="#8effee"/><stop offset="44.99%" stop-color="#c9c7ff"/><stop offset="100%" stop-color="#7341ff"/></linearGradient><linearGradient id="igct" x1="130.68%" y1="-178.47%" x2="6.31%" y2="120.59%"><stop offset="47.99%" stop-color="#6d4aff"/><stop offset="99.44%" stop-color="#00f0c3"/></linearGradient><path id="tr4c" d="M120 428c0-19 14-34 35-34 20 0 34 15 34 34s-14 34-34 34c-21 0-35-15-35-34zm52 0c0-11-7-19-17-19s-18 8-18 19 8 19 18 19 17-8 17-19z"/></defs><g transform="translate(40 65)" stroke="none"><path d="M161 341c15 27 54 29 71 3l161-244c17-26 1-60-30-64L47 0C13-4-11 32 5 61z" fill="url(#KZnn)" transform="translate(130 -10)"/><g fill-rule="nonzero"><path d="M300 306l14-22 109-164c9-14 0-33-17-35L137 54l139 251c6 9 18 9 24 1z" fill="url(#igct)"/><g fill="#1b1340"><path d="M0 436v25h18v-24c0-3 1-5 2-6 2-2 4-3 6-3h19c8 0 16-3 22-9s9-15 9-23c0-9-3-17-9-23s-14-9-22-9H0v32h18v-15h25c4 0 8 1 11 4s4 7 4 11-1 8-4 10c-3 3-7 5-11 5H25c-4 0-7 1-10 2s-5 3-8 5c-2 2-4 5-5 8s-2 6-2 10zm79 25v-39c0-16 9-28 27-28 3 0 6 0 9 1v16h-5c-9 0-13 4-13 13v37z"/><use href="#tr4c"/><path d="M240 409h-19v24c0 9 3 13 12 13h6v14c-4 1-7 1-11 1-14 0-24-8-24-25v-27h-12v-14h3c1 0 2 0 3-1 1 0 2-1 3-2 1 0 2-1 2-2 1-1 1-3 1-4v-13h17v22h19v14z"/><use href="#tr4c" x="126"/><path d="M324 461v-37c0-18 11-30 30-30 20 0 31 12 31 30v37h-18v-36c0-10-4-16-13-16-8 0-12 6-12 16v36z"/></g><path d="M455 462l-36-98h20l24 70c1 3 2 5 2 8h0c1-3 1-5 2-8l24-70h21l-37 98zm108-98h-45v98h18v-24c0-3 1-5 3-7 1-1 4-2 6-2h18c9 0 17-4 23-10s10-14 10-23c0-4-1-8-3-12-1-4-4-7-7-10s-6-6-10-8c-4-1-8-2-13-2zm14 32c0 2 0 4-1 6s-2 4-3 5c-2 1-3 3-5 3-2 1-4 1-6 1h-26v-30h26c2 0 4 0 6 1s4 2 5 3c1 2 2 4 3 5 1 2 1 4 1 6zm26 66v-98h16l46 61c2 2 3 4 4 7h1c-1-3-1-6-1-9v-59h19v98h-16l-46-61c-2-2-4-4-5-6h0v8 59h-18z" fill="#6d4aff"/></g></g></svg>',
+      "friendlyName": "Proton VPN",
+      "className": "protonVPNButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "homatics", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "ch.protonvpn.android",
+          "androidName": "ch.protonvpn.android",
+          "adbLaunchCommand": "adb shell am start ch.protonvpn.android/com.protonvpn.android.tv.main.TvMainActivity",
+      },
+      "apple-tv": {
+          "appName": "Proton VPN",
+      },
+      "homatics": {
+          "appName": "ch.protonvpn.android",
+          "androidName": "ch.protonvpn.android",
+          "adbLaunchCommand": "adb shell am start ch.protonvpn.android/com.protonvpn.android.tv.main.TvMainActivity",
+      },
+      "nvidia-shield": {
+          "appName": "ch.protonvpn.android",
+          "androidName": "ch.protonvpn.android",
+          "adbLaunchCommand": "adb shell am start ch.protonvpn.android/com.protonvpn.android.tv.main.TvMainActivity",
+      },
+      "onn": {
+          "appName": "ch.protonvpn.android",
+          "androidName": "ch.protonvpn.android",
+          "adbLaunchCommand": "adb shell am start ch.protonvpn.android/com.protonvpn.android.tv.main.TvMainActivity",
+      },
+      "xiaomi": {
+          "appName": "ch.protonvpn.android",
+          "androidName": "ch.protonvpn.android",
+          "adbLaunchCommand": "adb shell am start ch.protonvpn.android/com.protonvpn.android.tv.main.TvMainActivity",
+      },
+   },   
+
+
   "proximus-pickx": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="2704" height="1024" viewBox="0 0 2704 1024" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M1460.6 386.2a191 191 0 0 1 36.3 119.8c0 54.5-12.7 96.2-38 125.3s-63.5 45.4-103.5 43.6a118 118 0 0 1-92.6-36.3v158H1150V350h112.6v31c25.4-25.4 60-40 96.2-38 38.2-1.8 76.3 14.5 101.7 43.5h0zM1368 566a86 86 0 0 0 16.3-58.1 83 83 0 0 0-14.5-54.5c-11-12.7-29-20-45.4-18.2-14.5 0-27.2 1.8-40 9-7.3 5.4-14.5 12.7-18.2 20-1.8 5.4-3.6 9-3.6 14.5v72.7c0 21.8 18.2 32.7 54.5 32.7 20 3.6 38-3.7 50.8-18.2h0zm265-363.2a60.3 60.3 0 1 1-85.3 85.3 60 60 0 0 1 0-85.3c11-11 27.2-18.2 41.8-18.2 18 0 32.6 5.5 43.5 18.2zm-98 466.6V349.8h112.6v321.4H1535v-1.8zm370.4-325c14.5 1.8 25.4 3.6 32.7 5.4s12.7 3.6 16.3 3.6l-12.7 87c-3.6 0-11-1.8-23.6-3.6s-27.2-3.6-40-3.6c-21.8-1.8-43.6 3.6-60 18.2a77 77 0 0 0-18.2 58 75 75 0 0 0 21.8 59.9c16.3 12.7 38 20 58 18.2a183 183 0 0 0 63.5-11l14.5 85.3c-12.7 5.4-27.2 9-41.8 11-16.3 1.8-32.7 3.6-47.2 3.6-60 0-105.3-14.5-134.4-41.8S1689 564 1689 509.4s14.5-96.2 45.4-123.5S1807 344 1865 344c11-1.6 25.6.2 40 .2h0zm441.2 325l-130.7-176L2330.3 350H2205l-100 125.3V195.5h-110.8v474H2105v-158l118 158h123.5zm121.7 0H2352l118-161.6-114.4-158H2472l56.3 80 56.3-80h116.2l-116.2 158 118 161.6h-116.2l-60-83.5-58 83.5h0zM928.2 338c12.7-11 87-69 94.4-154.3 3.6-49-16.3-98-52.7-130.7C937.3 16.7 888.2-3.2 839.2.4 754 7.7 695.8 80.3 685 94.8 634 162 601.4 242 587 323.6l-74.4 3.6c-25.4 0-50.8-1.8-76.3-3.6-14.5-83.5-49-161.6-98-228.8-11-12.7-69-87-154.4-94.4C135-3.2 86 16.7 53.2 53 16.8 85.7-3.2 134.8.4 183.8 7.7 269 80.3 327.2 94.8 338c67.2 50.8 147 83.5 228.8 98l3.6 76.3-3.6 74.4c-83.5 14.5-161.6 49-228.8 98-12.7 11-87 69-94.4 154.3-3.6 49 16.3 98 52.7 130.7 32.7 36.3 81.7 56.3 130.7 52.7 85.3-7.3 143.4-80 154.3-94.4 50.8-67.2 83.5-147 98-228.8 25.4-1.8 49-3.6 74.4-3.6l76.3 3.6c14.5 83.5 49 161.6 98 228.8 11 12.7 69 87 154.3 94.4a179 179 0 0 0 183.4-176.1V839c-7.3-85.3-80-143.4-94.4-154.3-67.2-50.8-147-83.5-228.8-98l-3.6-76.3c0-25.4 1.8-50.8 3.6-74.4 83.6-14.5 161.7-47.2 229-98h0zM784.8 174.7l1.8-1.8c12.7-16.3 40-41.8 61.7-43.6 3.6 0 14.5-1.8 31 16.3h0c16.3 16.3 16.3 27.2 16.3 31-1.8 21.8-27.2 49-43.6 61.7l-2 1.7a390 390 0 0 1-123.5 59.9h0 0a332 332 0 0 1 58.2-125.2h0zM296.4 298.2a373 373 0 0 1-123.5-59.9l-1.8-1.8c-16.3-12.7-41.8-40-43.6-61.7 0-3.6-1.8-14.5 16.3-31h0c16.3-16.3 27.2-16.3 31-16.3 21.8 1.8 49 27.2 61.7 43.6l1.8 1.8a437 437 0 0 1 58.2 125.2h0 0 0zm-60 552l-1.8 3.6c-12.7 16.3-40 41.8-61.7 43.6-3.6 0-14.5 1.8-31-16.3h0c-16.3-16.3-16.3-27.2-16.3-31 1.8-21.8 27.2-49 43.6-61.7l1.8-1.8a390 390 0 0 1 123.5-59.9h0 0a340 340 0 0 1-58.2 123.4h0 0zm332.3-279.6l-58-1.8-58 1.8 1.8-58-1.8-58c20 1.8 38 1.8 58 1.8l58-1.8c-1.8 20-1.8 38-1.8 58s1.8 40 1.8 58zm156 156a373 373 0 0 1 123.5 59.9l1.8 1.8c16.3 12.7 41.8 40 43.6 61.7 0 3.6 1.8 14.5-16.3 31h0c-16.3 16.3-27.2 16.3-31 16.3-21.8-1.8-49-27.2-61.7-43.6l-1.8-1.8a437 437 0 0 1-58.2-125.2h0 0 0z"/></svg>',
       "friendlyName": "Proximus Pickx",
@@ -11768,6 +11805,10 @@ const launcherCSS = `
             font-weight: bold;
             background: #fff;
           }
+
+        .protonVPNButton {
+            background: #fff;
+        }
 
           .proximusPickxButton {
             background: #000;
