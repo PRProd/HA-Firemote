@@ -9889,6 +9889,42 @@ const launcherData = {
       "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "xiaomi"],},
 
 
+  "willow": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="250" viewBox="0 0 1050 250" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g stroke="none"><g fill="#fff"><path d="M760 78c-27 0-38 10-38 36v23c0 26 11 35 38 35h42c28 0 38-9 38-35v-23c0-26-10-36-38-36zm-13 37c0-12 2-15 14-15h40c12 0 15 3 15 15v20c0 12-3 15-15 15h-40c-12 0-14-3-14-15zM549 78v59c0 26 11 35 38 35h41v-14c0-5-4-8-9-8h-31c-12 0-14-4-14-16V87c0-3-1-5-3-7-2-1-4-2-6-2zm87 0v59c0 26 11 35 38 35h41v-14c0-5-4-8-9-8h-31c-12 0-14-4-14-16V87a8.96 8.96 0 0 0-9-9zm-123 0v94h25V78z"/><use href="#bqLk"/><use href="#bqLk" x="518"/></g><path d="M80 22c-1 1-2 3-2 5l13 87 4 30c0 3 3 5 5 5 3 0 5-2 6-5l3-30 16-102c0-2 0-3-2-5-1-1-3-1-4-1-14 3-27 9-39 16m92-16c-2 0-4 0-5 1-1 2-2 3-2 5l16 102 4 30c0 3 2 5 5 5s5-2 5-5l4-30 14-87c0-2-1-4-3-5-11-7-24-13-38-16m69 61l-26 142c0 2 1 5 3 6s4 1 6-1c26-23 42-56 42-91 0-20-6-40-16-58-1-2-3-3-5-2-2 0-4 2-4 4m-87 65l-3-30c-1-2-3-4-6-4-2 0-5 2-5 4l-4 30-16 104c0 2 2 5 5 6 6 1 13 2 20 2s14-1 21-2c3-1 5-4 4-6l-16-104M50 67c-1-2-2-4-4-4-3-1-5 0-6 2-10 18-15 38-15 58 0 35 15 68 41 91 2 2 5 2 7 1s3-4 2-6L50 67" fill="#e30000" fill-rule="nonzero"/></g><defs ><path id="bqLk" d="M334 78l24 82c3 10 6 12 13 12h18c6 0 9-2 12-12l18-58c0-1 0-1 1-1h0c1 0 1 0 1 1l18 58c3 10 6 12 12 12h19c5 0 9-2 12-12l25-82h-19c-4 0-8 3-9 7l-17 64c-1 0-1 1-1 1h-1c-1 0-1-1-1-1l-19-62c-2-7-6-9-12-9h-16c-6 0-10 2-12 9l-18 62-1 1h-1s0-1-1-1l-18-64c-1-4-5-7-9-7z"/></defs></svg>',
+      "friendlyName": "Willow",
+      "className": "willowButton",
+      "deviceFamily": ["amazon-fire", "apple-tv", "homatics", "nvidia-shield", "onn", "xiaomi"],
+      "amazon-fire": {
+          "appName": "tv.willow",
+          "androidName": "tv.willow",
+          "adbLaunchCommand": "adb shell am start -n tv.willow/com.willow.android.tv.ui.splash.SplashActivity",
+      },
+      "apple-tv": {
+          "appName": "Willow",
+      },
+      "homatics": {
+          "appName": "tv.willow",
+          "androidName": "tv.willow",
+          "adbLaunchCommand": "adb shell am start -n tv.willow/com.willow.android.tv.ui.splash.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "tv.willow",
+          "androidName": "tv.willow",
+          "adbLaunchCommand": "adb shell am start -n tv.willow/com.willow.android.tv.ui.splash.SplashActivity",
+      },
+      "onn": {
+          "appName": "tv.willow",
+          "androidName": "tv.willow",
+          "adbLaunchCommand": "adb shell am start -n tv.willow/com.willow.android.tv.ui.splash.SplashActivity",
+      },
+      "xiaomi": {
+          "appName": "tv.willow",
+          "androidName": "tv.willow",
+          "adbLaunchCommand": "adb shell am start -n tv.willow/com.willow.android.tv.ui.splash.SplashActivity",
+      },
+   },
+
+
   "windscribe-vpn": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="975" height="300" viewBox="0 0 975 300" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M305 150l-3 9-37 89c-2 6-6 10-12 13l-90 36c-5 3-12 3-17 0l-89-37c-5-2-10-6-12-12q-19-45-37-90c-3-5-3-12 0-17l37-89c2-6 6-10 12-12l89-37c6-3 12-3 18 0l89 37c5 2 10 6 12 12l37 89 3 9zM155 277c2 0 3 0 5-1l81-33c3-1 5-4 7-7q16-40 33-81c1-3 1-6 0-10-12-26-23-53-33-80-1-3-4-6-7-7q-41-17-81-33c-3-2-7-2-10 0q-40 16-80 33c-3 1-6 4-7 7q-17 40-33 80c-2 3-2 7 0 11q16 40 33 80c1 3 3 6 7 7l80 33 5 2zm247-103v-59h15v74h-16c-3-1-6-3-9-6-6-6-12-13-18-20l-8 9c-4 4-7 8-10 11-4 4-8 6-13 6h-12v-74h14v58h1l28-30zm176-59V94h14v96c-11 0-23-1-34-2-18-4-30-21-28-40s18-33 37-33h11zm0 60v-45h-14c-11 1-19 10-19 21-1 11 6 20 17 23 5 0 10 1 16 1zm248 14V94h14v21h15c19 2 33 19 33 38s-15 35-34 36c-10 1-19 0-28 0zm14-60v46h12c11-1 20-9 21-20 2-11-5-21-16-24-5-1-11-2-16-2zm123 6l-37 40c13 6 26-3 29-20h13c3 13-8 30-23 34-18 5-37-4-44-21-7-18 0-37 16-46 17-8 36-2 46 13zm-20 0c-8-5-18-3-25 3-7 7-8 18-2 27zm-471-20v4c4-1 8-3 12-4 17-2 33 9 36 25v4c1 15 0 29 0 43v2h-14v-5-38c0-7-5-13-12-16-6-2-14 0-18 6-2 3-4 7-4 12v41h-14v-74zm130 65l9-10c5 4 12 6 18 6 3 0 6-2 7-6 0-3-1-6-4-7-6-4-12-7-18-10-6-4-9-10-9-16-1-7 3-13 9-16 1-1 2-2 4-2 12-6 27-3 36 7l-10 9c-3-1-6-3-9-4-2-1-4-2-7-1-3-1-6 2-7 5-1 4 1 7 4 8 5 3 10 5 15 8 3 2 6 4 8 7 3 4 5 9 4 14 0 4-3 9-7 12-13 9-32 7-43-4zm108-12l10 9c-10 14-33 16-47 4-8-7-13-16-14-26s2-20 9-28l1-1c7-7 16-11 25-11s18 4 25 10l-10 10c-5-5-13-7-20-5-5 1-9 4-12 8-7 9-6 21 2 30 9 8 19 8 31 0zm37 22h-14v-74h14v4c19-6 30-5 40 6l-11 9-2-2c-4-2-8-3-13-3-4 1-8 3-11 7-2 3-3 6-3 10v43zm-303-1h-14v-74h14zm367 0h-14v-74h14zM430 94h14v14h-14zm367 0h14v14h-14zM86 91h23v96l46-50 46 50V91h23v119h-25c-5-1-10-4-14-9l-27-30-3-3c-10 11-20 22-29 33-5 6-13 9-21 9H86z"/></svg>',
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="325" height="325" viewBox="0 0 325 325" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="nonzero"><path d="M312 162l-3 9-37 89c-2 6-6 10-12 13l-90 36c-5 3-12 3-17 0l-89-37c-5-2-10-6-12-12q-19-45-37-90c-3-5-3-12 0-17l37-89c2-6 6-10 12-12l89-37c6-3 12-3 18 0l89 37c5 2 10 6 12 12l37 89 3 9zM162 289c2 0 3 0 5-1l81-33c3-1 5-4 7-7q16-40 33-81c1-3 1-6 0-10-12-26-23-53-33-80-1-3-4-6-7-7q-41-17-81-33c-3-2-7-2-10 0q-40 16-80 33c-3 1-6 4-7 7q-17 40-33 80c-2 3-2 7 0 11q16 40 33 80c1 3 3 6 7 7l80 33 5 2zM93 103h23v96l46-50 46 50v-96h23v119h-25c-5-1-10-4-14-9l-27-30-3-3c-10 11-20 22-29 33-5 6-13 9-21 9H93z"/></svg>',
@@ -12390,6 +12426,10 @@ const launcherCSS = `
 
           .weydButton {
             background: #2d2e2e;
+          }
+
+          .willowButton {
+            background: #1d202d;
           }
 
           .windscribeButton {
