@@ -4960,11 +4960,14 @@ const launcherData = {
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="310" viewBox="0 0 300 310" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M234 207zM62 9c22 0 28 1 30 4 1 1 0 6 0 8L67 167l1-4c9-28 25-71 42-93 6-9 15-19 26-24 6-3 10-4 16-2h1c9 4 16 9 17 12 3 5-14 79-17 96 9-27 25-64 43-88 7-8 16-18 27-23 6-3 11-4 19-1 7 3 13 7 15 9 4 5 3 12 2 14l-7 38-8 37c-6 35-11 78-11 99-2 20 2 40 12 58 3 5-13 6-18 5-23-7-35-27-35-53 1-28 12-89 19-128 7-32 7-35 8-40-34 34-63 107-70 138-2 7-20 14-25 15h-2c-9-1-7-23-5-41 3-28 11-79 16-107-39 39-65 132-74 167-1 7-19 14-24 16h-1 0c-12 1-10-25-8-37l1-9c4-26 17-134 23-168-11 12-25 31-34 45-7 10-13-7-9-13l2-5c23-40 40-64 51-70h0 0l2-1c-1 0-1 0 0 0h0z" fill="#000"/><path d="M282 242c18 10 8 25 8 25-5-8-28-10-46-7v-2c-1-4-2-10-2-14 19-8 33-7 40-2zm-98 15v2c0 3 2 10 4 15-28 6-59 9-88 16l-8 3c-12 3-26-3-12-8 30-9 65-19 104-28z" fill="#000"/></svg>',
       "friendlyName": "Molotov",
       "className": "molotovButton",
-      "deviceFamily": ["amazon-fire", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "amazon-fire": {
           "appName": "tv.molotov.app",
           "androidName": "tv.molotov.app",
           "adbLaunchCommand": "adb shell am start -n tv.molotov.app/tv.molotov.android.main.MainActivity",
+      },
+      "apple-tv": {
+          "appName": "MolotovTV",
       },
       "chromecast": {
           "appName": "tv.molotov.app",
