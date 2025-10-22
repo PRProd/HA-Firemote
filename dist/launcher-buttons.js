@@ -1229,6 +1229,51 @@ const launcherData = {
  },
 
 
+  "channel5": {
+      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1475" viewBox="0 0 1200 1475" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fbf433" fill-rule="nonzero"><path d="M430 426H128L255 42c7-22 18-32 40-32h273zM613 10h356c22 0 41 13 41 39v201c0 23-17 38-40 38H521zM127 469l113 230c9 22 27 47 65 47h295c307 0 456 288 434 462 0 0 65-101 65-248 0-267-230-491-491-491zm496 995v-309c104-15 167-96 167-190 0-73-39-128-96-163 144 30 294 176 294 349 0 143-101 296-365 313zm-48-309v309c-305-19-475-268-475-494 0-26 16-43 39-43h229c22 0 37 17 38 39 1 85 55 168 169 189z"/></svg>',
+      "friendlyName": 'Channel 5',
+      "className": "channel5my5Button",
+      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "roku", "xiaomi"],
+      "amazon-fire": {
+          "appName": "com.channel5.my5",
+          "androidName": "com.channel5.my5",
+          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
+      },
+      "apple-tv": {
+          "appName": "Channel 5",
+      },
+      "chromecast": {
+          "appName": "com.channel5.my5",
+          "androidName": "com.channel5.my5",
+          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
+      },
+      "homatics": {
+          "appName": "com.channel5.my5",
+          "androidName": "com.channel5.my5",
+          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
+      },
+      "nvidia-shield": {
+          "appName": "com.channel5.my5",
+          "androidName": "com.channel5.my5",
+          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
+      },
+      "onn": {
+          "appName": "com.channel5.my5",
+          "androidName": "com.channel5.my5",
+          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
+      },
+      "roku": {
+          "appName": 'My5',
+          "app-id": 27424,
+      },
+      "xiaomi": {
+          "appName": "com.channel5.my5",
+          "androidName": "com.channel5.my5",
+          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
+      },
+   },
+
+
   "channels-dvr": {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="744" height="217" viewBox="0 0 744 217" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><g stroke="none"><path d="M143 34.8c-9.2-11.4-19.2-19-26.5-27.5-6-7.5 4-10 9-2.5l22 22.7c5 2.5 7.5 10 15 5C180 10 189.5 2.7 192.5 0c12.5 2.5-7.5 17.5-20 35l135.5-.2s7.5 0 7.5 7.5l-.5 165.2c0 10-7.5 7.5-10 7.5l-295-.2c-2.4-.8-10 2.7-10-9.8V42.5C0 35 10 35 10 35" fill="#fafafb"/><path d="M107.7 45l50.3-.3v145h-50L107.7 45z" fill="#66bac4"/><path d="M55.5 44.8v145h-45v-145h45z" fill="#ebd96e"/><path d="M55.5 44.8H108l.5 144.5-53 .5v-145z" fill="#a4c35f"/><path d="M260.5 187.3h-50V44.8H258l2.5 142.5z" fill="#e36c62"/><path d="M158 44.8h52.5v142.5H158" fill="#c5839f"/><path d="M305.5 187.3H258V44.8h47.5v142.5z" fill="#7093e1"/><path d="M139.5 83.6l70 39c3 2.4 5.5 5 0 8l-70 39c-4.5 3-7 .4-8-3l-.5-79c1.5-5 4-5 8.5-4z" fill="#fefefe"/><path d="M108 187.3h52.5v20H108v-20z" fill="#e36c63"/><path d="M210.5 187.3v20H158v-20h52.5z" fill="#5348a3"/><path d="M210.5 187.3h50v20h-50v-20z" fill="#67b8c4"/><path d="M258 187.3h47.5v20H258v-20z" fill="#5e3f9f"/><path d="M55.5 187.3v20c-15.5 0-30.2-.3-45 0v-20" fill="#7093e1"/><path d="M108.5 187.3h-53v20H108l.5-20z" fill="#54508e"/></g><path d="M378.7 75.4H391a28 28 0 0 1-1.8 8 23 23 0 0 1-6.6 9.7q-7 6.2-19 6.4h-.6a30 30 0 0 1-8.4-1.2c-2.3-.6-4.5-1.6-6.6-3a27 27 0 0 1-9.3-10L338 84q-3.6-7.4-3.7-17.2V60a57 57 0 0 1 .8-9.2 37 37 0 0 1 2.8-8.5c1.3-3 3-5.6 5.4-8a26 26 0 0 1 4.8-3.8c3.6-2.3 7.7-3.6 12-4l3.5-.2q11.8 0 19 6.4 7.2 6.4 8.4 18h-12.3l-.7-4q-.5-2-1.3-3.6c-.6-1.3-1.5-2.5-2.5-3.5q-3-2.8-8.3-3.3c-.7 0-1.5-.1-2.2-.1q-8 0-12.4 6c-1.2 1.7-2 3.6-2.8 5.6q-.8 2.6-1.2 5.7c-.3 2-.4 4-.4 6V66c0 2.2.1 4.3.4 6.5q.4 3.2 1.2 5.8c.6 2 1.5 3.6 2.5 5.3 2.2 3.3 5.8 5.4 9.7 6 .8.1 1.6.1 2.4.1a26 26 0 0 0 4-.3q2-.3 3.8-1c1.2-.5 2.2-1 3.2-2s2-2 2.5-3.3q.8-1.6 1.3-3.6c.4-1.3.6-2.6.8-4zm34-52v28q5.8-6.7 14.7-6.7a20 20 0 0 1 7.2 1.1q9.7 3.5 10 18.2v34.5h-12v-34c.1-1 0-1.8-.1-2.7q-.4-3-2-4.7l-.3-.3c-1-.8-2-1.4-3-1.7q-1.2-.4-2.6-.5c-.5-.1-1-.1-1.5-.1-1.7 0-3.3.3-5 1q-3 1.3-5 4.2c-.3.4-.6.8-.8 1.3v37.7h-12v-75h12zm329.2 38h-12c0-1.2-.3-2.3-.8-3.4-.5-1-1-1.6-1.8-2.3-1-1-2.5-1.6-4-2-1-.2-2-.3-2.8-.3l-2.7.2q-1.7.4-3 1.2c-.3.1-.5.2-.7.4Q712 57 711.8 60v.2q0 2.6 2 4l.3.3c.5.3 1 .5 1.5.7q2.6 1.2 7.8 2.3c1.4.3 2.7.7 4 1q2 .6 3.7 1.3c1 .4 2.2.8 3.2 1.4q3.6 2 5.5 4.5c.1.2.3.4.4.6.8 1.3 1.4 2.8 1.7 4.3v3c.1 4-1.6 7.8-4.5 10.4l-1.4 1.2a23 23 0 0 1-7.6 3.5q-3 .7-6.3.8c-.5.1-1 .1-1.6.1-2 0-4.2-.2-6.3-.6-1.8-.4-3.6-1-5.2-1.8a15 15 0 0 1-4.8-3c-1.2-1-4-3.3-5-4.6-1.2-1.8-.3-2.6-.7-4.7a15 15 0 0 1-.3-2.9H710a14 14 0 0 0 .6 2.8c.5 1.5 1.4 2.7 2.6 3.6 1 1 2.4 1.5 3.8 1.8q1.4.4 3.2.5h.8c1 0 1.7-.1 2.6-.2q1.3-.2 2.4-.5c.7-.3 1.5-.6 2-1 .6-.4 1-1 1.6-1.6.6-1 1-2 .8-3 .1-.7-.1-1.5-.3-2.2q-.6-1.4-2-2.4c-.1-.1-.2-.1-.3-.2q-2-1.4-6.6-2.5c-.7-.1-1.4-.3-2-.4q-4.8-1-8.3-2.4l-1.8-.8c-1.6-.8-3-1.7-4.3-2.8-3-2.3-4.7-6-4.6-9.7q0-6.8 5.7-11.4 5.8-4.6 14.7-4.6a35 35 0 0 1 6.5.6q4.3 1 7.6 3.2l1.2 1c1.8 1.4 3.2 3.2 4.3 5.2q1.5 3 1.5 6.8v.1zM510.3 45.7h11.2l.4 6c3.3-4.2 8.2-6.8 13.6-7 .6-.1 1-.1 1.7-.1 2.4-.1 4.8.3 7 1q9.5 3.5 9.7 17.8v35H542v-34-2.8q-.5-3-2-4.7c-.7-.7-1.6-1.3-2.6-1.7q-2-.7-4.5-.7c-1.7 0-3.4.3-5 1q-3 1.2-4.8 4c-.4.4-.6 1-1 1.4v37.6h-12V45.7zm55.6 0h11l.4 6c3.3-4.2 8.3-6.8 13.6-7 .6-.1 1.2-.1 1.7-.1 2.4-.1 4.8.3 7 1q9.5 3.5 9.7 17.8v35h-11.8v-34l-.2-2.8q-.5-3-2-4.7c-.7-.7-1.6-1.3-2.6-1.7q-1.8-.7-4.5-.7c-1.7 0-3.4.3-5 1q-3 1.2-4.8 4c-.3.4-.6 1-1 1.4v37.6h-12V45.7zm-66 52.8h-12q-.7-1.2-1.2-3.8c-.1-.4-.1-.8-.2-1-3.4 3.7-8.3 5.8-13.4 6h-.5a23 23 0 0 1-5.8-.7 17 17 0 0 1-7.2-3.9c-1.6-1.5-3-3.3-4-5.4-.7-1.8-1-3.8-1-5.8a16 16 0 0 1 1-5.7 14 14 0 0 1 5.4-7.3q6.3-4.5 18-4.5h7.3V63q0-4-2.3-6.6c-.8-1-2-1.6-3-2q-1.2-.4-2.6-.5c-.5-.1-1-.1-1.4-.1-1 0-2 .1-3 .3-1.3.3-2.6 1-3.7 1.8-.7.5-1.3 1-1.7 1.8-.6 1-1 2-1 3.3h-12c0-2.5.8-5 2.2-7 .2-.4.5-.7.7-1 1.5-2 3.3-3.5 5.4-4.7.8-.5 1.6-1 2.5-1.3 2.4-1 5-1.7 7.7-2 1-.2 2.2-.2 3.3-.2 2 0 4 .2 6.2.6q3.8.8 6.7 2.7c.7.4 1.3 1 2 1.4 2.8 2.3 4.7 5.7 5.3 9.3.2 1.3.4 2.5.4 3.8v23.8c0 1.5 0 3 .2 4.4q.2 2 .7 4c.3 1 .6 2 1 3v.8zm119.6-25V72c0-2.7.3-5.3 1-8 .5-2.2 1.2-4.3 2.2-6.2a24 24 0 0 1 5.2-7.2c1-1 2-1.8 3.3-2.5 3.7-2.4 8-3.6 12.3-3.5a27 27 0 0 1 6.9.8c3.8 1 7.2 3 9.8 6q5 5.8 5.7 15.6l.2 4v4.7h-34.5c.1 1.6.4 3.2 1 4.7.6 2 1.8 4 3.4 5.7 2.4 2.4 5.6 3.7 9 3.8h.8c4.6.1 9-1.8 12-5.2.4-.4.8-1 1.2-1.4l6.4 6q-3.2 4.8-8.5 7.4-5.3 2.6-12 2.6a30 30 0 0 1-8.5-1.2c-3.7-1-7-3-9.8-6-3.4-3.5-5.7-8-6.5-12.8l-.5-6zm68.3-50v75H676v-75h12zm-56 43.7h22.6v-1q-.3-4-1.7-6.8c-.4-.8-1-1.5-1.5-2.2-1.4-1.5-3.2-2.5-5.2-3a21 21 0 0 0-2.5-.2c-1.3 0-2.6.2-3.8.6-1.6.6-3 1.6-4 2.8q-3 3.4-3.8 9.6zM486.2 83.7v-10h-6.4l-3.4.2q-4 .4-6.2 2c-.1.1-.2.1-.3.2-1.8 1.2-3 3-3.2 5.2-.1.4-.1 1-.1 1.3 0 .8.1 1.6.3 2.4.4 1.2 1 2.2 2 3a7 7 0 0 0 3.4 1.8q1 .2 2.5.3h.1c2.3 0 4.6-.6 6.6-1.8q3-1.7 4.7-4.5zM441 114.5l25.2 70.4 25.4-70.4h19.2l-36 90H458l-36-90h19zm138 90l-20-34.7h-19.4v34.7H522v-90h35.2c3.5 0 7 .2 10.3.7q10 1.5 16.5 6.3a22 22 0 0 1 8.7 13.4c.5 2.3.7 4.5.7 6.8q0 9-4.8 15c-2.5 3-5.7 5.7-9.5 7.6l-4 1.8 22.4 37.5v.8H579zm-211.2 0H339v-90h29.6a58 58 0 0 1 13.2 1.5 47 47 0 0 1 10.3 3.8 38 38 0 0 1 16 15c2.7 4.7 4.5 10 5.2 15a61 61 0 0 1 .5 7.3v4.5a52 52 0 0 1-1.4 11.8 43 43 0 0 1-4.3 10.7 38 38 0 0 1-16.2 15q-10.4 5.3-24 5.3zm.8-77.4h-12.2v65h11.3a43 43 0 0 0 8.7-.9c4.8-1 9-3.4 12.4-6.8q6-6.2 7-17l.3-5.2v-5c0-2.8-.2-5.7-.7-8.5q-1.5-8.6-6.4-14a23 23 0 0 0-13.5-7c-2.3-.4-4.7-.6-7-.6zm171 0v30.2h18a33 33 0 0 0 5.5-.5q5-1 8.3-3.5c2.5-2 4.2-5 4.7-8l.2-3a18 18 0 0 0-.5-4.6q-.8-3-2.8-5.4l-1.3-1.2q-3.7-3.2-10.4-4c-1-.1-2-.2-3.2-.2h-18.4z" fill="#fff" stroke-linejoin="miter" stroke-width=".9"/></svg>',
       "button-round": '<svg xmlns="http://www.w3.org/2000/svg" width="367" height="267" viewBox="0 0 367 267" stroke="none" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M168 49.8c-9.2-11.4-19.2-19-26.5-27.5-6-7.5 4-10 9-2.5l22 22.7c5 2.5 7.5 10 15 5 17.5-22.5 27-29.8 30-32.5 12.5 2.5-7.5 17.5-20 35l135.5-.2s7.5 0 7.5 7.5l-.5 165.2c0 10-7.5 7.5-10 7.5l-295-.2c-2.4-.8-10 2.7-10-9.8V57.5C25 50 35 50 35 50" fill="#fafafb"/><path d="M132.7 60l50.3-.3v145h-50L132.7 60z" fill="#66bac4"/><path d="M80.5 59.8v145h-45v-145h45z" fill="#ebd96e"/><path d="M80.5 59.8H133l.5 144.5-53 .5v-145z" fill="#a4c35f"/><path d="M285.5 202.3h-50V59.8H283l2.5 142.5z" fill="#e36c62"/><path d="M183 59.8h52.5v142.5H183" fill="#c5839f"/><path d="M330.5 202.3H283V59.8h47.5v142.5z" fill="#7093e1"/><path d="M164.5 98.6l70 39c3 2.4 5.5 5 0 8l-70 39c-4.5 3-7 .4-8-3l-.5-79c1.5-5 4-5 8.5-4z" fill="#fefefe"/><path d="M133 202.3h52.5v20H133v-20z" fill="#e36c63"/><path d="M235.5 202.3v20H183v-20h52.5z" fill="#5348a3"/><path d="M235.5 202.3h50v20h-50v-20z" fill="#67b8c4"/><path d="M283 202.3h47.5v20H283v-20z" fill="#5e3f9f"/><path d="M80.5 202.3v20c-15.5 0-30.2-.3-45 0v-20" fill="#7093e1"/><path d="M133.5 202.3h-53v20H133l.5-20z" fill="#54508e"/></svg>',
@@ -5102,51 +5147,6 @@ const launcherData = {
           "appName": "com.msgi.msggo",
           "androidName": "com.msgi.msggo",
           "adbLaunchCommand": "adb shell am start -n com.msgi.msggo/com.msgn.msgplustv.ui.mainactivity.MainActivity",
-      },
-   },
-
-
-  "my5": {
-      "button": '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><defs><linearGradient id="o9j8" x1="18.64%" y1="-10.47%" x2="91.75%" y2="102.90%"><stop offset="6.60138%" stop-color="#4f616c"/><stop offset="63.849999999999994%" stop-color="#38464e"/><stop offset="100%" stop-color="#2d3940"/></linearGradient><linearGradient id="UdCl" x1="28.99%" y1="-19.10%" x2="84.25%" y2="105.55%"><stop offset="0%" stop-color="#4f616c"/><stop offset="61.29%" stop-color="#38464e"/><stop offset="100%" stop-color="#2d3940"/></linearGradient><linearGradient id="Cwzj" x1="-12.70%" y1="6.59%" x2="75.68%" y2="94.65%"><stop offset="0%" stop-color="#4f616c"/><stop offset="61.29%" stop-color="#38464e"/><stop offset="100%" stop-color="#2d3940"/></linearGradient><linearGradient id="KM6g" x1="22.10%" y1="-0.48%" x2="84.43%" y2="122.43%"><stop offset="0%" stop-color="#4f616c"/><stop offset="61.29%" stop-color="#38464e"/><stop offset="100%" stop-color="#2d3940"/></linearGradient><linearGradient id="HasJ" x1="5.47%" y1="-3.25%" x2="103.74%" y2="114.15%"><stop offset="0%" stop-color="#4f616c"/><stop offset="61.29%" stop-color="#38464e"/><stop offset="100%" stop-color="#2d3940"/></linearGradient><linearGradient id="jMrc" x1="39.12%" y1="38.67%" x2="92.16%" y2="130.59%"><stop offset="0%" stop-color="#4f616c"/><stop offset="100%" stop-color="#2d3940"/></linearGradient><linearGradient id="imFk" x1="32.02%" y1="-94.47%" x2="79.52%" y2="286.88%"><stop offset="0%" stop-color="#4f616c"/><stop offset="61.29%" stop-color="#38464e"/><stop offset="100%" stop-color="#2d3940"/></linearGradient><linearGradient id="NS3q" x1="93.08%" y1="103.56%" x2="20.78%" y2="-7.62%"><stop offset="0%" stop-color="#f1a914"/><stop offset="5.78394%" stop-color="#f2ad17"/><stop offset="67.19000000000001%" stop-color="#fbd134"/><stop offset="99.87%" stop-color="#ffdf3f"/></linearGradient><linearGradient id="K4la" x1="84.84%" y1="106.66%" x2="28.57%" y2="-21.73%"><stop offset="0%" stop-color="#f1a914"/><stop offset="5.7914%" stop-color="#f2ad17"/><stop offset="67.28%" stop-color="#fbd134"/><stop offset="100%" stop-color="#ffdf3f"/></linearGradient><linearGradient id="tjcA" x1="68.60%" y1="87.93%" x2="-12.48%" y2="10.50%"><stop offset="0%" stop-color="#f1a914"/><stop offset="5.7914%" stop-color="#f2ad17"/><stop offset="67.28%" stop-color="#fbd134"/><stop offset="100%" stop-color="#ffdf3f"/></linearGradient><linearGradient id="uhco" x1="77.17%" y1="109.34%" x2="23.96%" y2="3.12%"><stop offset="0%" stop-color="#f1a914"/><stop offset="5.7914%" stop-color="#f2ad17"/><stop offset="67.28%" stop-color="#fbd134"/><stop offset="100%" stop-color="#ffdf3f"/></linearGradient><linearGradient id="RhLN" x1="88.81%" y1="84.44%" x2="-4.49%" y2="1.52%"><stop offset="0%" stop-color="#f1a914"/><stop offset="5.78394%" stop-color="#f2ad17"/><stop offset="67.19000000000001%" stop-color="#fbd134"/><stop offset="99.87%" stop-color="#ffdf3f"/></linearGradient><linearGradient id="l4Qf" x1="78.05%" y1="114.31%" x2="23.21%" y2="7.13%"><stop offset="0%" stop-color="#f1a914"/><stop offset="5.7914%" stop-color="#f2ad17"/><stop offset="67.28%" stop-color="#fbd134"/><stop offset="100%" stop-color="#ffdf3f"/></linearGradient></defs><g stroke="none" fill-rule="nonzero"><path d="M387 784c-69-3-132-32-180-82-48-49-74-115-74-184 0-16 13-29 29-29h119c16 0 29 13 29 30 0 44 34 82 78 87 5 1 9 5 9 10v158c0 3-1 5-3 7s-4 3-7 3z" fill="url(#o9j8)"/><path d="M623 652h-3c-4-2-7-6-7-10 5-69-30-123-30-123v-1c-19-31-46-57-77-75-33-18-70-28-107-28H246c-28 0-39-22-40-25l-60-123c-1-3-1-7 1-9 1-3 4-5 8-5h244c36 0 71 7 103 21 32 13 61 32 85 57 24 24 44 53 57 84 14 33 21 68 21 104 0 75-32 127-34 129-1 3-5 4-8 4z" fill="url(#UdCl)"/><path d="M411 783c-3 0-5 0-7-2s-3-5-3-7V615a8.96 8.96 0 0 1 9-9c44-5 78-43 78-88 0-16-5-31-12-44a97.87 97.87 0 0 0-32-32c-4-2-6-7-4-12 2-4 5-6 9-6h2c1 0 29 6 61 27 19 12 36 26 50 43 17 21 30 46 39 73 14 50 3 91-9 115-12 26-27 41-29 43s-15 14-38 27-61 29-114 31z" fill="url(#Cwzj)"/><path d="M447 178c-3 0-6-2-8-4-2-3-2-6-2-9l47-142c2-4 6-7 10-7h98c16 0 29 13 29 29v103c0 16-13 30-29 30z" fill="url(#KM6g)"/><path d="M359 246c-3 0-6-1-8-4-2-2-2-5-2-8l18-53-17-154c-1-3 0-6 2-8s5-3 7-3h40c4 0 9 4 9 9l3 22 8-24c1-4 5-7 9-7h40c3 0 6 1 8 4 1 3 2 6 1 9l-70 211c-1 4-5 7-9 7l-39-1z" fill="url(#HasJ)"/><path d="M313 191c-5 0-9-3-10-8l-2-22-8 24c-2 4-5 6-10 6h-39c-5 0-9-3-10-8l-2-22-8 24c-1 4-5 6-9 6h-39c-3 0-6-1-8-4-2-2-2-5-2-8l47-143c4-12 15-20 28-20h25c5 0 9 4 10 9l2 22 8-24c2-4 5-7 10-7h39a8.96 8.96 0 0 1 9 9l17 156c1 2 0 5-2 7s-4 3-7 3h-39z" fill="url(#jMrc)"/><path d="M158 245c-3 0-6-1-7-4-2-2-2-5-2-8l10-29c1-3 5-6 9-6h174c3 0 6 1 8 4 1 2 2 5 1 8l-9 29c-2 4-5 6-9 6z" fill="url(#imFk)"/><path d="M387 779c-67-3-130-31-176-80-47-49-73-113-73-180v-1c0-13 11-24 25-24h118c13 0 24 11 24 25 0 47 36 87 83 92 3 0 4 2 4 5v158c0 2 0 3-1 4s-2 1-3 1h-1zm236-132s-1 0-1-1c-2 0-4-2-4-5 3-36-6-68-13-89-9-23-18-37-18-37-19-32-47-58-79-77-33-19-71-29-109-29H246c-25 0-35-20-36-22l-60-123c0-1 0-3 1-5 1-1 2-2 4-2h244c36 0 70 7 102 21 31 13 59 31 83 55s42 52 56 83c13 33 20 67 20 102 0 39-9 71-16 91-8 22-16 35-17 35-1 2-2 3-4 3zM411 779c-1 0-3-1-3-2-1 0-2-2-2-3V616c0-3 2-5 4-5 47-6 83-45 83-93 0-16-5-32-13-47-8-13-19-25-33-33-2-1-3-4-2-6s2-3 4-3h1c1 0 28 6 60 26 18 12 34 26 48 42 17 21 30 45 38 71 0 1 1 1 1 1 6 21 8 43 5 63-2 17-7 33-14 49-12 25-27 39-29 41-1 1-13 13-37 26-22 13-59 28-111 31zm36-606c-2 0-3-1-4-2s-1-3-1-4l47-143c1-2 3-3 5-3h97c14 0 25 11 25 25v102c0 14-11 25-25 25H447zm-88 69c-2 0-3-1-4-2s-1-3-1-5l18-54-17-155c0-1 0-2 1-3s2-2 3-2h40c2 0 4 2 4 4l5 45 15-46c1-2 3-3 5-3h39c2 0 3 1 4 2s1 3 1 4l-69 212c-1 2-3 3-5 3h-39zm-46-55c-3 0-5-2-5-5l-5-44-15 45c0 2-2 4-4 4h-40c-2 0-4-2-4-5l-5-44-15 45c-1 2-3 4-5 4h-39c-2 0-3-1-4-2-1-2-1-3-1-5l47-142c4-10 13-17 23-17h26c2 0 4 2 4 4l5 45 15-46c1-2 3-3 5-3h39c2 0 5 2 5 4l17 156c0 2 0 3-1 4s-3 2-4 2h-39zm-155 55c-2 0-3-1-4-2-1-2-1-3-1-5l10-29c0-2 2-3 4-3h175c2 0 3 1 4 2s1 3 1 4l-10 29c0 2-2 4-4 4z" fill="#2d3940"/><path d="M301 519c0-11-9-20-20-20H163c-11 0-20 9-20 20 0 137 109 249 245 255V616c-49-6-87-47-87-97z" fill="url(#NS3q)"/><path d="M655 518c0-141-114-256-256-256H155l60 123s8 19 31 19h153c81 0 153 44 192 109 0 0 38 56 33 129 0 0 31-51 31-124z" fill="url(#K4la)"/><path d="M448 434c29 17 49 48 49 84 0 51-38 92-87 98v158c98-5 145-56 145-56s62-56 36-148c-36-114-143-136-143-136z" fill="url(#tjcA)"/><path d="M591 26h-97l-47 142h144c11 0 20-8 20-19V46c0-11-9-20-20-20z" fill="url(#uhco)"/><path d="M359 237h39l69-211h-39l-22 67-7-67h-39l17 156z" fill="url(#RhLN)"/><path d="M215 182l22-66 7 66h40l22-66 7 66h39L335 26h-39l-22 67-7-67h-26c-8 0-15 5-18 13l-47 143z" fill="url(#l4Qf)"/><path d="M158 236h175l9-29H168z" fill="#fcfcfc"/></g></svg>',
-      "friendlyName": 'My5',
-      "className": "my5Button",
-      "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "roku", "xiaomi"],
-      "amazon-fire": {
-          "appName": "com.channel5.my5",
-          "androidName": "com.channel5.my5",
-          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
-      },
-      "apple-tv": {
-          "appName": "My5",
-      },
-      "chromecast": {
-          "appName": "com.channel5.my5",
-          "androidName": "com.channel5.my5",
-          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
-      },
-      "homatics": {
-          "appName": "com.channel5.my5",
-          "androidName": "com.channel5.my5",
-          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
-      },
-      "nvidia-shield": {
-          "appName": "com.channel5.my5",
-          "androidName": "com.channel5.my5",
-          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
-      },
-      "onn": {
-          "appName": "com.channel5.my5",
-          "androidName": "com.channel5.my5",
-          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
-      },
-      "roku": {
-          "appName": 'My5',
-          "app-id": 27424,
-      },
-      "xiaomi": {
-          "appName": "com.channel5.my5",
-          "androidName": "com.channel5.my5",
-          "adbLaunchCommand": "adb shell am start -n com.channel5.my5/.tv.ui.splash.view.SplashActivity",
       },
    },
 
@@ -11060,6 +11060,10 @@ const launcherCSS = `
             background: #aaff89;
           }
 
+          .channel5my5Button {
+            background: linear-gradient(135deg,rgba(33, 72, 124, 1) 0%, rgba(15, 30, 50, 1) 100%);
+          }
+
           .channelsDVRButton {
             background: linear-gradient(42deg, rgba(49,42,171,1) 0%, rgba(76,24,133,1) 87%);
           }
@@ -11668,10 +11672,6 @@ const launcherCSS = `
 
           .msgPlusButton {
             background: linear-gradient(0deg, rgba(11,59,99,1) 35%, rgba(2,6,13,1) 100%);
-          }
-
-          .my5Button {
-            background: #1d262c;
           }
 
           .myCanalButton {
