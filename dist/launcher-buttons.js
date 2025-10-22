@@ -6504,7 +6504,7 @@ const launcherData = {
           "adbLaunchCommand": "adb shell am start tv.pluto.android/.EntryPoint",
       },
       "roku": {
-          "appName": "Pluto TV - It's Free TV",
+          "appName": "Pluto TV - Free Movies/Shows",
           "app-id": 74519,
       },
       "xiaomi": {
