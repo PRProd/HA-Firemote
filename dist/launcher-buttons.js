@@ -5812,11 +5812,16 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" width="78" height="24" viewBox="0 0 78 24" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-rule="evenodd"><path d="M34.295 17.698c-3.156 0-5.714-2.564-5.714-5.727s2.558-5.726 5.714-5.726 5.714 2.564 5.714 5.726-2.558 5.727-5.714 5.727M75.883.879c-1.834-.925-4.078-.17-4.995 1.688l-3.951 7.964L64.379 3h-.005C63.866 1.537 62.483.487 60.858.487c-1.296 0-2.438.667-3.105 1.679l-.006-.001-5.104 7.84-.905-6.352c-.312-2.044-2.21-3.438-4.237-3.125s-3.422 2.201-3.111 4.235l.159 1.065C42.461 2.337 38.65 0 34.295 0c-4.394 0-8.234 2.379-10.308 5.921l.227-1.116c.398-1.951-.858-3.855-2.805-4.254a3.6 3.6 0 0 0-4.245 2.812l-1.547 7.593-5.689-8.825C9.284 1.143 8.174.49 6.913.49c-1.727 0-3.17 1.222-3.521 2.854L.074 19.62c-.397 1.951.835 3.848 2.785 4.262a3.87 3.87 0 0 0 .744.078c1.669.011 3.171-1.163 3.522-2.897l1.547-7.594 5.583 8.686.194.291a3.6 3.6 0 0 0 2.928 1.514c1.774 0 3.249-1.293 3.545-2.994l1.523-7.476c.744 5.894 5.766 10.453 11.85 10.453 5.604 0 10.306-3.868 11.595-9.084l.848 5.712c.239 1.88 1.778 3.368 3.706 3.368 1.387 0 2.519-.794 3.238-1.897l6.12-9.399 2.939 8.653c.527 1.543 1.886 2.643 3.56 2.643 1.554 0 2.776-.935 3.445-2.323l7.8-15.734c.921-1.845.172-4.077-1.663-5.003" stroke="none" fill-rule="nonzero"/></svg>',
       "friendlyName": "NOW (IT)",
       "className": "nowTVButton",
-      "deviceFamily": ["amazon-fire"],
+      "deviceFamily": ["amazon-fire", "xiaomi"],
       "amazon-fire": {
           "appName": "com.nowtv.it",
           "androidName": "com.nowtv.it",
           "adbLaunchCommand": "adb shell am start -n com.nowtv.it/sky.wrapper.tv.AmazonMainActivity",
+      },
+      "xiaomi": {
+          "appName": "com.nowtv.it",
+          "androidName": "com.nowtv.it",
+          "adbLaunchCommand": "adb shell am start -n com.nowtv.it/com.peacock.peacocktv.GoogleMainActivity",
       },
   },
 
