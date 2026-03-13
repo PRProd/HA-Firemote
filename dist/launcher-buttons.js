@@ -4313,6 +4313,9 @@ const launcherData = {
           "androidName": "org.jellyfin.androidtv",
           "adbLaunchCommand": "adb shell am start -n org.jellyfin.androidtv/.ui.startup.StartupActivity",
       },
+      "apple-tv": {
+          "alias": "swiftfin",
+      },
    },
 
 

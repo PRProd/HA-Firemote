@@ -71,6 +71,64 @@ function resetAppMap(){
 }
 
 
+function resolveAppAlias(appkey, deviceFamily, visited = new Set()) {
+  if(!appmap.has(appkey) || visited.has(appkey)) {
+    return null;
+  }
+  visited.add(appkey);
+  var shortcutData = appmap.get(appkey);
+  var familySpecificAppData = shortcutData[deviceFamily];
+  if(familySpecificAppData && familySpecificAppData.alias) {
+    return resolveAppAlias(familySpecificAppData.alias, deviceFamily, visited);
+  }
+  return {"appkey": appkey, "shortcutData": shortcutData, "familySpecificAppData": familySpecificAppData};
+}
+
+
+function getShortcutLaunchData(appkey, deviceFamily) {
+  var resolvedShortcut = resolveAppAlias(appkey, deviceFamily);
+  if(!resolvedShortcut) {
+    return null;
+  }
+  var familySpecificAppData = resolvedShortcut.familySpecificAppData;
+  if(familySpecificAppData && (familySpecificAppData.adbLaunchCommand || familySpecificAppData.appName || familySpecificAppData.remoteCommand)) {
+    return familySpecificAppData;
+  }
+  return resolvedShortcut.shortcutData;
+}
+
+
+function getShortcutFriendlyName(appkey, deviceFamily, translateFunc = (name) => name) {
+  if(!appmap.has(appkey)) {
+    return '';
+  }
+  var shortcutData = appmap.get(appkey);
+  var friendlyName = translateFunc(shortcutData.friendlyName || appkey);
+  var familySpecificAppData = shortcutData[deviceFamily];
+  if(!(familySpecificAppData) || !(familySpecificAppData.alias)) {
+    return friendlyName;
+  }
+  var resolvedShortcut = resolveAppAlias(appkey, deviceFamily);
+  if(!(resolvedShortcut) || resolvedShortcut.appkey == appkey) {
+    return friendlyName;
+  }
+  var aliasFriendlyName = translateFunc(resolvedShortcut.shortcutData.friendlyName || resolvedShortcut.appkey);
+  if(aliasFriendlyName == friendlyName) {
+    return friendlyName;
+  }
+  return friendlyName+' ('+aliasFriendlyName+')';
+}
+
+
+function shortcutSupportsDeviceFamily(appkey, deviceFamily) {
+  if(!appmap.has(appkey)) {
+    return false;
+  }
+  var shortcutData = appmap.get(appkey);
+  return (shortcutData.deviceFamily && shortcutData.deviceFamily.includes(deviceFamily)) || Boolean(shortcutData[deviceFamily]) || !(shortcutData.deviceFamily);
+}
+
+
 function handlehdmi(config, inputs = 0) {
   if( inputs > 0 ) {
     for (let i = 1; i <= inputs; i++) {
@@ -3573,17 +3631,16 @@ class FiremoteCard extends LitElement {
       if(appmap.has(configvalue)) {
         var deviceFamily = config["device_family"];
         var familySpecificAppData = appmap.get(configvalue)[deviceFamily];
+        var launchData = getShortcutLaunchData(configvalue, deviceFamily);
         if(want=="active") {
           if (config["device_type"]=="fire_tv_stick_4k_max_second_gen" || config["device_type"]=="fire_tv_stick_4k_second_gen") {
               return "appActiveUnknown";
           }
           if (typeof appId != 'string') { return };
-          if(familySpecificAppData && !(appmap.get(configvalue).androidName) && !(appmap.get(configvalue).androidName2) && !(appmap.get(configvalue).appName)) {
-            return (appId == familySpecificAppData["androidName"] || appId == familySpecificAppData["androidName2"] || appId == familySpecificAppData["appName"]) ? "appActive" : "";
+          if(launchData) {
+            return (appId == launchData["androidName"] || appId == launchData["androidName2"] || appId == launchData["appName"]) ? "appActive" : "";
           }
-          else {
-            return (appId == appmap.get(configvalue).androidName || appId == appmap.get(configvalue).androidName2) || appId == appmap.get(configvalue).appName ? "appActive" : "";
-          }
+          return "";
         }
         else {
           if (appmap.get(configvalue)[want]) {
@@ -5919,17 +5976,13 @@ class FiremoteCard extends LitElement {
     // No HOLD actions for app launchers are supported
     const appkey = buttonID.substr(0, buttonID.indexOf("-button"));
     if(appmap.has(appkey)) {
-      var familySpecificAppData = appmap.get(appkey)[deviceFamily];
-      if(familySpecificAppData && (familySpecificAppData.adbLaunchCommand || familySpecificAppData.appName || familySpecificAppData.remoteCommand)) {
-        var adbcommand = familySpecificAppData.adbLaunchCommand;
-        var sourceName = familySpecificAppData.appName;
-        var remoteCommand = familySpecificAppData.remoteCommand;
+      var launchData = getShortcutLaunchData(appkey, deviceFamily);
+      if(!(launchData) || !(launchData.adbLaunchCommand || launchData.appName || launchData.remoteCommand)) {
+        return;
       }
-      else {
-        var adbcommand = appmap.get(appkey).adbLaunchCommand;
-        var sourceName = appmap.get(appkey).appName;
-        var remoteCommand = appmap.get(appkey).remoteCommand
-      }
+      var adbcommand = launchData.adbLaunchCommand;
+      var sourceName = launchData.appName;
+      var remoteCommand = launchData.remoteCommand;
       sourceName = translateToUsrLang(sourceName);
       fireEvent(this, 'haptic', 'light');
       if (typeof remoteCommand != 'undefined' && ['apple-tv', 'roku'].includes(deviceFamily)) {
@@ -8347,8 +8400,8 @@ class FiremoteCardEditor extends LitElement {
             >
               ${blankOption}
               ${appkeys.map((app) => {
-               var userLanguageAppName = this.translateToUsrLang(appmap.get(app).friendlyName);
-               if ((appmap.get(app).deviceFamily && appmap.get(app).deviceFamily.includes(family)) || !(appmap.get(app).deviceFamily)) {
+               var userLanguageAppName = getShortcutFriendlyName(app, family, (name) => this.translateToUsrLang(name));
+               if (shortcutSupportsDeviceFamily(app, family)) {
                 if (app != optionvalue) {
                   return html`<option value="${app}">${userLanguageAppName}</option> `
                 }
