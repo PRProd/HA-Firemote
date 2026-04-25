@@ -9431,7 +9431,7 @@ const launcherData = {
       "button": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 380"><g><path style="fill:#fff;" d="M170 170.01h-70V190h70v80.01H60l-40-40V20h80v70h70v80.01zM470 270.01H230l-40-40V90h80v100h20V90h80v100h20V90h80v180.01zM490 90h80v180h-80zM490 20h80v50h-80zM740 170.01h-70V190h70v80.01H630l-40-40V20h80v70h70v80.01zM920 170.01h-80V190h80v80.01H800l-40-40v-100L800 90h120v80.01zM1120 270.01h-80v-100h-20v100h-80V20h80v70h60l40 40.01v140z"/><path d="M1090 70h-50V0H930.21l-50.49 70H790l-30 30V70h-70V0H470v70H160.5L110 0H0v240l140 140h140v-40l40 40h270v-40l40 40h130v-40l40 40h250l90-90V120zM170 170h-70v20h70v80H60l-40-40V20h80v70h70zm300 100H230l-40-40V90h80v100h20V90h80v100h20V90h80zm100 0h-80V90h80zm0-200h-80V20h80zm170 100h-70v20h70v80H630l-40-40V20h80v70h70zm180 0h-80v20h80v80H800l-40-40V130l40-40h120zm200 100h-80V170h-20v100h-80V20h80v70h60l40 40z"/></g></svg>',
       "friendlyName": 'Twitch',
       "className": "twitchButton",
-      "adbLaunchCommand": "adb shell am start -n tv.twitch.android.viewer/tv.twitch.starshot64.app.StarshotActivity",
+      "adbLaunchCommand": "adb shell am start -n tv.twitch.android.app/tv.twitch.starshot64.app.StarshotActivity",
       "deviceFamily": ["amazon-fire", "apple-tv", "chromecast", "homatics", "nvidia-shield", "onn", "xiaomi"],
       "amazon-fire": {
           "appName": "Twitch (FireTV)",
