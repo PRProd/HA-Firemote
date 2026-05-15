@@ -4964,7 +4964,7 @@ const launcherData = {
       "amazon-fire": {
           "appName": "tv.molotov.app",
           "androidName": "tv.molotov.app",
-          "adbLaunchCommand": "adb shell am start -n tv.molotov.app/tv.molotov.android.main.MainActivity",
+          "adbLaunchCommand": "adb shell monkey -p tv.molotov.app -c android.intent.category.LAUNCHER 1",
       },
       "apple-tv": {
           "appName": "MolotovTV",
@@ -4972,27 +4972,27 @@ const launcherData = {
       "chromecast": {
           "appName": "tv.molotov.app",
           "androidName": "tv.molotov.app",
-          "adbLaunchCommand": "adb shell am start -n tv.molotov.app/tv.molotov.android.main.MainActivity",
+          "adbLaunchCommand": "adb shell monkey -p tv.molotov.app -c android.intent.category.LAUNCHER 1",
       },
       "homatics": {
           "appName": "Molotov",
           "androidName": "tv.molotov.app",
-          "adbLaunchCommand": "adb shell am start -n tv.molotov.app/tv.molotov.android.main.MainActivity",
+          "adbLaunchCommand": "adb shell monkey -p tv.molotov.app -c android.intent.category.LAUNCHER 1",
       },
       "nvidia-shield": {
           "appName": "tv.molotov.app",
           "androidName": "tv.molotov.app",
-          "adbLaunchCommand": "adb shell am start -n tv.molotov.app/tv.molotov.android.main.MainActivity",
+          "adbLaunchCommand": "adb shell monkey -p tv.molotov.app -c android.intent.category.LAUNCHER 1",
       },
       "onn": {
           "appName": "tv.molotov.app",
           "androidName": "tv.molotov.app",
-          "adbLaunchCommand": "adb shell am start -n tv.molotov.app/tv.molotov.android.main.MainActivity",
+          "adbLaunchCommand": "adb shell monkey -p tv.molotov.app -c android.intent.category.LAUNCHER 1",
       },
       "xiaomi": {
           "appName": "tv.molotov.app",
           "androidName": "tv.molotov.app",
-          "adbLaunchCommand": "adb shell am start -n tv.molotov.app/tv.molotov.android.main.MainActivity",
+          "adbLaunchCommand": "adb shell monkey -p tv.molotov.app -c android.intent.category.LAUNCHER 1",
       },
    },
 
