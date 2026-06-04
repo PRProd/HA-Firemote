@@ -4566,32 +4566,32 @@ const launcherData = {
       "amazon-fire": {
           "appName": "com.kpn.kpnandroidtv",
           "androidName": "com.kpn.kpnandroidtv",
-          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.kpn.tvplusapp.MainActivity",
       },
       "chromecast": {
           "appName": "com.kpn.kpnandroidtv",
           "androidName": "com.kpn.kpnandroidtv",
-          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.kpn.tvplusapp.MainActivity",
       },
       "homatics": {
           "appName": "com.kpn.kpnandroidtv",
           "androidName": "com.kpn.kpnandroidtv",
-          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.kpn.tvplusapp.MainActivity",
       },
       "nvidia-shield": {
           "appName": "com.kpn.kpnandroidtv",
           "androidName": "com.kpn.kpnandroidtv",
-          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.kpn.tvplusapp.MainActivity",
       },
       "onn": {
           "appName": "com.kpn.kpnandroidtv",
           "androidName": "com.kpn.kpnandroidtv",
-          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.kpn.tvplusapp.MainActivity",
       },
       "xiaomi": {
           "appName": "com.kpn.kpnandroidtv",
           "androidName": "com.kpn.kpnandroidtv",
-          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.twentyfouri.tvbridge.webview.view.WebViewActivity",
+          "adbLaunchCommand": "adb shell am start -n com.kpn.kpnandroidtv/com.kpn.tvplusapp.MainActivity",
       },
    },
 
