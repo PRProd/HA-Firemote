@@ -1182,7 +1182,7 @@ class FiremoteCard extends LitElement {
             align-content: center;
             color: rgb(198 198 198);
             background: rgb(33 33 33);
-            box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.143rem 0);
+            box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.143rem) 0;
             cursor: pointer;
             line-height: normal;
             user-select: none;
@@ -1868,7 +1868,7 @@ class FiremoteCard extends LitElement {
 
           .apple-remote-body .srcButton {
             border: none;
-            box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.143rem 0);
+            box-shadow: rgb(0 0 0 / 13%) 0 calc(var(--sz) * 0.214rem) calc(var(--sz) * 0.143rem) 0;
             transition: none;
           }
 
