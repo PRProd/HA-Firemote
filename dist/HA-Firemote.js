@@ -6164,6 +6164,14 @@ class FiremoteCard extends LitElement {
             if(['roku'].includes(deviceFamily)) {
               _hass.callService("remote", "send_command", { entity_id: rokuRemoteEntity, command: 'Lit_'+text, num_repeats: 1, delay_secs: 0, hold_secs: 0});
             }
+            // When an Android TV Remote entity is associated, type through it.
+            // That integration sends text as a remote command prefixed with
+            // text:, which is the only path available to those setups: the
+            // androidtv integration is not installed, so androidtv.adb_command
+            // does not exist.
+            else if(hasATVAssociation) {
+              _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'text:'+text });
+            }
             else {
               var escapedText = text.replace(/"/g, "\\\"");
               _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'input text "'+escapedText+'"' });
