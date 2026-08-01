@@ -5811,6 +5811,18 @@ class FiremoteCard extends LitElement {
         hasATVAssociation = false;
     }
 
+    // Send a key through the Android TV Remote integration when one is
+    // associated, and report whether it handled the press. Callers keep their
+    // existing ADB branches for setups without that integration, where
+    // androidtv.adb_command does exist.
+    function atvKey(keycode) {
+      if(!hasATVAssociation) {
+        return false;
+      }
+      _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: keycode });
+      return true;
+    }
+
     // Choose event listener path for client android device
     var eventListenerBinPath = '';
     if(compatibility_mode == 'default' || compatibility_mode == 'strong' || compatibility_mode == '') {
@@ -5924,11 +5936,16 @@ class FiremoteCard extends LitElement {
         var adbcommand = familySpecificAppData.adbLaunchCommand;
         var sourceName = familySpecificAppData.appName;
         var remoteCommand = familySpecificAppData.remoteCommand;
+        var androidName = familySpecificAppData.androidName;
       }
       else {
         var adbcommand = appmap.get(appkey).adbLaunchCommand;
         var sourceName = appmap.get(appkey).appName;
         var remoteCommand = appmap.get(appkey).remoteCommand
+        var androidName = appmap.get(appkey).androidName;
+      }
+      if(typeof androidName == 'undefined') {
+        androidName = appmap.get(appkey).androidName;
       }
       sourceName = translateToUsrLang(sourceName);
       fireEvent(this, 'haptic', 'light');
@@ -5943,6 +5960,19 @@ class FiremoteCard extends LitElement {
             break;
         }
         _hass.callService("remote", "send_command", data);
+        return;
+      }
+      // When an Android TV Remote entity is associated, launch through its
+      // media_player. play_media with a package name is the only launch path
+      // available to those setups: the androidtv integration is not installed,
+      // so androidtv.adb_command does not exist, and the Android TV Remote
+      // media_player does not implement select_source.
+      if (hasATVAssociation && typeof androidName != 'undefined') {
+        _hass.callService("media_player", "play_media", {
+          entity_id: _config.entity,
+          media_content_type: 'app',
+          media_content_id: androidName,
+        });
         return;
       }
       if (typeof adbcommand == 'undefined') {
@@ -6099,6 +6129,9 @@ class FiremoteCard extends LitElement {
 
         // Account Button (Google TV) Click
         if(buttonID == 'profile-button' && actionType == 'click') {
+          if (atvKey('KEYCODE_PROFILE_SWITCH')) {
+            return;
+          }
           _hass.callService("androidtv", "adb_command", { entity_id: entity, command: 'adb shell input keyevent KEYCODE_PROFILE_SWITCH' });
           return;
         };
@@ -6145,6 +6178,14 @@ class FiremoteCard extends LitElement {
           if (text && text != '') {
             if(['roku'].includes(deviceFamily)) {
               _hass.callService("remote", "send_command", { entity_id: rokuRemoteEntity, command: 'Lit_'+text, num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            }
+            // When an Android TV Remote entity is associated, type through it.
+            // That integration sends text as a remote command prefixed with
+            // text:, which is the only path available to those setups: the
+            // androidtv integration is not installed, so androidtv.adb_command
+            // does not exist.
+            else if(hasATVAssociation) {
+              _hass.callService("remote", "send_command", { entity_id: atvRemoteEntity, command: 'text:'+text });
             }
             else {
               var escapedText = text.replace(/"/g, "\\\"");
@@ -6607,16 +6648,25 @@ class FiremoteCard extends LitElement {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.google.android.tvlauncher/.appsview.AppsViewActivity' });
           }
           else if (deviceFamily == 'nvidia-shield') {
+            if (atvKey('KEYCODE_APP_SWITCH')) {
+              return;
+            }
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_APP_SWITCH' });
           }
           else if (deviceFamily == 'amazon-fire') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'am start -n com.amazon.venezia/com.amazon.venezia.grid.AppsGridLauncherActivity' });
           }
           else if (deviceFamily == 'onn') {
+            if (atvKey('KEYCODE_ALL_APPS')) {
+              return;
+            }
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_ALL_APPS' });
           }
           else if (deviceFamily == 'roku') {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_ALL_APPS')) {
+            return;
           }
           else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'RECENTS' });
@@ -6689,6 +6739,9 @@ class FiremoteCard extends LitElement {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent SETTINGS' });
           }
           else if(['chromecast', 'onn'].includes(deviceFamily)) {
+            if (atvKey('KEYCODE_NOTIFICATION')) {
+              return;
+            }
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 83' });
           }
           else if(deviceFamily == 'apple-tv') {
@@ -6713,6 +6766,9 @@ class FiremoteCard extends LitElement {
           }
           if(deviceType == 'shield-tv-pro-2019' || deviceType == 'shield-tv-2019') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'am start -a android.settings.SETTINGS' });
+          }
+          else if(!['xiaomi'].includes(deviceFamily) && atvKey('KEYCODE_MENU')) {
+            return;
           }
           else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'MENU' });
@@ -7141,6 +7197,9 @@ class FiremoteCard extends LitElement {
             _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_up', num_repeats: 1, delay_secs: 0, hold_secs: 0});
             return;
           }
+          if (atvKey('KEYCODE_CHANNEL_UP')) {
+            return;
+          }
           if (['homatics'].includes(deviceFamily)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
             return;
@@ -7203,6 +7262,9 @@ class FiremoteCard extends LitElement {
           }
           if(deviceFamily == 'roku') {
             _hass.callService("remote", "send_command", { entity_id: _config.roku_remote_entity, command: 'channel_down', num_repeats: 1, delay_secs: 0, hold_secs: 0});
+            return;
+          }
+          if (atvKey('KEYCODE_CHANNEL_DOWN')) {
             return;
           }
           if (['homatics'].includes(deviceFamily)) {
@@ -7274,6 +7336,9 @@ class FiremoteCard extends LitElement {
           else if (deviceType == 'mi-box-s') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell am start -n com.google.android.tv/com.android.tv.MainActivity' });
           }
+          else if (atvKey('KEYCODE_GUIDE')) {
+            return;
+          }
           else if (['onn', 'homatics'].includes(deviceFamily)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_GUIDE'});
           }
@@ -7297,7 +7362,13 @@ class FiremoteCard extends LitElement {
             return;
           }
           if (['onn'].includes(deviceFamily)) {
+            if (atvKey('KEYCODE_NOTIFICATION')) {
+              return;
+            }
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 83' });
+          }
+          else if (deviceType != 'mi-box-s' && atvKey('KEYCODE_SETTINGS')) {
+            return;
           }
           else if(compatibility_mode == 'strong'  || eventListenerBinPath == 'undefined' || deviceType == 'fire_tv_cube_third_gen') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'SETTINGS' });
@@ -7320,6 +7391,9 @@ class FiremoteCard extends LitElement {
 
         // App Switch (recents) Button
         if(buttonID == 'app-switch-button' && actionType == 'click') {
+          if (atvKey('KEYCODE_APP_SWITCH')) {
+            return;
+          }
           if(compatibility_mode == 'strong') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'RECENTS' });
           }
@@ -7354,6 +7428,9 @@ class FiremoteCard extends LitElement {
               _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent BUTTON_3'});
           }
           else if (['onn'].includes(deviceFamily)) {
+              if (atvKey('KEYCODE_PAIRING')) {
+                return;
+              }
               _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_PAIRING'});
           }
           else if (['chromecast', 'nvidia-shield', 'xiaomi'].includes(deviceFamily)) {
@@ -7433,6 +7510,9 @@ class FiremoteCard extends LitElement {
           if(!(['homatics'].includes(deviceFamily))) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_INFO')) {
+            return;
+          }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 165'});
           }
@@ -7450,6 +7530,9 @@ class FiremoteCard extends LitElement {
           if(!(['homatics'].includes(deviceFamily))) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_BOOKMARK')) {
+            return;
+          }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_BOOKMARK'});
           }
@@ -7466,6 +7549,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'num1-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_1')) {
+            return;
           }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 8'});
@@ -7488,6 +7574,9 @@ class FiremoteCard extends LitElement {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_2')) {
+            return;
+          }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 9'});
           }
@@ -7508,6 +7597,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'num3-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_3')) {
+            return;
           }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 10'});
@@ -7530,6 +7622,9 @@ class FiremoteCard extends LitElement {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_4')) {
+            return;
+          }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 11'});
           }
@@ -7550,6 +7645,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'num5-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_5')) {
+            return;
           }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 12'});
@@ -7572,6 +7670,9 @@ class FiremoteCard extends LitElement {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_6')) {
+            return;
+          }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 13'});
           }
@@ -7592,6 +7693,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'num7-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_7')) {
+            return;
           }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 14'});
@@ -7614,6 +7718,9 @@ class FiremoteCard extends LitElement {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_8')) {
+            return;
+          }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 15'});
           }
@@ -7634,6 +7741,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'num9-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_9')) {
+            return;
           }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 16'});
@@ -7656,6 +7766,9 @@ class FiremoteCard extends LitElement {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_0')) {
+            return;
+          }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 7'});
           }
@@ -7676,6 +7789,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'subtitle-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_CAPTIONS')) {
+            return;
           }
           else if (compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 175'});
@@ -7725,6 +7841,9 @@ class FiremoteCard extends LitElement {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_PROG_RED')) {
+            return;
+          }
           else {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 183'});
           }
@@ -7742,6 +7861,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'green-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_PROG_GREEN')) {
+            return;
           }
           else {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 184'});
@@ -7761,6 +7883,9 @@ class FiremoteCard extends LitElement {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
           }
+          else if (atvKey('KEYCODE_PROG_YELLOW')) {
+            return;
+          }
           else {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 185'});
           }
@@ -7778,6 +7903,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'blue-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_PROG_BLUE')) {
+            return;
           }
           else {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 186'});
@@ -7846,6 +7974,9 @@ class FiremoteCard extends LitElement {
         if(buttonID == 'input-button' && actionType == 'click') {
           if(['apple-tv', 'roku'].includes(deviceFamily)) {
             unsupportedButton();
+          }
+          else if (atvKey('KEYCODE_TV_INPUT')) {
+            return;
           }
           else {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 178'});
