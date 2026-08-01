@@ -5924,11 +5924,16 @@ class FiremoteCard extends LitElement {
         var adbcommand = familySpecificAppData.adbLaunchCommand;
         var sourceName = familySpecificAppData.appName;
         var remoteCommand = familySpecificAppData.remoteCommand;
+        var androidName = familySpecificAppData.androidName;
       }
       else {
         var adbcommand = appmap.get(appkey).adbLaunchCommand;
         var sourceName = appmap.get(appkey).appName;
         var remoteCommand = appmap.get(appkey).remoteCommand
+        var androidName = appmap.get(appkey).androidName;
+      }
+      if(typeof androidName == 'undefined') {
+        androidName = appmap.get(appkey).androidName;
       }
       sourceName = translateToUsrLang(sourceName);
       fireEvent(this, 'haptic', 'light');
@@ -5943,6 +5948,19 @@ class FiremoteCard extends LitElement {
             break;
         }
         _hass.callService("remote", "send_command", data);
+        return;
+      }
+      // When an Android TV Remote entity is associated, launch through its
+      // media_player. play_media with a package name is the only launch path
+      // available to those setups: the androidtv integration is not installed,
+      // so androidtv.adb_command does not exist, and the Android TV Remote
+      // media_player does not implement select_source.
+      if (hasATVAssociation && typeof androidName != 'undefined') {
+        _hass.callService("media_player", "play_media", {
+          entity_id: _config.entity,
+          media_content_type: 'app',
+          media_content_id: androidName,
+        });
         return;
       }
       if (typeof adbcommand == 'undefined') {
