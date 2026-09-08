@@ -12193,7 +12193,7 @@ const launcherCSS = `
           }
 
           .stremioButton {
-            background: #fff;
+            background: #221C35;
           }
 
           .strimButton {
