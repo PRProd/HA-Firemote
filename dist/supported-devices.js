@@ -63,21 +63,18 @@ const devices = {
       "fire_tv_cube_third_gen": {
         "supported": true,
         "friendlyName": "Fire TV Cube (3rd Gen - 2022)",
-        "defaultEventListenerBinPath": "/dev/input/event3",
         "defaultRemoteStyle": "AF5",
         "hdmiInputs": 1,
       },
       "fire_tv_cube_second_gen": {
         "supported": true,
         "friendlyName": "Fire TV Cube (2nd Gen - 2019)",
-        "defaultEventListenerBinPath": "/dev/input/event5",
         "defaultRemoteStyle": "AF4",
         "hdmiInputs": 0,
       },
       "fire_tv_cube_first_gen": {
         "supported": true,
         "friendlyName": "Fire TV Cube (1st Gen - 2018)",
-        "defaultEventListenerBinPath": "/dev/input/event5",
         "defaultRemoteStyle": "AF1",
         "hdmiInputs": 0,
       },
