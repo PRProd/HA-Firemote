@@ -6939,6 +6939,9 @@ class FiremoteCard extends LitElement {
           else if(deviceFamily == 'nvidia-shield') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell cmd media_session volume --show --adj raise' });
           }
+          else if(['fire_tv_cube_first_gen', 'fire_tv_cube_second_gen', 'fire_tv_cube_third_gen'].includes(deviceType)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: "DEV=$(getevent -S 2>/dev/null | grep -B 1 'Amazon Fire TV Remote' | head -n 1 | awk '{print $NF}'); if [ -n \"$DEV\" ]; then sendevent $DEV 1 115 1 && sendevent $DEV 0 0 0 && sendevent $DEV 1 115 0 && sendevent $DEV 0 0 0; else sendevent /dev/input/event0 1 115 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 115 0 && sendevent /dev/input/event0 0 0 0; fi" });
+          }
           else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'VOLUME_UP' });
           }
@@ -7026,6 +7029,9 @@ class FiremoteCard extends LitElement {
           else if(deviceFamily == 'nvidia-shield') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell cmd media_session volume --show --adj lower' });
           }
+          else if(['fire_tv_cube_first_gen', 'fire_tv_cube_second_gen', 'fire_tv_cube_third_gen'].includes(deviceType)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: "DEV=$(getevent -S 2>/dev/null | grep -B 1 'Amazon Fire TV Remote' | head -n 1 | awk '{print $NF}'); if [ -n \"$DEV\" ]; then sendevent $DEV 1 114 1 && sendevent $DEV 0 0 0 && sendevent $DEV 1 114 0 && sendevent $DEV 0 0 0; else sendevent /dev/input/event0 1 114 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 114 0 && sendevent /dev/input/event0 0 0 0; fi" });
+          }
           else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'VOLUME_DOWN' });
           }
@@ -7111,6 +7117,9 @@ class FiremoteCard extends LitElement {
           if(hasATVAssociation) {
             _hass.callService("remote", "send_command", { entity_id: _config.android_tv_remote_entity, command: 'KEYCODE_VOLUME_MUTE' });
           }
+          else if(['fire_tv_cube_first_gen', 'fire_tv_cube_second_gen', 'fire_tv_cube_third_gen'].includes(deviceType)) {
+            _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: "DEV=$(getevent -S 2>/dev/null | grep -B 1 'Amazon Fire TV Remote' | head -n 1 | awk '{print $NF}'); if [ -n \"$DEV\" ]; then sendevent $DEV 1 113 1 && sendevent $DEV 0 0 0 && sendevent $DEV 1 113 0 && sendevent $DEV 0 0 0; else sendevent /dev/input/event0 1 113 1 && sendevent /dev/input/event0 0 0 0 && sendevent /dev/input/event0 1 113 0 && sendevent /dev/input/event0 0 0 0; fi" });
+          }
           else if(compatibility_mode == 'strong' || eventListenerBinPath == 'undefined') {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'MUTE' });
           }
@@ -7145,7 +7154,7 @@ class FiremoteCard extends LitElement {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
             return;
           }
-          if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
+          if (['fire_tv_cube_first_gen', 'fire_tv_cube_second_gen', 'fire_tv_cube_third_gen', 'fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_UP'});
           }
           else {
@@ -7209,7 +7218,7 @@ class FiremoteCard extends LitElement {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
             return;
           }
-          if (['fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
+          if (['fire_tv_cube_first_gen', 'fire_tv_cube_second_gen', 'fire_tv_cube_third_gen', 'fire_tv_stick_4k_second_gen', 'fire_tv_stick_4k_max_second_gen', 'onn-streaming-device-4k-pro', 'onn-4k-streaming-box', 'onn-full-hd-streaming-stick'].includes(deviceType)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent KEYCODE_CHANNEL_DOWN'});
           }
           else {
@@ -7265,7 +7274,7 @@ class FiremoteCard extends LitElement {
             unsupportedButton();
             return;
           }
-          if (deviceType == 'fire_tv_cube_third_gen') {
+          if (['fire_tv_cube_first_gen', 'fire_tv_cube_second_gen', 'fire_tv_cube_third_gen'].includes(deviceType)) {
             _hass.callService("androidtv", "adb_command", { entity_id: _config.entity, command: 'adb shell input keyevent 297'});
           }
           else if (deviceType == 'fire_tv_stick_4k_second_gen' || deviceType == 'fire_tv_stick_4k_max_second_gen') {
