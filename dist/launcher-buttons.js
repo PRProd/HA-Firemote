@@ -8448,7 +8448,7 @@ const launcherData = {
       "className": "swiftfinButton",
       "deviceFamily": ["apple-tv"],
       "apple-tv": {
-          "appName": "Jellyfin",
+          "appName": "Swiftfin tvOS",
       },
   },
 
