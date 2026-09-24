@@ -6442,7 +6442,7 @@ const launcherData = {
       "amazon-fire": {
           "appName": "Plex",
           "androidName": "com.plexapp.android",
-          "adbLaunchCommand": "adb shell am start -n com.plexapp.android/com.plexapp.plex.activities.SplashActivity",
+          "adbLaunchCommand": "adb shell am start -n com.plexapp.android/tv.plex.app.MainActivity",
       },
       "apple-tv": {
           "appName": "Plex",
@@ -6454,7 +6454,7 @@ const launcherData = {
       "homatics": {
           "appName": "Plex",
           "androidName": "com.plexapp.android",
-          "adbLaunchCommand": "adb shell am start -n com.plexapp.android/com.plexapp.plex.activities.SplashActivity",
+          "adbLaunchCommand": "adb shell am start -n com.plexapp.android/tv.plex.app.MainActivity",
       },
       "nvidia-shield": {
           "appName": "Plex",
